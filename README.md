@@ -27,6 +27,9 @@ StarPounds is designed to mesh with (and ideally enhance) the existing Starbound
 - Options to enable or disable features of the mod.
 - Full compability for multiple modded species.
 
+<div align="center" style="font-size: 150%;">
+<a class="ct_button" href="https://discord.gg/gPXn8NC">Discord</a> | <a class="ct_button" href="https://forum.weightgaming.com/t/starbound-mod-starpounds-big-fatties/1649"">Weight Gaming</a>
+</div>
 
 ## ![69514e5f4ee1c4dd48261f057171fd35d9ab8ff0](https://github.com/user-attachments/assets/a2f1b6f5-9d9b-45a8-aa91-c2cb0eb3416d)
 <details>
