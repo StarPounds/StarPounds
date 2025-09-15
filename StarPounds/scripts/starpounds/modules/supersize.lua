@@ -61,6 +61,7 @@ function supersize:killProjectile()
 end
 
 function supersize:doProjectile()
+  if not storage.starPounds.enabled then return false end
   if not self.isSupersize then return false end
   if not self.projectileType then return false end
   if starPounds.hasOption("disableCollision") then return false end
