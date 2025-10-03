@@ -185,6 +185,18 @@ function pred:eat(preyId, options, check)
       creaturelevel = prey.creaturelevel or 0
       --2038
     }
+    -- Overstuffing damage proxy. (Player only)
+    if starPounds.type == "player" and not preyOptions.willing then
+      local foodType = prey.foodType and tostring(prey.foodType) or "default"
+      if not starPounds.foods[prey.foodType] then foodType = "prey" end
+      local capacityMult = starPounds.foods[foodType].multipliers.capacity
+      starPounds.moduleFunc("stomach", "eat", preyConfig.base * capacityMult, "prey_proxy")
+      starPounds.moduleFunc("stomach", "eat", preyConfig.weight, "preyWeight_proxy")
+      -- Clear them so the stomach size doesn't change.
+      storage.starPounds.stomach.prey_proxy = nil
+      storage.starPounds.stomach.preyWeight_proxy = nil
+    end
+    -- Insert prey into tracking table.
     table.insert(storage.starPounds.stomachEntities, preyConfig)
     -- Eating energy cost.
     local energyMult = options.energyMultiplier or 1
