@@ -1,0 +1,26 @@
+{
+  "itemName" : "starpoundsshymoomilk",
+  "rarity" : "Legendary",
+  "price" : 10000,
+  "category" : "drink",
+  "inventoryIcon" : "shymoomilk.png",
+  "description" : "Milk from the mod creator herself. Do you think she's mistaken for a Mooshi often?",
+  "shortdescription" : "Shy's Milk",
+  "effects" : [ [
+    {
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 1462.5
+    },
+    {
+        "effect" : "maxhealthscalingboostfood",
+        "duration" : 1462.5
+    }
+  ] ],
+  "foodValue": 350,
+  "tooltipKind" : "food",
+  "builder" : "/items/buildscripts/buildfood.lua",
+  "maxStack" : 1,
+  "itemAgingScripts" : ["/scripts/items/rotting.lua"],
+  "rottingMultiplier" : 10.0,
+  "emitters" : [ "drinking" ]
+}

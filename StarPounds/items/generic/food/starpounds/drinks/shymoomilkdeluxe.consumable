@@ -1,0 +1,26 @@
+{
+  "itemName" : "starpoundsshymoomilkdeluxe",
+  "rarity" : "Essential",
+  "price" : 50000,
+  "category" : "drink",
+  "inventoryIcon" : "shymoomilkdeluxe.png",
+  "description" : "You know the mod creator's quite a cow with such fattening milk like this.",
+  "shortdescription" : "Shy's Chateau Milk",
+  "effects" : [ [
+    {
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 3600.0
+    },
+    {
+        "effect" : "maxhealthscalingboostfood",
+        "duration" : 3600.0
+    }
+  ] ],
+  "foodValue": 425,
+  "tooltipKind" : "food",
+  "builder" : "/items/buildscripts/buildfood.lua",
+  "maxStack" : 1,
+  "itemAgingScripts" : ["/scripts/items/rotting.lua"],
+  "rottingMultiplier" : 10.0,
+  "emitters" : [ "drinking" ]
+}
