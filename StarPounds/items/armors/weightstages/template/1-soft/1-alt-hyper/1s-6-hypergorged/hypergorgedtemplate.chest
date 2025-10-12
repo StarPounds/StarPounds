@@ -1,0 +1,29 @@
+{
+  "itemName" : "softhypergorgedtemplatechest",
+  "price" : 0,
+  "inventoryIcon" : "icons.png:chest",
+  "maxStack" : 1,
+  "rarity" : "legendary",
+  "category" : "chestwear",
+  "description" : "Someone is a bit well developed.",
+  "shortdescription" : "Hyper Gorged Bust",
+  "tooltipKind" : "starpoundsarmor",
+
+  "statusEffects": [
+    "starpoundssoft",
+    "starpoundshyper",
+    "starpoundsgorged"
+  ],
+
+  "maleFrames" : {
+    "body" : "chestm.png",
+    "backSleeve" : "bsleeve.png",
+    "frontSleeve" : "fsleeve.png"
+  },
+
+  "femaleFrames" : {
+    "body" : "chestf.png",
+    "backSleeve" : "bsleeve.png",
+    "frontSleeve" : "fsleeve.png"
+  }
+}

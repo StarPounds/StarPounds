@@ -1,0 +1,29 @@
+{
+  "itemName" : "softbustygluttedtemplatechest",
+  "price" : 0,
+  "inventoryIcon" : "icons.png:chest",
+  "maxStack" : 1,
+  "rarity" : "legendary",
+  "category" : "chestwear",
+  "description" : "Someone is a bit well developed.",
+  "shortdescription" : "Busty Glutted Chest",
+  "tooltipKind" : "starpoundsarmor",
+
+  "statusEffects": [
+    "starpoundssoft",
+    "starpoundsbusty",
+    "starpoundsglutted"
+  ],
+
+  "maleFrames" : {
+    "body" : "chestm.png",
+    "backSleeve" : "bsleeve.png",
+    "frontSleeve" : "fsleeve.png"
+  },
+
+  "femaleFrames" : {
+    "body" : "chestf.png",
+    "backSleeve" : "bsleeve.png",
+    "frontSleeve" : "fsleeve.png"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "itemName" : "blobhypertemplatechest",
+  "price" : 0,
+  "inventoryIcon" : "icons.png:chest",
+  "maxStack" : 1,
+  "rarity" : "legendary",
+  "category" : "chestwear",
+  "description" : "Someone is a bit well developed.",
+  "shortdescription" : "Hyper Obese Bust",
+  "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
+
+  "statusEffects": [
+    "starpoundsblob"
+  ],
+
+  "maleFrames" : {
+    "body" : "fatty_chestm.png",
+    "backSleeve" : "bsleeve.png",
+    "frontSleeve" : "fsleeve.png"
+  },
+
+  "femaleFrames" : {
+    "body" : "fatty_chestf.png",
+    "backSleeve" : "bsleeve.png",
+    "frontSleeve" : "fsleeve.png"
+  }
+}

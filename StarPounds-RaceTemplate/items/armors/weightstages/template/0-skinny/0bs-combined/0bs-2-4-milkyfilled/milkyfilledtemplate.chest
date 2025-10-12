@@ -1,0 +1,29 @@
+{
+  "itemName" : "milkyfilledtemplatechest",
+  "price" : 0,
+  "inventoryIcon" : "icons.png:chest",
+  "maxStack" : 1,
+  "rarity" : "legendary",
+  "category" : "chestwear",
+  "description" : "You can hear the sloshing with every bounce.",
+  "shortdescription" : "Xbusty Filled Chest",
+  "tooltipKind" : "starpoundsarmor",
+
+  "statusEffects": [
+    "starpounds",
+    "starpoundsmilky",
+    "starpoundsfilled"
+  ],
+
+  "maleFrames" : {
+    "body" : "chestm.png",
+    "backSleeve" : "bsleeve.png",
+    "frontSleeve" : "fsleeve.png"
+  },
+
+  "femaleFrames" : {
+    "body" : "chestf.png",
+    "backSleeve" : "bsleeve.png",
+    "frontSleeve" : "fsleeve.png"
+  }
+}

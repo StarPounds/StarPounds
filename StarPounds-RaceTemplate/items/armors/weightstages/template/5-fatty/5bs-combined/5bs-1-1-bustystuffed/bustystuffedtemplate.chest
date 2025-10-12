@@ -1,0 +1,29 @@
+{
+  "itemName" : "fattybustystuffedtemplatechest",
+  "price" : 0,
+  "inventoryIcon" : "icons.png:chest",
+  "maxStack" : 1,
+  "rarity" : "legendary",
+  "category" : "chestwear",
+  "description" : "Someone is a bit well developed.",
+  "shortdescription" : "Busty Stuffed Chest",
+  "tooltipKind" : "starpoundsarmor",
+
+  "statusEffects": [
+    "starpoundsfatty",
+    "starpoundsbusty",
+    "starpoundsstuffed"
+  ],
+
+  "maleFrames" : {
+    "body" : "fatty_chestm.png",
+    "backSleeve" : "bsleeve.png",
+    "frontSleeve" : "fsleeve.png"
+  },
+
+  "femaleFrames" : {
+    "body" : "fatty_chestf.png",
+    "backSleeve" : "bsleeve.png",
+    "frontSleeve" : "fsleevef.png"
+  }
+}

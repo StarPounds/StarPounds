@@ -1,0 +1,30 @@
+{
+  "itemName" : "fattyhypergluttedtemplatechest",
+  "price" : 0,
+  "inventoryIcon" : "icons.png:chest",
+  "maxStack" : 1,
+  "rarity" : "legendary",
+  "category" : "chestwear",
+  "description" : "Either you're just that gluttonous or your stomach is quite elastic.",
+  "shortdescription" : "Glutted Belly",
+  "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
+
+  "statusEffects": [
+    "starpoundsfatty",
+    "starpoundshyper",
+    "starpoundsglutted"
+  ],
+
+  "maleFrames" : {
+    "body" : "chestm.png",
+    "backSleeve" : "bsleeve.png",
+    "frontSleeve" : "fsleeve.png"
+  },
+
+  "femaleFrames" : {
+    "body" : "fatty_chestf.png",
+    "backSleeve" : "bsleeve.png",
+    "frontSleeve" : "fsleeve.png"
+  }
+}
