@@ -352,7 +352,7 @@ Currently, the following species are supported:
 
 </details>
 
-<img width="855" height="180" alt="starpounds-osb" src="https://github.com/user-attachments/assets/27cbf3f6-2ac1-4e07-8981-2eca69721201" />
+<img width="855" height="180" alt="starpounds-osb" src="https://github.com/user-attachments/assets/31244c48-4cc4-44f9-b4bc-c718a65320bd" />
 
 <details>
 <summary>OpenStarbound</summary>
