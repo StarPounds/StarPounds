@@ -179,7 +179,7 @@ function populateTabs()
       _ENV[string.format("active_%sEffect", effectKey)].onClick = function() selectEffect(effectKey, effect) end
     end
     -- Codex panel
-    if isAdmin or starPounds.hasDiscoveredEffect(effectKey) then
+    if isAdmin or starPounds.moduleFunc("effects", "hasDiscovered", effectKey) then
       panel_codex:addChild(makeEffectWidget("codex", effectKey, effect))
       _ENV[string.format("codex_%sEffect", effectKey)].onClick = function() selectEffect(effectKey, effect) end
     end
