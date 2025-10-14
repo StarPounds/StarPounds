@@ -8,6 +8,7 @@
   "description" : "You can hear the sloshing with every bounce.",
   "shortdescription" : "Xbusty Gorged Chest",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
 
   "statusEffects": [
     "starpoundsfatty",
