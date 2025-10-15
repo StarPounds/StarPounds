@@ -14,12 +14,15 @@ function stats:init()
 
   self:calculate()
 
-  starPounds.events:on("stats:calculate", function(trace) -- Trace shows you where the 'change' is coming from.
-    -- Kill the cache, and force an update to stats.
-    self.cache = {}
-    self:calculate()
-    starPounds.moduleFunc("size", "updateStats", true)
-  end)
+  starPounds.events:on("stats:calculate", self.updateEvent)
+end
+
+function stats.updateEvent(trace) -- Trace shows you where the 'change' is coming from.
+  -- Kill the cache, and force an update to stats.
+  self = stats
+  self.cache = {}
+  self:calculate()
+  starPounds.moduleFunc("size", "updateStats", true)
 end
 
 function stats:update(dt)
@@ -207,6 +210,10 @@ function stats:accessoryMods(stat)
   else
     return self.accessoryModifiers[stat] or 0
   end
+end
+
+function stats:uninit()
+  starPounds.events:off("stats:calculate", self.updateEvent)
 end
 
 starPounds.modules.stats = stats

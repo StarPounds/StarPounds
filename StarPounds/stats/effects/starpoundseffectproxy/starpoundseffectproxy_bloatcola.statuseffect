@@ -1,0 +1,13 @@
+{
+  "name": "starpoundseffectproxy_bloatcola",
+  "defaultDuration": 1,
+  "effectConfig": {
+    "effect" : "bloatCola"
+  },
+  "scripts": [
+    "starpoundseffectproxy.lua"
+  ],
+
+  "label" : "Bloating",
+  "icon" : "/interface/scripted/starpounds/effects/icons/effects/bloatCola.png"
+}

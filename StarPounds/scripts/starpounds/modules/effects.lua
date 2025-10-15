@@ -27,15 +27,15 @@ function effects:new()
 end
 
 function effects:update(dt)
+  -- Don't do anything if the mod is disabled.
+  if not storage.starPounds.enabled then return end
   -- Delay the effects loading by one tick so all the other modules can be ready.
   if not self.loaded then
     for effect in pairs(storage.starPounds.effects.active) do
       self:load(effect)
-      self.loaded = true
     end
+    self.loaded = true
   end
-  -- Don't do anything if the mod is disabled.
-  if not storage.starPounds.enabled then return end
   -- Update effect durations.
   for effectName, effect in pairs(storage.starPounds.effects.active) do
     local effectData = storage.starPounds.effects.active[effectName]
@@ -67,8 +67,13 @@ function effects:load(effect)
       self.effects[effect].data = storage.starPounds.effects.active[effect]
       self.effects[effect].config = copy(effectConfig.effectConfig)
       self.effects[effect]:moduleInit()
+
       starPounds.modules[string.format("effect_%s", effect)] = self.effects[effect]
       starPounds.modules[string.format("effect_%s", effect)]:setUpdateDelta(effectConfig.scriptDelta or 1)
+    end
+    -- Vanilla effect that tracks duration.
+    if effectConfig.proxyEffect then
+      status.addEphemeralEffect(effectConfig.proxyEffect)
     end
   end
 end
@@ -107,9 +112,10 @@ function effects:add(effect, duration, level)
     if not (effectConfig.ephemeral or effectConfig.hidden) then
       storage.starPounds.effects.discovered[effect] = true
     end
+    -- Load effect.
+    self:load(effect)
     -- Scripted effects.
     if effectConfig.script then
-      self:load(effect)
       self.effects[effect]:apply()
     end
 
@@ -159,6 +165,16 @@ function effects.reset()
   storage.starPounds.effects.active = {}
   storage.starPounds.effects.discovered = {}
   starPounds.events:fire("stats:calculate", "effectReset")
+end
+
+function effects:uninit()
+  for effect in pairs(storage.starPounds.effects.active) do
+    if self.effects[effect] then
+      self.effects[effect]:uninit()
+      self.effects[effect] = nil
+      starPounds.modules[string.format("effect_%s", effect)] = nil
+    end
+  end
 end
 
 starPounds.modules.effects = effects
