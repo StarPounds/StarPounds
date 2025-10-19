@@ -1,0 +1,13 @@
+{
+  "name": "starpoundseffectproxy_stomachstretch",
+  "defaultDuration": 1,
+  "effectConfig": {
+    "effect" : "stomachStretch"
+  },
+  "scripts": [
+    "starpoundseffectproxy.lua"
+  ],
+
+  "label" : "Stretched Stomach",
+  "icon" : "/interface/scripted/starpounds/effects/icons/effects/stomachStretch.png"
+}

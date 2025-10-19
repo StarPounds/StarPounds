@@ -497,6 +497,12 @@ function stomach:squelchEvents()
   starPounds.events:on("pred:struggle", struggleSquelch)
   starPounds.events:on("stomach:slosh", sloshSquelch)
   starPounds.events:on("player:landing", landingSquelch)
+
+  function self:uninit()
+    starPounds.events:off("pred:struggle", struggleSquelch)
+    starPounds.events:off("stomach:slosh", sloshSquelch)
+    starPounds.events:off("player:landing", landingSquelch)
+  end
 end
 
 function stomach:stepTimer(timer, dt)

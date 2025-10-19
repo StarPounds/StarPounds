@@ -1,27 +1,21 @@
 local supersize = starPounds.module:new("supersize")
 
 function supersize:init()
-  self.firstUpdate = false
+  self.didUpdate = false
   self.isSupersize = false
   self.projectileActive = false
   self.size = ""
   self.bounds = rect.pad(mcontroller.boundBox(), {0, -1})
+  self.boundsCache = {}
   self.playerWidth = math.abs(self.bounds[3] - self.bounds[1]) * 0.5
   self.doorDeltaTime = self.data.doorDelta * self.data.scriptDelta
   self.doorTimer = 0
 
-  self.sizeUpdate = function()
-    self:killProjectile()
-    self.size = starPounds.currentSize.size
-    self.isSupersize = starPounds.currentSize.yOffset
-    self.projectileType = starPounds.currentSize.projectile
-    if self.isSupersize then
-      self.bounds = rect.translate(rect.pad(mcontroller.boundBox(), {0, self.data.boundsPadding}), self.data.boundsOffset)
-      self.width = math.abs(self.bounds[3] - self.bounds[1]) * 0.5
-    end
+  self.triggerSizeUpdate = function()
+    self.didUpdate = false
   end
 
-  starPounds.events:on("sizes:changed", self.sizeUpdate)
+  starPounds.events:on("sizes:changed", self.triggerSizeUpdate)
 end
 
 function supersize:update(dt)
@@ -33,9 +27,9 @@ function supersize:update(dt)
     self:killProjectile()
   end
   -- Delay door update loop by 1 tick, and setup size data.
-  if not self.firstUpdate then
-    self.sizeUpdate()
-    self.firstUpdate = true
+  if not self.didUpdate then
+    self:sizeUpdate()
+    self.didUpdate = true
     return
   end
   -- Don't run anything after this if we're not a large size.
@@ -48,7 +42,20 @@ end
 
 function supersize:uninit()
   self:killProjectile()
-  starPounds.events:off("sizes:changed", self.sizeUpdate)
+  starPounds.events:off("sizes:changed", self.triggerSizeUpdate)
+end
+
+function supersize:sizeUpdate()
+  self:killProjectile()
+  self.size = starPounds.currentSize.size
+  self.isSupersize = starPounds.currentSize.yOffset
+  self.projectileType = starPounds.currentSize.projectile
+  if self.isSupersize then
+    local poly = (starPounds.currentSize.controlParameters[starPounds.getVisualSpecies()] or starPounds.currentSize.controlParameters.default).standingPoly
+    self.bounds = self.boundsCache[self.size] or rect.translate(rect.pad(util.boundBox(poly), {0, self.data.boundsPadding}), self.data.boundsOffset)
+    self.boundsCache[self.size] = self.bounds
+    self.width = math.abs(self.bounds[3] - self.bounds[1]) * 0.5
+  end
 end
 
 function supersize:killProjectile()
@@ -84,7 +91,7 @@ function supersize:automaticDoors(dt)
   local openBounds = rect.translate(self.bounds, starPounds.mcontroller.position)
   local closeBounds = {table.unpack(openBounds)}
 
-  if mcontroller.movingDirection() > 0 then
+  if starPounds.mcontroller.movingDirection > 0 then
     openBounds[1], openBounds[3] = openBounds[3] + self.data.openRange[1], openBounds[3] + self.data.openRange[2]
     closeBounds[3], closeBounds[1] = closeBounds[1] - self.data.closeRange[1], closeBounds[1] - self.data.closeRange[2]
   else

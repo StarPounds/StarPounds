@@ -1,0 +1,13 @@
+{
+  "name": "starpoundseffectproxy_groundslam",
+  "defaultDuration": 1,
+  "effectConfig": {
+    "effect" : "groundSlam"
+  },
+  "scripts": [
+    "starpoundseffectproxy.lua"
+  ],
+
+  "label" : "Tender Posterior",
+  "icon" : "/interface/scripted/starpounds/effects/icons/effects/groundSlam.png"
+}

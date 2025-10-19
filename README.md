@@ -3,7 +3,7 @@
 
 ## ![8d4ce983fd59ccfb6090973af88ba2ccd6b644b6_2_690x226](https://github.com/user-attachments/assets/28e7dfa2-9d75-468c-a392-8f861a2ed54f)
 
-A mod for Starbound that adds body shapes of various sizes and weight gain. Watch your belly swell as you eat, food or others, or subject the npcs of the various worlds to it instead.
+A mod for Starbound that adds body shapes of various sizes and weight gain. Watch your belly swell as you eat, food or people. Or subject the npcs of the various worlds to it instead.
 
 StarPounds is designed to mesh with (and ideally enhance) the existing Starbound gameplay loop.
 
@@ -19,7 +19,7 @@ StarPounds is designed to mesh with (and ideally enhance) the existing Starbound
 - Plenty of new tiles and liquids.
 - Separate fat-themed hub for mod content.
 - Brand new USCM-themed intro mission for Mootants, including an alternative to the Broken/Protector's Broadsword.
-- New Floran gluttonist dungeon, with more dungeons planned in the future.
+- New major dungeons like the Floran Gluttonist Feasting Hall, or the Glitch Ponderous Keep. With more dungeons planned for the future.
 - Fully fledged skill system for upgrading fat-based attributes & abilities.
 - Accessories that boost fat-based attributes.
 - Multiple milk-based skills and mechanics.
@@ -51,7 +51,7 @@ Starpounds-Throgverse.pak
 If you have `QuickBarMini` or `Stardust Core` installed either within your mods folder or on the steam workshop. Remove them so they do not conflict with `StardustLite` which is essential.
 </details>
 
-## ![e1d03346eb372d5fa9265cac4ce17e8546679cb5](https://github.com/user-attachments/assets/1e5bb37c-f8bd-462f-82f6-16d416fb5ad3)
+## ![Starpounds-Starting](https://github.com/user-attachments/assets/b4f0e44e-d0d8-4984-9829-c9a724f4fe8d)
 
 
 <details>
@@ -59,7 +59,7 @@ If you have `QuickBarMini` or `Stardust Core` installed either within your mods 
 
 ![7a4d90e8f29aaaf0ee6754fabf5c0588820309a2_2_342x500](https://github.com/user-attachments/assets/07bd76c5-9fe7-45b6-ba59-6901398f89ad)
 
-Once installed, any character will automatically have starpounds turned on. Though only races supported will really benefit from it. You can use the quickbar from stardustlite to access a menu where you can access the skill tree, as well as toggle any options you wish to change.
+Once installed, any character will automatically have starpounds turned on. Though only ***supported races*** will really benefit from it. You can use the quickbar from stardustlite to access a menu where you can access the skill tree, as well as toggle any options you wish to change.
 
 From there you can access the skill tree and traits on the button on the left. The accessory and effects menu from the middle button. And the options menu on the right button.
 You can manage any skills you've unlocked in the skill tree from the quickbar, as well as select a class trait, however to properly unlock any new skills you'll need an Infusion Table.
@@ -86,7 +86,7 @@ From the Throg Arsenal, the mighty Fayane can help you craft weapons used by a s
 
 ![570e400e93d58e661b0ffcdb5acb3fb9141cd258](https://github.com/user-attachments/assets/c73c25c1-00e9-4605-b962-b6841d5ea2fe)
 
-Scarlett loves her cosplays, but it can be difficult at her size. And so she ensures nobody has to worry about finding clothing that can fit. Offering a range of outfits for players to buy, even special ones you won't fine elsewhere.
+Scarlett loves her cosplays, but it can be difficult at her size. And so she ensures nobody has to worry about finding clothing that can fit. Offering a range of outfits for players to buy, even special ones you won't find elsewhere.
 
 ![7a14bfac3e86a3c17f732a5379617659977d585a](https://github.com/user-attachments/assets/4edd69bb-6373-444f-b303-7620a34d744d)
 
@@ -112,11 +112,11 @@ Worship of non-Kluex related gods is rare amongst the Avians. This Priestess of 
 
 Huh, it seems like there's a spot in the hub for one more shop... Can't seem to see it though. I'm sure if it existed however, it'd probably sell some more strange things compared to everyone else.
 
-![24838dc37ae59ebbcddb47088696390d2295eb3d_2_690x247](https://github.com/user-attachments/assets/c86e0ff0-5ae3-4b6c-a326-19ee3a28c38a)
+<img width="240" height="240" alt="starpoundsupgrades" src="https://github.com/user-attachments/assets/1d0213a8-f288-4c10-ad24-30a587bdd0d3" />
 
 
-And if you have Throgverse, don't forget to keep exploring. You never know what you may find out there... Dungeons filled with the dangerous Floran Gluttonist Tribes. And the abandoned Glitch Ponderous Keeps still guarded by faithful Wisps can currently be found.
-Delve deep and you can find crafting ingredients to make powerful weapons. Weapons that can be enhanced even further at a Weapon Upgrade Anvil.
+And if you have Throgverse, don't forget to keep exploring. You never know what you may find out there... Dungeons filled with the dangerous Floran Gluttonist Tribes. And the abandoned Glitch Ponderous Keeps still guarded by faithful Wisps can currently be found. Delve deep and you can find crafting ingredients to make powerful weapons.
+And they can be further enhanced to be even stronger if you bring them to a Weapon Upgrade Anvil.
 </details>
 
 ## ![alt text](https://d1au4vljv71t01.cloudfront.net/forum/original/3X/e/1/e10770676cd56090a925250cf44d6a51077fc61c.gif)
@@ -184,7 +184,7 @@ Once you unlock a vore skill, you can either use the hotkey for it if you have e
 
 #### Food doesn't give xp or cause weight gain
 
-Do prevent issues with mods overwriting the food lua, or not having to patch every modded food item. A script is applied to all food items whenever it's clicked on. This means the script will not run if you eat food that pops up in your hotbar that you didn't click.
+To prevent issues with mods overwriting the food lua, or not having to patch every modded food item. A script is applied to all food items whenever it's clicked on. This means the script will not run if you eat food that pops up in your hotbar that you didn't click.
 
 #### Does Starpounds work with Cutebound?
 
@@ -195,6 +195,34 @@ We have a modified version that does some reversions and some improvements.
 
 Npcs at the Outpost, Hog Diner, or any other form of hub area generally has protection that prevents them from being fattened up or vored.
 </details>
+
+## ![Starpounds-Encounters](https://github.com/user-attachments/assets/b7431b0c-9472-4070-a01a-3ea254397d7a)
+
+<details>
+<summary>Wild Encounters</summary>
+
+### Mobs
+Across many planets and biomes you can encounter unique enemies to flesh out the exploration.
+<img width="640" height="120" alt="starpoundslush" src="https://github.com/user-attachments/assets/a5fa6550-671a-4ed5-83de-a1e67fa72a5b" />
+<img width="640" height="120" alt="starpoundsocean" src="https://github.com/user-attachments/assets/dba5355e-96d8-42ee-a16d-9ac821bfda42" />
+<img width="640" height="120" alt="starpoundsalpine" src="https://github.com/user-attachments/assets/a2a0ea39-8a4c-47eb-a80a-ce37f1c632ae" />
+<img width="640" height="120" alt="starpoundseyepatch" src="https://github.com/user-attachments/assets/c99451c5-5597-4325-9428-e1f807136d4b" />
+<img width="640" height="120" alt="starpoundsslimecave" src="https://github.com/user-attachments/assets/3b9bb77f-0173-494b-aa96-fbe1a01cce1c" />
+<img width="640" height="120" alt="starpoundsspring" src="https://github.com/user-attachments/assets/d0ef647d-602f-4f8c-8539-6c9710afcefc" />
+<img width="640" height="120" alt="starpoundsgnomevillage" src="https://github.com/user-attachments/assets/f10d2586-2b7c-482b-b128-ba554dafe47f" />
+
+### Major Dungeons
+Large dungeons filled with unique factions with their own various lore and threats. They'll be protected by some sort of artifact or some such at the end of the dungeon. You'll have to go through a lot to reach the boss at the end for the reward to turn into a powerful weapon.
+<img width="640" height="240" alt="starpoundsgluttonist" src="https://github.com/user-attachments/assets/0f899437-03eb-48da-ba15-8df6f0bedc45" />
+<img width="640" height="240" alt="starpoundsponderous" src="https://github.com/user-attachments/assets/1813d728-ea19-46e4-b11a-5f05e37d5833" />
+
+### Minor Dungeons
+Smaller dungeons without a major reward or boss at the end but still something unique to stumble upon.
+<img width="640" height="240" alt="starpoundsredbarn" src="https://github.com/user-attachments/assets/934b9dbf-0f8f-4be2-9901-9f307ef31b15" />
+
+
+</details>
+
 
 ## ![starpounds-racesupport](https://d1au4vljv71t01.cloudfront.net/forum/original/3X/8/0/80a472068d5e586a36fa462dc078deb8a7cb7963.gif)
 
@@ -324,14 +352,38 @@ Currently, the following species are supported:
 
 </details>
 
+<img width="855" height="180" alt="starpounds-osb" src="https://github.com/user-attachments/assets/31244c48-4cc4-44f9-b4bc-c718a65320bd" />
+
+<details>
+<summary>OpenStarbound</summary>
+
+### A Fork of Starbound
+For anyone new to Starbound, or is not up to date with the modding scene currently. I first and foremost cannot recommend [OpenStarbound.](https://github.com/OpenStarbound/OpenStarbound/releases) any more than I can.
+
+You are still required to own Starbound, as it does not include assets. But in short among many various improvements, it greatly fixes the optimization issues base Starbound has. Fixes issues such as ship bloat, or allow you to switch inventory mods on a character without issue. Alongside other new and improved features. Features that Starpounds can take advantage of, but only with OpenStarbound.
+Also as a site note please note you can turn off OpenStarbounds new lighting in the options menu, if you feel it is too straining on the eyes.
+
+### Starpounds Benefits From OpenStarbound
+<img width="822" height="512" alt="starbound_lOKYTbfn6y" src="https://github.com/user-attachments/assets/c64d0124-4a30-423c-a16d-4cdaa2d62266" />
+
+One thing OpenStarbound opens the door to utilize is custom hotkeys, something otherwise impossible to do with base Starbound. You can mess with what keys you can use for what features from the options menu. Meaning you no longer need somethings like the vore tool to vore as one example.
+
+<img width="654" height="133" alt="starbound_dkMaxuYZEM" src="https://github.com/user-attachments/assets/def19d45-e6f0-49a1-a3ae-0a9536dafcfe" />
+
+COMING SOON: OpenStarbounds latest update featured brand new cosmetic slots, an impossible feat for base starbound. This alone solves one of the largest issues this mod has faced since it's inception. That it's hard to have skin revealing clothing when the fat bodies are armors. 
+With extra cosmetic slots, this vastly opens up possibilities for clothing to not be tethered to an individual race, overlapping "normal" clothing atop fat bodies. Going forward, clothing will be built with this assumption that people will be using OpenStarbound for this freedom.
+
+</details>
+
+
 ## ![4a177ba1bf4f2a100314978b9e1a188dc4b6a5a2](https://github.com/user-attachments/assets/09be196e-ca7a-457c-86a8-239a8fdb47b2)
 
 <details>
 <summary>Mod Recommendations</summary>
 
 ### OpenStarbound
-For anyone new to Starbound, or is not up to date with the modding scene currently. I first and foremost recommend the great fork [OpenStarbound.](https://github.com/OpenStarbound/OpenStarbound/releases)
-You are still required to own Starbound, as it does not include assets. But in short among many various improvements, it greatly fixes the optimization issues base Starbound has. Alongside some features Starpounds takes advantage of that's not possible without, such as custom keybinds for certain actions.
+[OpenStarbound.](https://github.com/OpenStarbound/OpenStarbound/releases)
+To briefly summarize the OpenStarbound section, a fork of Starbound that greatly improves performance of the game as well as expand features not possible to mod in with the base game. Features that Starpounds can also utilize. I consider this fork essential for anyone in the modern day and you have no reason not to use it.
 
 ### Recommended List
 Outside of that I have a general list of mods I personally think are of high quality worth checking out [here.](https://steamcommunity.com/sharedfiles/filedetails/?id=3382257999) Including some of my non-starpounds related mods for this game.
@@ -341,5 +393,28 @@ And lastly, I make two strong recommendations for mods to avoid at all costs. It
 
 The first being Frackin Universe. A mod comprised of stolen content with its own history of bullying mods and other issues in regards to its balancing, pacing, and the creator themself.
 And secondly being Galaxy in Conflict. A mod so troubled in its development that the entire team split up from how toxic they were, and it bleeds into the rather right wing leaning views of the mod itself to its core in both balancing and unoriginality.
+
+</details>
+
+
+<img width="855" height="180" alt="starpounds-incompatible" src="https://github.com/user-attachments/assets/2fb674e1-1763-436d-a979-ca91b8cb70f5" />
+
+<details>
+<summary>Incompatible Mods</summary>
+
+### Quickbar Mini & Stardust Core - Severe
+Both Quickbar based mods will conflict with Stardust Core Lite, which requires the metadata in that mod in particular for Starpounds scripts to properly work.
+
+### Frackin Universe - Minor
+Frackin Universe alters the death scripts, causing an issue with the spectate pred option in the starpounds menu. This is the only known issue atm, but with Frackin Universe being Frackin Universe, expect other potential issues to show up if you use this mod anyways.
+
+### Size of Life - Problematic
+You can potentially get the mod to work fine. At best, your hitbox won't properly update your fat size as you change. At worst, the hitbox will break and you'll infinitely grow in size till you crash the game.
+
+### Super's Combat Overhaul - Problematic
+An infamous mod that breaks a number of things for other mods. Can cause issues with Starpounds in terms of vore, death, and damage values.
+
+### Cutebound/Make the Universe a Cuter Place - Problematic
+The mod overwrites the bodies of the vanilla races, causing inconsistency with the fat sprites and their bodies. Also breaks Avians bodies in particular with colors not even being properly applied.
 
 </details>

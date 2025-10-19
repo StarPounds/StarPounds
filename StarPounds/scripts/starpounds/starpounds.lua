@@ -87,6 +87,7 @@ function starPounds.module:moduleInit()
     tickCounter = 0,
     updateTicks = 1
   }
+
   self:setUpdateDelta(self.data.scriptDelta)
   self:init()
 end

@@ -10,12 +10,12 @@ function bloatCola:init()
   self.baseDuration = starPounds.moduleFunc("effects", "getConfig", "bloatCola").duration
   starPounds.moduleFunc("sound", "stop", "fizzloop")
 
-  self.onSlosh = function(sloshAmount)
-    self:shake(sloshAmount)
-  end
-
   starPounds.events:on("stomach:slosh", self.onSlosh)
   starPounds.events:on("player:landing", self.onSlosh)
+end
+
+function bloatCola.onSlosh(sloshAmount)
+  bloatCola:shake(sloshAmount)
 end
 
 function bloatCola:apply()
@@ -51,6 +51,7 @@ end
 function bloatCola:uninit()
   starPounds.moduleFunc("sound", "stop", "fizzloop")
   starPounds.events:off("stomach:slosh", self.onSlosh)
+  starPounds.events:off("player:landing", self.onSlosh)
 end
 
 function bloatCola:shake(duration)
