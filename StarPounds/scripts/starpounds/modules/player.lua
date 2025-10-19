@@ -52,7 +52,7 @@ end
 
 -- Damage listener for fall/fire damage.
 _player.damageListener = damageListener("damageTaken", function(notifications)
-  self = _player
+  local self = _player
   for _, notification in pairs(notifications) do
     if notification.sourceEntityId == entity.id() and notification.targetEntityId == entity.id() then
       if notification.damageSourceKind == "falling" and starPounds.currentSizeIndex > 1 then

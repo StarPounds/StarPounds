@@ -19,7 +19,7 @@ end
 
 function stats.updateEvent(trace) -- Trace shows you where the 'change' is coming from.
   -- Kill the cache, and force an update to stats.
-  self = stats
+  local self = stats
   self.cache = {}
   self:calculate()
   starPounds.moduleFunc("size", "updateStats", true)
