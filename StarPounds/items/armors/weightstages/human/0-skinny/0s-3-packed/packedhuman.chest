@@ -1,14 +1,15 @@
 {
   "itemName" : "packedhumanchest",
-  "price" : 0,  
+  "price" : 0,
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
-  "category" : "chestwear",  
+  "category" : "chestwear",
   "description" : "You've since past the point you could try sucking in this gut.",
   "shortdescription" : "Packed Belly",
   "tooltipKind" : "starpoundsarmor",
-  
+  "bypassNude" : true,
+
   "statusEffects": [
     "starpounds",
     "starpoundspacked"

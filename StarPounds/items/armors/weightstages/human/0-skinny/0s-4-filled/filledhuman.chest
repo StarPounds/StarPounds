@@ -1,14 +1,15 @@
 {
   "itemName" : "filledhumanchest",
-  "price" : 0,  
+  "price" : 0,
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
-  "category" : "chestwear",  
+  "category" : "chestwear",
   "description" : "You can start visualizing how much padding you're gonna get from all this food.",
   "shortdescription" : "Filled Belly",
   "tooltipKind" : "starpoundsarmor",
-  
+  "bypassNude" : true,
+
   "statusEffects": [
     "starpounds",
     "starpoundsfilled"
