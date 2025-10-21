@@ -1,0 +1,145 @@
+{
+  "objectName" : "throgdockingfield",
+  "objectType" : "physics",
+  "colonyTags" : ["station"],
+  "printable" : false,
+  "rarity" : "Common",
+
+  "category" : "wire",
+  "price" : 0,
+  "description" : "This energy field can contain both atmosphere and artificial gravity.",
+  "shortdescription" : "Throg Docking Field",
+  "race" : "throg",
+
+  "apexDescription" : "A space docking field, this energy contains the atmosphere inside.",
+  "avianDescription" : "The energy in this docking field contains air and gravity inside.",
+  "floranDescription" : "This crackling energy containsss air inside.",
+  "glitchDescription" : "Informed. This field is a special energy type meant to contain atmosphere and artificial gravity.",
+  "humanDescription" : "This type of energy field can contain atmosphere and gravity inside space structures.",
+  "hylotlDescription" : "Docking fields like this are common in space, they make quite effective airlocks.",
+  "novakidDescription" : "This here energy field keeps air and gravity inside and space outside.",
+
+  "lightColor" : [172, 114, 205],
+  "lightPosition" : [0, 6],
+
+  "inventoryIcon" : "throgdockingfieldicon.png",
+  "orientations" : [
+    {
+      "image" : "throgdockingfield.png:<color>.off",
+      "imagePosition" : [-4, 0],
+
+      "direction" : "left",
+      "flipImages" : true,
+
+      "animationParts" : {
+        "bg" : "throgdockingfield.png",
+        "fg" : "throgdockingfieldlit.png"
+      },
+      "animationPosition" : [-4, 0],
+
+      "detectArea" : [ [-0.5, 0], [0.5, 12] ],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "top", "bottom" ],
+
+      "enableCollision" : "barrierVertical"
+    },
+    {
+      "image" : "throgdockingfield.png:<color>.off",
+      "imagePosition" : [-4, 0],
+
+      "direction" : "right",
+
+      "animationParts" : {
+        "bg" : "throgdockingfield.png",
+        "fg" : "throgdockingfieldlit.png"
+      },
+      "animationPosition" : [-4, 0],
+
+      "detectArea" : [ [-0.5, 0], [0.5, 12] ],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "top", "bottom" ],
+
+      "enableCollision" : "barrierVertical"
+    },
+    {
+      "image" : "throgdockingfieldhorizontal.png:<color>.off",
+      "imagePosition" : [-48, 4],
+
+      "direction" : "left",
+      "flipImages" : true,
+
+      "animationParts" : {
+        "bg" : "throgdockingfieldhorizontal.png",
+        "fg" : "throgdockingfieldhorizontallit.png"
+      },
+      "animationPosition" : [-48, 4],
+
+      "detectArea" : [ [-6, 0.5], [6, 1.5] ],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "left", "right" ],
+
+      "enableCollision" : "barrierHorizontal"
+    },
+    {
+      "image" : "throgdockingfieldhorizontal.png:<color>.off",
+      "imagePosition" : [-48, 4],
+
+      "direction" : "right",
+
+      "animationParts" : {
+        "bg" : "throgdockingfieldhorizontal.png",
+        "fg" : "throgdockingfieldhorizontallit.png"
+      },
+      "animationPosition" : [-48, 4],
+
+      "detectArea" : [ [-6, 0.5], [6, 1.5] ],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "left", "right" ],
+
+      "enableCollision" : "barrierHorizontal"
+    }
+  ],
+
+  "physicsCollisions" : {
+    "barrierVertical" : {
+      "collision" : [
+        [-0.25, 0],
+        [0.25, 0],
+        [0.25, 12],
+        [-0.25, 12]
+      ],
+      "collisionKind" : "slippery",
+      "categoryWhitelist" : ["monster", "npc"],
+      "enabled" : false
+    },
+    "barrierHorizontal" : {
+      "collision" : [
+        [-6, 0.75],
+        [6, 0.75],
+        [6, 1.25],
+        [-6, 1.25]
+      ],
+      "collisionKind" : "slippery",
+      "categoryWhitelist" : ["monster", "npc"],
+      "enabled" : false
+    }
+  },
+
+  "scripts" : [
+    "/objects/space/dockingfield/dockingfield.lua"
+  ],
+  "scriptDelta" : 5,
+
+  "animation" : "throgdockingfield.animation",
+
+  "outputNodes" : [ [0, 0] ],
+
+  "interactive" : false,
+
+  "detectDuration" : 0.1,
+  "detectEntityTypes" : [ "creature", "vehicle" ]
+}
