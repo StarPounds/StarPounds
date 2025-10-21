@@ -7,7 +7,7 @@
   "interactAction" : "OpenAiInterface",
 
   "category" : "decorative",
-  "lightColor" : [77, 111, 128],
+  "lightColor" : [152, 94, 185],
   "lightPosition" : [-1, 0],
   
   "flickerDistance" : 1.0,
@@ -27,7 +27,7 @@
   "novakidDescription" : "Time to reboot this station so I can talk to SAIL.",
   "throgDescription" : "Even when broken, SAIL won't shut up. Better fix that...",  
 
-  "inventoryIcon" : "throgtechstationiconTier0.png",
+  "inventoryIcon" : "throgtechstationicon.png",
   "orientations" : [
     {
       "imageLayers" : [ { "image" : "throgtechstationTier0.png:<color>.<frame>", "fullbright" : true }, { "image" : "throgtechstationlitTier0.png:<color>.<frame>" } ],
