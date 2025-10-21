@@ -36,7 +36,7 @@
   "scripts" : ["/objects/fattydungeons/dungeonartifactshield.lua"],
   "scriptDelta" : 0,
   "smashOnBreak" : true,
-  "smashParticles" : [{ "count" : 12, "particle" : "meatberryshard" }],
+  "smashParticles" : [{ "count" : 12, "particle" : "gluttonistdoorshard" }, { "count" : 12, "particle" : "meatberryshard" }],
   "smashSounds": [ "/sfx/objects/plant_break4.ogg"],
   "smashDropPool" : "starpoundsmeatberrypool",
   "breakDropPool" : "starpoundsmeatberrypool"
