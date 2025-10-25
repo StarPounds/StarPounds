@@ -8,6 +8,7 @@
   "description" : "Log sized leg-appendage, door jamming hips, ultra soft rear. You've been snacking heavily.",
   "shortdescription" : "Chubby Bottom",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster"
