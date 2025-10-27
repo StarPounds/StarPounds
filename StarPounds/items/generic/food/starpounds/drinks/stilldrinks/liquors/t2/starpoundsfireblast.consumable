@@ -3,9 +3,9 @@
   "rarity" : "Uncommon",
   "price" : 200,
   "category" : "drink",
-  "tooltipKind" : "fossil",
+  "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsfireblast.png",
-  "description" : "A fiery whiskey renowned for its combustibility: the scorched core really gives it a blazing spice!",
+  "description" : "A spiced whiskey renowned for its fiery aftertaste!",
   "shortdescription" : "Fireblast",
   "maxStack" : 1,
   "effects" : [ [
@@ -26,5 +26,27 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Fireblast ^yellow;^reset;",  
+    "price" : 400,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk",
+        "duration" : 450
+    },
+    {
+        "effect" : "iceblock",
+        "duration" : 450
+    },
+    {
+        "effect" : "maxhealthscalingboostfood",
+        "duration" : 450
+    }
+    ]]
+  }
 }

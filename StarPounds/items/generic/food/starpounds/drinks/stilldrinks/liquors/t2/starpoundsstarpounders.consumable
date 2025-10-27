@@ -4,7 +4,7 @@
   "price" : 250,
   "category" : "drink",
   "inventoryIcon" : "starpoundsstarpounders.png",
-  "tooltipKind" : "fossil",
+  "tooltipKind" : "food",
   "description" : "A thick, almost milkshake-y liquor that makes you feel softer just looking at it.",
   "shortdescription" : "Starpounder's",
   "maxStack" : 1,
@@ -13,10 +13,6 @@
         "effect" : "starpoundsdrunk",
         "duration" : 360
     },
-//    {
-//        "effect" : "caloricresist",
-//        "duration" : 360
-//    },
     {
         "effect" : "maxhealthscalingboostfood",
         "duration" : 360
@@ -30,5 +26,28 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Starpounders ^yellow;^reset;",  
+    "price" : 500,  
+    "foodValue": 66,  	
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk",
+        "duration" : 540
+    },
+    {
+        "effect" : "maxhealthscalingboostfood",
+        "duration" : 540
+    },
+    {
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 540
+    }
+    ]]
+  }
 }

@@ -3,9 +3,9 @@
   "rarity" : "Uncommon",
   "price" : 200,
   "category" : "drink",
-  "tooltipKind" : "fossil",
+  "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsthunderbrew.png",
-  "description" : "Second only to the Onikiller, this fulgurous sake is renowned for its fearsome shock!",
+  "description" : "Second only to the Onikiller, this fulgurous sake is renowned for its fearsome kick!",
   "shortdescription" : "Thunder Brew Sake",
   "maxStack" : 1,
   "effects" : [ [
@@ -26,5 +26,27 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Thunder Brew Sake ^yellow;^reset;",  
+    "price" : 160,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk",
+        "duration" : 450
+    },
+    {
+        "effect" : "electricblock",
+        "duration" : 450
+    },
+    {
+        "effect" : "maxhealthscalingboostfood",
+        "duration" : 450
+    }
+    ]]
+  }
 }

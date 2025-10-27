@@ -3,8 +3,9 @@
   "rarity" : "Uncommon",
   "price" : 200,
   "category" : "drink",
+  "tooltipKind" : "food",  
   "inventoryIcon" : "starpoundsflintlockes.png",
-  "description" : "Beloved by half-blind Scotsmen and rowdy dwarves alike, this brew is known for its explosive kick!",
+  "description" : "Beloved by Scotsmen and dwarves alike, this brew is known for its explosive kick!",
   "shortdescription" : "Flintlocke's",
   "maxStack" : 1,
   "effects" : [ [
@@ -23,5 +24,23 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Flintelocke's ^yellow;^reset;",  
+    "price" : 400,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk",
+        "duration" : 450
+    },
+    {
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 450
+    }
+    ]]
+  }
 }

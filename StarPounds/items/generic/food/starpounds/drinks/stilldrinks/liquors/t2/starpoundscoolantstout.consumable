@@ -4,7 +4,7 @@
   "price" : 200,
   "category" : "drink",
   "inventoryIcon" : "starpoundscoolantstout.png",
-  "tooltipKind" : "fossil",
+  "tooltipKind" : "food",
   "description" : "A few steps away from industrial coolant, this liquor is quite popular among Glitch!",
   "shortdescription" : "Coolantstout",
   "maxStack" : 1,
@@ -26,5 +26,27 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Coolantstout ^yellow;^reset;",  
+    "price" : 400,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk",
+        "duration" : 450
+    },
+    {
+        "effect" : "fireblock",
+        "duration" : 450
+    },
+    {
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 450
+    }
+    ]]
+  }
 }

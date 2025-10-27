@@ -3,7 +3,7 @@
   "rarity" : "Common",
   "price" : 130,
   "category" : "drink",
-  "tooltipKind" : "fossil",
+  "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsbloodymary.png",
   "description" : "Say its name 3 times in front of a dark mirror and you'll mysteriously wind up drunk.",
   "shortdescription" : "Bloody Mary",
@@ -22,5 +22,23 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Bloodiest Mary ^yellow;^reset;",  
+    "price" : 260,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk",
+        "duration" : 495
+    },
+    {
+        "effect" : "maxhealthscalingboostfood",
+        "duration" : 495
+    }
+    ]]
+  }
 }

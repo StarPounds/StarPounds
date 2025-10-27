@@ -4,7 +4,7 @@
   "price" : 120,
   "category" : "drink",
   "inventoryIcon" : "starpoundsmead.png",
-  "tooltipKind" : "fossil",
+  "tooltipKind" : "food",
   "description" : "A liquor brewed from alien honey, popular among the Glitch.",
   "shortdescription" : "Mead",
   "maxStack" : 1,
@@ -22,5 +22,23 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Mead ^yellow;^reset;",  
+    "price" : 240,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk",
+        "duration" : 495
+    },
+    {
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 495
+    }
+    ]]
+  }
 }
