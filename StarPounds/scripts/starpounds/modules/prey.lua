@@ -4,6 +4,7 @@ function prey:init()
   message.setHandler("starPounds.prey.swallowed", function(_, _, ...) return self:swallowed(...) end)
   message.setHandler("starPounds.prey.released", function(_, _, ...) return self:released(...) end)
   message.setHandler("starPounds.prey.digesting", function(_, _, ...) return self:digesting(...) end)
+  message.setHandler("starPounds.prey.healing", function(_, _, ...) return self:healing(...) end)
   message.setHandler("starPounds.prey.newPred", function(_, _, ...) return self:newPred(...) end)
 
   message.setHandler("starPounds.prey.drinkVoreNudge", function(_, _, sourceId, maxWeight, args)
@@ -410,6 +411,29 @@ function prey:digesting(pred, digestionRate, protectionPierce)
   if not status.resourcePositive("health") then
     self:die()
   end
+end
+
+function prey:healing(pred, healingRate)
+  -- Don't do anything if the mod is disabled.
+  if not storage.starPounds.enabled then return end
+  -- Don't do anything if a pred ID isn't specified.
+  if not pred or not world.entityExists(tonumber(pred) or 0, true) then return end
+  -- Tell the pred we're not eaten there's an ID mismatch.
+  if storage.starPounds.pred ~= pred then
+    world.sendEntityMessage(pred, "starPounds.pred.release", entity.id())
+  end
+  -- Argument sanitisation.
+  healingRate = math.max(tonumber(healingRate) or 0, 0)
+  if healingRate == 0 then return end
+  -- Don't do anything if we're not eaten.
+  if not storage.starPounds.pred then return end
+  -- 2.5% of missing health + 5 or 2.5% max health, whichever is smaller. (Stops low hp entities healing instantly)
+  local maxHealth = status.resourceMax("health")
+  local percentHealing = (maxHealth - status.resource("health")) * self.data.percentHealingRate
+  local flatHealing = math.min(self.data.healingRate, self.data.percentHealingRate * maxHealth)
+  local amount = (percentHealing + flatHealing) * healingRate
+  -- Add health.
+  status.giveResource("health", amount)
 end
 
 function prey:digested()

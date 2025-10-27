@@ -1,3 +1,5 @@
-descriptionFunctions.breastMilk = descriptionFunctions.breastMilk or function(id)
-  starPounds.moduleFunc("breasts", "setMilkType", "milk")
+descriptionFunctions.breastMilk = descriptionFunctions.breastMilk or function(descriptionWidget)
+  descriptionWidget.onClick = function()
+    starPounds.moduleFunc("breasts", "setMilkType", "milk")
+  end
 end

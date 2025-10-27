@@ -173,8 +173,6 @@ function size:updateStats(forceUpdate)
       {stat = "shieldHealth", effectiveMultiplier = 1 + starPounds.getStat("shieldHealth") * bonusEffectiveness},
       {stat = "knockbackThreshold", effectiveMultiplier = 1 - gritReduction},
       {stat = "fallDamageMultiplier", effectiveMultiplier = size.healthMultiplier * (1 - starPounds.getStat("fallDamageResistance"))},
-      {stat = "iceStatusImmunity", amount = applyImmunity and starPounds.moduleFunc("skills", "level", "iceImmunity") or 0},
-      {stat = "poisonStatusImmunity", amount = applyImmunity and starPounds.moduleFunc("skills", "level", "poisonImmunity") or 0},
       {stat = "iceResistance", amount = starPounds.getStat("iceResistance") * bonusEffectiveness},
       {stat = "poisonResistance", amount = starPounds.getStat("poisonResistance") * bonusEffectiveness}
     }
