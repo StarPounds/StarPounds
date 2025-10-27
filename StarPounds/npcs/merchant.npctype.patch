@@ -2,7 +2,7 @@
   {
     "op": "add",
     "path": "/scripts/-",
-    "value": "/scripts/starpounds/starpounds_npc.lua"
+    "value": "/scripts/starpounds/loaders/npc.lua"
   },
   { "op" : "add",
     "path" : "/scriptConfig/merchant/categories/throg",

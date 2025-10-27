@@ -114,7 +114,7 @@ function pred:eat(preyId, options, check)
     if not contains(compatibleEntities, world.entityType(preyId)) then return false end
     -- Need the upgrades for the specific entity type
     if world.entityType(preyId) == "monster" then
-      local scriptCheck = contains(root.monsterParameters(preyType).scripts or jarray(), "/scripts/starpounds/starpounds_monster.lua")
+      local scriptCheck = contains(root.monsterParameters(preyType).scripts or jarray(), "/scripts/starpounds/loaders/monster.lua")
       if scriptCheck then
         if (not canVoreMonster) and (not preyType:find("critter")) then return false end
         if (not canVoreCritter) and preyType:find("critter") then return false end
@@ -129,7 +129,7 @@ function pred:eat(preyId, options, check)
   -- Skip the rest if the monster/npc can't be eaten to begin with.
   local isCritter = false
   if world.entityType(preyId) == "monster" then
-    local scriptCheck = contains(root.monsterParameters(preyType).scripts or jarray(), "/scripts/starpounds/starpounds_monster.lua")
+    local scriptCheck = contains(root.monsterParameters(preyType).scripts or jarray(), "/scripts/starpounds/loaders/monster.lua")
     local parameters = root.monsterParameters(preyType)
     isCritter = contains(self.data.critterBehaviors, parameters.behavior)
     local isMonster = contains(self.data.monsterBehaviors, parameters.behavior)
@@ -141,7 +141,7 @@ function pred:eat(preyId, options, check)
   end
 
   if world.entityType(preyId) == "npc" then
-    if not contains(root.npcConfig(preyType).scripts or jarray(), "/scripts/starpounds/starpounds_npc.lua") then return false end
+    if not contains(root.npcConfig(preyType).scripts or jarray(), "/scripts/starpounds/loaders/npc.lua") then return false end
     if world.getNpcScriptParameter(preyId, "starPounds_options", jarray()).disablePrey then return false end
     if starPounds.type == "player" and starPounds.hasOption("disableCrewVore") and world.getNpcScriptParameter(preyId, "ownerUuid") ~= entity.uniqueId() then return false end
   end

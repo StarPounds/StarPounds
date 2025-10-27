@@ -19,7 +19,7 @@
   },{
     "op": "add",
     "path": "/genericScriptContexts/starpounds",
-    "value": "/scripts/starpounds/starpounds_player.lua"
+    "value": "/scripts/starpounds/loaders/player.lua"
   },{
     "op": "add",
     "path": "/companionsConfig/scripts/-",

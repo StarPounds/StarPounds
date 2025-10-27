@@ -2,6 +2,6 @@
   {
     "op": "add",
     "path": "/scripts/-",
-    "value": "/scripts/starpounds/starpounds_npc.lua"
+    "value": "/scripts/starpounds/loaders/npc.lua"
   }
 ]
