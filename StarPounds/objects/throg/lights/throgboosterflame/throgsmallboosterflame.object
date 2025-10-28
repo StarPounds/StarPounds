@@ -15,7 +15,7 @@
   "hylotlDescription" : "Propulsion.",
 
   "category" : "light",
-  "lightColor" : [59, 183, 255],
+  "lightColor" : [152, 124, 185],
   "pointLight" : true,
   "flickerDistance" : 0.2,
   "flickerStrength" : 0.05,

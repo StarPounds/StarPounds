@@ -6,11 +6,11 @@
   "objectType" : "container",
   "tooltipKind" : "container",
 
-  "category" : "storage",
+  "category" : "fridgeStorage",
   "description" : "A locker. Store some stuff, why don't you?",
   "shortdescription" : "Ship Locker",
   "race" : "human",
-  "lightColor" : [61, 88, 102],
+  "lightColor" : [122, 94, 155],
 
   "apexDescription" : "I wonder if there are any secrets inside this locker?",
   "avianDescription" : "Could there be anything of value within this locker?",
@@ -39,5 +39,7 @@
   "slotCount" : 64,
   "uiConfig" : "/interface/chests/chest<slots>.config",
   "frameCooldown" : 11,
-  "autoCloseCooldown" : 3600
+  "autoCloseCooldown" : 3600,
+  
+  "itemAgeMultiplier" : 0.0
 }

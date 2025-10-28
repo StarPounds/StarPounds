@@ -4,7 +4,7 @@
   "rarity" : "Common",
   "printable" : false,
   "category" : "light",
-  "lightColor" : [172, 114, 205],
+  "lightColor" : [172, 144, 205],
   "lightPosition" : [0, 0],
   "price" : 45,
   "description" : "An ominious purple light glows.",

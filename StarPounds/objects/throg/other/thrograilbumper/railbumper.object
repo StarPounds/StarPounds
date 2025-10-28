@@ -1,0 +1,29 @@
+{
+  "objectName" : "thrograilbumper",
+  "colonyTags" : ["rails"],
+  "rarity" : "Common",
+
+  "category" : "railPoint",
+  "price" : 100,
+  "description" : "Caps rail endpoints to send riders back the way they came",
+  "shortdescription" : "Throg Rail Bumper",
+  "race" : "throg",
+
+  "inventoryIcon" : "railbumpericon.png",
+  "orientations" : [
+    {
+      "image" : "railbumper.png",
+      "imagePosition" : [-2, -2],
+
+      "materialSpaces" : [
+        [[0, 0], "metamaterial:railreverse"]
+      ],
+
+      "fgAnchors" : [[-1, 0], [-1, -1], [0, -1], [1, -1], [1, 0], [1, 1], [0, 1], [-1, 1]],
+      "bgAnchors" : [[0, 0]],
+      "anchorAny" : true,
+
+      "direction" : "right"
+    }
+  ]
+}

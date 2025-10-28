@@ -1,0 +1,76 @@
+{
+  "animatedParts" : {
+    "stateTypes" : {
+      "stopState" : {
+        "default" : "off",
+        "states" : {
+          "off" : {},
+          "on" : {},
+          "wait" : {
+            "frames" : 2,
+            "cycle" : 1.0,
+            "mode" : "loop",
+            "frameProperties" : {
+              "immediateSound" : [ "/sfx/rails/tramstop_wait.ogg", "" ]
+            }
+          }
+        }
+      }
+    },
+
+    "parts" : {
+      "stopfullbright" : {
+        "properties" : {
+          "centered" : false,
+          "fullbright" : true,
+          "zLevel" : 1
+        },
+
+        "partStates" : {
+          "stopState" : {
+            "off" : {
+              "properties" : {
+                "image" : "<partImage>:<color>.off"
+              }
+            },
+            "on" : {
+              "properties" : {
+                "image" : "<partImage>:<color>.on"
+              }
+            },
+            "wait" : {
+              "properties" : {
+                "image" : "<partImage>:<color>.wait.<frame>"
+              }
+            }
+          }
+        }
+      },
+      "stop" : {
+        "properties" : {
+          "centered" : false
+        },
+
+        "partStates" : {
+          "stopState" : {
+            "off" : {
+              "properties" : {
+                "image" : "<partImage>:<color>.off"
+              }
+            },
+            "on" : {
+              "properties" : {
+                "image" : "<partImage>:<color>.on"
+              }
+            },
+            "wait" : {
+              "properties" : {
+                "image" : "<partImage>:<color>.wait.<frame>"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

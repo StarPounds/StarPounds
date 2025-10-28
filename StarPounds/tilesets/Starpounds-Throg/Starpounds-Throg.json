@@ -8,8 +8,8 @@
     {
      "0":
         {
-         "imagePositionX":"-2",
-         "imagePositionY":"-2",
+         "imagePositionX":"-8",
+         "imagePositionY":"-8",
          "object":"throgwalllight",
          "tilesetDirection":"right"
         },
@@ -75,8 +75,8 @@
      "0":
         {
          "image":"throgwalllight.png",
-         "imageheight":18,
-         "imagewidth":24
+         "imageheight":12,
+         "imagewidth":12
         },
      "1":
         {
