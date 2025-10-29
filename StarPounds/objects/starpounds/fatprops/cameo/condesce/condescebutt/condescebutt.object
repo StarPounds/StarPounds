@@ -35,10 +35,10 @@
     }
   ],
 
-  "scripts" : [ "/objects/starpounds/fatprops/condescebutt/condescebutt.lua" ],
+  "scripts" : [ "condescebutt.lua" ],
   "scriptDelta" : 5,
 
-  "animation" : "/objects/starpounds/fatprops/condescebutt/condescebutt.animation",
+  "animation" : "condescebutt.animation",
   "animationParts" : {
     "condensce" : "condescebutt.png"
   }
