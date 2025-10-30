@@ -5,6 +5,7 @@
   "description" : "Official Addon for ^#ccbbff;StarPounds!^reset;\n\nProvides support for modded races to participate in the various features of the mod.\n\nJoin the discord!\n^#ccbbff;discord.gg/starpounds",
   "name" : "Starpounds Extended Races",
   "friendlyName" : "^#ccbbff;StarPounds Addon: ^reset;Extended Races",
+  "icon" : "/interface/modsmenu/starpoundsmodicon.png",
   "priority" : 790,
   "link" : "https://forum.weightgaming.com/t/starbound-mod-big-fatties/1649"
 }
