@@ -76,9 +76,9 @@
     "/scripts/npcToyObject.lua",
     "/objects/starpounds/feedingtube/feedingtube.lua"
   ],
-  "sitCoverImage" : "/objects/starpounds/feedingtube/shoggothfeedingtube/feedingtubecover.png",
+  "sitCoverImage" : "feedingtubecover.png",
 
-  "placementImage" : "/objects/starpounds/feedingtube/shoggothfeedingtube/feedingtubepreview.png",
+  "placementImage" : "feedingtubepreview.png",
   "placementImagePosition" : [-15, 0],
   "shoggothColorable" : true,
   "color" : ""

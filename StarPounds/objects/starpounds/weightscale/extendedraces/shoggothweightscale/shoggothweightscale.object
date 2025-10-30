@@ -40,7 +40,7 @@
 
   "scripts" : [ "/objects/starpounds/weightscale/weightscale.lua" ],
 
-  "placementImage" : "/objects/starpounds/weightscale/shoggothweightscale/shoggothweightscale.png",
+  "placementImage" : "shoggothweightscale.png",
   "placementImagePosition" : [-8, 0],  
   "shoggothColorable" : true,
   "color" : ""

@@ -32,7 +32,7 @@
 
   "scripts" : [ "/objects/starpounds/treadmill/treadmill.lua" ],
   
-  "placementImage" : "/objects/starpounds/treadmill/shoggothtreadmill/shoggothtreadmill.png",
+  "placementImage" : "shoggothtreadmill.png",
   "placementImagePosition" : [-8, 0],
   "shoggothColorable" : true,
   "color" : ""
