@@ -190,6 +190,7 @@
       "spacer",
       {
         "type": "layout",
+        "id": "experienceLayout",
         "mode": "manual",
         "size" : [104, 18],
         "children": [

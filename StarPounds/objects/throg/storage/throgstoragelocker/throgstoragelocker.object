@@ -1,0 +1,43 @@
+{
+  "objectName" : "throgstoragelocker",
+  "colonyTags" : ["throg","storage"],
+  "rarity" : "Rare",
+  "category" : "fridgeStorage",
+  "price" : 180,
+  "printable" : false,
+  "objectType" : "container",
+  "tooltipKind" : "container",
+  "description" : "A nice, spacious, wall-mounted storage solution.",
+  "shortdescription" : "Throg Storage Locker",
+  "race" : "throg",
+  "health" : 1.5,
+
+  "apexDescription" : "A locker made from metal.",
+  "avianDescription" : "A place to keep your things.",
+  "floranDescription" : "Floran can ssstuff things into locker.",
+  "glitchDescription" : "Neutral. A metallic storage locker.",
+  "humanDescription" : "It's an industrial looking storage locker.",
+  "hylotlDescription" : "Somewhere to store personal belongings.",
+  "novakidDescription" : "A locker in the wall.",
+
+  "inventoryIcon" : "icon.png",
+  "orientations" : [
+    {
+      "imageLayers" : [ { "image" : "throgstoragelocker.png:<color>.<key>", "fullbright" : true }, { "image" : "throgstoragelockerlit.png:<color>.<key>" } ],
+      "imagePosition" : [-16, -8],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "background" ]
+    }
+  ],
+
+  "openSounds" : [ "/sfx/objects/gunchest_open.ogg" ],
+  "closeSounds" : [ "/sfx/objects/gunchest_close.ogg" ],
+  "slotCount" : 48,
+  "uiConfig" : "/interface/chests/chest<slots>.config",
+  "frameCooldown" : 5,
+  "openFrameIndex" : 4,
+  "autoCloseCooldown" : 3600,
+  
+  "itemAgeMultiplier" : 0.0
+}

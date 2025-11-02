@@ -1,0 +1,39 @@
+{
+  "objectName" : "starpoundsshoggothtreadmill",
+  "colonyTags" : ["starpounds"],
+  "rarity" : "Common",
+  "category" : "furniture",
+  "price" : 300,
+  "description" : "A device suited for working off the pounds.",
+  "shortdescription" : "Shoggoth Treadmill",
+  "race" : "shoggoth",
+
+  "apexDescription" : "A standard device for keeping one's legs in good shape.",
+  "avianDescription" : "I can hardly recall workouts being a thing for Avians.",
+  "floranDescription" : "Thisss machine dumb. Why walk in place when prey can be chasssed?",
+  "glitchDescription" : "Query: People use this to become smaller?",
+  "humanDescription" : "Oh thank goodness, a gym machine I can actually use.",
+  "hylotlDescription" : "I have been putting on some weight recently...",
+  "novakidDescription" : "What do folks need a machine for to do the running?",
+  "shoggothDescription" : "My flesh is alive, so using this to reduce my size should be considered morally wrong... right?",
+
+  "inventoryIcon" : "icon.png",
+  "orientations" : [
+    {
+      "dualImage" : "shoggothtreadmill.png:<color>",
+      "imagePosition" : [-8, 0],
+      "animationCycle" : 1.0,
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ],
+      "collision" : "platform",
+      "collisionSpaces" : [ [-1, 0], [0, 0], [1, 0], [2, 0], [3, 0] ]
+    }
+  ],
+
+  "scripts" : [ "/objects/starpounds/treadmill/treadmill.lua" ],
+  
+  "placementImage" : "shoggothtreadmill.png",
+  "placementImagePosition" : [-8, 0],
+  "shoggothColorable" : true,
+  "color" : ""
+}

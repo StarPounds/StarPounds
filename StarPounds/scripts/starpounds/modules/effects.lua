@@ -174,6 +174,13 @@ function effects:uninit()
       self.effects[effect] = nil
       starPounds.modules[string.format("effect_%s", effect)] = nil
     end
+    -- Can't trigger this in the respawn module, since the effects module gets unloaded (and deletes this effect) beforehand.
+    if not status.resourcePositive("health") then
+      local effectConfig = self.data.effects[effect]
+      if effectConfig.expireOnDeath then
+        self:remove(effect)
+      end
+    end
   end
 end
 

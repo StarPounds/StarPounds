@@ -1,9 +1,10 @@
 {
-  "version" : "1.0.0",
+  "version" : "0.2.0",
   "author" : "^#ccbbff;ShyDispatch^reset; (& ^#77aaff;LittleVulpine^reset;)",
   "description" : "Fatties join Starbound with ^#ccbbff;StarPounds^reset;!\n\nFeatures:\n· Weight Gain\n· An RPG style skill Tree\n· A plethora of new objects\n· Tons of new foods\n· A brand new fatty themed hub\n· And much, much more!\n\nTo get started, craft the Infusion Table at the Inventors Table, or simply enable the mod from the QuickBar!\n\nJoin the discord!\n^#ccbbff;discord.gg/starpounds^reset;\n\nCredits:\n· ShyDispatch: Creator\n· LittleVulpine: Coder\n· BlossomDancer: Fatty Weapons\n· FutaraDragon: Fullbright workaround\n· Jeschke: Sound Effects",
   "name" : "starpounds",
   "friendlyName" : "^#ccbbff;StarPounds: ^reset;Big Fatties",
+  "icon" : "/interface/modsmenu/starpoundsmodicon.png",
   "priority" : 789,
   "link" : "https://forum.weightgaming.com/t/starbound-mod-big-fatties/1649",
   "includes" : ["StardustLib", "QuickbarMini", "MorePlanetInfo", "mechoverhaul"],

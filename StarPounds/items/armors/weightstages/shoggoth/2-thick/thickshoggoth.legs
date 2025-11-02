@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "legwear",  
-  "description" : "Your bottom half is much jigglier than usual. Seems like someone is a bit thicker than most.",
+  "description" : "Thighs touching one another? Seems like someone is a bit thicker than most.",
   "shortdescription" : "Thick Bottom",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsthick"

@@ -1,0 +1,57 @@
+{
+  "objectName" : "fattiesbarbooth",
+  "colonyTags" : ["throg","misc"],
+  "rarity" : "Common",
+  "description" : "A sleek metal bench and table.",
+  "shortdescription" : "Throg Booth",
+  "race" : "generic",
+  "category" : "furniture",
+  "price" : 190,
+
+  "apexDescription" : "The stripes of colours on this bench are tastefully decorative.",
+  "avianDescription" : "Benches are best shared with friends.",
+  "floranDescription" : "Bench providesss tactical cover.",
+  "glitchDescription" : "Observant. A long bench for sitting with allies.",
+  "humanDescription" : "Is it a bench, or is it simply a wide chair?",
+  "hylotlDescription" : "A pleasing bench.",
+  "novakidDescription" : "I could go for a lie down on this, but it might not be so polite...",
+
+  "objectType" : "loungeable",
+  "sitFlipDirection" : false,
+
+  "inventoryIcon" : "fattiesbarboothicon.png",
+  "orientations" : [
+    {
+     "imageLayers" : [ { "image" : "fattiesbarboothflipped.png:<color>", "fullbright" : true }, { "image" : "fattiesbarboothflippedlit.png:<color>" } ],
+      "imagePosition" : [-44, 0],
+      "direction" : "left",
+
+      "sitPositions" : [
+        // Positions from front to back.
+        [0, 23] // Left
+      ],
+
+      "sitCoverImage" : "/objects/fattiesbar/fattiesbarbooth/fattiesbarboothcoverflipped.png",
+      "spaces" : [[-2,0],[-1,0],[0,0],[1,0],[-2,1],[-1,1],[0,1],[1,1]],
+      "anchors" : [ "bottom" ],
+      "collision" : "platform",
+      "collisionSpaces" : [ [-2, 1], [-1, 1] ]
+    },
+    {
+     "imageLayers" : [ { "image" : "fattiesbarbooth.png:<color>", "fullbright" : true }, { "image" : "fattiesbarboothlit.png:<color>" } ],
+      "imagePosition" : [-12, 0],
+      "direction" : "right",
+
+      "sitPositions" : [
+        // Positions from front to back.
+        [0, 23] // Middle
+      ],
+
+      "sitCoverImage" : "/objects/fattiesbar/fattiesbarbooth/fattiesbarboothcover.png",
+      "spaces" : [[-2,0],[-1,0],[0,0],[1,0],[-2,1],[-1,1],[0,1],[1,1]],
+      "anchors" : [ "bottom" ],
+      "collision" : "platform",
+      "collisionSpaces" : [ [0, 1], [1, 1] ]
+    }
+  ]
+}

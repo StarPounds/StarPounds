@@ -3,7 +3,7 @@
   "rarity" : "Common",
   "price" : 100,
   "category" : "drink",
-  "tooltipKind" : "fossil",
+  "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsmilkstout.png",
   "description" : "A thick, sweet liquor made from nice creamy milk.",
   "shortdescription" : "Milk Stout",
@@ -22,5 +22,24 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Milk Stout ^yellow;^reset;",  
+    "price" : 200,
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk",
+        "duration" : 450
+    },
+    {
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 450
+    }
+    ]]
+  }
+  
 }

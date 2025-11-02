@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "legwear",  
-  "description" : "You're almost as big as a house. A befitting size for an eldritch horror.",
+  "description" : "You're almost as big as a house. A befitting size for an eldritch monstrosity.",
   "shortdescription" : "Blobby Body",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsblob"

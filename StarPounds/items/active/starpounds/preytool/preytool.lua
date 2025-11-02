@@ -53,7 +53,7 @@ end
 function isTargetValid(target)
   local targetType = world.entityTypeName(target)
   if world.entityType(target) == "monster" then
-    local scriptCheck = contains(root.monsterParameters(targetType).scripts or jarray(), "/scripts/starpounds/starpounds_monster.lua")
+    local scriptCheck = contains(root.monsterParameters(targetType).scripts or jarray(), "/scripts/starpounds/loaders/monster.lua")
     local parameters = root.monsterParameters(targetType)
     local behaviorCheck = parameters.behavior and contains(monsterBehaviors, parameters.behavior) or false
     if parameters.starPounds_options and parameters.starPounds_options.disablePred then return false end
@@ -62,7 +62,7 @@ function isTargetValid(target)
     end
   end
   if world.entityType(target) == "npc" then
-    if not contains(root.npcConfig(targetType).scripts or jarray(), "/scripts/starpounds/starpounds_npc.lua") then return false end
+    if not contains(root.npcConfig(targetType).scripts or jarray(), "/scripts/starpounds/loaders/npc.lua") then return false end
     if world.getNpcScriptParameter(target, "starPounds_options", jarray()).disablePred then return false end
   end
   return not world.lineTileCollision(world.entityMouthPosition(target), world.entityPosition(activeItem.ownerEntityId()), {"Null", "Block", "Dynamic", "Slippery"})

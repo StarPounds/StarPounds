@@ -17,9 +17,9 @@
   "throgDescription" : "The teleporter can take me to all my favorite food stops.",  
 
   "category" : "teleporter",
-  "lightColor" : [99, 132, 153],
-  "flickerDistance" : 0.2,
-  "flickerStrength" : 0.05,
+  "lightColor" : [72, 14, 125],
+  "flickerDistance" : 0.0,
+  "flickerStrength" : 0.0,
   "flickerTiming" : 4,
 
   "particleEmitter" : {
@@ -30,8 +30,8 @@
       "type" : "ember",
       "position" : [-0.5, 5],
       "size" : 1.0,
-      "color" : [64, 190, 255, 255],
-      "light" : [50, 50, 150],
+      "color" : [132, 104, 185, 255],
+      "light" : [100, 50, 150],
       "fade" : 0.9,
       "destructionAction" : "shrink",
       "destructionTime" : 0.5,

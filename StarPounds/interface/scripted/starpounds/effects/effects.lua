@@ -51,10 +51,16 @@ function update()
             widgetDuration:setText((starPounds.isEnabled() and "^lightgray;" or "^darkgray;")..(effectData.duration and timeFormat(effectData.duration) or "--:--"))
           end
           if widgetLevels then
-            for i=1, math.min(effect.levels or 1, 10) do
-              local levelIcon = _ENV[string.format("active_%sEffect_level_%s", effectKey, i)]
-              levelIcon:setFile(string.format("levels.png:%s.%s", effect.type or "default", (effectData.level >= i) and "on" or "off"))
-              levelIcon:queueRedraw()
+            local levels = effect.levels or 1
+            if levels <= 10 then
+              for i=1, effect.levels do
+                local levelIcon = _ENV[string.format("active_%sEffect_level_%s", effectKey, i)]
+                levelIcon:setFile(string.format("levels.png:%s.%s", effect.type or "default", (effectData.level >= i) and "on" or "off"))
+                levelIcon:queueRedraw()
+              end
+            else
+              local levelLabel = _ENV[string.format("active_%sEffect_level_label", effectKey)]
+              levelLabel:setText(string.format("^gray;%s / %s", effectData.level, effect.levels))
             end
           end
         else
@@ -206,8 +212,13 @@ function makeEffectWidget(tab, effectKey, effect)
     })
 
     local levelWidget = { id = string.format("%s_%sEffect_levels", tab, effectKey), type = "layout", position = {7, 21}, size = {128, 5}, spacing = 5, mode = "horizontal", children = {"spacer"}}
-    for i=1, math.min(effect.levels or 1, 10) do
-      levelWidget.children[i + 1] = { id = string.format("%s_%sEffect_level_%s", tab, effectKey, i), type = "image", noAutoCrop = true, file = string.format("levels.png:%s.%s", effect.type or "default", (effectData.level >= i) and "on" or "off") }
+    local levels = effect.levels or 1
+    if levels <= 10 then
+      for i=1, effect.levels do
+        levelWidget.children[i + 1] = { id = string.format("%s_%sEffect_level_%s", tab, effectKey, i), type = "image", noAutoCrop = true, file = string.format("levels.png:%s.%s", effect.type or "default", (effectData.level >= i) and "on" or "off") }
+      end
+    else
+      levelWidget.children[#levelWidget.children + 1] = { id = string.format("%s_%sEffect_level_label", tab, effectKey), type = "label", fontSize = 6, align = "center", text = string.format("^gray;%s / %s", effectData.level, effect.levels) }
     end
     levelWidget.children[#levelWidget.children + 1] = "spacer"
 
@@ -507,7 +518,7 @@ end
 
 function timeFormat(seconds)
   local minutes = math.floor(seconds/60)
-  local seconds = math.floor(seconds) % 60
+  local seconds = math.ceil(seconds) % 60
   if (minutes < 10) then
     minutes = tostring(minutes)
   end

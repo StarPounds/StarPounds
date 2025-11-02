@@ -5,6 +5,7 @@
   "requires" : ["starpounds"],
   "name" : "starpoundsthrogverse",
   "friendlyName" : "^#ccbbff;StarPounds Addon: ^reset;Throgverse",
+  "icon" : "/interface/modsmenu/starpoundsmodicon.png",
   "priority" : 789,
   "link" : "https://forum.weightgaming.com/t/starbound-mod-big-fatties/1649"
 }

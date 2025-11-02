@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "legwear",  
-  "description" : "You're so big you can't even move. Tsathoggua would be proud.",
+  "description" : "Now you can't even move fatty. Your gluttony knows no bounds.",
   "shortdescription" : "Immobile Body",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsimmobile"

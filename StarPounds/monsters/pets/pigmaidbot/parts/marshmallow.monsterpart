@@ -4,6 +4,7 @@
   "type" : "body",
 
   "frames" : {
-    "body" : "marshmallow.png"
+    "body" : "marshmallow.png",
+    "bodynobright" : "marshmallownobright.png"
   }
 }

@@ -19,7 +19,7 @@ end
 
 function stats.updateEvent(trace) -- Trace shows you where the 'change' is coming from.
   -- Kill the cache, and force an update to stats.
-  self = stats
+  local self = stats
   self.cache = {}
   self:calculate()
   starPounds.moduleFunc("size", "updateStats", true)
@@ -69,13 +69,15 @@ function stats:calculate()
   self.skillStats = {}
   for skillName in pairs(storage.starPounds.skills) do
     local skill = self.skills[skillName]
-    if skill.type == "addStat" then
-      self.skillStats[skill.stat] = (self.skillStats[skill.stat] or 0) + (skill.amount * starPounds.moduleFunc("skills", "level", skillName))
-    elseif skill.type == "subtractStat" then
-      self.skillStats[skill.stat] = (self.skillStats[skill.stat] or 0) - (skill.amount * starPounds.moduleFunc("skills", "level", skillName))
-    end
-    if self.skillStats[skill.stat] == 0 then
-      self.skillStats[skill.stat] = nil
+    if skill then
+      if skill.type == "addStat" then
+        self.skillStats[skill.stat] = (self.skillStats[skill.stat] or 0) + (skill.amount * starPounds.moduleFunc("skills", "level", skillName))
+      elseif skill.type == "subtractStat" then
+        self.skillStats[skill.stat] = (self.skillStats[skill.stat] or 0) - (skill.amount * starPounds.moduleFunc("skills", "level", skillName))
+      end
+      if self.skillStats[skill.stat] == 0 then
+        self.skillStats[skill.stat] = nil
+      end
     end
   end
   -- Trait Stats.

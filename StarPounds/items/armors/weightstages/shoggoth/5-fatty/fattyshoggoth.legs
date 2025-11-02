@@ -8,6 +8,7 @@
   "description" : "That butt is an absolute dumptruck. Only good for sitting down every single day.",
   "shortdescription" : "Fatty Bottom",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsfatty"

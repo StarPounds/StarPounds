@@ -1,0 +1,45 @@
+{
+  "objectName" : "condescebutt",
+  "printable" : false,
+  "rarity" : "Legendary",
+
+  "category" : "decorative",
+  "price" : 10000,
+  "description" : "A large Troll Empress, with a fitting throne sized posterior.",
+  "shortdescription" : "Condesce: Butt",
+  "race" : "generic",
+
+  "apexDescription" : "Reminds me of rumours about miniknog test subjects.",
+  "avianDescription" : "With a rump that size, you'd be hard pressed to fly using a ship, let alone wings.",
+  "floranDescription" : "Troll hasss big tushy. Good for ressting when on hunt.",
+  "glitchDescription" : "Curious. This troll has a significant rear.",
+  "humanDescription" : "Her backend is a lot prettier than the front.",
+  "hylotlDescription" : "It's hard to imagine how much food it must've taken to produce that backside.",
+  "novakidDescription" : "This here rear probably weighs more your average joe.",
+  "trollDescription" : "Sounds right, a little on the small side though.",
+  "tirastrollsDescription" : "Sounds right, a little on the small side though.",
+
+  "inventoryIcon" : "condescebutt.png:default.default",
+
+  "orientations" : [
+    {
+      "image" : "condescebutt.png:default.default",
+      "imagePosition" : [-23, -32],
+    
+      "direction" : "right",
+
+      "mouthPosition": [-0.05, -1.5],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ]
+    }
+  ],
+
+  "scripts" : [ "condescebutt.lua" ],
+  "scriptDelta" : 5,
+
+  "animation" : "condescebutt.animation",
+  "animationParts" : {
+    "condensce" : "condescebutt.png"
+  }
+}

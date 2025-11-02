@@ -1,0 +1,44 @@
+{
+  "objectName" : "thrograiltramstop",
+  "colonyTags" : ["rails"],
+  "rarity" : "Common",
+
+  "category" : "railPoint",
+  "price" : 600,
+  "description" : "Calls and stops rail trams",
+  "shortdescription" : "Throg Rail Tram Stop",
+  "race" : "throg",
+
+  "inventoryIcon" : "railtramstopicon.png",
+  "orientations" : [
+    {
+      "image" : "railtramstop.png:default.on",
+      "imagePosition" : [-2, -8],
+
+      "materialSpaces" : [
+        [[0, 0], "metamaterial:rail"]
+      ],
+
+      "fgAnchors" : [[-1, 0], [-1, -1], [0, -1], [1, -1], [1, 0], [1, 1], [0, 1], [-1, 1]],
+      "bgAnchors" : [[0, 0]],
+      "anchorAny" : true,
+      
+      "direction" : "right"
+    }
+  ],
+
+  "animation" : "railtramstop.animation",
+  "animationParts" : {
+    "stop" : "railtramstop.png",
+    "stopfullbright" : "railtramstopfullbright.png"
+  },
+  "animationPosition" : [-2, -8],
+
+  "scripts" : [
+    "/objects/rails/railtramstop/railtramstop.lua"
+  ],
+  "scriptDelta" : 5,
+
+  "inputNodes" : [ [0, 0], [0, 1] ],
+  "outputNodes" : [ [0, -1] ]
+}

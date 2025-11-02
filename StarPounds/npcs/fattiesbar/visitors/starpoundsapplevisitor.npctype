@@ -5,7 +5,7 @@
 
   "scripts" : [
     "/npcs/bmain.lua",
-    "/scripts/starpounds/starpounds_npc.lua",
+    "/scripts/starpounds/loaders/npc.lua",
     "/scripts/starpounds_statusText.lua"
   ],
 

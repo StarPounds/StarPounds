@@ -89,9 +89,11 @@ function update()
   if experience ~= starPounds.experience or level ~= starPounds.level then
     setProgress(starPounds.experience, starPounds.level)
 
-    checkSkills()
-    if selectedSkill then
-      _ENV[string.format("%sSkill", selectedSkill.name)].onClick()
+    if level ~= starPounds.level then
+      checkSkills()
+      if selectedSkill then
+        _ENV[string.format("%sSkill", selectedSkill.name)].onClick()
+      end
     end
   end
 
@@ -565,7 +567,7 @@ function selectSkill(skill)
     )
     if skill.widget and (skill.forceWidget or unlockedLevel > 0) then
       require(string.format("/interface/scripted/starpounds/skills/descriptionWidgets/%s.lua", skill.widget.id))
-      descriptionWidget:addChild(skill.widget).onClick = descriptionFunctions[skill.widget.id]
+      descriptionFunctions[skill.widget.id](descriptionWidget:addChild(skill.widget))
     end
   end
 
@@ -824,6 +826,9 @@ function setProgress(experience, level)
   experienceText:setText(string.format("%s XP", level))
   experienceBar:setFile(string.format("bar.png?crop;0;0;%s;14", math.floor(70 * (progress or 0) + 0.5)))
   experienceBar:queueRedraw()
+  experienceBar:queueGeometryUpdate()
+  experienceLayout:queueRedraw()
+  experienceLayout:queueGeometryUpdate()
 end
 
 function weightDecrease:onClick()

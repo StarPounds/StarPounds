@@ -1,0 +1,7 @@
+[
+  {
+    "op": "add",
+    "path": "/scripts/-",
+    "value": "foodpoison_starpoundspatch.lua"
+  }
+]

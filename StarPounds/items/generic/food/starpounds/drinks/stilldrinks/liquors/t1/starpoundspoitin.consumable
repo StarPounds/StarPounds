@@ -3,7 +3,7 @@
   "rarity" : "Common",
   "price" : 80,
   "category" : "drink",
-  "tooltipKind" : "fossil",
+  "tooltipKind" : "food",
   "inventoryIcon" : "starpoundspoitin.png",
   "description" : "A moonshine brewed from the humble tuber. Bottoms up!",
   "shortdescription" : "Poitin",
@@ -22,5 +22,24 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Poitin ^yellow;^reset;",  
+    "price" : 160,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk",
+        "duration" : 405
+    },
+    {
+        "effect" : "maxhealthscalingboostfood",
+        "duration" : 405
+    }
+    ]]
+  }
+  
 }

@@ -3,7 +3,7 @@
   "rarity" : "Common",
   "price" : 100,
   "category" : "drink",
-  "tooltipKind" : "fossil",
+  "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsbourbon.png",
   "description" : "Novakids are fond of this drink- though more typically its served in a metal flask.",
   "shortdescription" : "Bourbon",
@@ -22,5 +22,24 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Bourbon ^yellow;^reset;",  
+  
+    "price" : 200,
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk",
+        "duration" : 450
+    },
+    {
+        "effect" : "maxhealthscalingboostfood",
+        "duration" : 450
+    }
+    ]]
+  }
 }

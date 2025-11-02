@@ -72,8 +72,91 @@
     "parts" : {
       "body" : {
         "properties" : {
+          "zLayer" : 1,
+          "transformationGroups" : [ "body" ],
           "centered" : true,
-          "offset" : [0, 1]
+          "offset" : [0, 1],
+          "fullbright" : true
+        },
+        "partStates" : {
+          "movement" : {
+            "idle" : {
+              "properties" : {
+                "image" : "<partImage>:idle.<frame>"
+              }
+            },
+            "stand" : {
+              "properties" : {
+                "image" : "<partImage>:stand.<frame>"
+              }
+            },
+            "run" : {
+              "properties" : {
+                "image" : "<partImage>:run.<frame>"
+              }
+            },
+            "blink" : {
+              "properties" : {
+                "image" : "<partImage>:blink.<frame>"
+              }
+            },
+            "walk" : {
+              "properties" : {
+                "image" : "<partImage>:walk.<frame>"
+              }
+            },
+            "jumping" : {
+              "properties" : {
+                "image" : "<partImage>:jump.<frame>"
+              }
+            },
+            "falling" : {
+              "properties" : {
+                "image" : "<partImage>:fall.<frame>"
+              }
+            },
+            "eat" : {
+              "properties" : {
+                "image" : "<partImage>:eat.<frame>"
+              }
+            },
+            "eatloop" : {
+              "properties" : {
+                "image" : "<partImage>:eatloop.<frame>"
+              }
+            },
+            "inspect" : {
+              "properties" : {
+                "image" : "<partImage>:inspect.<frame>"
+              }
+            },
+            "swim" : {
+              "properties" : {
+                "image" : "<partImage>:swim.<frame>"
+              }
+            },
+            "sound" : {
+              "properties" : {
+                "image" : "<partImage>:sound.<frame>"
+              }
+            },
+            "sleep" : {
+              "properties" : {
+                "image" : "<partImage>:sleep.<frame>"
+              }
+            },
+            "invisible" : {
+              "properties" : {
+                "image" : "<partImage>:invisible.<frame>"
+              }
+            }
+          }
+        }
+      },
+      "bodynobright" : {
+        "properties" : {
+          "zLayer" : 2,
+          "anchorPart" : "body"
         },
         "partStates" : {
           "movement" : {
@@ -347,7 +430,7 @@
           "particle" : {
             "type" : "animated",
             "animation" : "/animations/emotes/happy.animation",
-            "position" : [0.5, 2],
+            "position" : [0.5, 4],
             "finalVelocity" : [0, 0],
             "initialVelocity" : [0, 0],
             "destructionTime" : 0.2,
@@ -367,7 +450,7 @@
           "particle" : {
             "type" : "animated",
             "animation" : "/animations/emotes/sad.animation",
-            "position" : [0.5, 2],
+            "position" : [0.5, 4],
             "finalVelocity" : [0, 0],
             "initialVelocity" : [0, 0],
             "destructionTime" : 0.2,
@@ -387,7 +470,7 @@
           "particle" : {
             "type" : "animated",
             "animation" : "/animations/emotes/confused.animation",
-            "position" : [0.5, 2],
+            "position" : [0.5, 4],
             "finalVelocity" : [0, 0],
             "initialVelocity" : [0, 0],
             "destructionTime" : 0.2,
@@ -407,7 +490,7 @@
           "particle" : {
             "type" : "animated",
             "animation" : "/animations/emotes/sleepy.animation",
-            "position" : [0.5, 2],
+            "position" : [0.5, 4],
             "finalVelocity" : [0, 0],
             "initialVelocity" : [0, 0],
             "destructionTime" : 0.2,
@@ -442,6 +525,10 @@
         }
       ]
     }
+  },
+  
+  "transformationGroups" : {
+    "body" : { "interpolated" : true }
   },
 
   "effects" : {

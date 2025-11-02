@@ -3,7 +3,7 @@
   "rarity" : "Uncommon",
   "price" : 200,
   "category" : "drink",
-  "tooltipKind" : "fossil",
+  "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsmithridate.png",
   "description" : "A noxious drink for the truly brave and/or foolish. Roll for Constitution!",
   "shortdescription" : "Mithridate",
@@ -26,5 +26,27 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Mithridate ^yellow;^reset;",  
+    "price" : 400,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk",
+        "duration" : 450
+    },
+    {
+        "effect" : "poisonblock",
+        "duration" : 450
+    },
+    {
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 450
+    }
+    ]]
+  }
 }

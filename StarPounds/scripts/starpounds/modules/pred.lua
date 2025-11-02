@@ -114,7 +114,7 @@ function pred:eat(preyId, options, check)
     if not contains(compatibleEntities, world.entityType(preyId)) then return false end
     -- Need the upgrades for the specific entity type
     if world.entityType(preyId) == "monster" then
-      local scriptCheck = contains(root.monsterParameters(preyType).scripts or jarray(), "/scripts/starpounds/starpounds_monster.lua")
+      local scriptCheck = contains(root.monsterParameters(preyType).scripts or jarray(), "/scripts/starpounds/loaders/monster.lua")
       if scriptCheck then
         if (not canVoreMonster) and (not preyType:find("critter")) then return false end
         if (not canVoreCritter) and preyType:find("critter") then return false end
@@ -129,7 +129,7 @@ function pred:eat(preyId, options, check)
   -- Skip the rest if the monster/npc can't be eaten to begin with.
   local isCritter = false
   if world.entityType(preyId) == "monster" then
-    local scriptCheck = contains(root.monsterParameters(preyType).scripts or jarray(), "/scripts/starpounds/starpounds_monster.lua")
+    local scriptCheck = contains(root.monsterParameters(preyType).scripts or jarray(), "/scripts/starpounds/loaders/monster.lua")
     local parameters = root.monsterParameters(preyType)
     isCritter = contains(self.data.critterBehaviors, parameters.behavior)
     local isMonster = contains(self.data.monsterBehaviors, parameters.behavior)
@@ -141,7 +141,7 @@ function pred:eat(preyId, options, check)
   end
 
   if world.entityType(preyId) == "npc" then
-    if not contains(root.npcConfig(preyType).scripts or jarray(), "/scripts/starpounds/starpounds_npc.lua") then return false end
+    if not contains(root.npcConfig(preyType).scripts or jarray(), "/scripts/starpounds/loaders/npc.lua") then return false end
     if world.getNpcScriptParameter(preyId, "starPounds_options", jarray()).disablePrey then return false end
     if starPounds.type == "player" and starPounds.hasOption("disableCrewVore") and world.getNpcScriptParameter(preyId, "ownerUuid") ~= entity.uniqueId() then return false end
   end
@@ -199,7 +199,7 @@ function pred:eat(preyId, options, check)
     -- Insert prey into tracking table.
     table.insert(storage.starPounds.stomachEntities, preyConfig)
     -- Eating energy cost.
-    local energyMult = options.energyMultiplier or 1
+    local energyMult = (options.energyMultiplier or 1) * starPounds.getStat("voreEnergy")
     if energyMult > 0 then
       local preyHealth = world.entityHealth(preyId)
       local preyHealthPercent = preyHealth[1]/preyHealth[2]
@@ -413,9 +413,13 @@ function pred:digestPrey(preyId, items, preyStomach)
   end
   -- Iterate over and edit the items.
   local regurgitatedItems = jarray()
-  -- We get purple particles if we digest something that gives ancient essence.
   local hasEssence = false
   if digestedEntity.type == "humanoid" then
+    -- Add soul effect if we have the skill.
+    if starPounds.moduleFunc("skills", "has", "voreSouls") then
+      starPounds.moduleFunc("effects", "add", "voreSouls")
+    end
+    -- We get purple particles if we digest something that gives ancient essence.
     for _, item in pairs(root.createTreasure("essenceDrop", world.threatLevel())) do
       if item.name == "essence" then
         local itemCount = math.round(item.count * starPounds.getStat("voreEssence"))
@@ -761,8 +765,8 @@ function pred:belchParticles(prey, essence)
     specification = particle
   }}
   particles[#particles + 1] = sb.jsonMerge(particles[1], {specification = {color = {144, 217, 0}}})
-  -- Humanoids get glowy death particles.
-  if prey.type == "humanoid" then
+  -- Humanoids get glowy death particles and doesn't have the soul absorb skill.
+  if prey.type == "humanoid" and not starPounds.moduleFunc("skills", "has", "voreSouls") then
     particles[#particles + 1] = sb.jsonMerge(particles[1], {specification = {color = {96, 184, 235}, fullbright = true, collidesLiquid = false, timeToLive = 0.5}})
     particles[#particles + 1] = sb.jsonMerge(particles[1], {specification = {color = {0, 140, 217}, fullbright = true, collidesLiquid = false, timeToLive = 0.5}})
   end

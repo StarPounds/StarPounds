@@ -3,8 +3,8 @@
   "rarity" : "Common",
   "price" : 120,
   "category" : "drink",
-  "tooltipKind" : "fossil",
-  "description" : "So named for the legendary Avian pirate Xeloxal, who used one of his tailfeathers to mix the original drink.",
+  "tooltipKind" : "food",
+  "description" : "Named for the Avian pirate Xeloxal, who used one of his tailfeathers to mix the original drink.",
   "inventoryIcon" : "starpoundscockstail.png",
   "shortdescription" : "Cock's Tail",
   "maxStack" : 1,
@@ -22,5 +22,23 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Cock's Tail ^yellow;^reset;",  
+    "price" : 240,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk",
+        "duration" : 225
+    },
+    {
+        "effect" : "jumpboostfood",
+        "duration" : 225
+    }
+    ]]
+  }
 }

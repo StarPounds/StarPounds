@@ -1,0 +1,30 @@
+{
+  "itemName" : "fattybustyfilledshoggothchest",
+  "price" : 0,
+  "inventoryIcon" : "icons.png:chest",
+  "maxStack" : 1,
+  "rarity" : "legendary",
+  "category" : "chestwear",
+  "description" : "Such impressive boobs you have. If only they weren't dwarfed by a big fat gut.",
+  "shortdescription" : "Busty Filled Chest",
+  "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
+
+  "statusEffects": [
+    "starpoundsfatty",
+    "starpoundsbusty",
+    "starpoundsfilled"
+  ],
+
+  "maleFrames" : {
+    "body" : "fatty_chestm.png",
+    "backSleeve" : "bsleeve.png",
+    "frontSleeve" : "fsleeve.png"
+  },
+
+  "femaleFrames" : {
+    "body" : "fatty_chestf.png",
+    "backSleeve" : "bsleeve.png",
+    "frontSleeve" : "fsleevef.png"
+  }
+}

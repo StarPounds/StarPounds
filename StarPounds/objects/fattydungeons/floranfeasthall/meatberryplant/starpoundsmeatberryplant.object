@@ -4,11 +4,10 @@
   "rarity" : "Common",
   "description" : "A strange kind of plant that produces meaty berries.",
   "shortdescription" : "Meatberry Plant",
-  "race" : "generic",
+  "race" : "floran",
   "category" : "decorative",
   "price" : 100,
   "printable" : false,
-
 
   "apexDescription" : "Interesting. These berries seem to have meatlike qualities.",
   "avianDescription" : "Smells like meat, oddly enough.",
@@ -29,7 +28,6 @@
 
       "spaceScan" : 0.1,
       "anchors" : [ "bottom" ]
-
     }
   ],
 
@@ -37,6 +35,10 @@
 
   "scripts" : ["/objects/fattydungeons/dungeonartifactshield.lua"],
   "scriptDelta" : 0,
+  "smashOnBreak" : true,
+  "smashParticles" : [{ "count" : 12, "particle" : "gluttonistdoorshard" }, { "count" : 12, "particle" : "meatberryshard" }],
+  "smashSounds": [ "/sfx/objects/plant_break4.ogg"],
+  "smashDropPool" : "starpoundsmeatberrypool",
   "breakDropPool" : "starpoundsmeatberrypool"
 
 }

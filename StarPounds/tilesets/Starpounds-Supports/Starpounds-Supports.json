@@ -1,10 +1,4 @@
-{ "columns":0,
- "grid":
-    {
-     "height":1,
-     "orientation":"orthogonal",
-     "width":1
-    },
+{
  "margin":0,
  "name":"Starpounds-Supports",
  "spacing":0,
@@ -39,37 +33,6 @@
      "6":
         {
          "material":"throgglassrail"
-        }
-    },
- "tilepropertytypes":
-    {
-     "0":
-        {
-         "material":"string"
-        },
-     "1":
-        {
-         "material":"string"
-        },
-     "2":
-        {
-         "material":"string"
-        },
-     "3":
-        {
-         "material":"string"
-        },
-     "4":
-        {
-         "material":"string"
-        },
-     "5":
-        {
-         "material":"string"
-        },
-     "6":
-        {
-         "material":"string"
         }
     },
  "tiles":

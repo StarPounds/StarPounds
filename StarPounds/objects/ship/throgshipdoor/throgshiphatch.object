@@ -36,7 +36,7 @@
   "scripts" : [ "/objects/wired/door/door.lua" ],
   "scriptDelta" : 5,
 
-  "animation" : "/objects/wired/door/door.animation",
+  "animation" : "/objects/wired/door/starpoundsfullbrightdoor.animation",
   "animationCustom" : {
     "sounds" : {
       "open" : {
@@ -50,7 +50,8 @@
     }
   },
   "animationParts" : {
-    "door" : "throgshiphatch.png"
+    "door" : "throgshiphatch.png",
+    "doorlit" : "throgshiphatchlit.png"
   },
   "animationPosition" : [-16, -20],
 
