@@ -1,0 +1,78 @@
+{
+  "type" : "deepfryfivemaple32visitor",
+  "baseType" : "fattiesbarvisitor",
+  "displayTitle" : "Deep Fry 5 Guest",
+
+ "scriptConfig" : {
+    "offeredQuests" : [ ],
+    "turnInQuests" : [ ],
+    "behaviorConfig" : {
+      "greetingChance" : 0
+    },
+    "dialogMode": "tutorial",
+    "dialog": {
+			"converse": "/dialog/deepfryfive.config:converse"
+    }
+  },
+  
+  "matchColorIndices": true,
+  "items": {
+    "nuu": [
+      [ 0, [
+          {
+            "head": [
+              "", "",  "",  "", "", "",  "",  "", "", "",  "",  "", "", "",  "",  "",
+              { "name" : "swamphat", "parameters" : { "colorIndex" : [0] } },
+              { "name" : "eyepatchhead", "parameters" : { "colorIndex" : [0] } },
+              { "name" : "fancyhead", "parameters" : { "colorIndex" : [0, 0, 5, 6, 8, 9, 10, 0, 1, 2, 3, 3, 4, 7, 7, 11, 11] } },
+              { "name" : "buccaneerhead", "parameters" : { "colorIndex" : [0, 0, 5, 6, 8, 9, 10, 0, 1, 2, 3, 3, 4, 7, 7, 11, 11] } },
+              { "name" : "ricefarmerhead", "parameters" : { "colorIndex" : [0] } },
+              { "name" : "workerhead", "parameters" : { "colorIndex" : [0, 0, 5, 6, 8, 9, 10, 0, 1, 2, 3, 3, 4, 7, 7, 11, 11] } },
+              { "name" : "nuuhood", "parameters" : { "colorIndex" : [0, 0, 5, 6, 8, 9, 10, 0, 1, 2, 3, 3, 4, 7, 7, 11, 11] } },
+              { "name" : "nuuhoodmask", "parameters" : { "colorIndex" : [0, 0, 5, 6, 8, 9, 10, 0, 1, 2, 3, 3, 4, 7, 7, 11, 11] } },
+              { "name" : "nuugoggles", "parameters" : { "colorIndex" : [0, 0, 5, 6, 8, 9, 10, 0, 1, 2, 3, 3, 4, 7, 7, 11, 11] } },
+              { "name" : "nuusnowcolonisthead", "parameters" : { "colorIndex" : [0, 0, 5, 6, 8, 9, 10, 0, 1, 2, 3, 3, 4, 7, 7, 11, 11] } },
+              { "name" : "undergroundhathead", "parameters" : { "colorIndex" : [0, 0, 5, 6, 8, 9, 10, 0, 1, 2, 3, 3, 4, 7, 7, 11, 11] } },
+              { "name" : "undergroundhathead", "parameters" : { "colorIndex" : [0, 0, 5, 6, 8, 9, 10, 0, 1, 2, 3, 3, 4, 7, 7, 11, 11] } },
+              { "name" : "nuusnowcolonistmaskhead", "parameters" : { "colorIndex" : [0, 0, 5, 6, 8, 9, 10, 0, 1, 2, 3, 3, 4, 7, 7, 11, 11] } },
+              { "name" : "steppehat", "parameters" : { "colorIndex" : [0, 0, 5, 6, 8, 9, 10, 0, 1, 2, 3, 3, 4, 7, 7, 11, 11] } }
+            ],
+            "chest": [
+              { "name" : "Nuuoutfit1chest", "parameters" : { "colorIndex" : [0, 0, 5, 6, 8, 9, 10, 0, 1, 2, 3, 3, 4, 7, 7, 11, 11] } },
+              { "name" : "Nuuoutfit2chest", "parameters" : { "colorIndex" : [0, 0, 5, 6, 8, 9, 10, 0, 1, 2, 3, 3, 4, 7, 7, 11, 11] } },
+              { "name" : "Nuuoutfit3chest", "parameters" : { "colorIndex" : [0, 0, 5, 6, 8, 9, 10, 0, 1, 2, 3, 3, 4, 7, 7, 11, 11] } },
+              { "name" : "Nuuoutfit4chest", "parameters" : { "colorIndex" : [0, 0, 5, 6, 8, 9, 10, 0, 1, 2, 3, 3, 4, 7, 7, 11, 11] } },
+              { "name" : "ricefarmerchest", "parameters" : { "colorIndex" : [0, 0, 5, 6, 8, 9, 10, 0, 1, 2, 3, 3, 4, 7, 7, 11, 11] } },
+              { "name" : "workerchest", "parameters" : { "colorIndex" : [0, 0, 5, 6, 8, 9, 10, 0, 1, 2, 3, 3, 4, 7, 7, 11, 11] } }
+            ],
+            "legs": [
+              { "name" : "Nuuoutfit1legs", "parameters" : { "colorIndex" : [0, 0, 5, 6, 8, 9, 10, 0, 1, 2, 3, 3, 4, 7, 7, 11, 11] } },
+              { "name" : "Nuuoutfit2legs", "parameters" : { "colorIndex" : [0, 0, 5, 6, 8, 9, 10, 0, 1, 2, 3, 3, 4, 7, 7, 11, 11] } },
+              { "name" : "Nuuoutfit3legs", "parameters" : { "colorIndex" : [0, 0, 5, 6, 8, 9, 10, 0, 1, 2, 3, 3, 4, 7, 7, 11, 11] } },
+              { "name" : "Nuuoutfit4legs", "parameters" : { "colorIndex" : [0, 0, 5, 6, 8, 9, 10, 0, 1, 2, 3, 3, 4, 7, 7, 11, 11] } },
+              { "name" : "workerlegs", "parameters" : { "colorIndex" : [0, 0, 5, 6, 8, 9, 10, 0, 1, 2, 3, 3, 4, 7, 7, 11, 11] } },
+              { "name" : "firesuitlegs", "parameters" : { "colorIndex" : [0, 0, 5, 6, 8, 9, 10, 0, 1, 2, 3, 3, 4, 7, 7, 11, 11] } },
+              { "name" : "hunterlegs", "parameters" : { "colorIndex" : [0, 0, 5, 6, 8, 9, 10, 0, 1, 2, 3, 3, 4, 7, 7, 11, 11] } },
+              { "name" : "covertoperativelegs", "parameters" : { "colorIndex" : [0, 0, 5, 6, 8, 9, 10, 0, 1, 2, 3, 3, 4, 7, 7, 11, 11] } }
+            ]
+          }
+        ] ]
+    ],
+
+    "glutt": [
+      [ 0, [
+          {
+            "head": [
+              { "name": "bedouinhead", "parameters": { "colorIndex": [ 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 7, 9, 11 ] } }
+            ],
+            "chest": [
+              { "name": "bedouinchest", "parameters": { "colorIndex": [ 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 7, 9, 11 ] } }
+            ],
+            "legs": [
+              { "name": "bedouinlegs", "parameters": { "colorIndex": [ 0, 0, 0, 0, 0, 0, 1, 2, 3, 4, 7, 9, 11 ] } }
+            ]
+          }
+        ] ]
+    ]
+  }
+}

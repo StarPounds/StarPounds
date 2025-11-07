@@ -1,0 +1,68 @@
+{
+  "type" : "deepfryfivearcanavisitor",
+  "baseType" : "fattiesbarvisitor",
+  "displayTitle" : "Deep Fry 5 Guest",
+
+ "scriptConfig" : {
+    "offeredQuests" : [ ],
+    "turnInQuests" : [ ],
+    "behaviorConfig" : {
+      "greetingChance" : 0
+    },
+    "dialogMode": "tutorial",
+    "dialog": {
+			"converse": "/dialog/deepfryfive.config:converse"
+    }
+  },
+  
+  "matchColorIndices": true,
+  "items": {
+    "arcanian": [
+      [ 0, [
+          {
+            "head": [
+              "", { "name": "arcana_armor_starwalker_head", "parameters": { "colorIndex": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ] } }
+            ],
+            "chest": [
+              { "name": "arcana_armor_starwalker_chest", "parameters": { "colorIndex": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ] } }
+            ],
+            "legs": [
+              { "name": "arcana_armor_starwalker_legs", "parameters": { "colorIndex": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ] } }
+            ]
+          }
+        ] ]
+    ],
+
+    "gilten": [
+      [ 0, [
+          {
+            "chest": [
+              { "name": "arcana_armor_disciple_chest", "parameters": { "colorIndex": [ 0, 1, 3, 6 ] } }
+            ],
+            "legs": [
+              { "name": "arcana_armor_disciple_legs", "parameters": { "colorIndex": [ 0, 1, 3, 6 ] } }
+            ],
+            "back": [
+              { "name": "arcana_back_cherubimWings", "parameters": { "colorIndex": [ 0 ] } },
+              { "name": "arcana_back_seraphimWings", "parameters": { "colorIndex": [ 0] } }
+            ]
+          }
+        ] ]
+    ],
+    "gelsemis": [
+      [ 0, [
+          {
+            "head": [
+              "", { "name": "arcana_armor_lushe_head", "parameters": { "colorIndex": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ] } }
+            ],
+            "chest": [
+              { "name": "arcana_armor_lushe_chest", "parameters": { "colorIndex": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ] } }
+            ],
+            "legs": [
+              { "name": "arcana_armor_lushe_legs", "parameters": { "colorIndex": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ] } }
+            ]
+          }
+        ] ]
+    ]
+  }
+}

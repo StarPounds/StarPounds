@@ -1,28 +1,62 @@
-The main point of interest for this mod is the fat armors. 
-Every vanilla race have an armor piece that can be accessed from the weightscale.
-Outfit bags will pick out the colors of your character to apply to the armor. Making it friendly to color expanding mods.
-Overhauls of the looks for the vanilla races might lead to some clipping or parts of the body not looking quite right. Keep this in mind.
+## Credits
 
+# The StarPounds Team
 
-Credits:
-A big thanks to Futara for making the Fullbright Shader mod. With it, fat novakids were possible to not be broken.
+Main Dev, Spriter, and Creator: @shydispatch 
 
-Special thanks to pas_geneticist for help with the protectorate chubster set.
+Co-Dev and Coder: @littlevulpine 
 
-A huge thank you to Joliair for creating the bags that will instantly grant you the matching body. And setting up the lua for the feeding tube.
+Dungeon Master: @blossomdancer
 
-A thank you to CorbinADtor for providing files to allow the badges to adjust the player's hitbox and the treadmill.
+# Extended Races Submitters
 
-Another thank you to Sreeuzaki for the liquids added.
+@supersonicshiro for providing the bulk of most of the races supported including the Shoggoth, Nightgaunt, Nostos, Saturnians, Angels, and Felins.
 
-Thanks to Tobias1595 for the sphere fix with the glutton badge and vanilla foods providing to the glutton badge.
+@dura_1414 for providing support for their own created races, Galactic Goblins and Galactic Onis
 
-A thanks to mrmoto for providing some armor sprites as well as helping out with a slump when doing the fatty split.
+@tsuki_killer for providing support for their own created caces, Tsuki's Races
 
-Both to Tobias1595 and mrmoto for the huge foods addon.
+@fishskull for providing support for their own created race, Space Skunks
 
-A thanks to Corbin for providing a fix for the stand alone thick thighs and the npcs feeding you from the feeding tube bug.
+@ravelloalto for the Lucario and Zoroark/Hisuian Zoroark
 
-Thanks to LoneWolfAndrei for helping out with sprite edits during the sprite rework.
+@escope for the Kitsune
 
-And a grand thank you to one who wishes to remain anonymous. They provided the glutton badge, fattanable npcs, the lardshake gun, working feeding tube, drinkable liquid, and more.
+@vpg001 for the Argonians
+
+@memebossesarefunny for the Glaceons
+
+@peter_peter_peter for the Sylveonoids and Dark Latex
+
+# Special Thanks
+
+@futaradragon for the Fullbright Shader Mod that allows Novakids and any modded race that uses fullbright to work properly with Starpounds
+
+@joliair for the original version of the outfitbags/effigies
+
+@tobias1595 and @mrm0t0 for the Huge Foods in the mod
+
+@silversokolova for cool grappling hook script
+
+@patman for the visitor scrip
+
+@pas_geneticist for help with the protectorate chubster set.
+
+@CorbinADtor for providing files to allow the badges to adjust the player's hitbox and the treadmill.
+
+@LoneWolfAndrei for helping out with sprite edits during the sprite rework.
+
+# Cameos
+Certain npcs will be able to make a rare appearance at the Hog Diner from various fat related games! These include:
+
+## The Pilot
+From [Space Thumper](https://forum.weightgaming.com/t/spacethumper/14210) and [Space Thumper 2](https://forum.weightgaming.com/t/spacethumper-2/25437)
+
+## Emmie and Clara
+From [Some Bullshit](https://forum.weightgaming.com/t/some-bullshit-stuffing-focused-rpg-maker-game/8461)
+
+## Chloe, Pearl, Jessie, Kathy, Victoria, Polly, Erika, Stacy, and Henriette.
+- Girls from a variety of games such as [Super Fatty Office Administrator Simulator](https://weirdmidnight.itch.io/sfoas),  [Super Fatty RPG](https://weirdmidnight.itch.io/sfrpg-expanded), and [Sweet!](https://weirdmidnight.itch.io/sweet-nsfw)
+
+## Chatterbox (Chatabax in mod)
+From [Chubway](https://chubberdy.itch.io/chubway)

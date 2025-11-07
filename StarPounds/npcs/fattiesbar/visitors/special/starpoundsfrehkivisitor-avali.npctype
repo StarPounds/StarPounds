@@ -6,7 +6,6 @@
     "initialStorage": {
       "homePosition": [0, 0]
     },
-    "starPounds_overrideSpecies": "frehki",
     "starPounds_skills": {
       "minimumSize": [3, 3]
     },
@@ -48,22 +47,20 @@
     "facialHairType" : "",
     "facialHairGroup" : "",
     "personalityArmOffset" : [1, 0],
-    "hairType" : "1",
-    "bodyDirectives" : "?multiply=fff",
+    "hairType" : "3",
+    "bodyDirectives" : "?replace;786440=a8a086;a2885c=e2d6b4;ccb07f=f3ecce;42331c=77735f?replace;4e4e4e=ab9d71;787878=c9b086;212121=4e4e36;3c3c3c=746e4d?replace;1b8d78=17688c;1c3b42=1c2f41;67ffa2=68e0fe;1ad589=1cb4d4?replace;1b8d78=17688c;1c3b42=1c2f41;67ffa2=68e0fe;1ad589=1cb4d4",
     "personalityArmIdle" : "idle.3",
     "gender" : "female",
     "color" : [51, 117, 237],
     "personalityHeadOffset" : [-1, 0],
     "hairGroup" : "hair",
     "facialMaskDirectives" : "",
-    "species" : "human",
-    "imagePath" : "starpounds/cameo/frehki",
     "personalityIdle" : "idle.4",
     "facialMaskGroup" : "",
     "name" : "Freki",
     "facialHairDirectives" : "",
-    "emoteDirectives" : "",
-    "hairDirectives" : "",
+    "emoteDirectives" : "?replace;786440=a8a086;a2885c=e2d6b4;ccb07f=f3ecce;42331c=77735f?replace;4e4e4e=ab9d71;787878=c9b086;212121=4e4e36;3c3c3c=746e4d?replace;1b8d78=17688c;1c3b42=1c2f41;67ffa2=68e0fe;1ad589=1cb4d4?replace;1b8d78=17688c;1c3b42=1c2f41;67ffa2=68e0fe;1ad589=1cb4d4",
+    "hairDirectives" : "?replace;4e4e4e=ab9d71;787878=c9b086;212121=4e4e36;3c3c3c=746e4d?replace;1b8d78=17688c;1c3b42=1c2f41;67ffa2=68e0fe;1ad589=1cb4d4",
     "facialMaskType" : ""
   },
 
