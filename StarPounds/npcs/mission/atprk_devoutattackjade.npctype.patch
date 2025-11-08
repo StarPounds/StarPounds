@@ -1,0 +1,21 @@
+[
+  {
+    "op": "add",
+    "path": "/identity",
+    "value": {
+      "species": "deadbeat",
+      "name" : "Jade",
+      "gender" : "female",
+      "personalityIdle" : "idle.2",
+      "personalityArmIdle" : "idle.2",
+      "hairType": "53",
+      "hairGroup" : "femhair",
+  	  "facialMaskGroup" : "horn",
+  	  "facialMaskType" : "1",
+      "bodyDirectives" : "?replace;c7815b=24424b;ffe2c5=4facb2;ffc181=4facb2;d39c6c=39727d?replace;dc1f00=51bd3b;951500=247824;e0865c=85734f;ffc08a=e7dfbd;a85636=85734f00;e0935c=baaa7c00;e08d5c=baaa7c;ffc48a=e7dfbd00;a85136=85734f00;a84b36=85734f;ffca8a=e7dfbd00;6f2919=4f432c00;be1b00=37972f;e07b5c=baaa7c;e0975c=baaa7c00;ffaf8a=85734f;ffbb8a=85734f;ffb58a=e7dfbd;ffab8a=baaa7c;e0825c=e7dfbd;70271a=4f432c00",
+      "facialMaskDirectives" : "?replace;c7815b=24424b;ffe2c5=4facb2;ffc181=4facb2;d39c6c=39727d?replace;dc1f00=51bd3b;951500=247824;e0865c=85734f;ffc08a=e7dfbd;a85636=85734f00;e0935c=baaa7c00;e08d5c=baaa7c;ffc48a=e7dfbd00;a85136=85734f00;a84b36=85734f;ffca8a=e7dfbd00;6f2919=4f432c00;be1b00=37972f;e07b5c=baaa7c;e0975c=baaa7c00;ffaf8a=85734f;ffbb8a=85734f;ffb58a=e7dfbd;ffab8a=baaa7c;e0825c=e7dfbd;70271a=4f432c00",
+      "emoteDirectives" : "?replace;c7815b=24424b;ffe2c5=4facb2;ffc181=4facb2;d39c6c=39727d?replace;dc1f00=51bd3b;951500=247824;e0865c=85734f;ffc08a=e7dfbd;a85636=85734f00;e0935c=baaa7c00;e08d5c=baaa7c;ffc48a=e7dfbd00;a85136=85734f00;a84b36=85734f;ffca8a=e7dfbd00;6f2919=4f432c00;be1b00=37972f;e07b5c=baaa7c;e0975c=baaa7c00;ffaf8a=85734f;ffbb8a=85734f;ffb58a=e7dfbd;ffab8a=baaa7c;e0825c=e7dfbd;70271a=4f432c00",
+      "hairDirectives" : "?replace;735e3a=4b1d30;f7e7b2=a55595;a38d59=6a2e53;d9c189=7f3b6d?replace;dc1f00=51bd3b;951500=247824;e0865c=85734f;ffc08a=e7dfbd;a85636=85734f00;e0935c=baaa7c00;e08d5c=baaa7c;ffc48a=e7dfbd00;a85136=85734f00;a84b36=85734f;ffca8a=e7dfbd00;6f2919=4f432c00;be1b00=37972f;e07b5c=baaa7c;e0975c=baaa7c00;ffaf8a=85734f;ffbb8a=85734f;ffb58a=e7dfbd;ffab8a=baaa7c;e0825c=e7dfbd;70271a=4f432c00"
+    }
+  }
+]
