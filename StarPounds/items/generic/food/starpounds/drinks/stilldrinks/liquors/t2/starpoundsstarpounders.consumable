@@ -37,7 +37,7 @@
     "foodValue": 66,  	
     "effects" : [[
     {
-        "effect" : "starpoundsdrunk",
+        "effect" : "starpoundsdrunk25",
         "duration" : 540
     },
     {
