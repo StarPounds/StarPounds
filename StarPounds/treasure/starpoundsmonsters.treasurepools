@@ -64,7 +64,7 @@
     [1, {
       "pool" : [
         {"weight" : 0.700, "item" : [ "money", 125]},
-        {"weight" : 0.150, "item" : "starpounds_swillowisps"},
+        {"weight" : 0.150, "item" : "starpoundsswillowisps"},
         {"weight" : 0.145, "item" : "starpoundslipomancerhead"},
         {"weight" : 0.005, "item" : "starpoundslipomancerAF"}
       ],
