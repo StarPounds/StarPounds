@@ -1,0 +1,57 @@
+{
+  "objectName" : "starpoundshugeburger",
+  "colonyTags" : [],
+  "printable" : false,
+  "rarity" : "Rare",
+  "shortdescription" : "Huge Burger",
+  "description" : "How big is the grill to cook this beefy burg?",
+  "race" : "generic",
+  "category" : "other",
+  "price" : 1000,
+  "smashOnBreak" : true,
+
+  "stages": 5,
+  "bitesPerStage": 4,
+  "food": 1200,
+  "fat": 200,
+
+  "apexDescription" : "This has been a new special on the Smile Burger menu.",
+  "avianDescription" : "I fear how my stomach would react to trying to eat this massive burger.",
+  "floranDescription" : "Floran wantsss to dig into deliciousss burg.",
+  "glitchDescription" : "Curious. What did it take to make such a large meat sandwich?",
+  "humanDescription" : "I know the fast food industry goes big, but this is ridiculous!",
+  "hylotlDescription" : "Such fast food is normally not healthy to eat. I can't imagine this is any better.",
+  "novakidDescription" : "Now dis is a hunk of meat fit for a village.",
+  "throgDescription" : "Finally, some real calorie dense food.",
+  "mootantDescription" : "Would eating this be considered cannibalism? Or was this made with cow instead of mooshi?",
+  "harpyDescription" : "Who comes up with this stuff?",
+  "avaliDescription" : "This wouldn't surprise me if it's some Human fast food creation.",
+
+  "inventoryIcon" : "hugeburgericon.png",
+  "orientations" : [
+    {
+      "dualImage" : "hugeburger.png:<stage>",
+      "imagePosition" : [-49.5, -16],
+      "animationPosition" : [-49.5, -16],
+      "spaceScan" : 0.1,
+      "anchors" : ["bottom"]
+    }
+  ],
+
+  "npcToy": {
+    "ownerOnly" : false,
+    "influence" : [],
+    "defaultReactions" : {}
+  },
+
+  "scripts" : [
+    "/objects/starpounds/hugefoods/hugefood.lua",
+    "/scripts/npcToyObject.lua"
+  ],
+  "scriptDelta" : 1,
+
+  "animation" : "hugeburger.animation",
+  "animationParts" : {
+    "meat" : "hugeburger.png"
+  }
+}

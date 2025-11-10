@@ -1,12 +1,11 @@
 {
   "input" : [
-    { "item" : "tomato", "count" : 2 },
-    { "item" : "relish", "count" : 2 },
-    { "item" : "starpoundsbuttersnack", "count" : 2 },  
-    { "item" : "alienmeat", "count" : 2 },
-    { "item" : "cheese", "count" : 2 },
-    { "item" : "bread", "count" : 1 }
+    { "item" : "tomato", "count" : 8 },
+    { "item" : "starpoundsbuttersnack", "count" : 8 },  
+    { "item" : "alienmeat", "count" : 8 },
+    { "item" : "cheese", "count" : 8 },
+    { "item" : "bread", "count" : 8 }
   ],
-  "output" : { "item" : "starpoundsdoublegreaseburger", "count" : 1 },
+  "output" : { "item" : "starpoundshugeburger", "count" : 1 },
   "groups" : [ "craftingfood", "mains" ]
 }
