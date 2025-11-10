@@ -8,6 +8,7 @@
   "description" : "The first sign of being out of shape is a soft gut that can't be sucked in. Too many bananas perhaps.",
   "shortdescription" : "Thick Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsthick"

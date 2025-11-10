@@ -8,6 +8,7 @@
   "description" : "Did you escape from a miniknog fattening labatory? You're massive.",
   "shortdescription" : "Blobby Body",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsimmobile"
