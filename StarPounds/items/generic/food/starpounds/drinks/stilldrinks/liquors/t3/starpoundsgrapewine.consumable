@@ -4,10 +4,13 @@
   "price" : 225,
   "category" : "drink",
   "inventoryIcon" : "starpoundsgrapewine.png",
-  "tooltipKind" : "fossil",
-  "description" : "A classy drink for those pretending to be more sophisticated than they actually are.",
+  "tooltipKind" : "food",
+  "description" : "A classy drink for those pretending to be more sophisticated.",
   "shortdescription" : "Grape Wine",
   "maxStack" : 1,
+  
+  "timeToAge" : 16200,
+  
   "effects" : [ [
     {
         "effect" : "starpoundsdrunk",
@@ -22,5 +25,23 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Grape Wine ^yellow;^reset;",  
+    "price" : 1000,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk25",
+        "duration" : 500
+    },
+    {
+        "effect" : "runboostfood",
+        "duration" : 500
+    }
+    ]]
+  }
 }

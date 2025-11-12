@@ -8,6 +8,9 @@
   "description" : "A thick, heady drink that may be mistaken for blood in terms of taste, texture, and vampiric satiation.",
   "shortdescription" : "Sanguine",
   "maxStack" : 1,
+  
+  "timeToAge" : 16200,  
+  
   "effects" : [ [
     {
         "effect" : "starpoundsdrunk",
@@ -28,8 +31,10 @@
   "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
 
   "agedParameters": {
+    "shortdescription" : "Sanguine ^yellow;^reset;",    
+    "price" : 1500,    
     "effects" : [[
-      { "effect" : "starpoundsdrunk", "duration" : 450 },
+      { "effect" : "starpoundsdrunk25", "duration" : 450 },
       { "effect" : "rage", "duration" : 450 }
     ]]
   }

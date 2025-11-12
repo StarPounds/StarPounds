@@ -2,10 +2,10 @@
   "itemName" : "starpoundsmississippiqueen",
   "rarity" : "Rare",
   "price" : 1000,
-  "tooltipKind" : "fossil",
+  "tooltipKind" : "food",
   "category" : "drink",
   "inventoryIcon" : "starpoundsmississippiqueen.png",
-  "description" : "This Bloody Mary from hell's utter disregard for the Scoville scale is known to cause hallucinations.",
+  "description" : "This Bloody Mary from hell is known to cause hallucinations.",
   "shortdescription" : "Mississippi Queen",
   "maxStack" : 1,
   "effects" : [ [
@@ -34,5 +34,35 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Mississippi Queen ^yellow;^reset;",  
+    "price" : 2500,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk25",
+        "duration" : 840
+    },
+    {
+        "effect" : "runboostfood",
+        "duration" : 840
+    },
+    {
+        "effect" : "nova",
+        "duration" : 840
+    },
+    {
+        "effect" : "rage",
+        "duration" : 840
+    },
+    {
+        "effect" : "burning",
+        "duration" : 10
+    }
+    ]]
+  }
 }

@@ -1,0 +1,46 @@
+{
+  "objectName" : "starpoundsagingcask",
+  "colonyTags" : ["storage","commerce"],
+  "rarity" : "Rare",
+  "objectType" : "container",
+  "tooltipKind" : "container",
+  "description" : "A barrel specially designed hasten the aging process.",
+  "shortdescription" : "Aging Cask",
+  "race" : "generic",
+  "category" : "storage",
+  "price" : 200,
+  "health" : 1.5,
+
+  "apexDescription" : "A technologically improved cask designed to hasten aging in liquors.",
+  "avianDescription" : "I just have to leave any drinks inside here and they'll age faster.",
+  "floranDescription" : "Drinksss age fassster in fancy barrel!",
+  "glitchDescription" : "Knowledgeable. This cask is built with tech to ensure proper aging in liquors.",
+  "humanDescription" : "A special cask for letting liquors chill and age.",
+  "hylotlDescription" : "A barrel for letting drinks age and ferment.",
+  "novakidDescription" : "A good place to let my hooch ferment and age.",
+
+  "inventoryIcon" : "starpoundsagingcaskicon.png",
+  "orientations" : [
+    {
+      "dualImage" : "starpoundsagingcask.png:<color>",
+
+      "imagePosition" : [-16, 0],
+      "frames" : 1,
+      "animationCycle" : 1.0,
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ]
+
+    }
+  ],
+
+  "openSounds" : [ "/sfx/objects/woodenbox_open.ogg" ],
+  "closeSounds" : [ "/sfx/objects/woodenbox_close.ogg" ],
+  "slotCount" : 9,
+  "uiConfig" : "/interface/chests/chest<slots>.config",
+  "frameCooldown" : 5,
+  "autoCloseCooldown" : 3600,
+
+  "itemAgeMultiplier" : 3
+
+}

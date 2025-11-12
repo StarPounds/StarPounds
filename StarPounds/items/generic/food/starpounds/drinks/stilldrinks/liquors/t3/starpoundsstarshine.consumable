@@ -4,8 +4,8 @@
   "price" : 150,
   "category" : "drink",
   "inventoryIcon" : "starpoundsstarshine.png",
-  "tooltipKind" : "fossil",
-  "description" : "This (often illicit) Novakid concoction is traditionally brewed hidden in the inner workings of their ships.",
+  "tooltipKind" : "food",
+  "description" : "This illicit Novakid concoction is traditionally brewed hidden away from prying brands.",
   "shortdescription" : "Starshine",
   "maxStack" : 1,
   "effects" : [ [
@@ -26,5 +26,27 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Starshine ^yellow;^reset;",  
+    "price" : 300,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk25",
+        "duration" : 450
+    },
+    {
+        "effect" : "glow",
+        "duration" : 450
+    },
+    {
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 450
+    }
+    ]]
+  }
 }

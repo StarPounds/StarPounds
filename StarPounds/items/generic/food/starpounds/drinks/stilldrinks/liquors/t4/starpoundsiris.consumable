@@ -3,7 +3,7 @@
   "rarity" : "Rare",
   "price" : 200,
   "category" : "drink",
-  "tooltipKind" : "fossil",
+  "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsiris.png",
   "description" : "A mysterious blue liquor said to originate from a hedonistic creed.",
   "shortdescription" : "Iris",
@@ -11,15 +11,15 @@
   "effects" : [ [
     {
         "effect" : "starpoundsdrunk",
-        "duration" : 305
+        "duration" : 300
     },
     {
         "effect" : "maxhealthscalingboostfood",
-        "duration" : 305
+        "duration" : 300
     },
     {
         "effect" : "regenerationfood",
-        "duration" : 305
+        "duration" : 300
     },
     {
         "effect" : "weakpoison",
@@ -30,5 +30,31 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Iris ^yellow;^reset;",  
+    "price" : 400,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk25",
+        "duration" : 450
+    },
+    {
+        "effect" : "maxhealthscalingboostfood",
+        "duration" : 450
+    },
+    {
+        "effect" : "regenerationfood",
+        "duration" : 450
+    },
+    {
+        "effect" : "weakpoison",
+        "duration" : 10
+    }
+    ]]
+  }
 }

@@ -2,7 +2,7 @@
   "itemName" : "starpoundsneonsunrise",
   "rarity" : "Rare",
   "price" : 150,
-  "tooltipKind" : "fossil",
+  "tooltipKind" : "food",
   "category" : "drink",
   "inventoryIcon" : "starpoundsneonsunrise.png",
   "description" : "A neon bubblegum-flavored liqueur popular in all the new trendy bars.",
@@ -22,5 +22,23 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Neon Sunrise ^yellow;^reset;",  
+    "price" : 350,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk25",
+        "duration" : 540
+    },
+    {
+        "effect" : "runboostfood",
+        "duration" : 540
+    }
+    ]]
+  }
 }

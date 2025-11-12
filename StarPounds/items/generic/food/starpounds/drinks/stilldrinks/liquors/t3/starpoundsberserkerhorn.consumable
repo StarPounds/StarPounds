@@ -4,8 +4,8 @@
   "price" : 160,
   "category" : "drink",
   "inventoryIcon" : "starpoundsberserkerhorn.png",
-  "tooltipKind" : "fossil",
-  "description" : "Some say the rage of warriors courses through every drop. Others say its derived from a lost stim.",
+  "tooltipKind" : "food",
+  "description" : "Some say its derived from a lost stim.",
   "shortdescription" : "Berserker's Horn",
   "maxStack" : 1,
   "effects" : [ [
@@ -26,5 +26,27 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Berserker's Horn ^yellow;^reset;",  
+    "price" : 320,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk25",
+        "duration" : 630
+    },
+    {
+        "effect" : "rage",
+        "duration" : 630
+    },
+    {
+        "effect" : "maxhealthscalingboostfood",
+        "duration" : 630
+    }
+    ]]
+  }
 }

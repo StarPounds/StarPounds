@@ -4,7 +4,7 @@
   "price" : 125,
   "category" : "drink",
   "inventoryIcon" : "starpoundseggnog.png",
-  "tooltipKind" : "fossil",
+  "tooltipKind" : "food",
   "description" : "A delicious seasonal drink. It's the holidays somewhere in space!",
   "shortdescription" : "Eggnog",
   "maxStack" : 1,
@@ -26,5 +26,27 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Eggnog ^yellow;^reset;",  
+    "price" : 250,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk25",
+        "duration" : 450
+    },
+    {
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 450
+    },
+    {
+        "effect" : "maxhealthscalingboostfood",
+        "duration" : 450
+    }
+    ]]
+  }
 }

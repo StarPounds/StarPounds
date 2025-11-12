@@ -3,7 +3,7 @@
   "rarity" : "Rare",
   "price" : 160,
   "category" : "drink",
-  "tooltipKind" : "fossil",
+  "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsnepentha.png",
   "description" : "It bubbles and fizzes; the Floran believe that it can awaken the inner predator.",
   "shortdescription" : "Nepentha",
@@ -15,7 +15,7 @@
     },
     {
         "effect" : "maxenergyscalingboostfood",
-        "duration" : 300
+        "duration" : 360
     },
     {
         "effect" : "starpoundsvoracious",
@@ -26,5 +26,27 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Nepentha ^yellow;^reset;",  
+    "price" : 320,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk25",
+        "duration" : 540
+    },
+    {
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 540
+    },
+    {
+        "effect" : "starpoundsvoracious",
+        "duration" : 540
+    }
+    ]]
+  }
 }

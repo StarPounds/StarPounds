@@ -1,0 +1,37 @@
+[
+    {
+        "op": "add",
+        "path": "/starpounds_brewpodHarvest",
+        "value": [
+            [
+                0,
+                {
+                    "pool": [
+                        {
+                            "weight": 0.89,
+                            "item": "starpoundsbrewpod"
+                        },
+                        {
+                            "weight": 0.01,
+                            "item": "starpounds_brewpodseed"
+                        },
+                        {
+                            "weight": 0.1,
+                            "item": "plantfibre"
+                        }
+                    ],
+                    "poolRounds": [
+                        [
+                            0.6,
+                            1
+                        ],
+                        [
+                            0.4,
+                            2
+                        ]
+                    ]
+                }
+            ]
+        ]
+    }
+]

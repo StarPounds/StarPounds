@@ -1,0 +1,19 @@
+{
+  "name" : "starpoundsdrunk150",
+
+  "effectConfig" : {
+    "expireStatus" : "starpoundshangover", // Status inflicted upon expire.
+    "expireStatusDuration" : 1.5 // Multiplier for defaultDuration, 1.0 = same duration
+  },
+
+  "defaultDuration" : 10,
+
+  "scripts" : [
+    "starpoundsexpiringeffect.lua"
+  ],
+
+  "animationConfig" : "starpoundsdrunk.animation",
+
+  "label" : "Tipsy",
+  "icon" : "/interface/statuses/starpoundstipsy.png"
+}

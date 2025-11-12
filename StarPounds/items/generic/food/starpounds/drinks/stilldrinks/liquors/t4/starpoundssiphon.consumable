@@ -29,5 +29,30 @@
   "blockingEffects" : [
     "starpoundshangover"
   ],
-  "fuelAmount" : 25  
+  
+  "fuelAmount" : 25,
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Siphon ^yellow;^reset;",  
+    "price" : 400,
+    "fuelAmount" : 50,
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk100",
+        "duration" : 405
+    },
+    {
+        "effect" : "lowgrav",
+        "duration" : 405
+    },
+    {
+        "effect" : "runboostfood",
+        "duration" : 405
+    },
+    "bottlederchiusbloat"
+    ]]
+  } 
 }

@@ -4,8 +4,8 @@
   "price" : 175,
   "category" : "drink",
   "inventoryIcon" : "starpoundsnectarous.png",
-  "tooltipKind" : "fossil",
-  "description" : "Derived from an ancient Floran folk medicine. It's said to promote good health (except for your liver).",
+  "tooltipKind" : "food",
+  "description" : "A sweet liquor derived from an ancient Floran folk medicine.",
   "shortdescription" : "Nectarous",
   "maxStack" : 1,
   "effects" : [ [
@@ -26,5 +26,28 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Nectarous ^yellow;^reset;",  
+    "price" : 325,  
+    "effects" : [[
+
+    {
+        "effect" : "starpoundsdrunk25",
+        "duration" : 450
+    },
+    {
+        "effect" : "regenerationfood",
+        "duration" : 450
+    },
+    {
+        "effect" : "maxhealthscalingboostfood",
+        "duration" : 450
+    }
+    ]]
+  }
 }

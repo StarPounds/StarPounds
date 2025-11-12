@@ -1,0 +1,61 @@
+{
+  "objectName" : "starpounds_brewpodseed",
+  "colonyTags" : ["nature"],
+  "rarity" : "Common",
+  "category" : "seed",
+  "description" : "It's known for its symbiotic relationship with yeasts.",
+  "shortdescription" : "Brewpod Seed",
+  "objectType" : "farmable",
+  "printable" : false,
+  "price" : 30,
+
+  "apexDescription" : "These plants have a symbiotic relationship with yeasts commonly used for fermenting. Convenient.",
+  "avianDescription" : "The Grounded like to cultivate these for brewing liquor.",
+  "floranDescription" : "Floran knowsss plant can be used to brew the ssstrong ssstuff!",
+  "glitchDescription" : "Knowledgeable. These plants are known to host yeasts that can be used for fermenting.",
+  "humanDescription" : "How convenient that there's an entire species of plant evolved specifically for gathering yeast!",
+  "hylotlDescription" : "I recall that before the discovery of this plant, sake was made by chewing rice grains and spitting them out.",
+  "novakidDescription" : "I dun remember the specifics but they use these things for brewin' hooch!",
+
+  "inventoryIcon" : "starpounds_brewpodseedicon.png",
+
+  "tooltipKind" : "seed",
+  "largeImage" : "starpounds_brewpodseed.png:default.3.0",
+
+
+  "orientations" : [
+    {
+      "dualImage" : "starpounds_brewpodseed.png:<color>.<stage>.<alt>",
+      "imagePosition" : [0, 0],
+      "frames" : 1,
+      "animationCycle" : 0.5,
+
+      "spaces" : [ [1, 0], [0, 0], [1, 1], [0, 1], [1, 2], [0, 2], [1, 3], [0, 3], [1, 4], [0, 4], [1, 5], [0, 5] ],
+      "requireTilledAnchors" : true,
+      "anchors" : [ "bottom" ]
+
+    }
+  ],
+
+  "radioMessagesOnPickup" : [ "pickupseed" ],
+
+  "stages" : [
+    {
+      "duration" : [430, 470]
+    },
+    {
+      "duration" : [430, 470]
+    },
+    {
+      "alts" : 5,
+      "duration" : [1740, 1860]
+    },
+    {
+      "alts" : 5,
+      "harvestPool" : "starpounds_brewpodHarvest",
+      "resetToStage" : 2
+    }
+  ],
+
+  "maxImmersion" : 0.084
+}
