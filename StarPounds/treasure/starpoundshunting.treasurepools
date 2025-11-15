@@ -1,0 +1,209 @@
+{
+
+  "mootantHunting" : [
+    [1, {
+      "pool" : [
+        {"weight" : 0.672, "pool" : "huntingquadruped"},
+        {"weight" : 0.32, "item" : "starpoundsmoomilk"},
+        {"weight" : 0.005, "item" : "starpoundsmoomilkdeluxe"},
+        {"weight" : 0.001, "item" : "starpoundsmootantshake"},
+        {"weight" : 0.001, "item" : "mootant-codex"},
+        {"weight" : 0.001, "item" : "mootantaf"}
+      ],
+      "poolRounds" : [
+        [0.80, 1],
+        [0.20, 2]
+      ],
+      "allowDuplication" : false
+    }]
+  ],
+  
+  "floranmootantHunting" : [
+    [1, {
+      "pool" : [
+        {"weight" : 0.673, "pool" : "noMeatMonsterTreasure"},
+        {"weight" : 0.32, "item" : "starpoundshoneymoomilk"},
+        {"weight" : 0.005, "item" : "starpoundshoneymoomilkdeluxe"},
+        {"weight" : 0.001, "item" : "starpoundsmootantshake"},
+        {"weight" : 0.001, "item" : "mootantaf"}
+      ],
+      "poolRounds" : [
+        [0.80, 1],
+        [0.20, 2]
+      ],
+      "allowDuplication" : false
+    }]
+  ],
+  
+  "glitchmootantHunting" : [
+    [1, {
+      "pool" : [
+        {"weight" : 0.673, "pool" : "robotTreasure"},
+        {"weight" : 0.32, "item" : "starpoundsmoomilk"},
+        {"weight" : 0.005, "item" : "starpoundsmoomilkdeluxe"},
+        {"weight" : 0.001, "item" : "starpoundsmootantshake"},
+        {"weight" : 0.001, "item" : "mootantaf"}
+      ],
+      "poolRounds" : [
+        [0.80, 1],
+        [0.20, 2]
+      ],
+      "allowDuplication" : false
+    }]
+  ],
+  
+  "hylotlmootantHunting" : [
+    [1, {
+      "pool" : [
+        {"weight" : 0.673, "pool" : "huntingquadruped"},
+        {"weight" : 0.32, "item" : "starpoundsmoomilk"},
+        {"weight" : 0.005, "item" : "starpoundsmoomilkdeluxe"},
+        {"weight" : 0.001, "item" : "starpoundsmootantshake"},
+        {"weight" : 0.001, "item" : "mootantaf"}
+      ],
+      "poolRounds" : [
+        [0.80, 1],
+        [0.20, 2]
+      ],
+      "allowDuplication" : false
+    }]
+  ],
+  
+  "novakidmootantHunting" : [
+    [1, {
+      "pool" : [
+        {"weight" : 0.673, "pool" : "noMeatMonsterTreasure"},
+        {"weight" : 0.32, "item" : "starpoundsmoomilk"},
+        {"weight" : 0.005, "item" : "starpoundsmoomilkdeluxe"},
+        {"weight" : 0.001, "item" : "starpoundsmootantshake"},
+        {"weight" : 0.001, "item" : "mootantaf"}
+      ],
+      "poolRounds" : [
+        [0.80, 1],
+        [0.20, 2]
+      ],
+      "allowDuplication" : false
+    }]
+  ],
+  
+  "fathylotlghostHunting" : [
+    [1, {
+      "pool" : [
+        {"weight" : 0.595, "pool" : "noMeatMonsterTreasure"},
+        {"weight" : 0.4, "item" : "phasematter"},
+        {"weight" : 0.004, "item" : "fatghost-codex"},
+        {"weight" : 0.001, "item" : "fathylotlghostaf"}
+      ],
+      "poolRounds" : [
+        [0.80, 1],
+        [0.20, 2]
+      ],
+      "allowDuplication" : false
+    }]
+  ],
+  
+  "fatghostHunting" : [
+    [1, {
+      "pool" : [
+        {"weight" : 0.6, "pool" : "noMeatMonsterTreasure"},
+        {"weight" : 0.4, "item" : "phasematter"}
+      ],
+      "poolRounds" : [
+        [0.80, 1],
+        [0.20, 2]
+      ],
+      "allowDuplication" : false
+    }]
+  ],
+  
+  "starpoundsbeedroneHunting" : [
+    [1, {
+      "pool" : [
+        {"weight" : 0.599, "pool" : "noMeatMonsterTreasure"},
+        {"weight" : 0.4, "item" : "starpoundsbottledhoney"},
+        {"weight" : 0.001, "item" : "starpoundsbeedroneaf"}
+      ],
+      "poolRounds" : [
+        [0.80, 1],
+        [0.20, 2]
+      ],
+      "allowDuplication" : false
+    }]
+  ],
+  
+  "starpoundsjellyHunting" : [
+    [1, {
+      "pool" : [
+        {"weight" : 0.679, "pool" : "noMeatMonsterTreasure"},
+        {"weight" : 0.32, "item" : "starpoundsendomorphicjelly"},
+        {"weight" : 0.001, "item" : "starpoundsjellyaf"}
+      ],
+      "poolRounds" : [
+        [0.80, 1],
+        [0.20, 2]
+      ],
+      "allowDuplication" : false
+    }]
+  ],
+  
+  "starpoundsslimeHunting" : [
+    [1, {
+      "pool" : [
+        {"weight" : 0.599, "pool" : "noMeatMonsterTreasure"},
+        {"weight" : 0.4, "item" : "greenslime"},
+        {"weight" : 0.001, "item" : "starpoundsslimeaf"}
+      ],
+      "poolRounds" : [
+        [0.80, 1],
+        [0.20, 2]
+      ],
+      "allowDuplication" : false
+    }]
+  ],
+  
+  "starpoundshoneyHunting" : [
+    [1, {
+      "pool" : [
+        {"weight" : 0.679, "pool" : "noMeatMonsterTreasure"},
+        {"weight" : 0.32, "item" : "starpoundsbottledhoney"},
+        {"weight" : 0.001, "item" : "starpoundshoneyaf"}
+      ],
+      "poolRounds" : [
+        [0.80, 1],
+        [0.20, 2]
+      ],
+      "allowDuplication" : false
+    }]
+  ],
+  
+  "starpoundsharpyHunting" : [
+    [1, {
+      "pool" : [
+        {"weight" : 0.689, "pool" : "huntingflying"},
+        {"weight" : 0.31, "item" : "starpoundscinnamonroll"},
+        {"weight" : 0.001, "item" : "starpoundsharpyaf"}
+      ],
+      "poolRounds" : [
+        [0.80, 1],
+        [0.20, 2]
+      ],
+      "allowDuplication" : false
+    }]
+  ],
+  
+  "starpoundsharpybanditHunting" : [
+    [1, {
+      "pool" : [
+        {"weight" : 0.689, "pool" : "huntingflying"},
+        {"weight" : 0.31, "item" : "starpoundscinnamonroll"},
+        {"weight" : 0.001, "item" : "starpoundsharpyaf"}
+      ],
+      "poolRounds" : [
+        [0.80, 1],
+        [0.20, 2]
+      ],
+      "allowDuplication" : false
+    }]
+  ]
+
+}
