@@ -44,7 +44,7 @@
   "scripts" : [ "fattiesbarteleporter.lua" ],
   "scriptDelta" : 60,
 
-  "spawnInterval" : [60, 180],
+  "spawnInterval" : [40, 180],
   "spawnOffset" : [0.5, 3.5],
 
   "npcTypes" : "/objects/fattiesbar/fattiesbarteleporter/npcs.config"

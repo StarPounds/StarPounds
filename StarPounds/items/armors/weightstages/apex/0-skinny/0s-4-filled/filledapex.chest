@@ -8,11 +8,13 @@
   "description" : "This might be very fattening.",
   "shortdescription" : "Filled Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",
     "starpoundsfilled"
   ],
+  
   "maleFrames" : {
     "body" : "chestm.png",
     "backSleeve" : "bsleeve.png",

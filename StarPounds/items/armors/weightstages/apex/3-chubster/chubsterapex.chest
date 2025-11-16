@@ -8,6 +8,7 @@
   "description" : "So wide, so chubby. Eat any experimental bananas to get so fat?",
   "shortdescription" : "Chubby Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster"

@@ -1,0 +1,81 @@
+{
+  "type" : "starpoundsralukovisitor",
+  "baseType" : "fattiesbarvisitor",
+
+  "scriptConfig" : {
+    "initialStorage": {
+      "homePosition": [0, 0]
+    },
+    "starPounds_skills": {
+      "minimumSize": [3, 3]
+    },
+    // ======================== PLEASE READ ========================
+    // This character belongs to someone, and these settings reflect
+    // their preferences. Please respect them and don't remove,
+    // change, or otherwise alter these settings.
+    // ======================== PLEASE READ ========================
+    "starPounds_options": {
+      "disablePrey": true
+    },
+    "statuses" : [
+      "Positively charged",
+      "Pretending she has somewhere to be",
+      "Procrastinating",
+      "Thinking about something she can’t have",
+      "Considering starting a new project",
+      "Lost track of the thing they were doing",
+      "Naturally stupid",
+      "Rotating a mooshi in her mind"
+    ],
+    "dialogMode": "tutorial",
+    "dialog": {
+      "converse": {
+        "default": {
+          "default": [
+            "Why do people keep calling me a chicken nugget? I feel like I’d be a thigh at least.",
+            "Did you know that most of those big flashlight batteries are just a bunch of smaller batteries in disguise?",
+            "Hey, Have you seen a blue fella around here? Black jacket, yay tall, looks kinda like me?",
+            "Would you like a hug?",
+            "It’s nice there aren’t too many doors to get stuck in around here.",
+            "It’s really nice to move around on my own, but all the food around here is really starting to tempt me.",
+            "If you need to jump start your ship, just let me know.",
+            "I wish they’d install some carpet around here for all this hard flooring.",
+            "No, I’m not a pilot, you must be thinking of someone else."
+          ]
+        }
+      }
+    }
+  },
+
+  "identity":  {
+    "facialHairType" : "",
+    "facialHairGroup" : "",
+    "personalityArmOffset" : [0, 0],
+    "hairType" : "10",
+    "bodyDirectives" : "?replace;786440=817C5D;a2885c=AB9D71;ccb07f=c9b086;42331c=4e4e36?replace;4e4e4e=4d4e4e;787878=606161;212121=222323;3c3c3c=303131?replace;1b8d78=4e5365;1c3b42=404353;67ffa2=94a7bd;1ad589=7c89a0?replace;1b8d78=4e5365;1c3b42=404353;67ffa2=94a7bd;1ad589=7c89a0",
+    "personalityArmIdle" : "idle.3",
+    "gender" : "female",
+    "color" : [51, 117, 237],
+    "personalityHeadOffset" : [-1, 0],
+    "hairGroup" : "hair",
+    "facialMaskDirectives" : "",
+    "personalityIdle" : "idle.3",
+    "facialMaskGroup" : "",
+    "name" : "Raluko",
+    "facialHairDirectives" : "",
+    "emoteDirectives" : "?replace;786440=817C5D;a2885c=AB9D71;ccb07f=c9b086;42331c=4e4e36?replace;4e4e4e=4d4e4e;787878=606161;212121=222323;3c3c3c=303131?replace;1b8d78=4e5365;1c3b42=404353;67ffa2=94a7bd;1ad589=7c89a0?replace;1b8d78=4e5365;1c3b42=404353;67ffa2=94a7bd;1ad589=7c89a0",
+    "hairDirectives" : "?replace;4e4e4e=4d4e4e;787878=606161;212121=222323;3c3c3c=303131?replace;1b8d78=4e5365;1c3b42=404353;67ffa2=94a7bd;1ad589=7c89a0",
+    "facialMaskType" : ""
+  },
+
+  "items" : {
+    "override" : [
+      [0, [
+        {
+           "chestCosmetic": [ { "name" : "lipovoltchest" } ],
+           "legsCosmetic": [ { "name" : "lipovoltpants", "parameters" : { "colorIndex" : 1 } } ]
+        }
+      ]]
+    ]
+  }
+}

@@ -3,7 +3,7 @@
   "rarity" : "Rare",
   "price" : 150,
   "category" : "drink",
-  "tooltipKind" : "fossil",
+  "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsmarooners.png",
   "description" : "Said to originate from the pirate Xeloxal's attempt at approximating rum while marooned on an ocean world.",
   "shortdescription" : "Marooner's",
@@ -30,5 +30,31 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Marooner's ^yellow;^reset;",  
+    "price" : 300,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk25",
+        "duration" : 360
+    },
+    {
+        "effect" : "swimboostcola",
+        "duration" : 360
+    },
+    {
+        "effect" : "runboostfood",
+        "duration" : 360
+    },
+    {
+        "effect" : "jumpboostfood",
+        "duration" : 360
+    }
+    ]]
+  }
 }

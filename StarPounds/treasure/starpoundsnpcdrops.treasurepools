@@ -38,7 +38,7 @@
     [1, {
       "pool" : [
         {"weight" : 0.7, "item" : [ "money", 125]},
-        {"weight" : 0.2, "item" : "starpounds_championschalice"},
+        {"weight" : 0.2, "item" : "starpoundschampionschalice"},
         {"weight" : 0.1, "item" : "gluttonistchampionhead"}
       ],
       "poolRounds" : [

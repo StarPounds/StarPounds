@@ -1,8 +1,8 @@
 {
   "itemName" : "starpoundsgoldenwine",
   "rarity" : "Legendary",
-  "price" : 1000,
-  "tooltipKind" : "fossil",
+  "price" : 2500,
+  "tooltipKind" : "food",
   "category" : "drink",
   "inventoryIcon" : "starpoundsgoldenwine.png",
   "description" : "Actually a liqueur, its namesake comes from the enchanted gold flakes suspended within.",
@@ -27,5 +27,27 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Goldenwine ^yellow;^reset;",  
+    "price" : 5000,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk",
+        "duration" : 630
+    },
+    {
+        "effect" : "rage",
+        "duration" : 630
+    },
+    {
+        "effect" : "weakpoison",
+        "duration" : 20
+    }
+    ]]
+  }
 }

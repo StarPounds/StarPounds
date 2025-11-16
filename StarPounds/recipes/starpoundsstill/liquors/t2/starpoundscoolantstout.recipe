@@ -1,0 +1,9 @@
+{
+  "input" : [
+    { "item" : "starpoundsbrewpod", "count" : 1 },
+    { "item" : "cryonicextract", "count" : 1 },
+    { "item" : "milk", "count" : 1 }
+  ],
+  "output" : { "item" : "starpoundscoolantstout", "count" : 1 },
+  "groups" : [ "craftingstill", "starpoundsalcohol" ]
+}

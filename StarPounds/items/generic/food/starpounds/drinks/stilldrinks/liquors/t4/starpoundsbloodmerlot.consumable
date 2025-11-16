@@ -3,11 +3,14 @@
   "rarity" : "Rare",
   "price" : 160,
   "category" : "drink",
-  "tooltipKind" : "fossil",
+  "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsbloodmerlot.png",
   "description" : "For those vvho don't drink vvine.",
   "shortdescription" : "Blood Merlot",
   "maxStack" : 1,
+  
+  "timeToAge" : 21600,
+  
   "effects" : [ [
     {
         "effect" : "starpoundsdrunk",
@@ -30,5 +33,31 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Blood Merlot ^yellow;^reset;",  
+    "price" : 2000,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk25",
+        "duration" : 540
+    },
+    {
+        "effect" : "maxhealthscalingboostfood",
+        "duration" : 540
+    },
+    {
+        "effect" : "rage",
+        "duration" : 540
+    },
+    {
+        "effect" : "regenerationfood",
+        "duration" : 540
+    }
+    ]]
+  }
 }

@@ -32,7 +32,7 @@
     "price" : 260,  
     "effects" : [[
     {
-        "effect" : "starpoundsdrunk",
+        "effect" : "starpoundsdrunk25",
         "duration" : 495
     },
     {

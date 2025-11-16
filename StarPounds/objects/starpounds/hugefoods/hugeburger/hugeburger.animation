@@ -1,0 +1,87 @@
+{
+  "animatedParts" : {
+    "parts" : {
+      "meat" : {
+        "properties" : {
+          "image" : "<partImage>:<stage>",
+          "centered" : false,
+          "imagePosition" : [49.5, 0]
+        }
+      }
+    }
+  },
+
+  "particleEmitters" : {
+    "bite" : {
+      "enabled" : false,
+      "emissionRate" : 1.0,
+      "offsetRegion" : [1.0, 1.0, 7.0, 7.0],
+      "particles" : [
+        { // muscle, large
+          "count" : 4,
+          "particle" : {
+            "type" : "ember",
+            "size" : 2.0,
+            "color" : [130, 46, 13, 255],
+            "initialVelocity" : [0, 2],
+            "finalVelocity" : [0, -50],
+            "approach" : [0, 50],
+            "timeToLive" : 0.75,
+            "variance" : {
+              "initialVelocity" : [10, 3]
+            }
+          }
+        },
+        { // muscle, small
+          "count" : 4,
+          "particle" : {
+            "type" : "ember",
+            "size" : 1.0,
+            "color" : [130, 46, 13, 255],
+            "initialVelocity" : [0, 5],
+            "finalVelocity" : [0, -50],
+            "approach" : [0, 50],
+            "timeToLive" : 0.75,
+            "variance" : {
+              "initialVelocity" : [10, 10]
+            }
+          }
+        },
+        { // skin
+          "count" : 4,
+          "particle" : {
+            "type" : "ember",
+            "size" : 1.0,
+            "color" : [255, 192, 0, 255],
+            "initialVelocity" : [0, 5],
+            "finalVelocity" : [0, -50],
+            "approach" : [0, 50],
+            "timeToLive" : 0.75,
+            "variance" : {
+              "initialVelocity" : [10, 10]
+            }
+          }
+        },
+        { // sinew
+          "count" : 2,
+          "particle" : {
+            "type" : "ember",
+            "size" : 1.0,
+            "color" : [228, 168, 37, 255],
+            "initialVelocity" : [0, 5],
+            "finalVelocity" : [0, -50],
+            "approach" : [0, 50],
+            "timeToLive" : 0.75,
+            "variance" : {
+              "initialVelocity" : [10, 10]
+            }
+          }
+        }
+      ]
+    }
+  },
+
+  "sounds" : {
+    "bite" : ["/sfx/humanoid/eat1.ogg", "/sfx/humanoid/eat2.ogg"]
+  }
+}

@@ -2,10 +2,10 @@
   "itemName" : "starpoundswastelander",
   "rarity" : "Rare",
   "price" : 500,
-  "tooltipKind" : "fossil",
+  "tooltipKind" : "food",
   "category" : "drink",
   "inventoryIcon" : "starpoundswastelander.png",
-  "description" : "A drink for the truly adventurous and/or desperate; you will be setting off radiation alarms for weeks after one sip!",
+  "description" : "A drink for the truly adventurous; you will be setting off radiation alarms for weeks after one sip!",
   "shortdescription" : "Wastelander",
   "maxStack" : 1,
   "effects" : [ [
@@ -30,5 +30,31 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Wastelander ^yellow;^reset;",  
+    "price" : 1000,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk25",
+        "duration" : 675
+    },
+    {
+        "effect" : "runboostfood",
+        "duration" : 675
+    },
+    {
+        "effect" : "starpoundsirradiatedglow",
+        "duration" : 675
+    },
+    {
+        "effect" : "weakpoison",
+        "duration" : 20
+    }
+    ]]
+  }
 }

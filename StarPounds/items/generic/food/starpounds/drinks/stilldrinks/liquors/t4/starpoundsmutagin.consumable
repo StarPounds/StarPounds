@@ -3,7 +3,7 @@
   "rarity" : "Uncommon",
   "price" : 120,
   "category" : "drink",
-  "tooltipKind" : "fossil",
+  "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsmutagin.png",
   "description" : "Effects may include slight ataxia, double vision, slurred speech, mutations, and floatiness.",
   "shortdescription" : "Mutagin",
@@ -22,5 +22,23 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Mutagin ^yellow;^reset;",  
+    "price" : 240,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk25",
+        "duration" : 405
+    },
+    {
+        "effect" : "lowgrav",
+        "duration" : 405
+    }
+    ]]
+  }
 }

@@ -131,7 +131,7 @@
       "starpoundsenormouscake", "starpoundsroyalcake", "starpoundschocotaco", "starpoundsicecream", "starpoundschocolateicecream", "starpoundsstrawberryicecream", "starpoundsminticecream", "starpoundsicecreamsandwich", "starpoundsparamitepie", "starpoundsscrabcake", "starpoundsmeechmunchy", "starpoundsjelly", "starpoundsmagicpudding", "starpoundschurro", "starpoundscottoncandy", "starpoundschococheesecake"
     ],
     "hugefood" : [
-      "starpoundshugecherrycake-recipe", "starpoundshugepancakes-recipe", "starpoundshugechunkofmeat-recipe"
+      "starpoundshugecherrycake-recipe", "starpoundshugepancakes-recipe", "starpoundshugechunkofmeat-recipe", "starpoundshugeburger-recipe"
     ],
     "liquids" : [
       {"input": [["money", 10]], "output": "liquidmilk"},

@@ -5,8 +5,8 @@
   "maxStack" : 1,
   "rarity" : "Legendary",
   "category" : "headwear",
-  "description" : "A lot lighter then you were expecting.",
-  "shortdescription" : "Tiny Dispatch",
+  "description" : "The creator of the mod capable of joining you! The cost? Your neck.",
+  "shortdescription" : "^white;Tiny^reset; ^#8968e2;ShyDispatch^reset;",
   "tooltipKind" : "armor",
 
   "maleFrames" : "head.png",

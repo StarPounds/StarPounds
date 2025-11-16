@@ -1,0 +1,9 @@
+{
+  "input" : [
+    { "item" : "starpoundsbrewpod", "count" : 1 },
+    { "item" : "scorchedcore", "count" : 1 },
+    { "item" : "corn", "count" : 1 }
+  ],
+  "output" : { "item" : "starpoundsfireblast", "count" : 1 },
+  "groups" : [ "craftingstill", "starpoundsalcohol" ]
+}

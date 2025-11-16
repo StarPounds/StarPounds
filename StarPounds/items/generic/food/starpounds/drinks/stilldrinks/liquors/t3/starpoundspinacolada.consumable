@@ -3,7 +3,7 @@
   "rarity" : "Uncommon",
   "price" : 150,
   "category" : "drink",
-  "tooltipKind" : "fossil",
+  "tooltipKind" : "food",
   "inventoryIcon" : "starpoundspinacolada.png",
   "description" : "*The* tropical drink, for vacationers and those who are hated by the weather.",
   "shortdescription" : "Piña Colada",
@@ -26,5 +26,27 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Piña Colada ^yellow;^reset;",  
+    "price" : 300,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk25",
+        "duration" : 405
+    },
+    {
+        "effect" : "runboostfood",
+        "duration" : 405
+    },
+    {
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 405
+    }
+    ]]
+  }
 }

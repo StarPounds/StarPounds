@@ -1,0 +1,9 @@
+{
+  "input" : [
+    { "item" : "starpoundsbrewpod", "count" : 1 },
+    { "item" : "staticcell", "count" : 1 },
+    { "item" : "rice", "count" : 1 }
+  ],
+  "output" : { "item" : "starpoundsthunderbrew", "count" : 1 },
+  "groups" : [ "craftingstill", "starpoundsalcohol" ]
+}

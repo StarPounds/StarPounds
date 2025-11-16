@@ -2,7 +2,7 @@
   "itemName" : "starpoundspetrolager",
   "rarity" : "Rare",
   "price" : 160,
-  "tooltipKind" : "fossil",
+  "tooltipKind" : "food",
   "category" : "drink",
   "inventoryIcon" : "starpoundspetrolager.png",
   "description" : "A frothy, oily beer popular among Glitch. Can also be used as a makeshift molotov!",
@@ -30,5 +30,31 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Petrolager ^yellow;^reset;",  
+    "price" : 500,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk25",
+        "duration" : 840
+    },
+    {
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 840
+    },
+    {
+        "effect" : "maxhealthscalingboostfood",
+        "duration" : 840
+    },
+    {
+        "effect" : "tarslow",
+        "duration" : 10
+    }
+    ]]
+  }
 }

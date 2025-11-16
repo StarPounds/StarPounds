@@ -3,7 +3,7 @@
   "rarity" : "Rare",
   "price" : 150,
   "category" : "drink",
-  "tooltipKind" : "fossil",
+  "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsmieuxspecial.png",
   "description" : "A thick, creamy drink that brings out your inner Mooshi.",
   "shortdescription" : "Mieux Special",
@@ -26,5 +26,27 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Mieux Deluxe ^yellow;^reset;",  
+    "price" : 300,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk25",
+        "duration" : 360
+    },
+    {
+        "effect" : "maxhealthscalingboostfood",
+        "duration" : 360
+    },
+    {
+        "effect" : "lactating",
+        "duration" : 360
+    }
+    ]]
+  }
 }

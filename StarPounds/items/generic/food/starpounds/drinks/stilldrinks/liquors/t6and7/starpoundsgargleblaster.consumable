@@ -2,12 +2,15 @@
   "itemName" : "starpoundsgargleblaster",
   "rarity" : "Legendary",
   "price" : 5000,
-  "tooltipKind" : "fossil",
+  "tooltipKind" : "food",
   "category" : "drink",
   "inventoryIcon" : "starpoundsgargleblaster.png",
   "description" : "Feels like being hit by a lemon wrapped around a gold bar!",
   "shortdescription" : "Gargle Blaster",
   "maxStack" : 1,
+
+  "timeToAge" : 21600,
+  
   "effects" : [ [
     {
         "effect" : "starpoundsdrunk100",
@@ -46,5 +49,47 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Gargle Blaster ^yellow;^reset;",  
+    "price" : 10000,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk150",
+        "duration" : 900
+    },
+    {
+        "effect" : "maxhealthscalingboostfood",
+        "duration" : 900
+    },
+    {
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 900
+    },
+    {
+        "effect" : "rage",
+        "duration" : 900
+    },
+    {
+        "effect" : "jumpboostfood",
+        "duration" : 900
+    },
+    {
+        "effect" : "runboostfood",
+        "duration" : 900
+    },
+    {
+        "effect" : "regenerationfood",
+        "duration" : 900
+    },
+    {
+        "effect" : "starpoundsphysicalresist",
+        "duration" : 900
+    }
+    ]]
+  }
 }

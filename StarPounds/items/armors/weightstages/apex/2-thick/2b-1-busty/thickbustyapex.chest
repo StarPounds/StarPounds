@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "The first sign of being out of shape is a soft gut that can't be sucked in. Too many bananas perhaps.",
+  "description" : "You might be a bit out of shape but at least you got some boob to balance it.",
   "shortdescription" : "Busty Thick Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsthick",

@@ -3,7 +3,7 @@
   "rarity" : "Uncommon",
   "price" : 170,
   "category" : "drink",
-  "tooltipKind" : "fossil",
+  "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsskullsmash.png",
   "description" : "A pungent, brothy drink popular with the Gluttonist Tribe and other Floran.",
   "shortdescription" : "Skullsmash",
@@ -22,5 +22,23 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Skullsmash ^yellow;^reset;",  
+    "price" : 340,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk25",
+        "duration" : 540
+    },
+    {
+        "effect" : "ragefood",
+        "duration" : 540
+    }
+    ]]
+  }
 }

@@ -1,0 +1,38 @@
+{
+  "type" : "deepfryfivekrakothsvisitor",
+  "baseType" : "fattiesbarvisitor",
+  "displayTitle" : "Deep Fry 5 Guest",
+
+ "scriptConfig" : {
+    "offeredQuests" : [ ],
+    "turnInQuests" : [ ],
+    "behaviorConfig" : {
+      "greetingChance" : 0
+    },
+    "dialogMode": "tutorial",
+    "dialog": {
+			"converse": "/dialog/deepfryfive.config:converse"
+    }
+  },
+  
+  "matchColorIndices": true,
+  "items" : {
+    "ayylien" : [
+      [0, [
+          {
+            "head" : [
+              { "name" : "atprk_aliencowhead1", "parameters" : { "colorIndex" : [1, 2, 3] } },
+              { "name" : "atprk_aliencowhead2", "parameters" : { "colorIndex" : [1, 2, 3] } },
+              { "name" : "atprk_aliencowhead3", "parameters" : { "colorIndex" : [1, 2, 3] } }
+            ],
+            "chest" : [
+              { "name" : "hazmatchest", "parameters" : { "colorIndex" : [7] } }
+            ],
+            "legs" : [
+              { "name" : "hazmatlegs", "parameters" : { "colorIndex" : [7] } }
+            ]
+          }
+      ]]
+    ]
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "type" : "deepfryfivedenelaunvisitor",
+  "baseType" : "fattiesbarvisitor",
+  "displayTitle" : "Deep Fry 5 Guest",
+
+ "scriptConfig" : {
+    "offeredQuests" : [ ],
+    "turnInQuests" : [ ],
+    "behaviorConfig" : {
+      "greetingChance" : 0
+    },
+    "dialogMode": "tutorial",
+    "dialog": {
+			"converse": "/dialog/deepfryfive.config:converse"
+    }
+  },
+  
+  "matchColorIndices": true,
+  "items": {
+    "denelaun": [
+      [ 0, [
+          {
+            "head": [
+              "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
+              { "name" : "denelaunheadfeather1head", "parameters" : { "colorIndex" : [4, 5, 6, 7, 8, 9, 10, 11] } },
+              { "name" : "denelaunheadfeather2head", "parameters" : { "colorIndex" : [4, 5, 6, 7, 8, 9, 10, 11] } },
+              { "name" : "denelaunheadfeather3head", "parameters" : { "colorIndex" : [4, 5, 6, 7, 8, 9, 10, 11] } },
+              { "name" : "denelaunheadfeather4head", "parameters" : { "colorIndex" : [4, 5, 6, 7, 8, 9, 10, 11] } },
+              { "name" : "denelaunheadfeather5head", "parameters" : { "colorIndex" : [4, 5, 6, 7, 8, 9, 10, 11] } },
+              { "name" : "denelaunheadbone1head"},
+              { "name" : "denelaunheadbone2head"},
+              { "name" : "denelaunheadbone3head"},
+              { "name" : "denelaunheadbone4head"}
+            ],
+            "chest": [
+              { "name" : "denelauntraditionalchest", "parameters" : { "colorIndex" : [4, 5, 6, 7, 8, 9, 10, 11] } },
+              { "name" : "denelaunhotchest", "parameters" : { "colorIndex" : [4, 5, 6, 7, 8, 9, 10, 11] } },
+              { "name" : "denelauncoldchest", "parameters" : { "colorIndex" : [4, 5, 6, 7, 8, 9, 10, 11] } },
+              { "name" : "denelauntemperatechest", "parameters" : { "colorIndex" : [4, 5, 6, 7, 8, 9, 10, 11] } }
+            ],
+            "legs": [
+              { "name" : "denelauntraditionallegs", "parameters" : { "colorIndex" : [4, 5, 6, 7, 8, 9, 10, 11] } },
+              { "name" : "denelaunhotlegs", "parameters" : { "colorIndex" : [4, 5, 6, 7, 8, 9, 10, 11] } },
+              { "name" : "denelauncoldlegs", "parameters" : { "colorIndex" : [4, 5, 6, 7, 8, 9, 10, 11] } },
+              { "name" : "denelauntemperatelegs", "parameters" : { "colorIndex" : [4, 5, 6, 7, 8, 9, 10, 11] } }
+            ]
+          }
+        ] ]
+    ]
+  }
+}

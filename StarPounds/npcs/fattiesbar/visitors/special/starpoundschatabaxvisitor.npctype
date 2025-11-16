@@ -1,0 +1,77 @@
+{
+  "type" : "starpoundschatabaxvisitor",
+  "baseType" : "fattiesbarvisitor",
+  "displayTitle" : "Yapping Floran",
+
+  "scriptConfig" : {
+    "initialStorage": {
+      "homePosition": [0,0]
+    },
+    "starPounds_skills": {
+      "minimumSize": [2, 4]
+    },
+    // ======================== PLEASE READ ========================
+    // This character belongs to someone, and these settings reflect
+    // their preferences. Please respect them and don't remove,
+    // change, or otherwise alter these settings.
+    // ======================== PLEASE READ ========================
+    "starPounds_options": {
+      "disablePrey": true
+    },
+    "dialogMode": "tutorial",
+    "dialog": {
+      "converse": {
+        "default": {
+          "generic": [
+            "Wow, thiss place iss pretty great! I hear they have thessse thingss called Throg Potss to help carry around hefty folksss.",
+            "Oh do you frequent thisss place too? I love all the food here, it'ss ssso greassy and deliciouss I can't help get enough of it.",
+            "I love getting to talk to new people. People sssay I can't sstop talking and maybe, but that'ss not a bad thing you know? There'ss jusst ssso many thingss to experience and learn.",
+            "Sssometimess people are put off by my attemptss to talk with them. But I'm alwaysss certain that they'll open up if I keep trying to talk with them.",
+            "Teleportation iss great but I alwaysss love taking public transsportation. The downtime jussst makess it more nice you know? Essspecially when there'ss other passssengerss to talk to."
+          ],
+          "floran": [
+            "Oh hey fellow Floran! Having good huntsss? I haven't been doing too much myssself. I guessss you could sssay I'm a bit civilized now. Wearing ssshirtss of cloth and enjoying a home of wood and brick."
+          ]
+        }
+      }
+    }
+  },
+
+  "identity":  {
+      "bodyDirectives" : "?replace;6f2919=7d6090;ffca8a=e7c9e6;e0975c=c9aace;a85636=9e7aa8?replace;735e3a=48366a;f7e7b2=a582bb;a38d59=614882;d9c189=85679f",
+      "emoteDirectives" : "?replace;6f2919=7d6090;ffca8a=e7c9e6;e0975c=c9aace;a85636=9e7aa8?replace;735e3a=48366a;f7e7b2=a582bb;a38d59=614882;d9c189=85679f",
+      "facialHairDirectives" : "",
+      "facialHairType" : "",
+      "facialHairGroup" : "",
+      "facialMaskDirectives" : "",
+      "facialMaskGroup" : "",
+      "facialMaskType": "",
+      "gender": "female",
+      "hairDirectives" : "?replace;dc1f00=4b78c2;be1b00=253c85;f32200=61bcde?replace;735e3a=48366a;f7e7b2=a582bb;a38d59=614882;d9c189=85679f?setcolor=fff?replace;fff0=fff?scalenearest=1?crop=0;0;43;43?blendmult=/objects/outpost/customsign/signplaceholder.png;0;-16?replace;15000701=48366A;15000801=48366A;16000501=48366A;16000601=48366A;16000701=614882;16000801=614882;17000501=48366A;17000601=614882;17000701=48366A;17000801=48366A;18000601=48366A;18000701=614882;18000801=614882;19000701=48366A;25000601=614882;26000601=614882;26000701=48366A;27000501=614882;27000601=48366A;27000701=614882;27000801=614882;28000601=48366A;28000701=85679F;28000801=A582BB;29000601=48366A;29000701=614882;29000801=614882?fade;80ff80;0.0001518?blendmult=/objects/outpost/customsign/signplaceholder.png;0;-24?replace;15000101=614882;15000201=614882;15000301=614882;16000101=85679F;16000201=A582BB;16000301=85679F;16000401=614882;16000501=614882;17000101=614882;17000201=48366A;17000301=614882;17000401=614882;17000501=85679F;17000601=614882;17000701=42729D;17000801=42729D;18000101=48366A;18000201=614882;18000301=85679F;18000401=A582BB;18000501=614882;18000601=614882;18000701=614882;18000801=5FB4C0;19000101=48366A;19000201=85679F;19000301=614882;19000401=614882;19000501=A582BB;19000601=85679F;19000701=48366A;19000801=48366A;20000201=48366A;20000301=85679F;20000401=85679F;20000501=614882;20000601=48366A;20000701=614882;20000801=85679F;21000301=48366A;21000401=48366A;21000501=48366A;21000601=614882;21000701=85679F;21000801=85679F;22000501=48366A;22000601=614882;22000701=85679F;22000801=614882;23000401=48366A;23000501=614882;23000601=85679F;23000701=85679F;23000801=614882;24000401=48366A;24000501=614882;24000601=85679F;24000701=614882;24000801=A582BB;25000401=48366A;25000501=85679F;25000601=85679F;25000701=614882;25000801=A582BB;26000401=48366A;26000501=85679F;26000601=614882;26000701=A582BB;26000801=614882;27000101=85679F;27000201=A582BB;27000301=614882;27000401=48366A;27000501=85679F;27000601=85679F;27000701=614882;28000101=614882;28000201=614882;28000401=48366A;28000501=614882;28000601=614882?fade;80ff80;0.0001518?blendmult=/objects/outpost/customsign/signplaceholder.png;0;-32?replace;16000101=42729D;17000101=5FB4C0;17000201=42729D;18000101=42729D;18000201=90E1DE;18000301=42729D;19000101=5FB4C0;19000201=42729D;20000101=614882;20000201=42729D;21000101=85679F;21000201=614882;22000101=A582BB;22000201=614882;23000101=A582BB;23000201=614882;24000101=614882;24000201=48366A;25000101=614882;25000201=614882;26000101=85679F;26000201=614882;27000101=48366A;27000201=614882?fade;80ff80;0.0001518?replace;fff=0000",
+      "hairGroup": "hair",
+      "hairType": "11",
+      "name": "Chatabax",
+      "personalityArmIdle": "idle.3",
+      "personalityArmOffset": [
+          0.0,
+          0.0
+      ],
+      "personalityHeadOffset": [
+          -1.0,
+          0.0
+      ],
+      "personalityIdle": "idle.4",
+      "species": "floran"
+  },
+  "items" : {
+    "override" : [
+      [0, [
+          {
+            "headCosmetic": [ { "name": "" } ],
+            "chestCosmetic": [ { "name": "" } ],
+            "legsCosmetic": [ { "name": "" } ]
+          }
+        ] ]
+    ]
+  }
+}

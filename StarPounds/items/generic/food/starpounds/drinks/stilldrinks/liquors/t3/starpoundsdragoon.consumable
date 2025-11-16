@@ -4,8 +4,8 @@
   "price" : 150,
   "category" : "drink",
   "inventoryIcon" : "starpoundsdragoon.png",
-  "tooltipKind" : "fossil",
-  "description" : "A favorite of space dragon and space wyvern hunters. Some say it bestows a wyvern's flight.",
+  "tooltipKind" : "food",
+  "description" : "A favorite of space dragon and space wyvern hunters.",
   "shortdescription" : "Dragoon",
   "maxStack" : 1,
   "effects" : [ [
@@ -26,5 +26,27 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Dragoon ^yellow;^reset;",  
+    "price" : 300,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk25",
+        "duration" : 405
+    },
+    {
+        "effect" : "starpoundsjumpboostdragoon",
+        "duration" : 360
+    },
+    {
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 360
+    }
+    ]]
+  }
 }

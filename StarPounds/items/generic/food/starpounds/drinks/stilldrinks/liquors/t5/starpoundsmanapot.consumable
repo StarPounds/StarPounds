@@ -2,7 +2,7 @@
   "itemName" : "starpoundsmanapot",
   "rarity" : "Rare",
   "price" : 160,
-  "tooltipKind" : "fossil",
+  "tooltipKind" : "food",
   "category" : "drink",
   "inventoryIcon" : "starpoundsmanapot.png",
   "description" : "Some say the Ponderous Order invented this drink to help create energy for Lipomancy.",
@@ -26,5 +26,27 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Mana.pot ^yellow;^reset;",  
+    "price" : 450,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk25",
+        "duration" : 450
+    },
+    {
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 450
+    },
+    {
+        "effect" : "lowgrav",
+        "duration" : 450
+    }
+    ]]
+  }
 }

@@ -3,7 +3,7 @@
   "rarity" : "Uncommon",
   "price" : 100,
   "category" : "drink",
-  "tooltipKind" : "fossil",
+  "tooltipKind" : "food",
   "inventoryIcon" : "starpoundstoxicider.png",
   "description" : "Originally invented for assassinations, this liquor has since become a delicacy.",
   "shortdescription" : "Toxicider",
@@ -26,5 +26,27 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
-  ]
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Toxicider ^yellow;^reset;",  
+    "price" : 200,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk25",
+        "duration" : 540
+    },
+    {
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 540
+    },
+    {
+        "effect" : "weakpoison",
+        "duration" : 10
+    }
+    ]]
+  }
 }

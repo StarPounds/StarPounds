@@ -1,0 +1,76 @@
+{
+  "type" : "starpoundsfrehkivisitor",
+  "baseType" : "fattiesbarvisitor",
+
+  "scriptConfig" : {
+    "initialStorage": {
+      "homePosition": [0, 0]
+    },
+    "starPounds_skills": {
+      "minimumSize": [3, 3]
+    },
+    // ======================== PLEASE READ ========================
+    // This character belongs to someone, and these settings reflect
+    // their preferences. Please respect them and don't remove,
+    // change, or otherwise alter these settings.
+    // ======================== PLEASE READ ========================
+    "starPounds_options": {
+      "disablePrey": true,
+      "milky": true
+    },
+    "dialogMode": "tutorial",
+    "dialog": {
+      "converse": {
+        "default": {
+          "default": [
+            "Don't mind me~ Just browsing what's on offer... Hm? Vendors?",
+            "I should head back soon, my next batch of rice should've grown by now.",
+            "Another broken pump... Maybe they'll start stocking industrial ones soon...",
+            "Cold metals and hard edges are such a peculiar choice for such shapely people. But perhaps it isn't their exterior being reflected...",
+            "Was I staring? Sorry, I tend to lose track of what I'm doing when I'm hungry. I'm sure you understand.",
+            "... maybe one or two before I leave... as a treat.",
+            "Ah, I should leave soon, I can feel my soft, warm nest calling me home.",
+            "My back? What's wrong with my back? Did my crew stick a note on me again?",
+            "The floran I've met certainly didn't seem as enticed for a floran hunt as I thought they'd be. At least they had spirit, though.",
+            "Thirsty?",
+            "Oop, careful! You wouldn't be the first I've launched after turning.",
+            "Wait, why did I teleport here again?",
+            "I never know why this place keeps being so alluring to hang around... probably all the friendly faces.",
+            "You ever just want to take a bite out of a block of aerogel? I think about it a lot."
+          ]
+        }
+      }
+    }
+  },
+
+  "identity":  {
+    "facialHairType" : "",
+    "facialHairGroup" : "",
+    "personalityArmOffset" : [1, 0],
+    "hairType" : "3",
+    "bodyDirectives" : "?replace;786440=a8a086;a2885c=e2d6b4;ccb07f=f3ecce;42331c=77735f?replace;4e4e4e=ab9d71;787878=c9b086;212121=4e4e36;3c3c3c=746e4d?replace;1b8d78=17688c;1c3b42=1c2f41;67ffa2=68e0fe;1ad589=1cb4d4?replace;1b8d78=17688c;1c3b42=1c2f41;67ffa2=68e0fe;1ad589=1cb4d4",
+    "personalityArmIdle" : "idle.3",
+    "gender" : "female",
+    "color" : [51, 117, 237],
+    "personalityHeadOffset" : [-1, 0],
+    "hairGroup" : "hair",
+    "facialMaskDirectives" : "",
+    "personalityIdle" : "idle.4",
+    "facialMaskGroup" : "",
+    "name" : "Freki",
+    "facialHairDirectives" : "",
+    "emoteDirectives" : "?replace;786440=a8a086;a2885c=e2d6b4;ccb07f=f3ecce;42331c=77735f?replace;4e4e4e=ab9d71;787878=c9b086;212121=4e4e36;3c3c3c=746e4d?replace;1b8d78=17688c;1c3b42=1c2f41;67ffa2=68e0fe;1ad589=1cb4d4?replace;1b8d78=17688c;1c3b42=1c2f41;67ffa2=68e0fe;1ad589=1cb4d4",
+    "hairDirectives" : "?replace;4e4e4e=ab9d71;787878=c9b086;212121=4e4e36;3c3c3c=746e4d?replace;1b8d78=17688c;1c3b42=1c2f41;67ffa2=68e0fe;1ad589=1cb4d4",
+    "facialMaskType" : ""
+  },
+
+  "items" : {
+    "override" : [
+      [0, [
+        {
+          "headCosmetic": [ { "name": "starpoundsfrehkicollar", "parameters" : { "colorIndex" : 1 } } ]
+        }
+      ]]
+    ]
+  }
+}
