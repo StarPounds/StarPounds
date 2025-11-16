@@ -1,12 +1,12 @@
 {
-  "itemName" : "tinydispatchhead",
+  "itemName" : "tinystarpoundsapplehead",
   "price" : 0,
   "inventoryIcon" : "icons.png:head",
   "maxStack" : 1,
   "rarity" : "Legendary",
   "category" : "headwear",
-  "description" : "The creator of the mod capable of joining you! The cost? Your neck.",
-  "shortdescription" : "^white;Tiny^reset; ^#8968e2;ShyDispatch^reset;",
+  "description" : "Despite resting on your head, their coding knowledge does not flow to you.",
+  "shortdescription" : "^white;Tiny^reset; ^#2862e9;Grace^reset;",
   "tooltipKind" : "armor",
 
   "maleFrames" : "head.png",

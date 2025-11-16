@@ -76,6 +76,11 @@
     },
     "filter" : [],
   "modTab" : [{
+      "file": "/interface/fattyshops/tabs/tabmisc.png",
+      "label": " Misc",
+      "filter": [ "tabmisc" ]
+    },
+  {
       "file": "/interface/fattyshops/tabs/tabstages.png",
       "label": " Stages",
       "filter": [ "tabstages" ]
@@ -121,12 +126,16 @@
       "filter": [ "materials" ]
     },
   {
-      "file": "/interface/fattyshops/tabs/tabmisc.png",
-      "label": " Misc",
-      "filter": [ "tabmisc" ]
+      "file": "/interface/fattyshops/tabs/tabtrap.png",
+      "label": " Traps",
+      "filter": [ "tabtrap" ]
     }]
   },
   "storeInventory" : {
+    "tabmisc" : [
+      {"input": [["money", 1000]], "output": "retromilkshakesquirtgun"},
+      "tinydispatchhead", "tinystarpoundsapplehead", "tinyblossomdancerhead", "voretool", "preytool", "burptool", "gurgletool", "starpoundsstomachgurgle"
+    ],
     "tabstages" : [
       "1softoutfitbag", "2thickoutfitbag", "3chubsteroutfitbag", "4plumpoutfitbag", "5fattyoutfitbag", "6bloboutfitbag"
     ],
@@ -189,12 +198,10 @@
     "materials" : [
       "humanblubber", "throgblubber", "floranblubber", "mootantblubber", "glitchblubber", "metalblubber", "hylotlblubber", "hylotl2blubber", "apexblubber", "apexfurblubber", "avianblubber", "novakidblubber", "alienblubber"
     ],
-    "tabmisc" : [
+    "tabtrap" : [
       {"input": [["money", 50000]], "output": "calorictrap"},
       {"input": [["money", 50000]], "output": "ancientcaloriccrystaltrap"},
-      {"input": [["money", 50000]], "output": "ancientcaloricbeamtrap"},
-      {"input": [["money", 1000]], "output": "retromilkshakesquirtgun"},
-      "voretool", "preytool", "burptool", "gurgletool", "starpoundsstomachgurgle", "tinydispatchhead"
+      {"input": [["money", 50000]], "output": "ancientcaloricbeamtrap"}
     ]
   }
 }

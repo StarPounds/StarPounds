@@ -1,12 +1,12 @@
 {
-  "itemName" : "tinydispatchhead",
+  "itemName" : "tinyblossomdancerhead",
   "price" : 0,
   "inventoryIcon" : "icons.png:head",
   "maxStack" : 1,
   "rarity" : "Legendary",
   "category" : "headwear",
-  "description" : "The creator of the mod capable of joining you! The cost? Your neck.",
-  "shortdescription" : "^white;Tiny^reset; ^#8968e2;ShyDispatch^reset;",
+  "description" : "You feel like this mantid is trying to nibble on your brain sometimes.",
+  "shortdescription" : "^white;Tiny^reset; ^#ff597d;Blossom^reset;",
   "tooltipKind" : "armor",
 
   "maleFrames" : "head.png",
