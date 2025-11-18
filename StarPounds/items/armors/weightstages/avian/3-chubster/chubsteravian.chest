@@ -8,6 +8,7 @@
   "description" : "So wide, so chubby. Must've been chosen as an Ascendant to be feasting so much.",
   "shortdescription" : "Chubby Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster"

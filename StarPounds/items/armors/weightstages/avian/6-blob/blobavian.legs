@@ -8,6 +8,7 @@
   "description" : "You ate like it was your last day as a sacrifice. Now you have blubbery drumsticks.",
   "shortdescription" : "Blobby Body",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsblob"
