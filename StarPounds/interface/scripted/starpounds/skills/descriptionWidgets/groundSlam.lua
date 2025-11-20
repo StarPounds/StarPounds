@@ -1,6 +1,7 @@
 descriptionFunctions.groundSlam = descriptionFunctions.groundSlam or function(descriptionWidget)
   descriptionWidget.onClick = function()
-    if contains(player.availableTechs(), "doublejump") then
+    local availableTechs = player.availableTechs()
+    if contains(availableTechs, "doublejump") or contains(availableTechs, "sb_doublejump") then
       player.makeTechAvailable("starpoundsgroundslam")
       player.enableTech("starpoundsgroundslam")
       player.equipTech("starpoundsgroundslam")
