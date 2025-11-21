@@ -1,6 +1,6 @@
 {
   "itemName" : "chubstermilkyhumanchest",
-  "price" : 0,    
+  "price" : 0,
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
@@ -8,7 +8,8 @@
   "description" : "Those sloshing milk tanks help to obscure that chubby belly of yours.",
   "shortdescription" : "XBusty Chubby Belly",
   "tooltipKind" : "starpoundsarmor",
-  
+  "bypassNude" : true,
+
   "statusEffects": [
     "starpoundschubster",
     "starpoundsmilky"

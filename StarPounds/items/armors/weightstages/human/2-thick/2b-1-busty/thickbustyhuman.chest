@@ -4,11 +4,12 @@
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
-  "category" : "chestwear",  
+  "category" : "chestwear",
   "description" : "You might be a bit out of shape but at least you got some boob to balance it.",
   "shortdescription" : "Busty Thick Belly",
   "tooltipKind" : "starpoundsarmor",
-  
+  "bypassNude" : true,
+
   "statusEffects": [
     "starpoundsthick",
     "starpoundsbusty"

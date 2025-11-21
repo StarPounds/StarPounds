@@ -1,14 +1,15 @@
 {
   "itemName" : "softhumanlegs",
-  "price" : 0,  
+  "price" : 0,
   "inventoryIcon" : "icons.png:pants",
   "maxStack" : 1,
   "rarity" : "legendary",
-  "category" : "legwear",  
+  "category" : "legwear",
   "description" : "Your hips are a bit flared. No stick legs for you.",
   "shortdescription" : "Soft Legs",
   "tooltipKind" : "starpoundsarmor",
-  
+  "bypassNude" : true,
+
   "statusEffects": [
     "starpoundssoft"
   ],

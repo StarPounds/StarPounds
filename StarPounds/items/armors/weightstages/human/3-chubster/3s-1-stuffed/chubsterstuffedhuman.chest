@@ -1,14 +1,15 @@
 {
   "itemName" : "chubsterstuffedhumanchest",
-  "price" : 0,    
+  "price" : 0,
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
-  "category" : "chestwear",  
+  "category" : "chestwear",
   "description" : "It's okay. It's hard to tell you've eaten with that much padding.",
   "shortdescription" : "Stuffed Chubby Belly",
   "tooltipKind" : "starpoundsarmor",
-  
+  "bypassNude" : true,
+
   "statusEffects": [
     "starpoundschubster",
     "starpoundsstuffed"

@@ -4,11 +4,12 @@
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
-  "category" : "chestwear",  
+  "category" : "chestwear",
   "description" : "Your gut is the size of a person, you're just a hopeless, fat glutton.",
   "shortdescription" : "Stuffed Fatty Belly",
   "tooltipKind" : "starpoundsarmor",
-  
+  "bypassNude" : true,
+
   "statusEffects": [
     "starpoundsfatty",
     "starpoundsstuffed"

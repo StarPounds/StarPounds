@@ -1,14 +1,15 @@
 {
   "itemName" : "immobilehumanchest",
-  "price" : 0,  
+  "price" : 0,
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
-  "category" : "chestwear",  
+  "category" : "chestwear",
   "description" : "A bit of arm fat that can't be missed.",
   "shortdescription" : "Blobby Arms",
   "tooltipKind" : "starpoundsarmor",
-  
+  "bypassNude" : true,
+
   "statusEffects": [
     "starpoundsimmobile"
   ],

@@ -1,14 +1,15 @@
 {
   "itemName" : "thickhumanchest",
-  "price" : 0,  
+  "price" : 0,
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
-  "category" : "chestwear",  
+  "category" : "chestwear",
   "description" : "First sign of being out of shape is a soft gut that can't be sucked in.",
   "shortdescription" : "Thick Belly",
   "tooltipKind" : "starpoundsarmor",
-  
+  "bypassNude" : true,
+
   "statusEffects": [
     "starpoundsthick"
   ],
