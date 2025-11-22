@@ -4,11 +4,12 @@
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
-  "category" : "chestwear",  
+  "category" : "chestwear",
   "description" : "No wonder you've packed on weight with meals like this.",
   "shortdescription" : "Filled Thick Belly",
   "tooltipKind" : "starpoundsarmor",
-  
+  "bypassNude" : true,
+
   "statusEffects": [
     "starpoundsthick",
     "starpoundsfilled"

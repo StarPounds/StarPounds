@@ -417,8 +417,12 @@ function stomach:sloshing(dt)
       local energyMultiplier = sloshEffectiveness * starPounds.getStat("sloshingEnergy")
       status.modifyResource("energyRegenBlock", status.stat("energyRegenBlockTime") * self.data.sloshEnergyLock * sloshEffectiveness)
       status.modifyResource("energy", -self.data.sloshEnergy * energyMultiplier)
-      self.gurgleTimer = math.max(self.gurgleTimer - (self.data.sloshPercent * self.data.gurgleTime), 0)
-      self.rumbleTimer = math.max(self.rumbleTimer - (self.data.sloshPercent * self.data.rumbleTime), 0)
+      if self.gurgleTimer then
+        self.gurgleTimer = math.max(self.gurgleTimer - (self.data.sloshPercent * self.data.gurgleTime), 0)
+      end
+      if self.rumbleTimer then
+        self.rumbleTimer = math.max(self.rumbleTimer - (self.data.sloshPercent * self.data.rumbleTime), 0)
+      end
       starPounds.events:fire("stomach:slosh", sloshEffectiveness)
     end
     self.sloshActivations = math.min(self.sloshActivations + 1, self.data.sloshActivationCount)

@@ -1,6 +1,6 @@
 {
   "itemName" : "plumpmilkyhumanchest",
-  "price" : 0,  
+  "price" : 0,
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
@@ -8,7 +8,8 @@
   "description" : "When your gut is resting on a table, it's pretty fat porky.",
   "shortdescription" : "XBusty Plump Belly",
   "tooltipKind" : "starpoundsarmor",
-  
+  "bypassNude" : true,
+
   "statusEffects": [
     "starpoundsplump",
     "starpoundsmilky"

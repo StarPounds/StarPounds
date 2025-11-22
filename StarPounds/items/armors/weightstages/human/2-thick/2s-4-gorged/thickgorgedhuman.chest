@@ -4,11 +4,12 @@
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
-  "category" : "chestwear",  
+  "category" : "chestwear",
   "description" : "You won't be just thick with meals like this.",
   "shortdescription" : "Gorged Thick Belly",
   "tooltipKind" : "starpoundsarmor",
-  
+  "bypassNude" : true,
+
   "statusEffects": [
     "starpoundsthick",
     "starpoundsgorged"

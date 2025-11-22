@@ -1,14 +1,15 @@
 {
   "itemName" : "blobhumanlegs",
-  "price" : 0,  
+  "price" : 0,
   "inventoryIcon" : "icons.png:pants",
   "maxStack" : 1,
   "rarity" : "legendary",
-  "category" : "legwear",  
+  "category" : "legwear",
   "description" : "It'll be amazing if you can fit into a house since you're now a person sized whale.",
   "shortdescription" : "Blobby Body",
   "tooltipKind" : "starpoundsarmor",
-  
+  "bypassNude" : true,
+
   "statusEffects": [
     "starpoundsblob"
   ],

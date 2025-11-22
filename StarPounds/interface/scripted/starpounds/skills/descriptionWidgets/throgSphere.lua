@@ -1,6 +1,7 @@
 descriptionFunctions.throgSphere = descriptionFunctions.throgSphere or function(descriptionWidget)
   descriptionWidget.onClick = function()
-    if contains(player.availableTechs(), "distortionsphere") then
+    local availableTechs = player.availableTechs()
+    if contains(availableTechs, "distortionsphere") or contains(availableTechs, "sb_morphball") then
       player.makeTechAvailable("starpoundsthrogsphere")
       player.enableTech("starpoundsthrogsphere")
       player.equipTech("starpoundsthrogsphere")

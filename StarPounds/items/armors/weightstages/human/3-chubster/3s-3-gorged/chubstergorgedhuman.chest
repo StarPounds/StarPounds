@@ -4,11 +4,12 @@
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
-  "category" : "chestwear",  
+  "category" : "chestwear",
   "description" : "Is this a sign you've given up on losing weight? Or can you not stop yourself?",
   "shortdescription" : "Gorged Chubby Belly",
   "tooltipKind" : "starpoundsarmor",
-  
+  "bypassNude" : true,
+
   "statusEffects": [
     "starpoundschubster",
     "starpoundsgorged"

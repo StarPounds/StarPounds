@@ -1,6 +1,7 @@
 descriptionFunctions.stomachSmash = descriptionFunctions.stomachSmash or function(descriptionWidget)
   descriptionWidget.onClick = function()
-    if contains(player.availableTechs(), "dash") then
+    local availableTechs = player.availableTechs()
+    if contains(availableTechs, "dash") or contains(availableTechs, "sb_dash") then
       player.makeTechAvailable("starpoundsstomachsmash")
       player.enableTech("starpoundsstomachsmash")
       player.equipTech("starpoundsstomachsmash")

@@ -91,7 +91,8 @@ function size:gainWeight(amount, fullAmount)
   -- Don't do anything if weight gain is disabled.
   if starPounds.hasOption("disableGain") then return 0 end
   -- Argument sanitisation.
-  amount = util.clamp((tonumber(amount) or 0) * (fullAmount and 1 or starPounds.getStat("weightGain")), 0, starPounds.settings.maxWeight - storage.starPounds.weight)
+  amount = tonumber(amount) or 0
+  amount = util.clamp(amount * (fullAmount and 1 or starPounds.getStat("weightGain")), 0, starPounds.settings.maxWeight - storage.starPounds.weight)
   self:setWeight(storage.starPounds.weight + amount)
   return amount
 end
@@ -102,7 +103,8 @@ function size:loseWeight(amount, fullAmount)
   -- Don't do anything if weight loss is disabled.
   if starPounds.hasOption("disableLoss") then return 0 end
   -- Argument sanitisation.
-  amount = util.clamp((tonumber(amount) or 0) * (fullAmount and 1 or starPounds.getStat("weightLoss")), 0, storage.starPounds.weight)
+  amount = tonumber(amount) or 0
+  amount = util.clamp(amount * (fullAmount and 1 or starPounds.getStat("weightLoss")), 0, storage.starPounds.weight - self:minimumWeight())
   self:setWeight(storage.starPounds.weight - amount)
   return amount
 end
@@ -112,7 +114,7 @@ function size:setWeight(amount)
   if not (storage.starPounds.enabled and self.canGain) then return end
   -- Argument sanitisation.
   amount = math.round(tonumber(amount) or 0, 4)
-  storage.starPounds.weight = util.clamp(amount, starPounds.sizes[(starPounds.moduleFunc("skills", "level", "minimumSize") + 1)].weight, starPounds.settings.maxWeight)
+  storage.starPounds.weight = util.clamp(amount, self:minimumWeight(), starPounds.settings.maxWeight)
 end
 
 function size:get(weight)
@@ -137,6 +139,10 @@ function size:get(weight)
   end
 
   return starPounds.sizes[sizeIndex], sizeIndex
+end
+
+function size:minimumWeight()
+  return starPounds.sizes[((starPounds.moduleFunc("skills", "level", "minimumSize") or 0) + 1)].weight
 end
 
 function size:offset()
