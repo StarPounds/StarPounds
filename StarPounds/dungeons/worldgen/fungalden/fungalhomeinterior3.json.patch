@@ -1,0 +1,24 @@
+[[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/0/properties/typeName",
+    "value": "armoredgrimdarkcultist"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/0/properties/npc",
+    "value": "apex, floran"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/1/properties/typeName",
+    "value": "grimdarkcultist"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/1/properties/npc",
+    "value": "apex, floran"
+  }
+]]

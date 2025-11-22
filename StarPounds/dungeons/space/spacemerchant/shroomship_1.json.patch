@@ -1,0 +1,12 @@
+[[
+  {
+    "op": "test",
+    "path": "/layers/5/objects/0/properties/npc",
+    "value": "floran"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/5/objects/0/properties/npc",
+    "value": "agaran"
+  }
+]]

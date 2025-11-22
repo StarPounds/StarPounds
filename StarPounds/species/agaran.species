@@ -1,0 +1,291 @@
+{
+  "kind" : "agaran",
+
+  "charCreationTooltip" : {
+      "title" : "Agaran",
+      "subTitle" : "CO2",
+      "description" : "Mysterious mushroom folk who seemingly popped up into existence one day. Nobody knows where they came from, and their interesting language has been quite the barrier to knowing them."
+  },
+
+  "nameGen" : [ "/species/florannamegen.config:names", "/species/florannamegen.config:names" ],
+  "ouchNoises" : [ "/sfx/humanoid/agaranhurt_male1.ogg", "/sfx/humanoid/agaranhurt_female1.ogg" ],
+  "charGenTextLabels" : [ "Cap colour", "Facial features", "Shirt", "Legwear", "Mushroom cap", "Skin colour", "Shirt colour", "Legwear colour", "AGARAN", "Personality" ],
+  "skull" : "/humanoid/agaran/dead.png",
+  "effectDirectives" : "?replace=FEFFFFFF=FFFFFFFF?replace=9bd4ffFF=62f0d1FF?replace=31a6ffFF=21bfabFF",
+  "defaultBlueprints" : {
+    "tier1" : [
+
+// Empty Hands
+      { "item" : "flagfloran" },
+
+// Anvil
+      { "item" : "florantier1head" },
+      { "item" : "florantier1chest" },
+      { "item" : "florantier1pants" },
+      { "item" : "florantier2head" },
+      { "item" : "florantier2chest" },
+      { "item" : "florantier2pants" },
+
+      { "item" : "ironshortsword" },
+      { "item" : "ironbroadsword" },
+      { "item" : "tungstenaxe" },
+      { "item" : "tungstenhammer" },
+
+// Anvil2
+      { "item" : "florantier3head" },
+      { "item" : "florantier3chest" },
+      { "item" : "florantier3pants" },
+      { "item" : "florantier4head" },
+      { "item" : "florantier4chest" },
+      { "item" : "florantier4pants" },
+
+      { "item" : "titaniumdagger" },
+      { "item" : "titaniumspear" },
+      { "item" : "durasteelbroadsword" },
+      { "item" : "durasteelshortsword" },
+
+// Anvil3
+      { "item" : "florantier5ahead" },
+      { "item" : "florantier5achest" },
+      { "item" : "florantier5apants" },
+      { "item" : "florantier6ahead" },
+      { "item" : "florantier6achest" },
+      { "item" : "florantier6apants" },
+
+      { "item" : "florantier5mhead" },
+      { "item" : "florantier5mchest" },
+      { "item" : "florantier5mpants" },
+      { "item" : "florantier6mhead" },
+      { "item" : "florantier6mchest" },
+      { "item" : "florantier6mpants" },
+
+      { "item" : "florantier5shead" },
+      { "item" : "florantier5schest" },
+      { "item" : "florantier5spants" },
+      { "item" : "florantier6shead" },
+      { "item" : "florantier6schest" },
+      { "item" : "florantier6spants" },
+
+      { "item" : "aegisaltpistol" },
+      { "item" : "aegisaltbow" },
+      { "item" : "feroziumwand" },
+      { "item" : "feroziumstaff" },
+      { "item" : "violiumshortsword" },
+      { "item" : "violiumbroadsword" },
+
+// Furniture Table 2
+      { "item" : "floranstoragelocker" },
+      { "item" : "floranshipdoor" },
+      { "item" : "floranshiphatch" },
+
+// Spinning Wheel
+      { "item" : "floranfurnivourchest" },
+      { "item" : "floranfurnivourlegs" },
+      { "item" : "floranhunterchest" },
+      { "item" : "floranhunterlegs" },
+      { "item" : "floranleafchest" },
+      { "item" : "floranleaflegs" },
+      { "item" : "floranpeltchest" },
+      { "item" : "floranpeltlegs" },
+      { "item" : "floransurvivalistchest" },
+      { "item" : "floransurvivalistlegs" }
+    ]
+  },
+  "altOptionAsUndyColor" : true,
+  "headOptionAsHairColor" : true,
+  "headOptionAsFacialhair" : true,
+  "altOptionAsFacialMask" : true,
+  "hairColorAsBodySubColor" : true,
+  "bodyColorAsFacialMaskSubColor" : true,
+
+  "altOptionAsHairColor" : true,
+  "genders" : [
+    {
+      "name" : "male",
+      "image" : "/interface/title/plantmaleicon.png",
+      "characterImage" : "/interface/title/agaranmale.png",
+      "hairGroup" : "face",
+      "hair" : [ "1", "2", "3", "4", "5", "6" ],
+      "shirt" : [ "floranfurnivourchest", "floranhunterchest", "floranleafchest", "floranpeltchest", "floransurvivalistchest", "protectorateshirtchest", "protectoratevestchest" ],
+      "pants" : [ "floranfurnivourlegs", "floranhunterlegs", "floranleaflegs", "floranpeltlegs", "floransurvivalistlegs" ],
+      "facialHairGroup" : "mask",
+      "facialHair" : [ "0" ],
+      "facialMaskGroup" : "cap",
+      "facialMask" : [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67" ]
+    },
+    {
+      "name" : "female",
+      "image" : "/interface/title/plantfemaleicon.png",
+      "characterImage" : "/interface/title/agaranfemale.png",
+      "hairGroup" : "face",
+      "hair" : [ "1", "2", "3", "4", "5", "6" ],
+      "shirt" : [ "floranfurnivourchest", "floranhunterchest", "floranleafchest", "floranpeltchest", "floransurvivalistchest", "protectorateshirtchest", "protectoratevestchest" ],
+      "pants" : [ "floranfurnivourlegs", "floranhunterlegs", "floranleaflegs", "floranpeltlegs", "floransurvivalistlegs" ],
+      "facialHairGroup" : "mask",
+      "facialHair" : [ "0" ],
+      "facialMaskGroup" : "cap",
+      "facialMask" : [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60", "61", "62", "63", "64", "65", "66", "67" ]
+    }
+  ],
+  "bodyColor" : [
+    { "ffca8a" : "f4988c", "e0975c" : "d93a3a", "a85636" : "932625", "6f2919" : "601119" },
+    { "ffca8a" : "ea4545", "e0975c" : "b42024", "a85636" : "830c11", "6f2919" : "4c080b" },
+    { "ffca8a" : "de5240", "e0975c" : "9d1414", "a85636" : "670a09", "6f2919" : "34050a" },
+
+    { "ffca8a" : "f48c95", "e0975c" : "d93a5a", "a85636" : "93253a", "6f2919" : "601129" },
+    { "ffca8a" : "e7636e", "e0975c" : "be2342", "a85636" : "7a1327", "6f2919" : "44091b" },
+    { "ffca8a" : "de404e", "e0975c" : "9d142f", "a85636" : "67091b", "6f2919" : "340513" },
+
+    { "ffca8a" : "f48caa", "e0975c" : "d93a7a", "a85636" : "932550", "6f2919" : "601139" },
+    { "ffca8a" : "e76389", "e0975c" : "be2361", "a85636" : "7a133b", "6f2919" : "440927" },
+    { "ffca8a" : "de406d", "e0975c" : "9d144b", "a85636" : "67092e", "6f2919" : "34051d" },
+
+    { "ffca8a" : "eec1e6", "e0975c" : "dc9bd4", "a85636" : "a95ca6", "6f2919" : "762779" },
+    { "ffca8a" : "f48cbf", "e0975c" : "d93a9a", "a85636" : "932566", "6f2919" : "601149" },
+    { "ffca8a" : "e763a3", "e0975c" : "be2380", "a85636" : "7a1350", "6f2919" : "440933" },
+    { "ffca8a" : "de408d", "e0975c" : "9d1466", "a85636" : "670941", "6f2919" : "340526" },
+
+    { "ffca8a" : "f48cdb", "e0975c" : "d93ac4", "a85636" : "932583", "6f2919" : "60115e" },
+    { "ffca8a" : "e763c7", "e0975c" : "be23a9", "a85636" : "7a136b", "6f2919" : "440943" },
+    { "ffca8a" : "de40b7", "e0975c" : "9d148b", "a85636" : "67095a", "6f2919" : "340533" },
+
+    { "ffca8a" : "f48cf0", "e0975c" : "ce3ad9", "a85636" : "8d2593", "6f2919" : "521160" },
+    { "ffca8a" : "e763e1", "e0975c" : "b423be", "a85636" : "74137a", "6f2919" : "390944" },
+    { "ffca8a" : "de40d7", "e0975c" : "94149d", "a85636" : "610967", "6f2919" : "2c0534" },
+
+    { "ffca8a" : "e38cf4", "e0975c" : "ae3ad9", "a85636" : "772593", "6f2919" : "421160" },
+    { "ffca8a" : "d263e7", "e0975c" : "9523be", "a85636" : "60137a", "6f2919" : "2d0944" },
+    { "ffca8a" : "c640de", "e0975c" : "78149d", "a85636" : "4e0967", "6f2919" : "220534" },
+
+
+    { "ffca8a" : "d195f0", "e0975c" : "ab6acd", "a85636" : "8434ad", "6f2919" : "56117a" },
+    { "ffca8a" : "ac75d5", "e0975c" : "8149aa", "a85636" : "5b2c7e", "6f2919" : "3a0e58" },
+    { "ffca8a" : "b259de", "e0975c" : "752c9b", "a85636" : "59127d", "6f2919" : "2c0241" },
+
+    { "ffca8a" : "bf95f0", "e0975c" : "976acd", "a85636" : "6c34ad", "6f2919" : "41117a" },
+    { "ffca8a" : "9975d5", "e0975c" : "6e49aa", "a85636" : "4b2c7e", "6f2919" : "2b0e58" },
+    { "ffca8a" : "9759de", "e0975c" : "5f2c9b", "a85636" : "44127d", "6f2919" : "1f0241" },
+
+    { "ffca8a" : "ad95f0", "e0975c" : "836acd", "a85636" : "5434ad", "6f2919" : "2c117a" },
+    { "ffca8a" : "8675d5", "e0975c" : "5b49aa", "a85636" : "3b2c7e", "6f2919" : "1c0e58" },
+    { "ffca8a" : "7c59de", "e0975c" : "492c9b", "a85636" : "2f127d", "6f2919" : "120241" },
+    { "ffca8a" : "434564", "e0975c" : "323051", "a85636" : "191737", "6f2919" : "0e0b1e" },
+
+    { "ffca8a" : "9b95f0", "e0975c" : "6f6acd", "a85636" : "3c34ad", "6f2919" : "241a72" },
+    { "ffca8a" : "7d75e9", "e0975c" : "504ab3", "a85636" : "282198", "6f2919" : "190f62" },
+    { "ffca8a" : "6259de", "e0975c" : "332c9b", "a85636" : "19127d", "6f2919" : "0f074c" },
+
+    { "ffca8a" : "739cec", "e0975c" : "3d68c3", "a85636" : "1b479d", "6f2919" : "0b2d6f" },
+    { "ffca8a" : "759ce9", "e0975c" : "3158a3", "a85636" : "143982", "6f2919" : "07245c" },
+    { "ffca8a" : "5985de", "e0975c" : "20448a", "a85636" : "0a2762", "6f2919" : "021741" },
+
+    { "ffca8a" : "95c6f0", "e0975c" : "6aa0cd", "a85636" : "3475ad", "6f2919" : "114a7a" },
+    { "ffca8a" : "75b3e9", "e0975c" : "4a83b3", "a85636" : "216198", "6f2919" : "063862" },
+    { "ffca8a" : "59a0de", "e0975c" : "2c689b", "a85636" : "124b7d", "6f2919" : "022441" },
+
+
+    { "ffca8a" : "95d8f0", "e0975c" : "6ab4cd", "a85636" : "348dad", "6f2919" : "115f7a" },
+    { "ffca8a" : "75cae9", "e0975c" : "4a98b3", "a85636" : "217998", "6f2919" : "064a62" },
+    { "ffca8a" : "59bbde", "e0975c" : "2c7e9b", "a85636" : "12607d", "6f2919" : "023141" },
+
+    { "ffca8a" : "75d5c8", "e0975c" : "49aa9d", "a85636" : "2c7e73", "6f2919" : "0e5851" },
+    { "ffca8a" : "5ad1c4", "e0975c" : "339b91", "a85636" : "1b6a63", "6f2919" : "084742" },
+    { "ffca8a" : "44c6b6", "e0975c" : "1e857b", "a85636" : "0e5a51", "6f2919" : "05342d" },
+
+    { "ffca8a" : "75d5b5", "e0975c" : "49aa8a", "a85636" : "2c7e63", "6f2919" : "0e5842" },
+    { "ffca8a" : "5ad1ac", "e0975c" : "339b7c", "a85636" : "1b6a53", "6f2919" : "084735" },
+    { "ffca8a" : "44c69c", "e0975c" : "1e8566", "a85636" : "0e5a42", "6f2919" : "053424" },
+
+    { "ffca8a" : "75d58f", "e0975c" : "49aa64", "a85636" : "2c7e43", "6f2919" : "0e5824" },
+    { "ffca8a" : "5ad17c", "e0975c" : "339b52", "a85636" : "1b6a33", "6f2919" : "08471b" },
+    { "ffca8a" : "44c668", "e0975c" : "1e853c", "a85636" : "0e5a24", "6f2919" : "053412" },
+
+    { "ffca8a" : "81d575", "e0975c" : "54aa49", "a85636" : "357e2c", "6f2919" : "16580e" },
+    { "ffca8a" : "68d15a", "e0975c" : "3e9b33", "a85636" : "236a1b", "6f2919" : "0f4708" },
+    { "ffca8a" : "54c644", "e0975c" : "2a851e", "a85636" : "165a0e", "6f2919" : "0a3405" },
+
+    { "ffca8a" : "a7d575", "e0975c" : "7baa49", "a85636" : "567e2c", "6f2919" : "34580e" },
+    { "ffca8a" : "98d15a", "e0975c" : "689b33", "a85636" : "436a1b", "6f2919" : "284708" },
+    { "ffca8a" : "88c644", "e0975c" : "53851e", "a85636" : "345a0e", "6f2919" : "1d3405" },
+    { "ffca8a" : "5c6443", "e0975c" : "455130", "a85636" : "455130", "6f2919" : "151e0b" },
+
+    { "ffca8a" : "f0ff95", "e0975c" : "d5ea31", "a85636" : "afae00", "6f2919" : "6e6600" },
+    { "ffca8a" : "d9f467", "e0975c" : "b6d41a", "a85636" : "878d00", "6f2919" : "545200" },
+    { "ffca8a" : "ceec51", "e0975c" : "96b30b", "a85636" : "757a00", "6f2919" : "413f00" },
+
+    { "ffca8a" : "fff995", "e0975c" : "eada31", "a85636" : "af8b00", "6f2919" : "6e5000" },
+    { "ffca8a" : "f4f367", "e0975c" : "d4cd1a", "a85636" : "8d7700", "6f2919" : "544100" },
+    { "ffca8a" : "eceb51", "e0975c" : "b3ae0b", "a85636" : "7a6700", "6f2919" : "413200" },
+
+    { "ffca8a" : "ffe995", "e0975c" : "eabe31", "a85636" : "af7100", "6f2919" : "6e3f00" },
+    { "ffca8a" : "f4d767", "e0975c" : "d4a81a", "a85636" : "8d5b00", "6f2919" : "543000" },
+    { "ffca8a" : "eccc51", "e0975c" : "b38c0b", "a85636" : "7a4f00", "6f2919" : "412500" },
+
+    { "ffca8a" : "ffd495", "e0975c" : "ea9931", "a85636" : "af4e00", "6f2919" : "6e2900" },
+    { "ffca8a" : "f4bb67", "e0975c" : "d4831a", "a85636" : "8d3f00", "6f2919" : "541f00" },
+    { "ffca8a" : "ecad51", "e0975c" : "b36a0b", "a85636" : "7a3700", "6f2919" : "411800" },
+
+    { "ffca8a" : "ffbf95", "e0975c" : "ea7431", "a85636" : "af2b00", "6f2919" : "6e1300" },
+    { "ffca8a" : "f49f67", "e0975c" : "d45e1a", "a85636" : "8d2300", "6f2919" : "540e00" },
+    { "ffca8a" : "ec8e51", "e0975c" : "b3480b", "a85636" : "7a1f00", "6f2919" : "410b00" },
+
+
+    { "ffca8a" : "ccae7c", "e0975c" : "a47844", "a85636" : "754c23", "6f2919" : "472b13" },
+    { "ffca8a" : "b27946", "e0975c" : "7b4a2c", "a85636" : "522d16", "6f2919" : "311c0f" },
+    { "ffca8a" : "644643", "e0975c" : "513730", "a85636" : "371e17", "6f2919" : "1e110b" },
+
+    { "ffca8a" : "e6e6e6", "e0975c" : "b6b6b6", "a85636" : "7b7b7b", "6f2919" : "373737" },
+    { "ffca8a" : "b5b5b5", "e0975c" : "808080", "a85636" : "555555", "6f2919" : "303030" },
+    { "ffca8a" : "838383", "e0975c" : "555555", "a85636" : "383838", "6f2919" : "151515" },
+
+    { "ffca8a" : "ebeec1", "e0975c" : "dcdc9b", "a85636" : "a9a35c", "6f2919" : "796c27" },
+    { "ffca8a" : "eeeac1", "e0975c" : "dcd29b", "a85636" : "a9975c", "6f2919" : "796027" }
+  ],
+  "undyColor" : [
+    { "fff8b5" : "06ff00fe", "fde03f" : "0db100fe" },
+    { "fff8b5" : "00ff7efe", "fde03f" : "00b14efe" },
+    { "fff8b5" : "00ffbefe", "fde03f" : "00b17bfe" },
+    { "fff8b5" : "00f4fffe", "fde03f" : "00b1b0fe" },
+    { "fff8b5" : "00b0fffe", "fde03f" : "0083b1fe" },
+    { "fff8b5" : "348cfcfe", "fde03f" : "1167c1fe" },
+    { "fff8b5" : "2b4ee4fe", "fde03f" : "123bb8fe" },
+    { "fff8b5" : "4e0cd6fe", "fde03f" : "37109dfe" },
+    { "fff8b5" : "6d00fffe", "fde03f" : "4300b1fe" },
+    { "fff8b5" : "8600fffe", "fde03f" : "5400b1fe" },
+
+    { "fff8b5" : "ad00fffe", "fde03f" : "6f00b1fe" },
+    { "fff8b5" : "e000fffe", "fde03f" : "9200b1fe" },
+    { "fff8b5" : "ff00d2fe", "fde03f" : "b1009bfe" },
+    { "fff8b5" : "ff77e7fe", "fde03f" : "de4fcdfe" },
+    { "fff8b5" : "ff0079fe", "fde03f" : "b1005dfe" },
+    { "fff8b5" : "ff0039fe", "fde03f" : "b10030fe" },
+    { "fff8b5" : "ff0028fe", "fde03f" : "b10025fe" },
+    { "fff8b5" : "ff3100fe", "fde03f" : "b11900fe" },
+    { "fff8b5" : "ff5800fe", "fde03f" : "b13400fe" },
+    { "fff8b5" : "ff7100fe", "fde03f" : "b14600fe" },
+    { "fff8b5" : "ffa400fe", "fde03f" : "b16900fe" },
+
+    { "fff8b5" : "ffcf00fe", "fde03f" : "b18600fe" },
+    { "fff8b5" : "fff500fe", "fde03f" : "b1a100fe" },
+    { "fff8b5" : "d6ff00fe", "fde03f" : "9eb100fe" },
+    { "fff8b5" : "a3ff00fe", "fde03f" : "7ab100fe" },
+    { "fff8b5" : "fffffffe", "fde03f" : "d6d6d6fe" }
+	],
+  "hairColor" : [
+    { "f7e7b2" : "e9eecd", "d9c189" : "d9d9ad", "a38d59" : "9f9c7e", "735e3a" : "65604d", "dc1f00" : "83714f", "be1b00" : "5c4f3a", "951500" : "3d3320" },
+    { "f7e7b2" : "eee9cd", "d9c189" : "d9ccad", "a38d59" : "9f927e", "735e3a" : "65594d", "dc1f00" : "83614f", "be1b00" : "5c453a", "951500" : "3d2a20" },
+    { "f7e7b2" : "eee4cd", "d9c189" : "d9c4ad", "a38d59" : "9f8d7e", "735e3a" : "65554d", "dc1f00" : "83594f", "be1b00" : "5c3f3a", "951500" : "3d2520" },
+    { "f7e7b2" : "dfeecd", "d9c189" : "ccd9ad", "a38d59" : "989f7e", "735e3a" : "63654d", "dc1f00" : "83814f", "be1b00" : "5c593a", "951500" : "3d3c20" },
+    { "f7e7b2" : "cdd5ee", "d9c189" : "adbed9", "a38d59" : "7e8e9f", "735e3a" : "4d5b65", "dc1f00" : "3a545c", "be1b00" : "3a545c", "951500" : "20363d" },
+    { "f7e7b2" : "d0cdee", "d9c189" : "adafd9", "a38d59" : "7e839f", "735e3a" : "4d5365", "dc1f00" : "4f6483", "be1b00" : "3a495c", "951500" : "202b3d" },
+    { "f7e7b2" : "e6cdee", "d9c189" : "c7add9", "a38d59" : "8f7e9f", "735e3a" : "564d65", "dc1f00" : "5c4f83", "be1b00" : "413a5c", "951500" : "27203d" },
+    { "f7e7b2" : "eecddf", "d9c189" : "d9adcb", "a38d59" : "9f7e98", "735e3a" : "654d62", "dc1f00" : "814f83", "be1b00" : "5a3a5c", "951500" : "3c203d" },
+    { "f7e7b2" : "eedbcd", "d9c189" : "d9b9ad", "a38d59" : "9f847e", "735e3a" : "654f4d", "dc1f00" : "834f52", "be1b00" : "5c3a3d", "951500" : "3d2022" },
+    { "f7e7b2" : "f4f2ef", "d9c189" : "d9d4cd", "a38d59" : "aba494", "735e3a" : "75705c", "dc1f00" : "8d7d64", "be1b00" : "77674c", "951500" : "57492f" },
+    { "f7e7b2" : "e1ded8", "d9c189" : "c5c2bb", "a38d59" : "969081", "735e3a" : "565240", "dc1f00" : "726550", "be1b00" : "5c4f3a", "951500" : "3d3320" },
+    { "f7e7b2" : "c8c4bb", "d9c189" : "9e9b94", "a38d59" : "767162", "735e3a" : "3f3c2e", "dc1f00" : "5c5140", "be1b00" : "403728", "951500" : "2e2718" },
+    { "f7e7b2" : "b6b1a8", "d9c189" : "7d796f", "a38d59" : "545043", "735e3a" : "2b291e", "dc1f00" : "4c4335", "be1b00" : "312a1e", "951500" : "231e13" },
+    { "f7e7b2" : "e1c08a", "d9c189" : "cda067", "a38d59" : "9d6c41", "735e3a" : "7a492a", "dc1f00" : "83694f", "be1b00" : "5c4a3a", "951500" : "3d2f20" },
+    { "f7e7b2" : "e1cd8a", "d9c189" : "cdaf67", "a38d59" : "a07c44", "735e3a" : "775329", "dc1f00" : "83714f", "be1b00" : "5c4f3a", "951500" : "3d3320" }
+  ]
+}

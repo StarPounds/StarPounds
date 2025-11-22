@@ -1,0 +1,37 @@
+[
+ {
+  "op": "add",
+  "path": "/scriptConfig/dialog/attack/floran",
+  "value": {
+   "default": [
+    "The Ssshadow will consume all!",
+    "I'll rip your face off!",
+    "The Corruption ssspreadss!",
+    "Ssspeak the ssshadow wordss of pain!",
+    "Nothing...everything!",
+    "No more tearsss. Only darknessss."
+   ]
+  }
+ },
+ {
+   "op": "replace",
+   "path": "/items/override/0/1/0/head",
+   "value": [{
+     "name": "armoredcultisthead", "parameters" : {  "directives" : "?replace;ffffa7=181818;e2c344=181818;b77641=181818;a46e06=181818;383838=181818;151515=181818;ffca8a=838383;e0975c=555555;a85636=383838;6f2919=151515;" }
+   }]
+ },
+ {
+   "op": "replace",
+   "path": "/items/override/0/1/0/chest",
+   "value": [{
+     "name": "armoredcultistchest", "parameters" : {  "directives" : "?replace;ffca8a=838383;e0975c=555555;a85636=383838;6f2919=151515;f09cfb=838383;a451c4=555555;70238c=383838;442160=151515;9bbcef=e4e4e4;6690ce=b6b6b6;46528c=7b7b7b;2b2d56=373737;" }
+   }]
+ },
+ {
+   "op": "replace",
+   "path": "/items/override/0/1/0/legs",
+   "value": [{
+     "name": "armoredcultistlegs", "parameters" : {  "directives" : "?replace;ffca8a=838383;e0975c=555555;a85636=383838;6f2919=151515;f09cfb=838383;a451c4=555555;70238c=383838;442160=151515;" }
+   }]
+ }
+]

@@ -1,0 +1,24 @@
+[[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/1/properties/typeName",
+    "value": "shroommerchant"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/1/properties/npc",
+    "value": "agaran"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/5/objects/0/properties/typeName",
+    "value": "shroomguard"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/5/objects/0/properties/npc",
+    "value": "agaran"
+  }
+]]

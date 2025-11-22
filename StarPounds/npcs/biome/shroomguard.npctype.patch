@@ -1,0 +1,17 @@
+[
+  {
+    "op": "add",
+    "path": "/identity",
+    "value": {
+      "hairGroup" : "facenpc",
+      "species": "agaran"
+    }
+  },
+  {
+    "op": "replace",
+    "path": "/items/override/0/1/0/head",
+    "value": [{
+      "name": ""
+    }]
+  }
+]

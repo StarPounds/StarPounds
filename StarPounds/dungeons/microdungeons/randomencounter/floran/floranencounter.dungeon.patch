@@ -1,0 +1,24 @@
+[[
+  {
+    "op": "test",
+    "path": "/tiles/0/brush/0/1/typeName",
+    "value": "shroommerchant"
+  },
+  {
+    "op": "replace",
+    "path": "/tiles/0/brush/0/1/species",
+    "value": "agaran"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/tiles/1/brush/0/1/typeName",
+    "value": "shroomguard"
+  },
+  {
+    "op": "replace",
+    "path": "/tiles/1/brush/0/1/species",
+    "value": "agaran"
+  }
+]]

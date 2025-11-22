@@ -1,0 +1,72 @@
+[[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/0/properties/npc",
+    "value": "floran"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/0/properties/npc",
+    "value": "agaran"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/1/properties/npc",
+    "value": "floran"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/1/properties/npc",
+    "value": "agaran"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/2/properties/npc",
+    "value": "floran"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/2/properties/npc",
+    "value": "agaran"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/3/properties/npc",
+    "value": "floran"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/3/properties/npc",
+    "value": "agaran"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/4/properties/npc",
+    "value": "floran"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/4/properties/npc",
+    "value": "agaran"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/5/properties/npc",
+    "value": "floran"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/5/properties/npc",
+    "value": "agaran"
+  }
+]]

@@ -1,0 +1,24 @@
+[[
+  {
+    "op": "test",
+    "path": "/layers/2/objects/8/properties/typeName",
+    "value": "labpoisonshroom"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/2/objects/8/properties/npc",
+    "value": "agaran"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/2/objects/9/properties/typeName",
+    "value": "armoredgrimdarkcultist"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/2/objects/9/properties/npc",
+    "value": "apex, floran"
+  }
+]]

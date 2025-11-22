@@ -1,0 +1,25 @@
+[
+  {
+    "op": "add",
+    "path": "/identity",
+    "value": {
+      "species": "agaran",
+      "hairGroup" : "facenpc"
+    }
+  },
+  {
+    "op": "add",
+    "path": "/items",
+    "value": {"override" : [
+      [0, [
+          {
+            "head" : [ "" ],
+            "chest" : [ { "name" : "florantier2chest", "parameters" : { "colorIndex" : 11 } } ],
+            "legs" : [ { "name" : "florantier2pants", "parameters" : { "colorIndex" : 11 } }  ],
+            "back" : [ "" ]
+          }
+        ] ]
+      ]
+    }
+  }
+]

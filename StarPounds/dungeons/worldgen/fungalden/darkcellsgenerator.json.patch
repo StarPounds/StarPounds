@@ -1,0 +1,132 @@
+[[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/0/properties/typeName",
+    "value": "villager"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/0/properties/npc",
+    "value": "apex, floran"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/1/properties/typeName",
+    "value": "villager"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/1/properties/npc",
+    "value": "apex, floran"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/2/properties/typeName",
+    "value": "villager"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/2/properties/npc",
+    "value": "apex, floran"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/3/properties/typeName",
+    "value": "villager"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/3/properties/npc",
+    "value": "apex, floran"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/4/properties/typeName",
+    "value": "labvileshroom"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/4/properties/npc",
+    "value": "agaran"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/5/properties/typeName",
+    "value": "labvileshroom"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/5/properties/npc",
+    "value": "agaran"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/6/properties/typeName",
+    "value": "labvileshroom"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/6/properties/npc",
+    "value": "agaran"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/7/properties/typeName",
+    "value": "armoredgrimdarkcultist"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/7/properties/npc",
+    "value": "apex, floran"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/8/properties/typeName",
+    "value": "armoredgrimdarkcultist"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/8/properties/npc",
+    "value": "apex, floran"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/9/properties/typeName",
+    "value": "armoredgrimdarkcultist"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/9/properties/npc",
+    "value": "apex, floran"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/10/properties/typeName",
+    "value": "labpoisonshroom"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/10/properties/npc",
+    "value": "agaran"
+  }
+]]

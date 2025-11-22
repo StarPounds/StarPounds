@@ -22,6 +22,14 @@
   },
   {
     "op": "add",
+    "path": "/scriptConfig/chatSounds/agaran",
+    "value": {
+    "male": [ "/sfx/humanoid/agaran_chatter_male1.ogg", "/sfx/humanoid/agaran_chatter_male2.ogg", "/sfx/humanoid/agaran_chatter_male3.ogg", "/sfx/humanoid/agaran_chatter_male4.ogg", "/sfx/humanoid/agaran_chatter_male5.ogg", "/sfx/humanoid/agaran_chatter_male6.ogg" ],
+    "female": [ "/sfx/humanoid/agaran_chatter_female1.ogg", "/sfx/humanoid/agaran_chatter_female2.ogg", "/sfx/humanoid/agaran_chatter_female3.ogg", "/sfx/humanoid/agaran_chatter_female4.ogg", "/sfx/humanoid/agaran_chatter_female5.ogg", "/sfx/humanoid/agaran_chatter_female6.ogg" ]
+    }
+  },
+  {
+    "op": "add",
     "path": "/scriptConfig/chatSounds/deadbeat",
     "value": {
     "male": [ "/sfx/humanoid/deadbeat_chatter_male1.ogg", "/sfx/humanoid/deadbeat_chatter_male2.ogg", "/sfx/humanoid/deadbeat_chatter_male3.ogg" ],

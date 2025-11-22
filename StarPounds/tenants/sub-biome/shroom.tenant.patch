@@ -1,0 +1,19 @@
+[[
+  {
+    "op": "test",
+    "path": "/tenants/0/species",
+    "value": "floran"
+  },
+  {
+    "op": "replace",
+    "path": "/tenants/0/species",
+    "value": "agaran"
+  },
+  {
+    "op": "add",
+    "path": "/tenants/0/overrides/identity",
+    "value": {
+      "hairGroup": "facenpc"
+    }
+  }
+]]
