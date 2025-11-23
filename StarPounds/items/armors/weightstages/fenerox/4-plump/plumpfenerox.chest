@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "Heavy belly. Flabby arms. So fat!",
+  "description" : "Big belly. Pudgy cheeks. Very heavy...",
   "shortdescription" : "Plump Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsplump"

@@ -8,6 +8,7 @@
   "description" : "Plush thighs. Jiggling rump. Extra thick!",
   "shortdescription" : "Chubby Legs",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster"

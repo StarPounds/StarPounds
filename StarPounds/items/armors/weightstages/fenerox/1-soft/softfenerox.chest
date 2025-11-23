@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "Your stomach is looking a little less flat nowadays.",
+  "description" : "Soft gut. Wide waist. Feeling heavier...",
   "shortdescription" : "Soft Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundssoft"

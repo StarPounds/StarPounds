@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "legwear",  
-  "description" : "Your hips are a bit flared. No stick legs for you.",
+  "description" : "Flared hips. Bigger legs. Feeling soft.",
   "shortdescription" : "Soft Legs",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundssoft"

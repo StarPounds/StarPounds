@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "Heavy belly. Flabby arms. So fat!",
+  "description" : "A meal like this must just be an appetizer for you.",
   "shortdescription" : "Filled Plump Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsplump",
