@@ -37,7 +37,7 @@
   "identity":  {
       "bodyDirectives": "?replace;fff8b5=fff8b5;fde03f=fde03f;f6b919=f6b919;806319=352b12;f32200=fff8b5;dc1f00=fde03f;be1b00=fde03f;951500=f6b919",
       "emoteDirectives": "?replace;6f2919=603347;ffca8a=d08c9f;e0975c=b27082;a85636=874e62",
-      "facialHairDirectives": "",
+      "facialHairDirectives": "?replace;806319=352b12",
       "facialHairGroup": "brand",
       "facialHairType": "1",
       "facialMaskDirectives": "",
