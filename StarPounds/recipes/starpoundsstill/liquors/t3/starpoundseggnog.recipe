@@ -1,0 +1,11 @@
+{
+  "input" : [
+    { "item" : "starpoundsbrewpod", "count" : 1 },
+    { "item" : "egg", "count" : 1 },
+    { "item" : "starpoundsrum", "count" : 1 },
+    { "item" : "milk", "count" : 1 },
+    { "item" : "starpoundscinnamonstick", "count" : 1 }
+  ],
+  "output" : { "item" : "starpoundseggnog", "count" : 1 },
+  "groups" : [ "craftingstill", "starpoundsalcohol" ]
+}
