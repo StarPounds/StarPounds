@@ -10,7 +10,11 @@
   "maxStack" : 1,
   "effects" : [ [
     {
-        "effect" : "starpoundsdrunk",
+        "effect" : "starpoundsdrunk100",
+        "duration" : 420
+    },
+    {
+        "effect" : "starpoundsmidastouch",
         "duration" : 420
     },
     {
@@ -19,9 +23,8 @@
     },
     {
         "effect" : "weakpoison",
-        "duration" : 15
+        "duration" : 10
     }
-	//Add Midas effect later
   ] ],
   "foodValue": 10,  
   "emitters" : [ "drinking" ],
@@ -37,7 +40,11 @@
     "price" : 5000,  
     "effects" : [[
     {
-        "effect" : "starpoundsdrunk",
+        "effect" : "starpoundsdrunk100",
+        "duration" : 630
+    },
+    {
+        "effect" : "starpoundsmidastouch",
         "duration" : 630
     },
     {
@@ -46,7 +53,7 @@
     },
     {
         "effect" : "weakpoison",
-        "duration" : 20
+        "duration" : 16
     }
     ]]
   }
