@@ -1,6 +1,5 @@
 {
   "name" : "starpoundsmidastouch",
-  "blockingStat" : "specialStatusImmunity",
   "effectConfig" : {},
   "defaultDuration" : 10,
 

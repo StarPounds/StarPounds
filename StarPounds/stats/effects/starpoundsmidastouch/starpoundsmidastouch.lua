@@ -86,12 +86,12 @@ function spawnPixels(notification)
   -- Monsters.
   if entityType == "monster" then
     -- 50% reduced money for monsters.
-    moneyMult = moneyMult * 0.5
-    speedMult = speedMult * 0.5
+    moneyMult = 0.5
+    speedMult = 0.5
     killSound = actions.killSoundSmall
     -- 50% futher reduced money for passive monsters.
     if not world.entityCanDamage(notification.targetEntityId, sourceEntityId) then
-      moneyMult = moneyMult * 0.5
+      moneyMult = 0.25
       killSound = actions.killSoundTiny
     end
     -- Punchy gives nothing.
