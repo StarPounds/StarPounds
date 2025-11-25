@@ -99,13 +99,12 @@ function spawnPixels(notification)
       return
     end
   end
-  -- Objects.
+  -- Objects give nothing.
   if entityType == "object" then
-    moneyMult = moneyMult * 0.1
-    killSound = actions.killSoundTiny
+    return
   end
 
-  if entityType ~= "object" and math.random() > 0.5 and notification.healthLost > 0 then
+  if math.random() > 0.5 and notification.healthLost > 0 then
     local projectileCount = math.random(1, math.min(math.ceil(notification.healthLost * moneyMult / 10), 5))
     local playSound = true
     for i = 1, projectileCount do
