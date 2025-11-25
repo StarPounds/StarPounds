@@ -1,0 +1,15 @@
+{
+  "name" : "starpoundsmidastouch",
+  "blockingStat" : "specialStatusImmunity",
+  "effectConfig" : {},
+  "defaultDuration" : 10,
+
+  "scripts" : [
+    "starpoundsmidastouch.lua"
+  ],
+
+  "animationConfig" : "starpoundsmidastouch.animation",
+
+  "label" : "Midas Touch",
+  "icon" : "/interface/statuses/starpoundsslimy.png"
+}
