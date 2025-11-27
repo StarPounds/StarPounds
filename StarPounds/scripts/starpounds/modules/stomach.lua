@@ -118,7 +118,7 @@ function stomach:eat(amount, foodType)
     -- Damage.
     if not starPounds.hasOption("disableStuffingDamage") then
       local damage = diff * foodConfig.stuffingDamage * self.data.stuffingDamage * starPounds.getStat("stuffingDamage")
-      damage = math.min(math.floor(damage / self.data.stuffingDamageStep) * self.data.stuffingDamageStep, status.resource("health") - 1) -- Round down.
+      damage = math.min(math.floor(damage / self.data.stuffingDamageStep) * self.data.stuffingDamageStep, status.resource("health") - 1, status.resourceMax("health") * self.data.stuffingDamageCap) -- Round down.
 
       if damage > 0 then
         status.applySelfDamageRequest({
