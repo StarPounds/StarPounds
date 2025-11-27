@@ -42,9 +42,11 @@ function oSB:update(dt)
         if self.foodTypeCache[item.name] or (root.itemType(item.name) == "consumable") then
           -- Little cache for repeated itemType lookups.
           if not self.foodTypeCache[item.name] then self.foodTypeCache[item.name] = true end
-          local updated = starPounds.moduleFunc("food", "updateItem", item)
-          if updated then
-            player.setItem(player.actionBarSlotLink(slot, slotType), updated)
+          if not item.parameters.starpounds_effectApplied then
+            local updated = starPounds.moduleFunc("food", "updateItem", item)
+            if updated then
+              player.setItem(player.actionBarSlotLink(slot, slotType), updated)
+            end
           end
         elseif not self.notFoodTypeCache[item.name] then
           self.notFoodTypeCache[item.name] = true
