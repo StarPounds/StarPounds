@@ -39,7 +39,7 @@ function oSB:update(dt)
     for _, slotType in ipairs(self.foodSlots) do
       local item = player[slotType.."HandItem"]()
       if item and not self.notFoodTypeCache[item.name] then
-        if (self.foodTypeCache[item.name] or (root.itemType(item.name) == "consumable")) then
+        if self.foodTypeCache[item.name] or (root.itemType(item.name) == "consumable") then
           -- Little cache for repeated itemType lookups.
           if not self.foodTypeCache[item.name] then self.foodTypeCache[item.name] = true end
           local updated = starPounds.moduleFunc("food", "updateItem", item)
