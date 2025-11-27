@@ -6,6 +6,7 @@ function oSB:init()
   self.lactateBindTimer = self.data.lactateBindTime
   self.damageTeam = world.entityDamageTeam(entity.id())
   self.foodSlots = {"primary", "alt"}
+  self.foodTypeCache = {}
 end
 
 function oSB:update(dt)
@@ -32,12 +33,14 @@ function oSB:update(dt)
   if player.selectedActionBarSlot then
     local slot = player.selectedActionBarSlot()
     if type(slot) ~= "number" then return end -- Don't run on the essential slots.
-    -- Update food items in the hotbar.
+    -- Checks for primary/alt.
     for _, slotType in ipairs(self.foodSlots) do
       local slotLink = player.actionBarSlotLink(slot, slotType)
       if slotLink then
         local item = player.item(slotLink)
-        if item and root.itemType(item.name) == "consumable" then
+        if item and (self.foodTypeCache[item.name] or (root.itemType(item.name) == "consumable")) then
+          -- Little cache for repeated itemType lookups.
+          if not self.foodTypeCache[item.name] then self.foodTypeCache[item.name] = true end
           local updated = starPounds.moduleFunc("food", "updateItem", item)
           if updated then
             player.setItem(slotLink, updated)
