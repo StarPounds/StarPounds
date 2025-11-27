@@ -72,7 +72,7 @@ function effects:load(effect)
       starPounds.modules[string.format("effect_%s", effect)]:setUpdateDelta(effectConfig.scriptDelta or 1)
     end
     -- Vanilla effect that tracks duration.
-    if effectConfig.proxyEffect then
+    if starPounds.type == "player" and effectConfig.proxyEffect then
       status.addEphemeralEffect(effectConfig.proxyEffect)
     end
   end
