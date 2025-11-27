@@ -49,7 +49,7 @@ function food:updateItem(item)
   local foodValue = configParameter(item, "foodValue", 0)
   local fatValue = configParameter(item, "fatValue", self:getFatValue(item.name))
 
-  if not configParameter(item, "starpounds_effectApplied", false) then
+  if (foodValue + fatValue) > 0 and not configParameter(item, "starpounds_effectApplied", false) then
     local effects = configParameter(item, "effects", jarray())
 
     if not effects[1] then
