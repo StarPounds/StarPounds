@@ -1,0 +1,30 @@
+{
+  "itemName" : "fattyhyperfilledhylotlchest",
+  "price" : 0,
+  "inventoryIcon" : "icons.png:chest",
+  "maxStack" : 1,
+  "rarity" : "legendary",
+  "category" : "chestwear",
+  "description" : "You can start visualizing how much padding you're gonna get from all this food.",
+  "shortdescription" : "Hyper Filled Belly",
+  "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
+
+  "statusEffects": [
+    "starpoundsfatty",
+    "starpoundshyper",
+    "starpoundsfilled"
+  ],
+
+  "maleFrames" : {
+    "body" : "chestm.png",
+    "backSleeve" : "bsleeve.png",
+    "frontSleeve" : "fsleeve.png"
+  },
+
+  "femaleFrames" : {
+    "body" : "fatty_chestf.png",
+    "backSleeve" : "bsleeve.png",
+    "frontSleeve" : "fsleeve.png"
+  }
+}

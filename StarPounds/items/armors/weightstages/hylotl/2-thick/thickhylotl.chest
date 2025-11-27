@@ -8,6 +8,7 @@
   "description" : "Even a kimono won't hide the start of a gut you got there.",
   "shortdescription" : "Thick Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsthick"
