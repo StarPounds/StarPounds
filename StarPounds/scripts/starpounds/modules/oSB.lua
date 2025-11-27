@@ -5,6 +5,7 @@ function oSB:init()
   self.interactRadius = root.assetJson("/player.config:interactRadius")
   self.lactateBindTimer = self.data.lactateBindTime
   self.damageTeam = world.entityDamageTeam(entity.id())
+  self.foodSlots = {"primary", "alt"}
 end
 
 function oSB:update(dt)
@@ -18,6 +19,7 @@ function oSB:update(dt)
     self:lactateBind(dt)
   end
 
+  -- Extended interaction radius at supersize.
   if player.setInteractRadius then
     self.offset = starPounds.currentSize.yOffset or 0
     if self.offset ~= self.offsetOld then
@@ -26,6 +28,26 @@ function oSB:update(dt)
     end
   end
 
+  -- Update food items in the player's hotbar.
+  if player.selectedActionBarSlot then
+    local slot = player.selectedActionBarSlot()
+    if type(slot) ~= "number" then return end -- Don't run on the essential slots.
+    -- Update food items in the hotbar.
+    for _, slotType in ipairs(self.foodSlots) do
+      local slotLink = player.actionBarSlotLink(slot, slotType)
+      if slotLink then
+        local item = player.item(slotLink)
+        if item and root.itemType(item.name) == "consumable" then
+          local updated = starPounds.moduleFunc("food", "updateItem", item)
+          if updated then
+            player.setItem(slotLink, updated)
+          end
+        end
+      end
+    end
+  end
+
+  -- Make the player invisible to enemies while eaten.
   if storage.starPounds.pred and player.setDamageTeam then
     player.setDamageTeam(starExtensions and {type = "ghostly", team = storage.starPounds.damageTeam.team} or "ghostly")
   end
