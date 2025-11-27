@@ -337,11 +337,12 @@ function pred:digestPrey(preyId, items, preyStomach)
   local doBelch = not (starPounds.hasOption("disableBelches") or starPounds.hasOption("disablePredBelches") or digestedEntity.noBelch)
   -- No belching up items if belching (or their particles) is disabled on the pred or prey side.
   local doBelchParticles = doBelch and not starPounds.hasOption("disableBelchParticles")
-  -- Burp/Stomach rumble.
+  -- Burp/Stomach gurgle.
   if doBelch then
     local belchVolume = 0.75
     local belchPitch = 1 - math.round(((digestedEntity.base + digestedEntity.weight) - starPounds.species.default.weight)/(starPounds.settings.maxWeight * 4), 2)
     starPounds.moduleFunc("belch", "belch", belchVolume, belchPitch)
+    starPounds.moduleFunc("stomach", "stopBelch") -- Cancel queued belch.
   end
 
   if doBelchParticles then
@@ -457,6 +458,7 @@ function pred:release(preyId, releaseAll)
       local belchVolume = 0.75
       local belchPitch = 1 - math.round((releasedEntity.weight + storage.starPounds.weight - starPounds.species.default.weight)/(starPounds.settings.maxWeight * 4), 2)
       starPounds.moduleFunc("belch", "belch", belchVolume, belchPitch)
+      starPounds.moduleFunc("stomach", "stopBelch") -- Cancel queued belch.
     end
     storage.starPounds.stomachEntities = jarray()
   else
@@ -476,6 +478,7 @@ function pred:release(preyId, releaseAll)
       local belchVolume = 0.75
       local belchPitch = 1 - math.round((releasedEntity.weight + storage.starPounds.weight - starPounds.species.default.weight)/(starPounds.settings.maxWeight * 4), 2)
       starPounds.moduleFunc("belch", "belch", belchVolume, belchPitch)
+      starPounds.moduleFunc("stomach", "stopBelch") -- Cancel queued belch.
 
       world.sendEntityMessage(releasedEntity.id, "starPounds.prey.released", entity.id(), statusEffect)
       starPounds.events:fire("pred:releaseEntity", releasedEntity)

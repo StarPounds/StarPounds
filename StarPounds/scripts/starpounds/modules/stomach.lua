@@ -15,6 +15,7 @@ function stomach:init()
   self.digestTimer = 0
   self.gurgleTimer = nil
   self.rumbleTimer = nil
+  self.belchTimer = nil
   -- Sloshing.
   self.sloshTimer = 0
   self.sloshDeactivateTimer = 0
@@ -107,8 +108,12 @@ function stomach:eat(amount, foodType)
       starPounds.moduleFunc("effects", "add", "stomachStretch")
     end
     -- Sound.
-    if diff > 0 and not starPounds.hasOption("disableSquelchSounds") then
-      starPounds.moduleFunc("sound", "play", "squelch", 0.75, 1.2)
+    if diff > 0 then
+      if not starPounds.hasOption("disableSquelchSounds") then
+        starPounds.moduleFunc("sound", "play", "squelch", 0.75, 1.2)
+      end
+      -- Belch.
+      self:startBelch()
     end
     -- Damage.
     if not starPounds.hasOption("disableStuffingDamage") then
@@ -158,7 +163,7 @@ function stomach:get()
       contents = contents + amount * foodType.multipliers.capacity
       food = food + amount * foodType.multipliers.food
       if foodType.triggersBelch then
-        belchable = belchable + amount
+        belchable = belchable + amount * foodType.multipliers.capacity
       end
     else
       storage.starPounds.stomach[foodType] = nil
@@ -230,6 +235,14 @@ function stomach:digest(dt, isGurgle, isBelch)
         self.rumbleTimer = math.round(util.randomInRange({self.data.minimumRumbleTime, (self.data.rumbleTime * 2) - self.data.minimumRumbleTime}))
       end
     end
+  end
+
+  -- Delayed belch.
+  if self.belchTimer and self.belchTimer > 0 then
+    self.belchTimer = math.max(self.belchTimer - dt, 0)
+  elseif self.belchTimer == 0 then
+    self:belch()
+    self.belchTimer = nil
   end
 
   -- Don't do anything if stomach is empty.
@@ -367,15 +380,8 @@ function stomach:gurgle(noDigest)
   local seconds = starPounds.getStat("gurgleAmount") * math.random(100, 300)/100
   if not noDigest then
     -- Chance to belch.
-    local isBelch = false
-    if starPounds.getStat("belchChance") > math.random() and self.stomach.belchable > 0 then
-      isBelch = true
-      -- Every 100 pitches the sound down and volume up by 10%, max 25%.
-      local belchMultiplier = math.min(self.stomach.belchable/1000, 0.25)
-      local belchVolume = 0.5 + belchMultiplier
-      local belchPitch = 1 - belchMultiplier
-      starPounds.moduleFunc("belch", "belch", belchVolume, belchPitch)
-    end
+    local isBelch = starPounds.getStat("belchChance") > math.random() and self.stomach.belchable > 0
+    if isBelch then self:belch("belchable") end
     self:digest(seconds, true, isBelch)
   end
   if not starPounds.hasOption("disableGurgleSounds") then
@@ -392,6 +398,33 @@ function stomach:rumble(volume)
   if starPounds.hasOption("disableRumbles") then return end
   -- Rumble sound.
   starPounds.moduleFunc("sound", "play", "rumble", util.clamp(volume, 0, 2) * 0.75, (math.random(90,110)/100))
+end
+
+-- Just runs the belch module function based on stomach contents.
+function stomach:belch(stomachKey)
+  self:stopBelch() -- Cancel queued belch.
+  -- Every 100 pitches the sound down and volume up by 10%, max 25%.
+  local belchMultiplier = math.min(self.stomach[self.stomach[stomachKey] and stomachKey or "contents"]/1000, 0.25)
+  local belchVolume = 0.5 + belchMultiplier
+  local belchPitch = 1 - belchMultiplier
+  starPounds.moduleFunc("belch", "belch", belchVolume, belchPitch)
+end
+
+function stomach:startBelch(delay)
+  -- Don't do anything if the mod is disabled.
+  if not storage.starPounds.enabled then return end
+  -- Don't do anything if disabled.
+  if starPounds.hasOption("disableBelches") then return end
+  -- Argument sanitisation.
+  delay = math.max(tonumber(delay) or self.data.belchDelay, 0)
+  self.belchTimer = delay
+end
+
+-- Cancels a belch.
+function stomach:stopBelch()
+  -- Don't do anything if the mod is disabled.
+  if not storage.starPounds.enabled then return end
+  self.belchTimer = nil
 end
 
 function stomach:sloshing(dt)
