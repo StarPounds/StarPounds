@@ -7,6 +7,7 @@ function oSB:init()
   self.damageTeam = world.entityDamageTeam(entity.id())
   self.foodSlots = {"primary", "alt"}
   self.foodTypeCache = {}
+  self.notFoodTypeCache = {}
 end
 
 function oSB:update(dt)
@@ -31,20 +32,22 @@ function oSB:update(dt)
 
   -- Update food items in the player's hotbar.
   if player.selectedActionBarSlot then
+    if starPounds.swapSlotItem then return end -- Action slots are ignored while we have something in the cursor.
     local slot = player.selectedActionBarSlot()
     if type(slot) ~= "number" then return end -- Don't run on the essential slots.
     -- Checks for primary/alt.
     for _, slotType in ipairs(self.foodSlots) do
-      local slotLink = player.actionBarSlotLink(slot, slotType)
-      if slotLink then
-        local item = player.item(slotLink)
-        if item and (self.foodTypeCache[item.name] or (root.itemType(item.name) == "consumable")) then
+      local item = player[slotType.."HandItem"]()
+      if item and not self.notFoodTypeCache[item.name] then
+        if (self.foodTypeCache[item.name] or (root.itemType(item.name) == "consumable")) then
           -- Little cache for repeated itemType lookups.
           if not self.foodTypeCache[item.name] then self.foodTypeCache[item.name] = true end
           local updated = starPounds.moduleFunc("food", "updateItem", item)
           if updated then
-            player.setItem(slotLink, updated)
+            player.setItem(player.actionBarSlotLink(slot, slotType), updated)
           end
+        elseif not self.notFoodTypeCache[item.name] then
+          self.notFoodTypeCache[item.name] = true
         end
       end
     end
