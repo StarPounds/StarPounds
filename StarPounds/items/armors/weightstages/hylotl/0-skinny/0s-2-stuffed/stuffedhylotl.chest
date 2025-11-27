@@ -8,6 +8,7 @@
   "description" : "You've eaten quite a bit since your gut can't be sucked in.",
   "shortdescription" : "Stuffed Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",
