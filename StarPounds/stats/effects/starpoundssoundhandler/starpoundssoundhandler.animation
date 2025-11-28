@@ -103,6 +103,10 @@
       "/sfx/starpounds/belch/belch7.ogg",
       "/sfx/starpounds/belch/belch8.ogg"
     ],
+    "stretch": [
+      "/sfx/starpounds/stretch/stretch1.ogg",
+      "/sfx/starpounds/stretch/stretch2.ogg"
+    ],
     "squelchloop": [ "/sfx/starpounds/squelch/squelchloop.ogg" ],
     "footstep": [ "/sfx/starpounds/other/footstep.ogg" ],
     "land": [ "/sfx/starpounds/other/footstep.ogg" ],

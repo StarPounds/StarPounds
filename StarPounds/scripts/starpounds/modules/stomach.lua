@@ -106,6 +106,14 @@ function stomach:eat(amount, foodType)
     -- Apply the stomach stretch effect. Chance is based on fullness increase.
     if math.random() < diff then
       starPounds.moduleFunc("effects", "add", "stomachStretch")
+      -- Stretch Sound.
+      if not starPounds.hasOption("disableStretchSounds") then
+        -- Pitch gets lower/volume gets higher if the difference is up to 200% capacity.
+        local volumeMod = math.min(diff * 0.2, 0.4)
+        local pitchMod = math.max(-diff * 0.1, -0.2)
+
+        starPounds.moduleFunc("sound", "play", "stretch", 0.8, 1.2)
+      end
     end
     -- Sound.
     if diff > 0 then
