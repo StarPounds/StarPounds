@@ -12,6 +12,9 @@
     "starPounds_options": {
       "disableGain": true
     },
+
+    "starPounds_optionsClientside" : true,
+
     "dialogMode": "tutorial",
     "dialog": {
       "converse": {

@@ -28,6 +28,9 @@
     "starPounds_options": {
       "disablePrey": true
     },
+    
+    "starPounds_optionsClientside" : true,
+
     "dialogMode": "tutorial",
     "dialog": {
       "attack" : "/dialog/vore.config:attack",

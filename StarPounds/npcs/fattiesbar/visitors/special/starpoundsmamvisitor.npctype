@@ -22,6 +22,8 @@
       "disablePrey": true
     },
 
+    "starPounds_optionsClientside" : true,
+
     "chatPortrait" : "/interface/chatbubbles/starpoundsmam.png:<frame>",
     "dialogMode": "tutorial",
     "dialog": {

@@ -13,6 +13,9 @@
     "starPounds_options": {
       "bottomHeavy": true
     },
+
+    "starPounds_optionsClientside" : true,
+
     "chatSounds" : {
       "floran" : {
         "male" : [
@@ -55,8 +58,8 @@
       "Craving violence",
       "On his sixth bottle of soda"
     ],
-    
-    "chatPortrait" : "/interface/chatbubbles/blossom.png:<frame>",    
+
+    "chatPortrait" : "/interface/chatbubbles/blossom.png:<frame>",
     "dialogMode": "tutorial",
     "dialog": {
       "converse": {
@@ -70,7 +73,7 @@
             "Would it be a bit self indulgent of myself to add stuff related to me to my side of a project?",
             "You ever get those moods where you stare at someone and think \"damn they look tasty\"?",
             "Oh, uh hi!... I'm not used to people approaching me, ha.",
-            "Sol is kind of a drunk, but she's nice to be around.",            
+            "Sol is kind of a drunk, but she's nice to be around.",
             "You would not believe the amount of self restraint it takes to not put \"try jumping\" in front of every lethal drop in my dungeons.",
             "I'm just passing through. Don't think I can handle this kinda volume for too long.",
             "Chika's a pretty chill fellow... Just try not to stay around him too long or you're stewing in their gut for a week. \n Personal experience.",
@@ -114,7 +117,7 @@
             "chestCosmetic": [ { "name": "blossomchest" } ],
             "legsCosmetic": [ { "name": "jeans1legs", "parameters" : {  "directives" : "?replace;6f2919=22284a;a85636=263450;e0975c=345070;383838=420808;838383=5b0c0c;b5b5b5=5b0c0c;b6b6b6=881212;e6e6e6=bc1a1a;" } } ],
             "backCosmetic": [ { "name": "blossomback" }]
-			
+
 			}
         ] ]
     ]

@@ -2,8 +2,8 @@
   "type" : "starpoundssol",
   "baseType" : "outpostcivilian",
   "displayTitle" : "Wayward Gainer",
-  
-  "innateStatusEffects" : [ "starpoundsdrunk" ],  
+
+  "innateStatusEffects" : [ "starpoundsdrunk" ],
 
   "scriptConfig" : {
     "starPounds_skills": {
@@ -47,7 +47,7 @@
       "hairDirectives": "?replace;6f2919=603347;ffca8a=d08c9f;e0975c=b27082;a85636=874e62",
       "hairGroup": "hair",
       "hairType": "1",
-      "imagePath" : "starpounds/other/sol",	  
+      "imagePath" : "starpounds/other/sol",
       "name": "Sol",
       "personalityArmIdle": "idle.1",
       "personalityArmOffset": [

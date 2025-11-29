@@ -132,25 +132,6 @@ starPounds.spawnMouthProjectile = function(actions, count)
   })
 end
 
-starPounds.hasOption = function(option)
-  -- Argument sanitisation.
-  option = tostring(option)
-  return storage.starPounds.options[option]
-end
-
-starPounds.setOption = function(option, enable)
-  -- Argument sanitisation.
-  option = tostring(option)
-  storage.starPounds.options[option] = enable and true or nil
-  starPounds.events:fire("stats:calculate", "setOption")
-  -- This is stupid, but prevents 'null' data being saved.
-  if getmetatable(storage.starPounds.options) then
-    getmetatable(storage.starPounds.options).__nils = {}
-  end
-  starPounds.moduleFunc("data", "backup")
-  return storage.starPounds.options[option]
-end
-
 starPounds.getTrait = function()
   -- Reset the trait if it doesn't exist.
   local trait = storage.starPounds.trait
@@ -282,9 +263,7 @@ starPounds.messageHandlers = function()
   message.setHandler("starPounds.isEnabled", simpleHandler(starPounds.isEnabled))
   message.setHandler("starPounds.getDirectives", simpleHandler(starPounds.getDirectives))
   message.setHandler("starPounds.getVisualSpecies", simpleHandler(starPounds.getVisualSpecies))
-  -- Handlers for traits/options
-  message.setHandler("starPounds.hasOption", simpleHandler(starPounds.hasOption))
-  message.setHandler("starPounds.setOption", localHandler(starPounds.setOption))
+  -- Handlers for traits
   message.setHandler("starPounds.getTrait", simpleHandler(starPounds.getTrait))
   message.setHandler("starPounds.setTrait", localHandler(starPounds.setTrait))
   -- Interface/debug stuff.

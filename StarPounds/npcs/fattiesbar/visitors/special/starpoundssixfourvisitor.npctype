@@ -28,6 +28,9 @@
     "starPounds_options": {
       "stuffed": true
     },
+
+    "starPounds_optionsClientside" : true,
+
     "dialogMode": "tutorial",
     "dialog": {
       "attack" : "/dialog/vore.config:attack",
@@ -80,7 +83,7 @@
       ]]
     ]
   },
-  
+
   "statusControllerSettings" : {
     "stats" : {
       "maxHealth" : {

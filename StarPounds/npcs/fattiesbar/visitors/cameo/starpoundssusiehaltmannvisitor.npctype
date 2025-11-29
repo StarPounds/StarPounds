@@ -20,6 +20,9 @@
     "starPounds_skills": {
       "minimumSize": [0, 0]
     },
+
+    "starPounds_optionsClientside" : true,
+
     "behavior" : "outpostvisitor",
 
     "statuses" : [

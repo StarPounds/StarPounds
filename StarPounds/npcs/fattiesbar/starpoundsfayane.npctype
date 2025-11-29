@@ -35,6 +35,9 @@
       "disablePrey": true,
       "disableGain": true
     },
+
+    "starPounds_optionsClientside" : true,
+  
     "reactions" : {
       "spontaneous" : [
       ]

@@ -13,9 +13,12 @@
     "starPounds_skills": {
       "minimumSize": [3, 3]
     },
-  "behavior" : "outpostvisitor",
 
-  "chatPortrait" : "/interface/chatbubbles/spacethumperpilot.png:<frame>",
+    "starPounds_optionsClientside" : true,
+
+    "behavior" : "outpostvisitor",
+
+    "chatPortrait" : "/interface/chatbubbles/spacethumperpilot.png:<frame>",
     "dialogMode": "tutorial",
     "dialog": {
       "converse": {

@@ -70,18 +70,41 @@ function populateOptions()
       optionStatString = optionStatString.."\n"..optionStats[i]
     end
 
+    local buttonWidget
+    if starPounds.moduleFunc("options", "isGlobal", option.name) then
+      buttonWidget = {
+        id = string.format("%sOption", option.name),
+        type = "iconButton", position = {4, 5}, size = {9, 9},
+        toolTip = "^green;Option globally enabled.^reset;\n"..option.description..optionStatString..(option.footer and "\n"..option.footer or ""),
+        image = "/interface/scripted/starpounds/options/check.png",
+        hoverImage = "/interface/scripted/starpounds/options/check.png",
+        pressImage = "/interface/scripted/starpounds/options/check.png"
+      }
+    else
+      buttonWidget = {
+        id = string.format("%sOption", option.name),
+        type = "checkBox", position = {4, 5}, size = {9, 9},
+        toolTip = option.description..optionStatString..(option.footer and "\n"..option.footer or ""),
+        radioGroup = option.group and option.name or nil
+      }
+    end
+
     local optionWidget = {
       type = "panel", style = "concave", expandMode = {1, 0}, children = {
         {type = "layout", mode = "manual", size = {131, 20}, children = {
-          {id = string.format("%sOption", option.name), type = "checkBox", position = {4, 5}, size = {9, 9}, toolTip = option.description..optionStatString..(option.footer and "\n"..option.footer or ""), radioGroup = option.group and option.name or nil},
+          buttonWidget,
           {type = "label", position = {15, 6}, size = {120, 9}, align = "left", text = option.pretty},
         }}
       }
     }
+
     if _ENV[(string.format("panel_%s", option.tab))] then
       _ENV[(string.format("panel_%s", option.tab))]:addChild(optionWidget)
-      _ENV[string.format("%sOption", option.name)].onClick = function() toggleOption(option) end
-      _ENV[string.format("%sOption", option.name)]:setChecked(starPounds.hasOption(option.name))
+
+      if not starPounds.moduleFunc("options", "isGlobal", option.name) then
+        _ENV[string.format("%sOption", option.name)].onClick = function() toggleOption(option) end
+        _ENV[string.format("%sOption", option.name)]:setChecked(starPounds.hasOption(option.name))
+      end
     end
   end
 end

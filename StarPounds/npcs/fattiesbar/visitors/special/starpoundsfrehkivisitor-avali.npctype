@@ -18,6 +18,9 @@
       "disablePrey": true,
       "milky": true
     },
+
+    "starPounds_optionsClientside" : true,
+
     "dialogMode": "tutorial",
     "dialog": {
       "converse": {
