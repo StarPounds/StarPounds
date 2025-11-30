@@ -105,7 +105,9 @@
     ],
     "stretch": [
       "/sfx/starpounds/stretch/stretch1.ogg",
-      "/sfx/starpounds/stretch/stretch2.ogg"
+      "/sfx/starpounds/stretch/stretch2.ogg",
+      "/sfx/starpounds/stretch/stretch3.ogg",
+      "/sfx/starpounds/stretch/stretch4.ogg"
     ],
     "squelchloop": [ "/sfx/starpounds/squelch/squelchloop.ogg" ],
     "footstep": [ "/sfx/starpounds/other/footstep.ogg" ],

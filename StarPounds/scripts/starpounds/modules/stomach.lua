@@ -117,18 +117,20 @@ function stomach:eat(amount, foodType)
   local diff = math.max(self.stomach.fullness - lastFullness, 0)
 
   -- Apply the stomach stretch effect. Chance is based on fullness increase.
-  if foodConfig.triggersStretching and not self.stretchCooldown and math.random() < diff then
+  if foodConfig.triggersStretching and math.random() < diff then
     local stretchLevel = math.max(math.random() * diff, 1)
-    starPounds.moduleFunc("effects", "add", "stomachStretch", nil, stretchLevel)
-    -- Cooldown.
-    self.stretchCooldown = math.round(util.randomInRange({self.data.minimumStretchCooldown, (self.data.stretchCooldown * 2) - self.data.minimumStretchCooldown}))
+    -- Apply effect if not on cooldown.
+    if not self.stretchCooldown then
+      starPounds.moduleFunc("effects", "add", "stomachStretch", nil, stretchLevel)
+      self.stretchCooldown = math.round(util.randomInRange({self.data.minimumStretchCooldown, (self.data.stretchCooldown * 2) - self.data.minimumStretchCooldown}))
+    end
     -- Stretch Sound.
     if not starPounds.hasOption("disableStretchSounds") then
       -- Pitch gets lower/volume gets higher if the difference is up to 200% capacity.
       local volumeMod = math.min(diff * 0.2, 0.4)
       local pitchMod = math.max(-diff * 0.1, -0.2)
 
-      starPounds.moduleFunc("sound", "play", "stretch", 0.8, 1.2)
+      starPounds.moduleFunc("sound", "play", "stretch", 0.8 + volumeMod, 1.2 + pitchMod)
     end
   end
   -- Squelch and belch. (Sounds like a band name)
