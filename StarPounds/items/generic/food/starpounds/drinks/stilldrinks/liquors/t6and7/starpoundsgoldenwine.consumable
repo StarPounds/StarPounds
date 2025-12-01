@@ -14,14 +14,17 @@
         "duration" : 420
     },
     {
+        "effect" : "starpoundsmidastouch",
+        "duration" : 420
+    },
+    {
         "effect" : "rage",
         "duration" : 420
     },
     {
         "effect" : "weakpoison",
-        "duration" : 15
+        "duration" : 10
     }
-	//Add Midas effect later
   ] ],
   "foodValue": 10,  
   "emitters" : [ "drinking" ],
@@ -41,12 +44,16 @@
         "duration" : 630
     },
     {
+        "effect" : "starpoundsmidastouch",
+        "duration" : 630
+    },
+    {
         "effect" : "rage",
         "duration" : 630
     },
     {
         "effect" : "weakpoison",
-        "duration" : 20
+        "duration" : 16
     }
     ]]
   }

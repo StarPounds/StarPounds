@@ -21,6 +21,8 @@
       "disablePrey": true
     },
 
+    "starPounds_optionsClientside" : true,
+
     "dialogMode" : "random",
     "dialog" : {
       "attack" : {

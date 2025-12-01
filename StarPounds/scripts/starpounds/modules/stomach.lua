@@ -15,6 +15,8 @@ function stomach:init()
   self.digestTimer = 0
   self.gurgleTimer = nil
   self.rumbleTimer = nil
+  self.belchTimer = nil
+  self.stretchCooldown = nil
   -- Sloshing.
   self.sloshTimer = 0
   self.sloshDeactivateTimer = 0
@@ -54,6 +56,16 @@ function stomach:update(dt)
   self:sloshing(dt)
   self:squelching(dt)
   self:interpolateContents(dt)
+
+  -- Don't do anything if the mod is disabled.
+  if not storage.starPounds.enabled then return end
+  -- Stretch effect cooldown.
+  if self.stretchCooldown then
+    self.stretchCooldown = math.max(self.stretchCooldown - dt, 0)
+    if self.stretchCooldown == 0 then
+      self.stretchCooldown = nil
+    end
+  end
 end
 
 function stomach:feed(amount, foodType)
@@ -97,32 +109,52 @@ function stomach:eat(amount, foodType)
   -- Insert food into stomach.
   amount = math.round(amount, 3)
   storage.starPounds.stomach[foodType] = math.min((storage.starPounds.stomach[foodType] or 0) + amount, maxCapacity)
-  -- Manually eaten foods cause over-stuffing damage. (Player only)
-  if starPounds.type == "player" and foodConfig.stuffingDamage then
-    local lastFullness = math.max(self.stomach.fullness, self.data.stuffingFullnessThreshold)
-    self:set()
-    local diff = math.max(self.stomach.fullness - lastFullness, 0)
-    -- Apply the stomach stretch effect. Chance is based on fullness increase.
-    if math.random() < diff then
-      starPounds.moduleFunc("effects", "add", "stomachStretch")
+  -- Effects triggered by eating. Don't continue if none apply.
+  if not (foodConfig.triggersStretching or foodConfig.triggersSquelch or foodConfig.stuffingDamage) then return end
+  -- Calculate difference in 'fullness' past 300%.
+  local lastFullness = math.max(self.stomach.fullness, self.data.stuffingFullnessThreshold)
+  self:set()
+  local diff = math.max(self.stomach.fullness - lastFullness, 0)
+
+  -- Apply the stomach stretch effect. Chance is based on fullness increase.
+  if foodConfig.triggersStretching and math.random() < diff then
+    local stretchLevel = math.max(math.random() * diff, 1)
+    -- Apply effect if not on cooldown.
+    if not self.stretchCooldown then
+      starPounds.moduleFunc("effects", "add", "stomachStretch", nil, stretchLevel)
+      self.stretchCooldown = math.round(util.randomInRange({self.data.minimumStretchCooldown, (self.data.stretchCooldown * 2) - self.data.minimumStretchCooldown}))
     end
-    -- Sound.
-    if diff > 0 and not starPounds.hasOption("disableSquelchSounds") then
+    -- Stretch Sound.
+    if not starPounds.hasOption("disableStretchSounds") then
+      -- Pitch gets lower/volume gets higher if the difference is up to 200% capacity.
+      local volumeMod = math.min(diff * 0.2, 0.4)
+      local pitchMod = math.max(-diff * 0.1, -0.2)
+
+      starPounds.moduleFunc("sound", "play", "stretch", 0.8 + volumeMod, 1.2 + pitchMod)
+    end
+  end
+  -- Squelch and belch. (Sounds like a band name)
+  if diff > 0 then
+    if foodConfig.triggersSquelch and not starPounds.hasOption("disableSquelchSounds") then
       starPounds.moduleFunc("sound", "play", "squelch", 0.75, 1.2)
     end
-    -- Damage.
-    if not starPounds.hasOption("disableStuffingDamage") then
-      local damage = diff * foodConfig.stuffingDamage * self.data.stuffingDamage * starPounds.getStat("stuffingDamage")
-      damage = math.min(math.floor(damage / self.data.stuffingDamageStep) * self.data.stuffingDamageStep, status.resource("health") - 1) -- Round down.
+    -- Belch.
+    if foodConfig.triggersBelch then
+      self:startBelch()
+    end
+  end
+  -- Manually eaten foods cause over-stuffing damage. (Player only)
+  if foodConfig.stuffingDamage and starPounds.type == "player" and not starPounds.hasOption("disableStuffingDamage") then
+    local damage = diff * foodConfig.stuffingDamage * self.data.stuffingDamage * starPounds.getStat("stuffingDamage")
+    damage = math.min(math.floor(damage / self.data.stuffingDamageStep) * self.data.stuffingDamageStep, status.resource("health") - 1, status.resourceMax("health") * self.data.stuffingDamageCap) -- Round down.
 
-      if damage > 0 then
-        status.applySelfDamageRequest({
-          damageType = "IgnoresDef",
-          damage = damage,
-          damageSourceKind = "starpoundsstuffing",
-          sourceEntityId = entity.id()
-        })
-      end
+    if damage > 0 then
+      status.applySelfDamageRequest({
+        damageType = "IgnoresDef",
+        damage = damage,
+        damageSourceKind = "starpoundsstuffing",
+        sourceEntityId = entity.id()
+      })
     end
   end
 end
@@ -157,8 +189,8 @@ function stomach:get()
       totalAmount = totalAmount + amount
       contents = contents + amount * foodType.multipliers.capacity
       food = food + amount * foodType.multipliers.food
-      if foodType.triggersBelch then
-        belchable = belchable + amount
+      if foodType.belchable then
+        belchable = belchable + amount * foodType.multipliers.capacity
       end
     else
       storage.starPounds.stomach[foodType] = nil
@@ -230,6 +262,14 @@ function stomach:digest(dt, isGurgle, isBelch)
         self.rumbleTimer = math.round(util.randomInRange({self.data.minimumRumbleTime, (self.data.rumbleTime * 2) - self.data.minimumRumbleTime}))
       end
     end
+  end
+
+  -- Delayed belch.
+  if self.belchTimer and self.belchTimer > 0 then
+    self.belchTimer = math.max(self.belchTimer - dt, 0)
+  elseif self.belchTimer == 0 then
+    self:belch()
+    self.belchTimer = nil
   end
 
   -- Don't do anything if stomach is empty.
@@ -367,15 +407,8 @@ function stomach:gurgle(noDigest)
   local seconds = starPounds.getStat("gurgleAmount") * math.random(100, 300)/100
   if not noDigest then
     -- Chance to belch.
-    local isBelch = false
-    if starPounds.getStat("belchChance") > math.random() and self.stomach.belchable > 0 then
-      isBelch = true
-      -- Every 100 pitches the sound down and volume up by 10%, max 25%.
-      local belchMultiplier = math.min(self.stomach.belchable/1000, 0.25)
-      local belchVolume = 0.5 + belchMultiplier
-      local belchPitch = 1 - belchMultiplier
-      starPounds.moduleFunc("belch", "belch", belchVolume, belchPitch)
-    end
+    local isBelch = starPounds.getStat("belchChance") > math.random() and self.stomach.belchable > 0
+    if isBelch then self:belch("belchable") end
     self:digest(seconds, true, isBelch)
   end
   if not starPounds.hasOption("disableGurgleSounds") then
@@ -392,6 +425,33 @@ function stomach:rumble(volume)
   if starPounds.hasOption("disableRumbles") then return end
   -- Rumble sound.
   starPounds.moduleFunc("sound", "play", "rumble", util.clamp(volume, 0, 2) * 0.75, (math.random(90,110)/100))
+end
+
+-- Just runs the belch module function based on stomach contents.
+function stomach:belch(stomachKey)
+  self:stopBelch() -- Cancel queued belch.
+  -- Every 100 pitches the sound down and volume up by 10%, max 25%.
+  local belchMultiplier = math.min(self.stomach[self.stomach[stomachKey] and stomachKey or "contents"]/1000, 0.25)
+  local belchVolume = 0.5 + belchMultiplier
+  local belchPitch = 1 - belchMultiplier
+  starPounds.moduleFunc("belch", "belch", belchVolume, belchPitch)
+end
+
+function stomach:startBelch(delay)
+  -- Don't do anything if the mod is disabled.
+  if not storage.starPounds.enabled then return end
+  -- Don't do anything if disabled.
+  if starPounds.hasOption("disableBelches") then return end
+  -- Argument sanitisation.
+  delay = math.max(tonumber(delay) or self.data.belchDelay, 0)
+  self.belchTimer = delay
+end
+
+-- Cancels a belch.
+function stomach:stopBelch()
+  -- Don't do anything if the mod is disabled.
+  if not storage.starPounds.enabled then return end
+  self.belchTimer = nil
 end
 
 function stomach:sloshing(dt)

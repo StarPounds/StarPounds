@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "legwear",  
-  "description" : "Plush thighs. Jiggling rump. Dumby thick!",
+  "description" : "Huge thighs. Thick legs. Dumby thick!",
   "shortdescription" : "Plump Legs",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsplump"

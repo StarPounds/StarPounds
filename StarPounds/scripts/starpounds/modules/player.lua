@@ -30,9 +30,9 @@ function _player:update(dt)
 
   starPounds.swapSlotItem = player.swapSlotItem()
   if starPounds.swapSlotItem and root.itemType(starPounds.swapSlotItem.name) == "consumable" then
-    local replaceItem = starPounds.moduleFunc("food", "updateItem", starPounds.swapSlotItem)
-    if replaceItem then
-      player.setSwapSlotItem(replaceItem)
+    local updated = starPounds.moduleFunc("food", "updateItem", starPounds.swapSlotItem)
+    if updated then
+      player.setSwapSlotItem(updated)
     end
   end
 end

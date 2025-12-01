@@ -26,6 +26,8 @@
     }
   },
 
+  "starPounds_optionsClientside" : true,
+
   "identity" : {
     "species" : "human",
     "gender" : "female",

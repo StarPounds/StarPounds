@@ -1,0 +1,60 @@
+[[
+  {
+    "op": "test",
+    "path": "/layers/4/objects/3/properties/typeName",
+    "value": "grimdarkcultist"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/4/objects/3/properties/npc",
+    "value": "floran, apex"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/4/objects/4/properties/typeName",
+    "value": "armoredgrimdarkcultist"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/4/objects/4/properties/npc",
+    "value": "floran, apex"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/4/objects/5/properties/typeName",
+    "value": "grimdarkcultist"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/4/objects/5/properties/npc",
+    "value": "floran, apex"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/4/objects/6/properties/typeName",
+    "value": "labpoisonshroom"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/4/objects/6/properties/npc",
+    "value": "agaran"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/4/objects/7/properties/typeName",
+    "value": "labvileshroom"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/4/objects/7/properties/npc",
+    "value": "agaran"
+  }
+]]

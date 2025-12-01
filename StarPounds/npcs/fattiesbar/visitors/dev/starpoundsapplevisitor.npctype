@@ -32,6 +32,8 @@
       "disableStomachGrowth" : true
     },
 
+    "starPounds_optionsClientside" : true,
+
     "personalities" : [
         [1.0, { "personality" : "flirty", "reactions" : {} }]
     ],

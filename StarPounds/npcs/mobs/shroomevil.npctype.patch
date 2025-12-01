@@ -1,0 +1,45 @@
+[
+  {
+    "op": "add",
+    "path": "/identity",
+    "value": {
+      "hairGroup" : "faceevil",
+      "species": "agaran"
+    }
+  },
+  {
+    "op": "replace",
+    "path": "/items/override/0/1/0/head",
+    "value": [{
+      "name": ""
+    }]
+  },
+  {
+    "op": "replace",
+    "path": "/items/override/0/1/1/head",
+    "value": [{
+      "name": ""
+    }]
+  },
+  {
+    "op": "replace",
+    "path": "/items/override/0/1/2/head",
+    "value": [{
+      "name": ""
+    }]
+  },
+  {
+    "op": "replace",
+    "path": "/items/override/0/1/3/head",
+    "value": [{
+      "name": ""
+    }]
+  },
+  {
+    "op": "replace",
+    "path": "/items/override/0/1/4/head",
+    "value": [{
+      "name": ""
+    }]
+  }
+]

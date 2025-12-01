@@ -1,0 +1,14 @@
+{
+  "name" : "starpoundsmidastouch",
+  "effectConfig" : {},
+  "defaultDuration" : 10,
+
+  "scripts" : [
+    "starpoundsmidastouch.lua"
+  ],
+
+  "animationConfig" : "starpoundsmidastouch.animation",
+
+  "label" : "Midas Touch",
+  "icon" : "/interface/statuses/starpoundsmidas.png"
+}

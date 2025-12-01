@@ -379,7 +379,7 @@ function prey:released(source, overrideStatus)
     -- Make them wet.
     status.addEphemeralEffect(overrideStatus or "starpoundsslimy")
     -- Behaviour damage trigger.
-    if not options.noDamage then
+    if not options.willing then
       self.notifyDamage(pred)
     end
   end

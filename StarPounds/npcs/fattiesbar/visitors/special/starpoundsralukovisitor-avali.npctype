@@ -17,6 +17,9 @@
     "starPounds_options": {
       "disablePrey": true
     },
+
+    "starPounds_optionsClientside" : true,
+
     "statuses" : [
       "Positively charged",
       "Pretending she has somewhere to be",

@@ -1,0 +1,12 @@
+[[
+  {
+    "op": "test",
+    "path": "/layers/5/objects/2/properties/1/value",
+    "value": "{ \"spawner\" : { \"npcSpecies\" : [\"floran\"], \"npcTypes\" : [\"shroomguard\"], \"npcParams\" : { \"persistent\" : true }, \"position\" : [0, 2], \"positionVariance\" : [0, 0], \"frequency\" : [0.2, 0.2], \"stock\" : 1, \"trigger\" : \"wire\", \"outOfSight\" : false } }"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/5/objects/2/properties/1/value",
+    "value": "{ \"spawner\" : { \"npcSpecies\" : [\"agaran\"], \"npcTypes\" : [\"shroomguard\"], \"npcParams\" : { \"persistent\" : true }, \"position\" : [0, 2], \"positionVariance\" : [0, 0], \"frequency\" : [0.2, 0.2], \"stock\" : 1, \"trigger\" : \"wire\", \"outOfSight\" : false } }"
+  }
+]]

@@ -1,0 +1,15 @@
+[
+  {
+    "op": "add",
+    "path": "/identity",
+    "value": {
+      "hairGroup" : "facenpc",
+      "species": "agaran"
+    }
+  },
+  {
+    "op": "replace",
+    "path": "/scriptConfig/crew/defaultUniform/head",
+    "value": ""
+  }
+]

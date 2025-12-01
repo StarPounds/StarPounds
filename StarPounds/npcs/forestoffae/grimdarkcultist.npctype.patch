@@ -1,0 +1,23 @@
+[
+ {
+  "op": "add",
+  "path": "/scriptConfig/dialog/attack/floran",
+  "value": {
+   "default": [
+    "The Ssshadow will consume all!",
+    "I'll rip your face off!",
+    "The Corruption ssspreadss!",
+    "Ssspeak the ssshadow wordss of pain!",
+    "Nothing...everything!",
+    "No more tearsss. Only darknessss."
+   ]
+  }
+ },
+ {
+   "op": "replace",
+   "path": "/items/override/0/1/0/head",
+   "value": [{
+     "name": "apextier6mhead", "parameters" : {  "directives" : "?replace;ffca8a=838383;e0975c=555555;a85636=383838;6f2919=151515;aba697=151515;676f67=151515;443939=151515;f5001c=151515;f5001cfe=151515;" }
+   }]
+ }
+]

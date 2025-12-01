@@ -8,7 +8,8 @@
   "description" : "Your stomach is looking a little less flat nowadays.",
   "shortdescription" : "Soft Belly",
   "tooltipKind" : "starpoundsarmor",
-  
+  "bypassNude" : true,
+
   "statusEffects": [
     "starpoundssoft"
   ],

@@ -517,7 +517,7 @@ function replaceInData(data, keyname, value, replacevalue)
 end
 
 function timeFormat(seconds)
-  local minutes = math.floor(seconds/60)
+  local minutes = math.floor(math.ceil(seconds)/60)
   local seconds = math.ceil(seconds) % 60
   if (minutes < 10) then
     minutes = tostring(minutes)
