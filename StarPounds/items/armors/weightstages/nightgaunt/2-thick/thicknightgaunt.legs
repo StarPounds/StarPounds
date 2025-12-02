@@ -8,6 +8,7 @@
   "description" : "Thighs touching one another? Seems like someone is a bit thicker than most.",
   "shortdescription" : "Thick Bottom",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsthick"

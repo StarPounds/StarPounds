@@ -8,6 +8,7 @@
   "description" : "Quite a large meal you had with that big gut.",
   "shortdescription" : "Stuffed Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",
