@@ -30,6 +30,38 @@
   "pred_nearby_6": { "image" : "/cursors/starpoundsvore.png:cooldown.6?replace;951500=c76b00;be1b00=cf8e00;dc1f00=ffa300;f32200=ffcb09;", "offset" : [8, 8] },
   "pred_nearby_7": { "image" : "/cursors/starpoundsvore.png:cooldown.7?replace;951500=c76b00;be1b00=cf8e00;dc1f00=ffa300;f32200=ffcb09;", "offset" : [8, 8] },
 
+  // SAFE
+  "pred_safe": { "image" : "/cursors/starpoundsvoresafe.png:ready.0?replace;951500=640505;be1b00=950f0f;dc1f00=bd1a1a;f32200=e92626;", "offset" : [8, 16] },
+  "pred_safe_valid": { "animation" : { "frames" : "/cursors/starpoundsvoresafe.png:ready.<index>?replace;951500=107523;be1b00=11ac22;dc1f00=1abd22;f32200=2be926;", "frameNumber" : 8, "animationCycle" : 0.5, "mode" : "loopforever" }, "offset" : [8, 16] },
+  "pred_safe_nearby": { "animation" : { "frames" : "/cursors/starpoundsvoresafe.png:ready.<index>?replace;951500=c76b00;be1b00=cf8e00;dc1f00=ffa300;f32200=ffcb09;", "frameNumber" : 8, "animationCycle" : 0.5, "mode" : "loopforever" }, "offset" : [8, 16] },
+
+  "pred_safe_0": { "image" : "/cursors/starpoundsvoresafe.png:cooldown.0?replace;951500=640505;be1b00=950f0f;dc1f00=bd1a1a;f32200=e92626;", "offset" : [8, 16] },
+  "pred_safe_1": { "image" : "/cursors/starpoundsvoresafe.png:cooldown.1?replace;951500=640505;be1b00=950f0f;dc1f00=bd1a1a;f32200=e92626;", "offset" : [8, 16] },
+  "pred_safe_2": { "image" : "/cursors/starpoundsvoresafe.png:cooldown.2?replace;951500=640505;be1b00=950f0f;dc1f00=bd1a1a;f32200=e92626;", "offset" : [8, 16] },
+  "pred_safe_3": { "image" : "/cursors/starpoundsvoresafe.png:cooldown.3?replace;951500=640505;be1b00=950f0f;dc1f00=bd1a1a;f32200=e92626;", "offset" : [8, 16] },
+  "pred_safe_4": { "image" : "/cursors/starpoundsvoresafe.png:cooldown.4?replace;951500=640505;be1b00=950f0f;dc1f00=bd1a1a;f32200=e92626;", "offset" : [8, 16] },
+  "pred_safe_5": { "image" : "/cursors/starpoundsvoresafe.png:cooldown.5?replace;951500=640505;be1b00=950f0f;dc1f00=bd1a1a;f32200=e92626;", "offset" : [8, 16] },
+  "pred_safe_6": { "image" : "/cursors/starpoundsvoresafe.png:cooldown.6?replace;951500=640505;be1b00=950f0f;dc1f00=bd1a1a;f32200=e92626;", "offset" : [8, 16] },
+  "pred_safe_7": { "image" : "/cursors/starpoundsvoresafe.png:cooldown.7?replace;951500=640505;be1b00=950f0f;dc1f00=bd1a1a;f32200=e92626;", "offset" : [8, 16] },
+
+  "pred_safe_valid_0": { "image" : "/cursors/starpoundsvoresafe.png:cooldown.0?replace;951500=107523;be1b00=11ac22;dc1f00=1abd22;f32200=2be926;", "offset" : [8, 16] },
+  "pred_safe_valid_1": { "image" : "/cursors/starpoundsvoresafe.png:cooldown.1?replace;951500=107523;be1b00=11ac22;dc1f00=1abd22;f32200=2be926;", "offset" : [8, 16] },
+  "pred_safe_valid_2": { "image" : "/cursors/starpoundsvoresafe.png:cooldown.2?replace;951500=107523;be1b00=11ac22;dc1f00=1abd22;f32200=2be926;", "offset" : [8, 16] },
+  "pred_safe_valid_3": { "image" : "/cursors/starpoundsvoresafe.png:cooldown.3?replace;951500=107523;be1b00=11ac22;dc1f00=1abd22;f32200=2be926;", "offset" : [8, 16] },
+  "pred_safe_valid_4": { "image" : "/cursors/starpoundsvoresafe.png:cooldown.4?replace;951500=107523;be1b00=11ac22;dc1f00=1abd22;f32200=2be926;", "offset" : [8, 16] },
+  "pred_safe_valid_5": { "image" : "/cursors/starpoundsvoresafe.png:cooldown.5?replace;951500=107523;be1b00=11ac22;dc1f00=1abd22;f32200=2be926;", "offset" : [8, 16] },
+  "pred_safe_valid_6": { "image" : "/cursors/starpoundsvoresafe.png:cooldown.6?replace;951500=107523;be1b00=11ac22;dc1f00=1abd22;f32200=2be926;", "offset" : [8, 16] },
+  "pred_safe_valid_7": { "image" : "/cursors/starpoundsvoresafe.png:cooldown.7?replace;951500=107523;be1b00=11ac22;dc1f00=1abd22;f32200=2be926;", "offset" : [8, 16] },
+
+  "pred_safe_nearby_0": { "image" : "/cursors/starpoundsvoresafe.png:cooldown.0?replace;951500=c76b00;be1b00=cf8e00;dc1f00=ffa300;f32200=ffcb09;", "offset" : [8, 16] },
+  "pred_safe_nearby_1": { "image" : "/cursors/starpoundsvoresafe.png:cooldown.1?replace;951500=c76b00;be1b00=cf8e00;dc1f00=ffa300;f32200=ffcb09;", "offset" : [8, 16] },
+  "pred_safe_nearby_2": { "image" : "/cursors/starpoundsvoresafe.png:cooldown.2?replace;951500=c76b00;be1b00=cf8e00;dc1f00=ffa300;f32200=ffcb09;", "offset" : [8, 16] },
+  "pred_safe_nearby_3": { "image" : "/cursors/starpoundsvoresafe.png:cooldown.3?replace;951500=c76b00;be1b00=cf8e00;dc1f00=ffa300;f32200=ffcb09;", "offset" : [8, 16] },
+  "pred_safe_nearby_4": { "image" : "/cursors/starpoundsvoresafe.png:cooldown.4?replace;951500=c76b00;be1b00=cf8e00;dc1f00=ffa300;f32200=ffcb09;", "offset" : [8, 16] },
+  "pred_safe_nearby_5": { "image" : "/cursors/starpoundsvoresafe.png:cooldown.5?replace;951500=c76b00;be1b00=cf8e00;dc1f00=ffa300;f32200=ffcb09;", "offset" : [8, 16] },
+  "pred_safe_nearby_6": { "image" : "/cursors/starpoundsvoresafe.png:cooldown.6?replace;951500=c76b00;be1b00=cf8e00;dc1f00=ffa300;f32200=ffcb09;", "offset" : [8, 16] },
+  "pred_safe_nearby_7": { "image" : "/cursors/starpoundsvoresafe.png:cooldown.7?replace;951500=c76b00;be1b00=cf8e00;dc1f00=ffa300;f32200=ffcb09;", "offset" : [8, 16] },
+
   "release": { "image" : "/cursors/starpoundsvore.png:release.default", "offset" : [8, 8] },
   "release_valid": { "animation" : { "frames" : "/cursors/starpoundsvore.png:release.<index>", "frameNumber" : 6, "animationCycle" : 0.4375, "mode" : "loopforever" }, "offset" : [8, 8] },
 

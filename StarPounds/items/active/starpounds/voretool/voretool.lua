@@ -37,15 +37,16 @@ function update(dt, _, shiftHeld)
   local targetPosition = vec2.add(mouthPosition, vec2.mul(vec2.norm(world.distance(aimPosition, mouthPosition)), math.max(positionMagnitude, 0)))
   -- Vore icon updater.
   local valid = starPounds.moduleFunc("pred", "eatNearby", targetPosition, range - (starPounds.currentSize.yOffset or 0), querySize, nil, true)
-  cursorType = (valid and valid[1]) and (valid[2] and "pred_valid" or "pred_nearby") or "pred"
+  local safe = (starPounds.moduleFunc("pred", "cooldown") == 0 and (valid and valid[3])) and "safe_" or ""
+  cursorType = (valid and valid[1]) and (valid[2] and "pred_"..safe.."valid" or "pred_"..safe.."nearby") or "pred"
   if readyEmote ~= "none" then
-    if cursorType == "pred_valid" and starPounds.moduleFunc("pred", "cooldown") == 0 then
+    if cursorType == "pred_"..safe.."valid" and starPounds.moduleFunc("pred", "cooldown") == 0 then
       activeItem.emote(readyEmote)
       wasValid = true
     end
   end
 
-  if wasValid and cursorType ~= "pred_valid" then
+  if wasValid and (cursorType ~= "pred_valid" and cursorType ~= "pred_safe_valid") then
     activeItem.emote("Idle")
     wasValid = false
   end

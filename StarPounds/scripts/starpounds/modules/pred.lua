@@ -259,15 +259,18 @@ function pred:eatNearby(position, range, querySize, options, check)
     return not eatenTargets[target] and not world.lineTileCollision(mouthPosition, world.entityPosition(target), {"Null", "Block", "Dynamic", "Slippery"})
   end
 
+  local safeSkill = starPounds.moduleFunc("skills", "has", "voreSafe")
   for _, target in ipairs(preferredEntities) do
     if isTargetValid(target) then
-      return {self:eat(target, options, check), true}
+      local safe = safeSkill and not world.entityCanDamage(target, entity.id())
+      return {self:eat(target, options, check), true, safe} -- { can they be eaten, are they under the cursor, is it safe/endo}
     end
   end
 
   for _, target in ipairs(nearbyEntities) do
     if isTargetValid(target) then
-      return {self:eat(target, options, check), false}
+      local safe = safeSkill and not world.entityCanDamage(target, entity.id())
+      return {self:eat(target, options, check), false, safe} -- { can they be eaten, are they under the cursor, is it safe/endo}
     end
   end
 end
