@@ -177,6 +177,7 @@ function pred:eat(preyId, options, check)
       noEscape = prey.noEscape or options.noEscape,
       noBelch = prey.noBelch or options.noBelch,
       safe = safe,
+      health = world.entityHealth(preyId),
       type = world.entityType(preyId):gsub(".+", {player = "humanoid", npc = "humanoid", monster = "creature"}),
       typeName = world.entityTypeName(preyId)
     }
