@@ -118,9 +118,9 @@ function stomach:eat(amount, foodType)
 
   -- Apply the stomach stretch effect. Chance is based on fullness increase.
   if foodConfig.triggersStretching and math.random() < diff then
-    local stretchLevel = math.max(math.random() * diff, 1)
     -- Apply effect if not on cooldown.
-    if not self.stretchCooldown then
+    if foodConfig.stuffingDamage and not self.stretchCooldown then
+      local stretchLevel = math.max(math.random() * diff, 1)
       starPounds.moduleFunc("effects", "add", "stomachStretch", nil, stretchLevel)
       self.stretchCooldown = math.round(util.randomInRange({self.data.minimumStretchCooldown, (self.data.stretchCooldown * 2) - self.data.minimumStretchCooldown}))
     end

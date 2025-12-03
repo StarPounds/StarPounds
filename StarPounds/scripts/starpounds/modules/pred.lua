@@ -181,12 +181,15 @@ function pred:eat(preyId, options, check)
       typeName = world.entityTypeName(preyId)
     }
     -- Overstuffing damage proxy. (Player only)
-    if starPounds.type == "player" and not preyOptions.willing then
+    if starPounds.type == "player" then
       local foodType = prey.foodType and tostring(prey.foodType) or "default"
       if not starPounds.foods[prey.foodType] then foodType = "prey" end
       local capacityMult = starPounds.foods[foodType].multipliers.capacity
-      starPounds.moduleFunc("stomach", "eat", preyConfig.base * capacityMult, "prey_proxy")
-      starPounds.moduleFunc("stomach", "eat", preyConfig.weight, "preyWeight_proxy")
+      -- Separate food type for willing prey that deals no damage.
+      local proxyType = ""
+      if preyOptions.willing then proxyType = "_willing" end
+      starPounds.moduleFunc("stomach", "eat", preyConfig.base * capacityMult, "prey_proxy"..proxyType)
+      starPounds.moduleFunc("stomach", "eat", preyConfig.weight, "preyWeight_proxy"..proxyType)
       -- Clear them so the stomach size doesn't change.
       storage.starPounds.stomach.prey_proxy = nil
       storage.starPounds.stomach.preyWeight_proxy = nil
