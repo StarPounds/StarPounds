@@ -77,8 +77,13 @@ function stomach:feed(amount, foodType)
   -- Don't do anything if there's no food.
   if amount == 0 then return end
   if not storage.starPounds.enabled then
+    -- Modify food recieved by the config.
+    foodType = foodType and tostring(foodType) or "default"
+    if not starPounds.foods[foodType] then foodType = "default" end
+    local foodConfig = starPounds.foods[foodType]
+
     if status.isResource("food") then
-      status.giveResource("food", amount)
+      status.giveResource("food", amount * foodConfig.multipliers.food)
     end
   else
     self:eat(amount, foodType)
