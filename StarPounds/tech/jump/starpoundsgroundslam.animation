@@ -23,6 +23,7 @@
   "sounds" : {
     "multiJumpSound" : ["/sfx/tech/tech_doublejump.ogg"],
     "startSlam" : [ "/sfx/tech/tech_dash.ogg" ],
+    "weightDash" : [ "/sfx/tech/starpounds_weight_dash.ogg" ],
     "recharge" : [ "/sfx/tech/tech_dash_cooldown2.ogg" ]
   }
 }

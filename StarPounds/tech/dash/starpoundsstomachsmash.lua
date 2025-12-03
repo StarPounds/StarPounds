@@ -18,6 +18,9 @@ function startDash(direction)
   for offset = width, -1, -2 do
     spawnKnockbackProjectile(vec2.add(mcontroller.position(), vec2.add({(offset) * self.dashDirection, -3}, {0, starPounds.currentSize.yOffset or 0})), params)
   end
+
+  animator.setSoundVolume("weightDash", starPounds.moduleFunc("size", "effectScaling") * 0.5 + 0.5)
+  animator.playSound("weightDash")
 end
 
 
