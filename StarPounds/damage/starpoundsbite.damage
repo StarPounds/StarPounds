@@ -225,7 +225,7 @@
         ]
       },
       "kill" : {
-        "sounds" : [ "/sfx/melee/2h_sword_kill_organic1.ogg", "/sfx/melee/2h_sword_kill_organic2.ogg" ],
+        "sounds" : [ "/sfx/melee/blunt_kill_organic1.ogg" ],
         "particles" : [
           [
             {
