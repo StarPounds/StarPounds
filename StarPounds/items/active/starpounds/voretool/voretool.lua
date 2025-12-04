@@ -23,6 +23,9 @@ function activate(fireMode, shiftHeld)
     local valid = starPounds.moduleFunc("pred", "eatNearby", targetPosition, range - (starPounds.currentSize.yOffset or 0), querySize, {particles = true})
     if (valid and valid[1]) then
       starPounds.moduleFunc("pred", "cooldownStart")
+    elseif not starPounds.hasOption("disablePredBite") then
+      starPounds.moduleFunc("pred", "bite", targetPosition, true)
+      starPounds.moduleFunc("pred", "cooldownStart")
     end
   end
 end

@@ -171,7 +171,6 @@ function pred:eat(preyId, options, check)
       base = prey.base or 0,
       weight = prey.weight or 0,
       foodType = prey.foodType or "prey",
-      experience = prey.experience or 0,
       world = (starPounds.type == "player") and player.worldId() or nil,
       noRelease = prey.noRelease or options.noRelease,
       noEscape = prey.noEscape or options.noEscape,
@@ -226,9 +225,8 @@ function pred:eat(preyId, options, check)
       starPounds.moduleFunc("sound", "play", "voreSquelch", 1.25 + math.random(0, 10)/100, 1.25)
     end
 
-    if options.particles and not starPounds.hasOption("disableVoreParticles") then
-      local direction = world.distance(preyPosition, starPounds.mcontroller.position)[1] > 0 and "right" or "left"
-      world.spawnProjectile("starpoundsvorebite" .. direction, preyPosition, entity.id())
+    if options.particles then
+      self:bite(preyPosition)
     end
 
     starPounds.events:fire("pred:eatEntity", preyConfig)
@@ -276,6 +274,28 @@ function pred:eatNearby(position, range, querySize, options, check)
   end
 end
 
+function pred:bite(position, applyDamage)
+  if starPounds.hasOption("disableVoreParticles") and not applyDamage then return end
+
+  local params = {}
+  if applyDamage then
+    local playerLevel = 0
+    for _, slot in ipairs({"head", "chest", "legs"}) do
+      local item = player.equippedItem(slot)
+      if item then
+        item = root.itemConfig(player.equippedItem(slot))
+        local level = item.parameters.level and item.parameters.level or (item.config.level or 0)
+        playerLevel = playerLevel + level/3 -- Average of all 3 items.
+      end
+    end
+    params = { power = (self.data.biteDamage + self.data.biteDamageSize * starPounds.moduleFunc("size", "effectScaling")) * status.stat("powerMultiplier") * root.evalFunction("weaponDamageLevelMultiplier", playerLevel) }
+  end
+
+  local dir = world.distance(position, starPounds.mcontroller.position)[1]
+  local direction = dir > 0 and "right" or "left"
+  world.spawnProjectile("starpoundsvorebite" .. direction .. (applyDamage and "damage" or ""), position, entity.id(), {dir, 0}, false, params)
+end
+
 function pred:cooldown()
   return self.voreCooldown
 end
@@ -315,8 +335,8 @@ function pred:digestPrey(preyId, items, preyStomach)
   local regurgitatedItems = jarray()
   local hasEssence = false
   if digestedEntity.type == "humanoid" then
-    -- Add soul effect if we have the skill.
-    if starPounds.moduleFunc("skills", "has", "voreSouls") then
+    -- Add soul effect if we have the skill (and the prey can give experience).
+    if starPounds.moduleFunc("skills", "has", "voreSouls") and not digestedEntity.foodType:find("noExperience") then
       starPounds.moduleFunc("effects", "add", "voreSouls")
     end
     -- We get purple particles if we digest something that gives ancient essence.
