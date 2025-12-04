@@ -279,6 +279,14 @@ function pred:bite(position, applyDamage)
 
   local params = {}
   if applyDamage then
+    local biteDamage = self.data.biteDamage
+    -- Bonus damage based on skills.
+    for _, biteSkill in ipairs(self.data.biteDamageSkills) do
+      if starPounds.moduleFunc("skills", "hasUnlocked", biteSkill[1]) then
+        biteDamage = biteDamage + biteSkill[2]
+      end
+    end
+    -- Bonus multiplier based on armour level. (Treated like weapon level for damage)
     local playerLevel = 0
     for _, slot in ipairs({"head", "chest", "legs"}) do
       local item = player.equippedItem(slot)
@@ -288,8 +296,13 @@ function pred:bite(position, applyDamage)
         playerLevel = playerLevel + level/3 -- Average of all 3 items.
       end
     end
-    params = { power = (self.data.biteDamage + self.data.biteDamageSize * starPounds.moduleFunc("size", "effectScaling")) * status.stat("powerMultiplier") * root.evalFunction("weaponDamageLevelMultiplier", playerLevel) }
+    biteDamage = biteDamage * root.evalFunction("weaponDamageLevelMultiplier", playerLevel)
+    -- Projectile params.
+    params = { power = biteDamage * status.stat("powerMultiplier") }
+    -- Fire event for cooldown tracking.
+    starPounds.events:fire("pred:bite")
   end
+
 
   local dir = world.distance(position, starPounds.mcontroller.position)[1]
   local direction = dir > 0 and "right" or "left"

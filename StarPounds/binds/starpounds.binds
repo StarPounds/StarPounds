@@ -40,10 +40,15 @@
         "default": [{
           "type": "key",
           "value": "v",
-          "mods" : ["LAlt"]
+          "mods" : ["LShift"]
         }],
         "group": "starpoundsvore",
         "name": "Regurgitate Entity"
+      },
+      "voreBite": {
+        "default": [],
+        "group": "starpoundsvore",
+        "name": "Bite"
       },
       "lactate": {
         "default": [],

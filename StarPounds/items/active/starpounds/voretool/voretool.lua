@@ -13,6 +13,7 @@ function init()
   updateCursor()
   readyEmote = config.getParameter("readyEmote", "Happy")
   starPounds.events:on("pred:eatEntity", updateCooldown)
+  starPounds.events:on("pred:bite", updateCooldown)
 end
 
 function activate(fireMode, shiftHeld)
@@ -26,13 +27,10 @@ function activate(fireMode, shiftHeld)
     local valid = starPounds.moduleFunc("pred", "eatNearby", targetPosition, range - (starPounds.currentSize.yOffset or 0), querySize, {particles = true})
     if (valid and valid[1]) then
       starPounds.moduleFunc("pred", "cooldownStart")
-      cooldown = starPounds.moduleFunc("pred", "cooldown")
-      updateCooldown()
       updateCursor()
     elseif not starPounds.hasOption("disablePredBite") then
-      starPounds.moduleFunc("pred", "bite", targetPosition, true)
       starPounds.moduleFunc("pred", "cooldownStart")
-      updateCooldown()
+      starPounds.moduleFunc("pred", "bite", targetPosition, true)
       updateCursor()
     end
   end
@@ -101,4 +99,5 @@ end
 
 function uninit()
   starPounds.events:off("pred:eatEntity", updateCooldown)
+  starPounds.events:off("pred:bite", updateCooldown)
 end
