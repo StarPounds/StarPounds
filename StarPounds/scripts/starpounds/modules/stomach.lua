@@ -8,9 +8,6 @@ function stomach:init()
   message.setHandler("starPounds.gurgle", function(_, _, ...) return self:gurgle(...) end)
   message.setHandler("starPounds.rumble", function(_, _, ...) return self:rumble(...) end)
   message.setHandler("starPounds.resetStomach", localHandler(self.reset))
-
-  -- Cache.
-  self.foodCache = {}
   -- Timers.
   self.digestTimer = 0
   self.gurgleTimer = nil
@@ -78,10 +75,7 @@ function stomach:feed(amount, foodType)
   if amount == 0 then return end
   if not storage.starPounds.enabled then
     -- Modify food recieved by the config.
-    foodType = foodType and tostring(foodType) or "default"
-    if not starPounds.foods[foodType] then foodType = "default" end
-    local foodConfig = starPounds.foods[foodType]
-
+    local foodConfig, foodType = starPounds.moduleFunc("food", "foodType", foodType)
     if status.isResource("food") then
       status.giveResource("food", amount * foodConfig.multipliers.food)
     end
@@ -95,9 +89,8 @@ function stomach:eat(amount, foodType)
   if not storage.starPounds.enabled then return end
   -- Argument sanitisation.
   amount = math.max(tonumber(amount) or 0, 0)
-  foodType = foodType and tostring(foodType) or "default"
-  if not starPounds.foods[foodType] then foodType = "default" end
-  local foodConfig = starPounds.foods[foodType]
+    -- Modify food recieved by the config.
+  local foodConfig, foodType = starPounds.moduleFunc("food", "foodType", foodType)
   -- Don't do anything if there's no food.
   if amount == 0 then return end
   -- Food type capacity cap.
@@ -189,13 +182,13 @@ function stomach:get()
   local belchable = 0
 
   for foodType, amount in pairs(storage.starPounds.stomach) do
-    if starPounds.foods[foodType] and (amount > 0) then
-      local foodType = self:foodType(foodType)
+    if starPounds.moduleFunc("food", "isFoodType", foodType) and (amount > 0) then
+      local foodConfig = starPounds.moduleFunc("food", "foodType", foodType)
       totalAmount = totalAmount + amount
-      contents = contents + amount * foodType.multipliers.capacity
-      food = food + amount * foodType.multipliers.food
-      if foodType.belchable then
-        belchable = belchable + amount * foodType.multipliers.capacity
+      contents = contents + amount * foodConfig.multipliers.capacity
+      food = food + amount * foodConfig.multipliers.food
+      if foodConfig.belchable then
+        belchable = belchable + amount * foodConfig.multipliers.capacity
       end
     else
       storage.starPounds.stomach[foodType] = nil
@@ -204,8 +197,8 @@ function stomach:get()
 
   -- Add how heavy every entity in the stomach is to the counter.
   for _, v in pairs(storage.starPounds.stomachEntities) do
-    local foodType = self:foodType(v.foodType)
-    contents = contents + (v.base * foodType.multipliers.capacity) + v.weight
+    local foodConfig = starPounds.moduleFunc("food", "foodType", v.foodType)
+    contents = contents + (v.base * foodConfig.multipliers.capacity) + v.weight
     totalAmount = totalAmount + v.base + v.weight
   end
 
@@ -336,8 +329,8 @@ function stomach:digest(dt, isGurgle, isBelch)
     local digestionStatCache = {}
     -- Iterate through food types
     for foodType, amount in pairs(storage.starPounds.stomach) do
-      if starPounds.foods[foodType] and (storage.starPounds.stomach[foodType] > 0) then
-        local foodConfig = starPounds.foods[foodType]
+      if starPounds.moduleFunc("food", "isFoodType", foodType) and (storage.starPounds.stomach[foodType] > 0) then
+        local foodConfig = starPounds.moduleFunc("food", "foodType", foodType)
         local ratio = 1
         if self.stomach.contents > 0 and not foodConfig.ignoreCapacity then
           ratio = math.max(math.round((amount * foodConfig.multipliers.capacity) / self.stomach.contents, 2), 0.05)
@@ -599,17 +592,6 @@ function stomach:spawnBelchParticles(particles, count)
     actions[#actions + 1] = {action = "particle", specification = starPounds.moduleFunc("belch", "particle", particle)}
   end
   starPounds.spawnMouthProjectile(actions, count)
-end
-
-function stomach:foodType(foodType)
-  if self.foodCache[foodType] then
-    return self.foodCache[foodType]
-  end
-
-  self.foodCache[foodType] = sb.jsonMerge(starPounds.foods.default, starPounds.foods[foodType] or {})
-  setmetatable(self.foodCache[foodType], nil)
-
-  return self.foodCache[foodType]
 end
 
 function stomach.reset()

@@ -183,8 +183,8 @@ function pred:eat(preyId, options, check)
     -- Overstuffing damage proxy. (Player only)
     if starPounds.type == "player" then
       local foodType = prey.foodType and tostring(prey.foodType) or "default"
-      if not starPounds.foods[prey.foodType] then foodType = "prey" end
-      local capacityMult = starPounds.foods[foodType].multipliers.capacity
+      if not starPounds.moduleFunc("food", "isFoodType", prey.foodType) then foodType = "prey" end
+      local capacityMult = starPounds.moduleFunc("food", "foodType", foodType).multipliers.capacity
       -- Separate food type for willing prey that deals no damage.
       local proxyType = ""
       if preyOptions.willing then proxyType = "_willing" end

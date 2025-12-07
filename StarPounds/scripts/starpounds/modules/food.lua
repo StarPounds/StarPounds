@@ -1,7 +1,28 @@
 local food = starPounds.module:new("food")
 
 function food:init()
-  self.cache = copy(self.data.cache)
+  -- Caches.
+  self.foodTypeCache = {}
+  self.fatCache = copy(self.data.fatCache)
+end
+
+function food:foodType(foodType)
+  if not self:isFoodType(foodType) then
+    return self.data.foods.default, "default"
+  end
+
+  if self.foodTypeCache[foodType] then
+    return self.foodTypeCache[foodType], foodType
+  end
+
+  self.foodTypeCache[foodType] = sb.jsonMerge(self.data.foods.default, self.data.foods[foodType])
+  setmetatable(self.foodTypeCache[foodType], nil)
+
+  return self.foodTypeCache[foodType], foodType
+end
+
+function food:isFoodType(foodType)
+  return self.data.foods[foodType] ~= nil
 end
 
 function food:getFatValue(itemName, recursionCache)
@@ -11,15 +32,15 @@ function food:getFatValue(itemName, recursionCache)
     return 0
   end
 
-  if self.cache[itemName] then
-    return self.cache[itemName]
+  if self.fatCache[itemName] then
+    return self.fatCache[itemName]
   end
 
   local itemConfig = root.itemConfig(itemName)
   if not itemConfig then return 0 end
 
   if itemConfig.config.fatValue then
-    self.cache[itemName] = itemConfig.config.fatValue
+    self.fatCache[itemName] = itemConfig.config.fatValue
     return itemConfig.config.fatValue
   end
 
@@ -41,7 +62,7 @@ function food:getFatValue(itemName, recursionCache)
     fatValue = math.max(fatValue, recipeFatValue)
   end
 
-  self.cache[itemName] = fatValue
+  self.fatCache[itemName] = fatValue
   return fatValue
 end
 
@@ -84,6 +105,5 @@ function food:updateItem(item)
   end
   return false
 end
-
 
 starPounds.modules.food = food
