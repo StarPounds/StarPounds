@@ -1,0 +1,24 @@
+{
+  "projectileName" : "starpoundsvorebiterightdamage",
+  "image" : "starpoundsvorebite.png",
+  "power" : 0,
+  "speed" : 0,
+  "knockback": 10,
+  "knockbackDirectional": true,
+  "damagePoly" : [ [-9, 0], [-6, -6], [0, -9], [6, -6], [9, 0], [6, 6], [0, 9], [-6, 6] ],
+  "periodicActions": [
+    { "time" : 0, "repeat" : false,  "action" : "sound", "options" : [ "/sfx/npc/monsters/monster_bite1.ogg" ] },
+    { "time" : 0, "repeat" : false, "action" : "particle", "specification" : {
+      "type" : "animated",
+      "animation" : "/animations/vorebite/starpoundsvorebite.animation",
+      "size" : 0.75,
+      "destructionAction": "fade",
+      "destructionTime" : 0.1,
+      "timeToLive" : 0.15
+    }}
+  ],
+  "damageKind": "starpoundsbite",
+  "piercing" : true,
+  "flippable" : true,
+  "timeToLive" : 0.25
+}

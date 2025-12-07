@@ -8,9 +8,6 @@ function stomach:init()
   message.setHandler("starPounds.gurgle", function(_, _, ...) return self:gurgle(...) end)
   message.setHandler("starPounds.rumble", function(_, _, ...) return self:rumble(...) end)
   message.setHandler("starPounds.resetStomach", localHandler(self.reset))
-
-  -- Cache.
-  self.foodCache = {}
   -- Timers.
   self.digestTimer = 0
   self.gurgleTimer = nil
@@ -77,8 +74,10 @@ function stomach:feed(amount, foodType)
   -- Don't do anything if there's no food.
   if amount == 0 then return end
   if not storage.starPounds.enabled then
+    -- Modify food recieved by the config.
+    local foodConfig, foodType = starPounds.moduleFunc("food", "foodType", foodType)
     if status.isResource("food") then
-      status.giveResource("food", amount)
+      status.giveResource("food", amount * foodConfig.multipliers.food)
     end
   else
     self:eat(amount, foodType)
@@ -90,9 +89,8 @@ function stomach:eat(amount, foodType)
   if not storage.starPounds.enabled then return end
   -- Argument sanitisation.
   amount = math.max(tonumber(amount) or 0, 0)
-  foodType = foodType and tostring(foodType) or "default"
-  if not starPounds.foods[foodType] then foodType = "default" end
-  local foodConfig = starPounds.foods[foodType]
+    -- Modify food recieved by the config.
+  local foodConfig, foodType = starPounds.moduleFunc("food", "foodType", foodType)
   -- Don't do anything if there's no food.
   if amount == 0 then return end
   -- Food type capacity cap.
@@ -118,9 +116,9 @@ function stomach:eat(amount, foodType)
 
   -- Apply the stomach stretch effect. Chance is based on fullness increase.
   if foodConfig.triggersStretching and math.random() < diff then
-    local stretchLevel = math.max(math.random() * diff, 1)
     -- Apply effect if not on cooldown.
-    if not self.stretchCooldown then
+    if foodConfig.stuffingDamage and not self.stretchCooldown then
+      local stretchLevel = math.max(math.random() * diff, 1)
       starPounds.moduleFunc("effects", "add", "stomachStretch", nil, stretchLevel)
       self.stretchCooldown = math.round(util.randomInRange({self.data.minimumStretchCooldown, (self.data.stretchCooldown * 2) - self.data.minimumStretchCooldown}))
     end
@@ -184,13 +182,13 @@ function stomach:get()
   local belchable = 0
 
   for foodType, amount in pairs(storage.starPounds.stomach) do
-    if starPounds.foods[foodType] and (amount > 0) then
-      local foodType = self:foodType(foodType)
+    if starPounds.moduleFunc("food", "isFoodType", foodType) and (amount > 0) then
+      local foodConfig = starPounds.moduleFunc("food", "foodType", foodType)
       totalAmount = totalAmount + amount
-      contents = contents + amount * foodType.multipliers.capacity
-      food = food + amount * foodType.multipliers.food
-      if foodType.belchable then
-        belchable = belchable + amount * foodType.multipliers.capacity
+      contents = contents + amount * foodConfig.multipliers.capacity
+      food = food + amount * foodConfig.multipliers.food
+      if foodConfig.belchable then
+        belchable = belchable + amount * foodConfig.multipliers.capacity
       end
     else
       storage.starPounds.stomach[foodType] = nil
@@ -199,8 +197,8 @@ function stomach:get()
 
   -- Add how heavy every entity in the stomach is to the counter.
   for _, v in pairs(storage.starPounds.stomachEntities) do
-    local foodType = self:foodType(v.foodType)
-    contents = contents + (v.base * foodType.multipliers.capacity) + v.weight
+    local foodConfig = starPounds.moduleFunc("food", "foodType", v.foodType)
+    contents = contents + (v.base * foodConfig.multipliers.capacity) + v.weight
     totalAmount = totalAmount + v.base + v.weight
   end
 
@@ -325,14 +323,18 @@ function stomach:digest(dt, isGurgle, isBelch)
 
     local maxHealth = status.resourceMax("health")
     local maxEnergy = status.isResource("energy") and status.resourceMax("energy") or 0
-    local maxFood = status.isResource("food") and status.resourceMax("food") or 0
+    local hasFood = status.isResource("food")
+    local maxFood = hasFood and (status.resourceMax("food") - 0.01) or 0 -- Capped so the wellfed status doesn't apply automatically.
     local foodDelta = status.stat("foodDelta")
+
+    local belchParticlesDisabled = starPounds.hasOption("disableBelchParticles")
+    local hungerDisabled = starPounds.hasOption("disableHunger")
 
     local digestionStatCache = {}
     -- Iterate through food types
     for foodType, amount in pairs(storage.starPounds.stomach) do
-      if starPounds.foods[foodType] and (storage.starPounds.stomach[foodType] > 0) then
-        local foodConfig = starPounds.foods[foodType]
+      if starPounds.moduleFunc("food", "isFoodType", foodType) and (storage.starPounds.stomach[foodType] > 0) then
+        local foodConfig = starPounds.moduleFunc("food", "foodType", foodType)
         local ratio = 1
         if self.stomach.contents > 0 and not foodConfig.ignoreCapacity then
           ratio = math.max(math.round((amount * foodConfig.multipliers.capacity) / self.stomach.contents, 2), 0.05)
@@ -350,17 +352,18 @@ function stomach:digest(dt, isGurgle, isBelch)
         if isBelch and foodConfig.multipliers.belch > 0 then
           digestionRate = digestionRate + digestionRate * foodConfig.multipliers.belch * belchAmount
         end
-        if isBelch and foodConfig.belchParticles and not starPounds.hasOption("disableBelchParticles") then
+        if isBelch and foodConfig.belchParticles and not belchParticlesDisabled then
           self:spawnBelchParticles(foodConfig.belchParticles, foodConfig.belchParticleCount)
         end
         local digestAmount = math.min(amount, math.round(digestionRate * ratio * seconds * (foodConfig.digestionRate + amount * foodConfig.percentDigestionRate), 4))
         self.digestionExperience = self.digestionExperience + digestAmount * foodConfig.multipliers.experience
         storage.starPounds.stomach[foodType] = math.round(math.max(amount - digestAmount, 0), 3)
         -- Add food.
-        if status.isResource("food") and (foodConfig.multipliers.food > 0) then
+        if hasFood and not hungerDisabled and (foodConfig.multipliers.food > 0) then
           local foodAmount = math.min(maxFood - status.resource("food"), digestAmount)
           -- Stops the player losing hunger while they digest food.
           local foodDeltaDiff = not isGurgle and math.abs(math.min(foodDelta * seconds, 0)) or 0
+          local food = foodAmount * foodValue * foodConfig.multipliers.food + foodDeltaDiff
           status.giveResource("food", foodAmount * foodValue * foodConfig.multipliers.food + foodDeltaDiff)
         end
 
@@ -594,17 +597,6 @@ function stomach:spawnBelchParticles(particles, count)
     actions[#actions + 1] = {action = "particle", specification = starPounds.moduleFunc("belch", "particle", particle)}
   end
   starPounds.spawnMouthProjectile(actions, count)
-end
-
-function stomach:foodType(foodType)
-  if self.foodCache[foodType] then
-    return self.foodCache[foodType]
-  end
-
-  self.foodCache[foodType] = sb.jsonMerge(starPounds.foods.default, starPounds.foods[foodType] or {})
-  setmetatable(self.foodCache[foodType], nil)
-
-  return self.foodCache[foodType]
 end
 
 function stomach.reset()

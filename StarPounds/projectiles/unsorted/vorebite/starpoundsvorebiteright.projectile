@@ -33,5 +33,5 @@
   "flippable" : true,
   "damageKind" : "hidden",
   "onlyHitTerrain" : true,
-  "timeToLive" : 0.01
+  "timeToLive" : 0.25
 }

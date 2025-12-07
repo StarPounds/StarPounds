@@ -8,7 +8,6 @@ starPounds = {
   settings = root.assetJson("/scripts/starpounds/starpounds.config:settings"),
   sizes = root.assetJson("/scripts/starpounds/starpounds_sizes.config:sizes"),
   options = root.assetJson("/scripts/starpounds/starpounds_options.config:options"),
-  foods = root.assetJson("/scripts/starpounds/starpounds_foods.config"),
   traits = root.assetJson("/scripts/starpounds/starpounds_traits.config:traits"),
   selectableTraits = root.assetJson("/scripts/starpounds/starpounds_traits.config:selectableTraits"),
   species = root.assetJson("/scripts/starpounds/starpounds_species.config")

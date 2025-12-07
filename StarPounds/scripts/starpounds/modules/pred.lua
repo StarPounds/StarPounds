@@ -150,9 +150,9 @@ function pred:eat(preyId, options, check)
   -- Skip eating if we're only checking for a valid target.
   if check then return true end
   -- Options to pass prey-side.
-  local safe = starPounds.moduleFunc("skills", "has", "voreSafe") and not world.entityCanDamage(entity.id(), preyId)
+  local safe = starPounds.moduleFunc("skills", "has", "voreSafe") and not world.entityCanDamage(preyId, entity.id())
   local noDamage = options.noDamage or safe
-  local willing = noDamage and (options.willing or starPounds.moduleFunc("skills", "has", "voreWilling")) or nil
+  local willing = options.willing or safe
   local preyOptions = {
     triggerCooldown = options.triggerPreyCooldown,
     maxWeight = options.maxWeight,
@@ -171,12 +171,12 @@ function pred:eat(preyId, options, check)
       base = prey.base or 0,
       weight = prey.weight or 0,
       foodType = prey.foodType or "prey",
-      experience = prey.experience or 0,
       world = (starPounds.type == "player") and player.worldId() or nil,
       noRelease = prey.noRelease or options.noRelease,
       noEscape = prey.noEscape or options.noEscape,
       noBelch = prey.noBelch or options.noBelch,
       safe = safe,
+      health = world.entityHealth(preyId),
       type = world.entityType(preyId):gsub(".+", {player = "humanoid", npc = "humanoid", monster = "creature"}),
       typeName = world.entityTypeName(preyId),
       --2038
@@ -186,12 +186,15 @@ function pred:eat(preyId, options, check)
       --2038
     }
     -- Overstuffing damage proxy. (Player only)
-    if starPounds.type == "player" and not preyOptions.willing then
+    if starPounds.type == "player" then
       local foodType = prey.foodType and tostring(prey.foodType) or "default"
-      if not starPounds.foods[prey.foodType] then foodType = "prey" end
-      local capacityMult = starPounds.foods[foodType].multipliers.capacity
-      starPounds.moduleFunc("stomach", "eat", preyConfig.base * capacityMult, "prey_proxy")
-      starPounds.moduleFunc("stomach", "eat", preyConfig.weight, "preyWeight_proxy")
+      if not starPounds.moduleFunc("food", "isFoodType", prey.foodType) then foodType = "prey" end
+      local capacityMult = starPounds.moduleFunc("food", "foodType", foodType).multipliers.capacity
+      -- Separate food type for willing prey that deals no damage.
+      local proxyType = ""
+      if preyOptions.willing then proxyType = "_willing" end
+      starPounds.moduleFunc("stomach", "eat", preyConfig.base * capacityMult, "prey_proxy"..proxyType)
+      starPounds.moduleFunc("stomach", "eat", preyConfig.weight, "preyWeight_proxy"..proxyType)
       -- Clear them so the stomach size doesn't change.
       storage.starPounds.stomach.prey_proxy = nil
       storage.starPounds.stomach.preyWeight_proxy = nil
@@ -227,9 +230,8 @@ function pred:eat(preyId, options, check)
       starPounds.moduleFunc("sound", "play", "voreSquelch", 1.25 + math.random(0, 10)/100, 1.25)
     end
 
-    if options.particles and not starPounds.hasOption("disableVoreParticles") then
-      local direction = world.distance(preyPosition, starPounds.mcontroller.position)[1] > 0 and "right" or "left"
-      world.spawnProjectile("starpoundsvorebite" .. direction, preyPosition, entity.id())
+    if options.particles then
+      self:bite(preyPosition)
     end
 
     starPounds.events:fire("pred:eatEntity", preyConfig)
@@ -363,17 +365,55 @@ function pred:eatNearby(position, range, querySize, options, check)
     return not eatenTargets[target] and not world.lineTileCollision(mouthPosition, world.entityPosition(target), {"Null", "Block", "Dynamic", "Slippery"})
   end
 
+  local safeSkill = starPounds.moduleFunc("skills", "has", "voreSafe")
   for _, target in ipairs(preferredEntities) do
     if isTargetValid(target) then
-      return {self:eat(target, options, check), true}
+      local safe = safeSkill and not world.entityCanDamage(target, entity.id())
+      return {self:eat(target, options, check), true, safe} -- { can they be eaten, are they under the cursor, is it safe/endo}
     end
   end
 
   for _, target in ipairs(nearbyEntities) do
     if isTargetValid(target) then
-      return {self:eat(target, options, check), false}
+      local safe = safeSkill and not world.entityCanDamage(target, entity.id())
+      return {self:eat(target, options, check), false, safe} -- { can they be eaten, are they under the cursor, is it safe/endo}
     end
   end
+end
+
+function pred:bite(position, applyDamage)
+  if starPounds.hasOption("disableVoreParticles") and not applyDamage then return end
+
+  local params = {}
+  if applyDamage then
+    local biteDamage = self.data.biteDamage
+    -- Bonus damage based on skills.
+    for _, biteSkill in ipairs(self.data.biteDamageSkills) do
+      if starPounds.moduleFunc("skills", "hasUnlocked", biteSkill[1]) then
+        biteDamage = biteDamage + biteSkill[2]
+      end
+    end
+    -- Bonus multiplier based on armour level. (Treated like weapon level for damage)
+    local playerLevel = 0
+    for _, slot in ipairs({"head", "chest", "legs"}) do
+      local item = player.equippedItem(slot)
+      if item then
+        item = root.itemConfig(player.equippedItem(slot))
+        local level = item.parameters.level and item.parameters.level or (item.config.level or 0)
+        playerLevel = playerLevel + level/3 -- Average of all 3 items.
+      end
+    end
+    biteDamage = biteDamage * root.evalFunction("weaponDamageLevelMultiplier", playerLevel)
+    -- Projectile params.
+    params = { power = biteDamage * status.stat("powerMultiplier") }
+    -- Fire event for cooldown tracking.
+    starPounds.events:fire("pred:bite")
+  end
+
+
+  local dir = world.distance(position, starPounds.mcontroller.position)[1]
+  local direction = dir > 0 and "right" or "left"
+  world.spawnProjectile("starpoundsvorebite" .. direction .. (applyDamage and "damage" or ""), position, entity.id(), {dir, 0}, false, params)
 end
 
 function pred:cooldown()
@@ -415,8 +455,8 @@ function pred:digestPrey(preyId, items, preyStomach)
   local regurgitatedItems = jarray()
   local hasEssence = false
   if digestedEntity.type == "humanoid" then
-    -- Add soul effect if we have the skill.
-    if starPounds.moduleFunc("skills", "has", "voreSouls") then
+    -- Add soul effect if we have the skill (and the prey can give experience).
+    if starPounds.moduleFunc("skills", "has", "voreSouls") and not digestedEntity.foodType:find("noExperience") then
       starPounds.moduleFunc("effects", "add", "voreSouls")
     end
     -- We get purple particles if we digest something that gives ancient essence.

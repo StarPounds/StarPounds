@@ -203,6 +203,8 @@ function doSlam()
   self.slamWaitTimer = 0.1
   self.xVelocity = mcontroller.xVelocity()
   animator.playSound("startSlam")
+  animator.setSoundVolume("weightDash", starPounds.moduleFunc("size", "effectScaling") * 0.5 + 0.5)
+  animator.playSound("weightDash")
   status.setPersistentEffects("starpoundsslam", {
     {stat = "fallDamageMultiplier", effectiveMultiplier = 0},
     {stat = "invulnerable", amount = 1},
