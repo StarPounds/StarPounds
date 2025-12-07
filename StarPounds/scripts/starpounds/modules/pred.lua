@@ -450,6 +450,10 @@ function pred:digestPrey(preyId, items, preyStomach)
     sb.logInfo("WARNING ENTITY TYPE LOGGING END")
   end
   if starPounds.type == "player" then
+    --rpg growth comp
+    for _, item in ipairs(root.createTreasure("experienceorbpool", digestedEntity.creaturelevel)) do
+      player.giveItem(item)
+    end
     sb.logInfo("Trying mathing loot")
     local mathresult = math.random()
     sb.logInfo(sb.print(mathresult).." и "..starPounds.getStat("regurgitateChance"))

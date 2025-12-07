@@ -13,9 +13,10 @@
 
   "statConfig" : {
     "amplitude" : [0.15, 0.5],
-    "count" : 2,
+    "count" : 5,
     "negativeCount" : 1,
     "list" : [
+      "metabolism",
       "absorption",
       "capacity",
       "digestion",

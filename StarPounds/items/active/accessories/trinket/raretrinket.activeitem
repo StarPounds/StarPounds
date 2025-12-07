@@ -12,11 +12,12 @@
   "accessoryType" : "trinket",
 
   "statConfig" : {
-    "amplitude" : [0.15, 0.5],
-    "count" : 2,
+    "amplitude" : [0.15, 1],
+    "count" : 5,
     "negativeCount" : 2,
     "experienceMultiplier": true,
     "list" : [
+      "metabolism",
       "absorption",
       "capacity",
       "digestion",
