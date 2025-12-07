@@ -9,7 +9,7 @@ end
 function hunger:update(dt)
   -- Holy shit why can we not detect what gamemode the player is using.
   if starPounds.hasOption("disableHunger") then
-    status.setResourcePercentage("food", 1)
+    status.setResource("food", status.resourceMax("food") - 0.01)
   end
   -- Don't do anything if the mod is disabled.
   if not storage.starPounds.enabled then return end

@@ -323,8 +323,12 @@ function stomach:digest(dt, isGurgle, isBelch)
 
     local maxHealth = status.resourceMax("health")
     local maxEnergy = status.isResource("energy") and status.resourceMax("energy") or 0
-    local maxFood = status.isResource("food") and status.resourceMax("food") or 0
+    local hasFood = status.isResource("food")
+    local maxFood = hasFood and (status.resourceMax("food") - 0.01) or 0 -- Capped so the wellfed status doesn't apply automatically.
     local foodDelta = status.stat("foodDelta")
+
+    local belchParticlesDisabled = starPounds.hasOption("disableBelchParticles")
+    local hungerDisabled = starPounds.hasOption("disableHunger")
 
     local digestionStatCache = {}
     -- Iterate through food types
@@ -348,17 +352,18 @@ function stomach:digest(dt, isGurgle, isBelch)
         if isBelch and foodConfig.multipliers.belch > 0 then
           digestionRate = digestionRate + digestionRate * foodConfig.multipliers.belch * belchAmount
         end
-        if isBelch and foodConfig.belchParticles and not starPounds.hasOption("disableBelchParticles") then
+        if isBelch and foodConfig.belchParticles and not belchParticlesDisabled then
           self:spawnBelchParticles(foodConfig.belchParticles, foodConfig.belchParticleCount)
         end
         local digestAmount = math.min(amount, math.round(digestionRate * ratio * seconds * (foodConfig.digestionRate + amount * foodConfig.percentDigestionRate), 4))
         self.digestionExperience = self.digestionExperience + digestAmount * foodConfig.multipliers.experience
         storage.starPounds.stomach[foodType] = math.round(math.max(amount - digestAmount, 0), 3)
         -- Add food.
-        if status.isResource("food") and (foodConfig.multipliers.food > 0) then
+        if hasFood and not hungerDisabled and (foodConfig.multipliers.food > 0) then
           local foodAmount = math.min(maxFood - status.resource("food"), digestAmount)
           -- Stops the player losing hunger while they digest food.
           local foodDeltaDiff = not isGurgle and math.abs(math.min(foodDelta * seconds, 0)) or 0
+          local food = foodAmount * foodValue * foodConfig.multipliers.food + foodDeltaDiff
           status.giveResource("food", foodAmount * foodValue * foodConfig.multipliers.food + foodDeltaDiff)
         end
 
