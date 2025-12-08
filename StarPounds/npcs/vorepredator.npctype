@@ -14,7 +14,7 @@
     },
 
     "starPounds_skills": {
-      "minimumSize": [2, 2]
+      "softMinimumSize": [2, 2]
     },
     "starPounds_trait": "npc_predator",
 

@@ -14,10 +14,10 @@
       "leapWindup" : 0.75,
       "rangedAimTime" : 0.5,
       "rangedWindupTime" : 0.01,
-    "cantReachDialog": false
+      "cantReachDialog": false
     },
     "starPounds_skills": {
-      "minimumSize": [2, 5]
+      "softMinimumSize": [2, 5]
     },
     "starPounds_trait": "npc_gluttonist",
 

@@ -20,7 +20,8 @@ function hunger:update(dt)
     -- 1% more than the food delta.
     if self.isStarving then
       local foodDelta = math.max(status.stat("foodDelta") * -1, 0) * dt
-      local availableWeight = storage.starPounds.weight - starPounds.sizes[starPounds.moduleFunc("skills", "level", "minimumSize") + 1].weight
+      local minimumSize = math.max(starPounds.moduleFunc("skills", "level", "minimumSize"), starPounds.moduleFunc("skills", "level", "softMinimumSize"), 0)
+      local availableWeight = storage.starPounds.weight - starPounds.sizes[minimumSize + 1].weight
       if availableWeight > 0 then
         self.isStarving = false
         local lossMultiplier = math.max(1, 1/math.max(0.01, (starPounds.getStat("foodValue") * starPounds.getStat("absorption"))))

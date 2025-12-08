@@ -14,7 +14,7 @@
 
   "scriptConfig" : {
     "starPounds_skills": {
-      "minimumSize": [1, 4]
+      "softMinimumSize": [1, 4]
     },
     "starPounds_options": {
       "bottomHeavy": true,

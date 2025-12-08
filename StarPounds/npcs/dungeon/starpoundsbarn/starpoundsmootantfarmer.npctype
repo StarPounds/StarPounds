@@ -2,7 +2,7 @@
   "type" : "starpoundsmootantfarmer",
   "baseType" : "guard",
   "displayTitle" : "Mootant Farmer",
-  
+
   "identity" : {
     "gender" : "female",
     "hairGroup" : "hair"
@@ -13,7 +13,7 @@
       "greetingChance" : 0
     },
     "starPounds_skills": {
-      "minimumSize": [0, 1]
+      "softMinimumSize": [0, 1]
     },
     "starPounds_options": {
       "bottomHeavy": true,
