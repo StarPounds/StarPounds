@@ -139,8 +139,8 @@ function _player:footstep(dt)
     local volume = 1 - ((math.random() - 0.5) * self.footstepVolumeVariance)
     local stepVolume = self:soundMult()
 
-    local weightMult = self.data.sloshWeightMult * stepVolume
-    local stomachMult = self.data.sloshStomachMult * starPounds.stomach.contents / (entity.weight * starPounds.currentSize.thresholdMultiplier)
+    local weightMult = self.data.sloshWeightMultiplier * stepVolume
+    local stomachMult = self.data.sloshStomachMultiplier * starPounds.stomach.contents / (entity.weight * starPounds.currentSize.thresholdMultiplier)
     local sloshVolume = math.round(math.min(weightMult + stomachMult, self.data.maximumSloshVolume), 2)
 
     -- No step sound if we can't move (i.e. Immobile without the skill), but boost the slosh volume.
@@ -166,12 +166,12 @@ function _player:landing()
 
   if self.wasFalling and not starPounds.mcontroller.falling then
     if starPounds.mcontroller.groundMovement then
-      local stomachMult = self.data.sloshStomachMult * starPounds.stomach.contents / (entity.weight * starPounds.currentSize.thresholdMultiplier)
+      local stomachMult = self.data.sloshStomachMultiplier * starPounds.stomach.contents / (entity.weight * starPounds.currentSize.thresholdMultiplier)
       starPounds.events:fire("player:landing", math.min(stomachMult, 1))
       -- Sounds.
       if not starPounds.hasOption("disableMovementSounds") then
         local landVolume = self:soundMult()
-        local weightMult = self.data.sloshWeightMult * landVolume
+        local weightMult = self.data.sloshWeightMultiplier * landVolume
         local sloshVolume = math.round(math.min(weightMult + stomachMult, self.data.maximumSloshVolume), 2)
         starPounds.moduleFunc("sound", "play", "land", landVolume * self.data.landingSoundVolume, self.data.landingSoundPitch)
         if sloshVolume > self.data.minimumSloshVolume then

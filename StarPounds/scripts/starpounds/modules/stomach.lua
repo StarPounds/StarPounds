@@ -112,23 +112,37 @@ function stomach:eat(amount, foodType)
   -- Calculate difference in 'fullness' past 300%.
   local lastFullness = math.max(self.stomach.fullness, self.data.stuffingFullnessThreshold)
   self:set()
-  local diff = math.max(self.stomach.fullness - lastFullness, 0)
+  local diff = math.max(self.stomach.fullness - lastFullness, 0) * starPounds.getStat("capacity")
+  if foodConfig.triggersStretching then
+    local stretchChance = math.min(diff * self.data.stretchChanceMultiplier, self.data.stretchMaximumChance)
 
-  -- Apply the stomach stretch effect. Chance is based on fullness increase.
-  if foodConfig.triggersStretching and math.random() < diff then
-    -- Apply effect if not on cooldown.
-    if foodConfig.stuffingDamage and not self.stretchCooldown then
-      local stretchLevel = math.max(math.random() * diff, 1)
-      starPounds.moduleFunc("effects", "add", "stomachStretch", nil, stretchLevel)
-      self.stretchCooldown = math.round(util.randomInRange({self.data.minimumStretchCooldown, (self.data.stretchCooldown * 2) - self.data.minimumStretchCooldown}))
-    end
-    -- Stretch Sound.
-    if not starPounds.hasOption("disableStretchSounds") then
-      -- Pitch gets lower/volume gets higher if the difference is up to 200% capacity.
-      local volumeMod = math.min(diff * 0.2, 0.4)
-      local pitchMod = math.max(-diff * 0.1, -0.2)
+    local effect = starPounds.moduleFunc("effects", "get", "stomachStretch")
+    local effectConfig = starPounds.moduleFunc("effects", "getConfig", "stomachStretch")
+    -- Apply the stomach stretch effect. Chance is based on fullness increase.
+    if math.random() < stretchChance then
+      -- Apply effect if not on cooldown.
+      if foodConfig.stuffingDamage then
+        if not self.stretchCooldown then
+          if not effect or (effect.level < (effectConfig.levels or 1)) then
+            local stretchLevel = math.max(math.random() * diff, 1)
+            starPounds.moduleFunc("effects", "add", "stomachStretch", nil, stretchLevel)
+            self.stretchCooldown = math.round(util.randomInRange({self.data.minimumStretchCooldown, (self.data.stretchCooldown * 2) - self.data.minimumStretchCooldown}))
+          end
+        elseif effect then
+        -- Add some duration to the stretch effect if we're on cooldown.
+          effect.duration = math.min(effect.duration + (self.data.stretchBonusDuration * effectConfig.duration), effectConfig.duration)
+        end
+      end
+      -- Stretch Sound.
+      if not starPounds.hasOption("disableStretchSounds") then
+        -- Pitch gets lower/volume gets higher if the difference is up to 200% capacity.
+        local volumeMod = math.min(diff * 0.2, 0.4)
+        local pitchMod = math.max(-diff * 0.1, -0.2)
 
-      starPounds.moduleFunc("sound", "play", "stretch", 0.8 + volumeMod, 1.2 + pitchMod)
+        starPounds.moduleFunc("sound", "play", "stretch", 0.8 + volumeMod, 1.2 + pitchMod)
+      end
+    elseif effect then -- Add some duration to the stretch effect based on difference if we don't roll an application.
+      effect.duration = math.min(effect.duration + (self.data.stretchDurationMultiplier * diff * effectConfig.duration), effectConfig.duration)
     end
   end
   -- Squelch and belch. (Sounds like a band name)
