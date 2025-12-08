@@ -5,7 +5,7 @@
 
   "scriptConfig" : {
     "starPounds_skills": {
-      "minimumSize": [1, 4]
+      "softMinimumSize": [1, 4]
     },
     "dialog": {
       "converse": {

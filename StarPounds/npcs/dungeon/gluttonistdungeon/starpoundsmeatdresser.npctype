@@ -11,7 +11,7 @@
     "cantReachDialog": false
     },
     "starPounds_skills": {
-      "minimumSize": [4, 5]
+      "softMinimumSize": [4, 5]
     },
     "starPounds_trait": "npc_gluttonistVeteran",
 
