@@ -1,0 +1,12 @@
+[[
+  {
+    "op": "test",
+    "path": "/tiles/60/brush/0/1/typeName",
+    "value": "frogmerchant"
+  },
+  {
+    "op": "replace",
+    "path": "/tiles/60/brush/0/1/species",
+    "value": "frogg"
+  }
+]]

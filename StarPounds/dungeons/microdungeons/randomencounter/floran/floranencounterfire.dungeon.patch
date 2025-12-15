@@ -21,4 +21,16 @@
     "path": "/tiles/1/brush/0/1/species",
     "value": "agaran"
   }
+],
+[
+  {
+    "op": "test",
+    "path": "/tiles/60/brush/0/1/species",
+    "value": "hylotl"
+  },
+  {
+    "op": "replace",
+    "path": "/tiles/60/brush/0/1/species",
+    "value": "frogg"
+  }
 ]]

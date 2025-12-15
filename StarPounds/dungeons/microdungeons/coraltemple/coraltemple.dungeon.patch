@@ -1,0 +1,24 @@
+[[
+  {
+    "op": "test",
+    "path": "/tiles/290/brush/0/1/species",
+    "value": "hylotl"
+  },
+  {
+    "op": "replace",
+    "path": "/tiles/290/brush/0/1/species",
+    "value": "frogg"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/tiles/291/brush/0/1/species",
+    "value": "hylotl"
+  },
+  {
+    "op": "replace",
+    "path": "/tiles/291/brush/0/1/species",
+    "value": "frogg"
+  }
+]]

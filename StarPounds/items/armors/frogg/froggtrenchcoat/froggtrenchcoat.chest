@@ -1,0 +1,47 @@
+{
+  "itemName" : "froggtrenchcoatchest",
+  "price" : 75,
+  "inventoryIcon" : "icons.png:chest",
+  "maxStack" : 1,
+  "rarity" : "Common",
+  "category" : "chestwear",
+  "description" : "A large cloth cloak.",
+  "shortdescription" : "Cloth Cloak [F]",
+  "tooltipKind" : "armor",
+  "maleFrames" : {
+    "body" : "chestm.png",
+    "backSleeve" : "bsleeve.png",
+    "frontSleeve" : "fsleeve.png"
+  },
+  "femaleFrames" : {
+    "body" : "chestf.png",
+    "backSleeve" : "bsleeve.png",
+    "frontSleeve" : "fsleeve.png"
+  },
+  "colorOptions" : [
+    // DEFAULT
+    { "ffca8a" : "8e896a", "e0975c" : "6f654d", "a85636" : "484332", "6f2919" : "2f2b21" },
+    // BLACK
+    { "ffca8a" : "555555", "e0975c" : "383838", "a85636" : "151515", "6f2919" : "0b0b0b" },
+    // GREY
+    { "ffca8a" : "808080", "e0975c" : "555555", "a85636" : "303030", "6f2919" : "1b1b1b" },
+    // WHITE
+    { "ffca8a" : "b6b6b6", "e0975c" : "7b7b7b", "a85636" : "373737", "6f2919" : "262626" },
+    // RED
+    { "ffca8a" : "d93a3a", "e0975c" : "932625", "a85636" : "601119", "6f2919" : "470910" },
+    // ORANGE
+    { "ffca8a" : "ea9931", "e0975c" : "af4e00", "a85636" : "6e2900", "6f2919" : "451b02" },
+    // YELLOW
+    { "ffca8a" : "e2c344", "e0975c" : "a46e06", "a85636" : "642f00", "6f2919" : "452102" },
+    // GREEN
+    { "ffca8a" : "51bd3b", "e0975c" : "247824", "a85636" : "144216", "6f2919" : "0b2f0d" },
+    // BLUE
+    { "ffca8a" : "5588d4", "e0975c" : "344495", "a85636" : "1a1c51", "6f2919" : "11123c" },
+    // PURPLE
+    { "ffca8a" : "a451c4", "e0975c" : "6a2284", "a85636" : "320c40", "6f2919" : "22062c" },
+    // PINK
+    { "ffca8a" : "d35eae", "e0975c" : "97276d", "a85636" : "59163f", "6f2919" : "3f0a2a" },
+    // BROWN
+    { "ffca8a" : "a47844", "e0975c" : "754c23", "a85636" : "472b13", "6f2919" : "311c09" }
+  ]
+}

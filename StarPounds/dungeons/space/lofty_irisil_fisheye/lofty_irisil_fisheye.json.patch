@@ -1,0 +1,12 @@
+[[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/90/properties/4/value",
+    "value": "{ \"spawner\" : { \"possibleVariations\" : [ { \"intendedUsage\" : \"Frogg\", \"scriptedTargetTags\" : [ \"species:frogg\", \"friendly\"], \"npcSpeciesOptions\" : [ \"hylotl\" ], \"npcTypeOptions\" : [ \"frogvillager\" ], \"npcParameterOptions\" : [{ \"damageTeam\" : 1, \"damageTeamType\" : \"assistant\"}], \"npcSeedOptions\" : [] } ] } }"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/90/properties/4/value",
+    "value": "{ \"spawner\" : { \"possibleVariations\" : [ { \"intendedUsage\" : \"Frogg\", \"scriptedTargetTags\" : [ \"species:frogg\", \"friendly\"], \"npcSpeciesOptions\" : [ \"frogg\" ], \"npcTypeOptions\" : [ \"frogvillager\" ], \"npcParameterOptions\" : [{ \"damageTeam\" : 1, \"damageTeamType\" : \"assistant\"}], \"npcSeedOptions\" : [] } ] } }"
+  }
+]]

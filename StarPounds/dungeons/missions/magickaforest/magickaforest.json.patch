@@ -1,0 +1,336 @@
+[[
+  {
+    "op": "test",
+    "path": "/layers/2/objects/235/properties/parameters",
+    "value": "{ \"spawner\" : { \"npcSpecies\" : [\"human\"], \"npcTypes\" : [\"magickaalpaca\"], \"npcLevel\" : [3, 3], \"npcParams\" : { \"aggressive\" : true }, \"position\" : [0, 37], \"positionVariance\" : [10, 0], \"frequency\" : [3, 3], \"stock\" : 3, \"trigger\" : \"wire\", \"outOfSight\" : false } }"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/2/objects/235/properties/parameters",
+    "value": "{ \"spawner\" : { \"npcSpecies\" : [\"alpaca\"], \"npcTypes\" : [\"magickaalpaca\"], \"npcLevel\" : [3, 3], \"npcParams\" : { \"aggressive\" : true }, \"position\" : [0, 37], \"positionVariance\" : [10, 0], \"frequency\" : [3, 3], \"stock\" : 3, \"trigger\" : \"wire\", \"outOfSight\" : false } }"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/2/objects/290/properties/parameters",
+    "value": "{ \"spawner\" : { \"npcSpecies\" : [\"human\"], \"npcTypes\" : [\"magickaalpaca\"], \"npcLevel\" : [3, 3], \"npcParams\" : { \"aggressive\" : true }, \"position\" : [0, 38], \"positionVariance\" : [10, 0], \"frequency\" : [3, 3], \"stock\" : 3, \"trigger\" : \"wire\", \"outOfSight\" : false } }"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/2/objects/290/properties/parameters",
+    "value": "{ \"spawner\" : { \"npcSpecies\" : [\"alpaca\"], \"npcTypes\" : [\"magickaalpaca\"], \"npcLevel\" : [3, 3], \"npcParams\" : { \"aggressive\" : true }, \"position\" : [0, 38], \"positionVariance\" : [10, 0], \"frequency\" : [3, 3], \"stock\" : 3, \"trigger\" : \"wire\", \"outOfSight\" : false } }"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/2/objects/361/properties/parameters",
+    "value": "{ \"spawner\" : { \"npcSpecies\" : [\"human\"], \"npcTypes\" : [\"magickaalpaca\"], \"npcLevel\" : [3, 3], \"npcParams\" : { \"aggressive\" : true }, \"position\" : [0, 0], \"positionVariance\" : [10, 0], \"frequency\" : [2, 2], \"stock\" : 4, \"trigger\" : \"wire\", \"outOfSight\" : false } }"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/2/objects/361/properties/parameters",
+    "value": "{ \"spawner\" : { \"npcSpecies\" : [\"alpaca\"], \"npcTypes\" : [\"magickaalpaca\"], \"npcLevel\" : [3, 3], \"npcParams\" : { \"aggressive\" : true }, \"position\" : [0, 0], \"positionVariance\" : [10, 0], \"frequency\" : [2, 2], \"stock\" : 4, \"trigger\" : \"wire\", \"outOfSight\" : false } }"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/2/objects/380/properties/parameters",
+    "value": "{ \"spawner\" : { \"npcSpecies\" : [\"human\"], \"npcTypes\" : [\"magickaalpaca\"], \"npcLevel\" : [3, 3], \"npcParams\" : { \"aggressive\" : true }, \"position\" : [0, 0], \"positionVariance\" : [0, 0], \"frequency\" : [2, 2], \"stock\" : 2, \"trigger\" : \"wire\", \"outOfSight\" : false } }"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/2/objects/380/properties/parameters",
+    "value": "{ \"spawner\" : { \"npcSpecies\" : [\"alpaca\"], \"npcTypes\" : [\"magickaalpaca\"], \"npcLevel\" : [3, 3], \"npcParams\" : { \"aggressive\" : true }, \"position\" : [0, 0], \"positionVariance\" : [0, 0], \"frequency\" : [2, 2], \"stock\" : 2, \"trigger\" : \"wire\", \"outOfSight\" : false } }"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/2/objects/397/properties/parameters",
+    "value": "{ \"spawner\" : { \"npcSpecies\" : [\"human\"], \"npcTypes\" : [\"magickaalpaca\"], \"npcLevel\" : [3, 3], \"npcParams\" : { \"aggressive\" : true }, \"position\" : [0, 0], \"positionVariance\" : [3, 0], \"frequency\" : [2, 2], \"stock\" : 3, \"trigger\" : \"wire\", \"outOfSight\" : false } }"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/2/objects/397/properties/parameters",
+    "value": "{ \"spawner\" : { \"npcSpecies\" : [\"alpaca\"], \"npcTypes\" : [\"magickaalpaca\"], \"npcLevel\" : [3, 3], \"npcParams\" : { \"aggressive\" : true }, \"position\" : [0, 0], \"positionVariance\" : [3, 0], \"frequency\" : [2, 2], \"stock\" : 3, \"trigger\" : \"wire\", \"outOfSight\" : false } }"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/2/objects/402/properties/parameters",
+    "value": "{ \"spawner\" : { \"npcSpecies\" : [\"human\"], \"npcTypes\" : [\"magickaalpaca\"], \"npcLevel\" : [3, 3], \"npcParams\" : { \"aggressive\" : true }, \"position\" : [0, 0], \"positionVariance\" : [3, 0], \"frequency\" : [2, 2], \"stock\" : 3, \"trigger\" : \"wire\", \"outOfSight\" : false } }"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/2/objects/402/properties/parameters",
+    "value": "{ \"spawner\" : { \"npcSpecies\" : [\"alpaca\"], \"npcTypes\" : [\"magickaalpaca\"], \"npcLevel\" : [3, 3], \"npcParams\" : { \"aggressive\" : true }, \"position\" : [0, 0], \"positionVariance\" : [3, 0], \"frequency\" : [2, 2], \"stock\" : 3, \"trigger\" : \"wire\", \"outOfSight\" : false } }"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/2/objects/403/properties/parameters",
+    "value": "{ \"spawner\" : { \"npcSpecies\" : [\"human\"], \"npcTypes\" : [\"magickaberserker\"], \"npcLevel\" : [3, 3], \"npcParams\" : { \"aggressive\" : true }, \"position\" : [0, 0], \"positionVariance\" : [3, 0], \"frequency\" : [2, 2], \"stock\" : 3, \"trigger\" : \"wire\", \"outOfSight\" : false } }"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/2/objects/403/properties/parameters",
+    "value": "{ \"spawner\" : { \"npcSpecies\" : [\"alpaca\"], \"npcTypes\" : [\"magickaberserker\"], \"npcLevel\" : [3, 3], \"npcParams\" : { \"aggressive\" : true }, \"position\" : [0, 0], \"positionVariance\" : [3, 0], \"frequency\" : [2, 2], \"stock\" : 3, \"trigger\" : \"wire\", \"outOfSight\" : false } }"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/2/objects/744/properties/parameters",
+    "value": "{ \"spawner\" : { \"npcSpecies\" : [\"human\"], \"npcTypes\" : [\"magickaalpaca\"], \"npcLevel\" : [3, 3], \"npcParams\" : { \"aggressive\" : true }, \"position\" : [0, 0], \"positionVariance\" : [0, 0], \"frequency\" : [1, 1], \"stock\" : 1, \"trigger\" : \"wire\", \"outOfSight\" : false } }"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/2/objects/744/properties/parameters",
+    "value": "{ \"spawner\" : { \"npcSpecies\" : [\"alpaca\"], \"npcTypes\" : [\"magickaalpaca\"], \"npcLevel\" : [3, 3], \"npcParams\" : { \"aggressive\" : true }, \"position\" : [0, 0], \"positionVariance\" : [0, 0], \"frequency\" : [1, 1], \"stock\" : 1, \"trigger\" : \"wire\", \"outOfSight\" : false } }"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/2/objects/745/properties/parameters",
+    "value": "{ \"spawner\" : { \"npcSpecies\" : [\"human\"], \"npcTypes\" : [\"magickaalpaca\"], \"npcLevel\" : [3, 3], \"npcParams\" : { \"aggressive\" : true }, \"position\" : [0, 0], \"positionVariance\" : [0, 0], \"frequency\" : [1, 1], \"stock\" : 1, \"trigger\" : \"wire\", \"outOfSight\" : false } }"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/2/objects/745/properties/parameters",
+    "value": "{ \"spawner\" : { \"npcSpecies\" : [\"alpaca\"], \"npcTypes\" : [\"magickaalpaca\"], \"npcLevel\" : [3, 3], \"npcParams\" : { \"aggressive\" : true }, \"position\" : [0, 0], \"positionVariance\" : [0, 0], \"frequency\" : [1, 1], \"stock\" : 1, \"trigger\" : \"wire\", \"outOfSight\" : false } }"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/2/objects/746/properties/parameters",
+    "value": "{ \"spawner\" : { \"npcSpecies\" : [\"human\"], \"npcTypes\" : [\"magickaberserker\"], \"npcLevel\" : [3, 3], \"npcParams\" : { \"aggressive\" : true }, \"position\" : [0, 0], \"positionVariance\" : [0, 0], \"frequency\" : [1, 1], \"stock\" : 1, \"trigger\" : \"wire\", \"outOfSight\" : false } }"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/2/objects/746/properties/parameters",
+    "value": "{ \"spawner\" : { \"npcSpecies\" : [\"alpaca\"], \"npcTypes\" : [\"magickaberserker\"], \"npcLevel\" : [3, 3], \"npcParams\" : { \"aggressive\" : true }, \"position\" : [0, 0], \"positionVariance\" : [0, 0], \"frequency\" : [1, 1], \"stock\" : 1, \"trigger\" : \"wire\", \"outOfSight\" : false } }"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/2/objects/747/properties/parameters",
+    "value": "{ \"spawner\" : { \"npcSpecies\" : [\"human\"], \"npcTypes\" : [\"magickaalpaca\"], \"npcLevel\" : [3, 3], \"npcParams\" : { \"aggressive\" : true }, \"position\" : [0, 0], \"positionVariance\" : [0, 0], \"frequency\" : [1, 1], \"stock\" : 1, \"trigger\" : \"wire\", \"outOfSight\" : false } }"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/2/objects/747/properties/parameters",
+    "value": "{ \"spawner\" : { \"npcSpecies\" : [\"alpaca\"], \"npcTypes\" : [\"magickaalpaca\"], \"npcLevel\" : [3, 3], \"npcParams\" : { \"aggressive\" : true }, \"position\" : [0, 0], \"positionVariance\" : [0, 0], \"frequency\" : [1, 1], \"stock\" : 1, \"trigger\" : \"wire\", \"outOfSight\" : false } }"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/2/objects/780/properties/npc",
+    "value": "human"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/2/objects/780/properties/npc",
+    "value": "alpaca"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/2/objects/781/properties/npc",
+    "value": "human"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/2/objects/781/properties/npc",
+    "value": "alpaca"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/2/objects/782/properties/npc",
+    "value": "human"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/2/objects/782/properties/npc",
+    "value": "alpaca"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/2/objects/783/properties/npc",
+    "value": "human"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/2/objects/783/properties/npc",
+    "value": "alpaca"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/2/objects/784/properties/npc",
+    "value": "human"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/2/objects/784/properties/npc",
+    "value": "alpaca"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/2/objects/785/properties/npc",
+    "value": "human"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/2/objects/785/properties/npc",
+    "value": "alpaca"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/2/objects/786/properties/npc",
+    "value": "human"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/2/objects/786/properties/npc",
+    "value": "alpaca"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/2/objects/787/properties/npc",
+    "value": "human"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/2/objects/787/properties/npc",
+    "value": "alpaca"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/2/objects/788/properties/npc",
+    "value": "human"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/2/objects/788/properties/npc",
+    "value": "alpaca"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/2/objects/789/properties/npc",
+    "value": "human"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/2/objects/789/properties/npc",
+    "value": "alpaca"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/2/objects/790/properties/npc",
+    "value": "human"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/2/objects/790/properties/npc",
+    "value": "alpaca"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/2/objects/791/properties/npc",
+    "value": "human"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/2/objects/791/properties/npc",
+    "value": "alpaca"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/2/objects/792/properties/npc",
+    "value": "human"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/2/objects/792/properties/npc",
+    "value": "alpaca"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/3/properties/npc",
+    "value": "human"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/3/properties/npc",
+    "value": "alpaca"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/4/properties/npc",
+    "value": "human"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/4/properties/npc",
+    "value": "alpaca"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/5/properties/npc",
+    "value": "human"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/5/properties/npc",
+    "value": "alpaca"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/11/properties/npc",
+    "value": "human"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/11/properties/npc",
+    "value": "alpaca"
+  }
+]]

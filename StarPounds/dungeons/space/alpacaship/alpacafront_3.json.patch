@@ -1,0 +1,48 @@
+[[
+  {
+    "op": "test",
+    "path": "/layers/5/objects/0/properties/npc",
+    "value": "human"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/5/objects/0/properties/npc",
+    "value": "alpaca"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/5/objects/1/properties/npc",
+    "value": "human"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/5/objects/1/properties/npc",
+    "value": "alpaca"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/5/objects/2/properties/npc",
+    "value": "human"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/5/objects/2/properties/npc",
+    "value": "alpaca"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/5/objects/3/properties/npc",
+    "value": "human"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/5/objects/3/properties/npc",
+    "value": "alpaca"
+  }
+]]

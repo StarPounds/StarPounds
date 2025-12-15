@@ -1,0 +1,28 @@
+[
+  {
+    "op": "remove",
+    "path": "/nameGen"
+  },
+  {
+    "op": "add",
+    "path": "/identity",
+    "value": {
+      "species": "frogg"
+    }
+  },
+  {
+    "op": "add",
+    "path": "/items",
+    "value": {"override" : [
+      [0, [
+          {
+            "head" : [ "" ],
+            "chest" : [ { "name" : "froggtrenchcoatchest" } ],
+            "legs" : [ { "name" : "froggtrenchcoatlegs" }  ],
+            "back" : [ "" ]
+          }
+        ] ]
+      ]
+    }
+  }
+]

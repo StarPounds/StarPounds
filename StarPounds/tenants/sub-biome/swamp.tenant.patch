@@ -1,0 +1,12 @@
+[[
+  {
+    "op": "test",
+    "path": "/tenants/0/species",
+    "value": "hylotl"
+  },
+  {
+    "op": "replace",
+    "path": "/tenants/0/species",
+    "value": "frogg"
+  }
+]]

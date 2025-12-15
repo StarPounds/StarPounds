@@ -1,0 +1,42 @@
+{
+  "itemName" : "froggfezhathead",
+  "price" : 50,
+  "inventoryIcon" : "icons.png",
+  "maxStack" : 1,
+  "rarity" : "Common",
+  "category" : "headwear",
+  "description" : "A hat commonly worn by frögg merchants.",
+  "shortdescription" : "Fez hat [F]",
+  "tooltipKind" : "armor",
+
+  "maleFrames" : "head.png",
+  "femaleFrames" : "head.png",
+  "mask" : "mask.png",
+
+  "colorOptions" : [
+    // DEFAULT
+    { "e0975c" : "d93a3a", "a85636" : "932625", "6f2919" : "601119" },
+    // BLACK
+    { "e0975c" : "555555", "a85636" : "383838", "6f2919" : "151515" },
+    // GREY
+    { "e0975c" : "808080", "a85636" : "555555", "6f2919" : "303030" },
+    // WHITE
+    { "e0975c" : "b6b6b6", "a85636" : "7b7b7b", "6f2919" : "373737" },
+    // RED
+    { "e0975c" : "d93a3a", "a85636" : "932625", "6f2919" : "601119" },
+    // ORANGE
+    { "e0975c" : "ea9931", "a85636" : "af4e00", "6f2919" : "6e2900" },
+    // YELLOW
+    { "e0975c" : "e2c344", "a85636" : "a46e06", "6f2919" : "642f00" },
+    // GREEN
+    { "e0975c" : "51bd3b", "a85636" : "247824", "6f2919" : "144216" },
+    // BLUE
+    { "e0975c" : "5588d4", "a85636" : "344495", "6f2919" : "1a1c51" },
+    // PURPLE
+    { "e0975c" : "a451c4", "a85636" : "6a2284", "6f2919" : "320c40" },
+    // PINK
+    { "e0975c" : "d35eae", "a85636" : "97276d", "6f2919" : "59163f" },
+    // BROWN
+    { "e0975c" : "a47844", "a85636" : "754c23", "6f2919" : "472b13" }
+  ]
+}

@@ -1,6 +1,18 @@
 [[
   {
     "op": "test",
+    "path": "/layers/5/objects/0/properties/npc",
+    "value": "hylotl"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/5/objects/0/properties/npc",
+    "value": "frogg"
+  }
+],
+[
+  {
+    "op": "test",
     "path": "/layers/5/objects/1/properties/npc",
     "value": "floran"
   },
@@ -8,5 +20,17 @@
     "op": "replace",
     "path": "/layers/5/objects/1/properties/npc",
     "value": "agaran"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/5/objects/2/properties/npc",
+    "value": "hylotl"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/5/objects/2/properties/npc",
+    "value": "frogg"
   }
 ]]

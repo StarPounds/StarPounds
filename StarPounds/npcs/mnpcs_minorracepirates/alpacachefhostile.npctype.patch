@@ -1,0 +1,31 @@
+[
+  {
+    "op": "add",
+    "path": "/identity",
+    "value": {
+      "species": "alpaca"
+    }
+  },
+  {
+    "op": "replace",
+    "path": "/items/override/0/1/0/head/0/parameters/colorIndex/1",
+    "value": 0
+  },
+  {
+    "op": "replace",
+    "path": "/items/override/0/1/0/chest/0/name",
+    "value": "alpacachefchest"
+  },
+  {
+    "op": "replace",
+    "path": "/items/override/0/1/0/chest/0/parameters/colorIndex/1",
+    "value": 0
+  },
+  {
+    "op": "replace",
+    "path": "/items/override/0/1/0/legs",
+    "value": [{
+      "name": ""
+    }]
+  }
+]
