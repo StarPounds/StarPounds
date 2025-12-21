@@ -8,6 +8,7 @@
   "description" : "Worried: Glitch don't usually come in castle sizes.",
   "shortdescription" : "Immobile Body",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsimmobile"

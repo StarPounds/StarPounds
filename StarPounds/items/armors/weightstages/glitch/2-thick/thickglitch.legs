@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "legwear",  
-  "description" : "Statement: Hips and rear this big are an envy for all.",
+  "description" : "Statement: Hips and a rear this big are an envy for all.",
   "shortdescription" : "Thick Legs",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsthick"

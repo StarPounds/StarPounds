@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "Observation: Someone's been eating well for a belly that can't be hidden.",
+  "description" : "You might be a bit out of shape but at least you got some boob to balance it.",
   "shortdescription" : "Busty Thick Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsthick",

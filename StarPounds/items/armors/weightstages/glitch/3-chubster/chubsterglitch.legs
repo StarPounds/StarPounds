@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "legwear",  
-  "description" : "Some glitch are built with incredibly large legs.",
+  "description" : "Some Glitch are built with incredibly large legs.",
   "shortdescription" : "Chubby Legs",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster"

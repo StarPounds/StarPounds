@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "How do Glitchs get fat? By being built fat of course! And this belly screams nobility.",
+  "description" : "How do Glitch get fat? By being built fat of course! And this belly screams nobility.",
   "shortdescription" : "Chubby Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster"
