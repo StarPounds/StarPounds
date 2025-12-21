@@ -5,8 +5,8 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "legwear",  
-  "description" : "All those whale jokes were a bit much before. But now? You literaly are whale sized.",
-  "shortdescription" : "Blobby Body",
+  "description" : "All those whale jokes were a bit much before. But now? You literally are whale sized.",
+  "shortdescription" : "Immobile Body",
   "tooltipKind" : "starpoundsarmor",
   
   "statusEffects": [
