@@ -38,9 +38,10 @@ function oSB:update(dt)
     if type(slot) ~= "number" then self.selectedSlot = nil return end -- Don't run on the essential slots.
     -- Only update when we change slots/groups. Slot only returns an array, so less data/overhead (Probably).
     local newSelectedSlot = slot..sb.print(player.actionBarSlotLink(slot, "primary") ~= nil)..player.actionBarGroup()
-    if newSelectedSlot == self.selectedSlot then return else
-      self.selectedSlot = newSelectedSlot
+    if newSelectedSlot == self.selectedSlot then
+      return
     end
+    self.selectedSlot = newSelectedSlot
     -- Checks for primary/alt.
     for _, slotType in ipairs(self.handSlots) do
       local item = player[slotType.."HandItem"]()
