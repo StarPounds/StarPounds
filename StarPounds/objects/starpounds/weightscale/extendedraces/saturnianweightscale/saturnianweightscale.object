@@ -13,7 +13,7 @@
     "config" : "/interface/windowconfig/weightscale.config",
     "filter" : [ "weightscale" ]
     },
-  "interactMessage": "You are ^#ccbbff;%slb^reset; over this week's target weight goal.",
+  "interactMessage": "You are ^#ccbbff;%s%s^reset; over this week's target weight goal.",
   "apexDescription" : "This machine measures weight. This one seems rather... magical in its presentation.",
   "avianDescription" : "A balanced weight is important. Yet my heart grows cold when I approach this...",
   "floranDescription" : "Sssparkly orb measuresss hunter prowesss. Higher the number, the better hunter Floran isss.",

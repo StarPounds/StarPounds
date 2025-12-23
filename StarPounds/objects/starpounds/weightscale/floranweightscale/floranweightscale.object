@@ -13,7 +13,7 @@
     "config" : "/interface/windowconfig/weightscale.config",
     "filter" : [ "weightscale" ]
     },
-  "interactMessage": "Hunter iss ^#ccbbff;%slb^reset; fatter then before.",
+  "interactMessage": "Hunter iss ^#ccbbff;%s%s^reset; fatter then before.",
   "apexDescription" : "This machine measures a living creature's weight. From its size, it must be used for large livestock.",
   "avianDescription" : "A balanced weight is important. Yet my heart grows cold when I approach this...",
   "floranDescription" : "Sssmooth wood disssplays hunter prowesss. Higher the number, the better hunter floran isss.",

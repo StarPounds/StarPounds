@@ -22,7 +22,7 @@ function debug:update(dt)
     self:format("stomach", "<c:1>Fullness: <c:3>%.0f%%%% <c:1>Capacity: <c:3>%.1f/%.1f <c:1>Hunger: <c:3>%.1f/%.0f", stomach.interpolatedFullness * 100, stomach.contents, stomach.capacity, status.resource("food"), status.resourceMax("food"))
     self:format("stomachContents", "<c:1>Contents: <c:3>%.1f <c:1>Food: <c:3>%.1f <c:1>Entities: <c:3>%d", stomach.contents, stomach.food, #data.stomachEntities)
     self:format("breasts", "<c:1>Type: <c:3>%s <c:1>Capacity: <c:3>%.1f/%.1f <c:1>Contents: <c:3>%.1f", breasts.type, breasts.contents, breasts.capacity, data.breasts.amount)
-    self:format("size", "<c:1>Size: <c:3>%s <c:1>Weight: <c:3>%.2flb <c:1>Multiplier: <c:3>%.1fx", (starPounds.currentSize.size == "" and "none" or starPounds.currentSize.size)..(starPounds.currentVariant and ": "..starPounds.currentVariant or ""), data.weight, starPounds.weightMultiplier)
+    self:format("size", "<c:1>Size: <c:3>%s <c:1>Weight: <c:3>%.2f%s <c:1>Multiplier: <c:3>%.1fx", (starPounds.currentSize.size == "" and "none" or starPounds.currentSize.size)..(starPounds.currentVariant and ": "..starPounds.currentVariant or ""), starPounds.hasOption("useImperial") and data.weight * 2.20462234 or data.weight, starPounds.hasOption("useImperial") and "lb" or "kg", starPounds.weightMultiplier)
     self:format("timers", "<c:1>Gurgle: <c:3>%.1f <c:1>Rumble: <c:3>%.1f", gurgleTimer or 0, rumbleTimer or 0)
     self:format("trait", "<c:1>Trait: <c:3>%s", data.trait or "None")
   end
