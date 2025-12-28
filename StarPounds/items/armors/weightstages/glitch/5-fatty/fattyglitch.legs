@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "legwear",  
-  "description" : "Statement: Upgraded to an xxl model. This unit has girth fitting for a gluttonous noble.",
+  "description" : "Statement: Upgraded to a XXXL model. This unit has girth fitting for a gluttonous noble.",
   "shortdescription" : "Fatty Legs",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsfatty"

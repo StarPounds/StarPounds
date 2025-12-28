@@ -1,0 +1,12 @@
+[[
+  {
+    "op": "test",
+    "path": "/tenants/0/species",
+    "value": "human"
+  },
+  {
+    "op": "replace",
+    "path": "/tenants/0/species",
+    "value": "alpaca"
+  }
+]]

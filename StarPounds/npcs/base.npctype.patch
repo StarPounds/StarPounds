@@ -30,10 +30,26 @@
   },
   {
     "op": "add",
+    "path": "/scriptConfig/chatSounds/alpaca",
+    "value": {
+    "male": [ "/sfx/humanoid/alpaca_chatter_male1.ogg", "/sfx/humanoid/alpaca_chatter_male2.ogg", "/sfx/humanoid/alpaca_chatter_male3.ogg" ],
+    "female": [ "/sfx/humanoid/alpaca_chatter_female1.ogg", "/sfx/humanoid/alpaca_chatter_female2.ogg", "/sfx/humanoid/alpaca_chatter_female3.ogg" ]
+    }
+  },
+  {
+    "op": "add",
     "path": "/scriptConfig/chatSounds/deadbeat",
     "value": {
     "male": [ "/sfx/humanoid/deadbeat_chatter_male1.ogg", "/sfx/humanoid/deadbeat_chatter_male2.ogg", "/sfx/humanoid/deadbeat_chatter_male3.ogg" ],
     "female": [ "/sfx/humanoid/deadbeat_chatter_female1.ogg", "/sfx/humanoid/deadbeat_chatter_female2.ogg", "/sfx/humanoid/deadbeat_chatter_female3.ogg" ]
+    }
+  },
+  {
+    "op": "add",
+    "path": "/scriptConfig/chatSounds/frogg",
+    "value": {
+    "male": [ "/sfx/humanoid/frog_chatter1.ogg", "/sfx/humanoid/frog_chatter2.ogg", "/sfx/humanoid/frog_chatter3.ogg" ],
+    "female": [ "/sfx/humanoid/frog_chatter1.ogg", "/sfx/humanoid/frog_chatter2.ogg", "/sfx/humanoid/frog_chatter3.ogg" ]
     }
   }
 ]

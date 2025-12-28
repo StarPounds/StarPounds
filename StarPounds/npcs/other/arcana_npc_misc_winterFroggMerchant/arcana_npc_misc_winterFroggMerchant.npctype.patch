@@ -1,0 +1,24 @@
+[
+  {
+    "op": "add",
+    "path": "/identity",
+    "value": {
+      "species": "frogg"
+    }
+  },
+  {
+    "op": "add",
+    "path": "/items",
+    "value": {"override" : [
+      [0, [
+          {
+            "head" : [ { "name" : "frogglunarfezhathead" } ],
+            "chest" : [ { "name" : "frogglunarchest" } ],
+            "legs" : [ { "name" : "frogglunarlegs" }  ],
+            "back" : [ "" ]
+          }
+        ] ]
+      ]
+    }
+  }
+]

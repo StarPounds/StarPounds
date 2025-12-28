@@ -6,7 +6,7 @@
   "rarity" : "legendary",
   "category" : "legwear",  
   "description" : "You're so big, you're good enough to be the large turkey for a parade float.",
-  "shortdescription" : "Blobby Avikan Body",
+  "shortdescription" : "Immobile Avikan Body",
   "tooltipKind" : "armor",
 
   "maleFrames" : "blob_pantsM.png",

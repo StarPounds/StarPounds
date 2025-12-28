@@ -1,0 +1,113 @@
+{
+  "kind" : "alpaca",
+
+  "charCreationTooltip" : {
+      "title" : "Alpaca",
+      "subTitle" : "SC",
+      "description" : "Proud and noble creatures, the Alpacas are honorable warriors. Always yearning for the ideal battle on the horizon."
+  },
+
+	"humanoidConfig" : "/species/alpacaoid.config",
+  "nameGen" : [ "/species/alpacanamegenmale.config:names", "/species/alpacanamegenfemale.config:names" ],
+  "ouchNoises" : [ "/sfx/humanoid/alpacahurt_male1.ogg", "/sfx/humanoid/alpacahurt_female1.ogg" ],
+  "charGenTextLabels" : [ "Skin colour", "Beard style", "Shirt", "Legwear", "Hair style", "Fur colour", "Shirt colour", "Legwear colour", "ALPACA", "Personality" ],
+  "skull" : "/humanoid/alpaca/dead.png",
+  "effectDirectives" : "?replace=FEFFFFFF=FFFFFFFF?replace=9bd4ffFF=c88d40FF?replace=31a6ffFF=a7631eFF",
+  "defaultBlueprints" : {
+    "tier1" : [
+
+      { "item" : "ironshortsword" },
+      { "item" : "ironbroadsword" },
+      { "item" : "tungstenaxe" },
+      { "item" : "tungstenhammer" },
+
+      { "item" : "titaniumdagger" },
+      { "item" : "titaniumspear" },
+      { "item" : "durasteelbroadsword" },
+      { "item" : "durasteelshortsword" },
+
+      { "item" : "aegisaltpistol" },
+      { "item" : "aegisaltbow" },
+      { "item" : "feroziumwand" },
+      { "item" : "feroziumstaff" },
+      { "item" : "violiumshortsword" },
+      { "item" : "violiumbroadsword" }
+    ]
+  },
+  "altOptionAsUndyColor" : true,
+  "headOptionAsHairColor" : true,
+  "headOptionAsFacialhair" : true,
+  "altOptionAsFacialMask" : true,
+  "hairColorAsBodySubColor" : true,
+  "bodyColorAsFacialMaskSubColor" : true,
+  "altColorAsFacialMaskSubColor" : true,
+
+  "altOptionAsHairColor" : true,
+
+  "genders" : [
+    {
+      "name" : "male",
+      "image" : "/interface/title/male.png",
+      "characterImage" : "/interface/title/alpacamale.png",
+      "hairGroup" : "beard",
+      "hair" : [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" ],
+			"shirt" : [ "alpaca-invisiblechest" ],
+			"pants" : [ "alpaca-invisiblelegs", "alpacablanketlegs" ],
+      "facialHairGroup" : "mask",
+      "facialHair" : [ "0" ],
+      "facialMaskGroup" : "hair",
+      "facialMask" : [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16" ]
+    },
+    {
+      "name" : "female",
+      "image" : "/interface/title/female.png",
+      "characterImage" : "/interface/title/alpacafemale.png",
+      "hairGroup" : "beardless",
+      "hair" : [ "0", "1", "2", "3", "4", "5", "6", "7", "8", "9" ],
+			"shirt" : [ "alpaca-invisiblechest" ],
+			"pants" : [ "alpaca-invisiblelegs", "alpacablanketlegs" ],
+      "facialHairGroup" : "mask",
+      "facialHair" : [ "0" ],
+      "facialMaskGroup" : "hair",
+      "facialMask" : [ "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16" ]
+    }
+  ],
+  "bodyColor" : [
+    { "f7e7b2" : "ffe2c5", "d9c189" : "ffc181", "a38d59" : "d39c6c", "735e3a" : "c7815b" },
+    { "f7e7b2" : "f0d6b9", "d9c189" : "e5b078", "a38d59" : "bb8c5e", "735e3a" : "a66c46" },
+    { "f7e7b2" : "e9c08b", "d9c189" : "d29a5f", "a38d59" : "ac7955", "735e3a" : "8c5d44" },
+    { "f7e7b2" : "d6ac76", "d9c189" : "c38b51", "a38d59" : "8f5a35", "735e3a" : "683f29" },
+    { "f7e7b2" : "d6cecb", "d9c189" : "b6b0ae", "a38d59" : "978d88", "735e3a" : "787069" },
+    { "f7e7b2" : "c8cee0", "d9c189" : "a3a7b2", "a38d59" : "7c8094", "735e3a" : "5f5f73" },
+    { "f7e7b2" : "96a3c5", "d9c189" : "6e7d9a", "a38d59" : "4d5c70", "735e3a" : "353d4d" },
+    { "f7e7b2" : "8b95af", "d9c189" : "616b7e", "a38d59" : "414c5a", "735e3a" : "282e3a" }
+  ],
+  "undyColor" : [ "" ],
+  "hairColor" : [
+		{ "ffca8a" : "ccae7c", "e0975c" : "a47844", "a85636" : "754c23", "6f2919" : "472b13" },
+		{ "ffca8a" : "c9b181", "e0975c" : "ac8348", "a85636" : "7e5a35", "6f2919" : "52361c" },
+		{ "ffca8a" : "c5ad98", "e0975c" : "a47a59", "a85636" : "7b5132", "6f2919" : "502d1c" },
+		{ "ffca8a" : "ab8c77", "e0975c" : "86644a", "a85636" : "684431", "6f2919" : "40271d" },
+    
+		{ "ffca8a" : "f7eee7", "e0975c" : "ead8ce", "a85636" : "b29f9e", "6f2919" : "766460" },
+		{ "ffca8a" : "ecddcd", "e0975c" : "d9bfb0", "a85636" : "a58684", "6f2919" : "5d4743" },
+		{ "ffca8a" : "f7f3e4", "e0975c" : "f4e8c5", "a85636" : "b8a998", "6f2919" : "817369" },
+		{ "ffca8a" : "ece4b3", "e0975c" : "dbca95", "a85636" : "9f8d70", "6f2919" : "705b4b" },
+    
+		{ "ffca8a" : "fcf8c5", "e0975c" : "f1e88f", "a85636" : "d2aa30", "6f2919" : "98681b" },
+		{ "ffca8a" : "ecd272", "e0975c" : "d0b34f", "a85636" : "a97833", "6f2919" : "764b21" },
+		{ "ffca8a" : "d69e4e", "e0975c" : "bf6930", "a85636" : "913926", "6f2919" : "6b1717" },
+    
+		{ "ffca8a" : "b8765f", "e0975c" : "a45644", "a85636" : "752f23", "6f2919" : "471913" },
+		{ "ffca8a" : "a26e62", "e0975c" : "864f4a", "a85636" : "683131", "6f2919" : "401d1f" },
+		{ "ffca8a" : "c88e80", "e0975c" : "a46059", "a85636" : "7b3732", "6f2919" : "551d1e" },
+		{ "ffca8a" : "ce7669", "e0975c" : "a7423d", "a85636" : "792d3a", "6f2919" : "5a1d32" },
+    
+		{ "ffca8a" : "b9c2cb", "e0975c" : "919ba7", "a85636" : "646e7e", "6f2919" : "424755" },
+		{ "ffca8a" : "92a0ad", "e0975c" : "758191", "a85636" : "505a6b", "6f2919" : "373c4a" },
+		{ "ffca8a" : "7b8d9a", "e0975c" : "5b6879", "a85636" : "3b4355", "6f2919" : "2a2e3c" },
+		{ "ffca8a" : "e6e6e6", "e0975c" : "b6b6b6", "a85636" : "7b7b7b", "6f2919" : "474747" },
+		{ "ffca8a" : "b5b5b5", "e0975c" : "808080", "a85636" : "555555", "6f2919" : "303030" },
+		{ "ffca8a" : "838383", "e0975c" : "555555", "a85636" : "383838", "6f2919" : "191919" }
+  ]
+}

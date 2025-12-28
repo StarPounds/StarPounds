@@ -3,6 +3,8 @@ local versioning = starPounds.module:new("versioning")
 -- Should probably split this up into several lua files, but it's whatever.
 versioning.versions = {
   [1] = function(data)
+    -- lb -> kg
+    data.weight = math.round(data.weight * 0.45359237, 2)
     -- Rename stomach variable.
     local stomachContents = data.stomachContents
     data.stomachContents = nil

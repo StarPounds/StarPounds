@@ -1,0 +1,36 @@
+[[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/0/properties/npc",
+    "value": "hylotl"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/0/properties/npc",
+    "value": "frogg"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/1/properties/npc",
+    "value": "hylotl"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/1/properties/npc",
+    "value": "frogg"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/2/properties/npc",
+    "value": "hylotl"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/2/properties/npc",
+    "value": "frogg"
+  }
+]]

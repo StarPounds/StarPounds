@@ -3,5 +3,36 @@
     "op": "add",
     "path": "/scriptConfig/starPounds_options",
     "value": {"disableGain": true, "disableStomachGrowth": true, "disableBreastGrowth": true}
+  },
+  {
+    "op": "remove",
+    "path": "/nameGen"
+  },
+  {
+    "op": "add",
+    "path": "/damageTeamType",
+    "value": "friendly"
+  },
+  {
+    "op": "add",
+    "path": "/identity",
+    "value": {
+      "species": "frogg"
+    }
+  },
+  {
+    "op": "add",
+    "path": "/items",
+    "value": {"override" : [
+      [0, [
+          {
+            "head" : [ "" ],
+            "chest" : [ { "name" : "froggtrenchcoatchest" } ],
+            "legs" : [ { "name" : "froggtrenchcoatlegs" }  ],
+            "back" : [ "" ]
+          }
+        ] ]
+      ]
+    }
   }
 ]

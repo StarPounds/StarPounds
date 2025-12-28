@@ -1,0 +1,12 @@
+[[
+  {
+    "op": "test",
+    "path": "/layers/4/objects/20/properties/0/value",
+    "value": "human"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/4/objects/20/properties/0/value",
+    "value": "alpaca"
+  }
+]]

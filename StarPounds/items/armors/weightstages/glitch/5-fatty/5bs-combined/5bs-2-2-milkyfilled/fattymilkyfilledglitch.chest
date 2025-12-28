@@ -1,0 +1,30 @@
+{
+  "itemName" : "fattymilkyfilledglitchchest",
+  "price" : 0,
+  "inventoryIcon" : "icons.png:chest",
+  "maxStack" : 1,
+  "rarity" : "legendary",
+  "category" : "chestwear",
+  "description" : "From a certain angle, your chest can give the illusion your stomach isn't as big as it is.",
+  "shortdescription" : "XBusty Filled Chest",
+  "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
+
+  "statusEffects": [
+    "starpoundsfatty",
+    "starpoundsmilky",
+    "starpoundsfilled"
+  ],
+
+  "maleFrames" : {
+    "body" : "fatty_chestm.png",
+    "backSleeve" : "bsleeve.png",
+    "frontSleeve" : "fsleeve.png"
+  },
+
+  "femaleFrames" : {
+    "body" : "fatty_chestf.png",
+    "backSleeve" : "bsleeve.png",
+    "frontSleeve" : "fsleeve.png"
+  }
+}

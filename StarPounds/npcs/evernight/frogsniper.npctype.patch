@@ -1,0 +1,27 @@
+[
+  {
+    "op": "add",
+    "path": "/identity",
+    "value": {
+      "species": "frogg"
+    }
+  },
+  {
+    "op": "add",
+    "path": "/items",
+    "value": {"override" : [
+      [0, [
+          {
+            "head" : [ "" ],
+            "chest" : [ { "name" : "froggcultistchest", "parameters" : { "colorIndex" : 1 } } ],
+            "legs" : [ { "name" : "froggcultistlegs", "parameters" : { "colorIndex" : 1 } }  ],
+            "back" : [ "" ],
+            "primary" : [
+              "npcsniperrifle"
+            ]
+          }
+        ] ]
+      ]
+    }
+  }
+]

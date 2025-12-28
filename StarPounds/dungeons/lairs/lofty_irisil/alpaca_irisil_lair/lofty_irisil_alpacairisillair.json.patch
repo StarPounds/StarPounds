@@ -1,0 +1,36 @@
+[[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/57/properties/4/value",
+    "value": "{ \"spawner\" : { \"possibleVariations\" : [ { \"intendedUsage\" : \"Alpaca\", \"scriptedTargetTags\" : [ \"species:alpaca\", \"friendly\"], \"npcSpeciesOptions\" : [ \"human\" ], \"npcTypeOptions\" : [ \"alpaca\" ], \"npcParameterOptions\" : [], \"npcSeedOptions\" : [] } ] } }"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/57/properties/4/value",
+    "value": "{ \"spawner\" : { \"possibleVariations\" : [ { \"intendedUsage\" : \"Alpaca\", \"scriptedTargetTags\" : [ \"species:alpaca\", \"friendly\"], \"npcSpeciesOptions\" : [ \"alpaca\" ], \"npcTypeOptions\" : [ \"alpaca\" ], \"npcParameterOptions\" : [], \"npcSeedOptions\" : [] } ] } }"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/58/properties/4/value",
+    "value": "{ \"spawner\" : { \"possibleVariations\" : [ { \"intendedUsage\" : \"Alpaca\", \"scriptedTargetTags\" : [ \"species:alpaca\", \"friendly\"], \"npcSpeciesOptions\" : [ \"human\" ], \"npcTypeOptions\" : [ \"alpaca\" ], \"npcParameterOptions\" : [], \"npcSeedOptions\" : [] } ] } }"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/58/properties/4/value",
+    "value": "{ \"spawner\" : { \"possibleVariations\" : [ { \"intendedUsage\" : \"Alpaca\", \"scriptedTargetTags\" : [ \"species:alpaca\", \"friendly\"], \"npcSpeciesOptions\" : [ \"alpaca\" ], \"npcTypeOptions\" : [ \"alpaca\" ], \"npcParameterOptions\" : [], \"npcSeedOptions\" : [] } ] } }"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/layers/3/objects/59/properties/4/value",
+    "value": "{ \"spawner\" : { \"possibleVariations\" : [ { \"intendedUsage\" : \"Alpaca\", \"scriptedTargetTags\" : [ \"species:alpaca\", \"friendly\"], \"npcSpeciesOptions\" : [ \"human\" ], \"npcTypeOptions\" : [ \"alpaca\" ], \"npcParameterOptions\" : [], \"npcSeedOptions\" : [] } ] } }"
+  },
+  {
+    "op": "replace",
+    "path": "/layers/3/objects/59/properties/4/value",
+    "value": "{ \"spawner\" : { \"possibleVariations\" : [ { \"intendedUsage\" : \"Alpaca\", \"scriptedTargetTags\" : [ \"species:alpaca\", \"friendly\"], \"npcSpeciesOptions\" : [ \"alpaca\" ], \"npcTypeOptions\" : [ \"alpaca\" ], \"npcParameterOptions\" : [], \"npcSeedOptions\" : [] } ] } }"
+  }
+]]

@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "Observation: Someone's been eating well for a belly that can't be hidden.",
+  "description" : "Quite a large meal you had with that big gut.",
   "shortdescription" : "Stuffed Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",

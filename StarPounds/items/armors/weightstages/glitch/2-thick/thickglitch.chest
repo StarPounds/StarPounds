@@ -8,6 +8,7 @@
   "description" : "Observation: Someone's been eating well for a belly that can't be hidden.",
   "shortdescription" : "Thick Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsthick"

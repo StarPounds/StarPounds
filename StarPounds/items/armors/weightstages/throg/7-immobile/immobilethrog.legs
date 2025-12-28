@@ -6,7 +6,7 @@
   "rarity" : "legendary",
   "category" : "legwear",  
   "description" : "A body like this is befitting of worship.",
-  "shortdescription" : "Blobby Body",
+  "shortdescription" : "Immobile Body",
   "tooltipKind" : "starpoundsarmor",
   
   "statusEffects": [

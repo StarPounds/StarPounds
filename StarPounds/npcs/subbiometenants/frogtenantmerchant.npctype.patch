@@ -1,0 +1,17 @@
+[
+  {
+    "op": "remove",
+    "path": "/nameGen"
+  },
+  {
+    "op": "remove",
+    "path": "/scriptConfig/merchant/categories/hylotl"
+  },
+  {
+    "op": "add",
+    "path": "/scriptConfig/merchant/categories/frogg",
+    "value": [
+      "frogtenantmerchant"
+    ]
+  }
+]

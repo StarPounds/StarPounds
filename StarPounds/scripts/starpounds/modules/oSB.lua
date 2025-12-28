@@ -5,9 +5,10 @@ function oSB:init()
   self.interactRadius = root.assetJson("/player.config:interactRadius")
   self.lactateBindTimer = self.data.lactateBindTime
   self.damageTeam = world.entityDamageTeam(entity.id())
-  self.foodSlots = {"primary", "alt"}
-  self.foodTypeCache = {}
-  self.notFoodTypeCache = {}
+  self.handSlots = {"primary", "alt"}
+  self.selectedSlot = nil
+  self.consumableCache = {}
+  self.notConsumableCache = {}
 end
 
 function oSB:update(dt)
@@ -32,29 +33,34 @@ function oSB:update(dt)
 
   -- Update food items in the player's hotbar.
   if player.selectedActionBarSlot then
-    if starPounds.swapSlotItem then return end -- Action slots are ignored while we have something in the cursor.
+    if starPounds.swapSlotItem then self.selectedSlot = nil return end -- Action slots are ignored while we have something in the cursor.
     local slot = player.selectedActionBarSlot()
-    if type(slot) ~= "number" then return end -- Don't run on the essential slots.
+    if type(slot) ~= "number" then self.selectedSlot = nil return end -- Don't run on the essential slots.
+    -- Only update when we change slots/groups. Slot only returns an array, so less data/overhead (Probably).
+    local newSelectedSlot = slot..sb.print(player.actionBarSlotLink(slot, "primary") ~= nil)..player.actionBarGroup()
+    if newSelectedSlot == self.selectedSlot then
+      return
+    end
+    self.selectedSlot = newSelectedSlot
     -- Checks for primary/alt.
-    for _, slotType in ipairs(self.foodSlots) do
+    for _, slotType in ipairs(self.handSlots) do
       local item = player[slotType.."HandItem"]()
-      if item and not self.notFoodTypeCache[item.name] then
-        if self.foodTypeCache[item.name] or (root.itemType(item.name) == "consumable") then
+      if item and not self.notConsumableCache[item.name] then
+        if self.consumableCache[item.name] or (root.itemType(item.name) == "consumable") then
           -- Little cache for repeated itemType lookups.
-          if not self.foodTypeCache[item.name] then self.foodTypeCache[item.name] = true end
+          if not self.consumableCache[item.name] then self.consumableCache[item.name] = true end
           if not item.parameters.starpounds_effectApplied then
             local updated = starPounds.moduleFunc("food", "updateItem", item)
             if updated then
               player.setItem(player.actionBarSlotLink(slot, slotType), updated)
             end
           end
-        elseif not self.notFoodTypeCache[item.name] then
-          self.notFoodTypeCache[item.name] = true
+        elseif not self.notConsumableCache[item.name] then
+          self.notConsumableCache[item.name] = true
         end
       end
     end
   end
-
   -- Make the player invisible to enemies while eaten.
   if storage.starPounds.pred and player.setDamageTeam then
     player.setDamageTeam(starExtensions and {type = "ghostly", team = storage.starPounds.damageTeam.team} or "ghostly")

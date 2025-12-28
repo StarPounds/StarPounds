@@ -6,8 +6,9 @@
   "rarity" : "legendary",
   "category" : "legwear",  
   "description" : "Worried: Glitch don't usually come in castle sizes.",
-  "shortdescription" : "Blobby Body",
+  "shortdescription" : "Immobile Body",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsimmobile"

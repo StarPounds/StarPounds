@@ -41,13 +41,16 @@ function update(dt, _, shiftHeld)
     cooldown = math.max(cooldown - (dt / starPounds.getStat("voreCooldown")), 0)
   end
 
+  local aimPosition = activeItem.ownerAimPosition()
+  local aimAngle, aimDirection = activeItem.aimAngleAndDirection(0, aimPosition)
+  activeItem.setFacingDirection(aimDirection)
+
   updateTick = ((updateTick or 0) % checkUpdateTicks) + 1
   if updateTick == 1 then
     local mouthPosition = starPounds.mcontroller.mouthPosition
     if starPounds.currentSize.yOffset then
       mouthPosition = vec2.add(mouthPosition, {0, starPounds.currentSize.yOffset})
     end
-    local aimPosition = activeItem.ownerAimPosition()
     local positionMagnitude = math.min(world.magnitude(mouthPosition, aimPosition), range - querySize - (starPounds.currentSize.yOffset or 0))
     local targetPosition = vec2.add(mouthPosition, vec2.mul(vec2.norm(world.distance(aimPosition, mouthPosition)), math.max(positionMagnitude, 0)))
     -- Vore icon updater.

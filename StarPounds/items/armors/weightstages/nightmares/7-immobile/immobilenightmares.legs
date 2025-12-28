@@ -6,7 +6,7 @@
   "rarity" : "legendary",
   "category" : "legwear",  
   "description" : "Now you can't even move fatty. Your gluttony knows no bounds.",
-  "shortdescription" : "Blobby Body",
+  "shortdescription" : "Immobile Body",
   "tooltipKind" : "starpoundsarmor",
   
   "statusEffects": [

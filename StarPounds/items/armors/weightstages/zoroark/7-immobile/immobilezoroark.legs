@@ -6,7 +6,7 @@
   "rarity" : "legendary",
   "category" : "legwear",  
   "description" : "Pokémon battles may be out of the question now. Pokémon eating contests, on the other hand...",
-  "shortdescription" : "Blobby Body",
+  "shortdescription" : "Immobile Body",
   "tooltipKind" : "starpoundsarmor",
   
   "statusEffects": [

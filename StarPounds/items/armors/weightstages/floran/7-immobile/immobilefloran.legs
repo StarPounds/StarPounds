@@ -6,7 +6,7 @@
   "rarity" : "legendary",
   "category" : "legwear",  
   "description" : "You're as fat as a gluttonist. The peak body of the ultimate hunter.",
-  "shortdescription" : "Blobby Body",
+  "shortdescription" : "Immobile Body",
   "tooltipKind" : "starpoundsarmor",
   
   "statusEffects": [

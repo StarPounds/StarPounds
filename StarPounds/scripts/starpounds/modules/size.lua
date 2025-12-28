@@ -212,11 +212,9 @@ function size:updateStats(forceUpdate)
     -- Movement stat starts at 0.
     -- Every +1 halves the penalty, every -1 doubles it (multiplicatively).
     if starPounds.movementMultiplier > 0 then
-      if movement <= 0 then
-        starPounds.movementMultiplier = starPounds.movementMultiplier ^ (1 - movement)
-      else
-        starPounds.movementMultiplier = 1 - ((1 - starPounds.movementMultiplier) / (2 ^ movement))
-      end
+      local penalty = 1 - starPounds.movementMultiplier
+      penalty = penalty * (2 ^ -movement)
+      starPounds.movementMultiplier = 1 - penalty
     end
     -- Jump/Swim math applies after the movement stat calcuation.
     if starPounds.movementMultiplier <= 0 then

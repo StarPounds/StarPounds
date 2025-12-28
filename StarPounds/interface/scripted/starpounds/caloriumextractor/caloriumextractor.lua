@@ -4,7 +4,7 @@ function init()
   caloriumFat = root.assetJson("/scripts/starpounds/modules/liquid.config:liquids.starpoundscaloriumliquid").food.fatLiquid
   extracting = false
   extractTimer = 0.1
-  effectTarget = 1000
+  effectTarget = 500
   updateButtonIcon()
 end
 
@@ -20,7 +20,7 @@ function update()
         local caloriumCost = caloriumFat + math.floor(0.02 * (nextWeight - starPounds.currentSize.weight) + 0.5)
         local converted = math.floor(starPounds.moduleFunc("size", "loseWeight", caloriumCost, true)/caloriumCost + 0.5)
         starPounds.caloriumExtractTracker = (starPounds.caloriumExtractTracker or 0) + (caloriumCost * converted)
-        -- Roughly every 1000lb (effectTarget), add a stack. Slightly random for funsies.
+        -- Roughly every 500kg (effectTarget), add a stack. Slightly random for funsies.
         local chance = starPounds.caloriumExtractTracker / effectTarget
         if (chance > math.random()) then
           starPounds.caloriumExtractTracker = starPounds.caloriumExtractTracker - effectTarget

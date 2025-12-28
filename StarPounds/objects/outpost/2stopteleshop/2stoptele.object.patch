@@ -1,0 +1,192 @@
+[[
+  {
+    "op": "test",
+    "path": "/npctypes/0/type",
+    "value": "alpacavisitor"
+  },
+  {
+    "op": "replace",
+    "path": "/npctypes/0/species/0",
+    "value": "alpaca"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/npctypes/17/type",
+    "value": "alpacavisitor"
+  },
+  {
+    "op": "replace",
+    "path": "/npctypes/17/species/0",
+    "value": "alpaca"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/npctypes/34/type",
+    "value": "alpacavisitor"
+  },
+  {
+    "op": "replace",
+    "path": "/npctypes/34/species/0",
+    "value": "alpaca"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/npctypes/51/type",
+    "value": "alpacavisitor"
+  },
+  {
+    "op": "replace",
+    "path": "/npctypes/51/species/0",
+    "value": "alpaca"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/npctypes/68/type",
+    "value": "alpacavisitor"
+  },
+  {
+    "op": "replace",
+    "path": "/npctypes/68/species/0",
+    "value": "alpaca"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/npctypes/85/type",
+    "value": "alpacavisitor"
+  },
+  {
+    "op": "replace",
+    "path": "/npctypes/85/species/0",
+    "value": "alpaca"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/npctypes/102/type",
+    "value": "alpacavisitor"
+  },
+  {
+    "op": "replace",
+    "path": "/npctypes/102/species/0",
+    "value": "alpaca"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/npctypes/119/type",
+    "value": "alpacavisitor"
+  },
+  {
+    "op": "replace",
+    "path": "/npctypes/119/species/0",
+    "value": "alpaca"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/npctypes/6/type",
+    "value": "froggvisitor"
+  },
+  {
+    "op": "replace",
+    "path": "/npctypes/6/species/0",
+    "value": "frogg"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/npctypes/23/type",
+    "value": "froggvisitor"
+  },
+  {
+    "op": "replace",
+    "path": "/npctypes/23/species/0",
+    "value": "frogg"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/npctypes/40/type",
+    "value": "froggvisitor"
+  },
+  {
+    "op": "replace",
+    "path": "/npctypes/40/species/0",
+    "value": "frogg"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/npctypes/57/type",
+    "value": "froggvisitor"
+  },
+  {
+    "op": "replace",
+    "path": "/npctypes/57/species/0",
+    "value": "frogg"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/npctypes/74/type",
+    "value": "froggvisitor"
+  },
+  {
+    "op": "replace",
+    "path": "/npctypes/74/species/0",
+    "value": "frogg"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/npctypes/91/type",
+    "value": "froggvisitor"
+  },
+  {
+    "op": "replace",
+    "path": "/npctypes/91/species/0",
+    "value": "frogg"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/npctypes/108/type",
+    "value": "froggvisitor"
+  },
+  {
+    "op": "replace",
+    "path": "/npctypes/108/species/0",
+    "value": "frogg"
+  }
+],
+[
+  {
+    "op": "test",
+    "path": "/npctypes/125/type",
+    "value": "froggvisitor"
+  },
+  {
+    "op": "replace",
+    "path": "/npctypes/125/species/0",
+    "value": "frogg"
+  }
+]]

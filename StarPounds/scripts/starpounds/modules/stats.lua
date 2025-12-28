@@ -53,7 +53,7 @@ function stats:get(stat)
     -- Option multipliers, bonuses, and overrides.
     statAmount = self:optionsOverride(stat) or (statAmount * self:optionsMult(stat) + self:optionsBonus(stat))
     -- Cap the stat between 0 and it's maxValue.
-    self.cache[stat] = util.clamp(statAmount, self.data.stats[stat].minValue or 0, self.data.stats[stat].maxValue or math.huge)
+    self.cache[stat] = math.round(util.clamp(statAmount, self.data.stats[stat].minValue or 0, self.data.stats[stat].maxValue or math.huge), 4)
   end
 
   return self.cache[stat]

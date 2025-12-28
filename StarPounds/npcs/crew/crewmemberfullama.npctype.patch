@@ -1,0 +1,24 @@
+[
+  {
+    "op": "add",
+    "path": "/identity",
+    "value": {
+      "species": "alpaca"
+    }
+  },
+  {
+    "op": "replace",
+    "path": "/scriptConfig/crew/defaultUniform/head",
+    "value": "alpacatier4head"
+  },
+  {
+    "op": "replace",
+    "path": "/scriptConfig/crew/defaultUniform/chest",
+    "value": "alpacatier4chest"
+  },
+  {
+    "op": "replace",
+    "path": "/scriptConfig/crew/defaultUniform/legs",
+    "value": "alpacatier4pants"
+  }
+]
