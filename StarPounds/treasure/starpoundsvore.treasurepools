@@ -128,5 +128,86 @@
         {"weight" : 0.4, "item" : "syntheticmaterial"}
       ]
     }]
+  ],
+  "regurgitatedTreasures": [
+    [0, {
+      "fill" : [{"pool" : "regurgitatedBones"}],
+      "poolRounds" : [
+        [0.35, 1],
+        [0.15, 2],
+        [0.05, 3]
+      ],
+      "pool" : [
+      {"weight" : 0.15, "item" : "goldbar"},
+      {"weight" : 0.05, "item" : "avianskullhead"},
+      {"weight" : 0.05, "item" : "flagavian"},
+      {"weight" : 0.05, "item" : "triballamp"},
+      {"weight" : 0.05, "item" : "goldenducky"},
+      {"weight" : 0.05, "item" : "goldenegg"},
+      {"weight" : 0.05, "item" : "goldenjar1"},
+      {"weight" : 0.05, "item" : "goldvase1"},
+      {"weight" : 0.05, "item" : "goldvase2"},
+      {"weight" : 0.05, "item" : "goldvase3"},
+      {"weight" : 0.05, "item" : "goldvase4"},
+      {"weight" : 0.05, "item" : "goldvase5"}
+      ]
+    }]
+  ],
+  "regurgitatedBones": [
+    [0, {
+      "poolRounds" : [
+        [0.95, 1],
+        [0.75, 2],
+        [0.65, 3]
+      ],
+      "pool" : [
+      {"weight" : 1, "item" : "bone"},
+      {"weight" : 0.3, "item" : "leather"},
+      {"weight" : 0.2, "item" : "throwingbones"},
+      {"weight" : 0.2, "item" : "bonematerial"},
+      {"weight" : 0.01, "item" : "jeffback"}
+      ]
+    }]
+  ],
+    "regurgitatedBonesMonster": [
+    [0, {
+      "poolRounds" : [
+        [0.25, 1],
+        [0.05, 2],
+        [0.01, 3]
+      ],
+      "pool" : [
+      {"weight" : 1, "item" : "bone"},
+      {"weight" : 0.3, "item" : "leather"},
+      {"weight" : 0.2, "item" : "throwingbones"},
+      {"weight" : 0.2, "item" : "bonematerial"}
+      ]
+    }],
+    [1, {
+      "poolRounds" : [
+        [0.35, 1],
+        [0.15, 2],
+        [0.10, 3]
+      ],
+      "pool" : [
+      {"weight" : 1, "item" : "bone"},
+      {"weight" : 0.3, "item" : "leather"},
+      {"weight" : 0.2, "item" : "throwingbones"},
+      {"weight" : 0.2, "item" : "bonematerial"}
+      ]
+    }],
+    [2, {
+      "poolRounds" : [
+        [0.55, 1],
+        [0.40, 2],
+        [0.25, 3]
+      ],
+      "pool" : [
+      {"weight" : 1, "item" : "bone"},
+      {"weight" : 0.3, "item" : "leather"},
+      {"weight" : 0.2, "item" : "throwingbones"},
+      {"weight" : 0.2, "item" : "bonematerial"}
+      ]
+    }]
   ]
 }

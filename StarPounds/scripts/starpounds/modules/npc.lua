@@ -87,6 +87,14 @@ function _npc:setup()
     preserved.starPounds = storage.starPounds
     return preserved
   end
+  
+  --2038
+  entity.foodMaterial = nil
+  if status.statusProperty("targetMaterialKind") ~= nil then
+      entity.foodMaterial = status.statusProperty("targetMaterialKind")
+  end
+  --2038
+
   -- No XP if disabled.
   if config.getParameter("starPounds_options.disableExperience") then
     entity.foodType = entity.foodType.."_noExperience"

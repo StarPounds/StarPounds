@@ -96,6 +96,14 @@ function _monster:setup()
   if status.statusProperty("targetMaterialKind") == "robotic" then
     entity.foodType = "preyMonsterInedible"
   end
+
+  --2038
+  entity.foodMaterial = nil
+  if status.statusProperty("targetMaterialKind") ~= nil then
+      entity.foodMaterial = status.statusProperty("targetMaterialKind")
+  end
+  --2038
+
   -- Use the preset type if it exists.
   entity.foodType = config.getParameter("starPounds_foodType", entity.foodType)
   -- No XP if the monster is a pet (prevents infinite XP). Using configParameter instead of hasOption because default options aren't merged yet when this runs.

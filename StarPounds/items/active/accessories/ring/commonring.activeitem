@@ -12,10 +12,11 @@
   "accessoryType" : "ring",
 
   "statConfig" : {
-    "amplitude" : [0.05, 0.15],
+    "amplitude" : [0.05, 0.5],
     "count" : 2,
     "negativeCount" : 1,
     "list" : [
+      "metabolism",
       "absorption",
       "capacity",
       "digestion",

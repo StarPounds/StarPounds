@@ -1,3 +1,16 @@
+# What I don't know how to do yet:
+
+ - How to write normal code.
+ - How to write compability optional patch.
+
+# Changes
+Warning: Strange coding detected. The mental state may be worsened while reading.
+
+ - Req. RPG Growth (temp)
+ - FFS Comp. (Strange works, animations glitch, but work)
+ - Burp drops (Bones + random drop)
+ - Min dev. stop list (danger, possibe soft lock)
+ - Rebalanced trinkets, rings and pendants. (More powerfully)
 
 # StarPounds
 

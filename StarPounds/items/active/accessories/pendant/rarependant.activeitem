@@ -12,9 +12,10 @@
   "accessoryType" : "pendant",
 
   "statConfig" : {
-    "amplitude" : [0.15, 0.3],
-    "count" : 3,
+    "amplitude" : [0.15, 1],
+    "count" : 5,
     "list" : [
+      "metabolism",
       "absorption",
       "capacity",
       "digestion",

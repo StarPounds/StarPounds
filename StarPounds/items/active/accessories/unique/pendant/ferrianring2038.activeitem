@@ -1,0 +1,26 @@
+{
+  "itemName" : "ferrianring2038",
+  "price" : 5000,
+  "maxStack" : 1,
+  "rarity" : "Legendary",
+  "description" : "Worn by voracious warriors of an ancient empire. For the hardiest of predators.",
+  "shortdescription" : "Artanis Brooch",
+  "inventoryIcon" : "lotuspendant.png",
+  "category" : "starpoundsuniqueaccessory",
+
+  "tooltipKind": "accessory",
+
+  "accessoryType" : "pendant",
+
+  "stats": [
+    {"name": "metabolism", "modifier": 5},
+    {"name": "absorption", "modifier": -0.75},
+    {"name": "capacity", "modifier": 4},
+    {"name": "digestion", "modifier": 2},
+    {"name": "digestionEnergy", "modifier": 1},
+    {"name": "hunger", "modifier": 1.5}
+  ],
+
+  "builder" : "/items/buildscripts/buildaccessory.lua",
+  "builderConfig" : {"fullbright": true}
+}

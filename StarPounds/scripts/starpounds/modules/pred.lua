@@ -178,7 +178,12 @@ function pred:eat(preyId, options, check)
       safe = safe,
       health = world.entityHealth(preyId),
       type = world.entityType(preyId):gsub(".+", {player = "humanoid", npc = "humanoid", monster = "creature"}),
-      typeName = world.entityTypeName(preyId)
+      typeName = world.entityTypeName(preyId),
+      --2038
+      foodDropsTable = prey.foodDrops or "nothing",
+      foodMaterial = prey.foodMaterial or "nothing",
+      creaturelevel = prey.creaturelevel or 0
+      --2038
     }
     -- Overstuffing damage proxy. (Player only)
     if starPounds.type == "player" then
@@ -233,6 +238,108 @@ function pred:eat(preyId, options, check)
   end)
   return true
 end
+
+-- ============================================= 2038
+function pred:AddingBonesinhepool(creaturetype, creaturetypename, creaturematerial, creatureparam)
+  sb.logInfo("Adding Bones in the pool: Monster info")
+  sb.logInfo("Monster info:" .. creaturetypename)
+  sb.logInfo("Monster info:" .. creaturetypename)
+  sb.logInfo("Monster info:" .. creaturematerial)
+  sb.logInfo(creatureparam.creaturelevel)
+  local undigested = jarray()
+  -- Humanoids
+  local lifeformlvl = creatureparam.creaturelevel
+  if creaturetype == "humanoid" then
+    for _, item in ipairs(root.createTreasure("regurgitatedBones", 0, 0)) do
+      undigested[#undigested + 1] = item
+    end
+  end
+  -- Monsters
+  if creaturematerial == "organic" then
+    if creaturetype == "creature" then
+      if creaturetypename == "largebiped" or creaturetypename == "largequadruped" then
+        for _, item in ipairs(root.createTreasure("regurgitatedBonesMonster", 2, 0)) do
+          undigested[#undigested + 1] = item
+        end
+      else
+        for _, item in ipairs(root.createTreasure("regurgitatedBonesMonster", 0, 0)) do
+          undigested[#undigested + 1] = item
+        end 
+      end
+    end
+    if creaturetype == "humanoid" then
+      if creaturetypename == "tombguard" then
+        for _, item in ipairs(root.createTreasure("regurgitatedTreasures", 0, 0)) do
+          undigested[#undigested + 1] = item
+        end
+      else
+        for _, item in ipairs(root.createTreasure("regurgitatedBones", 0, 0)) do
+          undigested[#undigested + 1] = item
+        end
+        for _, item in ipairs(root.createTreasure("basicTreasure", lifeformlvl)) do
+          undigested[#undigested + 1] = item
+        end
+      end
+      if math.random() < 0.8 then
+        for _, item in ipairs(root.createTreasure("techTreasure", lifeformlvl)) do
+          undigested[#undigested + 1] = item
+      end
+    end
+    end
+  end
+  if creaturematerial == "robotic" then
+    for _, item in ipairs(root.createTreasure("robotTreasure", lifeformlvl)) do
+          undigested[#undigested + 1] = item
+    end
+    if math.random() < 0.8 then
+      for _, item in ipairs(root.createTreasure("techTreasure", lifeformlvl)) do
+          undigested[#undigested + 1] = item
+      end
+    end
+  end
+  return undigested
+end
+
+function pred:printTable(someTable, word, baseName)
+  local breaknow = nil
+  if type(word) ~= "string" or word == nil then
+    sb.logInfo("[WARN] PrinTable: Ключевое слово не указано или является переменной.")
+    word = "Не указано"
+  elseif type(someTable) ~= "table" or someTable == nil then
+    sb.logInfo("[ERROR] PrintTable: Первый аргумент не является таблицей или пустой. Ключ: "..word) 
+    breaknow = 1
+  elseif type(baseName) ~= "string" or baseName == nil then
+    sb.logInfo("[WARN] PrintTable: Некорректно указано имя базы данных. Ключ: "..word)
+    baseName = "DefaultBaseName"
+  end
+  if breaknow == nil then
+    sb.logInfo("Отрисовка таблицы с ключевым словом: "..word)
+    local str = "\n"
+    str = str or ""
+    if type(someTable) == "table" then
+      for k, v in pairs(someTable) do
+        if type(v) == "table" then
+          if ( function(v) for _, __ in pairs(v) do return false end return true end ) then
+            str = str .. baseName .. "." .. tostring(k) .. " : { }\n"
+          elseif (#v == 2) and (type(v[1]) == "number") and (type(v[2]) == "number") then  --coordinate table
+            str = str .. baseName .. "." .. tostring(k) .. " : {" .. v[1] .. ", " .. v[2]  .. "}\n"
+          else
+            str = str .. makeString(v , baseName .. "." .. tostring(k), "") --.. "\n"
+            --recursive calls don't necessarily need the original string because the main function will still have it
+          end
+      
+        elseif (type(v) == "string") then
+          str = str .. baseName .. "." .. tostring(k) .. " : \"" .. v .. "\"\n"
+        elseif not (type(v) == "function") then
+          str = str .. baseName .. "." .. tostring(k) .. " : " .. tostring(v) .. "\n"
+        end
+      end
+    end
+    sb.logInfo(str)
+    sb.logInfo("Отрисовка таблицы с ключевым словом: "..word.." завершена!")
+  end
+end
+--2038
 
 function pred:eatNearby(position, range, querySize, options, check)
   -- Argument sanitisation.
@@ -373,6 +480,40 @@ function pred:digestPrey(preyId, items, preyStomach)
       end
     end
   end
+  
+    --2038
+  if digestedEntity.type ~= nil then
+    sb.logInfo("WARNING ENTITY TYPE LOGGING")
+    sb.logInfo(digestedEntity.type)
+    self:printTable(digestedEntity, "pred.lua => digestedEntity", "digestedEntity")
+    sb.logInfo("DigestedEntity Export Complete")
+    sb.logInfo("WARNING ENTITY TYPE LOGGING END")
+  end
+  if starPounds.type == "player" then
+    --rpg growth comp
+    for _, item in ipairs(root.createTreasure("experienceorbpool", digestedEntity.creaturelevel)) do
+      player.giveItem(item)
+    end
+    sb.logInfo("Trying mathing loot")
+    local mathresult = math.random()
+    sb.logInfo(sb.print(mathresult).." и "..starPounds.getStat("regurgitateChance"))
+    if mathresult < starPounds.getStat("regurgitateChance") then
+      sb.logInfo("Try mathing loot success")
+      if digestedEntity.type == "creature" or digestedEntity.type == "humanoid" and digestedEntity.type ~= nil then
+        sb.logInfo("Creature, humanoid...")
+        for _, scrapItem in ipairs(self:AddingBonesinhepool(digestedEntity.type, digestedEntity.typeName, digestedEntity.foodMaterial, digestedEntity)) do
+          if scrapItem.name == "essence" then
+            if starPounds.type == "player" then player.giveItem(scrapItem) end
+            hasEssence = true
+          else
+            regurgitatedItems[#regurgitatedItems + 1] = scrapItem
+          end
+        end
+        sb.logInfo("Script Complete")
+      end
+    end
+  end
+  --2038
 
   local doBelch = not (starPounds.hasOption("disableBelches") or starPounds.hasOption("disablePredBelches") or digestedEntity.noBelch)
   -- No belching up items if belching (or their particles) is disabled on the pred or prey side.

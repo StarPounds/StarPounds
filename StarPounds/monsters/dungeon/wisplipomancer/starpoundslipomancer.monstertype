@@ -364,7 +364,7 @@
       }
     },
 	"starPounds_options" : {
-	      "disablePrey": true
+	      "disablePrey": false
 	},
 
     "mouthOffset" : [0, 0],

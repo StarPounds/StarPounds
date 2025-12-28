@@ -189,12 +189,30 @@ function prey:swallowed(pred, options)
   status.setPersistentEffects("starpoundseaten", {
     {stat = "statusImmunity", effectiveMultiplier = 0}
   })
+  --2038
   status.addEphemeralEffect("starpoundseaten")
+  local crelevel
+  if starPounds.type == "monster" then
+    crelevel = monster.level()
+  elseif starPounds.type == "npc" then
+    crelevel = npc.level()
+  end
+
+  sb.logInfo(starPounds.type)
+  if starPounds.type == "npc" then
+  sb.logInfo("ПОКАЗЫВАЕМ ЛЕВЕЛЬ")
+  sb.logInfo(sb.print(npc.level()))
+  sb.logInfo(sb.print(crelevel))
+  end
+
   return {
     base = entity.weight,
     foodType = entity.foodType,
     weight = storage.starPounds.weight,
-    noBelch = starPounds.hasOption("disablePreyBelches")
+    noBelch = starPounds.hasOption("disablePreyBelches"),
+    foodMaterial = entity.foodMaterial,
+    foodDrops = foodDropsvalueexport,
+    creaturelevel = crelevel
   }
 end
 
