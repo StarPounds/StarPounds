@@ -1,0 +1,24 @@
+{
+  "itemName" : "starpoundsfoodpackage",
+  "price" : 25,
+  "level" : 1,
+  "maxStack" : 10,
+  "rarity" : "Common",
+  "category" : "mysteriousReward",
+  "description" : "A package containing an unknown food item perfectly preserved.",
+  "shortdescription" : "Food Package",
+  "twoHanded" : true,
+
+  "inventoryIcon" : "starpoundsfoodpackage.png",
+  "animation" : "starpoundsfoodpackage.animation",
+  "animationCustom" : {},
+  "scripts" : ["starpoundsfoodpackage.lua"],
+
+  "fireTime" : 1.0,
+  "fireOffset" : [1.0, 0.0],
+  
+  "content" : {
+    "type" : "pool",
+    "pool" : "starpoundsFoodTreasure"
+  }
+}

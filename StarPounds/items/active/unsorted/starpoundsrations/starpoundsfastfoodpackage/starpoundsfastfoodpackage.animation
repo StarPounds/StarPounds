@@ -1,0 +1,47 @@
+{
+  "animatedParts" : {
+    "stateTypes" : {
+      "firing" : {
+        "default" : "off",
+        "states" : {
+          "off" : {
+            "properties" : {
+            }
+          },
+          "fire" : {
+            "frames" : 2,
+            "cycle" : 0.1,
+            "mode" : "transition",
+            "transition" : "confetti",
+            "properties" : {
+              "immediateSound" : "/sfx/blocks/footstep_bone.ogg"
+            },
+            "frameProperties" : {
+              "stateNudge" : [ [-0.125, 0], [0, 0] ]
+            }
+          },
+          "confetti" : {
+            "cycle" : 0.2,
+            "mode" : "transition",
+            "transition" : "off",
+            "properties" : {
+            }
+          }
+        }
+      }
+    },
+
+    "parts" : {
+      "gun" : {
+        "properties" : {
+          "centered" : true,
+          "image" : "starpoundsfastfoodpackage.png",
+          "offset" : [0.0, 0.0]
+        }
+      }
+    }
+  },
+
+  "particleEmitters" : {
+  }
+}

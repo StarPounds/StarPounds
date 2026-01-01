@@ -1,0 +1,624 @@
+{
+  "starpoundsFoodTreasure" : [
+    [0, {
+      "pool": [
+        {"weight": 0.70, "pool": "food"},
+        {"weight": 0.30, "pool": "starpoundsVanillaFood"}
+      ]
+    }]
+  ],
+
+  "starpoundsFastFoodTreasure" : [
+    [0, {
+      "pool": [
+        {"weight": 0.80, "pool": "starpoundsFastFood"},
+        {"weight": 0.20, "pool": "starpoundsVanillaFood"}
+      ]
+    }]
+  ],
+
+  "starpoundsAlcoholTreasure" : [
+    [0, {
+      "pool": [
+        {"weight": 0.25, "pool": "starpoundsAlcoholTier1"},
+        {"weight": 0.25, "pool": "starpoundsAlcoholTier2"},
+        {"weight": 0.20, "pool": "starpoundsAlcoholTier3"},
+        {"weight": 0.15, "pool": "starpoundsAlcoholTier4"},
+        {"weight": 0.10, "pool": "starpoundsAlcoholTier5"},
+        {"weight": 0.05, "pool": "starpoundsAlcoholTier6"}
+      ]
+    }]
+  ],
+
+  "starpoundsMaybeFood" : [
+    [0, {
+      "pool": [
+        {"weight": 0.33, "item": "starpoundsalcoholcase"},
+        {"weight": 0.33, "item": "starpoundsfastfoodpackage"},
+        {"weight": 0.34, "item": "starpoundsfoodpackage"}
+      ],
+      "poolRounds" : [[0.95, 0], [0.05, 1]]
+    }],
+    [1.9, {
+      "pool": [
+        {"weight": 0.33, "item": "starpoundsalcoholcase"},
+        {"weight": 0.33, "item": "starpoundsfastfoodpackage"},
+        {"weight": 0.34, "item": "starpoundsfoodpackage"}
+      ],
+      "poolRounds": [[0.90, 0], [0.09, 1], [0.01, 2]]
+    }],
+    [2.9, {
+      "pool": [
+        {"weight": 0.33, "item": "starpoundsalcoholcase"},
+        {"weight": 0.33, "item": "starpoundsfastfoodpackage"},
+        {"weight": 0.34, "item": "starpoundsfoodpackage"}
+      ],
+      "poolRounds": [[0.85, 0], [0.14, 1], [0.01, 2]]
+    }],
+    [3.9, {
+      "pool": [
+        {"weight": 0.33, "item": "starpoundsalcoholcase"},
+        {"weight": 0.33, "item": "starpoundsfastfoodpackage"},
+        {"weight": 0.34, "item": "starpoundsfoodpackage"}
+      ],
+      "poolRounds": [[0.80, 0], [0.19, 1], [0.01, 2]]
+    }],
+    [4.9, {
+      "pool": [
+        {"weight": 0.33, "item": "starpoundsalcoholcase"},
+        {"weight": 0.33, "item": "starpoundsfastfoodpackage"},
+        {"weight": 0.34, "item": "starpoundsfoodpackage"}
+      ],
+      "poolRounds": [[0.75, 0], [0.24, 1], [0.01, 2]]
+    }],
+    [5.9, {
+      "pool": [
+        {"weight": 0.33, "item": "starpoundsalcoholcase"},
+        {"weight": 0.33, "item": "starpoundsfastfoodpackage"},
+        {"weight": 0.34, "item": "starpoundsfoodpackage"}
+      ],
+      "poolRounds": [[0.70, 0], [0.29, 1], [0.01, 2]]
+    }]
+  ],
+
+  "starpoundsVanillaFood" : [
+    [0, {
+      "pool": [
+        {"weight": 0.01, "pool": "starpoundsVanillaFoodTier0"},
+        {"weight": 0.25, "pool": "starpoundsVanillaFoodTier1"},
+        {"weight": 0.20, "pool": "starpoundsVanillaFoodTier2"},
+        {"weight": 0.15, "pool": "starpoundsVanillaFoodTier3"},
+        {"weight": 0.15, "pool": "starpoundsVanillaFoodTier4"},
+        {"weight": 0.15, "pool": "starpoundsVanillaFoodTier5"},
+        {"weight": 0.09, "pool": "starpoundsVanillaFoodTier6"}
+      ]
+    }]
+  ],
+
+  "starpoundsFastFood" : [
+    [0, {
+      "pool": [
+        {"weight": 0.25, "pool": "starpoundsFastFoodDesserts"},
+        {"weight": 0.10, "pool": "starpoundsFastFoodDrinks"},
+        {"weight": 0.30, "pool": "starpoundsFastFoodMains"},
+        {"weight": 0.10, "pool": "starpoundsFastFoodSides"},
+        {"weight": 0.25, "pool": "starpoundsFastFoodSnacks"}
+      ]
+    }]
+  ],
+
+  "starpoundsVanillaFoodTier0" : [
+    [0, {
+      "pool": [
+        {"weight": 1, "item": "cannedfood"},
+        {"weight": 1, "item": "cheese"},
+        {"weight": 1, "item": "chocolate"},
+        {"weight": 1, "item": "egg"},
+        {"weight": 1, "item": "milk"},
+        {"weight": 1, "item": "alienmeat"},
+        {"weight": 1, "item": "rawbacon"},
+        {"weight": 1, "item": "rawfish"},
+        {"weight": 1, "item": "rawham"},
+        {"weight": 1, "item": "rawpoultry"},
+        {"weight": 1, "item": "rawribmeat"},
+        {"weight": 1, "item": "rawtentacle"}
+      ]
+    }]
+  ],
+
+  "starpoundsVanillaFoodTier1" : [
+    [0, {
+      "pool": [
+        {"weight": 1, "item": "bakedpotato"},
+        {"weight": 1, "item": "boiledpearlpeas"},
+        {"weight": 1, "item": "boiledrice"},
+        {"weight": 1, "item": "bread"},
+        {"weight": 1, "item": "cookedtomato"},
+        {"weight": 1, "item": "corncob"},
+        {"weight": 1, "item": "fishdumplings"},
+        {"weight": 1, "item": "fishfingers"},
+        {"weight": 1, "item": "fishnchips"},
+        {"weight": 1, "item": "fishpie"},
+        {"weight": 1, "item": "fishstew"},
+        {"weight": 1, "item": "mashedpotato"},
+        {"weight": 1, "item": "meatdumplings"},
+        {"weight": 1, "item": "meatpie"},
+        {"weight": 1, "item": "meatstew"},
+        {"weight": 1, "item": "pearlpeabroth"},
+        {"weight": 1, "item": "pearlpearisotto"},
+        {"weight": 1, "item": "popcorn"},
+        {"weight": 1, "item": "potatogrids"},
+        {"weight": 1, "item": "roastedcarrot"},
+        {"weight": 1, "item": "roastedmushrooms"},
+        {"weight": 1, "item": "toast"}
+      ]
+    }]
+  ],
+
+  "starpoundsVanillaFoodTier2" : [
+    [0, {
+      "pool": [
+        {"weight": 1, "item": "applecrumble"},
+        {"weight": 1, "item": "baconpancakes"},
+        {"weight": 1, "item": "beakseedbread"},
+        {"weight": 1, "item": "beakseedjam"},
+        {"weight": 1, "item": "beakseedtart"},
+        {"weight": 1, "item": "bonbonbonbons"},
+        {"weight": 1, "item": "bonbons"},
+        {"weight": 1, "item": "cactusjuice"},
+        {"weight": 1, "item": "cake"},
+        {"weight": 1, "item": "candiedcorn"},
+        {"weight": 1, "item": "candyapple"},
+        {"weight": 1, "item": "carrotbread"},
+        {"weight": 1, "item": "carrotjuice"},
+        {"weight": 1, "item": "carrotsoup"},
+        {"weight": 1, "item": "cheeseburger"},
+        {"weight": 1, "item": "chocolatecake"},
+        {"weight": 1, "item": "coffee"},
+        {"weight": 1, "item": "coffeecake"},
+        {"weight": 1, "item": "cornpeckers"},
+        {"weight": 1, "item": "feathercrownjam"},
+        {"weight": 1, "item": "featherfood"},
+        {"weight": 1, "item": "flatwhite"},
+        {"weight": 1, "item": "fluffyruffs"},
+        {"weight": 1, "item": "gardensalad"},
+        {"weight": 1, "item": "hamburger"},
+        {"weight": 1, "item": "kiwijam"},
+        {"weight": 1, "item": "kiwijuice"},
+        {"weight": 1, "item": "mocha"},
+        {"weight": 1, "item": "mushroombread"},
+        {"weight": 1, "item": "mushroomquiche"},
+        {"weight": 1, "item": "mushroomrice"},
+        {"weight": 1, "item": "omelette"},
+        {"weight": 1, "item": "pasty"},
+        {"weight": 1, "item": "pearlpeajam"},
+        {"weight": 1, "item": "pearlpeapancakes"},
+        {"weight": 1, "item": "pizza"},
+        {"weight": 1, "item": "pizzaslice"},
+        {"weight": 1, "item": "porridge"},
+        {"weight": 1, "item": "quichelorraine"},
+        {"weight": 1, "item": "relish"},
+        {"weight": 1, "item": "ricepudding"},
+        {"weight": 1, "item": "roastdinner"},
+        {"weight": 1, "item": "specialrice"},
+        {"weight": 1, "item": "spicycookies"},
+        {"weight": 1, "item": "stickyribs"},
+        {"weight": 1, "item": "stuffedtomato"},
+        {"weight": 1, "item": "sweetmeat"},
+        {"weight": 1, "item": "sweetpopcorn"},
+        {"weight": 1, "item": "tomatojuice"},
+        {"weight": 1, "item": "tomatosoup"}
+      ]
+    }]
+  ],
+
+  "starpoundsVanillaFoodTier3" : [
+    [0, {
+      "pool": [
+        {"weight": 1, "item": "2kbpotage"},
+        {"weight": 1, "item": "apegrapes"},
+        {"weight": 1, "item": "apexfritter"},
+        {"weight": 1, "item": "automatoshake"},
+        {"weight": 1, "item": "automatostew"},
+        {"weight": 1, "item": "bananacon"},
+        {"weight": 1, "item": "bananacreamdonut"},
+        {"weight": 1, "item": "bananacreampie"},
+        {"weight": 1, "item": "bananaicecream"},
+        {"weight": 1, "item": "batteredbanana"},
+        {"weight": 1, "item": "cactiicecream"},
+        {"weight": 1, "item": "campfirebanana"},
+        {"weight": 1, "item": "candyautomato"},
+        {"weight": 1, "item": "choconut"},
+        {"weight": 1, "item": "coconuticecream"},
+        {"weight": 1, "item": "coconutmilk"},
+        {"weight": 1, "item": "coconutrice"},
+        {"weight": 1, "item": "desertsalsa"},
+        {"weight": 1, "item": "fishinabone"},
+        {"weight": 1, "item": "fruitsalad"},
+        {"weight": 1, "item": "grapejuice"},
+        {"weight": 1, "item": "luckydip"},
+        {"weight": 1, "item": "pineapplejam"},
+        {"weight": 1, "item": "pineapplejuice"},
+        {"weight": 1, "item": "pineapplepizzaslice"},
+        {"weight": 1, "item": "snowcone"},
+        {"weight": 1, "item": "spookydonut"},
+        {"weight": 1, "item": "spookypie"},
+        {"weight": 1, "item": "stuffedautomato"},
+        {"weight": 1, "item": "sweetpunch"},
+        {"weight": 1, "item": "thornjuice"},
+        {"weight": 1, "item": "tropicalpunch"}
+      ]
+    }]
+  ],
+  
+  "starpoundsVanillaFoodTier4" : [
+    [0, {
+      "pool": [
+        {"weight": 1, "item": "alienfruitjam"},
+        {"weight": 1, "item": "alienfruitjuice"},
+        {"weight": 1, "item": "avesmingoicecream"},
+        {"weight": 1, "item": "avesmingojuice"},
+        {"weight": 1, "item": "bananasplit"},
+        {"weight": 1, "item": "bloodypuss"},
+        {"weight": 1, "item": "brineapple"},
+        {"weight": 1, "item": "cyanider"},
+        {"weight": 1, "item": "oceanrisotto"},
+        {"weight": 1, "item": "oceansalsa"},
+        {"weight": 1, "item": "oceansurprise"},
+        {"weight": 1, "item": "oculemonmeringue"},
+        {"weight": 1, "item": "oculemonstew"},
+        {"weight": 1, "item": "pussplumjam"},
+        {"weight": 1, "item": "pussplumpudding"},
+        {"weight": 1, "item": "pussplumtart"},
+        {"weight": 1, "item": "reefjuice"},
+        {"weight": 1, "item": "reefpodsurprise"},
+        {"weight": 1, "item": "reefshake"},
+        {"weight": 1, "item": "ricecake"},
+        {"weight": 1, "item": "saltsalad"},
+        {"weight": 1, "item": "seafoodgratin"},
+        {"weight": 1, "item": "soggysack"},
+        {"weight": 1, "item": "stuffeddirturchin"},
+        {"weight": 1, "item": "sushi"},
+        {"weight": 1, "item": "toxicjamdonut"},
+        {"weight": 1, "item": "toxicjuice"},
+        {"weight": 1, "item": "toxictart"},
+        {"weight": 1, "item": "toxictopjam"}
+      ]
+    }]
+  ],
+
+  "starpoundsVanillaFoodTier5" : [
+    [0, {
+      "pool": [
+        {"weight": 1, "item": "8gbpizzap"},
+        {"weight": 1, "item": "16gbpasty"},
+        {"weight": 1, "item": "boltos"},
+        {"weight": 1, "item": "eggshooticecream"},
+        {"weight": 1, "item": "eggshootsalad"},
+        {"weight": 1, "item": "eyebowls"},
+        {"weight": 1, "item": "nutsandbolts"},
+        {"weight": 1, "item": "piodia"},
+        {"weight": 1, "item": "smash"}
+      ]
+    }]
+  ],
+
+  "starpoundsVanillaFoodTier6" : [
+    [0, {
+      "pool": [
+        {"weight": 1, "item": "burningeyeballs"},
+        {"weight": 1, "item": "coralcreepcurry"},
+        {"weight": 1, "item": "hotbone"},
+        {"weight": 1, "item": "hothothotpot"},
+        {"weight": 1, "item": "neonmelonjam"},
+        {"weight": 1, "item": "pearlpeaparcels"},
+        {"weight": 1, "item": "pozest"},
+        {"weight": 1, "item": "spicyfeathercrown"},
+        {"weight": 1, "item": "spicyribs"},
+        {"weight": 1, "item": "ultimatejuice"},
+        {"weight": 1, "item": "volcanicsalsa"},
+        {"weight": 1, "item": "wartweedjam"},
+        {"weight": 1, "item": "wartweedjamdonut"},
+        {"weight": 1, "item": "wartweedstew"}
+      ]
+    }]
+  ],
+
+  "starpoundsFastFoodDesserts" : [
+    [0, {
+      "pool": [
+        {"weight": 1, "item": "starpoundsblueberrypie"},
+        {"weight": 1, "item": "starpoundsbrownie"},
+        {"weight": 1, "item": "starpoundschococheesecake"},
+        {"weight": 1, "item": "starpoundschocolateicecream"},
+        {"weight": 1, "item": "starpoundschocotaco"},
+        {"weight": 1, "item": "starpoundschurro"},
+        {"weight": 1, "item": "starpoundscinnamonroll"},
+        {"weight": 1, "item": "starpoundscookie"},
+        {"weight": 1, "item": "starpoundsendomorphicjelly"},
+        {"weight": 1, "item": "starpoundsenormouscake"},
+        {"weight": 1, "item": "starpoundsflantasyflan"},
+        {"weight": 1, "item": "starpoundsgingercookie"},
+        {"weight": 1, "item": "gracecupcake"},
+        {"weight": 1, "item": "starpoundsicecream"},
+        {"weight": 1, "item": "starpoundsicecreamsandwich"},
+        {"weight": 1, "item": "starpoundsjelly"},
+        {"weight": 1, "item": "starpoundsmagicpudding"},
+        {"weight": 1, "item": "starpoundsmeechmunchy"},
+        {"weight": 1, "item": "starpoundsminticecream"},
+        {"weight": 1, "item": "starpoundsparamitepie"},
+        {"weight": 1, "item": "starpoundspassionpatty"},
+        {"weight": 1, "item": "starpoundspbcookie"},
+        {"weight": 1, "item": "starpoundsroyalcake"},
+        {"weight": 1, "item": "starpoundsscrabcake"},
+        {"weight": 1, "item": "starpoundsstrawberryicecream"},
+        {"weight": 1, "item": "starpoundssugarcookie"}
+      ]
+    }]
+  ],
+
+  "starpoundsFastFoodDrinks" : [
+    [0, {
+      "pool": [
+        {"weight": 1, "item": "starpoundsbloatcola"},
+        {"weight": 1, "item": "starpoundsbloatcolavintage"},
+        {"weight": 1, "item": "starpoundsbloodshake"},
+        {"weight": 1, "item": "starpoundsblubberslushie"},
+        {"weight": 1, "item": "starpoundsblueberryjuice"},
+        {"weight": 1, "item": "starpoundschocolatemoomilk"},
+        {"weight": 1, "item": "starpoundschocolatemoomilkdeluxe"},
+        {"weight": 1, "item": "starpoundschocolatemooshake"},
+        {"weight": 1, "item": "starpoundsdandelionrootpop"},
+        {"weight": 1, "item": "starpoundsheftycola"},
+        {"weight": 1, "item": "starpoundshoneymoomilk"},
+        {"weight": 1, "item": "starpoundshoneymoomilkdeluxe"},
+        {"weight": 1, "item": "starpoundsmoomilk"},
+        {"weight": 1, "item": "starpoundsmoomilkdeluxe"},
+        {"weight": 1, "item": "starpoundsmooshake"},
+        {"weight": 1, "item": "starpoundsmootantshake"},
+        {"weight": 1, "item": "starpoundsshymoomilk"},
+        {"weight": 1, "item": "starpoundsshymoomilkdeluxe"},
+        {"weight": 1, "item": "starpoundssoftdrink"},
+        {"weight": 1, "item": "starpoundsbottledhoney"},
+        {"weight": 1, "item": "starpoundsstrawberrymoomilk"},
+        {"weight": 1, "item": "starpoundsstrawberrymoomilkdeluxe"},
+        {"weight": 1, "item": "starpoundsstrawberrymooshake"}
+      ]
+    }]
+  ],
+
+  "starpoundsFastFoodMains" : [
+    [0, {
+      "pool": [
+        {"weight": 1, "item": "starpounds64tbpizzap"},
+        {"weight": 1, "item": "starpoundsburrito"},
+        {"weight": 1, "item": "starpoundschankonabe"},
+        {"weight": 1, "item": "starpoundschickenburger"},
+        {"weight": 1, "item": "starpoundschocolatepizza"},
+        {"weight": 1, "item": "starpoundschocolatepizzaslice"},
+        {"weight": 1, "item": "starpoundsclownburger"},
+        {"weight": 1, "item": "starpoundsfatfriedchicken"},
+        {"weight": 1, "item": "starpoundsgreaseburger"},
+        {"weight": 1, "item": "starpoundsdoublegreaseburger"},
+        {"weight": 1, "item": "starpoundsgreasepizza"},
+        {"weight": 1, "item": "starpoundsgreasepizzaslice"},
+        {"weight": 1, "item": "starpoundsmeatwich"},
+        {"weight": 1, "item": "starpoundsmeatwichdouble"},
+        {"weight": 1, "item": "starpoundspizzaburger"},
+        {"weight": 1, "item": "starpoundsqueenburger"},
+        {"weight": 1, "item": "starpoundsramen"},
+        {"weight": 1, "item": "starpoundssoba"},
+        {"weight": 1, "item": "starpoundsbunburger"},
+        {"weight": 1, "item": "starpoundstaco"},
+        {"weight": 1, "item": "starpoundszomburger"}
+      ]
+    }]
+  ],
+
+  "starpoundsFastFoodSides" : [
+    [0, {
+      "pool": [
+        {"weight": 1, "item": "starpoundsblubbernuggets"},
+        {"weight": 1, "item": "starpoundsdoubledowndog"},
+        {"weight": 1, "item": "starpoundshotdog"},
+        {"weight": 1, "item": "starpoundshotdogc"},
+        {"weight": 1, "item": "starpoundshotdogk"},
+        {"weight": 1, "item": "starpoundshotdogkm"},
+        {"weight": 1, "item": "starpoundshotdogm"},
+        {"weight": 1, "item": "starpoundshotdogr"},
+        {"weight": 1, "item": "starpoundshotdogs"},
+        {"weight": 1, "item": "starpoundsmeatfries"},
+        {"weight": 1, "item": "starpoundstastyfries"},
+        {"weight": 1, "item": "starpoundstofu"}
+      ]
+    }]
+  ],
+
+  "starpoundsFastFoodSnacks" : [
+    [0, {
+      "pool": [
+        {"weight": 1, "item": "starpoundsbostondonut"},
+        {"weight": 1, "item": "starpoundsbuttersnack"},
+        {"weight": 1, "item": "starpoundschocodonut"},
+        {"weight": 1, "item": "starpoundschocoglazeddonut"},
+        {"weight": 1, "item": "starpoundscorndog"},
+        {"weight": 1, "item": "starpoundscottoncandy"},
+        {"weight": 1, "item": "starpoundsdevildonut"},
+        {"weight": 1, "item": "starpoundsdonut"},
+        {"weight": 1, "item": "starpoundsglazeddonut"},
+        {"weight": 1, "item": "starpoundsgoldenbanana"},
+        {"weight": 1, "item": "starpoundsjellydonut"},
+        {"weight": 1, "item": "starpoundsmarshmallow"},
+        {"weight": 1, "item": "starpoundspeanutbutterjellysandwich"},
+        {"weight": 1, "item": "starpoundspinkdonut"},
+        {"weight": 1, "item": "starpoundspizzabagel"},
+        {"weight": 1, "item": "starpoundsporkchips"},
+        {"weight": 1, "item": "starpoundssandwich"},
+        {"weight": 1, "item": "starpoundsspiderdonut"},
+        {"weight": 1, "item": "starpoundsstarcandy"},
+        {"weight": 1, "item": "starpoundszebradonut"}
+      ]
+    }]
+  ],
+
+  "starpoundsFastFoodPizza" : [
+    [0, {
+      "pool": [
+        {"weight": 1, "item": "starpounds64tbpizzap"},
+        {"weight": 1, "item": "8gbpizzap"},
+        {"weight": 1, "item": "starpoundschocolatepizza"},
+        {"weight": 1, "item": "starpoundschocolatepizzaslice"},
+        {"weight": 1, "item": "starpoundsgreasepizza"},
+        {"weight": 1, "item": "starpoundsgreasepizzaslice"},
+        {"weight": 1, "item": "starpoundspizzaburger"},
+        {"weight": 1, "item": "piodia"},
+        {"weight": 1, "item": "pineapplepizzaslice"},
+        {"weight": 1, "item": "pizzaslice"}
+      ]
+    }]
+  ],
+
+  "starpoundsFastFoodTakeoutBurger" : [
+    [0, {
+      "pool": [
+        {"weight": 1, "item": "hamburger"},
+        {"weight": 1, "item": "cheeseburger"},
+        {"weight": 1, "item": "starpoundschickenburger"},
+        {"weight": 1, "item": "starpoundsclownburger"},
+        {"weight": 1, "item": "starpoundsgreaseburger"},
+        {"weight": 1, "item": "starpoundsdoublegreaseburger"},
+        {"weight": 1, "item": "starpoundsmeatwich"},
+        {"weight": 1, "item": "starpoundsmeatwichdouble"},
+        {"weight": 1, "item": "starpoundspizzaburger"},
+        {"weight": 1, "item": "starpoundsbunburger"},
+        {"weight": 1, "item": "starpoundszomburger"},
+        {"weight": 1, "item": "starpoundsqueenburger"}
+      ]
+    }]
+  ],
+
+  "starpoundsFastFoodTakeoutFries" : [
+    [0, {
+      "pool": [
+        {"weight": 0.45, "item": "starpoundstastyfries"},
+        {"weight": 0.1, "item": "starpoundsmeatfries"},
+        {"weight": 0.45, "item": "starpoundsblubbernuggets"}
+      ]
+    }]
+  ],
+
+  "starpoundsFastFoodDonuts" : [
+    [0, {
+      "pool": [
+        {"weight": 1, "item": "starpoundsbostondonut"},
+        {"weight": 1, "item": "starpoundschocodonut"},
+        {"weight": 1, "item": "starpoundschocoglazeddonut"},
+        {"weight": 1, "item": "starpoundsdevildonut"},
+        {"weight": 1, "item": "starpoundsdonut"},
+        {"weight": 1, "item": "starpoundsglazeddonut"},
+        {"weight": 1, "item": "starpoundsjellydonut"},
+        {"weight": 1, "item": "starpoundspinkdonut"},
+        {"weight": 1, "item": "starpoundsspiderdonut"},
+        {"weight": 1, "item": "starpoundszebradonut"},
+        {"weight": 1, "item": "bananacreamdonut"},
+        {"weight": 1, "item": "choconut"},
+        {"weight": 1, "item": "spookydonut"},
+        {"weight": 1, "item": "toxicjamdonut"},
+        {"weight": 1, "item": "wartweedjamdonut"}
+      ]
+    }]
+  ],
+
+  "starpoundsAlcoholTier1" : [
+    [0, {
+      "pool": [
+        {"weight": 1, "item": "starpoundsale"},
+        {"weight": 1, "item": "starpoundsbourbon"},
+        {"weight": 1, "item": "starpoundsmilkstout"},
+        {"weight": 1, "item": "starpoundspoitin"},
+        {"weight": 1, "item": "starpoundssake"}
+      ]
+    }]
+  ],
+
+  "starpoundsAlcoholTier2" : [
+    [0, {
+      "pool": [
+        {"weight": 1, "item": "starpoundsbloodymary"},
+        {"weight": 1, "item": "starpoundscactiwine"},
+        {"weight": 1, "item": "starpoundscockstail"},
+        {"weight": 1, "item": "starpoundscoolantstout"},
+        {"weight": 1, "item": "starpoundsfireblast"},
+        {"weight": 1, "item": "starpoundsflintlockes"},
+        {"weight": 1, "item": "starpoundsmead"},
+        {"weight": 1, "item": "starpoundsmithridate"},
+        {"weight": 1, "item": "starpoundsrum"},
+        {"weight": 1, "item": "starpoundsscrumpy"},
+        {"weight": 1, "item": "starpoundsstarpounders"},
+        {"weight": 1, "item": "starpoundsthunderbrew"}
+      ]
+    }]
+  ],
+
+  "starpoundsAlcoholTier3" : [
+    [0, {
+      "pool": [
+        {"weight": 1, "item": "starpoundsbananavodka"},
+        {"weight": 1, "item": "starpoundsberserkerhorn"},
+        {"weight": 1, "item": "starpoundsdragoon"},
+        {"weight": 1, "item": "starpoundseggnog"},
+        {"weight": 1, "item": "starpoundsgrapewine"},
+        {"weight": 1, "item": "starpoundsnectarous"},
+        {"weight": 1, "item": "starpoundspinacolada"},
+        {"weight": 1, "item": "starpoundsscrapshot"},
+        {"weight": 1, "item": "starpoundsskullsmash"},
+        {"weight": 1, "item": "starpoundsstarshine"},
+        {"weight": 1, "item": "starpoundstepache"}
+      ]
+    }]
+  ],
+
+  "starpoundsAlcoholTier4" : [
+    [0, {
+      "pool": [
+        {"weight": 1, "item": "starpoundsbirdofparadise"},
+        {"weight": 1, "item": "starpoundsbloodmerlot"},
+        {"weight": 1, "item": "starpoundsiris"},
+        {"weight": 1, "item": "starpoundslilyred"},
+        {"weight": 1, "item": "starpoundsmarooners"},
+        {"weight": 1, "item": "starpoundsmieuxspecial"},
+        {"weight": 1, "item": "starpoundsmutagin"},
+        {"weight": 1, "item": "starpoundsnepentha"},
+        {"weight": 1, "item": "starpoundssanguine"},
+        {"weight": 1, "item": "starpoundssiphon"},
+        {"weight": 1, "item": "starpoundstidepooler"},
+        {"weight": 1, "item": "starpoundstoxicider"},
+        {"weight": 1, "item": "starpoundsvitreous"}
+      ]
+    }]
+  ],
+
+  "starpoundsAlcoholTier5" : [
+    [0, {
+      "pool": [
+        {"weight": 1, "item": "starpoundsmanapot"},
+        {"weight": 1, "item": "starpoundspetrolager"},
+        {"weight": 1, "item": "starpoundstinkerale"}
+      ]
+    }]
+  ],
+
+  "starpoundsAlcoholTier6" : [
+    [0, {
+      "pool": [
+        {"weight": 1, "item": "starpoundselementia"},
+        {"weight": 1, "item": "starpoundsgargleblaster"},
+        {"weight": 1, "item": "starpoundsgoldenwine"},
+        {"weight": 1, "item": "starpoundsmississippiqueen"},
+        {"weight": 1, "item": "starpoundsneonsunrise"},
+        {"weight": 1, "item": "starpoundsvalorale"},
+        {"weight": 1, "item": "starpoundswastelander"}
+      ]
+    }]
+  ]
+}

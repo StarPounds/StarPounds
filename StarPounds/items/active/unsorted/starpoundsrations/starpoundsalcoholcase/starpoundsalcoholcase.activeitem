@@ -1,0 +1,24 @@
+{
+  "itemName" : "starpoundsalcoholcase",
+  "price" : 25,
+  "level" : 1,
+  "maxStack" : 10,
+  "rarity" : "Common",
+  "category" : "mysteriousReward",
+  "description" : "A case of unknown, perfectly preserved alcohol. Will start aging once revealed.",
+  "shortdescription" : "Alcohol Case",
+  "twoHanded" : true,
+
+  "inventoryIcon" : "starpoundsalcoholcase.png",
+  "animation" : "starpoundsalcoholcase.animation",
+  "animationCustom" : {},
+  "scripts" : ["starpoundsalcoholcase.lua"],
+
+  "fireTime" : 1.0,
+  "fireOffset" : [1.0, 0.0],
+  
+  "content" : {
+    "type" : "pool",
+    "pool" : "starpoundsAlcoholTreasure"
+  }
+}
