@@ -203,48 +203,57 @@ function size:updateStats(forceUpdate)
 
   if forceUpdate or not (self.controlModifiers and self.controlParameters) then
     local movement = starPounds.getStat("movement")
-    starPounds.movementMultiplier = size.movementMultiplier
+    local movementMultiplier = size.movementMultiplier
     -- If we have the anti-immobile skill, use double the movement penalty of blob instead.
-    local isImmobile = starPounds.movementMultiplier == 0
-    if isImmobile and starPounds.moduleFunc("skills", "has", "preventImmobile") then
-      starPounds.movementMultiplier = starPounds.sizes[sizeIndex - 1].movementMultiplier ^ 2
+    local isImmobileProtected = movementMultiplier == 0 and starPounds.moduleFunc("skills", "has", "preventImmobile")
+    if isImmobileProtected then
+      movementMultiplier = starPounds.sizes[sizeIndex - 1].movementMultiplier
     end
+    -- Store the amount we'd be at without any stat changes.
+    starPounds.baseMovementMultiplier = movementMultiplier
+    starPounds.baseJumpMultiplier = math.max(self.data.minimumJumpMultiplier, movementMultiplier)
     -- Movement stat starts at 0.
     -- Every +1 halves the penalty, every -1 doubles it (multiplicatively).
-    if starPounds.movementMultiplier > 0 then
-      local penalty = 1 - starPounds.movementMultiplier
+    if movementMultiplier > 0 then
+      local penalty = 1 - movementMultiplier
       penalty = penalty * (2 ^ -movement)
-      starPounds.movementMultiplier = 1 - penalty
+      movementMultiplier = 1 - penalty
     end
+    -- Double immobile penalty.
+    if isImmobileProtected then
+      starPounds.baseMovementMultiplier = starPounds.baseMovementMultiplier ^ 2
+      starPounds.baseJumpMultiplier = math.max(self.data.minimumJumpMultiplier, starPounds.baseMovementMultiplier)
+      movementMultiplier = movementMultiplier ^ 2
+    end
+    -- Set global.
+    starPounds.movementMultiplier = movementMultiplier
     -- Jump/Swim math applies after the movement stat calcuation.
     if starPounds.movementMultiplier <= 0 then
       starPounds.movementMultiplier = 0
-      starPounds.jumpModifier = self.data.minimumJumpMultiplier
-      starPounds.swimModifier = self.data.minimumSwimMultiplier
+      starPounds.jumpMultiplier = self.data.minimumJumpMultiplier
+      starPounds.swimMultiplier = self.data.minimumSwimMultiplier
     else
-      starPounds.jumpModifier = math.max(self.data.minimumJumpMultiplier, 1 - ((1 - starPounds.movementMultiplier) * starPounds.getStat("jumpPenalty")))
-      starPounds.swimModifier = math.max(self.data.minimumSwimMultiplier, 1 - ((1 - starPounds.movementMultiplier) * starPounds.getStat("swimPenalty")))
+      starPounds.jumpMultiplier = math.max(self.data.minimumJumpMultiplier, 1 - ((1 - starPounds.movementMultiplier) * starPounds.getStat("jumpPenalty")))
+      starPounds.swimMultiplier = math.max(self.data.minimumSwimMultiplier, 1 - ((1 - starPounds.movementMultiplier) * starPounds.getStat("swimPenalty")))
     end
 
 
     local updateModifiers = false
-    for _, value in pairs({"movementMultiplier", "jumpModifier", "swimModifier"}) do
+    for _, value in pairs({"movementMultiplier", "jumpModifier", "swimMultiplier"}) do
       if starPounds[value] ~= starPounds[value.."Old"] then
         starPounds[value.."Old"] = starPounds[value]
         updateModifiers = true
       end
     end
-
-    local movementMultiplier = starPounds.movementMultiplier
     local weightMultiplier = starPounds.weightMultiplier
 
     if updateModifiers then
       self.controlModifiers = weightMultiplier == 1 and {} or {
         groundMovementModifier = movementMultiplier,
-        liquidMovementModifier = starPounds.swimModifier,
+        liquidMovementModifier = starPounds.swimMultiplier,
         speedModifier = movementMultiplier,
-        airJumpModifier = starPounds.jumpModifier,
-        liquidJumpModifier = starPounds.swimModifier
+        airJumpModifier = starPounds.jumpMultiplier,
+        liquidJumpModifier = starPounds.swimMultiplier
       }
       -- Silly, but better than updating modifiers every tick.
       self.controlModifiersAlt = (movementMultiplier < self.data.minimumAltSpeedMultiplier) and sb.jsonMerge(self.controlModifiers, {

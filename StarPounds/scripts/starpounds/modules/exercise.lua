@@ -9,9 +9,19 @@ function exercise:update(dt)
   if not storage.starPounds.enabled then return end
   -- Skip this if we're in a sphere.
   if status.stat("activeMovementAbilities") > 1 then return end
-  local effort = starPounds.moduleFunc("movement", "getEffort")
+  local effort, action = starPounds.moduleFunc("movement", "getEffort")
   -- Skip the rest if we're not moving.
   if effort == 0 then return end
+  -- Bonus effort based on movement speed. Skip if no action or immobile.
+  if (starPounds.baseMovementMultiplier > 0) and (action ~= "none") then
+    if (action == "walking") or (action == "running") then
+      -- Movement.
+      effort = effort * math.round(starPounds.movementMultiplier / starPounds.baseMovementMultiplier, 4)
+    elseif action == "jumping" then
+      -- Jumping.
+      effort = effort * math.round(starPounds.jumpMultiplier / starPounds.baseJumpMultiplier, 4)
+    end
+  end
   -- Lose weight based on weight, effort, and the multiplier.
   local amount = effort * (starPounds.weightMultiplier ^ self.data.weightExponent) * self.data.multiplier * starPounds.getStat("metabolism") * dt
   -- Weight loss reduced if you're full, and have food in your stomach.
