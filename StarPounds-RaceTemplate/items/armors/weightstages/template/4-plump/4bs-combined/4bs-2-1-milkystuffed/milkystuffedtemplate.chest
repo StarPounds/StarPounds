@@ -6,7 +6,7 @@
   "rarity" : "legendary",
   "category" : "chestwear",
   "description" : "You can hear the sloshing with every bounce.",
-  "shortdescription" : "Xbusty Stuffed Chest",
+  "shortdescription" : "XBusty Stuffed Chest",
   "tooltipKind" : "starpoundsarmor",
   "bypassNude" : true,
 
@@ -25,6 +25,6 @@
   "femaleFrames" : {
     "body" : "chestf.png",
     "backSleeve" : "bsleeve.png",
-    "frontSleeve" : "fsleeve.png"
+    "frontSleeve" : "fsleevef.png"
   }
 }
