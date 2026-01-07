@@ -79,6 +79,10 @@ function prey:eaten(dt)
     -- Stop NPCs attacking.
     npc.endPrimaryFire()
     npc.endAltFire()
+    -- Leave all combat/other NPC groups.
+    if BGroup then
+      BGroup:uninit()
+    end
   end
   if starPounds.type == "monster" then
     pcall(animator.setAnimationState, "body", "idle")
