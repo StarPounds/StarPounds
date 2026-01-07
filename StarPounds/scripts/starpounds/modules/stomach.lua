@@ -7,6 +7,8 @@ function stomach:init()
   message.setHandler("starPounds.digest", function(_, _, ...) return self:digest(...) end)
   message.setHandler("starPounds.gurgle", function(_, _, ...) return self:gurgle(...) end)
   message.setHandler("starPounds.rumble", function(_, _, ...) return self:rumble(...) end)
+  message.setHandler("starPounds.isFull", function(_, _, ...) return self:isFull(...) end)
+  message.setHandler("starPounds.canEat", function(_, _, ...) return self:canEat(...) end)
   message.setHandler("starPounds.resetStomach", localHandler(self.reset))
   -- Timers.
   self.digestTimer = 0
@@ -24,6 +26,9 @@ function stomach:init()
   self.preySquelching = false
 
   self.digestionExperience = 0
+
+  self.baseFullnessThreshold = starPounds.settings.thresholds.strain.starpoundsstomach
+  self.skillFullnessThreshold = starPounds.settings.thresholds.strain.starpoundsstomach3
 
   self.defaultContents = {
     capacity = self.data.stomachCapacity,
@@ -61,6 +66,22 @@ function stomach:update(dt)
     self.stretchCooldown = math.max(self.stretchCooldown - dt, 0)
     if self.stretchCooldown == 0 then
       self.stretchCooldown = nil
+    end
+  end
+  -- Fullness delay.
+  if self.fullnessDelay then
+    self.fullnessDelay = math.max(self.fullnessDelay - dt, 0)
+    if self.fullnessDelay == 0 then
+      self.fullnessDelay = nil
+    end
+  end
+  -- Player only.
+  if starPounds.type == "player" then
+    -- Apply if we can't eat.
+    if not self:canEat() then
+      self:applyWellfed()
+    elseif self:isFull() then
+      self:applyWellfedDelay()
     end
   end
 end
@@ -107,6 +128,12 @@ function stomach:eat(amount, foodType)
   -- Insert food into stomach.
   amount = math.round(amount, 3)
   storage.starPounds.stomach[foodType] = math.min((storage.starPounds.stomach[foodType] or 0) + amount, maxCapacity)
+  -- Trigger fullness delay.
+  if foodConfig.triggersFullnessDelay and self:canEat() then
+    self:setFullnessDelay(starPounds.getStat("gorgingDuration"))
+  end
+  -- Fire event.
+  starPounds.events:fire("stomach:eat", amount, foodType)
   -- Effects triggered by eating. Don't continue if none apply.
   if not (foodConfig.triggersStretching or foodConfig.triggersSquelch or foodConfig.stuffingDamage) then return end
   -- Calculate difference in 'fullness' past 300%.
@@ -165,6 +192,8 @@ function stomach:eat(amount, foodType)
         damageType = "IgnoresDef",
         damage = damage,
         damageSourceKind = "starpoundsstuffing",
+        damageRepeatGroup = "starpoundsstuffing",
+        damageRepeatTimeout = 0,
         sourceEntityId = entity.id()
       })
     end
@@ -452,6 +481,56 @@ function stomach:belch(stomachKey)
   local belchVolume = 0.5 + belchMultiplier
   local belchPitch = 1 - belchMultiplier
   starPounds.moduleFunc("belch", "belch", belchVolume, belchPitch)
+end
+
+function stomach:applyWellfed()
+  local effectActive = status.uniqueStatusEffectActive("wellfed")
+  -- Refresh the tracker statuses so wellfed appears after.
+  if not effectActive then
+    starPounds.moduleFunc("trackers", "createStatuses")
+  end
+  -- Apply the status.
+  status.addEphemeralEffect("wellfed")
+end
+
+function stomach:applyWellfedDelay()
+  local effectActive = status.uniqueStatusEffectActive("starpoundswellfeddelay")
+  -- Refresh the tracker statuses so wellfed appears after.
+  if not effectActive then
+    starPounds.moduleFunc("trackers", "createStatuses")
+  end
+  -- Apply the status.
+  status.addEphemeralEffect("starpoundswellfeddelay")
+end
+
+function stomach:isFull()
+  -- If we're above the skill amount.
+  if starPounds.stomach.fullness >= self.skillFullnessThreshold then
+    return true
+  end
+  -- If we're above the base amount, with no skill.
+  if starPounds.stomach.interpolatedFullness >= self.baseFullnessThreshold and not starPounds.moduleFunc("skills", "has", "wellfedProtection") then
+    return true
+  end
+  -- False otherwise.
+  return false
+end
+
+function stomach:canEat()
+  -- Can still eat if gorging.
+  if self.fullnessDelay and self.fullnessDelay > 0 then
+    return true
+  end
+  -- Check fullness otherwise.
+  return not self:isFull()
+end
+
+function stomach:setFullnessDelay(seconds)
+  self.fullnessDelay = util.clamp(seconds, self.fullnessDelay or 0, starPounds.getStat("gorgingDuration"))
+end
+
+function stomach:getFullnessDelay()
+  return self.fullnessDelay or 0
 end
 
 function stomach:startBelch(delay)

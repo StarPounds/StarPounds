@@ -1,0 +1,9 @@
+{
+  "name": "starpoundswellfeddelay",
+  "defaultDuration": 1,
+  "scripts": [
+    "starpoundswellfeddelay.lua"
+  ],
+  "label": "Full belly",
+  "icon": "/interface/statuses/starpoundswellfeddelay.png"
+}

@@ -2,8 +2,6 @@ local hunger = starPounds.module:new("hunger")
 
 function hunger:init()
   self.isStarving = false
-  self.baseThreshold = starPounds.settings.thresholds.strain.starpoundsstomach
-  self.skillThreshold = starPounds.settings.thresholds.strain.starpoundsstomach3
 end
 
 function hunger:update(dt)
@@ -30,22 +28,6 @@ function hunger:update(dt)
       end
     end
   end
-  -- Apply wellfed if over capacity.
-  if starPounds.stomach.interpolatedFullness >= self.baseThreshold and not starPounds.moduleFunc("skills", "has", "wellfedProtection") then
-    self:applyStatus()
-  elseif starPounds.stomach.fullness >= self.skillThreshold then
-    self:applyStatus()
-  end
-end
-
-function hunger:applyStatus()
-  local effectActive = status.uniqueStatusEffectActive("wellfed")
-  -- Refresh the tracker statuses so wellfed appears after.
-  if not effectActive then
-    starPounds.moduleFunc("trackers", "createStatuses")
-  end
-  -- Apply the status.
-  status.addEphemeralEffect("wellfed")
 end
 
 starPounds.modules.hunger = hunger

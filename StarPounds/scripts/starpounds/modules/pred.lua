@@ -92,9 +92,7 @@ function pred:eat(preyId, options, check)
   -- Don't do anything if eaten.
   if storage.starPounds.pred then return false end
   -- Can only eat if you're below capacity.
-  if starPounds.stomach.fullness >= starPounds.settings.thresholds.strain.starpoundsstomach and not starPounds.moduleFunc("skills", "has", "wellfedProtection") and not options.ignoreCapacity then
-    return false
-  elseif starPounds.stomach.fullness >= starPounds.settings.thresholds.strain.starpoundsstomach3 and not options.ignoreCapacity then
+  if starPounds.moduleFunc("stomach", "canEat") then
     return false
   end
   -- Don't do anything if they're already eaten.

@@ -24,8 +24,7 @@ function update(dt)
   end
   -- Remove the effect if the player falls under the wellfed threshold.
   if isEnabled then
-    local threshold = starPounds.moduleFunc("skills", "has", "wellfedProtection") and starPounds.settings.thresholds.strain.starpoundsstomach3 or starPounds.settings.thresholds.strain.starpoundsstomach
-    if starPounds.stomach.fullness < threshold then
+    if starPounds.moduleFunc("stomach", "canEat") then
       effect.expire()
       return
     end

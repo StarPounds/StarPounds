@@ -9,6 +9,11 @@ function init()
   self.buffer = 100 * (self.fillRange[1] - 1) / 16
   -- Cross script voodoo witch magic.
   starPounds = getmetatable ''.starPounds
+  -- Force these to reapply if they're active.
+  if starPounds.isEnabled() then
+    status.removeEphemeralEffect("wellfed")
+    status.removeEphemeralEffect("starpoundswellfeddelay")
+  end
 end
 
 function update(dt)
