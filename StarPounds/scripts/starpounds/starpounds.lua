@@ -285,7 +285,7 @@ starPounds.toggleEnable = function()
   if not storage.starPounds.enabled then
     starPounds.moduleUninit()
     starPounds.movementMultiplier = 1
-    starPounds.jumpModifier = 1
+    starPounds.jumpMultiplier = 1
     world.sendEntityMessage(entity.id(), "starPounds.expire")
     status.clearPersistentEffects("starpounds")
     status.clearPersistentEffects("starpoundseaten")
