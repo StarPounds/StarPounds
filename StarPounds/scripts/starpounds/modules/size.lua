@@ -179,8 +179,10 @@ function size:updateStats(forceUpdate)
       {stat = "shieldHealth", effectiveMultiplier = 1 + starPounds.getStat("shieldHealth") * bonusEffectiveness},
       {stat = "knockbackThreshold", effectiveMultiplier = 1 - gritReduction},
       {stat = "fallDamageMultiplier", effectiveMultiplier = size.healthMultiplier * (1 - starPounds.getStat("fallDamageResistance"))},
+      {stat = "physicalResistance", amount = starPounds.getStat("physicalResistance") * bonusEffectiveness},
       {stat = "iceResistance", amount = starPounds.getStat("iceResistance") * bonusEffectiveness},
-      {stat = "poisonResistance", amount = starPounds.getStat("poisonResistance") * bonusEffectiveness}
+      {stat = "poisonResistance", amount = starPounds.getStat("poisonResistance") * bonusEffectiveness},
+      {stat = "electricResistance", amount = starPounds.getStat("electricResistance") * bonusEffectiveness}
     }
     -- Probably not optimal, but don't apply effects if they do nothing.
     local filteredPersistentEffects = jarray()
