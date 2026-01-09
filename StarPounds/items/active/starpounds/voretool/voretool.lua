@@ -103,4 +103,8 @@ end
 function uninit()
   starPounds.events:off("pred:eatEntity", updateCooldown)
   starPounds.events:off("pred:bite", updateCooldown)
+
+  if wasValid then
+    activeItem.emote("Idle")
+  end
 end
