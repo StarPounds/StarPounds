@@ -343,7 +343,6 @@ function pred:digestPrey(preyId, items, preyStomach)
     world.sendEntityMessage(prey.id, "starPounds.prey.newPred", entity.id())
   end
   -- Iterate over and edit the items.
-  local regurgitatedItems = jarray()
   local hasEssence = false
   if digestedEntity.type == "humanoid" then
     -- Add soul effect if we have the skill (and the prey can give experience).
@@ -367,7 +366,7 @@ function pred:digestPrey(preyId, items, preyStomach)
         if starPounds.type == "player" then player.giveItem(scrapItem) end
         hasEssence = true
       else
-        regurgitatedItems[#regurgitatedItems + 1] = scrapItem
+        starPounds.moduleFunc("stomach", "addItem", scrapItem)
       end
     end
   end
@@ -389,18 +388,6 @@ function pred:digestPrey(preyId, items, preyStomach)
 
   if not starPounds.hasOption("disableGurgleSounds") then
     starPounds.moduleFunc("sound", "play", "digest", 0.75, 0.75)
-  end
-
-  if not starPounds.hasOption("disableItemRegurgitation") and (#regurgitatedItems > 0) then
-    if doBelchParticles then
-      world.spawnProjectile("regurgitateditems", starPounds.mcontroller.mouthPosition, entity.id(), vec2.rotate({math.random(1,2) * starPounds.mcontroller.facingDirection, math.random(0, 2)/2}, starPounds.mcontroller.rotation), false, {
-        items = regurgitatedItems
-      })
-    elseif starPounds.type == "player" then
-      for _, regurgitatedItem in pairs(regurgitatedItems) do
-        player.giveItem(regurgitatedItem)
-      end
-    end
   end
 
   starPounds.moduleFunc("stomach", "feed", digestedEntity.base, digestedEntity.foodType)
@@ -652,6 +639,8 @@ function pred:digestClothing(item)
   item.parameters.directives = configParameter(item, "directives", "")..string.rep("?brightness=-20?multiply=e9ffa6?saturation=-20", item.parameters.digestCount)
   item.parameters.colorIndex = nil
   item.parameters.colorOptions = jarray()
+  -- Delete json metadata so we don't store nils.
+  setmetatable(item.parameters, nil)
   return item
 end
 

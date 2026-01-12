@@ -48,6 +48,8 @@ function stomach:init()
   self.stomachLerp = storage.starPounds.enabled and self.stomach.contents or 0
   -- Delete json metadata so we don't store nils.
   setmetatable(storage.starPounds.stomach, nil)
+  setmetatable(storage.starPounds.stomachItems, nil)
+  setmetatable(storage.starPounds.stomachEntities, nil)
 
   self:squelchEvents()
 end
@@ -236,6 +238,13 @@ function stomach:get()
     else
       storage.starPounds.stomach[foodType] = nil
     end
+  end
+
+  -- Add item weight to the stomach.
+  for _, v in pairs(storage.starPounds.stomachItems) do
+    local amount = (v.count or 1) * self.data.itemFoodSize
+    totalAmount = totalAmount + amount
+    contents = contents + amount
   end
 
   -- Add how heavy every entity in the stomach is to the counter.
@@ -453,8 +462,20 @@ function stomach:gurgle(noDigest)
   local seconds = starPounds.getStat("gurgleAmount") * math.random(100, 300)/100
   if not noDigest then
     -- Chance to belch.
-    local isBelch = starPounds.getStat("belchChance") > math.random() and self.stomach.belchable > 0
-    if isBelch then self:belch("belchable") end
+    local regurgitateItems = false
+    local itemBaseBelchChance = 0
+    if self.data.itemRegurgitateChance > math.random() then
+      regurgitateItems = true
+      itemBaseBelchChance = #storage.starPounds.stomachItems * self.data.itemBelchChance
+    end
+
+    local isBelch = math.max(starPounds.getStat("belchChance"), itemBaseBelchChance) > math.random() and (regurgitateItems or self.stomach.belchable > 0)
+    if isBelch then
+      self:belch("belchable")
+      if regurgitateItems then
+        self:regurgitateItems()
+      end
+    end
     self:digest(seconds, true, isBelch)
   end
   if not starPounds.hasOption("disableGurgleSounds") then
@@ -481,6 +502,80 @@ function stomach:belch(stomachKey)
   local belchVolume = 0.5 + belchMultiplier
   local belchPitch = 1 - belchMultiplier
   starPounds.moduleFunc("belch", "belch", belchVolume, belchPitch)
+end
+
+function stomach:addItem(item)
+  -- Skip if no item.
+  if not item then return end
+  -- Convert item to a descriptor.
+  local item = root.createItem(item)
+  -- If it's a food item, we can just convert it to regular food and skip storing it.
+  if root.itemType(item.name) == "consumable" then
+    item = starPounds.moduleFunc("food", "updateItem", item) or item
+    -- Only apply effects from the consumable if it's a food item. (i.e. you don't heal from eating a bandage)
+    local isFood = false
+    -- Has a food value.
+    if configParameter(item, "foodValue") ~= nil then
+      isFood = true
+    end
+    -- Is a food category. (i.e. bloat cola has no food value, but should apply the effects)
+    if not isFood then
+      local category = configParameter(item, "category")
+      if category == "food" or category == "drink" then
+        isFood = true
+      end
+    end
+    -- Apply all effects from food items.
+    if isFood and item.parameters.effects then
+      local effects = item.parameters.effects[1] or {}
+      -- Increase the 'duration' of StarPounds food values based on the item count.
+      for i, v in ipairs(effects) do
+        if v.effect:find("starpoundsfood") then
+          -- Guaranteed to exist unless an addon maker has done something dumb.
+          local foodType = root.assetJson(string.format("/stats/effects/starpoundsfood/%s.statuseffect", v.effect)).effectConfig.type
+          self:feed(v.duration * item.count, foodType)
+          effects[i] = nil
+        end
+      end
+      -- Apply effects from the item.
+      status.addEphemeralEffects(effects)
+      -- End here if it's a food item.
+      return
+    end
+  end
+  -- Add the item to the entity's stomach.
+  if item.count == 1 and not next(item.parameters) then -- Just store a string if it's a single item with no params.
+    storage.starPounds.stomachItems[(#storage.starPounds.stomachItems % self.data.itemCapacity) + 1] = item.name
+    return
+  end
+  storage.starPounds.stomachItems[(#storage.starPounds.stomachItems % self.data.itemCapacity) + 1] = item
+end
+
+function stomach:regurgitateItems()
+  -- Skip if we have nothing.
+  if #storage.starPounds.stomachItems == 0 then return end
+  -- Pick random items from the stomach.
+  local regurgitateCount = math.min(math.max(self.data.itemCount + math.random(0, self.data.itemCountVariance), 0), #storage.starPounds.stomachItems)
+  local regurgitatedItems = {}
+  if regurgitateCount > 0 then
+    for i=1, regurgitateCount do
+      -- Table.remove sucks, but it should only be a small amount of entries in the list and we don't run this very often.
+      local item = table.remove(storage.starPounds.stomachItems, math.random(#storage.starPounds.stomachItems))
+      regurgitatedItems[#regurgitatedItems + 1] = item
+    end
+
+    if not starPounds.hasOption("disableItemRegurgitation") then
+      if not starPounds.hasOption("disableBelchParticles") then
+        world.spawnProjectile("regurgitateditems", starPounds.mcontroller.mouthPosition, entity.id(), vec2.rotate({math.random(1,2) * starPounds.mcontroller.facingDirection, math.random(0, 2)/2}, starPounds.mcontroller.rotation), false, {
+          items = regurgitatedItems
+        })
+      elseif starPounds.type == "player" then
+        for _, regurgitatedItem in pairs(regurgitatedItems) do
+          player.giveItem(regurgitatedItem)
+        end
+      end
+    end
+  end
 end
 
 function stomach:applyWellfed()
@@ -694,7 +789,10 @@ end
 
 function stomach.reset()
   storage.starPounds.stomach = {}
+  storage.starPounds.stomachItems = jarray()
   storage.starPounds.stomachEntities = jarray()
+  setmetatable(storage.starPounds.stomachItems, nil)
+  setmetatable(storage.starPounds.stomachEntities, nil)
   return true
 end
 
