@@ -664,10 +664,10 @@ function stomach:sloshing(dt)
     local pitchMultiplier = 1.25 - storage.starPounds.weight/(starPounds.settings.maxWeight * 2)
     starPounds.moduleFunc("sound", "play", "slosh", soundMultiplier, pitchMultiplier)
     if activationMultiplier > 0 then
-      self:digest(self.data.sloshDigestion * sloshEffectiveness, true)
-      local energyMultiplier = sloshEffectiveness * starPounds.getStat("sloshingEnergy")
+      local energyMultiplier = sloshEffectiveness * starPounds.getStat("sloshingEnergy") * math.min(self.stomach.fullness, 1)
       status.modifyResource("energyRegenBlock", status.stat("energyRegenBlockTime") * self.data.sloshEnergyLock * sloshEffectiveness)
       status.modifyResource("energy", -self.data.sloshEnergy * energyMultiplier)
+      self:digest(self.data.sloshDigestion * sloshEffectiveness, true)
       if self.gurgleTimer then
         self.gurgleTimer = math.max(self.gurgleTimer - (self.data.sloshPercent * self.data.gurgleTime), 0)
       end
