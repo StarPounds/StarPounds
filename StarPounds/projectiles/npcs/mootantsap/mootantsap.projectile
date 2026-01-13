@@ -16,7 +16,7 @@
     {"effect": "starpoundsfood_bloat", "duration": 20},
     {"effect": "starpoundsfood", "duration": 10}
   ],
-  "damagePoly" : [ [-9, 0], [-6, -6], [0, -9], [6, -6], [9, 0], [6, 6], [0, 9], [-6, 6] ],
+  "damagePoly" : [ [-9, 0], [7, -3], [13, -2], [16, 0], [13, 2], [7, 3] ],
   "damageKind" : "caloric",
   "hydrophobic" : true
 }
