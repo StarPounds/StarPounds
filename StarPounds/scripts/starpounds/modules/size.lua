@@ -243,7 +243,6 @@ function size:updateStats(forceUpdate)
     local updateModifiers = false
     for _, value in pairs({"movementMultiplier", "jumpMultiplier", "swimMultiplier"}) do
       if starPounds[value] ~= starPounds[value.."Old"] then
-        chat.send("updated "..value)
         starPounds[value.."Old"] = starPounds[value]
         updateModifiers = true
       end
