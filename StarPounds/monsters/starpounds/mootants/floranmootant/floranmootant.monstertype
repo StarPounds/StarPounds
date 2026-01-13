@@ -27,6 +27,8 @@
       "keepTargetInRange" : 60,
       "targetOutOfSightTime" : 2.5,
 
+      "foundTargetActions" : [ { "name" : "action-aggrohop" } ],
+
       "hostileActions" : [
         {
           "name" : "action-fire",
@@ -40,7 +42,7 @@
 
             "projectileType" : "mootantsap",
             "aimAtTarget" : true,
-            "fireOffset" : [1, -1],
+            "fireOffset" : [0.75, -0.5],
             "inaccuracy": 0.2,
             "holdAim": true,
             "projectileCount" : 5,

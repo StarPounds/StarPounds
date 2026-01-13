@@ -18,5 +18,6 @@
   ],
   "damagePoly" : [ [-9, 0], [7, -3], [13, -2], [16, 0], [13, 2], [7, 3] ],
   "damageKind" : "caloric",
-  "hydrophobic" : true
+  "hydrophobic" : true,
+  "renderLayer" : "Player+1"
 }

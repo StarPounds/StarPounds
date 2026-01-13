@@ -41,7 +41,7 @@
 
             "projectileType" : "mootantmilk",
             "aimAtTarget" : true,
-            "fireOffset" : [1, -1],
+            "fireOffset" : [0.75, -0.5],
             "inaccuracy": 0.2,
             "holdAim": true,
             "projectileCount" : 5,
