@@ -14,10 +14,10 @@
   "emitters" : [ "mootantmilk" ],
   "statusEffects" : [
     {"effect": "starpoundsfood_bloat", "duration": 5},
-    {"effect": "starpoundsfood", "duration": 5}
+    {"effect": "starpoundsfood_weaponLiquid", "duration": 5}
   ],
   "damagePoly" : [ [-9, 0], [7, -3], [13, -2], [16, 0], [13, 2], [7, 3] ],
-  "damageKind" : "caloric",
+  "damageKind" : "caloricstatus",
   "hydrophobic" : true,
   "renderLayer" : "Player+1"
 }

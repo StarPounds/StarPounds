@@ -43,7 +43,7 @@
   "emitters" : [ ],
   "statusEffects" : [
     {"effect": "starpoundsfood_bloat", "duration": 20},
-    {"effect": "starpoundsfood", "duration": 10}
+    {"effect": "starpoundsfood_weaponLiquid", "duration": 10}
   ],
 
   "renderLayer" : "Monster+50"
