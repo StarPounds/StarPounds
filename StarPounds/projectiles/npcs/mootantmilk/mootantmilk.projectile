@@ -6,15 +6,15 @@
   "animationLoops" : false,
   "damageKindImage" : "icon.png",
   "frameNumber" : 10,
-  "power" : 90,
+  "power" : 0,
   "speed" : 30,
   "timeToLive" : 1.5,
   "bounces" : 0,
   "piercing" : false,
   "emitters" : [ "mootantmilk" ],
   "statusEffects" : [
-    {"effect": "starpoundsfood_bloat", "duration": 20},
-    {"effect": "starpoundsfood", "duration": 10}
+    {"effect": "starpoundsfood_bloat", "duration": 5},
+    {"effect": "starpoundsfood", "duration": 5}
   ],
   "damagePoly" : [ [-9, 0], [7, -3], [13, -2], [16, 0], [13, 2], [7, 3] ],
   "damageKind" : "caloric",

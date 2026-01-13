@@ -40,6 +40,12 @@
             "windupTime" : 0.9,
 
             "projectileType" : "mootantmilk",
+            "damageRepeatGroup" : "mootantmilk",
+            "uniqueRepeatGroup" : true,
+            "projectileParameters" : {
+              "damageRepeatTimeout" : 0.1,
+              "power": 3
+            },
             "aimAtTarget" : true,
             "fireOffset" : [0.75, -0.5],
             "inaccuracy": 0.2,

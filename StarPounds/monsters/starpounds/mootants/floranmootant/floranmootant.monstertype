@@ -32,7 +32,6 @@
       "hostileActions" : [
         {
           "name" : "action-fire",
-          "cooldown" : 3.0,
           "parameters" : {
             "requireLineOfSight" : true,
             "maximumRange" : 15,
@@ -40,7 +39,13 @@
             "windupState" : "windup",
             "windupTime" : 0.9,
 
-            "projectileType" : "mootantsap",
+            "projectileType" : "mootantmilk",
+            "damageRepeatGroup" : "mootantmilk",
+            "uniqueRepeatGroup" : true,
+            "projectileParameters" : {
+              "damageRepeatTimeout" : 0.1,
+              "power": 3
+            },
             "aimAtTarget" : true,
             "fireOffset" : [0.75, -0.5],
             "inaccuracy": 0.2,
@@ -55,8 +60,8 @@
             "projectileSpeed": 30,
             "gravityMultiplier": 0.6,
 
-            "winddownState" : "fire",
-            "winddownTime" : 0.5
+            "winddownState" : "idle",
+            "winddownTime" : 3
           }
         }
       ],
