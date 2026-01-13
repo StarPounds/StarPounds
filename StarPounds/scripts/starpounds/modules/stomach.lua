@@ -383,6 +383,8 @@ function stomach:digest(dt, isGurgle, isBelch)
     local hungerDisabled = starPounds.hasOption("disableHunger")
 
     local digestionStatCache = {}
+
+    local availableHealing = maxHealth * self.data.healingCap * seconds
     -- Iterate through food types
     for foodType, amount in pairs(storage.starPounds.stomach) do
       if starPounds.moduleFunc("food", "isFoodType", foodType) and (storage.starPounds.stomach[foodType] > 0) then
@@ -430,7 +432,11 @@ function stomach:digest(dt, isGurgle, isBelch)
           -- Base amount 1 health (100 food would restore 100 health, modified by healing and absorption)
           if status.resourcePositive("health") then
             local healBaseAmount = digestAmount * foodConfig.multipliers.healing
-            local healAmount = math.min(healBaseAmount * healing * self.data.healingRatio, maxHealth * self.data.healingCap * seconds)
+            local healAmount = math.min(healBaseAmount * healing * self.data.healingRatio)
+            if not foodConfig.ignoreHealingCap then
+              healAmount = math.min(healAmount, availableHealing)
+              availableHealing = math.max(availableHealing - healAmount, 0)
+            end
             status.modifyResource("health", healAmount)
             -- Energy regenerates faster than health, and energy lock time gets reduced.
             if not starPounds.moduleFunc("strain", "straining") and not isGurgle and status.isResource("energy") and status.resourcePercentage("energy") < 1 and digestionEnergy > 0 then
