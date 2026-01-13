@@ -4,6 +4,8 @@ function statuses:init()
   self.bonuses = {}
   self.multipliers = {}
   self.activeStatuses = {}
+  -- Trigger an update straight away.
+  self:update()
 end
 
 function statuses:update(dt)

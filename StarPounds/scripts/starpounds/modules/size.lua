@@ -51,6 +51,7 @@ function size:init()
   starPounds.weightMultiplier = 1
   -- Just in case the data is out of range.
   self:setWeight(storage.starPounds.weight)
+  self:updateStats(true)
 end
 
 function size:update(dt)
@@ -240,17 +241,16 @@ function size:updateStats(forceUpdate)
     end
 
 
-    local updateModifiers = false
+    local updateMultipliers = false
     for _, value in pairs({"movementMultiplier", "jumpMultiplier", "swimMultiplier"}) do
       if starPounds[value] ~= starPounds[value.."Old"] then
         starPounds[value.."Old"] = starPounds[value]
-        updateModifiers = true
+        updateMultipliers = true
       end
     end
-    local weightMultiplier = starPounds.weightMultiplier
 
-    if updateModifiers then
-      self.controlModifiers = weightMultiplier == 1 and {} or {
+    if updateMultipliers then
+      self.controlModifiers = starPounds.weightMultiplier == 1 and {} or {
         groundMovementModifier = movementMultiplier,
         liquidMovementModifier = starPounds.swimMultiplier,
         speedModifier = movementMultiplier,
@@ -263,7 +263,9 @@ function size:updateStats(forceUpdate)
       }) or nil
     end
 
-    self.controlParameters = weightMultiplier == 1 and {} or {
+    -- weightMultiplier gets set to 0 in tech missions so weight doesn't affect their completion.
+    local weightMultiplier = 1 + (starPounds.weightMultiplier - 1) * starPounds.getStat("weightMultiplier")
+    self.controlParameters = starPounds.weightMultiplier == 1 and {} or {
       mass = parameters.mass * weightMultiplier,
       airForce = parameters.airForce * weightMultiplier,
       groundForce = parameters.groundForce * weightMultiplier,
