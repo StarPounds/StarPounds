@@ -7,6 +7,6 @@
   {
     "op": "replace",
     "path": "/baseParameters/knockoutTime",
-    "value": 0.01
+    "value": 0.1
   }
 ]
