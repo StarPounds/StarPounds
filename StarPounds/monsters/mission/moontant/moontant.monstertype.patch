@@ -1,0 +1,12 @@
+[
+  {
+    "op": "test",
+    "path": "/baseParameters/knockoutTime",
+    "value": 0
+  },
+  {
+    "op": "replace",
+    "path": "/baseParameters/knockoutTime",
+    "value": 0.01
+  }
+]
