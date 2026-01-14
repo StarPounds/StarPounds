@@ -81,8 +81,12 @@ function _monster:setup()
     return math.pi * (radius ^ self.data.monsterSizeRadiusExp) * height
   end
 
-  local monsterArea = areaFromBoundBox(mcontroller.boundBox())
-  entity.weight = math.min(math.round(monsterArea * self.data.monsterFood), self.data.monsterFoodCap)
+  local function foodFromBoundBox(boundBox)
+    local area = areaFromBoundBox(boundBox)
+    return math.min(math.round(area * self.data.monsterFood), self.data.monsterFoodCap)
+  end
+
+  entity.weight = foodFromBoundBox(mcontroller.boundBox())
 
   local deathActions = config.getParameter("behaviorConfig.deathActions", {})
   -- Remove base weight if the monster is 'replaced'.
@@ -94,9 +98,7 @@ function _monster:setup()
   for _, action in ipairs(deathActions) do
     if action.name == "action-spawnmonster" then
       local monsterPoly = root.monsterParameters(action.parameters.monsterType).movementSettings.collisionPoly
-      local boundBox = util.boundBox(monsterPoly)
-      local monsterArea = math.abs(boundBox[1]) + math.abs(boundBox[3]) * math.abs(boundBox[2]) + math.abs(boundBox[4])
-      entity.weight = entity.weight + math.min(math.round(monsterArea * self.data.monsterFood), self.data.monsterFoodCap)
+      entity.weight = entity.weight + foodFromBoundBox(util.boundBox(monsterPoly))
     end
   end
 
