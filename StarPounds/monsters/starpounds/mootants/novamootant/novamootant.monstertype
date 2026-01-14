@@ -39,8 +39,8 @@
             "windupState" : "windup",
             "windupTime" : 0.9,
 
-            "projectileType" : "mootantmilk",
-            "damageRepeatGroup" : "mootantmilk",
+            "projectileType" : "starpoundsmootantmilk",
+            "damageRepeatGroup" : "starpoundsmootantmilk",
             "uniqueRepeatGroup" : true,
             "projectileParameters" : {
               "damageRepeatTimeout" : 0.1,

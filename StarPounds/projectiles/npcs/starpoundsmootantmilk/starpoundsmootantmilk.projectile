@@ -1,6 +1,6 @@
 {
-  "projectileName" : "mootantmilk",
-  "image" : "mootantmilk.png",
+  "projectileName" : "starpoundsmootantmilk",
+  "image" : "starpoundsmootantmilk.png",
   "physics" : "grenadenobounce",
   "animationCycle" : 0.6,
   "animationLoops" : false,
@@ -11,7 +11,7 @@
   "timeToLive" : 1.5,
   "bounces" : 0,
   "piercing" : false,
-  "emitters" : [ "mootantmilk" ],
+  "emitters" : [ "starpoundsmootantmilk" ],
   "statusEffects" : [
     {"effect": "starpoundsfood_bloat", "duration": 5},
     {"effect": "starpoundsfood_weaponLiquid", "duration": 5}
