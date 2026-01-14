@@ -87,7 +87,7 @@ function effects:add(effect, duration, level)
   local effectData = storage.starPounds.effects.active[effect] or {}
   if effectConfig then
     duration = tonumber(duration) or effectConfig.duration
-    level = tonumber(level) or 1
+    level = math.floor(tonumber(level) or 1)
     -- Negative durations become infinite.
     if duration < 0 then duration = nil end
     if effectConfig.particle then

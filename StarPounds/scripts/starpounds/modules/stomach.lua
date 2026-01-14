@@ -153,7 +153,7 @@ function stomach:eat(amount, foodType)
       if foodConfig.stuffingDamage then
         if not self.stretchCooldown then
           if not effect or (effect.level < (effectConfig.levels or 1)) then
-            local stretchLevel = math.max(math.random() * diff, 1)
+            local stretchLevel = math.floor(math.max(math.random() * diff, 1) + 0.5)
             starPounds.moduleFunc("effects", "add", "stomachStretch", nil, stretchLevel)
             self.stretchCooldown = math.round(util.randomInRange({self.data.minimumStretchCooldown, (self.data.stretchCooldown * 2) - self.data.minimumStretchCooldown}))
           end
