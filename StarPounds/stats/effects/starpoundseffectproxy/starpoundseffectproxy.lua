@@ -27,3 +27,7 @@ function update(dt)
     effect.expire()
   end
 end
+
+function uninit()
+  effect.expire()
+end

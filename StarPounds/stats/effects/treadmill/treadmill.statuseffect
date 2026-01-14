@@ -1,9 +1,0 @@
-{
-  "name" : "treadmill",
-  "effectConfig" : {},
-   "defaultDuration" : 1,
-
-    "scripts" : [
-    "treadmill.lua"
-  ]
-}
