@@ -4,9 +4,9 @@ local _monster = starPounds.module:new("monster")
 function _monster:init()
   starPounds.isCritter = contains(root.assetJson("/scripts/starpounds/modules/pred.config:critterBehaviors"), config.getParameter("behavior", "monster")) ~= nil
   -- Set monster specific trait.
-  if not starPounds.getTrait() then
-    starPounds.setTrait(config.getParameter("starPounds_trait"))
-  end
+  --if not starPounds.getTrait() then
+  --  starPounds.setTrait(config.getParameter("starPounds_trait"))
+  --end
   -- Initial skills and options.
   storage.starPounds.options = sb.jsonMerge(storage.starPounds.options, config.getParameter("starPounds_options", {}))
   if not storage.starPounds.parsedInitialSkills then
@@ -73,9 +73,17 @@ function _monster:setup()
     return entity.isValidTarget_old(entityId)
   end
   -- Vore stuff.
-  local boundBox = mcontroller.boundBox()
-  local monsterArea = math.abs(boundBox[1]) + math.abs(boundBox[3]) * math.abs(boundBox[2]) + math.abs(boundBox[4])
+  local function areaFromBoundBox(boundBox)
+    local width = boundBox[3] - boundBox[1]
+    local height = boundBox[4] - boundBox[2]
+    local radius = width / 2
+
+    return math.pi * (radius ^ self.data.monsterSizeRadiusExp) * height
+  end
+
+  local monsterArea = areaFromBoundBox(mcontroller.boundBox())
   entity.weight = math.min(math.round(monsterArea * self.data.monsterFood), self.data.monsterFoodCap)
+
   local deathActions = config.getParameter("behaviorConfig.deathActions", {})
   -- Remove base weight if the monster is 'replaced'.
   for _, action in ipairs(deathActions) do
@@ -91,10 +99,15 @@ function _monster:setup()
       entity.weight = entity.weight + math.min(math.round(monsterArea * self.data.monsterFood), self.data.monsterFoodCap)
     end
   end
-  -- Robotic monsters don't give food.
+
   entity.foodType = "preyMonster"
+  -- Critters give more food. (But are smaller, so still less overall)
+  if starPounds.isCritter then
+    entity.foodType = "prey"
+  end
+  -- Robotic monsters don't give food.
   if status.statusProperty("targetMaterialKind") == "robotic" then
-    entity.foodType = "preyMonsterInedible"
+    entity.foodType = entity.foodType.."Inedible"
   end
   -- Use the preset type if it exists.
   entity.foodType = config.getParameter("starPounds_foodType", entity.foodType)
