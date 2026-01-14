@@ -163,6 +163,7 @@ end
 
 function _player:landing()
   if not storage.starPounds.enabled then return end
+  if status.stat("activeMovementAbilities") > 1 then return end
 
   if self.wasFalling and not starPounds.mcontroller.falling then
     if starPounds.mcontroller.groundMovement then
