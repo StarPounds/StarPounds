@@ -2,7 +2,12 @@
   "name" : "starpoundsmootantmilkslow",
   "blockingStat" : "wetImmunity",
   "effectConfig" : {
-    "directives" : "fade=f0dfd5=0.1?brightness=25"
+    "directives" : "fade=f0dfd5=0.1?brightness=25",
+    "modifiers" : {
+      "groundMovementModifier" : 0.85,
+      "airJumpModifier" : 0.8,
+      "speedModifier" : 0.8
+    }
   },
   "defaultDuration" : 3,
 
