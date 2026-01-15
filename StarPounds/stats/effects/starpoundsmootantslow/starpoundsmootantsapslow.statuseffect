@@ -1,0 +1,22 @@
+{
+  "name" : "starpoundsmootantsapslow",
+  "blockingStat" : "wetImmunity",
+  "effectConfig" : {
+    "directives" : "fade=fcd878=0.25",
+    "modifiers" : {
+      "groundMovementModifier" : 0.7,
+      "airJumpModifier" : 0.65,
+      "speedModifier" : 0.65
+    }
+  },
+  "defaultDuration" : 3,
+
+  "scripts" : [
+    "starpoundsmootantslow.lua"
+  ],
+
+  "animationConfig" : "starpoundsmootantsapslow.animation",
+
+  "label" : "Sap Coated",
+  "icon" : "/interface/statuses/starpoundsmootantsapslow.png"
+}

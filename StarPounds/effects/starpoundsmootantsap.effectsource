@@ -1,16 +1,16 @@
 {
-  "kind" : "mootantmilk",
+  "kind" : "starpoundsmootantsap",
   "definition" : {
     "duration" : 0.1,
     "loops" : true,
     "start" : {
       "particles" : [
-        [ "mootantmilk" ]
+        [ "starpoundsmootantsap" ]
       ],
       "sounds" : [ [ ] ]
     },
     "particles" : [
-      [ "mootantmilk" ]
+      [ "starpoundsmootantsap" ]
     ],
     "sounds" : [ [ ] ],
     "stop" : {

@@ -1,0 +1,12 @@
+{
+  "particleEmitters" : {
+    "drips" : {
+      "enabled" : true,
+      "emissionRate" : 15.0,
+      "particles" : [
+        { "particle" : "starpoundsmootantmilkleak" },
+        { "particle" : "starpoundsmootantmilkleakbehind" } 
+      ]
+    }
+  }
+}

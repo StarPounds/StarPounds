@@ -17,7 +17,7 @@
     ],
 
     "behavior" : "monster",
-
+    "behaviorUpdateDelta": 1,
     "behaviorConfig" : {
       "damageOnTouch" : true,
 
@@ -30,42 +30,81 @@
       "foundTargetActions" : [ { "name" : "action-aggrohop" } ],
 
       "hostileActions" : [
+        // Milk Rain
         {
-          "name" : "action-fire",
+          "name" : "action-starpoundsmootantfire",
+          "cooldown" : 10,
+          "parameters" : {
+            "requireLineOfSight" : true,
+            "maximumRange" : 45,
+            "minimumRange" : 15,
+            "windupState" : "windup",
+            "windupTime" : 1,
+
+            "projectileType" : "starpoundsmootantsap",
+            "damageRepeatGroup" : "",
+            "projectileParameters" : {
+              "damageRepeatTimeout" : 0.075,
+              "power": 3,
+              "speed": 50
+            },
+            "aimAtTarget" : true,
+            "fireOffsets" : [[0.5, -0.5], [2.375, -0.5]],
+            "inaccuracy": 0.1,
+            "holdAim": false,
+
+            "projectileCount" : 3,
+            "projectileInterval" : 0.0,
+            "fireState" : "fire",
+            "fireDelay" : 0.15,
+            "fireOffsetDelay" : 0.075,
+            "fireSound" : "fire",
+
+            "highArc": true,
+            "fireArc": true,
+            "projectileSpeed": 50,
+            "gravityMultiplier": 0.6,
+
+            "winddownState" : "winddown",
+            "winddownTime" : 2.5
+          }
+        },
+        // Default
+        {
+          "cooldown" : 2.625,
+          "name" : "action-starpoundsmootantfire",
           "parameters" : {
             "requireLineOfSight" : true,
             "maximumRange" : 15,
-            "minimumRange" : 0,
+            "minimumRange" : 5,
             "windupState" : "windup",
-            "windupTime" : 0.9,
+            "windupTime" : 0.375,
 
             "projectileType" : "starpoundsmootantsap",
-            "damageRepeatGroup" : "starpoundsmootantsap",
-            "uniqueRepeatGroup" : true,
+            "damageRepeatGroup" : "",
             "projectileParameters" : {
-              "damageRepeatTimeout" : 0.1,
               "power": 3
             },
             "aimAtTarget" : true,
-            "fireOffset" : [0.75, -0.5],
+            "fireOffsets" : [[0.5, -0.5], [2.375, -0.5]],
             "inaccuracy": 0.2,
             "holdAim": true,
-            "projectileCount" : 5,
-            "projectileInterval" : 0.02,
+            "projectileCount" : 3,
+            "projectileInterval" : 0.1,
             "fireState" : "fire",
-            "fireDelay" : 0.0,
+            "fireDelay" : 0.25,
+            "fireOffsetDelay" : 0.075,
             "fireSound" : "fire",
 
             "fireArc": true,
             "projectileSpeed": 30,
             "gravityMultiplier": 0.6,
 
-            "winddownState" : "idle",
-            "winddownTime" : 3
+            "winddownState" : "winddown",
+            "winddownTime" : 0.375
           }
         }
       ],
-
       "periodicActions" : [],
 
       "approachActions" : [
@@ -125,8 +164,8 @@
     "deathParticles" : "deathPoof",
 
     "movementSettings" : {
-      "collisionPoly" : [ [1.75, 2.55], [2.05, 2.05],  [2.25, -2.25], [1.85, -3.45],  [-1.85, -3.45], [-2.25, -2.25],  [-2.05, 2.05], [-1.75, 2.55] ],
-      "mass" : 3,
+      "collisionPoly" : [ [1.25, 2.25], [1.55, 2.05],  [1.75, -2.25], [1.35, -3.25],  [-1.35, -3.25], [-1.75, -2.25],  [-1.55, 2.05], [-1.25, 2.25] ],
+      "mass" : 3.0,
       "walkSpeed" : 4,
       "runSpeed" : 12,
       "normalGroundFriction" : 42.0
@@ -180,7 +219,7 @@
           "baseValue" : 22
         },
         "maxHealth" : {
-          "baseValue" : 125
+          "baseValue" : 175
         },
         "protection" : {
           "baseValue" : 0

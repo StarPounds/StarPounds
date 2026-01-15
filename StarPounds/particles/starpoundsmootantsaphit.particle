@@ -1,0 +1,22 @@
+{
+  "kind" : "starpoundsmootantsaphit",
+  "definition" : {
+    "type" : "ember",
+    "size" : 1.25,
+    "color" : [252, 216, 120, 200],
+    "fade" : 0.9,
+    "initialVelocity" : [0, 15],
+    "finalVelocity" : [0, -50],
+    "collidesForeground" : true,
+    "collidesLiquid" : true,
+    "destructionAction" : "shrink",
+    "destructionTime" : 0.5,
+    "approach" : [0, 50],
+    "timeToLive" : 1,
+    "layer" : "middle",
+    "variance" : {
+      "size" : 0.5,
+      "initialVelocity" : [3, 5]
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "kind" : "starpoundsmootantmilk",
+  "definition" : {
+    "duration" : 0.1,
+    "loops" : true,
+    "start" : {
+      "particles" : [
+        [ "starpoundsmootantmilk" ]
+      ],
+      "sounds" : [ [ ] ]
+    },
+    "particles" : [
+      [ "starpoundsmootantmilk" ]
+    ],
+    "sounds" : [ [ ] ],
+    "stop" : {
+      "particles" : [
+        [ ]
+      ],
+      "sounds" : [ [ ] ]
+    }
+  }
+}

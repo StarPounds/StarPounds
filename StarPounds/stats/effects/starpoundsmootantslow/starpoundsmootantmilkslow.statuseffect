@@ -1,0 +1,17 @@
+{
+  "name" : "starpoundsmootantmilkslow",
+  "blockingStat" : "wetImmunity",
+  "effectConfig" : {
+    "directives" : "fade=f0dfd5=0.1?brightness=25"
+  },
+  "defaultDuration" : 3,
+
+  "scripts" : [
+    "starpoundsmootantslow.lua"
+  ],
+
+  "animationConfig" : "starpoundsmootantmilkslow.animation",
+
+  "label" : "Cream Coated",
+  "icon" : "/interface/statuses/starpoundsmootantmilkslow.png"
+}

@@ -1,0 +1,19 @@
+{
+  "kind" : "starpoundsmootantmilkleakbehind",
+  "definition" : {
+    "type" : "ember",
+    "size" : 1.25,
+    "color" : [240, 223, 213, 200],
+    "fade" : 0.9,
+    "initialVelocity" : [0, 0],
+    "finalVelocity" : [0, -19.0],
+    "approach" : [5, 30],
+    "timeToLive" : 1.5,
+    "layer" : "back",
+    "variance" : {
+      "initialVelocity" : [1, 0],
+      "timeToLive" : 0.5,
+      "size" : 0.5
+    }
+  }
+}

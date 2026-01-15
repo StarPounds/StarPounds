@@ -8,7 +8,7 @@
           "idle" : {
             "frames" : 13,
             "cycle" : 2,
-            "mode" : "loop"      
+            "mode" : "loop"
           },
           "jump" : {
             "frames" : 2,
@@ -33,12 +33,35 @@
             "cycle" : 0.7
           },
           "windup" : {
-            "frames" : 5,
-            "cycle" : 0.8
+            "frames" : 3,
+            "cycle" : 0.375
+          },
+          "doublewindup" : {
+            "frames" : 3,
+            "cycle" : 0.375,
+            "mode" : "transition",
+            "transition" : "doublewindup2"
+          },
+          "doublewindup2" : {
+            "frames" : 3,
+            "cycle" : 0.375,
+            "particleEmittersOn" : [ "milk", "milkBehind" ]
           },
           "fire" : {
-            "frames" : 1,
-            "cycle" : 1.2
+            "frames" : 3,
+            "cycle" : 0.375,
+            "properties" : {
+              "particleEmittersOn" : [ "milk", "milkBehind" ]
+            }
+          },
+          "winddown" : {
+            "frames" : 3,
+            "cycle" : 0.375,
+            "properties" : {
+              "particleEmittersOff" : [ "milk", "milkBehind" ]
+            },
+            "mode" : "transition",
+            "transition" : "idle"
           }
         }
       },
@@ -112,12 +135,27 @@
             },
             "windup" : {
               "properties" : {
+                "image" : "<partImage>:windup.<frame>"
+              }
+            },
+            "doublewindup" : {
+              "properties" : {
+                "image" : "<partImage>:windup.<frame>"
+              }
+            },
+            "doublewindup2" : {
+              "properties" : {
                 "image" : "<partImage>:ranged.<frame>"
               }
             },
             "fire" : {
               "properties" : {
-                "image" : "<partImage>:ranged.7"
+                "image" : "<partImage>:ranged.<frame>"
+              }
+            },
+            "winddown" : {
+              "properties" : {
+                "image" : "<partImage>:winddown.<frame>"
               }
             }
           },
@@ -138,6 +176,20 @@
   },
 
   "particleEmitters" : {
+    "milk" : {
+      "emissionRate" : 5.0,
+      "offsetRegion" : [ 0.0, -1.0, 0.5, -0.5 ],
+      "particles" : [
+        { "particle" : "starpoundsmootantmilkleak" }
+      ]
+    },
+    "milkBehind" : {
+      "emissionRate" : 5.0,
+      "offsetRegion" : [ 1.375, -1.0, 1.875, -0.5 ],
+      "particles" : [
+        { "particle" : "starpoundsmootantmilkleakbehind" }
+      ]
+    },
     "captureParticles" : {
       "particles" : [
         { "particle" : "monstercapture" }
