@@ -187,7 +187,7 @@
 
     "damageParts" : {
       "body" : {
-        "damage" : 10,
+        "damage" : 13,
 
         "teamType" : "enemy",
         "damageSourceKind" : "slash",
