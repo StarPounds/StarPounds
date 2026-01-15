@@ -25,11 +25,31 @@
       "targetOnDamage" : true,
       "keepTargetInSight" : true,
       "keepTargetInRange" : 60,
-      "targetOutOfSightTime" : 2.5,
+      "targetOutOfSightTime" : 5,
 
       "foundTargetActions" : [ { "name" : "action-aggrohop" } ],
 
       "hostileActions" : [
+        // Leap
+        {
+          "name" : "action-leap",
+          "cooldown" : 7.5,
+          "parameters" : {
+            "minimumRange" : 5,
+            "maximumRange" : 15,
+            "windupTime" : 0.25,
+            "windupState" : "idle",
+
+            "leapVelocity" : 30,
+            "collisionCheck" : false,
+            "highArc" : true,
+            "leapState" : "jump",
+            "fallState" : "fall",
+
+            "winddownTime" : 0,
+            "winddownState" : "idle"
+          }
+        },
         // Milk Rain
         {
           "name" : "action-starpoundsmootantfire",
@@ -115,8 +135,7 @@
             "maxJumps" : 2,
             "jumpXVelocity" : 12,
             "jumpYVelocity" : 30,
-            "jumpXControlForce" : 15,
-            "minXRange" : 10
+            "jumpXControlForce" : 15
           }
         }
       ],
@@ -164,7 +183,7 @@
     "deathParticles" : "deathPoof",
 
     "movementSettings" : {
-      "collisionPoly" : [ [1.75, 1.425], [2.05, 0.925], [2.25, -3.375], [1.85, -4.575], [-1.85, -4.575], [-2.25, -3.375], [-2.05, 0.925], [-1.75, 1.425] ],
+      "collisionPoly" : [ [1.75, 1.425], [2.05, 0.925], [2.25, -3.375], [1.25, -4.575], [-1.25, -4.575], [-2.25, -3.375], [-2.05, 0.925], [-1.75, 1.425] ],
       "mass" : 3.0,
       "walkSpeed" : 4,
       "runSpeed" : 12,
@@ -173,7 +192,7 @@
     "metaBoundBox" : [-2, -2, 2, 2],
 
     "touchDamage" : {
-      "poly" : [ [1.75, 1.425], [2.05, 0.925], [2.25, -3.375], [1.85, -4.575], [-1.85, -4.575], [-2.25, -3.375], [-2.05, 0.925], [-1.75, 1.425] ],
+      "poly" : [ [1.75, 1.425], [2.05, 0.925], [2.25, -3.375], [1.25, -4.575], [-1.25, -4.575], [-2.25, -3.375], [-2.05, 0.925], [-1.75, 1.425] ],
       "damage" : 0,
 
       "teamType" : "enemy",
@@ -246,7 +265,7 @@
     },
 
     "mouthOffset" : [3.5, -5],
-    "feetOffset" : [0, -21],
+    "feetOffset" : [0, -36.6],
     "capturable" : true,
     "captureHealthFraction" : 0.5,
     "nametagColor" : [64, 200, 255]
