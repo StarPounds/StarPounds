@@ -36,20 +36,36 @@
             "frames" : 3,
             "cycle" : 0.375
           },
-          "doublewindup" : {
+          "spraywindup" : {
             "frames" : 3,
             "cycle" : 0.375,
             "mode" : "transition",
-            "transition" : "doublewindup2"
+            "transition" : "spraywindup2"
           },
-          "doublewindup2" : {
+          "spraywindup2" : {
             "frames" : 3,
             "cycle" : 0.375,
+            "frameProperties" : {
+              "immediateSound" : [ "", "/sfx/starpounds/digesting/digesting3.ogg", "" ]
+            },
             "particleEmittersOn" : [ "milk", "milkBehind" ]
           },
           "fire" : {
             "frames" : 3,
             "cycle" : 0.375,
+            "frameProperties" : {
+              "immediateSound" : [ "", "", "/sfx/gun/wormgun3.ogg" ]
+            },
+            "properties" : {
+              "particleEmittersOn" : [ "milk", "milkBehind" ]
+            }
+          },
+          "mortarfire" : {
+            "frames" : 3,
+            "cycle" : 0.375,
+            "frameProperties" : {
+              "immediateSound" : [ "", "/sfx/starpounds/digesting/digesting2.ogg", "/sfx/gun/wormgun3.ogg" ]
+            },
             "properties" : {
               "particleEmittersOn" : [ "milk", "milkBehind" ]
             }
@@ -140,17 +156,22 @@
                 "image" : "<partImage>:windup.<frame>"
               }
             },
-            "doublewindup" : {
+            "spraywindup" : {
               "properties" : {
                 "image" : "<partImage>:windup.<frame>"
               }
             },
-            "doublewindup2" : {
+            "spraywindup2" : {
               "properties" : {
                 "image" : "<partImage>:ranged.<frame>"
               }
             },
             "fire" : {
+              "properties" : {
+                "image" : "<partImage>:ranged.<frame>"
+              }
+            },
+            "mortarfire" : {
               "properties" : {
                 "image" : "<partImage>:ranged.<frame>"
               }
@@ -180,14 +201,14 @@
   "particleEmitters" : {
     "milk" : {
       "emissionRate" : 5.0,
-      "offsetRegion" : [ 0.0, -1.0, 0.5, -0.5 ],
+      "offsetRegion" : [ -0.25, -2.125, 0.25, -1.625],
       "particles" : [
         { "particle" : "starpoundsmootantsapleak" }
       ]
     },
     "milkBehind" : {
       "emissionRate" : 5.0,
-      "offsetRegion" : [ 1.375, -1.0, 1.875, -0.5 ],
+      "offsetRegion" : [ 1.125, -2.125, 1.625, -1.625 ],
       "particles" : [
         { "particle" : "starpoundsmootantsapleakbehind" }
       ]
