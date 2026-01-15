@@ -103,6 +103,7 @@
       "body" : {
         "properties" : {
           "transformationGroups" : [ "body" ],
+          "offset" : [-0.25, -1.125],
           "zLevel" : 2
         },
 
