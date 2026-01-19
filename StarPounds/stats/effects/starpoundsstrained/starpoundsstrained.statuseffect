@@ -4,6 +4,6 @@
   "scripts": [
     "starpoundsstrained.lua"
   ],
-  "label": "Strained belly",
+  "label": "Strained Stomach",
   "icon": "/interface/statuses/starpoundsstrained.png"
 }
