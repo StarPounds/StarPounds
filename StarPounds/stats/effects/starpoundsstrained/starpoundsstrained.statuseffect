@@ -1,0 +1,9 @@
+{
+  "name": "starpoundsstrained",
+  "defaultDuration": 1,
+  "scripts": [
+    "starpoundsstrained.lua"
+  ],
+  "label": "Strained belly",
+  "icon": "/interface/statuses/starpoundsstrained.png"
+}

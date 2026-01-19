@@ -1,5 +1,3 @@
-require "/scripts/messageutil.lua"
-
 function init()
   -- Cross script voodoo witch magic.
   starPounds = getmetatable ''.starPounds
@@ -18,7 +16,6 @@ function update(dt)
   if progress == 1 then effect.expire() return end
 
   if effect.duration() > 0 then
-    -- "Center" the animation.
     effect.modifyDuration(progress + dt - effect.duration())
   end
 end

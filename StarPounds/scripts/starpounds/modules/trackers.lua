@@ -1,7 +1,6 @@
 local trackers = starPounds.module:new("trackers")
 
 function trackers:init()
-  self.thresholds = starPounds.settings.thresholds.strain
   -- Just incase this gets used on an init.
   starPounds.progress = 0
 end
@@ -64,25 +63,40 @@ function trackers:createStatuses()
   if starPounds.hasOption("breastMeter") then
     status.addEphemeralEffect("starpoundsbreast")
   end
+  -- Try and keep the strain meter at the end of the others.
+  if status.uniqueStatusEffectActive("starpoundsstrained") then
+    status.removeEphemeralEffect("starpoundsstrained")
+    status.addEphemeralEffect("starpoundsstrained")
+  end
 end
 
 function trackers:clearStatuses()
   local stomachTracker = self:getStomachTracker()
   local sizeTracker = "starpounds"..starPounds.currentSize.size
-  status.removeEphemeralEffect(stomachTracker)
+  self:removeStomachTrackers()
   status.removeEphemeralEffect(sizeTracker)
   status.removeEphemeralEffect("starpoundsbreast")
   world.sendEntityMessage(entity.id(), "starPounds.expireSizeTracker")
 end
 
 function trackers:getStomachTracker()
-  local stomachTracker = "starpoundsstomach"
-  if starPounds.stomach.interpolatedFullness >= self.thresholds.starpoundsstomach2 then
-    stomachTracker = "starpoundsstomach3"
-  elseif starPounds.stomach.interpolatedFullness >= self.thresholds.starpoundsstomach then
-    stomachTracker = "starpoundsstomach2"
+  local fullness = starPounds.stomach.interpolatedFullness
+  local stomachTracker = self.data.stomachThresholds[1].effect
+  -- Reverse order. If we're larger than the last size then we don't need to iterate any further.
+  for i = #self.data.stomachThresholds, 2, -1 do
+    if self.data.stomachThresholds[i].fullness < fullness then
+      stomachTracker = self.data.stomachThresholds[i].effect
+      break
+    end
   end
+
   return stomachTracker
+end
+
+function trackers:removeStomachTrackers()
+  for _, tracker in ipairs(self.data.stomachThresholds) do
+    status.removeEphemeralEffect(tracker.effect)
+  end
 end
 
 starPounds.modules.trackers = trackers

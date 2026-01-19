@@ -27,9 +27,6 @@ function stomach:init()
 
   self.digestionExperience = 0
 
-  self.baseFullnessThreshold = starPounds.settings.thresholds.strain.starpoundsstomach
-  self.skillFullnessThreshold = starPounds.settings.thresholds.strain.starpoundsstomach3
-
   self.defaultContents = {
     capacity = self.data.stomachCapacity,
     amount = 0,
@@ -606,11 +603,11 @@ end
 
 function stomach:isFull()
   -- If we're above the skill amount.
-  if starPounds.stomach.fullness >= self.skillFullnessThreshold then
+  if starPounds.stomach.interpolatedFullness >= self.data.skillFullness then
     return true
   end
   -- If we're above the base amount, with no skill.
-  if starPounds.stomach.interpolatedFullness >= self.baseFullnessThreshold and not starPounds.moduleFunc("skills", "has", "wellfedProtection") then
+  if starPounds.stomach.interpolatedFullness >= self.data.baseFullness and not starPounds.moduleFunc("skills", "has", "wellfedProtection") then
     return true
   end
   -- False otherwise.

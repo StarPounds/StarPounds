@@ -7,7 +7,6 @@ function init()
   self.bitesPerStage = config.getParameter("bitesPerStage", 4)
   self.food = config.getParameter("food", 1000)/(self.bitesPerStage * self.stages)
   self.fat = config.getParameter("fat", 0)/(self.bitesPerStage * self.stages)
-  self.strainedThresholds = root.assetJson("/scripts/starpounds/starpounds.config:settings.thresholds.strain")
 
   self.experienceBonus = root.assetJson("/scripts/starpounds/modules/food.config:experienceBonus")
   self.rarity = config.getParameter("rarity", "common"):lower()

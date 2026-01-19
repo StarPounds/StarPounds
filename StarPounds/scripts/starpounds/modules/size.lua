@@ -24,7 +24,8 @@ function size:init()
   end
 
   self.canGain = speciesData.weightGain
-
+  -- Fetch thresholds for variants.
+  self.thresholds = root.assetJson("/scripts/starpounds/starpounds_sizes.config:thresholds")
   -- Fetch the first supersize index for future use.
   self.supersizeIndex = math.huge
   for i, size in ipairs(starPounds.sizes) do
@@ -311,8 +312,8 @@ function size:getVariant(size)
   local variants = size.variants or jarray()
   local variant = nil
   local thresholdMultiplier = starPounds.currentSize.thresholdMultiplier
-  local breastThresholds = starPounds.settings.thresholds.breasts
-  local stomachThresholds = starPounds.settings.thresholds.stomach
+  local breastThresholds = self.thresholds.breasts
+  local stomachThresholds = self.thresholds.stomach
 
   local breastSize = (starPounds.hasOption("disableBreastGrowth") and 0 or (starPounds.moduleFunc("breasts", "get").contents or 0)) + (
     starPounds.hasOption("busty") and breastThresholds[1].amount * thresholdMultiplier or (

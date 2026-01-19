@@ -19,6 +19,8 @@ function pred:init()
   self.struggleVolumeLerp = 0
 
   self.preyCheckTimer = self.data.preyCheckTimer
+
+  self.maxFullness = root.assetJson("/scripts/starpounds/modules/stomach.config:skillFullness")
 end
 
 function pred:update(dt)
@@ -45,7 +47,7 @@ function pred:digest(dt)
   -- Don't do anything if there's no eaten entities.
   if not (#storage.starPounds.stomachEntities > 0) then return end
   -- Eaten entities take less damage the more food/entities the player has eaten (While over capacity). Max of 3x slower.
-  local vorePenalty = math.min(1 + math.max(starPounds.stomach.fullness - starPounds.settings.thresholds.strain.starpoundsstomach3, 0), 3)
+  local vorePenalty = math.min(1 + math.max(starPounds.stomach.fullness - self.maxFullness, 0), 3)
   local damageMultiplier = math.max(1, status.stat("powerMultiplier")) * starPounds.getStat("voreDamage")
   local protectionPierce = math.max(0, starPounds.getStat("voreArmorPiercing"))
   -- Reduce health of all entities.
