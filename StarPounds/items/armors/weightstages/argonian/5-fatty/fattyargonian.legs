@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "legwear",  
-  "description" : "This one is a role model to all the Grounded. For you're unable to get your feet off the ground with all that fatty.",
+  "description" : "That butt is an absolute dumptruck. Only good for sitting down every single day.",
   "shortdescription" : "Fatty Legs",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsfatty"

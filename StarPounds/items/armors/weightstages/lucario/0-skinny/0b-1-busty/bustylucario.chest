@@ -8,6 +8,7 @@
   "description" : "Seems like some excess aura is building up in your chest.",
   "shortdescription" : "Busty Bust",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",

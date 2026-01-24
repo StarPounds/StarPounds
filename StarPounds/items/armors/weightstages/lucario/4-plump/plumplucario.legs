@@ -8,6 +8,7 @@
   "description" : "With these legs that brim with power and fill couches, you have learned a new, powerful technique... sitting on opponents.",
   "shortdescription" : "Plump Legs",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsplump"

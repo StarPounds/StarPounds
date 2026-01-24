@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "legwear",  
-  "description" : "That butt is an absolute dumptruck. Standing up must be exhausting for you.",
+  "description" : "That butt is an absolute dumptruck. Only good for sitting down every single day.",
   "shortdescription" : "Fatty Legs",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsfatty"

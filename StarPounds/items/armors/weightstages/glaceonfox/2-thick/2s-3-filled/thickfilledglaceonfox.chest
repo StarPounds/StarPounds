@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "Such a heavy and full belly, no doubt from quite the meal.",
+  "description" : "No wonder you've packed on weight with meals like this.",
   "shortdescription" : "Filled Thick Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsthick",

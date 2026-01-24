@@ -6,8 +6,9 @@
   "rarity" : "legendary",
   "category" : "chestwear",  
   "description" : "With the aura stored within your belly, you better be careful not to hit anyone by accident with it.",
-  "shortdescription" : "Filled Soft Zoroark Belly",
+  "shortdescription" : "Filled Soft Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundssoft",

@@ -8,6 +8,7 @@
   "description" : "These Poké Balls are rather... sloshy.",
   "shortdescription" : "Hyper Bust",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",

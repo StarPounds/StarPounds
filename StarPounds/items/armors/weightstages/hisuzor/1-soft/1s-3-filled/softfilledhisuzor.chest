@@ -6,8 +6,9 @@
   "rarity" : "legendary",
   "category" : "chestwear",  
   "description" : "An illusion could still hide your belly... as long as you don't hit anything with it.",
-  "shortdescription" : "Filled Soft Hisuian Zoroark Belly",
+  "shortdescription" : "Filled Soft Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundssoft",

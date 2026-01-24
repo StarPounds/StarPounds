@@ -8,6 +8,7 @@
   "description" : "Some might think you study sumo with legs like these. No matter how you use these legs, though, they're gonna hurt.",
   "shortdescription" : "Fatty Legs",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsfatty"

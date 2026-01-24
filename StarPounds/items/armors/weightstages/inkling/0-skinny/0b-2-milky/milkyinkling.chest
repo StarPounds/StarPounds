@@ -6,8 +6,9 @@
   "rarity" : "legendary",
   "category" : "chestwear",  
   "description" : "sloshing with all those ink buffs.",
-  "shortdescription" : "Xbusty Bust",
+  "shortdescription" : "XBusty Bust",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",

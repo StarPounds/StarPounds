@@ -8,6 +8,7 @@
   "description" : "You won't be just thick with meals like this.",
   "shortdescription" : "Gorged Thick Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsthick",

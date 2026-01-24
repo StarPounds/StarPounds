@@ -8,6 +8,7 @@
   "description" : "Surely this is just some bloat. Maybe try some pokéblocks now?",
   "shortdescription" : "Stuffed Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",

@@ -8,6 +8,7 @@
   "description" : "With all you've eaten, smaller Pokémon are bound to rest on that furry, pillowy rear.",
   "shortdescription" : "Chubby Legs",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster"

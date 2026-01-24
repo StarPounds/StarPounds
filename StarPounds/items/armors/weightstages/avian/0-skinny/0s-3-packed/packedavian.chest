@@ -5,7 +5,7 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "You've since past the point you could try sucking in this gut.",
+  "description" : "You've since passed the point you could try sucking in this gut.",
   "shortdescription" : "Packed Belly",
   "tooltipKind" : "starpoundsarmor",
   "bypassNude" : true,

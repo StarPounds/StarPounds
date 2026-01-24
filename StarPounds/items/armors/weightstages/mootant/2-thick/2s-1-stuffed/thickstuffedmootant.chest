@@ -8,7 +8,12 @@
   "description" : "A bit out of shape and having a big meal, huh?",
   "shortdescription" : "Stuffed Thick Belly",
   "tooltipKind" : "starpoundsarmor",
-  "statusEffects": [ "starpoundsthick", "starpoundsstuffed" ],
+  "bypassNude" : true,
+  
+  "statusEffects": [
+    "starpoundsthick",
+    "starpoundsstuffed"
+  ],
 
   "maleFrames" : {
     "body" : "chestm.png",

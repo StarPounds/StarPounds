@@ -8,6 +8,7 @@
   "description" : "You're so big, you're good enough to be the large turkey for a parade float.",
   "shortdescription" : "Immobile Body",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsimmobile"

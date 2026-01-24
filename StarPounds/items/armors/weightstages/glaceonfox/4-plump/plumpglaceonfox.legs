@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "legwear",  
-  "description" : "Such a fat ass that barely doesn't drag on the ground. It's such a good cushion it's hard to be bothered though.",
+  "description" : "A rear the size of a couch? You're really out of shape.",
   "shortdescription" : "Plump Legs",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsplump"

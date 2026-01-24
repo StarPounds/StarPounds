@@ -8,6 +8,7 @@
   "description" : "My, my. Your breasts are bigger than your own head.",
   "shortdescription" : "Hyper Chubster Bust",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster",

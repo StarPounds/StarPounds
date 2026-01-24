@@ -8,6 +8,7 @@
   "description" : "Every pound in your stomach you can feel turning into fat right now.",
   "shortdescription" : "Gorged Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",

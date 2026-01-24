@@ -8,6 +8,7 @@
   "description" : "With the aura stored within your belly, you better be careful not to hit anyone by accident with it.",
   "shortdescription" : "Packed Soft Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundssoft",

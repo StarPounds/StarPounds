@@ -8,6 +8,7 @@
   "description" : "Pillowy thighs can provide stronger kicks for battle. Truly, a sign from your aura to continue your growth!",
   "shortdescription" : "Chubby Legs",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster"

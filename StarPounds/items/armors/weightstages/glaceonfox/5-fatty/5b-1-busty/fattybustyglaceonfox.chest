@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "You have some very big tanks, in multiple areas.",
+  "description" : "Such impressive boobs you have. If only they weren't dwarfed by a big fat gut.",
   "shortdescription" : "Fatty Bust",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsfatty",

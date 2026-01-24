@@ -6,9 +6,14 @@
   "rarity" : "legendary",
   "category" : "chestwear",
   "description" : "You can hear the sloshing with every bounce.",
-  "shortdescription" : "Xbusty Bust",
+  "shortdescription" : "XBusty Bust",
   "tooltipKind" : "starpoundsarmor",
-  "statusEffects": [ "starpounds", "starpoundsmilky" ],
+  "bypassNude" : true,
+  
+  "statusEffects": [
+    "starpounds",
+    "starpoundsmilky"
+  ],
 
   "maleFrames" : {
     "body" : "chestm.png",

@@ -8,6 +8,7 @@
   "description" : "Seems like the pounds are just gonna keep coming if you're lugging this around. For aura, of course.",
   "shortdescription" : "Gorged Thick Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsthick",

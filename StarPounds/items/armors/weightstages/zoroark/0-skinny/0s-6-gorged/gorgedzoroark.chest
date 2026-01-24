@@ -8,6 +8,7 @@
   "description" : "Hope you're ready to be on the heavier side of Zoroarks with all you ate!",
   "shortdescription" : "Gorged Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",

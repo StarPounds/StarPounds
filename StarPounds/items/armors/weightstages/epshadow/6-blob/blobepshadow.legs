@@ -8,6 +8,7 @@
   "description" : "You're more of a black hole than a shadow person.",
   "shortdescription" : "Blobby Body",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsblob"

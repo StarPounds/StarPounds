@@ -8,6 +8,7 @@
   "description" : "The aura within grows. Judging by the grumbles of your soft gut, it must wish to be nutured further.",
   "shortdescription" : "Soft Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundssoft"

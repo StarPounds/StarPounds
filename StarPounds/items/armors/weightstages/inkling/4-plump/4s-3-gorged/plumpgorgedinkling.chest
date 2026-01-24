@@ -8,6 +8,7 @@
   "description" : "The food in your stomach weighs enough to count as a teammate, tubs.",
   "shortdescription" : "Gorged Plump Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsplump",

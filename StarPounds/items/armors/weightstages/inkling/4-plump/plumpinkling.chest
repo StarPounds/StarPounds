@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "if you were in shape to compete, You would be such a big target on turf war.",
+  "description" : "If you were in any shape to compete, you'd be the biggest target in a Turf War.",
   "shortdescription" : "Plump Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsplump"

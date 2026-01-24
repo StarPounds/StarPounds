@@ -8,6 +8,7 @@
   "description" : "These Poké Balls are rather... sloshy. Goes well with your sloshy belly, at least.",
   "shortdescription" : "XBusty Soft Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundssoft",

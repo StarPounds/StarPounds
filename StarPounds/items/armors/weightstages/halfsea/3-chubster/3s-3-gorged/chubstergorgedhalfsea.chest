@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "So wide, so chubby. Someone's been eating too many sweets.",
+  "description" : "Is this a sign you've given up on losing weight? Or can you not stop yourself?",
   "shortdescription" : "Gorged Chubby Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster",

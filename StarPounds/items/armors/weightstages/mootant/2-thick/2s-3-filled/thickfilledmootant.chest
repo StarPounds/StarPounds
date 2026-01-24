@@ -8,7 +8,12 @@
   "description" : "No wonder you've packed on weight with meals like this.",
   "shortdescription" : "Filled Thick Belly",
   "tooltipKind" : "starpoundsarmor",
-  "statusEffects": [ "starpoundsthick", "starpoundsfilled" ],
+  "bypassNude" : true,
+  
+  "statusEffects": [
+    "starpoundsthick",
+    "starpoundsfilled"
+  ],
 
   "maleFrames" : {
     "body" : "chestm.png",

@@ -8,6 +8,7 @@
   "description" : "Who needs a speed stat when you can just tank the hits with a belly like this?",
   "shortdescription" : "Chubby Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster"

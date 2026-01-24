@@ -5,7 +5,7 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",
-  "description" : "Quite a large meal you had with that big gut.",
+  "description" : "Quite a large meal you've had with that big gut.",
   "shortdescription" : "Hyper Stuffed Bust",
   "tooltipKind" : "starpoundsarmor",
   "bypassNude" : true,

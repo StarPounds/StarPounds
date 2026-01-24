@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "A very large tummy for  a very large eater.",
+  "description" : "You can start visualizing how much padding you're gonna get from all this food.",
   "shortdescription" : "Filled Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",

@@ -8,6 +8,7 @@
   "description" : "It seems the aura within has finally overwhelmed your body, but know that none may claim to be stronger than your immense, immobile form.",
   "shortdescription" : "Immobile Body",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsimmobile"

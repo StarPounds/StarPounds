@@ -8,6 +8,7 @@
   "description" : "A meal like this must just be an appetizer for you.",
   "shortdescription" : "Filled Plump Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsplump",

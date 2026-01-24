@@ -8,6 +8,7 @@
   "description" : "Are you aiming to roll over the enemy squad? Or can you not stop yourself?",
   "shortdescription" : "Gorged Chubby Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster",

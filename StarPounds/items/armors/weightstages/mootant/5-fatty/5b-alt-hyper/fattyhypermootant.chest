@@ -8,7 +8,12 @@
   "description" : "Those boobs are as wide as you are tall.",
   "shortdescription" : "Hyper Fatty Bust",
   "tooltipKind" : "starpoundsarmor",
-  "statusEffects": [ "starpoundsfatty", "starpoundshyper" ],
+  "bypassNude" : true,
+  
+  "statusEffects": [
+    "starpoundsfatty",
+    "starpoundshyper"
+  ],
 
   "maleFrames" : {
     "body" : "chestm.png",

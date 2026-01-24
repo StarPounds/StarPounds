@@ -8,6 +8,7 @@
   "description" : "When your chest wobbles with aura, it might not be for just storing aura anymore.",
   "shortdescription" : "Hyper Chubby Bust",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster",

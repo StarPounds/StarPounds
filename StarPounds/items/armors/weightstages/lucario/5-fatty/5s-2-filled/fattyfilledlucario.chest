@@ -8,6 +8,7 @@
   "description" : "As the aura fills your jiggly, wobbly, person-sized gut... it seems to demand even more sustenance to empower its wielder.",
   "shortdescription" : "Filled Fatty Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsfatty",

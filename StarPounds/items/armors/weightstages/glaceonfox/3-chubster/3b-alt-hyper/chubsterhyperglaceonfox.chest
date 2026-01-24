@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "Giant breasts that slosh with every step. Hopefully any canned beverages don't explode in them.",
+  "description" : "My, my. Your breasts are bigger than your own head.",
   "shortdescription" : "Hyper Chubster Bust",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster",

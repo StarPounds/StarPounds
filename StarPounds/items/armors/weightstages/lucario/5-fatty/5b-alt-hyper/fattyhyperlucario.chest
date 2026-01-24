@@ -8,6 +8,7 @@
   "description" : "Your breasts nearly burst with aura! May many rejoice at your bountiful reserves!",
   "shortdescription" : "Hyper Fatty Bust",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsfatty",

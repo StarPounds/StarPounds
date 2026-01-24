@@ -8,6 +8,7 @@
   "description" : "Is your fluffy, aura filled-belly satisfied yet? Or is it gonna keep putting on the pounds?",
   "shortdescription" : "Packed Thick Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsthick",

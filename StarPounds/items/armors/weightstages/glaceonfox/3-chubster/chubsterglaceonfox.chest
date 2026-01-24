@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "A large, eye-catching gut. Someone's been eating quite a bit.",
+  "description" : "So wide, so chubby. Someone's been eating too much junk food.",
   "shortdescription" : "Chubby Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster"

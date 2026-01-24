@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "An absolute huge tummy, and you're still filling it up?",
+  "description" : "Your gut is the size of a person. You're just a hopeless, fat glutton.",
   "shortdescription" : "Stuffed Fatty Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsfatty",

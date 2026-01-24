@@ -8,6 +8,7 @@
   "description" : "It's okay. It's hard to tell you've eaten with that much padding.",
   "shortdescription" : "Stuffed Chubby Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster",

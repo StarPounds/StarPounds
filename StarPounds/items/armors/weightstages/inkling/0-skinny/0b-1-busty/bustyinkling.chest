@@ -8,6 +8,7 @@
   "description" : "Someone got a hefty ink capacity boost.",
   "shortdescription" : "Busty Bust",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",

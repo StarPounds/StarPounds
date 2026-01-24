@@ -8,6 +8,7 @@
   "description" : "When your chest and belly wobbles with aura, it might not be for just storing aura anymore.",
   "shortdescription" : "Busty Fatty Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsfatty",

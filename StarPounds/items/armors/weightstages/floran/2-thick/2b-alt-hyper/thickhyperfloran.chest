@@ -8,6 +8,7 @@
   "description" : "Nothing like a round belly to showoff how much of an eater you are.",
   "shortdescription" : "Hyper Thick Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsthick",

@@ -8,6 +8,7 @@
   "description" : "Most Pokémon and trainers would start dieting when the thighs start touching, and yet here you are.",
   "shortdescription" : "Thick Legs",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsthick"

@@ -7,8 +7,14 @@
   "category" : "chestwear",  
   "description" : "Got some real nice melons there.",
   "shortdescription" : "Hyper Thick Bust",
-  "tooltipKind" : "armor",
+  "tooltipKind" : "starpoundsarmor",
   "bypassNude" : true,
+  
+  "statusEffects": [
+    "starpoundsthick",
+	"starpoundshyper",
+    "starpoundsfilled" 
+  ],
 
   "maleFrames" : {
     "body" : "chestm.png",

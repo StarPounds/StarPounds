@@ -5,7 +5,7 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "You've eaten quite a bit since your gut can't be sucked in.",
+  "description" : "Quite a large meal you've had with that big gut.",
   "shortdescription" : "Stuffed Belly",
   "tooltipKind" : "starpoundsarmor",
   "bypassNude" : true,

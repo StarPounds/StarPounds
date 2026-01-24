@@ -8,6 +8,7 @@
   "description" : "A couch-sized rear might not be good for battles, but you can at least squash your opponents by sitting on them now!",
   "shortdescription" : "Plump Legs",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsplump"

@@ -8,6 +8,7 @@
   "description" : "So wide, so chubby. Someone's been eating too much junk food.",
   "shortdescription" : "Chubby Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster"

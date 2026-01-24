@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "So wide, so chubby. Someone's been eating well, gonna be hard to hunt though when you can hardly see your feet.",
+  "description" : "So wide, so chubby. Someone's been eating too much junk food.",
   "shortdescription" : "Chubby Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster"

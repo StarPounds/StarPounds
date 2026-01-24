@@ -8,6 +8,7 @@
   "description" : "Your aura bubbles with power. Or maybe that's the food and drinks in your jiggling, chubby belly.",
   "shortdescription" : "Stuffed Chubby Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster",

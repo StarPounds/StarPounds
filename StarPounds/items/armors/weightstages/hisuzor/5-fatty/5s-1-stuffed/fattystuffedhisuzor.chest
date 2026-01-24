@@ -8,6 +8,7 @@
   "description" : "Maybe you're a Dark type simply because your person-sized gut seems to be a gluttonous, dark void for food.",
   "shortdescription" : "Stuffed Fatty Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsfatty",

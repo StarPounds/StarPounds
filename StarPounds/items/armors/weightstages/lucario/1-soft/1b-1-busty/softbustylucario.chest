@@ -8,6 +8,7 @@
   "description" : "Seems like some excess aura is building up in your chest and belly.",
   "shortdescription" : "Busty Soft Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundssoft",

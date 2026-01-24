@@ -5,10 +5,15 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",
-  "description" : "Such impressive boobs you have. If they weren't dwarfed by a big fat gut.",
+  "description" : "Such impressive boobs you have. If only they weren't dwarfed by a big fat gut.",
   "shortdescription" : "Busty Fatty Belly",
   "tooltipKind" : "starpoundsarmor",
-  "statusEffects": [ "starpoundsfatty", "starpoundsbusty" ],
+  "bypassNude" : true,
+  
+  "statusEffects": [
+    "starpoundsfatty",
+    "starpoundsbusty"
+  ],
 
   "maleFrames" : {
     "body" : "fatty_chestm.png",

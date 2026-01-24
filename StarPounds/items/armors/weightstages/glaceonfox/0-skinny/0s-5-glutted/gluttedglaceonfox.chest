@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "Such a huge belly that will definitely result in plenty of fat later.",
+  "description" : "Either you're just that gluttonous or your stomach is quite elastic.",
   "shortdescription" : "Glutted Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",

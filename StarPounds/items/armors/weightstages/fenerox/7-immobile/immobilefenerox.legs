@@ -8,6 +8,7 @@
   "description" : "So big. So blubbery. Feeling exhausted.",
   "shortdescription" : "Immobile Body",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsimmobile"

@@ -8,6 +8,7 @@
   "description" : "Any greater and these Great Balls might actually be able to capture another Pokémon.",
   "shortdescription" : "Hyper Thick Bust",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsthick",

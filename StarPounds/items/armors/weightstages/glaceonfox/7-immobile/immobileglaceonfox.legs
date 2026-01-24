@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "legwear",  
-  "description" : "While you're definitely an impressive specimen, you also may now be stuck.",
+  "description" : "Now you can't even move fatty. Your gluttony knows no bounds.",
   "shortdescription" : "Immobile Body",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsimmobile"

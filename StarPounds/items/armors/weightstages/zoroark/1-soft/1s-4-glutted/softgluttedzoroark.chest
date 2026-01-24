@@ -8,6 +8,7 @@
   "description" : "Even illusions would struggle to hide this much food in a gut.",
   "shortdescription" : "Glutted Soft Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundssoft",

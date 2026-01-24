@@ -8,6 +8,7 @@
   "description" : "I think your ability has changed to Thick Fat, given your gut can rest on tables now.",
   "shortdescription" : "Plump Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsplump"

@@ -8,7 +8,12 @@
   "description" : "Someone is a bit well developed.",
   "shortdescription" : "Hyper Bust",
   "tooltipKind" : "starpoundsarmor",
-  "statusEffects": [ "starpounds", "starpoundshyper" ],
+  "bypassNude" : true,
+  
+  "statusEffects": [
+    "starpounds",
+    "starpoundshyper"
+  ],
 
   "maleFrames" : {
     "body" : "chestm.png",

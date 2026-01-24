@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "a big crusty sean order isn't gonna make up for your out of shape body.",
+  "description" : "A big Crusty Sean order isn't gonna make up for your out of shape body.",
   "shortdescription" : "Stuffed Soft Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundssoft",

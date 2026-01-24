@@ -8,6 +8,7 @@
   "description" : "That meal is certain to put some more pounds on your fluffy figure.",
   "shortdescription" : "Filled Thick Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsthick",

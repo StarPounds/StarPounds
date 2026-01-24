@@ -8,6 +8,7 @@
   "description" : "When your gut is resting on a table, you're like a big fat turkey.",
   "shortdescription" : "Hyper Plump Bust",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsplump",

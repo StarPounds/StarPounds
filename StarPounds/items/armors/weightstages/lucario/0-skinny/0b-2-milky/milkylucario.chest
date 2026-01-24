@@ -6,8 +6,9 @@
   "rarity" : "legendary",
   "category" : "chestwear",  
   "description" : "Any way to hold excess aura should be celebrated, even if your chest becomes a bit sloshy in the process.",
-  "shortdescription" : "Xbusty Bust",
+  "shortdescription" : "XBusty Bust",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",

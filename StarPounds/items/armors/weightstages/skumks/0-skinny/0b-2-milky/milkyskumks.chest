@@ -8,6 +8,7 @@
   "description" : "You can hear the sloshing with every bounce.",
   "shortdescription" : "XBusty Bust",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",

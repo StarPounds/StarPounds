@@ -8,7 +8,12 @@
   "description" : "You might be a bit out of shape but at least you got some boob to balance it.",
   "shortdescription" : "Busty Soft Belly",
   "tooltipKind" : "starpoundsarmor",
-  "statusEffects": [ "starpoundssoft", "starpoundsbusty" ],
+  "bypassNude" : true,
+  
+  "statusEffects": [
+    "starpoundssoft",
+    "starpoundsbusty"
+  ],
 
   "maleFrames" : {
     "body" : "chestm.png",

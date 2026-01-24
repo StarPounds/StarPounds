@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "Topped off to perfection. Either you're intentionally becoming a shapely ice fox, or you've given up on stopping yourself.",
+  "description" : "Is this a sign you've given up on losing weight? Or can you not stop yourself?",
   "shortdescription" : "Gorged Chubby Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster",

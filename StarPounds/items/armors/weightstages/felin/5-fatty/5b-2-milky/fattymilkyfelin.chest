@@ -8,6 +8,7 @@
   "description" : "From a certain angle, your chest can give the illusion your stomach isn't as big as it is.",
   "shortdescription" : "XBusty Fatty Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsfatty",

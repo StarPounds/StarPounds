@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "legwear",  
-  "description" : "Thighs touching one another? Seems like someone is a bit thicker than most.",
+  "description" : "Your hips are a bit flared. No stick legs for you.",
   "shortdescription" : "Soft Legs",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundssoft"

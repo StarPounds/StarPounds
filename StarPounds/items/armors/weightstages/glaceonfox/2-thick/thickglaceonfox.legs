@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "legwear",  
-  "description" : "Thick thighs that would be tempting to sway if it weren't for the risk of knocking things over.",
+  "description" : "Thighs touching one another? Seems like someone is a bit thicker than most.",
   "shortdescription" : "Thick Legs",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsthick"

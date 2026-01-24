@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "It's a bit of arm fatty that can't be missed.",
+  "description" : "Your gut is the size of a person. You're just a hopeless, fat glutton.",
   "shortdescription" : "Fatty Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsfatty"

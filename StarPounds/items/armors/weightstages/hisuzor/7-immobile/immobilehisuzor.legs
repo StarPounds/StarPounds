@@ -8,6 +8,7 @@
   "description" : "Pokémon battles may be out of the question now. Pokémon eating contests, on the other hand...",
   "shortdescription" : "Immobile Body",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsimmobile"

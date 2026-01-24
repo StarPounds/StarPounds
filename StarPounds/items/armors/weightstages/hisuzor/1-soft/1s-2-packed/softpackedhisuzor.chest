@@ -8,6 +8,7 @@
   "description" : "An illusion could still hide your belly... as long as you don't hit anything with it.",
   "shortdescription" : "Packed Soft Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundssoft",

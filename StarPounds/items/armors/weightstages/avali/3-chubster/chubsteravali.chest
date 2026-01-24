@@ -8,6 +8,7 @@
   "description" : "So wide, so chubby. This turkey is quite wobbly.",
   "shortdescription" : "Chubby Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster"

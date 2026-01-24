@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "Nothing like a round belly to showoff how much of an eater you are.",
+  "description" : "First sign of being out of shape is a soft gut that can't be sucked in.",
   "shortdescription" : "Thick Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsthick"

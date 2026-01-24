@@ -8,7 +8,12 @@
   "description" : "Tables must fear a rack of that size.",
   "shortdescription" : "Hyper Plump Bust",
   "tooltipKind" : "starpoundsarmor",
-  "statusEffects": [ "starpoundsplump", "starpoundshyper" ],
+  "bypassNude" : true,
+  
+  "statusEffects": [
+    "starpoundsplump",
+    "starpoundshyper"
+  ],
 
   "maleFrames" : {
     "body" : "chestm.png",

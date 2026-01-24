@@ -8,6 +8,7 @@
   "description" : "Look at the bright side, you would be a good mobile barricade for your teammates. You can still move, right?",
   "shortdescription" : "Blobby Body",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsblob"

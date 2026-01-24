@@ -8,6 +8,7 @@
   "description" : "Many would call you a master at storing aura like this... though no one would be against you going further.",
   "shortdescription" : "Hyper Plump Bust",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsplump",

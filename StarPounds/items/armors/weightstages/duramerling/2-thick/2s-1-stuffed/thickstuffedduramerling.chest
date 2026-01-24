@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "Even a kimono won't hide the start of a gut you got there.",
+  "description" : "A bit out of shape and having a big meal, huh?",
   "shortdescription" : "Stuffed Thick Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsthick",

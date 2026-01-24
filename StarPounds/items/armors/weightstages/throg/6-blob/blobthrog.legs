@@ -8,6 +8,7 @@
   "description" : "A body like this is befitting of worship.",
   "shortdescription" : "Blobby Body",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsblob"

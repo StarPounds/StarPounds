@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "Your gut is the size of a person, you're just a hopeless, fat glutton.",
+  "description" : "From a certain angle, your chest can give the illusion your stomach isn't as big as it is.",
   "shortdescription" : "XBusty Fatty Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsfatty",

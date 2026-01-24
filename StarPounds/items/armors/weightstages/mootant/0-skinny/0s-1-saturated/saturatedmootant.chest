@@ -8,7 +8,12 @@
   "description" : "Got a nice small gut from that meal you just had.",
   "shortdescription" : "Saturated Belly",
   "tooltipKind" : "starpoundsarmor",
-  "statusEffects": [ "starpounds", "starpoundssaturated" ],
+  "bypassNude" : true,
+  
+  "statusEffects": [
+    "starpounds",
+    "starpoundssaturated"
+  ],
 
   "maleFrames" : {
     "body" : "chestm.png",

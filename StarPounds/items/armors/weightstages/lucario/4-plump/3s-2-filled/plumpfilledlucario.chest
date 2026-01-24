@@ -6,8 +6,9 @@
   "rarity" : "legendary",
   "category" : "chestwear",  
   "description" : "You seem to be swelling with power, as the power of aura now allows you to rest your heavy burden on tables.",
-  "shortdescription" : "Filled Plump Lucario Belly",
+  "shortdescription" : "Filled Plump Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsplump",

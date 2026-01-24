@@ -8,6 +8,7 @@
   "description" : "Since your belly weighs more than the average Lucario, you should have at least two times the average amount of aura!... Theoretically.",
   "shortdescription" : "Gorged Plump Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsplump",

@@ -8,6 +8,7 @@
   "description" : "Aura or not, whatever is in that belly isn't going away any time soon. Neither will the pounds.",
   "shortdescription" : "Gorged Soft Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundssoft",

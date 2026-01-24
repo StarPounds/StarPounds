@@ -8,7 +8,11 @@
   "description" : "A rear the size of a couch? You're really out of shape.",
   "shortdescription" : "Plump Legs",
   "tooltipKind" : "starpoundsarmor",
-  "statusEffects": [ "starpoundsplump" ],
+  "bypassNude" : true,
+  
+  "statusEffects": [
+    "starpoundsplump"
+  ],
 
   "maleFrames" : "pantsM.png",
   "femaleFrames" : "pantsF.png"

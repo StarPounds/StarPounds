@@ -8,6 +8,7 @@
   "description" : "Getting a belly this big doesn't come from just aura. Are you bulking?",
   "shortdescription" : "Packed Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",

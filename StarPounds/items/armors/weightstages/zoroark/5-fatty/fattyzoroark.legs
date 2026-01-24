@@ -8,6 +8,7 @@
   "description" : "I bet most people assume at your size you're a Snorlax before figuring out you're a Zoroark.",
   "shortdescription" : "Fatty Legs",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsfatty"

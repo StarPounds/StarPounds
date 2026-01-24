@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "An enourmous belly. It's hard to reach over yourself to stick more food in your mouth.",
+  "description" : "When your gut is resting on a table, it's pretty fat, porky.",
   "shortdescription" : "Plump Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsplump"

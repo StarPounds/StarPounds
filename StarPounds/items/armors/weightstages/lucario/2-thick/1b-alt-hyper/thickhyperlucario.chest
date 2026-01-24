@@ -8,6 +8,7 @@
   "description" : "What jiggly breasts you have... for aura storage. Yes. Only for aura.",
   "shortdescription" : "Hyper Thick Bust",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsthick",

@@ -8,6 +8,7 @@
   "description" : "Ultra Balls can only wish they could hold what you have in here. At least that gut supports them well.",
   "shortdescription" : "XBusty Fatty Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsfatty",

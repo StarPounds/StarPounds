@@ -8,6 +8,7 @@
   "description" : "Flabby arms. Pudgy cheeks. So big...",
   "shortdescription" : "Blobby Arms",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsimmobile"

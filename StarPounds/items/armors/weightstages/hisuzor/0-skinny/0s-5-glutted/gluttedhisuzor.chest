@@ -8,6 +8,7 @@
   "description" : "Seems like you're a Snorlax in a Zoroark's body with how much you've put away.",
   "shortdescription" : "Glutted Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",

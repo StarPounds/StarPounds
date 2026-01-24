@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "When your gut is resting on a table, you're like a big fat turkey.",
-  "shortdescription" : "Filled Plump Avikan Belly",
+  "description" : "A meal like this must just be an appetizer for you.",
+  "shortdescription" : "Filled Plump Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsplump",

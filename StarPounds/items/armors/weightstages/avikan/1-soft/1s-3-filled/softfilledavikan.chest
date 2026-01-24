@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "First sign of being out of shape is a soft gut that can't be sucked in. Too much stuffing probably.",
+  "description" : "No wonder you've packed on weight with meals like this.",
   "shortdescription" : "Filled Soft Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundssoft",

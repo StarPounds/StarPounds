@@ -8,6 +8,7 @@
   "description" : "Seems like you had a few too many berries, eh?",
   "shortdescription" : "Saturated Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",

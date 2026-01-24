@@ -5,10 +5,16 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "Got some real nice melons there.",
-  "shortdescription" : "Hyper Thick Bust",
-  "tooltipKind" : "armor",
+  "description" : "Quite a large meal you've had with that big gut.",
+  "shortdescription" : "Hyper Stuffed Bust",
+  "tooltipKind" : "starpoundsarmor",
   "bypassNude" : true,
+
+  "statusEffects": [
+    "starpoundsthick",
+    "starpoundshyper",
+    "starpoundsstuffed"
+  ],
 
   "maleFrames" : {
     "body" : "chestm.png",

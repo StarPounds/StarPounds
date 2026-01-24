@@ -8,6 +8,7 @@
   "description" : "Poké Puffs may sate you... though I doubt it.",
   "shortdescription" : "Filled Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",

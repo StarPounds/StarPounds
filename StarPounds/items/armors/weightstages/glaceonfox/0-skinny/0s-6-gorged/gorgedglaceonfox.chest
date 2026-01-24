@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "A belly this full will definitely slow you down soon enough.",
+  "description" : "Every pound in your stomach you can feel turning into fat right now.",
   "shortdescription" : "Gorged Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",

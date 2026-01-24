@@ -8,6 +8,7 @@
   "description" : "First sign of being out of shape is a soft gut that can't be sucked in.",
   "shortdescription" : "Thick Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsthick"

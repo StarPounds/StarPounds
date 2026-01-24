@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "First sign of being out of shape is a soft gut that can't be sucked in. Too much stuffing probably.",
+  "description" : "It's okay that you've got a bit of a belly. Those sloshing milkers are hiding it.",
   "shortdescription" : "XBusty Thick Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsthick",

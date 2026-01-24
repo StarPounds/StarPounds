@@ -6,8 +6,9 @@
   "rarity" : "legendary",
   "category" : "chestwear",  
   "description" : "I think your ability has changed to Thick Fat, given your gut can rest on tables now.",
-  "shortdescription" : "Stuffed Plump Hisuian Zoroark Belly",
+  "shortdescription" : "Stuffed Plump Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsplump",

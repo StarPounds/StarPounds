@@ -8,6 +8,7 @@
   "description" : "Aim the eight ball, be the eight ball.",
   "shortdescription" : "Gorged Fatty Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsfatty",

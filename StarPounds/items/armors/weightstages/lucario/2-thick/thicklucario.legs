@@ -8,6 +8,7 @@
   "description" : "While a unique way to grow one's aura, gaining enough to have your thighs touch is a promising sign.",
   "shortdescription" : "Thick Legs",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsthick"

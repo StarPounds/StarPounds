@@ -8,6 +8,7 @@
   "description" : "Did you escape from a Miniknog fattening labatory? You're massive.",
   "shortdescription" : "Immobile Body",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsimmobile"

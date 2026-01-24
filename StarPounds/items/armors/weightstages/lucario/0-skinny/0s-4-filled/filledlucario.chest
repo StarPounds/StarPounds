@@ -8,6 +8,7 @@
   "description" : "This is some pretty heavy bulking at this point.",
   "shortdescription" : "Filled Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",

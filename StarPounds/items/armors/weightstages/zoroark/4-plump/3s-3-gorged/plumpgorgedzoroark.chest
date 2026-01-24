@@ -8,6 +8,7 @@
   "description" : "It seems you've learned Stockpile too, given the food in your stomach is heavier than most trainers.",
   "shortdescription" : "Gorged Plump Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsplump",

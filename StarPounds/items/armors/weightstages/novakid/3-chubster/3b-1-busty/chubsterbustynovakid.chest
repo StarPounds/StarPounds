@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "So wide, so chubby. You're rounding out to be a proper star.",
+  "description" : "It's hard to tell your boobs are that big with a gut that still dwarfs them.",
   "shortdescription" : "Busty Chubby Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster",

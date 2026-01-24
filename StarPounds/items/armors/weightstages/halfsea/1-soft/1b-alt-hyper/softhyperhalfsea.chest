@@ -8,6 +8,7 @@
   "description" : "Got some real nice melons there.",
   "shortdescription" : "Hyper Soft Bust",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundssoft",

@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "A nice amount of snacks, plenty to keep you going.",
+  "description" : "You certainly ain't gonna lose that chub with a meal like this.",
   "shortdescription" : "Packed Soft Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundssoft",

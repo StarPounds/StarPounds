@@ -8,6 +8,7 @@
   "description" : "How much bigger can your belly get? You're bound to find out sooner or later.",
   "shortdescription" : "Filled Fatty Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsfatty",

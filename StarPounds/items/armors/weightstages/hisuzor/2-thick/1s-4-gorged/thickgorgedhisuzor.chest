@@ -8,6 +8,7 @@
   "description" : "Good luck struting this food filled tank of fatty fluff. You'll need it.",
   "shortdescription" : "Gorged Thick Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsthick",

@@ -8,7 +8,12 @@
   "description" : "You won't be just thick with meals like this.",
   "shortdescription" : "Gorged Soft Belly",
   "tooltipKind" : "starpoundsarmor",
-  "statusEffects": [ "starpoundssoft", "starpoundsgorged" ],
+  "bypassNude" : true,
+  
+  "statusEffects": [
+    "starpoundssoft",
+    "starpoundsgorged"
+  ],
 
   "maleFrames" : {
     "body" : "chestm.png",

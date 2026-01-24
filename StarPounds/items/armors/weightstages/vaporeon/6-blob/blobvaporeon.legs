@@ -8,6 +8,7 @@
   "description" : "All those whale jokes were a bit much before. But now? You literaly are whale sized.",
   "shortdescription" : "Blobby Body",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsblob"

@@ -8,6 +8,7 @@
   "description" : "Either you're just that gluttonous or your body sure is quite elastic.",
   "shortdescription" : "Glutted Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",

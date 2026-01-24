@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "When your gut is resting on a table, it's pretty fat porky.",
+  "description" : "The food in your stomach weighs more than a person, tubs.",
   "shortdescription" : "Gorged Plump Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsplump",

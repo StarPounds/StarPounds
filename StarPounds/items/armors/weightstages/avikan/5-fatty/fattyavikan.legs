@@ -8,6 +8,7 @@
   "description" : "We seem to have the largest turkey in the galaxy with you around!",
   "shortdescription" : "Fatty Legs",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsfatty"

@@ -8,6 +8,7 @@
   "description" : "I hope you didn't just swallow an aura sphere.",
   "shortdescription" : "Saturated Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",

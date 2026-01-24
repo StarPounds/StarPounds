@@ -8,7 +8,12 @@
   "description" : "No wonder you've been packing on the pounds with that much food eaten.",
   "shortdescription" : "Filled Chubby Belly",
   "tooltipKind" : "starpoundsarmor",
-  "statusEffects": [ "starpoundschubster", "starpoundsfilled" ],
+  "bypassNude" : true,
+  
+  "statusEffects": [
+    "starpoundschubster",
+    "starpoundsfilled"
+  ],
 
   "maleFrames" : {
     "body" : "chestm.png",

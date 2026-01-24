@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "Nothing like a round belly to showoff how much of an eater you are.",
+  "description" : "A bit out of shape and having a big meal, huh?",
   "shortdescription" : "Stuffed Thick Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsthick",

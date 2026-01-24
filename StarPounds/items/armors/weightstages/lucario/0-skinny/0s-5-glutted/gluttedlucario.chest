@@ -8,6 +8,7 @@
   "description" : "With how much you're managing to bulk up, I doubt you'll be able to exercise it off soon.",
   "shortdescription" : "Glutted Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",

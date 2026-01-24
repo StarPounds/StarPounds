@@ -8,6 +8,7 @@
   "description" : "Trading in offensive EVs for defensive ones, eh? At least an illusion might hide that soft gut you're growing.",
   "shortdescription" : "Thick Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsthick"

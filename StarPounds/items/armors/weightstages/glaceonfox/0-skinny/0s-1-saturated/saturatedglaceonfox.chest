@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "A nice small belly from a small snack.",
+  "description" : "Got a nice small gut from that meal you just had.",
   "shortdescription" : "Saturated Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",

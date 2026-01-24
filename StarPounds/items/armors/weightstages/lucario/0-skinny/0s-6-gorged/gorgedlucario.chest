@@ -1,0 +1,29 @@
+{
+  "itemName" : "gorgedlucariochest",
+  "price" : 0,  
+  "inventoryIcon" : "icons.png:chest",
+  "maxStack" : 1,
+  "rarity" : "legendary",
+  "category" : "chestwear",  
+  "description" : "Forget exercise you glutton. Better prepare to be the fattest Lucario anyone has ever seen!",
+  "shortdescription" : "Gorged Belly",
+  "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
+  
+  "statusEffects": [
+    "starpounds",
+    "starpoundsgorged"
+  ],
+
+  "maleFrames" : {
+    "body" : "chest.png",
+    "backSleeve" : "bsleeve.png",
+    "frontSleeve" : "fsleeve.png"
+  },
+
+  "femaleFrames" : {
+    "body" : "chest.png",
+    "backSleeve" : "bsleeve.png",
+    "frontSleeve" : "fsleeve.png"
+  }
+}

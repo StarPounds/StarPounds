@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "legwear",  
-  "description" : "Giant, fluffy, door-jamming hips. Perfectly rounded and soft for plopping down on.",
+  "description" : "Log sized legs, door jamming hips, ultra soft rear. You've been snacking heavily.",
   "shortdescription" : "Chubby Legs",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster"

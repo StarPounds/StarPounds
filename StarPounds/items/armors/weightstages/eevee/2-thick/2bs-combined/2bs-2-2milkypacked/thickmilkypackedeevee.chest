@@ -5,10 +5,16 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",
-  "description" : "It's okay that you got a bit of a belly. Those sloshing milkers are hiding it.",
+  "description" : "It's okay that you've got a bit of a belly. Those sloshing milkers are hiding it.",
   "shortdescription" : "XBusty Thick Belly",
-  "tooltipKind" : "armor",
+  "tooltipKind" : "starpoundsarmor",
   "bypassNude" : true,
+  
+  "statusEffects": [
+    "starpoundsthick",
+	"starpoundsmilky",
+    "starpoundspacked" 
+  ],
 
   "maleFrames" : {
     "body" : "chestm.png",

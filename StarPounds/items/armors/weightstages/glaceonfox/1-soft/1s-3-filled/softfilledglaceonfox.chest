@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "Just needed to top off on those chips, hm?",
+  "description" : "No wonder you've packed on weight with meals like this.",
   "shortdescription" : "Filled Soft Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundssoft",

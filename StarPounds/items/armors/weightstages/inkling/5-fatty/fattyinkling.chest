@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "Your gut alone is enough to jam the locker's room, you fat glutton.",
+  "description" : "Your gut alone is enough to jam the locker room door, you fat glutton.",
   "shortdescription" : "Fatty Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsfatty"

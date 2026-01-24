@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",
-  "description" : "Someone seems to have gotten into the dairy products.",
+  "description" : "It's okay that you've got a bit of a belly. Those sloshing milkers are hiding it.",
   "shortdescription" : "XBusty Thick Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsthick",

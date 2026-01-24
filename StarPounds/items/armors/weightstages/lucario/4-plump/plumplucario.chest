@@ -8,6 +8,7 @@
   "description" : "You seem to be swelling with power, as the power of aura now allows you to rest your heavy burden on tables.",
   "shortdescription" : "Plump Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsplump"

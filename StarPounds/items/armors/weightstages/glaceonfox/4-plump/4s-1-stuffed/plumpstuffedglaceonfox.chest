@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "Someone must've helped themselves to the soft serve.",
+  "description" : "It's hard to even tell you've just eaten.",
   "shortdescription" : "Stuffed Plump Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsplump",

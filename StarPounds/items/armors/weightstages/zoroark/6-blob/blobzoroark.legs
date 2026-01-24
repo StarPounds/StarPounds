@@ -8,6 +8,7 @@
   "description" : "Most Guzzlords can only dream of being able to eat to this size... and you're living it, fatso.",
   "shortdescription" : "Blobby Body",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsblob"

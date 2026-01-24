@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "Completely full of snacks. Can you even fit a nibble more?",
+  "description" : "You won't be just thick with meals like this.",
   "shortdescription" : "Gorged Soft Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundssoft",

@@ -8,6 +8,7 @@
   "description" : "Seems like your Poké Balls have to evolved to Great Balls at this size. Can't forget that growing belly either.",
   "shortdescription" : "Busty Chubby Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster",

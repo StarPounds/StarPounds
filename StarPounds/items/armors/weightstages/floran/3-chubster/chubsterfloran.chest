@@ -8,6 +8,7 @@
   "description" : "So wide, so chubby. Someone's been eating well, gonna be hard to hunt though when you can hardly see your feet.",
   "shortdescription" : "Chubby Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster"

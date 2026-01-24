@@ -8,7 +8,11 @@
   "description" : "That butt is an absolute dumptruck. Only good for sitting down every single day.",
   "shortdescription" : "Fatty Legs",
   "tooltipKind" : "starpoundsarmor",
-  "statusEffects": [ "starpoundsfatty" ],
+  "bypassNude" : true,
+  
+  "statusEffects": [
+    "starpoundsfatty"
+  ],
 
   "maleFrames" : "pantsM.png",
   "femaleFrames" : "pantsF.png"

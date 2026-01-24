@@ -8,6 +8,7 @@
   "description" : "It's hard to think fast food is your passion when all that blubber can't fit through those double wide doors.",
   "shortdescription" : "Blobby Body",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsblob"

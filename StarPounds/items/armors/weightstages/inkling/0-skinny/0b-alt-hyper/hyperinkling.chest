@@ -8,6 +8,7 @@
   "description" : "you could match an idol popularity just with those.",
   "shortdescription" : "Hyper Bust",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",

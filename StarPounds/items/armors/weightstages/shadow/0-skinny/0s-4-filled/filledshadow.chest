@@ -8,6 +8,7 @@
   "description" : "You can start visualizing how much padding you're gonna get from all this food.",
   "shortdescription" : "Filled Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",

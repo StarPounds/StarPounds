@@ -8,6 +8,7 @@
   "description" : "Too much of a beer belly there partner.",
   "shortdescription" : "Hyper Thick Bust",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsthick",

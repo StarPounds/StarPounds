@@ -8,6 +8,7 @@
   "description" : "Ultra Balls can only wish they could hold what you have in here.",
   "shortdescription" : "Hyper Plump Bust",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsplump",

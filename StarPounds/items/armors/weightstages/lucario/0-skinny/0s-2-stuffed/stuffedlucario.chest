@@ -8,6 +8,7 @@
   "description" : "Last I checked, aura doesn't cause bloating in your stomach.",
   "shortdescription" : "Stuffed Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",

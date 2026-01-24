@@ -8,6 +8,7 @@
   "description" : "The struggle to move this gut is immense, but the power it brings must be worth the effort.",
   "shortdescription" : "Glutted Soft Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundssoft",

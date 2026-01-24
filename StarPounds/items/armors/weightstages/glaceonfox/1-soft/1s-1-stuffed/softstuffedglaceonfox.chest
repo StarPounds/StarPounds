@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "A muffin top full of muffins, no doubt.",
+  "description" : "A bit out of shape and having a big meal, huh?",
   "shortdescription" : "Stuffed Soft Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundssoft",

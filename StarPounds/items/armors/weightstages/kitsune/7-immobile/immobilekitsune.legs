@@ -8,6 +8,7 @@
   "description" : "Now you can't even move fatty. Your gluttony knows no bounds.",
   "shortdescription" : "Immobile Body",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsimmobile"

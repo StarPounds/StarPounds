@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "When your gut is resting on a table, you're like a big fat turksey.",
+  "description" : "It's hard to even tell you've just eaten.",
   "shortdescription" : "Stuffed Plump Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsplump",

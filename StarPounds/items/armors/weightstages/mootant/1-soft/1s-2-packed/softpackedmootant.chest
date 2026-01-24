@@ -8,7 +8,12 @@
   "description" : "You certainly ain't gonna lose that chub with a meal like this.",
   "shortdescription" : "Packed Soft Belly",
   "tooltipKind" : "starpoundsarmor",
-  "statusEffects": [ "starpoundssoft", "starpoundspacked" ],
+  "bypassNude" : true,
+  
+  "statusEffects": [
+    "starpoundssoft",
+    "starpoundspacked"
+  ],
 
   "maleFrames" : {
     "body" : "chestm.png",

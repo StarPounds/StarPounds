@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "This extra large shirt wraps a dark void around the wearer.",
+  "description" : "Quite a large meal you've had with that big gut.",
   "shortdescription" : "Stuffed Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",

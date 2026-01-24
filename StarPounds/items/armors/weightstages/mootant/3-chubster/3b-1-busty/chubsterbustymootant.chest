@@ -8,7 +8,12 @@
   "description" : "It's hard to tell your boobs are that big with a gut that still dwarfs them.",
   "shortdescription" : "Busty Chubby Belly",
   "tooltipKind" : "starpoundsarmor",
-  "statusEffects": [ "starpoundschubster", "starpoundsbusty" ],
+  "bypassNude" : true,
+  
+  "statusEffects": [
+    "starpoundschubster",
+    "starpoundsbusty"
+  ],
 
   "maleFrames" : {
     "body" : "chestm.png",

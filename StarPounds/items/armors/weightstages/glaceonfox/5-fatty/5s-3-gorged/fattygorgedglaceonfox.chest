@@ -8,6 +8,7 @@
   "description" : "You're absolutely huge now. Is this really as far as you can get though?",
   "shortdescription" : "Gorged Fatty Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsfatty",

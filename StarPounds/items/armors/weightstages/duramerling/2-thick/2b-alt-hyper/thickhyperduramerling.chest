@@ -8,6 +8,7 @@
   "description" : "Even a kimono won't hide the start of a gut you got there.",
   "shortdescription" : "Hyper Thick Bust",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsthick",

@@ -8,6 +8,7 @@
   "description" : "Woe be upon any who cross your path, for your aura is mountainous and great... and your appetite inconceivably vast.",
   "shortdescription" : "Blobby Body",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsblob"

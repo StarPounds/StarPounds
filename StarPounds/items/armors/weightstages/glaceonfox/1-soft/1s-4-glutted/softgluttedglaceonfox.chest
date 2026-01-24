@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "Very full of snacks. Maybe a little too many?",
+  "description" : "Either you're just that gluttonous or your stomach is quite elastic.",
   "shortdescription" : "Glutted Soft Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundssoft",

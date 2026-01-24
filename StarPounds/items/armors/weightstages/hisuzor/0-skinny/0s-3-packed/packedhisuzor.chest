@@ -8,6 +8,7 @@
   "description" : "You know, I heard poffins makes a big belly happy! Have some!",
   "shortdescription" : "Packed Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",

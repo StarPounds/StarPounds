@@ -8,7 +8,12 @@
   "description" : "The food in your stomach weighs more than a person, tubs.",
   "shortdescription" : "Gorged Plump Belly",
   "tooltipKind" : "starpoundsarmor",
-  "statusEffects": [ "starpoundsplump", "starpoundsgorged" ],
+  "bypassNude" : true,
+  
+  "statusEffects": [
+    "starpoundsplump",
+    "starpoundsgorged"
+  ],
 
   "maleFrames" : {
     "body" : "chestm.png",

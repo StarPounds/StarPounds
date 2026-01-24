@@ -8,6 +8,7 @@
   "description" : "You've since passed the point you could try sucking in this gut.",
   "shortdescription" : "Packed Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",

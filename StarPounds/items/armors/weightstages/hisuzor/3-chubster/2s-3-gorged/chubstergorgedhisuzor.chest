@@ -8,6 +8,7 @@
   "description" : "Is this for training at this point? Or can you just not shut your hungry maw anymore?",
   "shortdescription" : "Gorged Chubby Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster",

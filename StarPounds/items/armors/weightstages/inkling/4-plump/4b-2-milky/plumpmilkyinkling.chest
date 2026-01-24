@@ -8,6 +8,7 @@
   "description" : "Those sloshing ink tanks help to obscure that chubby belly of yours.",
   "shortdescription" : "XBusty Plump Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsplump",

@@ -6,9 +6,14 @@
   "rarity" : "legendary",
   "category" : "legwear",  
   "description" : "You're so big, you're good enough to be the large turkey for a parade float.",
-  "shortdescription" : "Immobile Avikan Body",
-  "tooltipKind" : "armor",
-
+  "shortdescription" : "Immobile Body",
+  "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
+  
+  "statusEffects": [ 
+    "starpoundsimmobile"
+  ],
+  
   "maleFrames" : "blob_pantsM.png",
   "femaleFrames" : "blob_pantsF.png"
 }

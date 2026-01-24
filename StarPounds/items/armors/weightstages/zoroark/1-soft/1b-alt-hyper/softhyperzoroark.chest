@@ -8,6 +8,7 @@
   "description" : "Seems like your Poké Balls have to evolved to Great Balls at this size.",
   "shortdescription" : "Hyper Soft Bust",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundssoft",

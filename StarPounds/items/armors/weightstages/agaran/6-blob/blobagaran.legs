@@ -8,6 +8,7 @@
   "description" : "You're as fat as a gluttonist. The peak body of the ultimate hunter.",
   "shortdescription" : "Blobby Body",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsblob"

@@ -8,6 +8,7 @@
   "description" : "It's hard to even tell you've just eaten.",
   "shortdescription" : "Stuffed Plump Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsplump",

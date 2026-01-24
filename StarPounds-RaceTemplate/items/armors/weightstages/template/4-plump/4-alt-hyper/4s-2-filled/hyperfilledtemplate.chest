@@ -5,8 +5,8 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",
-  "description" : "No wonder you've packed on weight with meals like this.",
-  "shortdescription" : "Filled Belly",
+  "description" : "You can start visualizing how much padding you're gonna get from all this food.",
+  "shortdescription" : "Hyper Filled Bust",
   "tooltipKind" : "starpoundsarmor",
   "bypassNude" : true,
 

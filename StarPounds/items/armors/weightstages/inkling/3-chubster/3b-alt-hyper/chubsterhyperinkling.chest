@@ -8,6 +8,7 @@
   "description" : "My, my. Your won't need to recharge with these.",
   "shortdescription" : "Hyper Chubster Bust",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster",

@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "So wide, so chubby. Must've been chosen as an Ascendant to be feasting so much.",
+  "description" : "It's okay. It's hard to tell you've eaten with that much padding.",
   "shortdescription" : "Stuffed Chubby Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster",

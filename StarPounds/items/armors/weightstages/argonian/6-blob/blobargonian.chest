@@ -8,6 +8,7 @@
   "description" : "A bit of arm fatty that can't be missed.",
   "shortdescription" : "Blobby Arms",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsblob"

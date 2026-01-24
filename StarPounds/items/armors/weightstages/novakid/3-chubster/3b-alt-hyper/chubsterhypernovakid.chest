@@ -8,6 +8,7 @@
   "description" : "So wide, so chubby. You're rounding out to be a proper star.",
   "shortdescription" : "Hyper Chubby Bust",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster",

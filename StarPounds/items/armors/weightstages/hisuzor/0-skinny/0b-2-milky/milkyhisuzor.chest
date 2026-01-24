@@ -6,8 +6,9 @@
   "rarity" : "legendary",
   "category" : "chestwear",  
   "description" : "These Poké Balls are rather... sloshy.",
-  "shortdescription" : "Xbusty Bust",
+  "shortdescription" : "XBusty Bust",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpounds",

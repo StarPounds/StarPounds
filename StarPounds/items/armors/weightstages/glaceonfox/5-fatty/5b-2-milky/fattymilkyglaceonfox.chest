@@ -5,9 +5,10 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "Someone's full in ways they probably didn't know they were full. Then again, you probably did this on purpose.",
-  "shortdescription" : "Xbusty Fatty Belly",
+  "description" : "From a certain angle, your chest can give the illusion your stomach isn't as big as it is.",
+  "shortdescription" : "XBusty Fatty Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsfatty",

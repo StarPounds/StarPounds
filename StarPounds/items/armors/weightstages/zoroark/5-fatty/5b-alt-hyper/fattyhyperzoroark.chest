@@ -8,6 +8,7 @@
   "description" : "Forget it, these are Dynamax Balls through and through. Better watch where you throw them!",
   "shortdescription" : "Hyper Fatty Bust",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundsfatty",

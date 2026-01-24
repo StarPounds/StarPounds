@@ -8,7 +8,12 @@
   "description" : "No wonder you've packed on weight with meals like this.",
   "shortdescription" : "Filled Soft Belly",
   "tooltipKind" : "starpoundsarmor",
-  "statusEffects": [ "starpoundssoft", "starpoundsfilled" ],
+  "bypassNude" : true,
+  
+  "statusEffects": [
+    "starpoundssoft",
+    "starpoundsfilled"
+  ],
 
   "maleFrames" : {
     "body" : "chestm.png",

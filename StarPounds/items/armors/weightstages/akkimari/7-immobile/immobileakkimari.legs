@@ -6,9 +6,14 @@
   "rarity" : "legendary",
   "category" : "legwear",  
   "description" : "Now you can't even move fatty. Your gluttony knows no bounds.",
-  "shortdescription" : "Immobile Akkimari Body",
-  "tooltipKind" : "armor",
-
+  "shortdescription" : "Immobile Body",
+  "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
+  
+  "statusEffects": [
+    "starpoundsimmobile"
+  ],
+  
   "maleFrames" : "blob_pantsM.png",
   "femaleFrames" : "blob_pantsF.png"
 }

@@ -8,6 +8,7 @@
   "description" : "What jiggly breasts and belly you have... for aura storage. Yes. Only for aura.",
   "shortdescription" : "XBusty Chubby Belly",
   "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
   
   "statusEffects": [
     "starpoundschubster",
