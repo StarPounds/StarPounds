@@ -26,10 +26,7 @@ function drinking:drink()
   -- Don't bother if there's no liquid around us.
   if not (starPounds.mcontroller.liquidPercentage > 0) then return end
   -- Can only drink if you're below capacity.
-  if starPounds.stomach.fullness >= 1 and not starPounds.moduleFunc("skills", "has", "wellfedProtection") then
-    self.drinkCounter = 0
-    return
-  elseif starPounds.stomach.fullness >= starPounds.settings.thresholds.strain.starpoundsstomach3 then
+  if not starPounds.moduleFunc("stomach", "canEat") then
     self.drinkCounter = 0
     return
   end

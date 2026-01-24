@@ -23,6 +23,6 @@
   "femaleFrames" : {
     "body" : "chestf.png",
     "backSleeve" : "bsleeve.png",
-    "frontSleeve" : "fsleeve.png"
+    "frontSleeve" : "fsleevef.png"
   }
 }

@@ -19,6 +19,8 @@ function pred:init()
   self.struggleVolumeLerp = 0
 
   self.preyCheckTimer = self.data.preyCheckTimer
+
+  self.maxFullness = root.assetJson("/scripts/starpounds/modules/stomach.config:skillFullness")
 end
 
 function pred:update(dt)
@@ -45,7 +47,7 @@ function pred:digest(dt)
   -- Don't do anything if there's no eaten entities.
   if not (#storage.starPounds.stomachEntities > 0) then return end
   -- Eaten entities take less damage the more food/entities the player has eaten (While over capacity). Max of 3x slower.
-  local vorePenalty = math.min(1 + math.max(starPounds.stomach.fullness - starPounds.settings.thresholds.strain.starpoundsstomach3, 0), 3)
+  local vorePenalty = math.min(1 + math.max(starPounds.stomach.fullness - self.maxFullness, 0), 3)
   local damageMultiplier = math.max(1, status.stat("powerMultiplier")) * starPounds.getStat("voreDamage")
   local protectionPierce = math.max(0, starPounds.getStat("voreArmorPiercing"))
   -- Reduce health of all entities.
@@ -92,9 +94,7 @@ function pred:eat(preyId, options, check)
   -- Don't do anything if eaten.
   if storage.starPounds.pred then return false end
   -- Can only eat if you're below capacity.
-  if starPounds.stomach.fullness >= starPounds.settings.thresholds.strain.starpoundsstomach and not starPounds.moduleFunc("skills", "has", "wellfedProtection") and not options.ignoreCapacity then
-    return false
-  elseif starPounds.stomach.fullness >= starPounds.settings.thresholds.strain.starpoundsstomach3 and not options.ignoreCapacity then
+  if not starPounds.moduleFunc("stomach", "canEat") then
     return false
   end
   -- Don't do anything if they're already eaten.
@@ -452,7 +452,6 @@ function pred:digestPrey(preyId, items, preyStomach)
     world.sendEntityMessage(prey.id, "starPounds.prey.newPred", entity.id())
   end
   -- Iterate over and edit the items.
-  local regurgitatedItems = jarray()
   local hasEssence = false
   if digestedEntity.type == "humanoid" then
     -- Add soul effect if we have the skill (and the prey can give experience).
@@ -476,7 +475,7 @@ function pred:digestPrey(preyId, items, preyStomach)
         if starPounds.type == "player" then player.giveItem(scrapItem) end
         hasEssence = true
       else
-        regurgitatedItems[#regurgitatedItems + 1] = scrapItem
+        starPounds.moduleFunc("stomach", "addItem", scrapItem)
       end
     end
   end
@@ -532,18 +531,6 @@ function pred:digestPrey(preyId, items, preyStomach)
 
   if not starPounds.hasOption("disableGurgleSounds") then
     starPounds.moduleFunc("sound", "play", "digest", 0.75, 0.75)
-  end
-
-  if not starPounds.hasOption("disableItemRegurgitation") and (#regurgitatedItems > 0) then
-    if doBelchParticles then
-      world.spawnProjectile("regurgitateditems", starPounds.mcontroller.mouthPosition, entity.id(), vec2.rotate({math.random(1,2) * starPounds.mcontroller.facingDirection, math.random(0, 2)/2}, starPounds.mcontroller.rotation), false, {
-        items = regurgitatedItems
-      })
-    elseif starPounds.type == "player" then
-      for _, regurgitatedItem in pairs(regurgitatedItems) do
-        player.giveItem(regurgitatedItem)
-      end
-    end
   end
 
   starPounds.moduleFunc("stomach", "feed", digestedEntity.base, digestedEntity.foodType)
@@ -795,6 +782,8 @@ function pred:digestClothing(item)
   item.parameters.directives = configParameter(item, "directives", "")..string.rep("?brightness=-20?multiply=e9ffa6?saturation=-20", item.parameters.digestCount)
   item.parameters.colorIndex = nil
   item.parameters.colorOptions = jarray()
+  -- Delete json metadata so we don't store nils.
+  setmetatable(item.parameters, nil)
   return item
 end
 

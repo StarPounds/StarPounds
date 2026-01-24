@@ -27,22 +27,31 @@
       "keepTargetInRange" : 60,
       "targetOutOfSightTime" : 2.5,
 
+      "foundTargetActions" : [ { "name" : "action-aggrohop" } ],
+
       "hostileActions" : [
         {
           "name" : "action-fire",
-          "cooldown" : 3.0,
           "parameters" : {
             "requireLineOfSight" : true,
             "maximumRange" : 15,
-            "minimumRange" : 1,
+            "minimumRange" : 0,
             "windupState" : "windup",
             "windupTime" : 0.9,
 
-            "projectileType" : "mootantmilk",
+            "projectileType" : "starpoundsmootantmilk",
+            "damageRepeatGroup" : "starpoundsmootantmilk",
+            "uniqueRepeatGroup" : true,
+            "projectileParameters" : {
+              "damageRepeatTimeout" : 0.1,
+              "power": 3
+            },
             "aimAtTarget" : true,
-            "fireOffset" : [1, -1],
-            "projectileCount" : 4,
-            "projectileInterval" : 0.066,
+            "fireOffset" : [0.75, -0.5],
+            "inaccuracy": 0.2,
+            "holdAim": true,
+            "projectileCount" : 5,
+            "projectileInterval" : 0.02,
             "fireState" : "fire",
             "fireDelay" : 0.0,
             "fireSound" : "fire",
@@ -51,8 +60,8 @@
             "projectileSpeed": 30,
             "gravityMultiplier": 0.6,
 
-            "winddownState" : "fire",
-            "winddownTime" : 0.5
+            "winddownState" : "idle",
+            "winddownTime" : 3
           }
         }
       ],

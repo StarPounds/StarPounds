@@ -17,7 +17,7 @@
     ],
 
     "behavior" : "monster",
-
+    "behaviorUpdateDelta": 1,
     "behaviorConfig" : {
       "damageOnTouch" : true,
 
@@ -25,41 +25,122 @@
       "targetOnDamage" : true,
       "keepTargetInSight" : true,
       "keepTargetInRange" : 60,
-      "targetOutOfSightTime" : 2.5,
+      "targetOutOfSightTime" : 5,
 
       "foundTargetActions" : [ { "name" : "action-aggrohop" } ],
 
       "hostileActions" : [
+        // Milk Spray
         {
-          "name" : "action-fire",
+          "name" : "action-starpoundsmootantfire",
+          "cooldown" : 10,
           "parameters" : {
             "requireLineOfSight" : true,
-            "maximumRange" : 15,
+            "maximumRange" : 10,
             "minimumRange" : 0,
-            "windupState" : "windup",
-            "windupTime" : 0.9,
+            "windupState" : "spraywindup",
+            "windupTime" : 0.75,
 
-            "projectileType" : "mootantmilk",
+            "projectileType" : "starpoundsmootantmilk",
+            "damageRepeatGroup" : "",
+            "projectileParameters" : {
+              "power": 3,
+              "speed": 30,
+              "knockback": 30,
+              "knockbackDirectional": true
+            },
             "aimAtTarget" : true,
-            "fireOffset" : [1, -1],
-            "inaccuracy": 0.2,
+            "fireOffsets" : [[0.25, -1.625], [2.125, -1.625]],
+            "inaccuracy": 0.5,
             "holdAim": true,
+            "projectileInterval" : 0.0,
             "projectileCount" : 5,
-            "projectileInterval" : 0.02,
             "fireState" : "fire",
-            "fireDelay" : 0.0,
+            "fireDelay" : 0.25,
             "fireSound" : "fire",
 
             "fireArc": true,
             "projectileSpeed": 30,
             "gravityMultiplier": 0.6,
 
-            "winddownState" : "idle",
-            "winddownTime" : 3
+            "winddownState" : "winddown",
+            "winddownTime" : 2.5
+          }
+        },
+        // Milk Rain
+        {
+          "name" : "action-starpoundsmootantfire",
+          "cooldown" : 10,
+          "parameters" : {
+            "requireLineOfSight" : true,
+            "maximumRange" : 45,
+            "minimumRange" : 15,
+            "windupState" : "windup",
+            "windupTime" : 1,
+
+            "projectileType" : "starpoundsmootantmilk",
+            "damageRepeatGroup" : "",
+            "projectileParameters" : {
+              "damageRepeatTimeout" : 0.075,
+              "power": 3,
+              "speed": 50
+            },
+            "aimAtTarget" : true,
+            "fireOffsets" : [[0.25, -1.625], [2.125, -1.625]],
+            "inaccuracy": 0.1,
+            "holdAim": false,
+
+            "projectileCount" : 5,
+            "projectileInterval" : 0.0,
+            "fireState" : "mortarfire",
+            "fireDelay" : 0.25,
+            "fireOffsetDelay" : 0.075,
+            "fireSound" : "fire",
+
+            "highArc": true,
+            "fireArc": true,
+            "projectileSpeed": 50,
+            "gravityMultiplier": 0.6,
+
+            "winddownState" : "winddown",
+            "winddownTime" : 2.5
+          }
+        },
+        // Default
+        {
+          "name" : "action-starpoundsmootantfire",
+          "parameters" : {
+            "requireLineOfSight" : true,
+            "maximumRange" : 15,
+            "minimumRange" : 0,
+            "windupState" : "windup",
+            "windupTime" : 0.375,
+
+            "projectileType" : "starpoundsmootantmilk",
+            "damageRepeatGroup" : "",
+            "projectileParameters" : {
+              "power": 3
+            },
+            "aimAtTarget" : true,
+            "fireOffsets" : [[0.25, -1.625], [2.125, -1.625]],
+            "inaccuracy": 0.2,
+            "holdAim": false,
+            "projectileCount" : 5,
+            "projectileInterval" : 0.2,
+            "fireState" : "fire",
+            "fireDelay" : 0.25,
+            "fireOffsetDelay" : 0.125,
+            "fireSound" : "fire",
+
+            "fireArc": true,
+            "projectileSpeed": 30,
+            "gravityMultiplier": 0.6,
+
+            "winddownState" : "winddown",
+            "winddownTime" : 2.5
           }
         }
       ],
-
       "periodicActions" : [],
 
       "approachActions" : [
@@ -119,16 +200,16 @@
     "deathParticles" : "deathPoof",
 
     "movementSettings" : {
-      "collisionPoly" : [ [1.25, 2.25], [1.55, 2.05],  [1.75, -2.25], [1.35, -3.25],  [-1.35, -3.25], [-1.75, -2.25],  [-1.55, 2.05], [-1.25, 2.25] ],
+      "collisionPoly" : [ [1.75, 1.425], [2.05, 0.925], [2.25, -3.375], [1.25, -4.575], [-1.25, -4.575], [-2.25, -3.375], [-2.05, 0.925], [-1.75, 1.425] ],
       "mass" : 3.0,
       "walkSpeed" : 1.5,
-      "runSpeed" : 26,
+      "runSpeed" : 12,
       "normalGroundFriction" : 42.0
     },
-    "metaBoundBox" : [-2, -2, 2, 2],
+    "metaBoundBox" : [-4, -4.575, 4, 3.425],
 
     "touchDamage" : {
-      "poly" : [ [1.75, 2.55], [2.05, 2.05],  [2.25, -2.25], [1.85, -3.45],  [-1.85, -3.45], [-2.25, -2.25],  [-2.05, 2.05], [-1.75, 2.55] ],
+      "poly" : [ [1.75, 1.425], [2.05, 0.925], [2.25, -3.375], [1.25, -4.575], [-1.25, -4.575], [-2.25, -3.375], [-2.05, 0.925], [-1.75, 1.425] ],
       "damage" : 0,
 
       "teamType" : "enemy",
@@ -188,8 +269,8 @@
       }
     },
 
-    "mouthOffset" : [1.0, -1.5],
-    "feetOffset" : [0, -21],
+    "mouthOffset" : [3.5, -5],
+    "feetOffset" : [0, -36.6],
     "capturable" : true,
     "captureHealthFraction" : 0.5,
     "nametagColor" : [64, 200, 255]

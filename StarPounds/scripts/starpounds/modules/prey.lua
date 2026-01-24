@@ -79,6 +79,10 @@ function prey:eaten(dt)
     -- Stop NPCs attacking.
     npc.endPrimaryFire()
     npc.endAltFire()
+    -- Leave all combat/other NPC groups.
+    if BGroup then
+      BGroup:uninit()
+    end
   end
   if starPounds.type == "monster" then
     pcall(animator.setAnimationState, "body", "idle")
@@ -560,8 +564,8 @@ function prey:die()
       monster.setDropPool(nil)
       monster.setDeathParticleBurst(nil)
       monster.setDeathSound(nil)
-      self.deathBehavior = nil
-      self.shouldDie = true
+      _ENV.self.deathBehavior = nil
+      _ENV.self.shouldDie = true
       status.addEphemeralEffect("monsterdespawn")
     end
     if not storage.starPounds.spectatingPred then

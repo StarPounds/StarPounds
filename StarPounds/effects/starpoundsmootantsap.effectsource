@@ -1,0 +1,23 @@
+{
+  "kind" : "starpoundsmootantsap",
+  "definition" : {
+    "duration" : 0.1,
+    "loops" : true,
+    "start" : {
+      "particles" : [
+        [ "starpoundsmootantsap" ]
+      ],
+      "sounds" : [ [ ] ]
+    },
+    "particles" : [
+      [ "starpoundsmootantsap" ]
+    ],
+    "sounds" : [ [ ] ],
+    "stop" : {
+      "particles" : [
+        [ ]
+      ],
+      "sounds" : [ [ ] ]
+    }
+  }
+}

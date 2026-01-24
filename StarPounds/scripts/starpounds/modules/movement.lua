@@ -26,6 +26,7 @@ function movement:init()
 
   self.mcontroller = self:getController()
   self.effort = 0
+  self.action = "none"
 end
 
 function movement:update(dt)
@@ -33,18 +34,29 @@ function movement:update(dt)
   -- Don't do anything if the mod is disabled.
   if not storage.starPounds.enabled then return end
   self.effort = 0
+  self.action = "none"
   -- Skip this if we're in a sphere.
   if status.stat("activeMovementAbilities") > 1 then return end
   -- Jumping > Running > Walking
   if self.mcontroller.groundMovement then
-    if self.mcontroller.walking then self.effort = self.data.effort.walking end
-    if self.mcontroller.running then self.effort = self.data.effort.running end
+    -- Walking.
+    if self.mcontroller.walking then
+      self.effort = self.data.effort.walking
+      self.action = "walking"
+    end
+    -- Running.
+    if self.mcontroller.running then
+      self.effort = self.data.effort.running
+      self.action = "running"
+    end
     -- Reset jump checker while on ground.
     self.didJump = false
     -- Moving through liquid takes up to 50% more effort.
     self.effort = self.effort * (1 + math.min(math.round(self.mcontroller.liquidPercentage, 1), 0.5))
+    -- Jumping.
   elseif not self.mcontroller.liquidMovement and self.mcontroller.jumping and not self.didJump then
     self.effort = self.data.effort.jumping
+    self.action = "jumping"
   else
     self.didJump = true
   end
@@ -67,7 +79,7 @@ function movement:mouthPosition()
 end
 
 function movement:getEffort()
-  return self.effort
+  return self.effort, self.action
 end
 
 starPounds.modules.movement = movement

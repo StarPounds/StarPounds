@@ -33,12 +33,51 @@
             "cycle" : 0.7
           },
           "windup" : {
-            "frames" : 5,
-            "cycle" : 0.8
+            "frames" : 3,
+            "cycle" : 0.375
+          },
+          "spraywindup" : {
+            "frames" : 3,
+            "cycle" : 0.375,
+            "mode" : "transition",
+            "transition" : "spraywindup2"
+          },
+          "spraywindup2" : {
+            "frames" : 3,
+            "cycle" : 0.375,
+            "frameProperties" : {
+              "immediateSound" : [ "", "/sfx/starpounds/digesting/digesting3.ogg", "" ]
+            },
+            "particleEmittersOn" : [ "milk", "milkBehind" ]
           },
           "fire" : {
-            "frames" : 1,
-            "cycle" : 1.2
+            "frames" : 3,
+            "cycle" : 0.375,
+            "frameProperties" : {
+              "immediateSound" : [ "", "", "/sfx/gun/wormgun3.ogg" ]
+            },
+            "properties" : {
+              "particleEmittersOn" : [ "milk", "milkBehind" ]
+            }
+          },
+          "mortarfire" : {
+            "frames" : 3,
+            "cycle" : 0.375,
+            "frameProperties" : {
+              "immediateSound" : [ "", "/sfx/starpounds/digesting/digesting2.ogg", "/sfx/gun/wormgun3.ogg" ]
+            },
+            "properties" : {
+              "particleEmittersOn" : [ "milk", "milkBehind" ]
+            }
+          },
+          "winddown" : {
+            "frames" : 3,
+            "cycle" : 0.375,
+            "properties" : {
+              "particleEmittersOff" : [ "milk", "milkBehind" ]
+            },
+            "mode" : "transition",
+            "transition" : "idle"
           }
         }
       },
@@ -79,8 +118,9 @@
     "parts" : {
       "body" : {
         "properties" : {
-          "damageArea" : [ [1.75, 2.55], [2.05, 2.05],  [2.25, -2.25], [1.85, -3.45],  [-1.85, -3.45], [-2.25, -2.25],  [-2.05, 2.05], [-1.75, 2.55] ],
           "transformationGroups" : [ "body" ],
+          "offset" : [-0.25, -1.125],
+          "damageArea" : [ [2, 2.55], [2.3, 2.05],  [2.5, -2.25], [1.5, -3.45],  [-1.0, -3.45], [-2, -2.25], [-1.8, 2.05], [-1.5, 2.55] ],
           "zLevel" : 2
         },
 
@@ -113,12 +153,32 @@
             },
             "windup" : {
               "properties" : {
+                "image" : "<partImage>:windup.<frame>"
+              }
+            },
+            "spraywindup" : {
+              "properties" : {
+                "image" : "<partImage>:windup.<frame>"
+              }
+            },
+            "spraywindup2" : {
+              "properties" : {
                 "image" : "<partImage>:ranged.<frame>"
               }
             },
             "fire" : {
               "properties" : {
-                "image" : "<partImage>:ranged.7"
+                "image" : "<partImage>:ranged.<frame>"
+              }
+            },
+            "mortarfire" : {
+              "properties" : {
+                "image" : "<partImage>:ranged.<frame>"
+              }
+            },
+            "winddown" : {
+              "properties" : {
+                "image" : "<partImage>:winddown.<frame>"
               }
             }
           },
@@ -139,6 +199,20 @@
   },
 
   "particleEmitters" : {
+    "milk" : {
+      "emissionRate" : 5.0,
+      "offsetRegion" : [ -0.25, -2.125, 0.25, -1.625],
+      "particles" : [
+        { "particle" : "starpoundsmootantsapleak" }
+      ]
+    },
+    "milkBehind" : {
+      "emissionRate" : 5.0,
+      "offsetRegion" : [ 1.125, -2.125, 1.625, -1.625 ],
+      "particles" : [
+        { "particle" : "starpoundsmootantsapleakbehind" }
+      ]
+    },
     "captureParticles" : {
       "particles" : [
         { "particle" : "monstercapture" }

@@ -1,0 +1,9 @@
+{
+  "name" : "starpoundstreadmill",
+  "effectConfig" : {},
+  "defaultDuration" : 1,
+
+  "scripts" : [
+    "starpoundstreadmill.lua"
+  ]
+}

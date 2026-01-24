@@ -47,5 +47,12 @@
       "path" : "/basicTreasure/0/1/fill/-",
       "value" : {"pool" : "rarelyAccessory"}
     }
+  ],
+  [
+    {
+      "op" : "add",
+      "path" : "/basicTreasure/0/1/fill/-",
+      "value" : {"pool" : "starpoundsMaybeFood"}
+    }
   ]
 ]

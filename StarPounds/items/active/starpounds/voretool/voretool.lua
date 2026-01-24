@@ -4,7 +4,7 @@ function init()
   range = config.getParameter("range", 2.5)
   querySize = config.getParameter("querySize", 0.5)
   activeItem.setHoldingItem(false)
-  script.setUpdateDelta(world.getProperty("nonCombat") and 0 or 1)
+  nonCombat = world.getProperty("nonCombat")
   cooldownFrames = 8
   cooldown = starPounds.moduleFunc("pred", "cooldown")
   lastCooldown = cooldown
@@ -20,6 +20,7 @@ function activate(fireMode, shiftHeld)
   if shiftHeld then
     starPounds.moduleFunc("pred", "release")
   elseif starPounds.moduleFunc("pred", "cooldown") == 0 then
+    if nonCombat then return end
     local mouthPosition = vec2.add(starPounds.mcontroller.mouthPosition, {0, (starPounds.currentSize.yOffset or 0)})
     local aimPosition = activeItem.ownerAimPosition()
     local positionMagnitude = math.min(world.magnitude(mouthPosition, aimPosition), range - querySize - (starPounds.currentSize.yOffset or 0))
@@ -44,6 +45,8 @@ function update(dt, _, shiftHeld)
   local aimPosition = activeItem.ownerAimPosition()
   local aimAngle, aimDirection = activeItem.aimAngleAndDirection(0, aimPosition)
   activeItem.setFacingDirection(aimDirection)
+
+  if nonCombat then return end
 
   updateTick = ((updateTick or 0) % checkUpdateTicks) + 1
   if updateTick == 1 then
@@ -103,4 +106,8 @@ end
 function uninit()
   starPounds.events:off("pred:eatEntity", updateCooldown)
   starPounds.events:off("pred:bite", updateCooldown)
+
+  if wasValid then
+    activeItem.emote("Idle")
+  end
 end

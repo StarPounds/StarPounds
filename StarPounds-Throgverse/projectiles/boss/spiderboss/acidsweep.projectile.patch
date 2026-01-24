@@ -2,6 +2,6 @@
   {
     "op": "add",
     "path": "/statusEffects",
-    "value": [{"effect": "starpoundsfood", "duration": 10}]
+    "value": [{"effect": "starpoundsfood_weaponLiquid", "duration": 10}]
   }
 ]

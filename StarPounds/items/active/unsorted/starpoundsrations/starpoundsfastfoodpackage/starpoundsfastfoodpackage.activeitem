@@ -1,0 +1,24 @@
+{
+  "itemName" : "starpoundsfastfoodpackage",
+  "price" : 25,
+  "level" : 1,
+  "maxStack" : 10,
+  "rarity" : "Common",
+  "category" : "mysteriousReward",
+  "description" : "A package containing an unknown food item perfectly preserved via grease.",
+  "shortdescription" : "Fast Food Package",
+  "twoHanded" : true,
+
+  "inventoryIcon" : "starpoundsfastfoodpackage.png",
+  "animation" : "starpoundsfastfoodpackage.animation",
+  "animationCustom" : {},
+  "scripts" : ["starpoundsfastfoodpackage.lua"],
+
+  "fireTime" : 1.0,
+  "fireOffset" : [1.0, 0.0],
+  
+  "content" : {
+    "type" : "pool",
+    "pool" : "starpoundsFastFoodTreasure"
+  }
+}

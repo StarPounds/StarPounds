@@ -24,7 +24,8 @@ function size:init()
   end
 
   self.canGain = speciesData.weightGain
-
+  -- Fetch thresholds for variants.
+  self.thresholds = root.assetJson("/scripts/starpounds/starpounds_sizes.config:thresholds")
   -- Fetch the first supersize index for future use.
   self.supersizeIndex = math.huge
   for i, size in ipairs(starPounds.sizes) do
@@ -51,6 +52,7 @@ function size:init()
   starPounds.weightMultiplier = 1
   -- Just in case the data is out of range.
   self:setWeight(storage.starPounds.weight)
+  self:updateStats(true)
 end
 
 function size:update(dt)
@@ -179,8 +181,10 @@ function size:updateStats(forceUpdate)
       {stat = "shieldHealth", effectiveMultiplier = 1 + starPounds.getStat("shieldHealth") * bonusEffectiveness},
       {stat = "knockbackThreshold", effectiveMultiplier = 1 - gritReduction},
       {stat = "fallDamageMultiplier", effectiveMultiplier = size.healthMultiplier * (1 - starPounds.getStat("fallDamageResistance"))},
+      {stat = "physicalResistance", amount = starPounds.getStat("physicalResistance") * bonusEffectiveness},
       {stat = "iceResistance", amount = starPounds.getStat("iceResistance") * bonusEffectiveness},
-      {stat = "poisonResistance", amount = starPounds.getStat("poisonResistance") * bonusEffectiveness}
+      {stat = "poisonResistance", amount = starPounds.getStat("poisonResistance") * bonusEffectiveness},
+      {stat = "electricResistance", amount = starPounds.getStat("electricResistance") * bonusEffectiveness}
     }
     -- Probably not optimal, but don't apply effects if they do nothing.
     local filteredPersistentEffects = jarray()
@@ -203,48 +207,56 @@ function size:updateStats(forceUpdate)
 
   if forceUpdate or not (self.controlModifiers and self.controlParameters) then
     local movement = starPounds.getStat("movement")
-    starPounds.movementMultiplier = size.movementMultiplier
+    local movementMultiplier = size.movementMultiplier
     -- If we have the anti-immobile skill, use double the movement penalty of blob instead.
-    local isImmobile = starPounds.movementMultiplier == 0
-    if isImmobile and starPounds.moduleFunc("skills", "has", "preventImmobile") then
-      starPounds.movementMultiplier = starPounds.sizes[sizeIndex - 1].movementMultiplier ^ 2
+    local isImmobileProtected = movementMultiplier == 0 and starPounds.moduleFunc("skills", "has", "preventImmobile")
+    if isImmobileProtected then
+      movementMultiplier = starPounds.sizes[sizeIndex - 1].movementMultiplier
     end
+    -- Store the amount we'd be at without any stat changes.
+    starPounds.baseMovementMultiplier = movementMultiplier
+    starPounds.baseJumpMultiplier = math.max(self.data.minimumJumpMultiplier, movementMultiplier)
     -- Movement stat starts at 0.
     -- Every +1 halves the penalty, every -1 doubles it (multiplicatively).
-    if starPounds.movementMultiplier > 0 then
-      local penalty = 1 - starPounds.movementMultiplier
+    if movementMultiplier > 0 then
+      local penalty = 1 - movementMultiplier
       penalty = penalty * (2 ^ -movement)
-      starPounds.movementMultiplier = 1 - penalty
+      movementMultiplier = 1 - penalty
     end
+    -- Double immobile penalty.
+    if isImmobileProtected then
+      starPounds.baseMovementMultiplier = starPounds.baseMovementMultiplier ^ 2
+      starPounds.baseJumpMultiplier = math.max(self.data.minimumJumpMultiplier, starPounds.baseMovementMultiplier)
+      movementMultiplier = movementMultiplier ^ 2
+    end
+    -- Set global.
+    starPounds.movementMultiplier = movementMultiplier
     -- Jump/Swim math applies after the movement stat calcuation.
     if starPounds.movementMultiplier <= 0 then
       starPounds.movementMultiplier = 0
-      starPounds.jumpModifier = self.data.minimumJumpMultiplier
-      starPounds.swimModifier = self.data.minimumSwimMultiplier
+      starPounds.jumpMultiplier = self.data.minimumJumpMultiplier
+      starPounds.swimMultiplier = self.data.minimumSwimMultiplier
     else
-      starPounds.jumpModifier = math.max(self.data.minimumJumpMultiplier, 1 - ((1 - starPounds.movementMultiplier) * starPounds.getStat("jumpPenalty")))
-      starPounds.swimModifier = math.max(self.data.minimumSwimMultiplier, 1 - ((1 - starPounds.movementMultiplier) * starPounds.getStat("swimPenalty")))
+      starPounds.jumpMultiplier = math.max(self.data.minimumJumpMultiplier, 1 - ((1 - starPounds.movementMultiplier) * starPounds.getStat("jumpPenalty")))
+      starPounds.swimMultiplier = math.max(self.data.minimumSwimMultiplier, 1 - ((1 - starPounds.movementMultiplier) * starPounds.getStat("swimPenalty")))
     end
 
 
-    local updateModifiers = false
-    for _, value in pairs({"movementMultiplier", "jumpModifier", "swimModifier"}) do
+    local updateMultipliers = false
+    for _, value in pairs({"movementMultiplier", "jumpMultiplier", "swimMultiplier"}) do
       if starPounds[value] ~= starPounds[value.."Old"] then
         starPounds[value.."Old"] = starPounds[value]
-        updateModifiers = true
+        updateMultipliers = true
       end
     end
 
-    local movementMultiplier = starPounds.movementMultiplier
-    local weightMultiplier = starPounds.weightMultiplier
-
-    if updateModifiers then
-      self.controlModifiers = weightMultiplier == 1 and {} or {
+    if updateMultipliers then
+      self.controlModifiers = starPounds.weightMultiplier == 1 and {} or {
         groundMovementModifier = movementMultiplier,
-        liquidMovementModifier = starPounds.swimModifier,
+        liquidMovementModifier = starPounds.swimMultiplier,
         speedModifier = movementMultiplier,
-        airJumpModifier = starPounds.jumpModifier,
-        liquidJumpModifier = starPounds.swimModifier
+        airJumpModifier = starPounds.jumpMultiplier,
+        liquidJumpModifier = starPounds.swimMultiplier
       }
       -- Silly, but better than updating modifiers every tick.
       self.controlModifiersAlt = (movementMultiplier < self.data.minimumAltSpeedMultiplier) and sb.jsonMerge(self.controlModifiers, {
@@ -252,7 +264,9 @@ function size:updateStats(forceUpdate)
       }) or nil
     end
 
-    self.controlParameters = weightMultiplier == 1 and {} or {
+    -- weightMultiplier gets set to 0 in tech missions so weight doesn't affect their completion.
+    local weightMultiplier = 1 + (starPounds.weightMultiplier - 1) * starPounds.getStat("weightMultiplier")
+    self.controlParameters = starPounds.weightMultiplier == 1 and {} or {
       mass = parameters.mass * weightMultiplier,
       airForce = parameters.airForce * weightMultiplier,
       groundForce = parameters.groundForce * weightMultiplier,
@@ -298,8 +312,8 @@ function size:getVariant(size)
   local variants = size.variants or jarray()
   local variant = nil
   local thresholdMultiplier = starPounds.currentSize.thresholdMultiplier
-  local breastThresholds = starPounds.settings.thresholds.breasts
-  local stomachThresholds = starPounds.settings.thresholds.stomach
+  local breastThresholds = self.thresholds.breasts
+  local stomachThresholds = self.thresholds.stomach
 
   local breastSize = (starPounds.hasOption("disableBreastGrowth") and 0 or (starPounds.moduleFunc("breasts", "get").contents or 0)) + (
     starPounds.hasOption("busty") and breastThresholds[1].amount * thresholdMultiplier or (
