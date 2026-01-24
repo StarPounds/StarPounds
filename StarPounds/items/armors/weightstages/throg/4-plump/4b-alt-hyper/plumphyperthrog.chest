@@ -1,5 +1,6 @@
 {
   "itemName" : "plumphyperthrogchest",
+  "price" : 0,
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",

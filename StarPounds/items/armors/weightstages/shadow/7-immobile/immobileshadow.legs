@@ -3,7 +3,7 @@
   "price" : 0,
   "inventoryIcon" : "icons.png:pants",
   "maxStack" : 1,
-  "rarity" : "Rare",
+  "rarity" : "legendary",
   "category" : "legwear",
   "description" : "You're more of a black hole than a shadow person.",
   "shortdescription" : "Immobile Body",
