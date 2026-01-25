@@ -9,55 +9,63 @@ function oSB:init()
   self.selectedSlot = nil
   self.consumableCache = {}
   self.notConsumableCache = {}
+
+  self.openStarbound = root.assetJson("/player.config:genericScriptContexts").OpenStarbound or false
+  starPounds.moduleFunc("options", "oSB")
+  -- Load up the toolbar if we have oSB isntalled.
+  if self.openStarbound and not self.loadedToolbar then
+    player.interact("ScriptPane", "/interface/scripted/starpounds/toolbar/toolbar.config")
+    self.loadedToolbar = true
+  end
+end
+
+function oSB:hasOpenStarbound()
+  return self.openStarbound
 end
 
 function oSB:update(dt)
-  -- If we have input access.
-  if input then
-    self:toggleBind()
-    self:menuBinds()
-    self:belchBind()
-    self:drinkBind()
-    self:voreBinds(dt)
-    self:lactateBind(dt)
-  end
+  if not self.hasOpenStarbound then return end
+
+  self:toggleBind()
+  self:menuBinds()
+  self:belchBind()
+  self:drinkBind()
+  self:voreBinds(dt)
+  self:lactateBind(dt)
 
   -- Extended interaction radius at supersize.
-  if player.setInteractRadius then
-    self.offset = starPounds.currentSize.yOffset or 0
-    if self.offset ~= self.offsetOld then
-      player.setInteractRadius(self.interactRadius + math.round(math.abs(self.offset), 2))
-      self.offsetOld = self.offset
-    end
+  self.offset = starPounds.currentSize.yOffset or 0
+  if self.offset ~= self.offsetOld then
+    player.setInteractRadius(self.interactRadius + math.round(math.abs(self.offset), 2))
+    self.offsetOld = self.offset
   end
 
   -- Update food items in the player's hotbar.
-  if player.selectedActionBarSlot then
-    if starPounds.swapSlotItem then self.selectedSlot = nil return end -- Action slots are ignored while we have something in the cursor.
-    local slot = player.selectedActionBarSlot()
-    if type(slot) ~= "number" then self.selectedSlot = nil return end -- Don't run on the essential slots.
-    -- Only update when we change slots/groups. Slot only returns an array, so less data/overhead (Probably).
-    local newSelectedSlot = slot..sb.print(player.actionBarSlotLink(slot, "primary") ~= nil)..player.actionBarGroup()
-    if newSelectedSlot == self.selectedSlot then
-      return
-    end
-    self.selectedSlot = newSelectedSlot
-    -- Checks for primary/alt.
-    for _, slotType in ipairs(self.handSlots) do
-      local item = player[slotType.."HandItem"]()
-      if item and not self.notConsumableCache[item.name] then
-        if self.consumableCache[item.name] or (root.itemType(item.name) == "consumable") then
-          -- Little cache for repeated itemType lookups.
-          if not self.consumableCache[item.name] then self.consumableCache[item.name] = true end
-          if not item.parameters.starpounds_effectApplied then
-            local updated = starPounds.moduleFunc("food", "updateItem", item)
-            if updated then
-              player.setItem(player.actionBarSlotLink(slot, slotType), updated)
-            end
+  if starPounds.swapSlotItem then self.selectedSlot = nil return end -- Action slots are ignored while we have something in the cursor.
+  local slot = player.selectedActionBarSlot()
+  if type(slot) ~= "number" then self.selectedSlot = nil return end -- Don't run on the essential slots.
+
+  -- Only update when we change slots/groups. Slot only returns an array, so less data/overhead (Probably).
+  local newSelectedSlot = slot..sb.print(player.actionBarSlotLink(slot, "primary") ~= nil)..player.actionBarGroup()
+  if newSelectedSlot == self.selectedSlot then
+    return
+  end
+  self.selectedSlot = newSelectedSlot
+  -- Checks for primary/alt.
+  for _, slotType in ipairs(self.handSlots) do
+    local item = player[slotType.."HandItem"]()
+    if item and not self.notConsumableCache[item.name] then
+      if self.consumableCache[item.name] or (root.itemType(item.name) == "consumable") then
+        -- Little cache for repeated itemType lookups.
+        if not self.consumableCache[item.name] then self.consumableCache[item.name] = true end
+        if not item.parameters.starpounds_effectApplied then
+          local updated = starPounds.moduleFunc("food", "updateItem", item)
+          if updated then
+            player.setItem(player.actionBarSlotLink(slot, slotType), updated)
           end
-        elseif not self.notConsumableCache[item.name] then
-          self.notConsumableCache[item.name] = true
         end
+      elseif not self.notConsumableCache[item.name] then
+        self.notConsumableCache[item.name] = true
       end
     end
   end

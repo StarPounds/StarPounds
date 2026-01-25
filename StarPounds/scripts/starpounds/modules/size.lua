@@ -60,6 +60,7 @@ function size:update(dt)
   starPounds.currentVariant = self:getVariant(starPounds.currentSize)
   starPounds.weight = storage.starPounds.weight
   starPounds.weightMultiplier = self:weightMultiplier()
+  starPounds.progress = self:progress()
 
   if starPounds.currentSizeIndex ~= self.oldSizeIndex then
     starPounds.events:fire("sizes:changed", starPounds.currentSizeIndex - (self.oldSizeIndex or 0))
@@ -81,6 +82,7 @@ function size:update(dt)
   self.oldWeightMultiplier = starPounds.weightMultiplier
 
   self:cursorCheck()
+  size:progress()
   self:trackVehicleCap()
   self:equip(self:equipmentConfig(starPounds.currentSizeIndex))
 
@@ -567,6 +569,20 @@ function size:trackVehicleCap()
     end
   end
   self.anchored = anchored
+end
+
+function size:progress()
+  -- Default to 0 if the mod is off.
+  if not (storage.starPounds.enabled and self.canGain) then
+    return 0
+  end
+  -- Progress to next stage.
+  local currentSizeWeight = starPounds.currentSize.weight
+  local nextSizeWeight = starPounds.sizes[starPounds.currentSizeIndex + 1] and starPounds.sizes[starPounds.currentSizeIndex + 1].weight or starPounds.settings.maxWeight
+  if nextSizeWeight ~= starPounds.settings.maxWeight and starPounds.sizes[starPounds.currentSizeIndex + 1].yOffset and starPounds.hasOption("disableSupersize") then
+    nextSizeWeight = starPounds.settings.maxWeight
+  end
+  return math.round((storage.starPounds.weight - currentSizeWeight)/(nextSizeWeight - currentSizeWeight) * 100)
 end
 
 function size:cursorCheck()

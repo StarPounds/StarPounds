@@ -5,7 +5,6 @@ starPounds = getmetatable ''.starPounds
 function init()
   local buttonIcon = string.format("%s.png", starPounds.isEnabled() and "enabled" or "disabled")
   enable:setImage(buttonIcon, buttonIcon, buttonIcon.."?border=2;00000000;00000000?crop=2;3;88;22")
-  options = starPounds.options
   stats = root.assetJson("/scripts/starpounds/modules/stats.config:stats")
   tabs = root.assetJson("/scripts/starpounds/starpounds_options.config:tabs")
   tabs[#tabs + 1] = {
@@ -13,6 +12,19 @@ function init()
     description = "Miscellaneous Options",
     icon = "miscellaneous.png"
   }
+
+  openStarbound = starPounds.moduleFunc("oSB", "hasOpenStarbound")
+  options = {}
+  for i, option in ipairs(starPounds.options) do
+    if not (option.oSBOnly or option.retailOnly) then
+      options[#options + 1] = option
+    elseif option.oSBOnly and openStarbound then
+      options[#options + 1] = option
+    elseif option.retailOnly and not openStarbound then
+      options[#options + 1] = option
+    end
+  end
+
   populateOptions()
 end
 

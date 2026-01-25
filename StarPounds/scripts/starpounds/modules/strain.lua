@@ -31,7 +31,7 @@ function strain:update(dt)
     self.strain = math.max(self.strain - (strainReduction * dt), 0)
   end
   -- Apply tracking effect.
-  if strained and not starPounds.hasOption("disableStrainedMeter") and not status.uniqueStatusEffectActive("starpoundsstrained") then
+  if strained and not starPounds.moduleFunc("oSB", "hasOpenStarbound") and not starPounds.hasOption("disableStrainedMeter") and not status.uniqueStatusEffectActive("starpoundsstrained") then
     status.addEphemeralEffect("starpoundsstrained")
   end
   -- Move speed stuffs.

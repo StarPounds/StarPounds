@@ -8,13 +8,8 @@ end
 function trackers:update(dt)
   -- Don't do anything if the mod is disabled.
   if not storage.starPounds.enabled then return end
-  -- Progress to next stage.
-  local currentSizeWeight = starPounds.currentSize.weight
-  local nextSizeWeight = starPounds.sizes[starPounds.currentSizeIndex + 1] and starPounds.sizes[starPounds.currentSizeIndex + 1].weight or starPounds.settings.maxWeight
-  if nextSizeWeight ~= starPounds.settings.maxWeight and starPounds.sizes[starPounds.currentSizeIndex + 1].yOffset and starPounds.hasOption("disableSupersize") then
-    nextSizeWeight = starPounds.settings.maxWeight
-  end
-  starPounds.progress = math.round((storage.starPounds.weight - currentSizeWeight)/(nextSizeWeight - currentSizeWeight) * 100)
+  -- We don't need status effect trackers if we're running oSB.
+  if starPounds.moduleFunc("oSB", "hasOpenStarbound") then return end
   -- Don't create if we can't add statuses anyway.
   if status.statPositive("statusImmunity") then return end
   -- Don't create if we're eaten.
@@ -50,10 +45,13 @@ end
 function trackers:createStatuses()
   -- Don't do anything if the mod is disabled.
   if not storage.starPounds.enabled then return end
-  local stomachTracker = self:getStomachTracker()
-  local sizeTracker = "starpounds"..starPounds.currentSize.size
   -- Removing them just puts them back in order (Size tracker before stomach tracker)
   self:clearStatuses()
+  -- No statuses if we're running oSB, we have a fancy interface.
+  if starPounds.moduleFunc("oSB", "hasOpenStarbound") then return end
+
+  local stomachTracker = self:getStomachTracker()
+  local sizeTracker = "starpounds"..starPounds.currentSize.size
   if not starPounds.hasOption("disableSizeMeter") then
     status.addEphemeralEffect(sizeTracker)
   end
@@ -71,7 +69,6 @@ function trackers:createStatuses()
 end
 
 function trackers:clearStatuses()
-  local stomachTracker = self:getStomachTracker()
   local sizeTracker = "starpounds"..starPounds.currentSize.size
   self:removeStomachTrackers()
   status.removeEphemeralEffect(sizeTracker)
