@@ -1,0 +1,30 @@
+{
+  "itemName" : "hyperfilledthrogchest",
+  "price" : 0,
+  "inventoryIcon" : "icons.png:chest",
+  "maxStack" : 1,
+  "rarity" : "legendary",
+  "category" : "chestwear",
+  "description" : "You can start visualizing how much padding you're gonna get from all this food.",
+  "shortdescription" : "Hyper Filled Bust",
+  "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
+
+  "statusEffects": [
+    "starpounds",
+    "starpoundshyper",
+    "starpoundsfilled"
+  ],
+
+  "maleFrames" : {
+    "body" : "chestm.png",
+    "backSleeve" : "bsleeve.png",
+    "frontSleeve" : "fsleeve.png"
+  },
+
+  "femaleFrames" : {
+    "body" : "chestf.png",
+    "backSleeve" : "bsleeve.png",
+    "frontSleeve" : "fsleeve.png"
+  }
+}

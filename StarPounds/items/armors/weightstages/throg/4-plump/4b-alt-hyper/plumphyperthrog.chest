@@ -4,12 +4,12 @@
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
-  "category" : "chestwear",  
-  "description" : "You can hear the sloshing with every bounce.",
+  "category" : "chestwear",
+  "description" : "Tables must fear a rack of that size.",
   "shortdescription" : "Hyper Plump Bust",
   "tooltipKind" : "starpoundsarmor",
   "bypassNude" : true,
-  
+
   "statusEffects": [
     "starpoundsplump",
     "starpoundshyper"

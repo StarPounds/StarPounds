@@ -4,12 +4,12 @@
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
-  "category" : "chestwear",  
+  "category" : "chestwear",
   "description" : "Those boobs are as wide as you are tall.",
   "shortdescription" : "Hyper Fatty Bust",
   "tooltipKind" : "starpoundsarmor",
   "bypassNude" : true,
-  
+
   "statusEffects": [
     "starpoundsfatty",
     "starpoundshyper"

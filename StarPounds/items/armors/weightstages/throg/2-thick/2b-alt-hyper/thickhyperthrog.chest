@@ -4,12 +4,12 @@
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
-  "category" : "chestwear",  
-  "description" : "You can hear the sloshing with every bounce.",
+  "category" : "chestwear",
+  "description" : "Got some real nice melons there.",
   "shortdescription" : "Hyper Thick Bust",
   "tooltipKind" : "starpoundsarmor",
   "bypassNude" : true,
-  
+
   "statusEffects": [
     "starpoundsthick",
     "starpoundshyper"
