@@ -568,14 +568,9 @@ function stomach:regurgitateItems()
     end
 
     if not starPounds.hasOption("disableItemRegurgitation") then
-      if not starPounds.hasOption("disableBelchParticles") then
-        world.spawnProjectile("regurgitateditems", starPounds.mcontroller.mouthPosition, entity.id(), vec2.rotate({math.random(1,2) * starPounds.mcontroller.facingDirection, math.random(0, 2)/2}, starPounds.mcontroller.rotation), false, {
-          items = regurgitatedItems
-        })
-      elseif starPounds.type == "player" then
-        for _, regurgitatedItem in pairs(regurgitatedItems) do
-          player.giveItem(regurgitatedItem)
-        end
+      starPounds.moduleFunc("belch", "spawnParticles", math.random(#regurgitatedItems, #regurgitatedItems * 2))
+      for _, item in ipairs(regurgitatedItems) do
+        world.spawnItem(item, starPounds.mcontroller.mouthPosition, nil, nil, vec2.rotate({math.random(7, 10) * starPounds.mcontroller.facingDirection, math.random(7, 10)}, starPounds.mcontroller.rotation), 1)
       end
     end
   end

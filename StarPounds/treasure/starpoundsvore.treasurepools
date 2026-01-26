@@ -1,4 +1,9 @@
 {
+  "voreMotherPoptop" : [
+    [1, {
+      "fill" : [ {"item" : [ "corefragmentore", 20]} ]
+    }]
+  ],
   "voreRegurgitated" : [
     [0, {
       // Clothing

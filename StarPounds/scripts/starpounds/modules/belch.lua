@@ -24,7 +24,7 @@ function belch:belch(volume, pitch, addMomentum)
   -- Ends up yielding around 10 - 15 particles if the belch is very loud and deep, 3 - 5 at normal volume and pitch, and none if it's half volume or twice as high pitch.
   local volumeMultiplier = util.clamp(volume, 0, 1.5)
   local pitchMultiplier = 1/math.max(pitch, 2/3)
-  local particleCount = starPounds.hasOption("disableBelchParticles") and 0 or math.round(math.max(math.random(75, 100) * 0.1 * pitchMultiplier * volumeMultiplier - 5, 0))
+  local particleCount = math.round(math.max(math.random(75, 100) * 0.1 * pitchMultiplier * volumeMultiplier - 5, 0))
   -- Belches give momentum in zero g based on the particle count, because why not.
   if starPounds.type == "player" and addMomentum and starPounds.mcontroller.zeroG then
     mcontroller.addMomentum({-0.5 * starPounds.mcontroller.facingDirection * (0.5 + starPounds.weightMultiplier * 0.5) * particleCount, 0})
@@ -36,19 +36,24 @@ function belch:belch(volume, pitch, addMomentum)
       world.sendEntityMessage(target, "starPounds.notifyDamage", {sourceId = entity.id()})
     end
   end
-  -- Skip if we're not doing particles.
-  if particleCount == 0 then return end
-    -- Create a belch particle with gravity.
-    local particle = {}
-    local gravity = world.gravity(starPounds.mcontroller.mouthPosition)
-    local friction = world.breathable(starPounds.mcontroller.mouthPosition) or world.liquidAt(starPounds.mcontroller.mouthPosition)
-    particle.initialVelocity = {0, gravity/62.5}
-    particle.finalVelocity = {0, -gravity}
-    particle.approach = {friction and 5 or 0, gravity}
 
-    starPounds.spawnMouthProjectile({{
-      action = "particle", specification = self:particle(particle)
-    }}, particleCount)
+  self:spawnParticles(particleCount)
+end
+
+function belch:spawnParticles(particleCount)
+-- Skip if 0.
+if starPounds.hasOption("disableBelchParticles") or particleCount == 0 then return end
+  -- Create a belch particle with gravity.
+  local particle = {}
+  local gravity = world.gravity(starPounds.mcontroller.mouthPosition)
+  local friction = world.breathable(starPounds.mcontroller.mouthPosition) or world.liquidAt(starPounds.mcontroller.mouthPosition)
+  particle.initialVelocity = {0, gravity/62.5}
+  particle.finalVelocity = {0, -gravity}
+  particle.approach = {friction and 5 or 0, gravity}
+
+  starPounds.spawnMouthProjectile({{
+    action = "particle", specification = self:particle(particle)
+  }}, particleCount)
 end
 
 function belch:particle(override)

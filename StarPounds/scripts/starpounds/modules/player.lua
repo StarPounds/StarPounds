@@ -44,7 +44,8 @@ function _player:setup()
   entity = {
     id = player.id,
     weight = speciesData.weight,
-    foodType = speciesData.foodType
+    foodType = speciesData.foodType,
+    preyTreasure = speciesData.preyTreasure
   }
   local mt = {__index = function () return nullFunction end}
   setmetatable(entity, mt)

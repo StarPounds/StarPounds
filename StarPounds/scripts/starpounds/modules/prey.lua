@@ -495,10 +495,12 @@ function prey:digested()
 end
 
 function prey:createDrops(items)
+  local level = 0
   local equippedItemFunc = function() return end
   if starPounds.type == "player" then
     equippedItemFunc = player.equippedItem
   elseif starPounds.type == "npc" then
+    level = npc.level()
     equippedItemFunc = npc.getItemSlot
   end
 
@@ -519,6 +521,7 @@ function prey:createDrops(items)
   end
   -- Give essence if applicable.
   if starPounds.type == "monster" then
+    level = monster.level()
     local dropPools = sb.jsonQuery(monster.uniqueParameters(), "dropPools", jarray())
     if dropPools[1] and dropPools[1].default then
       local dropItems = root.createTreasure(dropPools[1].default, monster.level())
@@ -527,6 +530,13 @@ function prey:createDrops(items)
       end
     end
   end
+
+  for _, pool in ipairs(entity.preyTreasure) do
+    for _, item in ipairs(root.createTreasure(pool, level)) do
+      table.insert(items, item)
+    end
+  end
+
   return items
 end
 
