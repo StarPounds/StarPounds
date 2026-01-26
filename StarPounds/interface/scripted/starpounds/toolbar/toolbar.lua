@@ -13,6 +13,8 @@ function init()
 
   lastSize = starPounds.currentSize.size or ""
   updateSizeButton(lastSize)
+
+  starPounds.modules.oSB.dismissToolbar = pane.dismiss
 end
 
 function update(dt)
@@ -205,7 +207,7 @@ function displayMilkInfo(visible)
   widget.setVisible("milkBar", visible)
 
   if visible then
-    widget.setImage("barIcon1", "/interface/scripted/starpounds/toolbar/milkbaricon.png:milk")
+    widget.setImage("barIcon1", "/interface/scripted/starpounds/toolbar/milkbaricon.png:"..(milkLastType or "milk"))
     widget.setImage("barIcon2", "")
     widget.setVisible("barBackground1", true)
     widget.setVisible("barBackground2", false)

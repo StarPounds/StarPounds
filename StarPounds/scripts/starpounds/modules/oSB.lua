@@ -76,9 +76,13 @@ function oSB:update(dt)
 end
 
 function oSB:uninit()
-  if player.setInteractRadius then
-    player.setInteractRadius(self.interactRadius)
+  if not self.hasOpenStarbound then return end
+  -- Toolbar script makes this available.
+  if self.dismissToolbar then
+    self.dismissToolbar()
   end
+
+  player.setInteractRadius(self.interactRadius)
 end
 
 -- Toggle the mod.
