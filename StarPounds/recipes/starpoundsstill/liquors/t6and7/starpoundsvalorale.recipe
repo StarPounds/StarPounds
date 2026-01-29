@@ -1,0 +1,11 @@
+{
+  "input" : [
+    { "item" : "starpoundsbrewpod", "count" : 1 },
+    { "item" : "diodia", "count" : 1 },
+    { "item" : "automato", "count" : 1 },
+    { "item" : "boltbulb", "count" : 1 },
+    { "item" : "neonmelon", "count" : 1 }
+  ],
+  "output" : { "item" : "starpoundsvalorale", "count" : 1 },
+  "groups" : [ "craftingstill", "starpoundsalcohol" ]
+}

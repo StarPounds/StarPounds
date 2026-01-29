@@ -1,0 +1,11 @@
+{
+  "input" : [
+    { "item" : "starpoundsbrewpod", "count" : 1 },
+    { "item" : "dirturchin", "count" : 1 },
+    { "item" : "wartweed", "count" : 1 },
+    { "item" : "liquidpoison", "count" : 10 },
+    { "item" : "toxicwaste", "count" : 5 }
+  ],
+  "output" : { "item" : "starpoundswastelander", "count" : 1 },
+  "groups" : [ "craftingstill", "starpoundsalcohol" ]
+}

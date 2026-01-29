@@ -1,0 +1,10 @@
+{
+  "input" : [
+    { "item" : "starpoundsbrewpod", "count" : 1 },
+    { "item" : "biosample", "count" : 1 },
+    { "item" : "milk", "count" : 1 },
+    { "item" : "alienfruit", "count" : 1 }
+  ],
+  "output" : { "item" : "starpoundsmieuxspecial", "count" : 1 },
+  "groups" : [ "craftingstill", "starpoundsalcohol" ]
+}
