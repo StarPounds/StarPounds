@@ -30,6 +30,8 @@ function strain:update(dt)
     -- Rapidly reduce strain.
     self.strain = math.max(self.strain - (strainReduction * dt), 0)
   end
+  -- Skip the rest if we're not a player.
+  if starPounds.type ~= "player" then return end
   -- Apply tracking effect.
   if strained and not starPounds.moduleFunc("oSB", "hasOpenStarbound") and not starPounds.hasOption("disableStrainedMeter") and not status.uniqueStatusEffectActive("starpoundsstrained") then
     status.addEphemeralEffect("starpoundsstrained")
@@ -90,6 +92,14 @@ end
 
 function strain:get()
   return self.strain
+end
+
+function strain:add(amount)
+  -- Don't do anything if the mod is disabled.
+  if not storage.starPounds.enabled then return end
+  -- Argument sanitisation.
+  amount = util.clamp(tonumber(amount) or 0, 0, 1)
+  self.strain = math.min(self.strain + amount, 1)
 end
 
 function strain:strained()

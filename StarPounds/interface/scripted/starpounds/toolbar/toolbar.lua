@@ -5,10 +5,7 @@ function init()
   starPounds = getmetatable ''.starPounds
   experienceConfig = root.assetJson("/scripts/starPounds/modules/experience.config")
   breastThresholds = root.assetJson("/scripts/starpounds/starpounds_sizes.config:thresholds.breasts")
-
-  -- Offset to the left of the action bar, with a 1 pixel buffer.
-  scale = pane.scale()
-  lastScale = scale
+  -- Offset to the left of the action bar, with a 10 pixel buffer.
   offsetPane()
 
   lastSize = starPounds.currentSize.size or ""
@@ -42,12 +39,6 @@ function update(dt)
   if starPounds.currentSize.size ~= lastSize then
     updateSizeButton(starPounds.currentSize.size)
     lastSize = starPounds.currentSize.size
-  end
-
-  scale = pane.scale()
-  if scale ~= lastScale then
-    offsetPane()
-    lastScale = scale
   end
 
   local shouldHide = not (starPounds.isEnabled() and starPounds.moduleFunc("oSB", "hasOpenStarbound"))

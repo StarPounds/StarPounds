@@ -215,7 +215,8 @@ function prey:playerStruggle(dt)
   -- Follow the pred's position, struggle if the player is using movement keys.
   local horizontalDirection = (starPounds.mcontroller.xVelocity > 0) and 1 or ((starPounds.mcontroller.xVelocity < 0) and -1 or 0)
   local verticalDirection = (starPounds.mcontroller.yVelocity > 0) and 1 or ((starPounds.mcontroller.yVelocity < 0) and -1 or 0)
-  self.cycle = vec2.lerp(5 * dt, (self.cycle or {0, 0}), vec2.mul({horizontalDirection, verticalDirection}, self.struggled and 0.25 or 1))
+  local canStruggle = not self.struggled and not status.resourceLocked("energy")
+  self.cycle = vec2.lerp(5 * dt, (self.cycle or {0, 0}), vec2.mul({horizontalDirection, verticalDirection}, canStruggle and 1 or 0.25))
   local struggleMagnitude = vec2.mag(self.cycle)
   -- Spectating.
   local predPosition = world.entityPosition(storage.starPounds.pred)
@@ -238,13 +239,18 @@ function prey:playerStruggle(dt)
   end
   if not self.options.noStruggle then
     if not (horizontalDirection == 0 and verticalDirection == 0) then
-      if struggleMagnitude > 0.6 and not self.struggled then
+      if struggleMagnitude > 0.6 then
         self.struggled = true
-        world.sendEntityMessage(storage.starPounds.pred, "starPounds.pred.struggle", entity.id(), struggleStrength, not starPounds.hasOption("disableEscape"))
-      elseif math.round(struggleMagnitude, 1) < 0.2 then
+        if canStruggle then
+          status.overConsumeResource("energy", status.resourceMax("energy") * self.data.struggleEnergyPlayer)
+          world.sendEntityMessage(storage.starPounds.pred, "starPounds.pred.struggle", entity.id(), struggleStrength, not starPounds.hasOption("disableEscape"))
+        end
+      elseif status.resourceLocked("energy") then
+        self.struggled = true
+      elseif struggleMagnitude < 0.1 then
         self.struggled = false
       end
-    elseif math.round(struggleMagnitude, 1) < 0.2 then
+    elseif struggleMagnitude < 0.1 then
       self.struggled = false
       self.startedStruggling = os.clock()
     end
@@ -276,11 +282,21 @@ function prey:npcStruggle(dt)
   mcontroller.setPosition(vec2.add(world.entityPosition(storage.starPounds.pred), {0, -1}))
   -- Don't struggle if willing.
   if self.options.willing or self.options.noStruggle then return end
+  local canStruggle = not status.resourceLocked("energy")
+  -- NPCs don't lock/unlock energy by default.
+  if status.resource("energy") == 1 then
+    status.setResourceLocked("energy", false)
+  end
   -- Loose calculation for how "powerful" the prey is.
   local healthMultiplier = 0.5 + status.resourcePercentage("health") * 0.5
   local struggleStrength = math.max(1, status.stat("powerMultiplier")) * healthMultiplier
   self.cycle = self.cycle and self.cycle - (dt * healthMultiplier) or (math.random(10, 15) / 10)
-  if self.cycle <= 0 then
+  if canStruggle and self.cycle <= 0 then
+    status.overConsumeResource("energy", status.resourceMax("energy") * self.data.struggleEnergyNpc)
+    -- NPCs don't lock/unlock energy by default.
+    if status.resource("energy") == 0 then
+      status.setResourceLocked("energy", true)
+    end
     world.sendEntityMessage(storage.starPounds.pred, "starPounds.pred.struggle", entity.id(), struggleStrength, not starPounds.hasOption("disableEscape"))
     self.cycle = math.random(10, 15) / 10
   end
@@ -299,11 +315,7 @@ function prey:monsterStruggle(dt)
   local healthMultiplier = 0.5 + status.resourcePercentage("health") * 0.5
   -- Using the NPC power function because the monster one gets stupid high.
   local weightRatio = math.max((entity.weight + storage.starPounds.weight) / starPounds.species.default.weight, 0.1)
-  local monsterMultiplier = root.evalFunction("npcLevelPowerMultiplierModifier", monster.level()) * self.data.monsterStruggleMultiplier + 1
-  if starPounds.isCritter then
-    monsterMultiplier = root.evalFunction("npcLevelPowerMultiplierModifier", monster.level()) * self.data.critterStruggleMultiplier
-  end
-  local struggleStrength = math.max(1, status.stat("powerMultiplier")) * healthMultiplier * weightRatio * monsterMultiplier
+  local struggleStrength = math.max(1, status.stat("powerMultiplier")) * healthMultiplier * weightRatio
   self.cycle = self.cycle and self.cycle - (dt * healthMultiplier) or (math.random(10, 15) / 10)
   if self.cycle <= 0 then
     world.sendEntityMessage(storage.starPounds.pred, "starPounds.pred.struggle", entity.id(), struggleStrength, not starPounds.hasOption("disableEscape"))

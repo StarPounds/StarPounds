@@ -412,14 +412,8 @@ function pred:struggle(preyId, struggleStrength, escape)
       local preyHealthPercent = preyHealth[1]/preyHealth[2]
       local preyWeight = (prey.base or 0) + (prey.weight or 0)
       local struggleStrength = root.evalFunction2("protection", struggleStrength, status.stat("protection"))
-      local escapeChance = math.max(world.entityType(preyId) == "player" and self.data.playerEscape or 0, 0.5 * struggleStrength)
+      local escapeChance = 0.5 * struggleStrength
       local released = false
-      if escape and (math.random() < escapeChance) then
-        if world.entityType(preyId) == "player" or (not prey.noEscape and status.resourceLocked("energy") and preyHealthPercent > self.data.inescapableHealth) then
-          released = self:release(preyId)
-          starPounds.events:fire("pred:entityEscape", released)
-        end
-      end
       -- If struggles are on cooldown, store the 'strength' and weight and apply it to the next valid one.
       if self.struggleCooldown > 0 then
         self.storedStruggleStrength = self.storedStruggleStrength + struggleStrength
@@ -428,16 +422,14 @@ function pred:struggle(preyId, struggleStrength, escape)
       end
 
       struggleStrength = struggleStrength + self.storedStruggleStrength
-
-      if status.isResource("energy") then
-        local struggleMultiplier = math.max(0, 1 - starPounds.getStat("struggleResistance"))
-        local energyAmount = struggleMultiplier * (self.data.struggleEnergyBase + self.data.struggleEnergy * struggleStrength)
-        if status.isResource("energyRegenBlock") and status.resourceLocked("energy") then
-          status.modifyResource("energyRegenBlock", status.stat("energyRegenBlockTime") * self.data.struggleEnergyLock * struggleMultiplier * struggleStrength)
-        elseif status.resource("energy") > energyAmount then
-          status.modifyResource("energy", -energyAmount)
-        else
-          status.overConsumeResource("energy", energyAmount)
+      player.say(struggleStrength)
+      local struggleMultiplier = math.max(0, 1 - starPounds.getStat("struggleResistance"))
+      starPounds.moduleFunc("strain", "add", (struggleMultiplier * self.data.struggleStrain + self.data.struggleStrain * struggleStrength))
+      if escape and (math.random() < escapeChance) then
+        local canEscape = (world.entityType(preyId) == "player") or (preyHealthPercent > self.data.inescapableHealth)
+        if canEscape and starPounds.moduleFunc("strain", "get") == 1 then
+          released = self:release(preyId)
+          starPounds.events:fire("pred:entityEscape", released)
         end
       end
 

@@ -87,6 +87,8 @@ function _npc:setup()
     preserved.starPounds = storage.starPounds
     return preserved
   end
+  -- Configurable prey treasure pool.
+  entity.preyTreasure = sb.jsonMerge(starPounds.getSpeciesData(npc.species()).preyTreasure, config.getParameter("starPounds_preyTreasure"))
   -- No XP if disabled.
   if config.getParameter("starPounds_options.disableExperience") then
     entity.foodType = entity.foodType.."_noExperience"
