@@ -422,7 +422,7 @@ function pred:struggle(preyId, struggleStrength, escape)
       end
 
       struggleStrength = struggleStrength + self.storedStruggleStrength
-      player.say(struggleStrength)
+
       local struggleMultiplier = math.max(0, 1 - starPounds.getStat("struggleResistance"))
       starPounds.moduleFunc("strain", "add", (struggleMultiplier * self.data.struggleStrain + self.data.struggleStrain * struggleStrength))
       if escape and (math.random() < escapeChance) then
