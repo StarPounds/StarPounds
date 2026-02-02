@@ -10,7 +10,7 @@ function oSB:init()
   self.consumableCache = {}
   self.notConsumableCache = {}
 
-  self.openStarbound = root.assetJson("/player.config:genericScriptContexts").OpenStarbound or false
+  self.openStarbound = root.assetJson("/player.config:genericScriptContexts").OpenStarbound and true or false
   starPounds.moduleFunc("options", "oSB")
   -- Load up the toolbar if we have oSB isntalled.
   if self.openStarbound and not self.loadedToolbar then
@@ -80,6 +80,7 @@ function oSB:uninit()
   -- Toolbar script makes this available.
   if self.dismissToolbar then
     self.dismissToolbar()
+    self.loadedToolbar = nil
   end
 
   player.setInteractRadius(self.interactRadius)

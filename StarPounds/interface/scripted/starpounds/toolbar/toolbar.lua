@@ -7,6 +7,7 @@ function init()
   breastThresholds = root.assetJson("/scripts/starpounds/starpounds_sizes.config:thresholds.breasts")
   -- Offset to the left of the action bar, with a 10 pixel buffer.
   offsetPane()
+  displayPane()
 
   lastSize = starPounds.currentSize.size or ""
   updateSizeButton(lastSize)
@@ -41,7 +42,17 @@ function update(dt)
     lastSize = starPounds.currentSize.size
   end
 
-  local shouldHide = not (starPounds.isEnabled() and starPounds.moduleFunc("oSB", "hasOpenStarbound"))
+  displayPane()
+end
+
+function offsetPane()
+  local paneSize = pane.getSize()
+  local playerBarOffset = (paneSize[1] / 2) + (root.imageSize("/interface/actionbar/actionbarbg.png")[1] / 2)
+  pane.setPosition({-playerBarOffset - 10, 1})
+end
+
+function displayPane()
+  local shouldHide = not (starPounds.isEnabled() and starPounds.moduleFunc("oSB", "hasOpenStarbound") and not starPounds.hasOption("disableInterface"))
   if not hidden and shouldHide then
     pane.hide()
     hidden = true
@@ -49,12 +60,6 @@ function update(dt)
     pane.show()
     hidden = nil
   end
-end
-
-function offsetPane()
-  local paneSize = pane.getSize()
-  local playerBarOffset = (paneSize[1] / 2) + (root.imageSize("/interface/actionbar/actionbarbg.png")[1] / 2)
-  pane.setPosition({-playerBarOffset - 10, 1})
 end
 
 function updateSizeButton(size)
