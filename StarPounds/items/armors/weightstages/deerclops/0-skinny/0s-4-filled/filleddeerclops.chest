@@ -14,6 +14,7 @@
     "starpounds",
     "starpoundsfilled"
   ],
+  
   "maleFrames" : {
     "body" : "chestm.png",
     "backSleeve" : "bsleeve.png",

@@ -5,7 +5,7 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",  
-  "description" : "When your gut is resting on a table, it's pretty fat.",
+  "description" : "When your gut is resting on a table, it's pretty fat, porky.",
   "shortdescription" : "Plump Belly",
   "tooltipKind" : "starpoundsarmor",
   "bypassNude" : true,
@@ -23,6 +23,6 @@
   "femaleFrames" : {
     "body" : "chestf.png",
     "backSleeve" : "bsleeve.png",
-    "frontSleeve" : "fsleeve.png"
+    "frontSleeve" : "fsleevef.png"
   }
 }
