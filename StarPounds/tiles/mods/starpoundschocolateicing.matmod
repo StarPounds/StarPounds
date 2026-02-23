@@ -2,6 +2,10 @@
   "modId" : 51409,
   "modName" : "starpoundschocolateicing",
   "description" : "Sweet, delicious chocolate icing",
+  "agaranDescription" : "...",
+  "feneroxDescription" : "...",
+  "froggDescription" : "...",
+  "shadowDescription" : "...",
   "footstepSound" : "/sfx/blocks/footstep_brains.ogg",
   "health" : 0,
 

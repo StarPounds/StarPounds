@@ -12,6 +12,10 @@
   "glitchDescription" : "Pleased. The material this rail is made from makes it very strong.",
   "floranDescription" : "Shiny metal rails.",
   "novakidDescription" : "Some sturdy lookin' rails, gettin' the itch to ride 'em.",
+  "agaranDescription" : "...",
+  "feneroxDescription" : "...",
+  "froggDescription" : "...",
+  "shadowDescription" : "...",
 
   "renderTemplate" : "/tiles/starpounds_railtemplate.config",
   "renderParameters" : {
