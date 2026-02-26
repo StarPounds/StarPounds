@@ -6,6 +6,7 @@ function init()
   self.slamCooldown = 0
   self.slamTimer = 0
   self.slamWaitTimer = 0
+  self.voreSlamStrain = config.getParameter("voreSlamStrain", 0)
   self.rechargeEffectTimer = 0
   refreshJumps()
 
@@ -95,7 +96,7 @@ function update(args)
         if self.voreSlam then
           local entities = world.entityQuery(vec2.add(position, {-(0.25 + width * 0.5), -3}), vec2.add(position, {0.25 + width * 0.5, -1.5}), {order = "nearest", includedTypes = {"player", "npc", "monster"}, withoutEntityId = entity.id()})
           for _, preyId in pairs(entities) do
-            if starPounds.moduleFunc("pred", "eat", preyId, {ignoreCapacity = true, ignoreEnergyRequirement = true, energyMultiplier = 0.5, noSwallowSound = true, playSquelchSound = true, loud = true}) then
+            if starPounds.moduleFunc("pred", "eat", preyId, {ignoreCapacity = true, ignoreEnergyRequirement = true, energyMultiplier = 0.5, noSwallowSound = true, noSwallowBelch = true, playSquelchSound = true, loud = true}) then
               hasPrey = true
               break
             end
@@ -105,6 +106,10 @@ function update(args)
         if slammed or hasPrey then
           self.slamCooldown = math.max(self.slamCooldown, 3 * starPounds.getStat("groundSlamCooldown"))
           starPounds.moduleFunc("effects", "add", "groundSlam")
+          if hasPrey then
+            -- Add strain.
+            starPounds.moduleFunc("strain", "add", self.voreSlamStrain)
+          end
         end
         -- Little upwards bounce, bigger if kaboom.
         mcontroller.setYVelocity(slammed and 30 or 15)

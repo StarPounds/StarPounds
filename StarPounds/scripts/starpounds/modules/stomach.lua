@@ -643,6 +643,10 @@ function stomach:stopBelch()
   self.belchTimer = nil
 end
 
+function stomach:belchDelay()
+  return self.belchTimer
+end
+
 function stomach:sloshing(dt)
   -- Don't do anything if the mod is disabled.
   if not storage.starPounds.enabled then return end

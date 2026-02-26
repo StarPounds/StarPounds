@@ -188,11 +188,20 @@ function pred:eat(preyId, options, check)
       -- Separate food type for willing prey that deals no damage.
       local proxyType = ""
       if preyOptions.willing then proxyType = "_willing" end
+      -- Reset belch delay to what it was if swallow belches are disabled.
+      local belchDelay = starPounds.moduleFunc("stomach", "belchDelay")
       starPounds.moduleFunc("stomach", "eat", preyConfig.base * capacityMult, "prey_proxy"..proxyType)
       starPounds.moduleFunc("stomach", "eat", preyConfig.weight, "preyWeight_proxy"..proxyType)
       -- Clear them so the stomach size doesn't change.
       storage.starPounds.stomach.prey_proxy = nil
       storage.starPounds.stomach.preyWeight_proxy = nil
+      -- Reset belch delay to what it was if swallow belches are disabled.
+      if preyConfig.noBelch or options.noSwallowBelch then
+        starPounds.moduleFunc("stomach", "stopBelch")
+        if (belchDelay or 0) > 0 then
+          starPounds.moduleFunc("stomach", "startBelch", belchDelay)
+        end
+      end
     end
     -- Insert prey into tracking table.
     table.insert(storage.starPounds.stomachEntities, preyConfig)

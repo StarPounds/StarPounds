@@ -13,5 +13,6 @@
   "chipCost" : 8,
 
   "multiJumpCount" : 1,
-  "maximumDoubleTapTime" : 0.25
+  "maximumDoubleTapTime" : 0.25,
+  "voreSlamStrain" : 0.5
 }
