@@ -42,13 +42,22 @@ function update(dt)
     lastSize = starPounds.currentSize.size
   end
 
+  -- Offset can get randomly double on init for whatever fucking reason.
+  -- Might be due to interface scaling in oSB.
+  if not firstTick then
+    -- Offset again with a one tick delay.
+    offsetPane()
+  end
+  -- Hide/show pane.
   displayPane()
 end
 
 function offsetPane()
   local paneSize = pane.getSize()
-  local playerBarOffset = (paneSize[1] / 2) + (root.imageSize("/interface/actionbar/actionbarbg.png")[1] / 2)
-  pane.setPosition({-playerBarOffset - 10, 1})
+  local actionBarSize = root.imageSize("/interface/actionbar/actionbarbg.png")
+  local playerBarOffset = -0.5 * (paneSize[1] + actionBarSize[1]) - 10
+
+  pane.setPosition({playerBarOffset, 1})
 end
 
 function displayPane()
