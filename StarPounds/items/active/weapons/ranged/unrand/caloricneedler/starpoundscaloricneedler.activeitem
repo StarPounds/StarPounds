@@ -13,11 +13,11 @@
 
   "inventoryIcon" : "starpoundscaloricneedler.png",
 
-  "animation" : "/items/active/weapons/ranged/gun.animation",
+  "animation" : "starpoundscaloricneedler.animation",
   "animationParts" : {
     "butt" : "",
     "middle" : "starpoundscaloricneedler.png",
-    "barrel" : "starpoundscaloricneedler_fullbright.png",
+    "middlefullbright" : "starpoundscaloricneedler_fullbright.png",
     "muzzleFlash" : "starpoundscaloricneedler_muzzleflash.png"
   },
   "animationCustom" : {
