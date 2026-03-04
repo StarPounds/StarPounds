@@ -1,0 +1,15 @@
+{
+  "itemName" : "tinyshirohead",
+  "price" : 0,
+  "inventoryIcon" : "icons.png:head",
+  "maxStack" : 1,
+  "rarity" : "Legendary",
+  "category" : "headwear",
+  "description" : "You feel the bloodlust of this Fennix yet you put it on your head anyways.",
+  "shortdescription" : "^white;Tiny^reset; ^#ac0019;Shiro^reset;",
+  "tooltipKind" : "armor",
+
+  "maleFrames" : "head.png",
+  "femaleFrames" : "head.png",
+  "mask" : "mask.png"
+}
