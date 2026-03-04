@@ -134,7 +134,7 @@
   "storeInventory" : {
     "tabmisc" : [
       {"input": [["money", 1000]], "output": "retromilkshakesquirtgun"},
-      "tinydispatchhead", "tinystarpoundsapplehead", "tinyblossomdancerhead", "tinyshirohead", "voretool", "preytool", "burptool", "gurgletool", "starpoundsstomachgurgle"
+      "tinydispatchhead", "tinystarpoundsapplehead", "tinyblossomdancerhead", "tinyshirohead", "mootantcostumelegs", "voretool", "preytool", "burptool", "gurgletool", "starpoundsstomachgurgle"
     ],
     "tabstages" : [
       "1softoutfitbag", "2thickoutfitbag", "3chubsteroutfitbag", "4plumpoutfitbag", "5fattyoutfitbag", "6bloboutfitbag"
