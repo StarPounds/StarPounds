@@ -1,0 +1,19 @@
+{
+  "itemName" : "immobilefragmentedruinlegs",
+  "price" : 0,
+  "inventoryIcon" : "icons.png:pants",
+  "maxStack" : 1,
+  "rarity" : "legendary",
+  "category" : "legwear",
+  "description" : "Now you can't even move fatty. Your gluttony knows no bounds.",
+  "shortdescription" : "Immobile Body",
+  "tooltipKind" : "starpoundsarmor",
+  "bypassNude" : true,
+
+  "statusEffects": [
+    "starpoundsimmobile"
+  ],
+
+  "maleFrames" : "blob_pantsM.png",
+  "femaleFrames" : "blob_pantsF.png"
+}
