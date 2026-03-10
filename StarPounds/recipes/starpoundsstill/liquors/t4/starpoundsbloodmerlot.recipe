@@ -4,7 +4,7 @@
     { "item" : "oculemon", "count" : 1 },
     { "item" : "boneboo", "count" : 1 },
     { "item" : "pussplum", "count" : 1 },
-    { "item" : "peptalred", "count" : 1 }
+    { "item" : "petalred", "count" : 1 }
   ],
   "output" : { "item" : "starpoundsbloodmerlot", "count" : 1 },
   "groups" : [ "craftingstill", "starpoundsalcohol" ]
