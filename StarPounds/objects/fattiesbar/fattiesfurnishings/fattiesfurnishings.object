@@ -121,10 +121,10 @@
       "starpoundsminiwrenchposter", "starpoundsminispaceposter", "blubberbuttmodel"
     ],
     "plushes" : [
-      "starpoundsshydispatchplush", "starpoundsappleplush", "starpoundsblossomplushie", "starpoundsfayaneplush", "starpoundshirakiplush", "starpoundsjellyplush", "starpoundshylotlghostplush", "starpoundsharpyplush", "starpoundsmootantplush", "starpoundsbeeplush", "starpoundscallieplush", "wispwizardplush", "wispclericplush", "wisprogueplush", "wispknightplush", "wisplipomancerplush", "wispcarlplush", "starpoundsmamplush", "starpoundsgourmandplush", "starpoundskoiynplush"
+      "starpoundsshydispatchplush", "starpoundsappleplush", "starpoundsblossomplushie", "starpoundsfayaneplush", "starpoundshirakiplush", "starpoundsjellyplush", "starpoundshylotlghostplush", "starpoundsharpyplush", "starpoundsmootantplush", "starpoundsbeeplush", "starpoundscallieplush", "wispwizardplush", "wispclericplush", "wisprogueplush", "wispknightplush", "wisplipomancerplush", "wispcarlplush", "starpoundsgourmandplush", "starpoundskoiynplush"
     ],
     "interactables" : [
-      "fayanebutt", "fayanebelly", "fayanevore", "feyrethfeedeeback", "floranfeedeeback1", "apexfeedeeback1", "blossomvore", "audreyvore", "lapisvore", "rosievore", "mambelly", "mambutt", "mamvore", "koiynbelly", "koiynjumpsuitbelly", "koiynbutt", "koiynjumpsuitbutt", "koiynvore", "koiynjumpsuitvore"
+      "fayanebutt", "fayanebelly", "fayanevore", "feyrethfeedeeback", "floranfeedeeback1", "apexfeedeeback1", "blossomvore", "audreyvore", "lapisvore", "rosievore", "koiynbelly", "koiynjumpsuitbelly", "koiynbutt", "koiynjumpsuitbutt", "koiynvore", "koiynjumpsuitvore"
     ],
     "materials" : [
       {"input": [["money", 10]], "output": "starpoundschocolateblock"},
@@ -144,7 +144,7 @@
       {"input": [["money", 10]], "output": "throgglassrail"}
     ],
     "cameo" : [
-      "gluttonistmamstatue", "mamfathologram", "starpoundsmamblueprint", "starpoundsmambuttposter", "starpoundsmamcavepainting", "starpoundsmampainting", "starpoundsmamportrait", "starpoundsmamposter", "wamfatsign", "mamwantedposter", "mamfrontierpainting", "mamfatsign1", "mamfatsign2", "mamsarco"
+      
     ]
   }
 }
