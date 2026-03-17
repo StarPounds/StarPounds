@@ -20,7 +20,7 @@
           -1.0,
           0.0
       ],
-      "personalityIdle": "idle.2",
+      "personalityIdle": "idle.1",
       "species": "floran"
   },
   "humanoidConfig" : "/npcs/fattiesbar/fayaneoid.config",
