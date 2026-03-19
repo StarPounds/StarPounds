@@ -41,5 +41,5 @@
     }
     ]]
   },
-  "learnBlueprintsOnPickup" : [ "starpoundsmithridate", "starshine", "eggnog" ]
+  "learnBlueprintsOnPickup" : [ "starpoundsmithridate", "starpoundsstarshine", "starpoundseggnog" ]
 }
