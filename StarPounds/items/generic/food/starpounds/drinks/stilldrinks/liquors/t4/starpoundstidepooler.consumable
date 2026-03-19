@@ -40,5 +40,6 @@
         "duration" : 180
     }
     ]]
-  }
+  },
+  "learnBlueprintsOnPickup" : [ "starpoundsmarooners" ]
 }

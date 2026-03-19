@@ -40,5 +40,6 @@
         "duration" : 495
     }
     ]]
-  }
+  },
+  "learnBlueprintsOnPickup" : [ "starpoundsflintlockes" ]
 }

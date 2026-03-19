@@ -40,5 +40,6 @@
         "duration" : 405
     }
     ]]
-  }
+  },
+  "learnBlueprintsOnPickup" : [ "starpoundsthunderbrew" ]
 }

@@ -41,5 +41,6 @@
         "duration" : 450
     }
     ]]
-  }
+  },
+  "learnBlueprintsOnPickup" : [ "starpoundsfireblast" ]  
 }

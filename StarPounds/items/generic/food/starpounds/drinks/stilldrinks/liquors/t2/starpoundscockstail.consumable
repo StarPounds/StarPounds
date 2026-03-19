@@ -40,5 +40,7 @@
         "duration" : 225
     }
     ]]
-  }
+  },
+  
+  "learnBlueprintsOnPickup" : [ "starpoundsdragoon" ]
 }

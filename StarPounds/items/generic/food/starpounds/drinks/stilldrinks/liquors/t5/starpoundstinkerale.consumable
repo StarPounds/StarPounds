@@ -40,5 +40,6 @@
         "duration" : 360
     }
     ]]
-  }
+  },
+  "learnBlueprintsOnPickup" : [ "starpoundsmanapot", "starpoundspetrolager" ]
 }

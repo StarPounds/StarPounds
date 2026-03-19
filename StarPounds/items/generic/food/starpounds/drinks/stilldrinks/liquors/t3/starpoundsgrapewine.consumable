@@ -43,5 +43,6 @@
         "duration" : 500
     }
     ]]
-  }
+  },
+  "learnBlueprintsOnPickup" : [ "starpoundsiris", "starpoundslilyred" ]
 }

@@ -40,5 +40,6 @@
         "duration" : 600
     }
     ]]
-  }
+  },
+  "learnBlueprintsOnPickup" : [ "starpoundsmithridate", "starshine", "eggnog" ]
 }

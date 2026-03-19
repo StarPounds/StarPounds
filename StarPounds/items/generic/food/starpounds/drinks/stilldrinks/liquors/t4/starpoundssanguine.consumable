@@ -37,5 +37,6 @@
       { "effect" : "starpoundsdrunk25", "duration" : 450 },
       { "effect" : "rage", "duration" : 450 }
     ]]
-  }
+  },
+  "learnBlueprintsOnPickup" : [ "starpoundsnepentha" ]
 }
