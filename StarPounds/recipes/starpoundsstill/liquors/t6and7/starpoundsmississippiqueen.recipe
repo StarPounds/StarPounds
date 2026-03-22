@@ -2,7 +2,7 @@
   "input" : [
     { "item" : "starpoundsbrewpod", "count" : 1 },
     { "item" : "tomato", "count" : 1 },
-    { "item" : "pepper", "count" : 1 },
+    { "item" : "chili", "count" : 1 },
     { "item" : "scorchedcore", "count" : 1 },
     { "item" : "liquidlava", "count" : 10 }
   ],

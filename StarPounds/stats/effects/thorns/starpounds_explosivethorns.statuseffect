@@ -1,0 +1,20 @@
+{
+  "name" : "starpounds_explosivethorns",
+  "effectConfig" : {
+    "range" : 3,
+	
+    "damageProjectileType" : "starpoundsphysicalexplosion_thorns",
+    "damageMultiplier" : 1,
+
+    "cooldown" : 1.25
+
+  },
+  "defaultDuration" : 60,
+
+  "scripts" : [
+    "thorns.lua"
+  ],
+
+  "label" : "Explosive Retaliation",
+  "icon" : "/interface/statuses/starpounds_explosivethorns.png"
+}

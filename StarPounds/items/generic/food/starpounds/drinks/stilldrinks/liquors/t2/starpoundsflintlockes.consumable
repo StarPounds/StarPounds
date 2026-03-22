@@ -16,8 +16,11 @@
     {
         "effect" : "maxenergyscalingboostfood",
         "duration" : 300
+    },
+    {
+        "effect" : "starpounds_explosivethorns",
+        "duration" : 300
     }
-	//Add Explosive Status later
 	
   ] ],
   "foodValue": 20,  

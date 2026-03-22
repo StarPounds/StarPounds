@@ -20,7 +20,7 @@
   "inventoryIcon" : "starpounds_brewpodseedicon.png",
   "orientations" : [
     {
-      "dualImage" : "starpounds_brewpodseed.png:<color>.<stage>.<alt>",
+      "dualImage" : "starpounds_brewpodseedwild.png:<color>.<stage>.<alt>",
       "imagePosition" : [0, 0],
       "frames" : 1,
       "animationCycle" : 0.5,
@@ -52,7 +52,7 @@
   ],
 
   "breakDropOptions" : [
-    [ [ "starpounds_brewpod", 1, { } ] ]
+    [ [ "starpounds_brewpodseed", 1, { } ] ]
   ],
 
   "maxImmersion" : 0.084,

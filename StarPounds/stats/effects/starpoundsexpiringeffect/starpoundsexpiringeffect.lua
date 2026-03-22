@@ -1,4 +1,6 @@
 function init()
+  world.sendEntityMessage(entity.id(), "queueRadioMessage", "starpounds_liquor")
+
   animator.setParticleEmitterActive("effects", true)
   expireStatus = effect.getParameter("expireStatus")
   expireStatusDuration = effect.getParameter("expireStatusDuration", 1)

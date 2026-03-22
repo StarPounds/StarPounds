@@ -3,6 +3,10 @@
     "unique": false,
     "text" : "You appear to have completely filled up your stomach capacity. ^orange;While full, you'll be unable to consume any more food^reset; until digestion gives you some room."
   },
+  "starpounds_liquor" : {
+    "unique": true,
+    "text" : "^orange;Liquors and craft sodas provide long lasting effects at the cost of a cooldown that prevents you from drinking more^reset;. Additonally, I am obligated by galactic law to tell you not to drink and fly."
+  },  
   "starpounds_digestcrew" : {
     "unique": false,
     "text" : "Warning! ^orange;Crew members cannot be recovered if you add them to your waistline.^reset; I strongly advise you find an alternative source of food."
