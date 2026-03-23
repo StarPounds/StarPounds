@@ -1,0 +1,9 @@
+{
+  "input" : [
+    { "item" : "tungstenbar", "count" : 5 },
+    { "item" : "copperbar", "count" : 5 },
+    { "item" : "smallbattery", "count" : 2 }
+  ],
+  "output" : { "item" : "starpoundscarbonationdevicealt", "count" : 1 },
+  "groups" : [ "craftingstill", "starpoundstillothers" ]
+}

@@ -1,0 +1,14 @@
+{
+  "name" : "starpounds_maxenergyscaling_super",
+  "effectConfig" : {
+    "energyModifier" : 3
+  },
+  "defaultDuration" : 15,
+
+  "scripts" : [
+    "maxenergyscalingboost.lua"
+  ],
+
+  "label" : "48 Hour Energy",
+  "icon" : "/interface/statuses/maxenergy.png"
+}

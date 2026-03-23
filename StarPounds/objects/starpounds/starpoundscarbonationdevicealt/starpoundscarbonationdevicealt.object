@@ -1,0 +1,43 @@
+{
+  "objectName" : "starpoundscarbonationdevicealt",
+  "colonyTags" : ["cooking"],
+  "rarity" : "Rare",
+  "category" : "crafting",
+  "price" : 75,
+  "description" : "Infuses water with carbon dioxide, which can be used to make sodas.",
+  "shortdescription" : "Vintage Water Fizzler",
+  "race" : "generic",
+  "objectType" : "container",
+  "printable" : false,
+  "health" : 1.5,
+
+  "apexDescription" : "A device for making sparkling water. Banned back home, like so many other things.",
+  "avianDescription" : "Delightfully fizzy!",
+  "floranDescription" : "Floran likesss the bubble noisesss.",
+  "glitchDescription" : "Appreciative. The fizzing of sparkling water is quite pleasing.",
+  "humanDescription" : "I've heard that some asteroid miners use stuff like these as mini-filtration systems.",
+  "hylotlDescription" : "The sounds of bubbling water are quite nostalgic...",
+  "novakidDescription" : "This gonna give the pop some real fizz!",
+
+  "inventoryIcon" : "starpoundscarbonationdevicealticon.png",
+  "orientations" : [
+    {
+      "dualImage" : "starpoundscarbonationdevicealt.png:<color>",
+
+      "imagePosition" : [-8, -8],
+      "frames" : 1,
+      "animationCycle" : 0.5,
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ]
+
+    }
+  ],
+
+  "recipeGroup" : "starpoundscarbonation",
+  "slotCount" : 2,
+  "uiConfig" : "/interface/objectcrafting/starpoundscarbonation.config",
+  "frameCooldown" : 5,
+  "autoCloseCooldown" : 3600
+  
+}

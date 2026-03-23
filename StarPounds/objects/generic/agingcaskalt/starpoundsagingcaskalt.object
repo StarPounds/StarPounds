@@ -1,11 +1,11 @@
 {
-  "objectName" : "starpoundsagingcask",
+  "objectName" : "starpoundsagingcaskalt",
   "colonyTags" : ["storage","commerce"],
   "rarity" : "Rare",
   "objectType" : "container",
   "tooltipKind" : "container",
   "description" : "A barrel specially designed to hasten the aging process.",
-  "shortdescription" : "Aging Cask (Wood)",
+  "shortdescription" : "Aging Cask (Metal)",
   "race" : "generic",
   "category" : "storage",
   "price" : 200,
@@ -19,10 +19,10 @@
   "hylotlDescription" : "A barrel for letting drinks age and ferment.",
   "novakidDescription" : "A good place to let my hooch ferment and age.",
 
-  "inventoryIcon" : "starpoundsagingcaskicon.png",
+  "inventoryIcon" : "starpoundsagingcaskalticon.png",
   "orientations" : [
     {
-      "dualImage" : "starpoundsagingcask.png:<color>",
+      "dualImage" : "starpoundsagingcaskalt.png:<color>",
 
       "imagePosition" : [-16, 0],
       "frames" : 1,

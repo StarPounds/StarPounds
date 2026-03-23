@@ -42,6 +42,12 @@
     "op": "add",
     "path": "/defaultBlueprints/tier1/-",
     "value": {
+      "item": "starpoundsagingcaskalt"
+    }
+  },{
+    "op": "add",
+    "path": "/defaultBlueprints/tier1/-",
+    "value": {
       "item": "starpoundsale"
     }
   },{
@@ -67,6 +73,18 @@
     "path": "/defaultBlueprints/tier1/-",
     "value": {
       "item": "starpoundssake"
+    }
+  },{
+    "op": "add",
+    "path": "/defaultBlueprints/tier1/-",
+    "value": {
+      "item": "starpoundscarbonationdevice"
+    }
+  },{
+    "op": "add",
+    "path": "/defaultBlueprints/tier1/-",
+    "value": {
+      "item": "starpoundscarbonationdevicealt"
     }
   }
 ]

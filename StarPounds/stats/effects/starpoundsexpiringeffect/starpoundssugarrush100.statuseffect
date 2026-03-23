@@ -1,0 +1,19 @@
+{
+  "name" : "starpoundssugarrush100",
+
+  "effectConfig" : {
+    "expireStatus" : "starpoundssugarcrash", // Status inflicted upon expire.
+    "expireStatusDuration" : 1.0 // Multiplier for defaultDuration, 1.0 = same duration
+  },
+
+  "defaultDuration" : 10,
+
+  "scripts" : [
+    "starpoundsexpiringeffect.lua"
+  ],
+
+  "animationConfig" : "starpoundssugarrush.animation",
+
+  "label" : "Sugar Rush",
+  "icon" : "/interface/statuses/starpoundssugarrush.png"
+}
