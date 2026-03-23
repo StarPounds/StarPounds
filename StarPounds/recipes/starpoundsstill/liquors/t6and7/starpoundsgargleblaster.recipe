@@ -4,7 +4,7 @@
     { "item" : "starpoundsmississippiqueen", "count" : 1 },
     { "item" : "starpoundswastelander", "count" : 1 },
     { "item" : "starpoundsvalorale", "count" : 1 },
-    { "item" : "essence", "count" : 1000 }
+    { "item" : "essence", "count" : 300 }
   ],
   "output" : { "item" : "starpoundsgargleblaster", "count" : 1 },
   "groups" : [ "craftingstill", "starpoundsalcohol" ]

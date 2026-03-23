@@ -56,5 +56,6 @@
         "duration" : 10
     }
     ]]
-  }
+  },
+  "learnBlueprintsOnPickup" : [ "starpoundsgoldenwine" ]
 }
