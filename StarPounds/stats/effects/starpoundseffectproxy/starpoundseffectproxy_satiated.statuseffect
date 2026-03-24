@@ -1,0 +1,13 @@
+{
+  "name": "starpoundseffectproxy_satiated",
+  "defaultDuration": 1,
+  "effectConfig": {
+    "effect" : "satiated"
+  },
+  "scripts": [
+    "starpoundseffectproxy.lua"
+  ],
+
+  "label" : "Satiated",
+  "icon" : "/interface/scripted/starpounds/effects/icons/effects/satiated.png"
+}

@@ -379,6 +379,7 @@ function stomach:digest(dt, isGurgle, isBelch)
     local belchParticlesDisabled = starPounds.hasOption("disableBelchParticles")
     local hungerDisabled = starPounds.hasOption("disableHunger")
 
+    local gainedFood = false
     local digestionStatCache = {}
 
     local availableHealing = maxHealth * self.data.healingCap * seconds
@@ -410,12 +411,17 @@ function stomach:digest(dt, isGurgle, isBelch)
         self.digestionExperience = self.digestionExperience + digestAmount * foodConfig.multipliers.experience
         storage.starPounds.stomach[foodType] = math.round(math.max(amount - digestAmount, 0), 3)
         -- Add food.
-        if hasFood and not hungerDisabled and (foodConfig.multipliers.food > 0) then
-          local foodAmount = math.min(maxFood - status.resource("food"), digestAmount)
-          -- Stops the player losing hunger while they digest food.
-          local foodDeltaDiff = not isGurgle and math.abs(math.min(foodDelta * seconds, 0)) or 0
-          local food = foodAmount * foodValue * foodConfig.multipliers.food + foodDeltaDiff
-          status.giveResource("food", foodAmount * foodValue * foodConfig.multipliers.food + foodDeltaDiff)
+        if foodConfig.multipliers.food > 0 then
+          -- Check for whether to apply satiated effect afterwards.
+          gainedFood = true
+          -- Only add actual food stat if it exists/we need to.
+          if hasFood and not hungerDisabled then
+            local foodAmount = math.min(maxFood - status.resource("food"), digestAmount)
+            -- Stops the player losing hunger while they digest food.
+            local foodDeltaDiff = not isGurgle and math.abs(math.min(foodDelta * seconds, 0)) or 0
+            local food = foodAmount * foodValue * foodConfig.multipliers.food + foodDeltaDiff
+            status.giveResource("food", foodAmount * foodValue * foodConfig.multipliers.food + foodDeltaDiff)
+          end
         end
 
         if isGurgle and foodConfig.ignoreGurgles then digestAmount = 0 end
@@ -447,6 +453,18 @@ function stomach:digest(dt, isGurgle, isBelch)
           end
         end
       end
+    end
+
+    -- Apply satiated effect if we maxed the hunger bar (or gained food for NPCs)
+    if gainedFood then
+      local applyEffect = false
+      if hasFood and (status.resource("food") >= maxFood) then
+        applyEffect = true
+      elseif not hasFood then
+        applyEffect = true
+      end
+
+      starPounds.moduleFunc("effects", "add", "satiated")
     end
 
     self.digestionExperience = self.digestionExperience or 0
