@@ -1,18 +1,14 @@
 [
+  [
   {
-    "op": "add",
-    "path": "/scriptConfig/starPounds_options",
-    "value": {"disableGain": true, "disableStomachGrowth": true, "disableBreastGrowth": true}
+    "op": "test",
+    "path": "/nameGen"
   },
   {
     "op": "remove",
     "path": "/nameGen"
-  },
-  {
-    "op": "add",
-    "path": "/damageTeamType",
-    "value": "friendly"
-  },
+  }
+  ],
   {
     "op": "add",
     "path": "/identity",

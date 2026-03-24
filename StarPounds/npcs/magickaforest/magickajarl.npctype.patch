@@ -1,4 +1,9 @@
 [
+[
+ {
+  "op": "test",
+  "path": "/items/override/0/1/0/legs/0/parameters/colorIndex/3"
+ },
  {
   "op": "remove",
   "path": "/items/override/0/1/0/legs/0/parameters/colorIndex/3"
@@ -20,6 +25,12 @@
   "op": "replace",
   "path": "/items/override/0/1/0/legs/0/name",
   "value": "alpacatier6spants"
+ }
+],
+[
+ {
+  "op": "test",
+  "path": "/items/override/0/1/0/chest/0/parameters/colorIndex/3"
  },
  {
   "op": "remove",
@@ -42,6 +53,12 @@
   "op": "replace",
   "path": "/items/override/0/1/0/chest/0/name",
   "value": "alpacatier6schest"
+ }
+],
+[
+ {
+  "op": "test",
+  "path": "/items/override/0/1/0/head/0/parameters/colorIndex/3"
  },
  {
   "op": "remove",
@@ -65,4 +82,5 @@
   "path": "/items/override/0/1/0/head/0/name",
   "value": "magickajarlhead"
  }
+]
 ]

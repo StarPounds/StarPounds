@@ -1,11 +1,18 @@
 [
+[
   {
     "op": "add",
     "path": "/identity",
     "value": {
       "species": "alpaca"
     }
-  },
+  }
+],
+[
+ {
+  "op": "test",
+  "path": "/items/override/0/1/0/legs/0/parameters/colorIndex/3"
+ },
  {
   "op": "remove",
   "path": "/items/override/0/1/0/legs/0/parameters/colorIndex/3"
@@ -27,6 +34,12 @@
   "op": "replace",
   "path": "/items/override/0/1/0/legs/0/name",
   "value": "alpacatier4pants"
+ }
+],
+[
+ {
+  "op": "test",
+  "path": "/items/override/0/1/0/chest/0/parameters/colorIndex/3"
  },
  {
   "op": "remove",
@@ -49,6 +62,12 @@
   "op": "replace",
   "path": "/items/override/0/1/0/chest/0/name",
   "value": "alpacatier4chest"
+ }
+],
+[
+ {
+  "op": "test",
+  "path": "/items/override/0/1/0/chest/0/parameters/colorIndex/3"
  },
  {
   "op": "remove",
@@ -72,4 +91,5 @@
   "path": "/items/override/0/1/0/head/0/name",
   "value": "magickajarlhead"
  }
+]
 ]

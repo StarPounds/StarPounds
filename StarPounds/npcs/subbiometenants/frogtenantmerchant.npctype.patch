@@ -1,12 +1,14 @@
 [
+[
   {
-    "op": "remove",
+    "op": "test",
     "path": "/nameGen"
   },
   {
     "op": "remove",
-    "path": "/scriptConfig/merchant/categories/hylotl"
-  },
+    "path": "/nameGen"
+  }
+],
   {
     "op": "add",
     "path": "/scriptConfig/merchant/categories/frogg",

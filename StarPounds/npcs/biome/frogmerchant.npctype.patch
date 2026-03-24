@@ -1,19 +1,27 @@
 [
+  [
   {
-    "op": "add",
-    "path": "/scriptConfig/starPounds_options",
-    "value": {"disableGain": true, "disableStomachGrowth": true, "disableBreastGrowth": true}
+    "op": "test",
+    "path": "/nameGen"
   },
   {
     "op": "remove",
     "path": "/nameGen"
-  },
+  }
+  ],
   {
     "op": "add",
     "path": "/identity",
     "value": {
       "species": "frogg"
     }
+  },
+  {
+    "op": "add",
+    "path": "/scriptConfig/merchant/categories/frogg",
+    "value": [
+      "frogmerchant"
+    ]
   },
   {
     "op": "add",
