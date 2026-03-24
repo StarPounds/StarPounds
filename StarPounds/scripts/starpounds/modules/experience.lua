@@ -42,6 +42,7 @@ function experience:add(amount, multiplier, isLevel)
     storage.starPounds.experience.amount = self.data.experienceAmount * levelModifier
   else
     amount = amount - amountRequired
+    baseAmount = baseAmount - amountRequired
     storage.starPounds.experience.amount = 0
     self:add(amount, 1)
     self:addLevel(1)
@@ -71,6 +72,11 @@ function experience:addLevel(amount)
 
     starPounds.moduleFunc("oSB", "addChatMessage", string.format(text, amount, storage.starPounds.experience.level), {fromNick = "^#ccbbff;StarPounds"})
   end
+end
+
+function experience:removeLevel(amount)
+  amount = math.round(math.max(tonumber(amount) or 0, 0))
+  storage.starPounds.experience.level = math.min(storage.starPounds.experience.level - amount, 0)
 end
 
 function experience:hungerPenalty()
