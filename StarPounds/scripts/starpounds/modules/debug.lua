@@ -16,6 +16,10 @@ function debug:update(dt)
     local gurgleTimer = starPounds.modules.stomach and starPounds.modules.stomach.gurgleTimer or 0
     local rumbleTimer = starPounds.modules.stomach and starPounds.modules.stomach.rumbleTimer or 0
     local accessory = data.accessory
+    local traits = jarray()
+    for _, trait in pairs(starPounds.moduleFunc("traits", "get")) do
+      traits[#traits] = trait
+    end
     local experienceConfig = starPounds.moduleFunc("experience", "config")
     self:format("accessory", "<c:1>Accessory: <c:3>%s", accessory and accessory.name or "None")
     self:format("experience", "<c:1>Level: <c:3>%s <c:1>Experience: <c:3>%.0f/%.0f <c:1>Multiplier: <c:3>%s", data.experience.level, data.experience.amount, experienceConfig.experienceAmount * (1 + data.experience.level * experienceConfig.experienceIncrement), math.max(starPounds.getStat("experienceMultiplier") - (starPounds.hasOption("disableHunger") and math.max((starPounds.getStat("hunger") - starPounds.moduleFunc("stats", "getRaw", "hunger").base) * 0.2, 0) or 0), 0))
@@ -24,7 +28,7 @@ function debug:update(dt)
     self:format("breasts", "<c:1>Type: <c:3>%s <c:1>Capacity: <c:3>%.1f/%.1f <c:1>Contents: <c:3>%.1f", breasts.type, breasts.contents, breasts.capacity, data.breasts.amount)
     self:format("size", "<c:1>Size: <c:3>%s <c:1>Weight: <c:3>%.2f%s <c:1>Multiplier: <c:3>%.1fx", (starPounds.currentSize.size == "" and "none" or starPounds.currentSize.size)..(starPounds.currentVariant and ": "..starPounds.currentVariant or ""), starPounds.hasOption("useImperial") and data.weight * 2.20462234 or data.weight, starPounds.hasOption("useImperial") and "lb" or "kg", starPounds.weightMultiplier)
     self:format("timers", "<c:1>Gurgle: <c:3>%.1f <c:1>Rumble: <c:3>%.1f", gurgleTimer or 0, rumbleTimer or 0)
-    self:format("trait", "<c:1>Trait: <c:3>%s", data.trait or "None")
+    self:format("traits", "<c:1>Trait: <c:3>%s", #traits or "None")
   end
 end
 
@@ -64,7 +68,7 @@ function debug:log()
   sb.logInfo(header)
   sb.logInfo(string.format("Enabled - %s", sb.print(storage.starPounds.enabled)))
   sb.logInfo(string.format("Species - %s (%s) | %s", sb.print(starPounds.getSpecies()), sb.print(starPounds.getVisualSpecies()), sb.print(player.species())))
-  sb.logInfo(string.format("Trait --- %s", sb.print(starPounds.getTrait())))
+  sb.logInfo(string.format("Traits --- %s", sb.print(starPounds.moduleFunc("traits", "get"))))
   sb.logInfo(string.format("Size ---- %s | %s", sb.print(size), sb.print(storage.starPounds.weight)))
   sb.logInfo(string.format("Stomach - %s | %s", sb.print(storage.starPounds.stomach), sb.print(#storage.starPounds.stomachEntities)))
   sb.logInfo(string.format("Options - %s", options))

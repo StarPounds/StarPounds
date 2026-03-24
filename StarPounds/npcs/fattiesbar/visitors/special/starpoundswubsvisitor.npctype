@@ -16,9 +16,9 @@
       "homePosition": [0,0]
     },
     "starPounds_overrideSpecies": "wubs",
-    "starPounds_trait": "npc_predator",
     "starPounds_skills": {
-      "minimumSize": [3, 3]
+      "minimumSize": [3, 3],
+      "voreFriendly": 1
     },
     // ======================== PLEASE READ ========================
     // This character belongs to someone, and these settings reflect
@@ -28,7 +28,7 @@
     "starPounds_options": {
       "disablePrey": true
     },
-    
+
     "starPounds_optionsClientside" : true,
 
     "dialogMode": "tutorial",

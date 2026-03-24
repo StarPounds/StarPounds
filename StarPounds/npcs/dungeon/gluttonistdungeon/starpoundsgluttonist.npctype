@@ -19,7 +19,7 @@
     "starPounds_skills": {
       "softMinimumSize": [2, 5]
     },
-    "starPounds_trait": "npc_gluttonist",
+    "starPounds_traits": ["vore", "npc_gluttonist"],
 
     "dialog" : {
       "attack" : {

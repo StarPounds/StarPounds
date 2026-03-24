@@ -6,7 +6,7 @@
     "starPounds_skills": {
       "softMinimumSize": [3, 3]
     },
-    "starPounds_trait": "npc_alphaPredator",
+    "starPounds_traits": ["vore", "largeDigestionBonus", "largeCapacityBonus", "healthBonus", "absorptionBonus", "movementBonus", "gurgleBonus"],
     "starPounds_options": {
       "disablePrey": true
     }

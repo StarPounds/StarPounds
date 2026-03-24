@@ -17,10 +17,10 @@
       "homePosition": [0, 0]
     },
     "starPounds_skills": {
-      "minimumSize": [3, 4]
+      "minimumSize": [3, 4],
+      "voreFriendly": 1
     },
     "starPounds_overrideSpecies": "leggs",
-    "starPounds_trait": "npc_predator",
     // ======================== PLEASE READ ========================
     // This character belongs to someone, and these settings reflect
     // their preferences. Please respect them and don't remove,
@@ -31,7 +31,7 @@
       "disableMilkGain" : true,
       "disableLeaking" : true
     },
-    
+
     "starPounds_optionsClientside" : true,
 
     "dialogMode": "tutorial",

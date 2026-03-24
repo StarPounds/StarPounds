@@ -8,8 +8,6 @@ starPounds = {
   settings = root.assetJson("/scripts/starpounds/starpounds.config:settings"),
   sizes = root.assetJson("/scripts/starpounds/starpounds_sizes.config:sizes"),
   options = root.assetJson("/scripts/starpounds/starpounds_options.config:options"),
-  traits = root.assetJson("/scripts/starpounds/starpounds_traits.config:traits"),
-  selectableTraits = root.assetJson("/scripts/starpounds/starpounds_traits.config:selectableTraits"),
   species = root.assetJson("/scripts/starpounds/starpounds_species.config")
 }
 -- Mod functions
@@ -131,64 +129,6 @@ starPounds.spawnMouthProjectile = function(actions, count)
   })
 end
 
-starPounds.getTrait = function()
-  -- Reset the trait if it doesn't exist.
-  local trait = storage.starPounds.trait
-  -- Reset non-existent traits
-  if trait and not starPounds.traits[trait] then
-    starPounds.resetTrait()
-    return
-  end
-  -- Remove a player's trait if they shouldn't be able to select it.
-  if trait and starPounds.type == "player" then
-    if not contains(starPounds.selectableTraits, trait) then
-      starPounds.resetTrait()
-      return
-    end
-  end
-  return storage.starPounds.trait
-end
-
-starPounds.setTrait = function(trait)
-  -- Argument sanitisation.
-  trait = tostring(trait)
-  -- Don't do anything if we already have a trait, or the trait doesn't exist.
-  if storage.starPounds.trait or not starPounds.traits[trait] then return false end
-  -- Set the trait.
-  storage.starPounds.trait = starPounds.traits[trait].idOverride or trait
-  local selectedTrait = starPounds.traits[trait]
-  local mt = {__index = function (table, key) return starPounds.traits.default[key] end}
-  setmetatable(selectedTrait, mt)
-  -- Unlock trait skills.
-  for _, skill in ipairs(selectedTrait.skills or jarray()) do
-    starPounds.moduleFunc("skills", "forceUnlock", skill[1], skill[2])
-  end
-  -- Set trait starting values. Done a bit weirdly so it still applies when the mod is off.
-  storage.starPounds.weight = math.max(storage.starPounds.weight, selectedTrait.weight)
-  starPounds.moduleFunc("size", "setWeight", storage.starPounds.weight)
-  -- Give trait milk
-  storage.starPounds.breasts.amount = math.max(storage.starPounds.breasts.amount, selectedTrait.breasts)
-  starPounds.moduleFunc("breasts", "setMilk", storage.starPounds.breasts.amount)
-  -- Give trait experience.
-  storage.starPounds.experience.level = storage.starPounds.experience.level + selectedTrait.experience
-  -- Give trait items to players.
-  if starPounds.type == "player" then
-    for _, item in ipairs(selectedTrait.items) do
-      player.giveItem(item)
-    end
-  end
-  -- Refresh stats.
-  starPounds.events:fire("stats:calculate", "setTrait")
-  -- Set the trait successfully.
-  return true
-end
-
-starPounds.resetTrait = function()
-  storage.starPounds.trait = nil
-  -- Refresh stats.
-  starPounds.events:fire("stats:calculate", "resetTrait")
-end
-
 -- world.entitySpecies can be unreliable on the first tick.
 starPounds.getSpecies = function()
   if storage.starPounds.overrideSpecies then return storage.starPounds.overrideSpecies end
@@ -262,13 +202,9 @@ starPounds.messageHandlers = function()
   message.setHandler("starPounds.isEnabled", simpleHandler(starPounds.isEnabled))
   message.setHandler("starPounds.getDirectives", simpleHandler(starPounds.getDirectives))
   message.setHandler("starPounds.getVisualSpecies", simpleHandler(starPounds.getVisualSpecies))
-  -- Handlers for traits
-  message.setHandler("starPounds.getTrait", simpleHandler(starPounds.getTrait))
-  message.setHandler("starPounds.setTrait", localHandler(starPounds.setTrait))
   -- Interface/debug stuff.
   message.setHandler("starPounds.reset", localHandler(starPounds.reset))
   message.setHandler("starPounds.resetConfirm", localHandler(starPounds.reset))
-  message.setHandler("starPounds.resetTrait", localHandler(starPounds.resetTrait))
   message.setHandler("starPounds.setResource", localHandler(status.setResource))
 end
 
@@ -319,18 +255,10 @@ starPounds.reset = function()
         player.makeTechUnavailable(v)
       end
     end
+  else -- Always turn the mod back on for non-player entities.
+    starPounds.toggleEnable()
   end
-  -- Re-unlock default trait skills.
-  if starPounds.type == "monster" then
-    if not starPounds.getTrait() then
-      starPounds.setTrait(config.getParameter("starPounds_trait"))
-    end
-  else
-    local speciesTrait = starPounds.traits[starPounds.getSpecies()] or starPounds.traits.default
-    for _, skill in ipairs(speciesTrait.skills or jarray()) do
-      starPounds.moduleFunc("skills", "forceUnlock", skill[1], skill[2])
-    end
-  end
+
   return true
 end
 

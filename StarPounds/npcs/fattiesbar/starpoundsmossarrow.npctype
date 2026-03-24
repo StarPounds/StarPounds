@@ -28,7 +28,6 @@
   "humanoidConfig" : "/npcs/story/nuruoid.config",
 
   "scriptConfig" : {
-    "starPounds_trait": "scavenger",
     "starPounds_options": {
       "disablePrey": true,
       "disableGain": true

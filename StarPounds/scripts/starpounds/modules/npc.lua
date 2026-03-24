@@ -2,9 +2,9 @@
 local _npc = starPounds.module:new("npc")
 
 function _npc:init()
-  -- Set NPC specific trait.
-  if not starPounds.getTrait() then
-    starPounds.setTrait(config.getParameter("starPounds_trait"))
+  -- Set NPC config traits.
+  for _, trait in ipairs(config.getParameter("starPounds_traits", {})) do
+    starPounds.moduleFunc("traits", "add", trait)
   end
   -- Initial skills and options.
   storage.starPounds.options = sb.jsonMerge(storage.starPounds.options, config.getParameter("starPounds_options", {}))

@@ -24,7 +24,7 @@ function oSB:hasOpenStarbound()
 end
 
 function oSB:update(dt)
-  if not self.hasOpenStarbound then return end
+  if not self.openStarbound then return end
 
   self:toggleBind()
   self:menuBinds()
@@ -76,7 +76,7 @@ function oSB:update(dt)
 end
 
 function oSB:uninit()
-  if not self.hasOpenStarbound then return end
+  if not self.openStarbound then return end
   -- Toolbar script makes this available.
   if self.dismissToolbar then
     self.dismissToolbar()

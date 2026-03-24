@@ -16,7 +16,7 @@
     "starPounds_skills": {
       "softMinimumSize": [2, 2]
     },
-    "starPounds_trait": "npc_predator",
+    "starPounds_traits": ["vore", "digestionBonus"],
 
     "aggressive" : true,
 

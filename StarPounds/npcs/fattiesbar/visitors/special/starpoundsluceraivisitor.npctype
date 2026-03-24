@@ -16,9 +16,11 @@
     "initialStorage": {
       "homePosition": [0,0]
     },
+    "starPounds_skills": {
+      "voreFriendly": 1
+    },
 
     "starPounds_overrideSpecies": "lucerai",
-    "starPounds_trait": "npc_predator",
     // ======================== PLEASE READ ========================
     // This character belongs to someone, and these settings reflect
     // their preferences. Please respect them and don't remove,

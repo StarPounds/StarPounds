@@ -30,14 +30,14 @@
     "initialStorage": {
       "homePosition": [0,0]
     },
-    "starPounds_trait": "npc_alphaPredator",
+    "starPounds_traits": ["vore", "largeDigestionBonus", "largeCapacityBonus", "healthBonus", "absorptionBonus", "movementBonus", "gurgleBonus"],
     "starPounds_options": {
       "disablePrey": true,
       "disableGain": true
     },
 
     "starPounds_optionsClientside" : true,
-  
+
     "reactions" : {
       "spontaneous" : [
       ]

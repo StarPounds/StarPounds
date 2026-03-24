@@ -10,24 +10,25 @@ versioning.versions = {
     data.stomachContents = nil
     data.stomachLerp = nil
     data.stomach = stomachContents or {}
+    
     -- New milk format.
     local milkAmount = tonumber(data.breasts) or 0
     local milkType = data.breastType or "milk"
     data.breastType = nil
-
     data.breasts = {type = milkType, amount = milkAmount}
+
     -- New experience format.
     local level = tonumber(data.level) or 0
     local amount = tonumber(data.experience) or 0
     data.level = nil
-
     data.experience = {level = level, amount = amount}
+
     -- New effect format.
-    local activeEffects = {}
     local discoveredEffects = data.discoveredEffects or {}
     data.discoveredEffects = nil
-
-    data.effects = {active = activeEffects, discovered = discoveredEffects}
+    data.effects = {active = {}, discovered = discoveredEffects}
+    -- Delete old trait value.
+    data.trait = nil
     -- No more stat saving.
     data.stats = nil
     -- Other old values to prune.

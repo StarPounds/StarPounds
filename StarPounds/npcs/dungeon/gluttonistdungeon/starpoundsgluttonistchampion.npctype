@@ -25,7 +25,7 @@
     "starPounds_options": {
       "disablePrey": true
     },
-    "starPounds_trait": "npc_gluttonistChampion",
+    "starPounds_traits": ["vore", "npc_gluttonistChampion"],
 
     "dialog" : {
       "attack" : {

@@ -7,6 +7,7 @@ function stats:init()
 
   self.skills = starPounds.moduleFunc("skills", "getSkillList")
   self.skillStats = {}
+  self.traits = {}
   self.traitStats = {}
   self.effectStats = {}
   self.optionStats = {}
@@ -82,17 +83,25 @@ function stats:calculate()
   end
   -- Trait Stats.
   self.traitStats = {}
-  local selectedTrait = starPounds.traits[starPounds.getTrait() or "default"]
-  local speciesTrait = starPounds.traits[starPounds.getSpecies()] or starPounds.traits.default
-  for _, trait in ipairs({speciesTrait, selectedTrait}) do
-    for _, stat in ipairs(trait.stats or {}) do
-      self.traitStats[stat[1]] = self.traitStats[stat[1]] or {0, 1}
-      if stat[2] == "add" then
-        self.traitStats[stat[1]][1] = self.traitStats[stat[1]][1] + stat[3]
-      elseif stat[2] == "sub" then
-        self.traitStats[stat[1]][1] = self.traitStats[stat[1]][1] - stat[3]
-      elseif stat[2] == "mult" then
-        self.traitStats[stat[1]][2] = self.traitStats[stat[1]][2] * stat[3]
+  if starPounds.modules.traits then
+    -- Can't just use this for the stat table since it doesn't recalculate if we edit it.
+    for statName, conf in pairs(starPounds.moduleFunc("traits", "speciesTraitStats")) do
+      self.traitStats[statName] = {conf[1], conf[2]}
+    end
+
+    for traitName in pairs(starPounds.moduleFunc("traits", "get")) do
+      local traitConfig = starPounds.moduleFunc("traits", "getConfig", traitName)
+      if traitConfig then
+        for _, stat in ipairs(traitConfig.stats or {}) do
+          self.traitStats[stat[1]] = self.traitStats[stat[1]] or {0, 1}
+          if stat[2] == "add" then
+            self.traitStats[stat[1]][1] = self.traitStats[stat[1]][1] + stat[3]
+          elseif stat[2] == "sub" then
+            self.traitStats[stat[1]][1] = self.traitStats[stat[1]][1] - stat[3]
+          elseif stat[2] == "mult" then
+            self.traitStats[stat[1]][2] = self.traitStats[stat[1]][2] * stat[3]
+          end
+        end
       end
     end
   end

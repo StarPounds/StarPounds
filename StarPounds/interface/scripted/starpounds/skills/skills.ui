@@ -37,76 +37,95 @@
             }],
             "traitTab": {
               "title": " ",
-              "id": "selectTrait",
-              "icon": "icons/tabs/selectTrait.png",
+              "id": "traitSelection",
+              "icon": "icons/tabs/traitSelection.png",
               "contents": [{"mode": "horizontal"},
-                {"type": "layout", "id": "speciesTraitPanel", "mode": "vertical", "expandMode": [1, 1], "children": [
+                {"type": "layout", "id": "availableTraitPanel", "mode": "vertical", "expandMode": [1, 1], "children": [
                   {"type": "panel", "mode": "vertical", "expandMode": [1, 0], "style": "convex", "spacing": 1, "children": [
-                    {"type": "image", "id": "speciesTraitIcon", "noAutoCrop": true, "file": "icons/traits/default.png"},
-                    {"type": "label", "id": "speciesTraitLabel", "align": "center", "text": "species"}, 0.5
+                    {"type": "image", "id": "availableTraitIcon", "noAutoCrop": true, "file": "traitAvailable.png"},
+                    {"type": "label", "id": "availableTraitLabel", "align": "center", "text": "Available Traits"}, 0.5
                   ]},
-                  {"type": "panel", "mode": "vertical", "expandMode": [1, 0], "style": "convex", "children": [
-                  1,
-                  {"type": "label", "align": "center", "text": "Skills"},
-                    {"type": "panel", "mode": "vertical", "expandMode": [1, 0], "style": "concave", "children": [
-                      {"type": "itemGrid", "id": "speciesTraitSkills", "slots": 1, "columns": 5, "autoInteract": false},
-                      {"type": "layout", "mode": "vertical", "id": "speciesTraitSkillsLabel", "children": [ 3, {"type": "label", "align": "center", "text": "^red;None"}, 3]}
-                    ]}
+                  {"type": "panel", "style": "convex", "children": [
+                    {
+                      "type": "scrollArea",
+                      "id": "availableTraits",
+                      "children": []
+                    }
                   ]},
-                  {"type": "panel", "mode": "vertical", "expandMode": [1, 1], "style": "convex", "children": [
-                    1,
-                    {"type": "label", "align": "center", "text": "Species Stats"},
-                    {"type": "panel", "style": "concave", "expandMode": [1, 1], "mode": "manual", "children": [
+                  [
+                    { "size" : 20 },
+                    {"type": "panel", "style": "convex", "children": [
+                      0,
                       [
-                        {"mode": "manual"},
-                        {"type": "label", "id": "speciesTraitStats", "size": [112, 100], "position": [4, 2], "fontSize": 7, "align": "left", "text": ""},
-                        {"type": "label", "id": "speciesTraitStatValues", "size": [112, 100], "position": [4, 2], "fontSize": 7, "align": "right", "text": ""}
-                      ]
-                    ]}
-                  ]}
-                ]},
-                {"type": "layout", "id": "selectableTraitPanel", "mode": "vertical", "expandMode": [1, 1], "children": [
-                  {"type": "panel", "mode": "vertical", "expandMode": [1, 0], "style": "convex", "spacing": 1, "children": [
-                    {"type": "image", "id": "selectableTraitIcon", "noAutoCrop": true, "file": "icons/traits/default.png"},
-                    {"type": "label", "id": "selectableTraitLabel", "align": "center", "text": "species"}, 0.5
-                  ]},
-                  {"type": "panel", "mode": "vertical", "expandMode": [1, 0], "style": "convex", "children": [
-                    1,
-                    {"type": "label", "align": "center", "text": "Skills"},
-                    {"type": "panel", "mode": "vertical", "expandMode": [1, 0], "style": "concave", "children": [
-                      {"type": "itemGrid", "id": "selectableTraitSkills", "slots": 1, "columns": 5, "autoInteract": false},
-                      {"type": "layout", "mode": "vertical", "id": "selectableTraitSkillsLabel", "children": [ 3, {"type": "label", "align": "center", "text": "^red;None"}, 3]}
-                    ]}
-                  ]},
-                  {"type": "panel", "mode": "vertical", "expandMode": [1, 1], "style": "convex", "children": [
-                    1,
-                    {"type": "label", "align": "center", "text": "Trait Stats"},
-                    {"type": "panel", "style": "concave", "expandMode": [1, 1], "mode": "manual", "children": [
-                      [
-                        {"mode": "manual"},
-                        {"type": "label", "id": "selectableTraitStats", "size": [112, 100], "position": [4, 2], "fontSize": 7, "align": "left", "text": ""},
-                        {"type": "label", "id": "selectableTraitStatValues", "size": [112, 100], "position": [4, 2], "fontSize": 7, "align": "right", "text": ""}
+                        "spacer",
+                        {"type": "image", "file": "traitSortNegative.png"},
+                        { "id": "traitSort_negative", "type": "checkBox" },
+                        "spacer"
                       ]
                     ]},
-                    {"type": "panel", "expandMode": [1, 0], "style": "concave", "children": [[{"spacing": 1}, "spacer",
-                      {"type": "iconButton", "id": "traitCycleLeft",
-                        "image": "traitCycleLeft.png",
-                        "hoverImage": "traitCycleLeft.png",
-                        "pressImage": "traitCycleLeft.png?border=1;00000000;00000000?crop=1;2;12;15"
-                      },
-                      {"type": "iconButton", "id": "selectableTraitSelect",
-                        "image": "traitSelect.png",
-                        "hoverImage": "traitSelect.png",
-                        "pressImage": "traitSelect.png?border=1;00000000;00000000?crop=1;2;33;18"
-                      },
-                      {"type": "iconButton", "id": "traitCycleRight",
-                        "image": "traitCycleRight.png",
-                        "hoverImage": "traitCycleRight.png",
-                        "pressImage": "traitCycleRight.png?border=1;00000000;00000000?crop=1;2;12;15"
-                      },
-                      "spacer"
-                    ]]}
-                  ]}
+                    {"type": "panel", "style": "convex", "children": [
+                      0,
+                      [
+                        "spacer",
+                        {"type": "image", "file": "traitSortNeutral.png"},
+                        { "id": "traitSort_neutral", "type": "checkBox" },
+                        "spacer"
+                      ]
+                    ]},
+                    {"type": "panel", "style": "convex", "children": [
+                      0,
+                      [
+                        "spacer",
+                        {"type": "image", "file": "traitSortPositive.png"},
+                        { "id": "traitSort_positive", "type": "checkBox" },
+                        "spacer"
+                      ]
+                    ]}
+                  ]
+                ]},
+                {"type": "layout", "id": "activeTraitPanel", "mode": "vertical", "expandMode": [1, 1], "children": [
+                  {"type": "panel", "mode": "vertical", "expandMode": [1, 0], "style": "convex", "spacing": 1, "children": [
+                    {"type": "image", "id": "activeTraitIcon", "noAutoCrop": true, "file": "traitActive.png"},
+                    {"type": "label", "id": "activeTraitLabel", "align": "center", "text": "Active Traits"}, 0.5
+                  ]},
+                  {"type": "panel", "style": "convex", "children": [
+                    {"type": "layout", "id": "speciesTrait", "mode": "vertical", "children": []},
+                    {
+                      "type": "scrollArea",
+                      "id": "activeTraits",
+                      "children": []
+                    }
+                  ]},
+                  [
+                    { "size" : 20 },
+                    {"type": "panel", "style": "convex", "children": [
+                      [
+                        2,
+                        {"type": "iconButton", "id": "traitPointsImage", "toolTip": "^#ccbbff;Trait Points^reset; remaining.",
+                          "image": "traitAvailable.png",
+                          "hoverImage": "traitAvailable.png",
+                          "pressImage": "traitAvailable.png"
+                        },
+                        {"type": "image", "file": "traitCount.png"},
+                        {"type": "label", "id": "traitPointsLabel", "align": "center", "text": "0"},
+                        "spacer",
+                        {"type": "layout", "mode": "manual", "children": [
+                          {"type": "image", "position": [0, 0], "file": "experienceBacking.png"},
+                          {"type": "label", "position": [0, 4], "size": [32, 13], "id": "traitExperienceLabel", "align": "center", "text": "^gray;0 XP"}
+                        ]},
+                        {"type": "iconButton", "id": "traitReset", "toolTip": "Reset changes to traits.",
+                          "image": "traitReset.png",
+                          "hoverImage": "traitReset.png",
+                          "pressImage": "traitReset.png?border=1;00000000;00000000?crop=1;2;17;18"
+                        },
+                        {"type": "iconButton", "id": "traitSelect",
+                          "image": "traitSelect.png",
+                          "hoverImage": "traitSelect.png",
+                          "pressImage": "traitSelect.png?border=1;00000000;00000000?crop=1;2;23;18"
+                        }
+                      ]
+                    ]}
+                  ]
                 ]}
               ]
             }

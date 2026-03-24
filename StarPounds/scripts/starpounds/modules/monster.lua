@@ -3,10 +3,10 @@ local _monster = starPounds.module:new("monster")
 
 function _monster:init()
   starPounds.isCritter = contains(root.assetJson("/scripts/starpounds/modules/pred.config:critterBehaviors"), config.getParameter("behavior", "monster")) ~= nil
-  -- Set monster specific trait.
-  --if not starPounds.getTrait() then
-  --  starPounds.setTrait(config.getParameter("starPounds_trait"))
-  --end
+  -- Set monster config traits.
+  for _, trait in ipairs(config.getParameter("starPounds_traits")) do
+    starPounds.moduleFunc("traits", "add", trait)
+  end
   -- Initial skills and options.
   storage.starPounds.options = sb.jsonMerge(storage.starPounds.options, config.getParameter("starPounds_options", {}))
   if not storage.starPounds.parsedInitialSkills then

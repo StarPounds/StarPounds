@@ -39,23 +39,54 @@ function skills:has(skill, level)
   return (self:level(skill) >= level) and not starPounds.hasOption("legacyMode")
 end
 
-function skills:upgrade(skill, cost)
+function skills:upgrade(skill)
   -- Argument sanitisation.
   skill = tostring(skill)
-  cost = tonumber(cost) or 0
   storage.starPounds.skills[skill] = storage.starPounds.skills[skill] or jarray()
   if self:unlockedLevel(skill) == self:level(skill) then
     storage.starPounds.skills[skill][1] = math.min(self:unlockedLevel(skill) + 1, self.data.skills[skill].levels or 1)
   end
   storage.starPounds.skills[skill][2] = math.min(self:unlockedLevel(skill) + 1, self.data.skills[skill].levels or 1)
 
-  local experienceConfig = starPounds.moduleFunc("experience", "config")
-  local experienceProgress = storage.starPounds.experience.amount/(experienceConfig.experienceAmount * (1 + storage.starPounds.experience.level * experienceConfig.experienceIncrement))
-  storage.starPounds.experience.level = math.max(storage.starPounds.experience.level - math.round(cost), 0)
-  storage.starPounds.experience.amount = math.round(experienceProgress * experienceConfig.experienceAmount * (1 + storage.starPounds.experience.level * experienceConfig.experienceIncrement))
-  starPounds.moduleFunc("experience", "add")
   self:parse()
   starPounds.events:fire("stats:calculate", "upgradeSkill")
+end
+
+function skills:upgradeCost(skill, startLevel, endLevel)
+  local skillConfig = self.data.skills[skill]
+  if not skillConfig then return 0 end
+
+  local levels = skillConfig.levels or 1
+
+  local base = skillConfig.cost.base or 0
+  local increase = skillConfig.cost.increase or 0
+  local maxCost = skillConfig.cost.max or math.huge
+
+  startLevel = math.min(math.max(startLevel, 0), levels)
+  endLevel = math.min(math.max(endLevel, startLevel), levels)
+
+  if startLevel == endLevel then return 0 end
+
+  -- Level where cost hits max.
+  local cappedLevel = math.ceil((maxCost - base) / increase)
+
+  local cost = 0
+  -- Cost of the skill while cost is increasing.
+  local increaseEnd = math.min((endLevel - 1), cappedLevel - 1)
+  if startLevel <= increaseEnd then
+    local n = increaseEnd - startLevel + 1
+    local first = base + increase * startLevel
+    local last = base + increase * increaseEnd
+    cost = cost + (n * (first + last)) / 2
+  end
+  -- Cost of the skill once max has been hit.
+  local flatStart = math.max(startLevel, cappedLevel)
+  if flatStart <= (endLevel - 1) then
+    local n = (endLevel - 1) - flatStart + 1
+    cost = cost + n * maxCost
+  end
+
+  return math.floor(cost)
 end
 
 function skills:forceUnlock(skill, level)

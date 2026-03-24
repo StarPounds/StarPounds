@@ -18,9 +18,10 @@
       "homePosition": [0,0]
     },
     "starPounds_overrideSpecies": "mini",
-    "starPounds_trait": "npc_predator",
+    "starPounds_traits": ["vore"],
     "starPounds_skills": {
-      "minimumSize": [2, 4]
+      "minimumSize": [2, 4],
+      "voreFriendly": 1
     },
     // ======================== PLEASE READ ========================
     // This character belongs to someone, and these settings reflect

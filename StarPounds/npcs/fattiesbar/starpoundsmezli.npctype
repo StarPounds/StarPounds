@@ -34,7 +34,6 @@
     "initialStorage": {
       "homePosition": [0,0]
     },
-    "starPounds_trait": "npc_alphaPredator",
     "starPounds_options": {
       "disablePrey": true,
       "disableGain": true

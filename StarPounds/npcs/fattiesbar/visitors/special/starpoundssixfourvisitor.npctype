@@ -16,9 +16,9 @@
       "homePosition": [0,0]
     },
     "starPounds_overrideSpecies": "sixfour",
-    "starPounds_trait": "npc_predator",
     "starPounds_skills": {
-      "minimumSize": [1, 2]
+      "minimumSize": [1, 2],
+      "voreFriendly": 1
     },
     // ======================== PLEASE READ ========================
     // This character belongs to someone, and these settings reflect
