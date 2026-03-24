@@ -31,7 +31,7 @@
       "position" : [-0.5, 5],
       "size" : 1.0,
       "color" : [132, 104, 185, 255],
-      "light" : [100, 50, 150],
+      "light" : [25, 10, 50],
       "fade" : 0.9,
       "destructionAction" : "shrink",
       "destructionTime" : 0.5,
