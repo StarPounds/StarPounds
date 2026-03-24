@@ -1,0 +1,11 @@
+{
+  "name" : "starpoundsexperienceup",
+
+  "effectConfig" : {  },
+  "defaultDuration" : 10,
+
+  "scripts" : [  ],
+
+  "label" : "Experience Up",
+  "icon" : "/interface/statuses/starpoundsexperienceup.png"
+}

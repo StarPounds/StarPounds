@@ -28,6 +28,10 @@
       {
         "effect" : "poisonblock",
         "duration" : 480
+      },
+      {
+        "effect" : "starpoundsexperienceup",
+        "duration" : 480
       }
   ] ],
   "foodValue": 30,  

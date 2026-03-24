@@ -20,6 +20,10 @@
     {
         "effect" : "maxenergyscalingboostfood",
         "duration" : 360
+    },
+    {
+        "effect" : "starpoundsexperienceup",
+        "duration" : 360
     }
   ] ],
   "foodValue": 33,  

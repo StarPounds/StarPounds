@@ -78,14 +78,14 @@
         "start" : {
           "default" : {
             "default" : [
-              "Salespitch. Take a look at my unique wears!"
+              "Salespitch. Take a look at my unique wares!"
             ]
           }
         },
         "welcome" : {
           "default" : {
             "default" : [
-              "Salespitch. Take a look at my unique wears!"
+              "Salespitch. Take a look at my unique wares!"
             ]
           }
         },
@@ -93,7 +93,7 @@
           "default" : {
             "default" : [
               "Courteously. I'll be sure to have some more offerings tomorrow.",
-              "Fomo. Don't count on these not selling out by the end of the day."
+              "FOMO. Don't count on these not selling out by the end of the day."
             ]
           }
         },
