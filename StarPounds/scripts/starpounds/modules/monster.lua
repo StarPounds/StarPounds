@@ -4,7 +4,7 @@ local _monster = starPounds.module:new("monster")
 function _monster:init()
   starPounds.isCritter = contains(root.assetJson("/scripts/starpounds/modules/pred.config:critterBehaviors"), config.getParameter("behavior", "monster")) ~= nil
   -- Set monster config traits.
-  for _, trait in ipairs(config.getParameter("starPounds_traits")) do
+  for _, trait in ipairs(config.getParameter("starPounds_traits", {})) do
     starPounds.moduleFunc("traits", "add", trait)
   end
   -- Initial skills and options.
