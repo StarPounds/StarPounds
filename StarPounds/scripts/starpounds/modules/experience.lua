@@ -5,6 +5,8 @@ function experience:init()
 
   self:add(0)
 
+  self.buffer = self.buffer or 0
+
   starPounds.level = storage.starPounds.experience.level
   starPounds.experience = storage.starPounds.experience.amount
 end
@@ -27,6 +29,9 @@ function experience:add(amount, multiplier, isLevel)
     return
   end
 
+  -- Keep this for amounts lost by rounding.
+  local baseAmount = amount * multiplier
+
   local levelModifier = 1 + storage.starPounds.experience.level * self.data.experienceIncrement
   local amount = math.round((amount or 0) * multiplier)
   local amountRequired = math.round(self.data.experienceAmount * levelModifier - storage.starPounds.experience.amount)
@@ -40,6 +45,14 @@ function experience:add(amount, multiplier, isLevel)
     storage.starPounds.experience.amount = 0
     self:add(amount, 1)
     self:addLevel(1)
+  end
+
+  -- Store amounts removed by rounding, add them back once it becomes a whole number.
+  self.buffer = (self.buffer or 0) + math.max(baseAmount - amount, 0)
+  if self.buffer >= 1 then
+    local bufferAmount = math.floor(self.buffer)
+    self.buffer = self.buffer - bufferAmount
+    self:add(bufferAmount, 1)
   end
 end
 
