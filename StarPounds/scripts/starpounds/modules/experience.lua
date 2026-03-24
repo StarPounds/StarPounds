@@ -76,7 +76,7 @@ end
 
 function experience:removeLevel(amount)
   amount = math.round(math.max(tonumber(amount) or 0, 0))
-  storage.starPounds.experience.level = math.min(storage.starPounds.experience.level - amount, 0)
+  storage.starPounds.experience.level = math.max(storage.starPounds.experience.level - amount, 0)
 end
 
 function experience:hungerPenalty()
