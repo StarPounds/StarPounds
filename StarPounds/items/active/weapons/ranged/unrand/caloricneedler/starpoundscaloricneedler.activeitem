@@ -13,14 +13,33 @@
 
   "inventoryIcon" : "starpoundscaloricneedler.png",
 
-  "animation" : "starpoundscaloricneedler.animation",
+  "animation" : "/items/active/weapons/ranged/gun.animation",
   "animationParts" : {
     "butt" : "",
     "middle" : "starpoundscaloricneedler.png",
-    "middlefullbright" : "starpoundscaloricneedler_fullbright.png",
+    "barrel" : "",
     "muzzleFlash" : "starpoundscaloricneedler_muzzleflash.png"
   },
   "animationCustom" : {
+    "animatedParts" : { "stateTypes" : { "middle" : {
+      "default" : "idle",
+      "states" : {
+        "idle" : {
+          "frames" : 1,
+          "cycle" : 0.6,
+          "mode" : "loop"
+        }
+      }}},
+      "parts" : { "middlefullbright" : {
+        "properties" : {
+          "centered" : true,
+          "offset" : [0.625, 0.125],
+          "zLevel" : 1,
+          "transformationGroups" : ["weapon"],
+          "fullbright" : true
+        }
+      }}
+    },
     "sounds" : {
       "fire" : ["/sfx/gun/needler1.ogg"]
     },
@@ -83,7 +102,7 @@
       }
     }
   },
-  
+
   "altAbility" : {
     "name" : "Shotgun Blast",
     "scripts" : ["/items/active/weapons/ranged/abilities/altfire.lua"],
