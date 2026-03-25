@@ -1,19 +1,21 @@
 [
-[
-  {
-    "op": "test",
-    "path": "/nameGen"
-  },
-  {
-    "op": "remove",
-    "path": "/nameGen"
-  }
-],
-  {
-    "op": "add",
-    "path": "/scriptConfig/merchant/categories/frogg",
-    "value": [
-      "frogtenantmerchant"
-    ]
-  }
+  [
+    {
+      "op": "test",
+      "path": "/nameGen"
+    },
+    {
+      "op": "remove",
+      "path": "/nameGen"
+    }
+  ],
+  [
+    {
+      "op": "add",
+      "path": "/scriptConfig/merchant/categories/frogg",
+      "value": [
+        "frogtenantmerchant"
+      ]
+    }
+  ]
 ]

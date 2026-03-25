@@ -1,41 +1,43 @@
 [
   [
-  {
-    "op": "test",
-    "path": "/nameGen"
-  },
-  {
-    "op": "remove",
-    "path": "/nameGen"
-  }
+    {
+      "op": "test",
+      "path": "/nameGen"
+    },
+    {
+      "op": "remove",
+      "path": "/nameGen"
+    }
   ],
-  {
-    "op": "add",
-    "path": "/identity",
-    "value": {
-      "species": "frogg"
-    }
-  },
-  {
-    "op": "add",
-    "path": "/scriptConfig/merchant/categories/frogg",
-    "value": [
-      "frogmerchant"
-    ]
-  },
-  {
-    "op": "add",
-    "path": "/items",
-    "value": {"override" : [
-      [0, [
-          {
-            "head" : [ { "name" : "froggfezhathead" } ],
-            "chest" : [ { "name" : "froggtraderchest" } ],
-            "legs" : [ { "name" : "froggtraderlegs" }  ],
-            "back" : [ "" ]
-          }
-        ] ]
+  [
+    {
+      "op": "add",
+      "path": "/identity",
+      "value": {
+        "species": "frogg"
+      }
+    },
+    {
+      "op": "add",
+      "path": "/scriptConfig/merchant/categories/frogg",
+      "value": [
+        "frogmerchant"
       ]
+    },
+    {
+      "op": "add",
+      "path": "/items",
+      "value": {"override" : [
+        [0, [
+            {
+              "head" : [ { "name" : "froggfezhathead" } ],
+              "chest" : [ { "name" : "froggtraderchest" } ],
+              "legs" : [ { "name" : "froggtraderlegs" }  ],
+              "back" : [ "" ]
+            }
+          ] ]
+        ]
+      }
     }
-  }
+  ]
 ]
