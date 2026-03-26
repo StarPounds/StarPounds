@@ -172,6 +172,7 @@ function pred:eat(preyId, options, check)
       base = prey.base or 0,
       weight = prey.weight or 0,
       foodType = prey.foodType or "prey",
+      weightFoodType = prey.weightFoodType or "preyWeight",
       world = (starPounds.type == "player") and player.worldId() or nil,
       noRelease = prey.noRelease or options.noRelease,
       noEscape = prey.noEscape or options.noEscape,
@@ -403,7 +404,7 @@ function pred:digestPrey(preyId, items, preyStomach)
   end
 
   starPounds.moduleFunc("stomach", "feed", digestedEntity.base, digestedEntity.foodType)
-  starPounds.moduleFunc("stomach", "feed", digestedEntity.weight, "preyWeight")
+  starPounds.moduleFunc("stomach", "feed", digestedEntity.weight, digestedEntity.weightFoodType)
   starPounds.events:fire("pred:digestEntity", digestedEntity)
   return true
 end

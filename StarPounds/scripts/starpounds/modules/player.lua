@@ -45,6 +45,7 @@ function _player:setup()
     id = player.id,
     weight = speciesData.weight,
     foodType = speciesData.foodType,
+    weightFoodType = speciesData.weightFoodType,
     preyTreasure = speciesData.preyTreasure
   }
   local mt = {__index = function () return nullFunction end}

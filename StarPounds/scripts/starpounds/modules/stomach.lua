@@ -247,8 +247,14 @@ function stomach:get()
   -- Add how heavy every entity in the stomach is to the counter.
   for _, v in pairs(storage.starPounds.stomachEntities) do
     local foodConfig = starPounds.moduleFunc("food", "foodType", v.foodType)
-    contents = contents + (v.base * foodConfig.multipliers.capacity) + v.weight
-    totalAmount = totalAmount + v.base + v.weight
+    contents = contents + (v.base * foodConfig.multipliers.capacity)
+    totalAmount = totalAmount + v.base
+    -- Weight has it's own food type.
+    if v.weight > 0 then
+      local foodConfig = starPounds.moduleFunc("food", "foodType", v.fatType)
+      contents = contents + (v.weight * foodConfig.multipliers.capacity)
+      totalAmount = totalAmount + v.weight
+    end
   end
 
   self.stomach = {

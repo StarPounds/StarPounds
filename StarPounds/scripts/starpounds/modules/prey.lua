@@ -198,6 +198,7 @@ function prey:swallowed(pred, options)
     base = entity.weight,
     foodType = entity.foodType,
     weight = storage.starPounds.weight,
+    weightFoodType = entity.weightFoodType,
     noBelch = starPounds.hasOption("disablePreyBelches")
   }
 end

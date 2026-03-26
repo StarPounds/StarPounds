@@ -67,6 +67,7 @@ function _npc:setup()
   entity.setDamageTeam = npc.setDamageTeam
   entity.weight = speciesData.weight
   entity.foodType = speciesData.foodType
+  entity.weightFoodType = speciesData.weightFoodType
   -- Save default functions.
   npc.say_old = npc.say_old or npc.say
   notify_old = notify_old or notify
@@ -92,6 +93,7 @@ function _npc:setup()
   -- No XP if disabled.
   if config.getParameter("starPounds_options.disableExperience") then
     entity.foodType = entity.foodType.."_noExperience"
+    entity.weightFoodType = entity.weightFoodType.."_noExperience"
   end
 end
 

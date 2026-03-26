@@ -118,6 +118,8 @@ function _monster:setup()
   if config.getParameter("starPounds_options.disableExperience") or (capturable and (capturable.tetherUniqueId() or capturable.ownerUuid())) then
     entity.foodType = entity.foodType.."_noExperience"
   end
+
+  entity.weightFoodType = entity.foodType
 end
 
 starPounds.modules.monster = _monster
