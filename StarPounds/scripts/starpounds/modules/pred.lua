@@ -459,7 +459,7 @@ function pred:struggle(preyId, struggleStrength, escape)
         starPounds.moduleFunc("sound", "play", "struggle", struggleVolume, strugglePitch)
       end
 
-      starPounds.events:fire("pred:struggle", struggleVolume, strugglePitch)
+      starPounds.events:fire("pred:struggle", struggleStrength, struggleVolume, strugglePitch)
 
       self.storedStruggleVolume = 0
       self.storedStruggleStrength = 0

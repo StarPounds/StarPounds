@@ -460,7 +460,6 @@ function stomach:digest(dt, isGurgle, isBelch)
         end
       end
     end
-
     -- Apply satiated effect if we maxed the hunger bar (or gained food for NPCs)
     if gainedFood then
       local applyEffect = false
@@ -757,7 +756,7 @@ function stomach:squelch(volume, pitch)
 end
 
 function stomach:squelchEvents()
-  local struggleSquelch = function(volume, pitch)
+  local struggleSquelch = function(_, volume, pitch)
     volume = (tonumber(volume) or 1) * self.data.squelchStruggleVolume
     if not starPounds.hasOption("disableStruggleSounds") then
       self:squelch(volume, pitch)
