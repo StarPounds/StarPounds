@@ -37,17 +37,17 @@ function strain:update(dt)
     status.addEphemeralEffect("starpoundsstrained")
   end
   -- Move speed stuffs.
-  local penalty = math.round(self.data.energyPenalty * self.strain * starPounds.getStat("strainedPenalty"), 2)
+  local penalty = math.round(self.strain * starPounds.getStat("strainedPenalty"), 2)
   if self.strain > self.data.minimumAmount then
-    -- Energy.
+    -- Energy regen.
     if penalty ~= self.penalty then
       status.setPersistentEffects("starpoundsstrained", {
-        {stat = "energyRegenPercentageRate", effectiveMultiplier = 1 - penalty}
+        {stat = "energyRegenPercentageRate", effectiveMultiplier = math.max(1 - (penalty * self.data.energyPenalty), 0)}
       })
       self.penalty = penalty
     end
     -- Movement.
-    local modifier = 1 - penalty
+    local modifier = math.max(1 - (penalty * self.data.penalty), 0)
     mcontroller.controlModifiers({
       airJumpModifier = modifier,
       speedModifier = modifier,
@@ -65,23 +65,18 @@ function strain:update(dt)
   if self.effort == 0 then return end
   -- Skip the rest if we're in a sphere.
   if status.stat("activeMovementAbilities") > 1 then return end
-
-  if strained then
-    local energyPercent = status.resourcePercentage("energy")
-    local energyLocked = status.resourceLocked("energy")
-    -- Consume and lock energy when running.
-    if straining then
-      local min = self.data.scalingRange[1]
-      local max = self.data.scalingRange[2]
-      local strainFactor = util.clamp((starPounds.stomach.interpolatedFullness - min) / (max - min), self.data.minimumScalingFactor, 1) * self.data.scalingFactor
-      self.strain = math.min(self.strain + (self.data.increaseAmount * self.effort * dt * strainFactor), 1)
-      self.strainCooldown = self.data.decreaseDelay
-      -- Stomach makes more rumble sounds while straining.
-      starPounds.moduleFunc("stomach", "stepTimer", "rumble", self.data.rumbleBonus * strainFactor * dt)
-      -- Sweat when strain is high.
-      if self.strain >= self.data.sweatAmount then
-        status.addEphemeralEffect("sweat")
-      end
+  -- Add strain when running or jumping.
+  if straining then
+    local min = self.data.scalingRange[1]
+    local max = self.data.scalingRange[2]
+    local strainFactor = util.clamp((starPounds.stomach.interpolatedFullness - min) / (max - min), self.data.minimumScalingFactor, 1) * self.data.scalingFactor
+    self.strain = math.min(self.strain + (self.data.increaseAmount * self.effort * dt * strainFactor), 1)
+    self.strainCooldown = self.data.decreaseDelay
+    -- Stomach makes more rumble sounds while straining.
+    starPounds.moduleFunc("stomach", "stepTimer", "rumble", self.data.rumbleBonus * strainFactor * dt)
+    -- Sweat when strain is high.
+    if self.strain >= self.data.sweatAmount then
+      status.addEphemeralEffect("sweat")
     end
   end
 end
