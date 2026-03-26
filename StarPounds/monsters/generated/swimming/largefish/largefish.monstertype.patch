@@ -1,0 +1,7 @@
+[
+  {
+    "op": "add",
+    "path": "/baseParameters/scripts/-",
+    "value": "/scripts/starpounds/loaders/monster.lua"
+  }
+]

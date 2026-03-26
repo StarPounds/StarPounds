@@ -1,0 +1,12 @@
+[
+  {
+    "op": "add",
+    "path": "/baseParameters/scripts/-",
+    "value": "/scripts/starpounds/loaders/monster.lua"
+  },
+  {
+    "op": "add",
+    "path": "/baseParameters/starPounds_isCritter",
+    "value": true
+  }
+]
