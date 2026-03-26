@@ -426,10 +426,10 @@ function stomach:digest(dt, isGurgle, isBelch)
 
         if isGurgle and foodConfig.ignoreGurgles then digestAmount = 0 end
 
-        local milkProduced, milkCost = starPounds.moduleFunc("breasts", "milkProduction", digestAmount * absorption * foodConfig.multipliers.food)
+        local milkProduced, milkCost = starPounds.moduleFunc("breasts", "milkProduction", digestAmount * absorption * foodConfig.multipliers.food * starPounds.getStat("breastProduction"))
         starPounds.moduleFunc("breasts", "gainMilk", milkProduced)
         -- Gain weight based on amount digested, milk production, and digestion efficiency.
-        starPounds.moduleFunc("size", "gainWeight", (digestAmount * (foodConfig.ignoreAbsorption and 1 or absorption) * foodConfig.multipliers.weight) - ((milkCost or 0)/math.max(1, breastEfficiency)))
+        starPounds.moduleFunc("size", "gainWeight", (digestAmount * (foodConfig.ignoreAbsorption and 1 or absorption) * foodConfig.multipliers.weight) - (milkCost or 0))
         -- Don't heal if eaten.
         if not storage.starPounds.pred then
           -- Base amount 1 health (100 food would restore 100 health, modified by healing and absorption)

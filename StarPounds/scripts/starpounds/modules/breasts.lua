@@ -2,7 +2,15 @@ local breasts = starPounds.module:new("breasts")
 
 function breasts:init()
   self.lactationTimer = 0
-  self.breasts = self:get()
+  self:get()
+
+  self.defaultContents = {
+    capacity = self.data.breastCapacity,
+    maxCapacity = self.data.breastCapacity,
+    type = "milk",
+    contents = 0,
+    fullness = 0
+  }
 
   message.setHandler("starPounds.getBreasts", function(_, _, ...) return self:get(...) end)
   message.setHandler("starPounds.setMilkType", function(_, _, ...) return self:setMilkType(...) end)
@@ -14,7 +22,8 @@ function breasts:init()
 end
 
 function breasts:update(dt)
-  self.breasts = self:get()
+  self.breasts = nil
+  self:get()
   -- Don't do anything if the mod is disabled.
   if not storage.starPounds.enabled then return end
   -- Don't do anything if eaten.
@@ -38,18 +47,25 @@ function breasts:update(dt)
 end
 
 function breasts:get()
+  -- Return default if the mod is disabled.
+  if not storage.starPounds.enabled then return self.defaultContents end
+  -- Don't recalculate multiple times a tick.
+  if self.breasts then return self.breasts end
   local breastCapacity = self.data.breastCapacity * starPounds.getStat("breastCapacity")
   if starPounds.hasOption("disableLeaking") then
     storage.starPounds.breasts.amount = math.min(storage.starPounds.breasts.amount, breastCapacity)
   end
   local breastContents = storage.starPounds.breasts.amount
 
-  return {
+  self.breasts = {
     capacity = breastCapacity,
+    maxCapacity = breastCapacity * (starPounds.hasOption("disableLeaking") and 1 or self.data.milkGenerationCap),
     type = storage.starPounds.breasts.type or "milk",
     contents = math.round(breastContents, 4),
     fullness = math.round(breastContents/breastCapacity, 4)
   }
+
+  return self.breasts
 end
 
 function breasts:lactate(amount, noConsume)
@@ -94,16 +110,18 @@ end
 function breasts:milkProduction(food)
   local milkCost = 0
   local milkProduced = 0
-  if (starPounds.getStat("breastProduction") > 0) and (starPounds.getStat("breastEfficiency") > 0) and not starPounds.hasOption("disableMilkGain") then
+  local breastEfficiency = starPounds.getStat("breastEfficiency")
+  if (food > 0) and (breastEfficiency > 0) and not starPounds.hasOption("disableMilkGain") then
     local milkValue = starPounds.moduleFunc("liquid", "getFood", self.breasts.type)
-    local maxCapacity = self.breasts.capacity * (starPounds.hasOption("disableLeaking") and 1 or 1.1)
-    if self.breasts.contents < maxCapacity then
-      milkCost = food * starPounds.getStat("breastProduction")
-      milkProduced = math.round((milkCost/milkValue) * math.min(1, starPounds.getStat("breastEfficiency")), 4)
+    if self.breasts.contents < self.breasts.maxCapacity then
+      local productionMultiplier = math.min(1, breastEfficiency) -- More milk produced per food, up to 1:1 for the food value of the milk.
+      local costMultiplier = 1/math.max(1, breastEfficiency) -- Excess breast efficiency stat reduces the cost of milk in terms of food, but not milk produced. (i.e. you'd gain weight, even with 100% production)
+      milkCost = food * costMultiplier
+      milkProduced = math.round((food/milkValue) * productionMultiplier, 4)
       if (self.breasts.capacity - self.breasts.contents) < milkProduced then
         -- Free after you've maxed out capacity, but you only gain a third as much.
-        milkProduced = util.clamp(self.breasts.capacity - self.breasts.contents, milkProduced/3, maxCapacity - self.breasts.contents)
-        milkCost = math.max(0, self.breasts.capacity - self.breasts.contents) * milkValue
+        milkProduced = util.clamp(self.breasts.capacity - self.breasts.contents, milkProduced/3, self.breasts.maxCapacity - self.breasts.contents)
+        milkCost = math.max(0, self.breasts.capacity - self.breasts.contents) * milkValue * costMultiplier
       end
     end
   end
@@ -124,7 +142,7 @@ function breasts:gainMilk(amount)
   -- Don't do anyhting if milk gain is disabled.
   if starPounds.hasOption("disableMilkGain") then return 0 end
   -- Argument sanitisation.
-  amount = util.clamp(tonumber(amount) or 0, 0, self.breasts.capacity * (starPounds.hasOption("disableLeaking") and 1 or 1.1) - self.breasts.contents)
+  amount = util.clamp(tonumber(amount) or 0, 0, self.breasts.maxCapacity - self.breasts.contents)
   self:setMilk(storage.starPounds.breasts.amount + amount)
   return amount
 end
