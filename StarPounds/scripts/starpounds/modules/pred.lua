@@ -434,7 +434,7 @@ function pred:struggle(preyId, struggleStrength, escape)
       struggleStrength = struggleStrength + self.storedStruggleStrength
 
       local struggleMultiplier = math.max(0, 1 - starPounds.getStat("struggleResistance"))
-      starPounds.moduleFunc("strain", "add", (struggleMultiplier * self.data.struggleStrain + self.data.struggleStrain * struggleStrength))
+      starPounds.moduleFunc("strain", "add", struggleMultiplier * (self.data.struggleStrainBase + self.data.struggleStrain * struggleStrength))
       if escape and (math.random() < escapeChance) then
         local canEscape = (world.entityType(preyId) == "player") or (preyHealthPercent > self.data.inescapableHealth)
         if canEscape and starPounds.moduleFunc("strain", "get") == 1 then
