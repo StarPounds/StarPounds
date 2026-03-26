@@ -24,8 +24,9 @@ function init()
   traitColours = {
     species = "",
     positive = "^green;",
-    neutral = "^gray;",
-    negative = "^red;"
+    neutral = "^lightgray;",
+    negative = "^red;",
+    unique = "^yellow;"
   }
 
   if metagui.inputData.tabs then
@@ -71,7 +72,9 @@ function init()
   end
 
   function traitSort_positive:onClick() updateAvailableTraits() end
+  function traitSort_neutral:onClick() updateAvailableTraits() end
   function traitSort_negative:onClick() updateAvailableTraits() end
+  function traitSort_unique:onClick() updateAvailableTraits() end
 end
 
 function update()
@@ -310,7 +313,9 @@ function updateAvailableTraits()
   local sortBy = {}
 
   if traitSort_positive.checked then sortBy[#sortBy + 1] = "positive" end
+  if traitSort_neutral.checked then sortBy[#sortBy + 1] = "neutral" end
   if traitSort_negative.checked then sortBy[#sortBy + 1] = "negative" end
+  if traitSort_unique.checked then sortBy[#sortBy + 1] = "unique" end
 
   for _, trait in ipairs(traits.selectableTraits) do
     local hasTag = false

@@ -58,8 +58,17 @@
                       0,
                       [
                         "spacer",
+                        {"type": "image", "file": "traitSortUnique.png"},
+                        { "id": "traitSort_unique", "type": "checkBox", "toolTip": "Show ^yellow;unique^reset; traits." },
+                        "spacer"
+                      ]
+                    ]},
+                    {"type": "panel", "style": "convex", "children": [
+                      0,
+                      [
+                        "spacer",
                         {"type": "image", "file": "traitSortNegative.png"},
-                        { "id": "traitSort_negative", "type": "checkBox" },
+                        { "id": "traitSort_negative", "type": "checkBox", "toolTip": "Show ^red;negative^reset; traits." },
                         "spacer"
                       ]
                     ]},
@@ -68,7 +77,7 @@
                       [
                         "spacer",
                         {"type": "image", "file": "traitSortNeutral.png"},
-                        { "id": "traitSort_neutral", "type": "checkBox" },
+                        { "id": "traitSort_neutral", "type": "checkBox", "toolTip": "Show ^lightgray;neutral^reset; traits." },
                         "spacer"
                       ]
                     ]},
@@ -77,7 +86,7 @@
                       [
                         "spacer",
                         {"type": "image", "file": "traitSortPositive.png"},
-                        { "id": "traitSort_positive", "type": "checkBox" },
+                        { "id": "traitSort_positive", "type": "checkBox", "toolTip": "Show ^green;positive^reset; traits." },
                         "spacer"
                       ]
                     ]}
