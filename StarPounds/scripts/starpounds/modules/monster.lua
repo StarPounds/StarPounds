@@ -2,7 +2,6 @@
 local _monster = starPounds.module:new("monster")
 
 function _monster:init()
-  starPounds.isCritter = not not contains(root.assetJson("/scripts/starpounds/modules/pred.config:critterBehaviors"), config.getParameter("behavior", "monster"))
   -- Set monster config traits.
   for _, trait in ipairs(config.getParameter("starPounds_traits", {})) do
     starPounds.moduleFunc("traits", "add", trait)

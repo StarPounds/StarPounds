@@ -8,10 +8,11 @@ function starPoundsInit()
   require "/scripts/starpounds/starpounds.lua"
   -- Used in functions for detection.
   starPounds.type = "monster"
+  starPounds.isCritter = config.getParameter("starPounds_isCritter", not not contains(root.assetJson("/scripts/starpounds/modules/pred.config:critterBehaviors"), config.getParameter("behavior", "monster")))
   -- Setup message handlers
   starPounds.messageHandlers()
   -- Reload whenever the entity loads in/beams/etc.
-  starPounds.moduleInit({"base", "entity", "monster", "vore"})
+  starPounds.moduleInit({"base", "entity", starPounds.isCritter and "critter" or "monster", "vore"})
 end
 
 -- Kinda dirty. Behaviour scripts may have called init already (which means SB tables such as root are ready).

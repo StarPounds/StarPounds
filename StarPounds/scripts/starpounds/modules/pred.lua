@@ -114,12 +114,13 @@ function pred:eat(preyId, options, check)
     if not contains(compatibleEntities, world.entityType(preyId)) then return false end
     -- Need the upgrades for the specific entity type
     if world.entityType(preyId) == "monster" then
-      local scriptCheck = contains(root.monsterParameters(preyType).scripts or jarray(), "/scripts/starpounds/loaders/monster.lua")
+      local parameters = root.monsterParameters(preyType)
+      local scriptCheck = contains(parameters.scripts or jarray(), "/scripts/starpounds/loaders/monster.lua")
       if scriptCheck then
         if (not canVoreMonster) and (not preyType:find("critter")) then return false end
         if (not canVoreCritter) and preyType:find("critter") then return false end
       else
-        local behavior = root.monsterParameters(preyType).behavior
+        local behavior = parameters.behavior
         if contains(self.data.critterBehaviors, behavior) and not canVoreCritter then return false end
         if contains(self.data.monsterBehaviors, behavior) and not canVoreMonster then return false end
       end
@@ -129,9 +130,9 @@ function pred:eat(preyId, options, check)
   -- Skip the rest if the monster/npc can't be eaten to begin with.
   local isCritter = false
   if world.entityType(preyId) == "monster" then
-    local scriptCheck = contains(root.monsterParameters(preyType).scripts or jarray(), "/scripts/starpounds/loaders/monster.lua")
     local parameters = root.monsterParameters(preyType)
-    isCritter = contains(self.data.critterBehaviors, parameters.behavior)
+    local scriptCheck = contains(parameters.scripts or jarray(), "/scripts/starpounds/loaders/monster.lua")
+    isCritter = parameters.starPounds_isCritter or contains(self.data.critterBehaviors, parameters.behavior)
     local isMonster = contains(self.data.monsterBehaviors, parameters.behavior)
     local behaviorCheck = parameters.behavior and (isCritter or isMonster) or false
     if parameters.starPounds_options and parameters.starPounds_options.disablePrey then return false end
