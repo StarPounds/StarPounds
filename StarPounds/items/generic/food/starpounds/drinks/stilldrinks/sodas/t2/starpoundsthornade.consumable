@@ -1,0 +1,30 @@
+{
+  "itemName" : "starpoundsthornade",
+  "rarity" : "Uncommon",
+  "price" : 150,
+  "category" : "drink",
+  "tooltipKind" : "food",
+  "inventoryIcon" : "starpoundsthornade.png",
+  "description" : "Quench your thirst. Now with none of the spines!",
+  "shortdescription" : "Thornade",
+  "maxStack" : 1,
+  "effects" : [ [
+    {
+        "effect" : "starpoundssugarrush",
+        "duration" : 360
+    },
+    {
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 360
+    },
+    {
+        "effect" : "thorns",
+        "duration" : 360
+    }
+  ] ],
+  "foodValue": 15,  
+  "emitters" : [ "drinking" ],
+  "blockingEffects" : [
+    "starpoundssugarcrash"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "itemName" : "starpoundscarnicola",
+  "rarity" : "Uncommon",
+  "price" : 150,
+  "category" : "drink",
+  "tooltipKind" : "food",
+  "inventoryIcon" : "starpoundscarnicola.png",
+  "description" : "A fizzy drink that'll unleash your inner predator!",
+  "shortdescription" : "Carnicola",
+  "maxStack" : 1,
+  "effects" : [ [
+    {
+        "effect" : "starpoundssugarrush",
+        "duration" : 330
+    },
+    {
+        "effect" : "starpoundsvoracious",
+        "duration" : 330
+    }
+  ] ],
+  "foodValue": 15,  
+  "emitters" : [ "drinking" ],
+  "blockingEffects" : [
+    "starpoundssugarcrash"
+  ]
+}

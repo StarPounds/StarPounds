@@ -1,0 +1,30 @@
+{
+  "itemName" : "starpoundsfattyred",
+  "rarity" : "Uncommon",
+  "price" : 150,
+  "category" : "drink",
+  "tooltipKind" : "food",
+  "inventoryIcon" : "starpoundsfattyred.png",
+  "description" : "Originally intended as a medicine, it has since taken off as a popular craft soda.",
+  "shortdescription" : "Fatty Red",
+  "maxStack" : 1,
+  "effects" : [ [
+    {
+        "effect" : "starpoundssugarrush",
+        "duration" : 330
+    },
+    {
+        "effect" : "regenerationfood",
+        "duration" : 330
+    },
+    {
+        "effect" : "maxhealthscalingboostfood",
+        "duration" : 330
+    }
+  ] ],
+  "foodValue": 15,  
+  "emitters" : [ "drinking" ],
+  "blockingEffects" : [
+    "starpoundssugarcrash"
+  ]
+}

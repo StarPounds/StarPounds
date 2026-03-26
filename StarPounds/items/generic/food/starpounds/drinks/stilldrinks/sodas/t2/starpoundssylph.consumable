@@ -1,0 +1,26 @@
+{
+  "itemName" : "starpoundssylph",
+  "rarity" : "Uncommon",
+  "price" : 130,
+  "category" : "drink",
+  "tooltipKind" : "food",
+  "inventoryIcon" : "starpoundssylph.png",
+  "description" : "Feel like the wind!",
+  "shortdescription" : "Sylph",
+  "maxStack" : 1,
+  "effects" : [ [
+    {
+        "effect" : "starpoundssugarrush",
+        "duration" : 330
+    },
+    {
+        "effect" : "runboostfood",
+        "duration" : 330
+    }
+  ] ],
+  "foodValue": 10,  
+  "emitters" : [ "drinking" ],
+  "blockingEffects" : [
+    "starpoundssugarcrash"
+  ]
+}

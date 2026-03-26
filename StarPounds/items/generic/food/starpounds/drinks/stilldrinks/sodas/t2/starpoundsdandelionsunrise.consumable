@@ -1,0 +1,30 @@
+{
+  "itemName" : "starpoundsdandelionsunrise",
+  "rarity" : "Uncommon",
+  "price" : 150,
+  "category" : "drink",
+  "tooltipKind" : "food",
+  "inventoryIcon" : "starpoundsdandelionsunrise.png",
+  "description" : "A homemade approximation of the Novakids' most beloved drink.",
+  "shortdescription" : "Dandelion Sunrise",
+  "maxStack" : 1,
+  "effects" : [ [
+    {
+        "effect" : "starpoundssugarrush",
+        "duration" : 330
+    },
+    {
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 330
+    },
+    {
+        "effect" : "glow",
+        "duration" : 330
+    }
+  ] ],
+  "foodValue": 15,  
+  "emitters" : [ "drinking" ],
+  "blockingEffects" : [
+    "starpoundssugarcrash"
+  ]
+}

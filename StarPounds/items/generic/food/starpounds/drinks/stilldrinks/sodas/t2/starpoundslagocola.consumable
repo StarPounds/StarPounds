@@ -1,0 +1,26 @@
+{
+  "itemName" : "starpoundslagocola",
+  "rarity" : "Uncommon",
+  "price" : 150,
+  "category" : "drink",
+  "tooltipKind" : "food",
+  "inventoryIcon" : "starpoundslagocola.png",
+  "description" : "Puts a spring in your step!",
+  "shortdescription" : "Lagocola",
+  "maxStack" : 1,
+  "effects" : [ [
+    {
+        "effect" : "starpoundssugarrush",
+        "duration" : 420
+    },
+    {
+        "effect" : "jumpboostfood",
+        "duration" : 420
+    }
+  ] ],
+  "foodValue": 15,  
+  "emitters" : [ "drinking" ],
+  "blockingEffects" : [
+    "starpoundssugarcrash"
+  ]
+}

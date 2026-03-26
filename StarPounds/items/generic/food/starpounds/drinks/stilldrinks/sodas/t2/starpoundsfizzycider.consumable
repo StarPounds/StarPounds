@@ -1,0 +1,26 @@
+{
+  "itemName" : "starpoundsfizzycider",
+  "rarity" : "Uncommon",
+  "price" : 150,
+  "category" : "drink",
+  "tooltipKind" : "food",
+  "inventoryIcon" : "starpoundsfizzycider.png",
+  "description" : "Just like spiced cider, but with none of the alcohol content!",
+  "shortdescription" : "Fizzy Cider",
+  "maxStack" : 1,
+  "effects" : [ [
+    {
+        "effect" : "starpoundssugarrush",
+        "duration" : 330
+    },
+    {
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 330
+    }
+  ] ],
+  "foodValue": 10,  
+  "emitters" : [ "drinking" ],
+  "blockingEffects" : [
+    "starpoundssugarcrash"
+  ]
+}

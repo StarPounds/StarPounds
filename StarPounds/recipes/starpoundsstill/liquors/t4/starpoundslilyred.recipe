@@ -2,7 +2,7 @@
   "input" : [
     { "item" : "starpoundsbrewpod", "count" : 1 },
     { "item" : "grapes", "count" : 1 },
-    { "item" : "petalred", "count" : 1 },
+    { "item" : "petalred", "count" : 5 },
     { "item" : "livingroot", "count" : 1 }
   ],
   "output" : { "item" : "starpoundslilyred", "count" : 1 },

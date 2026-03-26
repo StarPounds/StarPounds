@@ -1,0 +1,30 @@
+{
+  "itemName" : "starpoundsdrfeather",
+  "rarity" : "Uncommon",
+  "price" : 150,
+  "category" : "drink",
+  "tooltipKind" : "food",
+  "inventoryIcon" : "starpoundsdrfeather.png",
+  "description" : "Makes you feel light as a feather!",
+  "shortdescription" : "Dr Feather",
+  "maxStack" : 1,
+  "effects" : [ [
+    {
+        "effect" : "starpoundssugarrush",
+        "duration" : 330
+    },
+    {
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 330
+    },
+    {
+        "effect" : "jumpboostfood",
+        "duration" : 330
+    }
+  ] ],
+  "foodValue": 15,  
+  "emitters" : [ "drinking" ],
+  "blockingEffects" : [
+    "starpoundssugarcrash"
+  ]
+}

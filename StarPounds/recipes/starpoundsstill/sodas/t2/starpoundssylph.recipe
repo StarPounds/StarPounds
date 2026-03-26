@@ -1,0 +1,9 @@
+{
+  "input" : [
+    { "item" : "starpounds_carbonatedwater", "count" : 1 },
+    { "item" : "petalblue", "count" : 4 },
+    { "item" : "petalyellow", "count" : 4 }
+  ],
+  "output" : { "item" : "starpoundssylph", "count" : 1 },
+  "groups" : [ "craftingstill", "starpoundssodas" ]
+}

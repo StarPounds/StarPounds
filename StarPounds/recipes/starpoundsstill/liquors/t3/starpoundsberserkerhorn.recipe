@@ -2,8 +2,8 @@
   "input" : [
     { "item" : "starpoundsbrewpod", "count" : 1 },
     { "item" : "starpoundsbottledhoney", "count" : 1 },
-    { "item" : "petalred", "count" : 6 },
-    { "item" : "petalyellow", "count" : 6 },
+    { "item" : "petalred", "count" : 4 },
+    { "item" : "petalyellow", "count" : 4 },
     { "item" : "scorchedcore", "count" : 2 }
   ],
   "output" : { "item" : "starpoundsberserkerhorn", "count" : 1 },
