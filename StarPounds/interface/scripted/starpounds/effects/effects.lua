@@ -42,10 +42,11 @@ function update()
 
     for effectKey, effect in pairs(effects) do
       local effectData = starPounds.moduleFunc("effects", "get", effectKey)
+      local effectConfig = starPounds.moduleFunc("effects", "getConfig", effectKey)
       local widgetParent = _ENV[string.format("active_%sEffect_parent", effectKey)]
       local widgetDuration = _ENV[string.format("active_%sEffect_duration", effectKey)]
       local widgetLevels = _ENV[string.format("active_%sEffect_levels", effectKey)]
-      if effectData then
+      if effectData and not effectConfig.hidden then
         if widgetParent then
           if widgetDuration then
             widgetDuration:setText((starPounds.isEnabled() and "^lightgray;" or "^darkgray;")..(effectData.duration and timeFormat(effectData.duration) or "--:--"))
