@@ -350,9 +350,19 @@ function buildTraitItem(trait, active)
   local pointColour = points > 0 and (traitColours.positive .. "+") or (points < 0 and traitColours.negative or "")
 
   local statString = generateStatString(traitConfig.stats)
+  local effectString = ""
   local skillString = ""
+
+  if traitConfig.effects then
+    effectString = ""
+    for _, effect in ipairs(traitConfig.effects) do
+      local effectName = starPounds.moduleFunc("effects", "getConfig", effect).pretty
+      effectString = string.format("%s\n^green;+ ^lightgray;%s", effectString, effectName)
+    end
+  end
+
   if traitConfig.skills then
-    skillString = string.format("%s^green;Unlocks skill%s:", statString ~= "" and "\n\n" or "", #traitConfig.skills > 1 and "s" or "")
+    skillString = string.format("%s^green;Unlocks skill%s:", (statString..effectString) ~= "" and "\n\n" or "", #traitConfig.skills > 1 and "s" or "")
     for _, skill in ipairs(traitConfig.skills) do
       local skillName = skill[1]
       local skillLevel = skill[2]
@@ -362,7 +372,7 @@ function buildTraitItem(trait, active)
         levelString = string.format(" (%s)", skillLevel)
       end
       -- Skill name greyed out if we already have it.
-      local colour = string.format("^#%s;", skill.colour or "fff")
+      local colour = string.format("^#%s;", skill.colour) or "^lightgray;"
       local prefix = "^green; +"
       -- If we have the trait but it didn't unlock the skill, gray out the skill name.
       if starPounds.moduleFunc("traits", "has", trait) and not starPounds.moduleFunc("traits", "unlockedSkills", trait)[skillName] then
@@ -379,7 +389,7 @@ function buildTraitItem(trait, active)
     end
   end
 
-  local buttonToolTip = statString..skillString
+  local buttonToolTip = statString..effectString..skillString
 
   -- "Changed" traits buttons are red coloured until locked in.
   local pending = false
@@ -436,7 +446,17 @@ function buildSpeciesTraitItem()
     if traitConfig then
       local spacerString = "^#00000000;-^reset; "
       local statString = generateStatString(traitConfig.stats):gsub("\n", "\n"..spacerString)
+      local effectString = ""
       local skillString = ""
+
+      if traitConfig.effects then
+        effectString = ""
+        for _, effect in ipairs(traitConfig.effects) do
+          local effectName = starPounds.moduleFunc("effects", "getConfig", effect).pretty
+          effectString = string.format("%s\n%s^green;+ ^lightgray;%s", effectString, spacerString, effectName)
+        end
+      end
+
       if traitConfig.skills then
         skillString = string.format("\n%s^green;Unlocks skill%s:", spacerString, #traitConfig.skills > 1 and "s" or "")
         for _, skill in ipairs(traitConfig.skills) do
@@ -448,11 +468,11 @@ function buildSpeciesTraitItem()
             levelString = string.format(" (%s)", skillLevel)
           end
 
-          skillString = string.format("%s\n%s^green;+ ^#%s;%s^gray;%s", skillString, spacerString, skill.colour or "fff", skill.pretty, levelString)
+          skillString = string.format("%s\n%s^green;+ %s%s^gray;%s", skillString, spacerString, string.format("^#%s;", skill.colour) or "^lightgray;", skill.pretty, levelString)
         end
       end
 
-      buttonTooltip = string.format("%s^reset;%s^gray;- %s^reset;%s%s", buttonTooltip, (i > 1) and "\n" or "", traitConfig.pretty, statString, skillString)
+      buttonTooltip = string.format("%s^reset;%s^gray;- %s^reset;%s%s%s", buttonTooltip, (i > 1) and "\n" or "", traitConfig.pretty, statString, effectString, skillString)
     end
   end
 

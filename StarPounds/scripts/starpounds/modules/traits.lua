@@ -10,6 +10,18 @@ function traits:init()
   getmetatable(storage.starPounds.traits.unlockedSkills).__nils = {}
   -- Reset on reloads/enables.
   self.speciesStats = nil
+  -- Cleanup data.
+  self:parse()
+  -- Don't apply effects on other entities.
+  self.applyEffects = (starPounds.type == "player") or (starPounds.type == "npc") or (starPounds.type == "monster")
+  -- Create an actual update function.
+  if self.applyEffects then
+    function self:update(dt)
+      for effect in pairs(self.effects) do
+        starPounds.moduleFunc("effects", "add", effect, -1)
+      end
+    end
+  end
 end
 
 function traits:get()
@@ -74,7 +86,6 @@ function traits:applySpeciesTrait()
     storage.starPounds.traits.hasSpeciesTraitItems = true
   end
 end
-
 
 function traits:has(trait)
   -- Argument sanitisation.
@@ -186,6 +197,34 @@ function traits:parse()
       end
     end
   end
+  -- Update effects to apply.
+  self:fetchTraitEffects()
+end
+
+function traits:fetchTraitEffects()
+  self.effects = {}
+  -- Species traits.
+  for _, traitName in ipairs(self:speciesTraits()) do
+    if self.data.speciesTraits[traitName] then
+      for _, effect in ipairs(self.data.speciesTraits[traitName].effects or {}) do
+        self.effects[effect] = true
+      end
+    end
+  end
+  -- Selected traits.
+  for traitName in pairs(storage.starPounds.traits.active) do
+    if self.data.traits[traitName] then
+      for _, effect in ipairs(self.data.traits[traitName].effects or {}) do
+        self.effects[effect] = true
+      end
+    end
+  end
+  -- Return in case this gets called by moduleFunc.
+  return self.effects
+end
+
+function traits:hasEffect(effect)
+  return not not self.effects[effect]
 end
 
 function traits:reset()
