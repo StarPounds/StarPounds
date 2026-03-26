@@ -2,7 +2,7 @@
 local _monster = starPounds.module:new("monster")
 
 function _monster:init()
-  starPounds.isCritter = contains(root.assetJson("/scripts/starpounds/modules/pred.config:critterBehaviors"), config.getParameter("behavior", "monster")) ~= nil
+  starPounds.isCritter = not not contains(root.assetJson("/scripts/starpounds/modules/pred.config:critterBehaviors"), config.getParameter("behavior", "monster"))
   -- Set monster config traits.
   for _, trait in ipairs(config.getParameter("starPounds_traits", {})) do
     starPounds.moduleFunc("traits", "add", trait)
@@ -105,7 +105,7 @@ function _monster:setup()
   entity.foodType = "preyMonster"
   -- Critters give more food. (But are smaller, so still less overall)
   if starPounds.isCritter then
-    entity.foodType = "prey"
+    entity.foodType = "preyCritter"
   end
   -- Robotic monsters don't give food.
   if status.statusProperty("targetMaterialKind") == "robotic" then
