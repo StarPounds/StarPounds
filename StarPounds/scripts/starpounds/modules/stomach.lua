@@ -408,7 +408,7 @@ function stomach:digest(dt, isGurgle, isBelch)
           self:spawnBelchParticles(foodConfig.belchParticles, foodConfig.belchParticleCount)
         end
         local digestAmount = math.min(amount, math.round(digestionRate * ratio * seconds * (foodConfig.digestionRate + amount * foodConfig.percentDigestionRate), 4))
-        self.digestionExperience = self.digestionExperience + digestAmount * foodConfig.multipliers.experience
+        self.digestionExperience = self.digestionExperience + digestAmount * foodConfig.multipliers.experience * starPounds.getStat(foodConfig.experienceStat)
         storage.starPounds.stomach[foodType] = math.round(math.max(amount - digestAmount, 0), 3)
         -- Add food.
         if foodConfig.multipliers.food > 0 then
