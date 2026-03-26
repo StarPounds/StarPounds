@@ -1,8 +1,9 @@
 local voreSouls = starPounds.moduleFunc("effects", "new")
 
 function voreSouls:init()
+  -- Strip stored json nonsense.
   if getmetatable(self.data) then
-    getmetatable(self.data).__nils = {}
+    setmetatable(self.data, nil)
   end
 
   starPounds.events:on("pred:digestEntity", self.digestEntity)
