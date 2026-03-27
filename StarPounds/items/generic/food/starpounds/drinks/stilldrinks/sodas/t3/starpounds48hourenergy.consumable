@@ -1,0 +1,26 @@
+{
+  "itemName" : "starpounds48hourenergy",
+  "rarity" : "Rare",
+  "price" : 250,
+  "category" : "drink",
+  "tooltipKind" : "food",
+  "inventoryIcon" : "starpounds48hourenergy.png",
+  "description" : "A half-legal concoction that will give you a serious burst of energy!",
+  "shortdescription" : "48 Hour Energy",
+  "maxStack" : 1,
+  "effects" : [ [
+    {
+        "effect" : "starpoundssugarrush100",
+        "duration" : 360
+    },
+    {
+        "effect" : "starpounds_maxenergyscaling_super",
+        "duration" : 360
+    }
+  ] ],
+  "foodValue": 10,  
+  "emitters" : [ "drinking" ],
+  "blockingEffects" : [
+    "starpoundssugarcrash"
+  ]
+}

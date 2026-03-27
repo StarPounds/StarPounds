@@ -1,0 +1,30 @@
+{
+  "itemName" : "starpoundscyanade",
+  "rarity" : "Rare",
+  "price" : 275,
+  "category" : "drink",
+  "tooltipKind" : "food",
+  "inventoryIcon" : "starpoundscyanade.png",
+  "description" : "Only slightly more unhealthy than the average sodas.",
+  "shortdescription" : "Cyanade",
+  "maxStack" : 1,
+  "effects" : [ [
+    {
+        "effect" : "starpoundssugarrush",
+        "duration" : 360
+    },
+    {
+        "effect" : "starpounds_toxicspikes",
+        "duration" : 360
+    },
+    {
+        "effect" : "weakpoison",
+        "duration" : 5
+    }
+  ] ],
+  "foodValue": 10,  
+  "emitters" : [ "drinking" ],
+  "blockingEffects" : [
+    "starpoundssugarcrash"
+  ]
+}

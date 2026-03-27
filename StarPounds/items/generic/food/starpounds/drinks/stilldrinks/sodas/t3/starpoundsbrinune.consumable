@@ -1,0 +1,26 @@
+{
+  "itemName" : "starpoundsbrinune",
+  "rarity" : "Uncommon",
+  "price" : 180,
+  "category" : "drink",
+  "tooltipKind" : "food",
+  "inventoryIcon" : "starpoundsbrinune.png",
+  "description" : "Taste the tide!",
+  "shortdescription" : "Brinune",
+  "maxStack" : 1,
+  "effects" : [ [
+    {
+        "effect" : "starpoundssugarrush",
+        "duration" : 420
+    },
+    {
+        "effect" : "swimboostcola",
+        "duration" : 420
+    }
+  ] ],
+  "foodValue": 10,  
+  "emitters" : [ "drinking" ],
+  "blockingEffects" : [
+    "starpoundssugarcrash"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "itemName" : "starpoundsmoonrider",
+  "rarity" : "Rare",
+  "price" : 250,
+  "category" : "drink",
+  "tooltipKind" : "food",
+  "inventoryIcon" : "starpoundsmoonrider.png",
+  "description" : "Go somewhere beyond the moon!",
+  "shortdescription" : "Moonrider",
+  "maxStack" : 1,
+  "effects" : [ [
+    {
+        "effect" : "starpoundssugarrush",
+        "duration" : 360
+    },
+    {
+        "effect" : "lowgrav",
+        "duration" : 360
+    }
+  ] ],
+  "foodValue": 10,  
+  "emitters" : [ "drinking" ],
+  "blockingEffects" : [
+    "starpoundssugarcrash"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "itemName" : "starpoundsoculus",
+  "rarity" : "Rare",
+  "price" : 250,
+  "category" : "drink",
+  "tooltipKind" : "food",
+  "inventoryIcon" : "starpoundsoculus.png",
+  "description" : "It'll let you see faster!",
+  "shortdescription" : "Oculus",
+  "maxStack" : 1,
+  "effects" : [ [
+    {
+        "effect" : "starpoundssugarrush",
+        "duration" : 390
+    },
+    {
+        "effect" : "runboostfood",
+        "duration" : 390
+    }
+  ] ],
+  "foodValue": 10,  
+  "emitters" : [ "drinking" ],
+  "blockingEffects" : [
+    "starpoundssugarcrash"
+  ]
+}

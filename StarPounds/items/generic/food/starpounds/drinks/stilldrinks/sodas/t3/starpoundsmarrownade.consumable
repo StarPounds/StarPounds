@@ -1,0 +1,26 @@
+{
+  "itemName" : "starpoundsmarrownade",
+  "rarity" : "Uncommon",
+  "price" : 200,
+  "category" : "drink",
+  "tooltipKind" : "food",
+  "inventoryIcon" : "starpoundsmarrownade.png",
+  "description" : "For only the spookiest of parties.",
+  "shortdescription" : "Marrownade",
+  "maxStack" : 1,
+  "effects" : [ [
+    {
+        "effect" : "starpoundssugarrush",
+        "duration" : 360
+    },
+    {
+        "effect" : "ragefood",
+        "duration" : 360
+    }
+  ] ],
+  "foodValue": 10,  
+  "emitters" : [ "drinking" ],
+  "blockingEffects" : [
+    "starpoundssugarcrash"
+  ]
+}

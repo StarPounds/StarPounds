@@ -1,0 +1,26 @@
+{
+  "itemName" : "starpoundsichorade",
+  "rarity" : "Rare",
+  "price" : 250,
+  "category" : "drink",
+  "tooltipKind" : "food",
+  "inventoryIcon" : "starpoundsichorade.png",
+  "description" : "A soda with a sweet flavor and a bloody aftertaste.",
+  "shortdescription" : "Ichorade",
+  "maxStack" : 1,
+  "effects" : [ [
+    {
+        "effect" : "starpoundssugarrush",
+        "duration" : 360
+    },
+    {
+        "effect" : "rage",
+        "duration" : 360
+    }
+  ] ],
+  "foodValue": 10,  
+  "emitters" : [ "drinking" ],
+  "blockingEffects" : [
+    "starpoundssugarcrash"
+  ]
+}

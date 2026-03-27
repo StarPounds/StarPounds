@@ -1,0 +1,30 @@
+{
+  "name" : "starpounds_toxicspikes",
+  "effectConfig" : {
+    "minRange" : 0.5,
+
+    "visualProjectileCount" : 4,
+    "visualProjectileType" : "largepoisoncloud",
+    "visualProjectileSpeed" : 6.66,
+    "visualProjectileTime" : 0.75,
+    "visualDuration" : 0,
+    "border" : "1;4DA82699;00000000",
+
+    "damageMultiplier" : 0.0,
+    "damageProjectileType" : "starpounds_armortoxicspikes",
+
+    "cooldown" : 1,
+
+    "minTriggerDamage" : -1,
+
+    "removeInWater" : false
+  },
+  "defaultDuration" : 60,
+
+  "scripts" : [
+    "thorns.lua"
+  ],
+
+  "label" : "Toxic Spikes",
+  "icon" : "/interface/statuses/starpounds_toxicspikes.png"
+}

@@ -1,0 +1,30 @@
+{
+  "itemName" : "starpoundstropicasunrise",
+  "rarity" : "Uncommon",
+  "price" : 200,
+  "category" : "drink",
+  "tooltipKind" : "food",
+  "inventoryIcon" : "starpoundstropicasunrise.png",
+  "description" : "A sweet punchy soda for hot summer days.",
+  "shortdescription" : "Tropica Sunrise",
+  "maxStack" : 1,
+  "effects" : [ [
+    {
+        "effect" : "starpoundssugarrush",
+        "duration" : 360
+    },
+    {
+        "effect" : "runboostfood",
+        "duration" : 360
+    },
+    {
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 270
+    }
+  ] ],
+  "foodValue": 10,  
+  "emitters" : [ "drinking" ],
+  "blockingEffects" : [
+    "starpoundssugarcrash"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "itemName" : "starpoundsvino",
+  "rarity" : "Uncommon",
+  "price" : 200,
+  "category" : "drink",
+  "tooltipKind" : "food",
+  "inventoryIcon" : "starpoundsvino.png",
+  "description" : "A simple homemade grape soda.",
+  "shortdescription" : "Vino",
+  "maxStack" : 1,
+  "effects" : [ [
+    {
+        "effect" : "starpoundssugarrush",
+        "duration" : 360
+    },
+    {
+        "effect" : "runboostfood",
+        "duration" : 360
+    }
+  ] ],
+  "foodValue": 10,  
+  "emitters" : [ "drinking" ],
+  "blockingEffects" : [
+    "starpoundssugarcrash"
+  ]
+}

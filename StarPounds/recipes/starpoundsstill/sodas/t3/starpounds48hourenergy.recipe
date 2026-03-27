@@ -1,0 +1,9 @@
+{
+  "input" : [
+    { "item" : "starpounds_carbonatedwater", "count" : 1 },
+    { "item" : "staticcell", "count" : 3 },
+    { "item" : "currentcorn", "count" : 1 }
+  ],
+  "output" : { "item" : "starpounds48hourenergy", "count" : 1 },
+  "groups" : [ "craftingstill", "starpoundssodas" ]
+}

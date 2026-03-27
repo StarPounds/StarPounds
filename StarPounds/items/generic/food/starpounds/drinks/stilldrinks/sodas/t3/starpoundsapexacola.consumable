@@ -1,0 +1,26 @@
+{
+  "itemName" : "starpoundsapexacola",
+  "rarity" : "Uncommon",
+  "price" : 200,
+  "category" : "drink",
+  "tooltipKind" : "food",
+  "inventoryIcon" : "starpoundsapexacola.png",
+  "description" : "A rough approximation of a Miniknog-sponsored drink. Tastes like real banana!",
+  "shortdescription" : "Apexacola",
+  "maxStack" : 1,
+  "effects" : [ [
+    {
+        "effect" : "starpoundssugarrush",
+        "duration" : 360
+    },
+    {
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 360
+    }
+  ] ],
+  "foodValue": 10,  
+  "emitters" : [ "drinking" ],
+  "blockingEffects" : [
+    "starpoundssugarcrash"
+  ]
+}
