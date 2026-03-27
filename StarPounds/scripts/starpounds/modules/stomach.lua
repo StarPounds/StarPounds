@@ -193,7 +193,7 @@ function stomach:eat(amount, foodType)
         damageSourceKind = "starpoundsstuffing",
         damageRepeatGroup = "starpoundsstuffing",
         damageRepeatTimeout = 0,
-        sourceEntityId = entity.id()
+        sourceEntityId = starPounds.entityId
       })
     end
   end

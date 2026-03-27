@@ -32,8 +32,8 @@ function belch:belch(volume, pitch, addMomentum)
   -- Alert nearby enemies.
   local targets = world.entityQuery(starPounds.mcontroller.position, self.data.belchAlertRadius * volume, { includedTypes = {"npc", "monster"} })
   for _, target in pairs(targets) do
-    if world.entityAggressive(target) and world.entityCanDamage(target, entity.id()) then
-      world.sendEntityMessage(target, "starPounds.notifyDamage", {sourceId = entity.id()})
+    if world.entityAggressive(target) and world.entityCanDamage(target, starPounds.entityId) then
+      world.sendEntityMessage(target, "starPounds.notifyDamage", {sourceId = starPounds.entityId})
     end
   end
 
@@ -72,7 +72,7 @@ function belch:pitch(multiplier)
   local pitch = util.randomInRange(self.data.belchPitch)
   -- Gender pitch modifiers.
   if not starPounds.hasOption("genderlessBelches") then
-    local gender = world.entityGender(entity.id())
+    local gender = world.entityGender(starPounds.entityId)
     if gender then
       pitch = pitch + (self.data.belchGenderModifiers[gender] or 0)
     end

@@ -120,7 +120,7 @@ starPounds.spawnMouthProjectile = function(actions, count)
   -- Argument sanitisation.
   if not actions then return end
   count = tonumber(count) or 1
-  world.spawnProjectile("invisibleprojectile", vec2.add(starPounds.mcontroller.mouthPosition, mcontroller.isNullColliding() and 0 or vec2.div(starPounds.mcontroller.velocity, 60)), entity.id(), {0,0}, true, {
+  world.spawnProjectile("invisibleprojectile", vec2.add(starPounds.mcontroller.mouthPosition, mcontroller.isNullColliding() and 0 or vec2.div(starPounds.mcontroller.velocity, 60)), starPounds.entityId, {0,0}, true, {
     damageKind = "hidden",
     universalDamage = false,
     onlyHitTerrain = true,
@@ -134,7 +134,7 @@ starPounds.getSpecies = function()
   if storage.starPounds.overrideSpecies then return storage.starPounds.overrideSpecies end
   if starPounds.type == "player" then return player.species() end
   if starPounds.type == "npc" then return npc.species() end
-  return world.entitySpecies(entity.id())
+  return world.entitySpecies(starPounds.entityId)
 end
 
 starPounds.getVisualSpecies = function(species)
@@ -150,8 +150,8 @@ starPounds.getSpeciesData = function(species)
 end
 
 starPounds.baseDirectives = function(target)
-  local target = tonumber(target) or entity.id()
-  if target == entity.id() then
+  local target = tonumber(target) or starPounds.entityId
+  if target == starPounds.entityId then
     -- Player shorthand (with oSB or equivalent).
     if starPounds.type == "player" and player.bodyDirectives then
       return player.bodyDirectives()
@@ -173,10 +173,10 @@ end
 
 starPounds.getDirectives = function(target)
   -- Argument sanitisation.
-  local target = tonumber(target) or entity.id()
+  local target = tonumber(target) or starPounds.entityId
   local directives = starPounds.baseDirectives(target)
   -- Get entity species.
-  local species = (target ~= entity.id()) and world.entitySpecies(target) or starPounds.getSpecies()
+  local species = (target ~= starPounds.entityId) and world.entitySpecies(target) or starPounds.getSpecies()
   local speciesData = starPounds.getSpeciesData(species)
   -- Add append directives, if any. (i.e. novakids have this white patch that doesn't change with default species colours, adding ffffff=ffffff means it gets picked up by the fullbright block)
   if speciesData.appendDirectives then
@@ -222,7 +222,7 @@ starPounds.toggleEnable = function()
     starPounds.moduleUninit()
     starPounds.movementMultiplier = 1
     starPounds.jumpMultiplier = 1
-    world.sendEntityMessage(entity.id(), "starPounds.expire")
+    world.sendEntityMessage(starPounds.entityId, "starPounds.expire")
     status.clearPersistentEffects("starpounds")
     status.clearPersistentEffects("starpoundsstrained")
     status.clearPersistentEffects("starpoundseaten")

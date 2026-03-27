@@ -42,7 +42,6 @@ function _player:setup()
   local function nullFunction() end
   local speciesData = starPounds.getSpeciesData(player.species())
   entity = {
-    id = player.id,
     weight = speciesData.weight,
     foodType = speciesData.foodType,
     weightFoodType = speciesData.weightFoodType,
@@ -56,7 +55,7 @@ end
 _player.damageListener = damageListener("damageTaken", function(notifications)
   local self = _player
   for _, notification in pairs(notifications) do
-    if notification.sourceEntityId == entity.id() and notification.targetEntityId == entity.id() then
+    if notification.sourceEntityId == starPounds.entityId and notification.targetEntityId == starPounds.entityId then
       if notification.damageSourceKind == "falling" and starPounds.currentSizeIndex > 1 then
         -- "explosive" damage (ignores tilemods) to blocks is reduced by 80%, for a total of 5% damage applied to blocks. (Isn't reduced by the fall damage skill)
         local baseDamage = (notification.damageDealt)/(starPounds.currentSize.healthMultiplier * (1 - starPounds.getStat("fallDamageResistance")))
@@ -117,8 +116,8 @@ function _player:damageHitboxTiles(tileDamage)
     end
   end
   -- Damage valid tiles based on fall damage.
-  world.damageTiles(lowDamageTiles, "foreground", position, "explosive", tileDamage * 0.25, 1, entity.id())
-  world.damageTiles(highDamageTiles, "foreground", position, "explosive", tileDamage * 0.75, 1, entity.id())
+  world.damageTiles(lowDamageTiles, "foreground", position, "explosive", tileDamage * 0.25, 1, starPounds.entityId)
+  world.damageTiles(highDamageTiles, "foreground", position, "explosive", tileDamage * 0.75, 1, starPounds.entityId)
 end
 
 -- Audio doesn't line up to the normal step sound (and can't),

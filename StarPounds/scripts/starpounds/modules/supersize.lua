@@ -22,7 +22,7 @@ function supersize:update(dt)
   -- Projectile spawner for the hitbox/magnet.
   self.projectileActive = self.projectile and world.entityExists(self.projectile)
   if not self.projectileActive and self:doProjectile() then
-    self.projectile = world.spawnProjectile(self.projectileType, starPounds.mcontroller.position, entity.id(), {0, 0}, true)
+    self.projectile = world.spawnProjectile(self.projectileType, starPounds.mcontroller.position, starPounds.entityId, {0, 0}, true)
   elseif self.projectileActive and not self:doProjectile() then
     self:killProjectile()
   end

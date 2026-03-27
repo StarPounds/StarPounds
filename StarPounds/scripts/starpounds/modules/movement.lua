@@ -70,12 +70,10 @@ function movement:getController()
 end
 
 function movement:mouthPosition()
-  -- Player module will not have run the function fill for the entity table on the first tick.
-  local id = (entity or player).id()
   -- Silly, but when the uninitialising this returns nil.
-  if world.entityMouthPosition(id) == nil then return self.mcontroller.position end
+  if world.entityMouthPosition(starPounds.entityId) == nil then return self.mcontroller.position end
   local mouthOffset = {0.375 * self.mcontroller.facingDirection * (self.mcontroller.crouching and 1.5 or 1), (self.mcontroller.crouching and -1 or 0)}
-  return vec2.add(world.entityMouthPosition(id), mouthOffset)
+  return vec2.add(world.entityMouthPosition(starPounds.entityId), mouthOffset)
 end
 
 function movement:getEffort()

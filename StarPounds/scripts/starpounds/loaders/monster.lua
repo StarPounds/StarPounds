@@ -9,6 +9,8 @@ function starPoundsInit()
   -- Used in functions for detection.
   starPounds.type = "monster"
   starPounds.isCritter = config.getParameter("starPounds_isCritter", not not contains(root.assetJson("/scripts/starpounds/modules/pred.config:critterBehaviors"), config.getParameter("behavior", "monster")))
+  -- Only call for the entity id once.
+  starPounds.entityId = entity.id()
   -- Setup message handlers
   starPounds.messageHandlers()
   -- Reload whenever the entity loads in/beams/etc.

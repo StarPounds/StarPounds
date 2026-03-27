@@ -62,10 +62,10 @@ function _monster:setup()
         eatenEntity = prey
       end
     end
-    if #world.monsterQuery(world.entityPosition(entityId), 1, {withoutEntityId = entity.id(), callScript = "hasEatenEntity", callScriptArgs = {{entity = entityId}}}) > 0 then
+    if #world.monsterQuery(world.entityPosition(entityId), 1, {withoutEntityId = starPounds.entityId, callScript = "hasEatenEntity", callScriptArgs = {{entity = entityId}}}) > 0 then
       return false
     end
-    if #world.npcQuery(world.entityPosition(entityId), 1, {withoutEntityId = entity.id(), callScript = "hasEatenEntity", callScriptArgs = {{entity = entityId}}}) > 0 then
+    if #world.npcQuery(world.entityPosition(entityId), 1, {withoutEntityId = starPounds.entityId, callScript = "hasEatenEntity", callScriptArgs = {{entity = entityId}}}) > 0 then
       return false
     end
     if eatenEntity then return false end

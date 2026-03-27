@@ -61,7 +61,7 @@ function prey:eaten(dt)
   self.heartbeat = math.max(self.heartbeat - dt, 0)
   if not storage.starPounds.spectatingPred and self.heartbeat == 0 then
     self.heartbeat = self.data.heartbeat
-    promises:add(world.sendEntityMessage(storage.starPounds.pred, "starPounds.pred.hasPrey", entity.id()), function(eaten)
+    promises:add(world.sendEntityMessage(storage.starPounds.pred, "starPounds.pred.hasPrey", starPounds.entityId), function(eaten)
       if not eaten then self:released() end
     end)
   end
@@ -134,7 +134,7 @@ function prey:swallowed(pred, options)
       npc.setInteractive(false)
     end
   end
-  storage.starPounds.damageTeam = world.entityDamageTeam(entity.id())
+  storage.starPounds.damageTeam = world.entityDamageTeam(starPounds.entityId)
   -- Player specific.
   if starPounds.type == "player" then
     self.oldTech = {}
@@ -159,7 +159,7 @@ function prey:swallowed(pred, options)
     end
     -- Alert other NPCs if they are not willing.
     if not options.willing then
-      local nearbyNpcs = world.npcQuery(starPounds.mcontroller.position, self.data.witnessRange, {withoutEntityId = entity.id(), callScript = "entity.entityInSight", callScriptArgs = {entity.id()}, callScriptResult = true})
+      local nearbyNpcs = world.npcQuery(starPounds.mcontroller.position, self.data.witnessRange, {withoutEntityId = starPounds.entityId, callScript = "entity.entityInSight", callScriptArgs = {starPounds.entityId}, callScriptResult = true})
       for _, nearbyNpc in ipairs(nearbyNpcs) do
         local distance = world.distance(starPounds.mcontroller.position, world.entityPosition(nearbyNpc))
         local facingDirection = world.callScriptedEntity(nearbyNpc, "mcontroller.facingDirection")
@@ -174,7 +174,7 @@ function prey:swallowed(pred, options)
           end
         end
         if inMinimumRange or isFacing or options.loud or not options.silent then
-          world.callScriptedEntity(nearbyNpc, "notify", {type = "attack", sourceId = entity.id(), targetId = storage.starPounds.pred})
+          world.callScriptedEntity(nearbyNpc, "notify", {type = "attack", sourceId = starPounds.entityId, targetId = storage.starPounds.pred})
         end
       end
     end
@@ -244,7 +244,7 @@ function prey:playerStruggle(dt)
         self.struggled = true
         if canStruggle then
           status.overConsumeResource("energy", status.resourceMax("energy") * self.data.struggleEnergyPlayer)
-          world.sendEntityMessage(storage.starPounds.pred, "starPounds.pred.struggle", entity.id(), struggleStrength, not starPounds.hasOption("disableEscape"))
+          world.sendEntityMessage(storage.starPounds.pred, "starPounds.pred.struggle", starPounds.entityId, struggleStrength, not starPounds.hasOption("disableEscape"))
         end
       elseif status.resourceLocked("energy") then
         self.struggled = true
@@ -269,7 +269,7 @@ function prey:playerStruggle(dt)
     starPounds.hasOption("disablePreyDigestion") or
     starPounds.hasOption("disablePreyBreathLoss"))
     -- Only subtract air if we don't have an EPP, and the world isn't depleting it already.
-  and (not status.statPositive("breathProtection")) and world.breathable(world.entityMouthPosition(entity.id())) then
+  and (not status.statPositive("breathProtection")) and world.breathable(world.entityMouthPosition(starPounds.entityId)) then
     status.modifyResource("breath", -(status.stat("breathDepletionRate") * self.data.playerBreathMultiplier + status.stat("breathRegenerationRate")) * dt)
   end
 end
@@ -298,7 +298,7 @@ function prey:npcStruggle(dt)
     if status.resource("energy") == 0 then
       status.setResourceLocked("energy", true)
     end
-    world.sendEntityMessage(storage.starPounds.pred, "starPounds.pred.struggle", entity.id(), struggleStrength, not starPounds.hasOption("disableEscape"))
+    world.sendEntityMessage(storage.starPounds.pred, "starPounds.pred.struggle", starPounds.entityId, struggleStrength, not starPounds.hasOption("disableEscape"))
     self.cycle = math.random(10, 15) / 10
   end
 end
@@ -319,7 +319,7 @@ function prey:monsterStruggle(dt)
   local struggleStrength = math.max(1, status.stat("powerMultiplier")) * healthMultiplier * weightRatio
   self.cycle = self.cycle and self.cycle - (dt * healthMultiplier) or (math.random(10, 15) / 10)
   if self.cycle <= 0 then
-    world.sendEntityMessage(storage.starPounds.pred, "starPounds.pred.struggle", entity.id(), struggleStrength, not starPounds.hasOption("disableEscape"))
+    world.sendEntityMessage(storage.starPounds.pred, "starPounds.pred.struggle", starPounds.entityId, struggleStrength, not starPounds.hasOption("disableEscape"))
     self.cycle = math.random(10, 15) / 10
   end
 end
@@ -371,7 +371,7 @@ function prey:released(source, overrideStatus)
   if world.entityExists(pred, true) then
     -- Callback incase the entity calls this.
     if source ~= pred then
-      world.sendEntityMessage(pred, "starPounds.pred.release", entity.id())
+      world.sendEntityMessage(pred, "starPounds.pred.release", starPounds.entityId)
     end
     -- Don't get stuck in the ground.
     mcontroller.setPosition(world.entityPosition(pred))
@@ -406,7 +406,7 @@ function prey:digesting(pred, digestionRate, protectionPierce)
   if not pred or not world.entityExists(tonumber(pred) or 0, true) then return end
   -- Tell the pred we're not eaten there's an ID mismatch.
   if storage.starPounds.pred ~= pred then
-    world.sendEntityMessage(pred, "starPounds.pred.release", entity.id())
+    world.sendEntityMessage(pred, "starPounds.pred.release", starPounds.entityId)
   end
   -- Skip if we're not taking damage.
   if self.options.noDamage then return end
@@ -437,7 +437,7 @@ function prey:healing(pred, healingRate)
   if not pred or not world.entityExists(tonumber(pred) or 0, true) then return end
   -- Tell the pred we're not eaten there's an ID mismatch.
   if storage.starPounds.pred ~= pred then
-    world.sendEntityMessage(pred, "starPounds.pred.release", entity.id())
+    world.sendEntityMessage(pred, "starPounds.pred.release", starPounds.entityId)
   end
   -- Argument sanitisation.
   healingRate = math.max(tonumber(healingRate) or 0, 0)
@@ -456,7 +456,7 @@ end
 function prey:digested()
   -- Don't run if there's no pred.
   if not storage.starPounds.pred then return end
-  world.sendEntityMessage(storage.starPounds.pred, "starPounds.pred.digestPrey", entity.id(), self:createDrops(self.options.items), storage.starPounds.stomachEntities)
+  world.sendEntityMessage(storage.starPounds.pred, "starPounds.pred.digestPrey", starPounds.entityId, self:createDrops(self.options.items), storage.starPounds.stomachEntities)
   -- Transfer over stomach contents.
   for foodType, amount in pairs(storage.starPounds.stomach) do
     world.sendEntityMessage(storage.starPounds.pred, "starPounds.feed", amount, foodType)
@@ -588,7 +588,7 @@ end
 function prey.notifyDamage(predId)
   -- NPCs/monsters become hostile when released (as if damaged normally).
   if starPounds.type == "npc" then
-    notify({type = "attack", sourceId = entity.id(), targetId = predId})
+    notify({type = "attack", sourceId = starPounds.entityId, targetId = predId})
   elseif starPounds.type == "monster" then
     self.damaged = true
     if self.board then self.board:setEntity("damageSource", predId) end

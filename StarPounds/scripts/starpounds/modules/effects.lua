@@ -92,7 +92,7 @@ function effects:add(effect, duration, level)
     if duration < 0 then duration = nil end
     if effectConfig.particle then
       local spec = starPounds.settings.particleTemplates.effect
-      world.spawnProjectile("invisibleprojectile", vec2.add(starPounds.mcontroller.position, mcontroller.isNullColliding() and 0 or vec2.div(starPounds.mcontroller.velocity, 60)), entity.id(), {0,0}, true, {
+      world.spawnProjectile("invisibleprojectile", vec2.add(starPounds.mcontroller.position, mcontroller.isNullColliding() and 0 or vec2.div(starPounds.mcontroller.velocity, 60)), starPounds.entityId, {0,0}, true, {
         damageKind = "hidden",
         universalDamage = false,
         onlyHitTerrain = true,

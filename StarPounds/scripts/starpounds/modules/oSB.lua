@@ -4,7 +4,7 @@ function oSB:init()
   self.offset = 0
   self.interactRadius = root.assetJson("/player.config:interactRadius")
   self.lactateBindTimer = self.data.lactateBindTime
-  self.damageTeam = world.entityDamageTeam(entity.id())
+  self.damageTeam = world.entityDamageTeam(starPounds.entityId)
   self.handSlots = {"primary", "alt"}
   self.selectedSlot = nil
   self.consumableCache = {}

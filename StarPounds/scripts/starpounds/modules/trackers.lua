@@ -73,7 +73,7 @@ function trackers:clearStatuses()
   self:removeStomachTrackers()
   status.removeEphemeralEffect(sizeTracker)
   status.removeEphemeralEffect("starpoundsbreast")
-  world.sendEntityMessage(entity.id(), "starPounds.expireSizeTracker")
+  world.sendEntityMessage(starPounds.entityId, "starPounds.expireSizeTracker")
 end
 
 function trackers:getStomachTracker()

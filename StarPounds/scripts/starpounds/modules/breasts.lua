@@ -82,7 +82,7 @@ function breasts:lactate(amount, noConsume)
   if starPounds.hasOption("disableLeaking") and noConsume then self:gainMilk(amount) return end
   amount = math.min(math.round(amount, 4), self.breasts.contents)
   -- Slightly below and in front the head.
-  local spawnPosition = vec2.add(world.entityMouthPosition(entity.id()), {starPounds.mcontroller.facingDirection, -1})
+  local spawnPosition = vec2.add(world.entityMouthPosition(starPounds.entityId), {starPounds.mcontroller.facingDirection, -1})
   local existingLiquid = world.liquidAt(spawnPosition) and world.liquidAt(spawnPosition)[1] or nil
   local lactationLiquid = root.liquidId(self.breasts.type)
   local doLactation = not existingLiquid or (lactationLiquid == existingLiquid)

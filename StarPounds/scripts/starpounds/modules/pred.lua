@@ -53,9 +53,9 @@ function pred:digest(dt)
   -- Reduce health of all entities.
   for _, prey in pairs(storage.starPounds.stomachEntities) do
     if prey.safe then
-      world.sendEntityMessage(prey.id, "starPounds.prey.healing", entity.id(), starPounds.getStat("voreHealing") * dt)
+      world.sendEntityMessage(prey.id, "starPounds.prey.healing", starPounds.entityId, starPounds.getStat("voreHealing") * dt)
     else
-      world.sendEntityMessage(prey.id, "starPounds.prey.digesting", entity.id(), (damageMultiplier/vorePenalty) * dt, protectionPierce)
+      world.sendEntityMessage(prey.id, "starPounds.prey.digesting", starPounds.entityId, (damageMultiplier/vorePenalty) * dt, protectionPierce)
     end
   end
 end
@@ -90,7 +90,7 @@ function pred:eat(preyId, options, check)
   -- Store so we don't have to grab multiple times.
   local preyType = world.entityTypeName(preyId)
   -- Can't eat friendlies without the skill.
-  if not canVoreFriendly and not world.entityCanDamage(entity.id(), preyId) then return false end
+  if not canVoreFriendly and not world.entityCanDamage(starPounds.entityId, preyId) then return false end
   -- Don't do anything if eaten.
   if storage.starPounds.pred then return false end
   -- Can only eat if you're below capacity.
@@ -151,7 +151,7 @@ function pred:eat(preyId, options, check)
   -- Skip eating if we're only checking for a valid target.
   if check then return true end
   -- Options to pass prey-side.
-  local safe = starPounds.moduleFunc("skills", "has", "voreSafe") and not world.entityCanDamage(preyId, entity.id())
+  local safe = starPounds.moduleFunc("skills", "has", "voreSafe") and not world.entityCanDamage(preyId, starPounds.entityId)
   local noDamage = options.noDamage or safe
   local willing = options.willing or safe
   local preyOptions = {
@@ -165,7 +165,7 @@ function pred:eat(preyId, options, check)
   }
   local preyPosition = world.entityPosition(preyId)
   -- Ask the entity to be eaten, add to stomach if the promise is successful.
-  promises:add(world.sendEntityMessage(preyId, "starPounds.prey.swallowed", entity.id(), preyOptions), function(prey)
+  promises:add(world.sendEntityMessage(preyId, "starPounds.prey.swallowed", starPounds.entityId, preyOptions), function(prey)
     if not (prey and (prey.base or prey.weight)) then return end
     local preyConfig = {
       id = preyId,
@@ -257,8 +257,8 @@ function pred:eatNearby(position, range, querySize, options, check)
     mouthPosition = vec2.add(mouthPosition, {0, starPounds.currentSize.yOffset})
   end
 
-  local preferredEntities = position and world.entityQuery(position, querySize, {order = "nearest", includedTypes = {"player", "npc", "monster"}, withoutEntityId = entity.id()}) or jarray()
-  local nearbyEntities = world.entityQuery(mouthPosition, range, {order = "nearest", includedTypes = {"player", "npc", "monster"}, withoutEntityId = entity.id()})
+  local preferredEntities = position and world.entityQuery(position, querySize, {order = "nearest", includedTypes = {"player", "npc", "monster"}, withoutEntityId = starPounds.entityId}) or jarray()
+  local nearbyEntities = world.entityQuery(mouthPosition, range, {order = "nearest", includedTypes = {"player", "npc", "monster"}, withoutEntityId = starPounds.entityId})
   local eatenTargets = jarray()
 
   for _, prey in ipairs(storage.starPounds.stomachEntities) do
@@ -272,14 +272,14 @@ function pred:eatNearby(position, range, querySize, options, check)
   local safeSkill = starPounds.moduleFunc("skills", "has", "voreSafe")
   for _, target in ipairs(preferredEntities) do
     if isTargetValid(target) then
-      local safe = safeSkill and not world.entityCanDamage(target, entity.id())
+      local safe = safeSkill and not world.entityCanDamage(target, starPounds.entityId)
       return {self:eat(target, options, check), true, safe} -- { can they be eaten, are they under the cursor, is it safe/endo}
     end
   end
 
   for _, target in ipairs(nearbyEntities) do
     if isTargetValid(target) then
-      local safe = safeSkill and not world.entityCanDamage(target, entity.id())
+      local safe = safeSkill and not world.entityCanDamage(target, starPounds.entityId)
       return {self:eat(target, options, check), false, safe} -- { can they be eaten, are they under the cursor, is it safe/endo}
     end
   end
@@ -317,7 +317,7 @@ function pred:bite(position, applyDamage)
 
   local dir = world.distance(position, starPounds.mcontroller.position)[1]
   local direction = dir > 0 and "right" or "left"
-  world.spawnProjectile("starpoundsvorebite" .. direction .. (applyDamage and "damage" or ""), position, entity.id(), {dir, 0}, false, params)
+  world.spawnProjectile("starpoundsvorebite" .. direction .. (applyDamage and "damage" or ""), position, starPounds.entityId, {dir, 0}, false, params)
 end
 
 function pred:cooldown()
@@ -353,7 +353,7 @@ function pred:digestPrey(preyId, items, preyStomach)
   -- Transfer eaten entities.
   storage.starPounds.stomachEntities = util.mergeLists(storage.starPounds.stomachEntities, preyStomach or jarray())
   for _, prey in ipairs(preyStomach or jarray()) do
-    world.sendEntityMessage(prey.id, "starPounds.prey.newPred", entity.id())
+    world.sendEntityMessage(prey.id, "starPounds.prey.newPred", starPounds.entityId)
   end
   -- Iterate over and edit the items.
   local hasEssence = false
@@ -448,7 +448,7 @@ function pred:struggle(preyId, struggleStrength, escape)
         -- 1 second worth of digestion per struggle.
         local damageMultiplier = math.max(1, status.stat("powerMultiplier")) * starPounds.getStat("voreDamage")
         local protectionPierce = math.max(0, 1 - starPounds.getStat("voreArmorPiercing"))
-        world.sendEntityMessage(preyId, "starPounds.prey.digesting", entity.id(), damageMultiplier, protectionPierce)
+        world.sendEntityMessage(preyId, "starPounds.prey.digesting", starPounds.entityId, damageMultiplier, protectionPierce)
       end
 
       -- Outside the block so we can pass it to the event.
@@ -481,7 +481,7 @@ function pred:release(preyId, releaseAll)
     releasedEntity = storage.starPounds.stomachEntities[1]
     for preyIndex, prey in ipairs(storage.starPounds.stomachEntities) do
       if world.entityExists(prey.id, true) then
-        world.sendEntityMessage(prey.id, "starPounds.prey.released", entity.id(), statusEffect)
+        world.sendEntityMessage(prey.id, "starPounds.prey.released", starPounds.entityId, statusEffect)
       end
     end
     if releasedEntity and world.entityExists(releasedEntity.id, true) then
@@ -510,7 +510,7 @@ function pred:release(preyId, releaseAll)
       starPounds.moduleFunc("belch", "belch", belchVolume, belchPitch)
       starPounds.moduleFunc("stomach", "stopBelch") -- Cancel queued belch.
 
-      world.sendEntityMessage(releasedEntity.id, "starPounds.prey.released", entity.id(), statusEffect)
+      world.sendEntityMessage(releasedEntity.id, "starPounds.prey.released", starPounds.entityId, statusEffect)
       starPounds.events:fire("pred:releaseEntity", releasedEntity)
     end
   end
@@ -672,7 +672,7 @@ function pred:belchParticles(prey, essence)
   if starPounds.moduleFunc("skills", "has", "voreCollection") and (prey.type == "creature") and prey.typeName then
     local collectables = root.monsterParameters(prey.typeName).captureCollectables or {}
     for collection, collectable in pairs(collectables) do
-      world.sendEntityMessage(entity.id(), "addCollectable", collection, collectable)
+      world.sendEntityMessage(starPounds.entityId, "addCollectable", collection, collectable)
     end
   end
   -- Essence gets glowy purple particles.

@@ -9,6 +9,8 @@ function init()
   require "/scripts/starpounds/starpounds.lua"
   -- Used in functions for detection.
   starPounds.type = "npc"
+  -- Only call for the entity id once.
+  starPounds.entityId = entity.id()
   -- Setup message handlers
   starPounds.messageHandlers()
   -- Reload whenever the entity loads in/beams/etc.

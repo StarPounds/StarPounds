@@ -50,14 +50,14 @@ function sound:play(soundPool, volume, pitch, loops)
       secretPool = {"/sfx/starpounds/other/secret" .. self.secretIndex[soundPool] .. ".ogg"}
       self.secretIndex[soundPool] = (self.secretIndex[soundPool] % 8) + 1
     end
-    world.sendEntityMessage(entity.id(), "starPounds.handler_setSoundPool", soundPool, secretPool)
+    world.sendEntityMessage(starPounds.entityId, "starPounds.handler_setSoundPool", soundPool, secretPool)
   end
 
-  world.sendEntityMessage(entity.id(), "starPounds.handler_playSound", soundPool, loops)
+  world.sendEntityMessage(starPounds.entityId, "starPounds.handler_playSound", soundPool, loops)
 end
 
 function sound:stop(soundPool)
-  world.sendEntityMessage(entity.id(), "starPounds.handler_stopSound", soundPool)
+  world.sendEntityMessage(starPounds.entityId, "starPounds.handler_stopSound", soundPool)
 end
 
 function sound:setVolume(soundPool, volume, rampTime)
@@ -71,7 +71,7 @@ function sound:setVolume(soundPool, volume, rampTime)
     volume = volume * 0.5
   end
 
-  world.sendEntityMessage(entity.id(), "starPounds.handler_setSoundVolume", soundPool, volume, rampTime)
+  world.sendEntityMessage(starPounds.entityId, "starPounds.handler_setSoundVolume", soundPool, volume, rampTime)
 end
 
 function sound:setPitch(soundPool, pitch, rampTime)
@@ -81,7 +81,7 @@ function sound:setPitch(soundPool, pitch, rampTime)
     pitch = 1
   end
 
-  world.sendEntityMessage(entity.id(), "starPounds.handler_setSoundPitch", soundPool, pitch, rampTime)
+  world.sendEntityMessage(starPounds.entityId, "starPounds.handler_setSoundPitch", soundPool, pitch, rampTime)
 end
 
 starPounds.modules.sound = sound
