@@ -44,7 +44,7 @@
         {"size": 124},
         {"type": "panel", "style": "convex",  "children": [
           1,
-          {"id": "descriptionIcon", "type": "image", "noAutoScrop": true, "scale": 2, "file": "icons/effects/placeholder.png"},
+          {"id": "descriptionIcon", "type": "image", "noAutoCrop": true, "scale": 2, "file": "icons/effects/placeholder.png"},
           1,
           {"id": "descriptionTitle", "type": "label", "align": "center", "fontSize": 10, "text": "Effect Name"},
           1,

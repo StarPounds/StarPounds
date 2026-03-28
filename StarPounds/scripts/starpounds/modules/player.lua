@@ -18,6 +18,11 @@ function _player:init()
   elseif not mmconfig.replaced then
     player.radioMessage("starpounds_stardust")
   end
+  -- Grace period on first load.
+  if starPounds.firstLoad then
+    starPounds.moduleFunc("effects", "add", "gracePeriod")
+    starPounds.firstLoad = nil
+  end
 end
 
 function _player:update(dt)

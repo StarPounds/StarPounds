@@ -240,7 +240,7 @@ function buildTraitTab()
     -- Make sure we have enough trait points (or we're admin).
     local experienceCost = traitExperienceCost()
     local hasExperience = starPounds.level >= experienceCost
-    local canSelect = hasExperience and enableUpgrades and (isAdmin or (traitPoints >= 0)) and hasEditedTraits()
+    local canSelect = hasExperience and (enableUpgrades or starPounds.moduleFunc("effects", "get", "gracePeriod")) and (isAdmin or (traitPoints >= 0)) and hasEditedTraits()
     if not canSelect then
       widget.playSound("/sfx/interface/clickon_error.ogg")
       return
@@ -563,7 +563,7 @@ function updateTraitInfo()
   local experienceCost = traitExperienceCost()
   local hasExperience = starPounds.level >= experienceCost
   local hasPoints = isAdmin or (traitPoints >= 0)
-  local canSelect = enableUpgrades and hasPoints and hasExperience and edited
+  local canSelect = (enableUpgrades or starPounds.moduleFunc("effects", "get", "gracePeriod")) and hasPoints and hasExperience and edited
 
   traitSelect:setImage(
     string.format("traitSelect%s.png", canSelect and "" or "Disabled"),
@@ -584,23 +584,31 @@ function updateTraitInfo()
   traitSelect.toolTip = string.format("%sModification %s^reset;", colour, canSelect and "enabled" or "disabled")
 
   if canSelect then
-    traitSelect.toolTip = string.format(traitSelect.toolTip.."\n^gray;Requires ^#b8eb00;%s XP^reset;", experienceCost)
+    if not enableUpgrades and starPounds.moduleFunc("effects", "get", "gracePeriod") then
+      local objectName = root.itemConfig("starpoundsinfusiontable").config.shortdescription
+      local useAn = string.find(objectName:gsub("%^.-;", ""):sub(1, 1), "[AEIOUaeiou]")
+      traitSelect.toolTip = string.format(traitSelect.toolTip.."\n^yellow;Beginner's Grace\n^gray;Does not require ^#b8eb00;XP\n^gray;Does not require %s %s^gray;", useAn and "an" or "a", objectName)
+    else
+      traitSelect.toolTip = string.format(traitSelect.toolTip.."\n^gray;Requires ^#b8eb00;%s XP^gray;", experienceCost)
+    end
   else
     -- Only show unmodified message by itself.
     if not edited then
       traitSelect.toolTip = traitSelect.toolTip.."\n^gray;No traits modified."
     else
       -- List anything missing.
-      if not enableUpgrades then
+      if not (enableUpgrades or starPounds.moduleFunc("effects", "get", "gracePeriod")) then
         local objectName = root.itemConfig("starpoundsinfusiontable").config.shortdescription
         local useAn = string.find(objectName:gsub("%^.-;", ""):sub(1, 1), "[AEIOUaeiou]")
-        traitSelect.toolTip = string.format(traitSelect.toolTip.."\n^gray;Requires %s %s^reset;", useAn and "an" or "a", objectName)
+        if not starPounds.moduleFunc("effects", "get", "gracePeriod") then
+          traitSelect.toolTip = string.format(traitSelect.toolTip.."\n^gray;Requires %s %s^reset;", useAn and "an" or "a", objectName)
+        end
       end
       if not hasPoints then
-        traitSelect.toolTip = string.format(traitSelect.toolTip.."\n^gray;Requires ^#ccbbff;%s Trait Point%s^reset;", traitPoints * -1, (traitPoints * -1 > 1) and "s" or "")
+        traitSelect.toolTip = string.format(traitSelect.toolTip.."\n^gray;Requires ^#ccbbff;%s Trait Point%s^gray;", traitPoints * -1, (traitPoints * -1 > 1) and "s" or "")
       end
       if not hasExperience then
-        traitSelect.toolTip = string.format(traitSelect.toolTip.."\n^gray;Requires ^#b8eb00;%s XP^reset;", experienceCost)
+        traitSelect.toolTip = string.format(traitSelect.toolTip.."\n^gray;Requires ^#b8eb00;%s XP^gray;", experienceCost)
       end
     end
   end

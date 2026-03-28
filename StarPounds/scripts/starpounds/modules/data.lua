@@ -14,6 +14,10 @@ function data:load()
   if storage.starPounds and not storage.starPounds.version then
     storage.starPounds.version = 0
   end
+  -- Flag if this is the first load.
+  if not storage.starPounds then
+    starPounds.firstLoad = true
+  end
   -- Merge entity data on top of base data.
   storage.starPounds = sb.jsonMerge(self.data.data, storage.starPounds)
   -- jsonMerge turns it into a jobject, which has metadata for storing nils.
