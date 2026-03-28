@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsbrinune",
   "rarity" : "Uncommon",
-  "price" : 180,
+  "price" : 205,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsbrinune.png",
@@ -11,11 +11,11 @@
   "effects" : [ [
     {
         "effect" : "starpoundssugarrush",
-        "duration" : 420
+        "duration" : 270
     },
     {
         "effect" : "swimboostcola",
-        "duration" : 420
+        "duration" : 270
     }
   ] ],
   "foodValue": 10,  

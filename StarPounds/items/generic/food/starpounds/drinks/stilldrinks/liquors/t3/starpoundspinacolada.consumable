@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundspinacolada",
   "rarity" : "Uncommon",
-  "price" : 150,
+  "price" : 445,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundspinacolada.png",
@@ -11,15 +11,15 @@
   "effects" : [ [
     {
         "effect" : "starpoundsdrunk",
-        "duration" : 270
+        "duration" : 300
     },
     {
         "effect" : "runboostfood",
-        "duration" : 270
+        "duration" : 300
     },
     {
         "effect" : "maxenergyscalingboostfood",
-        "duration" : 270
+        "duration" : 300
     }
   ] ],
   "foodValue": 10,  
@@ -33,19 +33,19 @@
 
   "agedParameters": {
     "shortdescription" : "Piña Colada ^yellow;^reset;",  
-    "price" : 300,  
+    "price" : 890,  
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",
-        "duration" : 405
+        "duration" : 450
     },
     {
         "effect" : "runboostfood",
-        "duration" : 405
+        "duration" : 450
     },
     {
         "effect" : "maxenergyscalingboostfood",
-        "duration" : 405
+        "duration" : 450
     }
     ]]
   }

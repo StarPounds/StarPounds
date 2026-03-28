@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsberserkerhorn",
   "rarity" : "Uncommon",
-  "price" : 160,
+  "price" : 240,
   "category" : "drink",
   "inventoryIcon" : "starpoundsberserkerhorn.png",
   "tooltipKind" : "food",
@@ -11,15 +11,15 @@
   "effects" : [ [
     {
         "effect" : "starpoundsdrunk",
-        "duration" : 420
+        "duration" : 300
     },
     {
         "effect" : "rage",
-        "duration" : 420
+        "duration" : 300
     },
     {
         "effect" : "maxhealthscalingboostfood",
-        "duration" : 420
+        "duration" : 300
     }
   ] ],
   "foodValue": 10,  
@@ -33,19 +33,19 @@
 
   "agedParameters": {
     "shortdescription" : "Berserker's Horn ^yellow;^reset;",  
-    "price" : 320,  
+    "price" : 480,  
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",
-        "duration" : 630
+        "duration" : 450
     },
     {
         "effect" : "rage",
-        "duration" : 630
+        "duration" : 450
     },
     {
         "effect" : "maxhealthscalingboostfood",
-        "duration" : 630
+        "duration" : 450
     }
     ]]
   }

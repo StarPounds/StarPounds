@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundscyberpunch",
   "rarity" : "Rare",
-  "price" : 400,
+  "price" : 400, //tweak price when you get to fleshing out sodas more
   "tooltipKind" : "food",
   "category" : "drink",
   "inventoryIcon" : "starpoundscyberpunch.png",
@@ -11,11 +11,15 @@
   "effects" : [ [
     {
         "effect" : "starpoundssugarrush",
-        "duration" : 360
+        "duration" : 420
     },
     {
         "effect" : "starpounds_electricspikes",
-        "duration" : 360
+        "duration" : 420
+    },
+    {
+        "effect" : "starpoundsphysicalresist",
+        "duration" : 420
     }
   ] ],
   "foodValue": 10,  

@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundspoitin",
   "rarity" : "Common",
-  "price" : 80,
+  "price" : 190,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundspoitin.png",
@@ -11,11 +11,11 @@
   "effects" : [ [
     {
         "effect" : "starpoundsdrunk",
-        "duration" : 270
+        "duration" : 210
     },
     {
         "effect" : "maxhealthscalingboostfood",
-        "duration" : 270
+        "duration" : 210
     }
   ] ],
   "foodValue": 10,  
@@ -29,15 +29,15 @@
 
   "agedParameters": {
     "shortdescription" : "Poitin ^yellow;^reset;",  
-    "price" : 160,  
+    "price" : 380,  
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",
-        "duration" : 405
+        "duration" : 315
     },
     {
         "effect" : "maxhealthscalingboostfood",
-        "duration" : 405
+        "duration" : 315
     }
     ]]
   }

@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsgoldenwine",
   "rarity" : "Legendary",
-  "price" : 2500,
+  "price" : 655,
   "tooltipKind" : "food",
   "category" : "drink",
   "inventoryIcon" : "starpoundsgoldenwine.png",
@@ -23,7 +23,7 @@
     },
     {
         "effect" : "weakpoison",
-        "duration" : 10
+        "duration" : 5
     }
   ] ],
   "foodValue": 10,  
@@ -37,7 +37,7 @@
 
   "agedParameters": {
     "shortdescription" : "Goldenwine ^yellow;^reset;",  
-    "price" : 5000,  
+    "price" : 1310,  
     "effects" : [[
     {
         "effect" : "starpoundsdrunk",
@@ -53,7 +53,7 @@
     },
     {
         "effect" : "weakpoison",
-        "duration" : 16
+        "duration" : 10
     }
     ]]
   }

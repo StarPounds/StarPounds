@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsbloodmerlot",
   "rarity" : "Rare",
-  "price" : 160,
+  "price" : 700,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsbloodmerlot.png",
@@ -40,7 +40,7 @@
 
   "agedParameters": {
     "shortdescription" : "Blood Merlot ^yellow;^reset;",  
-    "price" : 2000,  
+    "price" : 2500,  
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",

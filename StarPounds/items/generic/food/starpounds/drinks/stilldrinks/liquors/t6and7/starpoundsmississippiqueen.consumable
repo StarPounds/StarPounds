@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsmississippiqueen",
   "rarity" : "Rare",
-  "price" : 1000,
+  "price" : 500,
   "tooltipKind" : "food",
   "category" : "drink",
   "inventoryIcon" : "starpoundsmississippiqueen.png",
@@ -41,7 +41,7 @@
 
   "agedParameters": {
     "shortdescription" : "Mississippi Queen ^yellow;^reset;",  
-    "price" : 2500,  
+    "price" : 1000,  
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",

@@ -11,19 +11,19 @@
   "effects" : [ [
     {
         "effect" : "starpoundsdrunk",
-        "duration" : 360
+        "duration" : 300
     },
     {
         "effect" : "maxhealthscalingboostfood",
-        "duration" : 360
+        "duration" : 300
     },
     {
         "effect" : "maxenergyscalingboostfood",
-        "duration" : 360
+        "duration" : 300
     },
     {
         "effect" : "starpoundsexperienceup",
-        "duration" : 360
+        "duration" : 300
     }
   ] ],
   "foodValue": 33,  
@@ -42,15 +42,15 @@
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",
-        "duration" : 540
+        "duration" : 450
     },
     {
         "effect" : "maxhealthscalingboostfood",
-        "duration" : 540
+        "duration" : 450
     },
     {
         "effect" : "maxenergyscalingboostfood",
-        "duration" : 540
+        "duration" : 450
     }
     ]]
   }

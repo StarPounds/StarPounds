@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsjolt",
   "rarity" : "Rare",
-  "price" : 375,
+  "price" : 300,
   "tooltipKind" : "food",
   "category" : "drink",
   "inventoryIcon" : "starpoundsjolt.png",
@@ -11,11 +11,11 @@
   "effects" : [ [
     {
         "effect" : "starpoundssugarrush",
-        "duration" : 360
+        "duration" : 390
     },
     {
         "effect" : "starpounds_electricspikes",
-        "duration" : 360
+        "duration" : 390
     }
   ] ],
   "foodValue": 10,  

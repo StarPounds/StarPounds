@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsnepentha",
   "rarity" : "Rare",
-  "price" : 160,
+  "price" : 330,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsnepentha.png",
@@ -33,7 +33,7 @@
 
   "agedParameters": {
     "shortdescription" : "Nepentha ^yellow;^reset;",  
-    "price" : 320,  
+    "price" : 660,  
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",

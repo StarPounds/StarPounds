@@ -11,11 +11,11 @@
   "effects" : [ [
     {
         "effect" : "starpoundsdrunk",
-        "duration" : 330
+        "duration" : 270
     },
     {
         "effect" : "maxenergyscalingboostfood",
-        "duration" : 330
+        "duration" : 270
     }
   ] ],
   "foodValue": 18,  
@@ -33,11 +33,11 @@
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",
-        "duration" : 495
+        "duration" : 405
     },
     {
         "effect" : "maxenergyscalingboostfood",
-        "duration" : 495
+        "duration" : 405
     }
     ]]
   },

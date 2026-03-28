@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundstinkerale",
   "rarity" : "Uncommon",
-  "price" : 130,
+  "price" : 250,
   "tooltipKind" : "food",
   "category" : "drink",
   "inventoryIcon" : "starpoundstinkerale.png",
@@ -29,7 +29,7 @@
 
   "agedParameters": {
     "shortdescription" : "Tinkerale ^yellow;^reset;",  
-    "price" : 300,  
+    "price" : 500,  
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",

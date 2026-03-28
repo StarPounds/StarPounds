@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsbourbon",
   "rarity" : "Common",
-  "price" : 100,
+  "price" : 165,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsbourbon.png",
@@ -11,11 +11,11 @@
   "effects" : [ [
     {
         "effect" : "starpoundsdrunk",
-        "duration" : 300
+        "duration" : 240
     },
     {
         "effect" : "maxhealthscalingboostfood",
-        "duration" : 300
+        "duration" : 240
     }
   ] ],
   "foodValue": 10,  
@@ -30,15 +30,15 @@
   "agedParameters": {
     "shortdescription" : "Bourbon ^yellow;^reset;",  
   
-    "price" : 200,
+    "price" : 325,
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",
-        "duration" : 450
+        "duration" : 360
     },
     {
         "effect" : "maxhealthscalingboostfood",
-        "duration" : 450
+        "duration" : 360
     }
     ]]
   },

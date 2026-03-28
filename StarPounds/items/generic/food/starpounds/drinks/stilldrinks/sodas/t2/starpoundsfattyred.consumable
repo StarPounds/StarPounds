@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsfattyred",
-  "rarity" : "Uncommon",
-  "price" : 150,
+  "rarity" : "Common",
+  "price" : 110,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsfattyred.png",

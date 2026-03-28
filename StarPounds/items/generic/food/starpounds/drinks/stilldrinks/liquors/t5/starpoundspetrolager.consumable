@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundspetrolager",
   "rarity" : "Rare",
-  "price" : 160,
+  "price" : 355,
   "tooltipKind" : "food",
   "category" : "drink",
   "inventoryIcon" : "starpoundspetrolager.png",
@@ -11,19 +11,19 @@
   "effects" : [ [
     {
         "effect" : "starpoundsdrunk",
-        "duration" : 420
+        "duration" : 390
     },
     {
         "effect" : "maxenergyscalingboostfood",
-        "duration" : 420
+        "duration" : 390
     },
     {
         "effect" : "maxhealthscalingboostfood",
-        "duration" : 420
+        "duration" : 390
     },
     {
         "effect" : "tarslow",
-        "duration" : 10
+        "duration" : 5
     }
   ] ],
   "foodValue": 10,  
@@ -37,19 +37,19 @@
 
   "agedParameters": {
     "shortdescription" : "Petrolager ^yellow;^reset;",  
-    "price" : 500,  
+    "price" : 710,  
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",
-        "duration" : 840
+        "duration" : 540
     },
     {
         "effect" : "maxenergyscalingboostfood",
-        "duration" : 840
+        "duration" : 540
     },
     {
         "effect" : "maxhealthscalingboostfood",
-        "duration" : 840
+        "duration" : 540
     },
     {
         "effect" : "tarslow",

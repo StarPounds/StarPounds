@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsneonsunrise",
   "rarity" : "Rare",
-  "price" : 150,
+  "price" : 425,
   "tooltipKind" : "food",
   "category" : "drink",
   "inventoryIcon" : "starpoundsneonsunrise.png",
@@ -29,7 +29,7 @@
 
   "agedParameters": {
     "shortdescription" : "Neon Sunrise ^yellow;^reset;",  
-    "price" : 350,  
+    "price" : 850,  
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",

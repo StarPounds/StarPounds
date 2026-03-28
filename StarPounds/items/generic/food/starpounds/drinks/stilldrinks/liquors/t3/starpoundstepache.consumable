@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundstepache",
   "rarity" : "Uncommon",
-  "price" : 125,
+  "price" : 270,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundstepache.png",
@@ -29,7 +29,7 @@
 
   "agedParameters": {
     "shortdescription" : "Tepache ^yellow;^reset;",  
-    "price" : 250,  
+    "price" : 540,  
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",

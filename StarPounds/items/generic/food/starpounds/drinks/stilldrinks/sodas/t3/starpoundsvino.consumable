@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsvino",
   "rarity" : "Uncommon",
-  "price" : 200,
+  "price" : 175,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsvino.png",
@@ -11,7 +11,7 @@
   "effects" : [ [
     {
         "effect" : "starpoundssugarrush",
-        "duration" : 360
+        "duration" : 270
     },
     {
         "effect" : "runboostfood",

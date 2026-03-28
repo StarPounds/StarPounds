@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundssylph",
-  "rarity" : "Uncommon",
-  "price" : 130,
+  "rarity" : "Common",
+  "price" : 110,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundssylph.png",
@@ -11,11 +11,11 @@
   "effects" : [ [
     {
         "effect" : "starpoundssugarrush",
-        "duration" : 330
+        "duration" : 210
     },
     {
         "effect" : "runboostfood",
-        "duration" : 330
+        "duration" : 210
     }
   ] ],
   "foodValue": 10,  

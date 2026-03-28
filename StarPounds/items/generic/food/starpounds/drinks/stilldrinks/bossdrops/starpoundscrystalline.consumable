@@ -21,10 +21,6 @@
         "effect" : "maxenergyscalingboostfood",
         "duration" : 600
     },
-//    {
-//        "effect" : "caloricresist",
-//        "duration" : 600
-//    },
     {
         "effect" : "starpoundserchiusglow",
         "duration" : 600

@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsvalorale",
   "rarity" : "Rare",
-  "price" : 500,
+  "price" : 880,
   "tooltipKind" : "food",
   "category" : "drink",
   "inventoryIcon" : "starpoundsvalorale.png",
@@ -37,7 +37,7 @@
 
   "agedParameters": {
     "shortdescription" : "Valorale ^yellow;^reset;",  
-    "price" : 1000,  
+    "price" : 1760,  
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",

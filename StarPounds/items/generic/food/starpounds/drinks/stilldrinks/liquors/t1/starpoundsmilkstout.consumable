@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsmilkstout",
   "rarity" : "Common",
-  "price" : 100,
+  "price" : 140,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsmilkstout.png",
@@ -11,11 +11,11 @@
   "effects" : [ [
     {
         "effect" : "starpoundsdrunk",
-        "duration" : 300
+        "duration" : 210
     },
     {
         "effect" : "maxenergyscalingboostfood",
-        "duration" : 300
+        "duration" : 210
     }
   ] ],
   "foodValue": 18,  
@@ -29,15 +29,15 @@
 
   "agedParameters": {
     "shortdescription" : "Milk Stout ^yellow;^reset;",  
-    "price" : 200,
+    "price" : 280,
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",
-        "duration" : 450
+        "duration" : 315
     },
     {
         "effect" : "maxenergyscalingboostfood",
-        "duration" : 450
+        "duration" : 315
     }
     ]]
   },

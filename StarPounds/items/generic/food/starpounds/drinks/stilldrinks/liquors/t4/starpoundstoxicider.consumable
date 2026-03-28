@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundstoxicider",
   "rarity" : "Uncommon",
-  "price" : 100,
+  "price" : 320,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundstoxicider.png",
@@ -33,7 +33,7 @@
 
   "agedParameters": {
     "shortdescription" : "Toxicider ^yellow;^reset;",  
-    "price" : 200,  
+    "price" : 640,  
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",

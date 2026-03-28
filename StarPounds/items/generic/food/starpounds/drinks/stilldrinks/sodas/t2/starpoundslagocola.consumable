@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundslagocola",
-  "rarity" : "Uncommon",
-  "price" : 150,
+  "rarity" : "Common",
+  "price" : 110,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundslagocola.png",
@@ -11,11 +11,11 @@
   "effects" : [ [
     {
         "effect" : "starpoundssugarrush",
-        "duration" : 420
+        "duration" : 240
     },
     {
         "effect" : "jumpboostfood",
-        "duration" : 420
+        "duration" : 240
     }
   ] ],
   "foodValue": 15,  

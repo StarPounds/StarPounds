@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsoculus",
   "rarity" : "Rare",
-  "price" : 325,
+  "price" : 265,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsoculus.png",
@@ -11,11 +11,11 @@
   "effects" : [ [
     {
         "effect" : "starpoundssugarrush",
-        "duration" : 390
+        "duration" : 330
     },
     {
         "effect" : "runboostfood",
-        "duration" : 390
+        "duration" : 330
     }
   ] ],
   "foodValue": 10,  

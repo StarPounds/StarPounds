@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsmoonrider",
   "rarity" : "Rare",
-  "price" : 250,
+  "price" : 125,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsmoonrider.png",
@@ -11,11 +11,11 @@
   "effects" : [ [
     {
         "effect" : "starpoundssugarrush",
-        "duration" : 360
+        "duration" : 330
     },
     {
         "effect" : "lowgrav",
-        "duration" : 360
+        "duration" : 330
     }
   ] ],
   "foodValue": 10,  

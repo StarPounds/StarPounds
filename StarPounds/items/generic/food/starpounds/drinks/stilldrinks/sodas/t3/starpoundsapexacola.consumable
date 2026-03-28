@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsapexacola",
   "rarity" : "Uncommon",
-  "price" : 200,
+  "price" : 170,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsapexacola.png",
@@ -11,11 +11,11 @@
   "effects" : [ [
     {
         "effect" : "starpoundssugarrush",
-        "duration" : 360
+        "duration" : 270
     },
     {
         "effect" : "maxenergyscalingboostfood",
-        "duration" : 360
+        "duration" : 270
     }
   ] ],
   "foodValue": 10,  

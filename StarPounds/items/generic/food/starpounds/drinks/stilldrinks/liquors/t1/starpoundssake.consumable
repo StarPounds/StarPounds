@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundssake",
   "rarity" : "Common",
-  "price" : 80,
+  "price" : 165,
   "category" : "drink",
   "inventoryIcon" : "starpoundssake.png",
   "tooltipKind" : "food",
@@ -11,11 +11,11 @@
   "effects" : [ [
     {
         "effect" : "starpoundsdrunk",
-        "duration" : 270
+        "duration" : 210
     },
     {
         "effect" : "maxhealthscalingboostfood",
-        "duration" : 270
+        "duration" : 210
     }
   ] ],
   "foodValue": 10,  
@@ -29,15 +29,15 @@
 
   "agedParameters": {
     "shortdescription" : "Sake ^yellow;^reset;",  
-    "price" : 160,  
+    "price" : 325,  
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",
-        "duration" : 405
+        "duration" : 315
     },
     {
         "effect" : "maxhealthscalingboostfood",
-        "duration" : 405
+        "duration" : 315
     }
     ]]
   },

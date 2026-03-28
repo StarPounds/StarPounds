@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundssiphon",
   "rarity" : "Rare",
-  "price" : 200,
+  "price" : 245,
   "category" : "drink",
   "tooltipKind" : "fossil",
   "inventoryIcon" : "starpoundssiphon.png",
@@ -37,7 +37,7 @@
 
   "agedParameters": {
     "shortdescription" : "Siphon ^yellow;^reset;",  
-    "price" : 400,
+    "price" : 490,
     "fuelAmount" : 50,
     "effects" : [[
     {

@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsnukabonk",
   "rarity" : "Legendary",
-  "price" : 500,
+  "price" : 1440,
   "tooltipKind" : "food",
   "category" : "drink",
   "inventoryIcon" : "starpoundsnukabonk.png",
@@ -11,19 +11,19 @@
   "effects" : [ [
     {
         "effect" : "starpoundssugarrush100",
-        "duration" : 360
+        "duration" : 420
     },
     {
         "effect" : "starpoundsirradiatedglow",
-        "duration" : 360
+        "duration" : 420
     },
     {
         "effect" : "runboostfood",
-        "duration" : 360
+        "duration" : 420
     },
     {
         "effect" : "starpoundsphysicalresist",
-        "duration" : 360
+        "duration" : 420
     }
   ] ],
   "foodValue": 10,  

@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsskullsmash",
   "rarity" : "Uncommon",
-  "price" : 170,
+  "price" : 285,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsskullsmash.png",
@@ -11,11 +11,11 @@
   "effects" : [ [
     {
         "effect" : "starpoundsdrunk",
-        "duration" : 360
+        "duration" : 300
     },
     {
         "effect" : "ragefood",
-        "duration" : 360
+        "duration" : 300
     }
   ] ],
   "foodValue": 10,  
@@ -29,15 +29,15 @@
 
   "agedParameters": {
     "shortdescription" : "Skullsmash ^yellow;^reset;",  
-    "price" : 340,  
+    "price" : 570,  
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",
-        "duration" : 540
+        "duration" : 450
     },
     {
         "effect" : "ragefood",
-        "duration" : 540
+        "duration" : 450
     }
     ]]
   }

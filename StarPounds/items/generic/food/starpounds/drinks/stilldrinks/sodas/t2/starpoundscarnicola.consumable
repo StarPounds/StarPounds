@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundscarnicola",
-  "rarity" : "Uncommon",
-  "price" : 150,
+  "rarity" : "Rare",
+  "price" : 265,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundscarnicola.png",
@@ -11,11 +11,11 @@
   "effects" : [ [
     {
         "effect" : "starpoundssugarrush",
-        "duration" : 330
+        "duration" : 240
     },
     {
         "effect" : "starpoundsvoracious",
-        "duration" : 330
+        "duration" : 240
     }
   ] ],
   "foodValue": 15,  

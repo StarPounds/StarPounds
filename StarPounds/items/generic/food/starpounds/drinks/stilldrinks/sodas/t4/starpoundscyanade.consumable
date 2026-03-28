@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundscyanade",
   "rarity" : "Rare",
-  "price" : 275,
+  "price" : 325,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundscyanade.png",
@@ -11,11 +11,11 @@
   "effects" : [ [
     {
         "effect" : "starpoundssugarrush",
-        "duration" : 360
+        "duration" : 300
     },
     {
         "effect" : "starpounds_toxicspikes",
-        "duration" : 360
+        "duration" : 300
     },
     {
         "effect" : "weakpoison",

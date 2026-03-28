@@ -14,11 +14,11 @@
   "effects" : [ [
     {
         "effect" : "starpoundsdrunk",
-        "duration" : 330
+        "duration" : 300
     },
     {
         "effect" : "runboostfood",
-        "duration" : 330
+        "duration" : 300
     }
   ] ],
   "foodValue": 16,  
@@ -36,11 +36,11 @@
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",
-        "duration" : 500
+        "duration" : 450
     },
     {
         "effect" : "runboostfood",
-        "duration" : 500
+        "duration" : 450
     }
     ]]
   },

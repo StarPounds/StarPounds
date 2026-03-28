@@ -1,7 +1,7 @@
 {
   "itemName" : "starpounds48hourenergy",
   "rarity" : "Rare",
-  "price" : 250,
+  "price" : 375,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpounds48hourenergy.png",
@@ -11,11 +11,11 @@
   "effects" : [ [
     {
         "effect" : "starpoundssugarrush100",
-        "duration" : 360
+        "duration" : 300
     },
     {
         "effect" : "starpounds_maxenergyscaling_super",
-        "duration" : 360
+        "duration" : 300
     }
   ] ],
   "foodValue": 10,  

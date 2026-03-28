@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsnectarous",
   "rarity" : "Uncommon",
-  "price" : 175,
+  "price" : 180,
   "category" : "drink",
   "inventoryIcon" : "starpoundsnectarous.png",
   "tooltipKind" : "food",
@@ -33,7 +33,7 @@
 
   "agedParameters": {
     "shortdescription" : "Nectarous ^yellow;^reset;",  
-    "price" : 325,  
+    "price" : 360,  
     "effects" : [[
 
     {

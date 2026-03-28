@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsdragoon",
   "rarity" : "Uncommon",
-  "price" : 150,
+  "price" : 350,
   "category" : "drink",
   "inventoryIcon" : "starpoundsdragoon.png",
   "tooltipKind" : "food",
@@ -33,7 +33,7 @@
 
   "agedParameters": {
     "shortdescription" : "Dragoon ^yellow;^reset;",  
-    "price" : 300,  
+    "price" : 700,  
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",

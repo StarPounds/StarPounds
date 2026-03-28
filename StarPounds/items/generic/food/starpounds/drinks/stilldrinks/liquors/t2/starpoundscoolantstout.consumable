@@ -11,15 +11,15 @@
   "effects" : [ [
     {
         "effect" : "starpoundsdrunk",
-        "duration" : 360
+        "duration" : 300
     },
     {
         "effect" : "fireblock",
-        "duration" : 360
+        "duration" : 300
     },
     {
         "effect" : "maxenergyscalingboostfood",
-        "duration" : 360
+        "duration" : 300
     }
   ] ],
   "foodValue": 20,  

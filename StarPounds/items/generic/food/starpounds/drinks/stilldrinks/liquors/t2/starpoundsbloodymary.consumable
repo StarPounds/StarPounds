@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsbloodymary",
   "rarity" : "Common",
-  "price" : 130,
+  "price" : 165,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsbloodymary.png",
@@ -11,11 +11,11 @@
   "effects" : [ [
     {
         "effect" : "starpoundsdrunk",
-        "duration" : 330
+        "duration" : 240
     },
     {
         "effect" : "maxhealthscalingboostfood",
-        "duration" : 330
+        "duration" : 240
     }
   ] ],
   "foodValue": 10,  
@@ -29,15 +29,15 @@
 
   "agedParameters": {
     "shortdescription" : "Bloodiest Mary ^yellow;^reset;",  
-    "price" : 260,  
+    "price" : 330,  
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",
-        "duration" : 495
+        "duration" : 360
     },
     {
         "effect" : "maxhealthscalingboostfood",
-        "duration" : 495
+        "duration" : 360
     }
     ]]
   }

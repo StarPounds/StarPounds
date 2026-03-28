@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsbirdofparadise",
   "rarity" : "Uncommon",
-  "price" : 130,
+  "price" : 270,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsbirdofparadise.png",
@@ -29,7 +29,7 @@
 
   "agedParameters": {
     "shortdescription" : "Bird of Paradise ^yellow;^reset;",  
-    "price" : 260,  
+    "price" : 540,  
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",

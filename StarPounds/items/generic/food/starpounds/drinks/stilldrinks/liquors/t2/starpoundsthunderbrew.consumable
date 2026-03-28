@@ -33,7 +33,7 @@
 
   "agedParameters": {
     "shortdescription" : "Thunder Brew Sake ^yellow;^reset;",  
-    "price" : 160,  
+    "price" : 400,  
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",

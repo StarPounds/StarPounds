@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundstidepooler",
   "rarity" : "Uncommon",
-  "price" : 100,
+  "price" : 200,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundstidepooler.png",
@@ -11,11 +11,11 @@
   "effects" : [ [
     {
         "effect" : "starpoundsdrunk",
-        "duration" : 120
+        "duration" : 180
     },
     {
         "effect" : "swimboostcola",
-        "duration" : 120
+        "duration" : 180
     }
   ] ],
   "foodValue": 5,  
@@ -29,15 +29,15 @@
 
   "agedParameters": {
     "shortdescription" : "Tidepooler ^yellow;^reset;",  
-    "price" : 200,  
+    "price" : 400,  
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",
-        "duration" : 180
+        "duration" : 270
     },
     {
         "effect" : "swimboostcola",
-        "duration" : 180
+        "duration" : 270
     }
     ]]
   },

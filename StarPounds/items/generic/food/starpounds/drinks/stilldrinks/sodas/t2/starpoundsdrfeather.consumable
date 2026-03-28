@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsdrfeather",
-  "rarity" : "Uncommon",
-  "price" : 150,
+  "rarity" : "Common",
+  "price" : 170,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsdrfeather.png",
@@ -11,15 +11,15 @@
   "effects" : [ [
     {
         "effect" : "starpoundssugarrush",
-        "duration" : 330
+        "duration" : 240
     },
     {
         "effect" : "maxenergyscalingboostfood",
-        "duration" : 330
+        "duration" : 240
     },
     {
         "effect" : "jumpboostfood",
-        "duration" : 330
+        "duration" : 240
     }
   ] ],
   "foodValue": 15,  

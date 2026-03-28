@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsmarooners",
   "rarity" : "Rare",
-  "price" : 150,
+  "price" : 500,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsmarooners.png",
@@ -37,7 +37,7 @@
 
   "agedParameters": {
     "shortdescription" : "Marooner's ^yellow;^reset;",  
-    "price" : 300,  
+    "price" : 1000,  
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",

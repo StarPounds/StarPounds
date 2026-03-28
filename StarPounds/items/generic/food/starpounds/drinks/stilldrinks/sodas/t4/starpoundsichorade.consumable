@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsichorade",
-  "rarity" : "Rare",
-  "price" : 250,
+  "rarity" : "Uncommon",
+  "price" : 205,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsichorade.png",
@@ -11,16 +11,17 @@
   "effects" : [ [
     {
         "effect" : "starpoundssugarrush",
-        "duration" : 360
+        "duration" : 330
     },
     {
         "effect" : "rage",
-        "duration" : 360
+        "duration" : 330
     }
   ] ],
   "foodValue": 10,  
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundssugarcrash"
-  ]
+  ],
+  "learnBlueprintsOnPickup" : [ "starpoundscarnicola" ]
 }

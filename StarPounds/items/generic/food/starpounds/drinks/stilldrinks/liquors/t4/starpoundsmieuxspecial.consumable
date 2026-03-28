@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsmieuxspecial",
   "rarity" : "Rare",
-  "price" : 150,
+  "price" : 195,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsmieuxspecial.png",
@@ -33,7 +33,7 @@
 
   "agedParameters": {
     "shortdescription" : "Mieux Deluxe ^yellow;^reset;",  
-    "price" : 300,  
+    "price" : 390,  
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",

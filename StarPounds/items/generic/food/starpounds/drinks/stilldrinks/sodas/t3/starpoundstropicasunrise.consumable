@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundstropicasunrise",
   "rarity" : "Uncommon",
-  "price" : 200,
+  "price" : 220,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundstropicasunrise.png",
@@ -11,11 +11,11 @@
   "effects" : [ [
     {
         "effect" : "starpoundssugarrush",
-        "duration" : 360
+        "duration" : 270
     },
     {
         "effect" : "runboostfood",
-        "duration" : 360
+        "duration" : 270
     },
     {
         "effect" : "maxenergyscalingboostfood",

@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsmarrownade",
   "rarity" : "Uncommon",
-  "price" : 200,
+  "price" : 220,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsmarrownade.png",
@@ -11,11 +11,11 @@
   "effects" : [ [
     {
         "effect" : "starpoundssugarrush",
-        "duration" : 360
+        "duration" : 270
     },
     {
         "effect" : "ragefood",
-        "duration" : 360
+        "duration" : 270
     }
   ] ],
   "foodValue": 10,  

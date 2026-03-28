@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsstarshine",
   "rarity" : "Uncommon",
-  "price" : 150,
+  "price" : 200,
   "category" : "drink",
   "inventoryIcon" : "starpoundsstarshine.png",
   "tooltipKind" : "food",
@@ -33,7 +33,7 @@
 
   "agedParameters": {
     "shortdescription" : "Starshine ^yellow;^reset;",  
-    "price" : 300,  
+    "price" : 400,  
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",

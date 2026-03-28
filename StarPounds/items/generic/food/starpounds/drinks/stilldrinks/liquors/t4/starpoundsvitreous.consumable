@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsvitreous",
   "rarity" : "Uncommon",
-  "price" : 130,
+  "price" : 330,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsvitreous.png",
@@ -29,7 +29,7 @@
 
   "agedParameters": {
     "shortdescription" : "Vitreous ^yellow;^reset;",  
-    "price" : 260,  
+    "price" : 660,  
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",

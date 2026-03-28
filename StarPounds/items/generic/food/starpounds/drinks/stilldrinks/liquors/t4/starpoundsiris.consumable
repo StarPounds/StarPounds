@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsiris",
   "rarity" : "Rare",
-  "price" : 200,
+  "price" : 295,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsiris.png",
@@ -37,7 +37,7 @@
 
   "agedParameters": {
     "shortdescription" : "Iris ^yellow;^reset;",  
-    "price" : 400,  
+    "price" : 590,  
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",

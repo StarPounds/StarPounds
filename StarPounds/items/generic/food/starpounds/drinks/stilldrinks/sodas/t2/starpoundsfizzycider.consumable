@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsfizzycider",
-  "rarity" : "Uncommon",
-  "price" : 150,
+  "rarity" : "Common",
+  "price" : 110,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsfizzycider.png",
@@ -11,11 +11,11 @@
   "effects" : [ [
     {
         "effect" : "starpoundssugarrush",
-        "duration" : 330
+        "duration" : 210
     },
     {
         "effect" : "maxenergyscalingboostfood",
-        "duration" : 330
+        "duration" : 210
     }
   ] ],
   "foodValue": 10,  

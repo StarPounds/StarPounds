@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundseggnog",
   "rarity" : "Uncommon",
-  "price" : 125,
+  "price" : 450,
   "category" : "drink",
   "inventoryIcon" : "starpoundseggnog.png",
   "tooltipKind" : "food",
@@ -33,7 +33,7 @@
 
   "agedParameters": {
     "shortdescription" : "Eggnog ^yellow;^reset;",  
-    "price" : 250,  
+    "price" : 900,  
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",
