@@ -1,0 +1,8 @@
+{
+  "input" : [
+    { "item" : "starpounds_carbonatedwater", "count" : 1 },
+    { "item" : "neonmelon", "count" : 1 }
+  ],
+  "output" : { "item" : "starpoundscyberpunch", "count" : 1 },
+  "groups" : [ "craftingstill", "starpoundssodas" ]
+}

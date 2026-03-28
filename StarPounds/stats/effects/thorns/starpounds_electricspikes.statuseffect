@@ -1,0 +1,30 @@
+{
+  "name" : "starpounds_electricspikes",
+  "effectConfig" : {
+    "minRange" : 0.5,
+
+    "visualProjectileCount" : 8,
+    "visualProjectileType" : "teslaboltsmall",
+    "visualProjectileSpeed" : 6.66,
+    "visualProjectileTime" : 0.75,
+    "visualDuration" : 0,
+    "border" : "1;BB6DE7;00000000",
+
+    "damageMultiplier" : 0.0,
+    "damageProjectileType" : "armorelectricspikes",
+
+    "cooldown" : 1,
+
+    "minTriggerDamage" : -1,
+
+    "removeInWater" : false
+  },
+  "defaultDuration" : 60,
+
+  "scripts" : [
+    "thorns.lua"
+  ],
+
+  "label" : "Electric Spikes",
+  "icon" : "/interface/statuses/starpounds_electricspikes.png"
+}

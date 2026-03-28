@@ -1,0 +1,38 @@
+{
+  "itemName" : "starpounds2019special",
+  "rarity" : "Legendary",
+  "price" : 5000,
+  "tooltipKind" : "food",
+  "category" : "drink",
+  "inventoryIcon" : "starpounds2019special.png",
+  "description" : "Once upon a time, this drink was considered dirt cheap.",
+  "shortdescription" : "2019 Summer Special",
+  "maxStack" : 1,
+  "effects" : [ [
+    {
+        "effect" : "starpoundssugarrush100",
+        "duration" : 600
+    },
+    {
+        "effect" : "maxhealthscalingboostfood",
+        "duration" : 600
+    },
+    {
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 600
+    },
+    {
+        "effect" : "starpoundsmidastouch",
+        "duration" : 420
+    },
+    {
+        "effect" : "starpoundsexperienceup",
+        "duration" : 360
+    }
+  ] ],
+  "foodValue": 30,  
+  "emitters" : [ "drinking" ],
+  "blockingEffects" : [
+    "starpoundssugarcrash"
+  ]
+}

@@ -1,0 +1,34 @@
+{
+  "itemName" : "starpoundsnukabonk",
+  "rarity" : "Legendary",
+  "price" : 500,
+  "tooltipKind" : "food",
+  "category" : "drink",
+  "inventoryIcon" : "starpoundsnukabonk.png",
+  "description" : "It shines with nuclear power and 300% the daily recommended amount of sugar.",
+  "shortdescription" : "NukaBonk!",
+  "maxStack" : 1,
+  "effects" : [ [
+    {
+        "effect" : "starpoundssugarrush100",
+        "duration" : 360
+    },
+    {
+        "effect" : "starpoundsirradiatedglow",
+        "duration" : 360
+    },
+    {
+        "effect" : "runboostfood",
+        "duration" : 360
+    },
+    {
+        "effect" : "starpoundsphysicalresist",
+        "duration" : 360
+    }
+  ] ],
+  "foodValue": 10,  
+  "emitters" : [ "drinking" ],
+  "blockingEffects" : [
+    "starpoundssugarcrash"
+  ]
+}

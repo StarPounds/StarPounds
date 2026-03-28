@@ -1,0 +1,26 @@
+{
+  "itemName" : "starpoundsjolt",
+  "rarity" : "Rare",
+  "price" : 375,
+  "tooltipKind" : "food",
+  "category" : "drink",
+  "inventoryIcon" : "starpoundsjolt.png",
+  "description" : "Feel the surge!",
+  "shortdescription" : "Jolt",
+  "maxStack" : 1,
+  "effects" : [ [
+    {
+        "effect" : "starpoundssugarrush",
+        "duration" : 360
+    },
+    {
+        "effect" : "starpounds_electricspikes",
+        "duration" : 360
+    }
+  ] ],
+  "foodValue": 10,  
+  "emitters" : [ "drinking" ],
+  "blockingEffects" : [
+    "starpoundssugarcrash"
+  ]
+}

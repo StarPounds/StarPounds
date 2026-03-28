@@ -1,7 +1,8 @@
 {
   "input" : [
     { "item" : "starpounds_carbonatedwater", "count" : 1 },
-    { "item" : "toxictop", "count" : 1 }
+    { "item" : "toxictop", "count" : 1 },
+    { "item" : "venomsample", "count" : 1 }
   ],
   "output" : { "item" : "starpoundscyanade", "count" : 1 },
   "groups" : [ "craftingstill", "starpoundssodas" ]
