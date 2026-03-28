@@ -41,6 +41,6 @@ function update(dt)
 end
 
 function uninit()
-  effect.removeStatModifierGroup(self.statGroup)
+  effect.removeStatModifierGroup(self.mainStatGroup)
   effect.removeStatModifierGroup(self.energyStatGroup)
 end
