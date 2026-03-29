@@ -6,7 +6,7 @@
   "category" : "drink",
   "inventoryIcon" : "starpoundsappleschnapps.png",
   "description" : "It smells quite pungent... Almost like medical ethanol...",
-  "shortdescription" : "Apple Schnapps",
+  "shortdescription" : "Apple Schnapps?",
   "maxStack" : 1,
   "effects" : [ [
     {
