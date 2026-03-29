@@ -2,10 +2,10 @@
   "itemName" : "starpoundsonikillerlite",
   "rarity" : "Legendary",
   "price" : 5000,
-  "tooltipKind" : "fossil",
+  "tooltipKind" : "food",
   "category" : "drink",
   "inventoryIcon" : "starpoundsonikillerlite.png",
-  "description" : "A mere watered down approximation of the true Onikiller Sake, only slightly less liver-destroyingly potent.",
+  "description" : "A mere watered down approximation of the true Onikiller Sake. Now slightly less liver-destroyingly potent!",
   "shortdescription" : "Onikiller Lite",
   "maxStack" : 1,
   "effects" : [ [

@@ -2,7 +2,7 @@
   "itemName" : "starpoundschampionschalice",
   "rarity" : "Legendary",
   "price" : 5000,
-  "tooltipKind" : "fossil",
+  "tooltipKind" : "food",
   "category" : "drink",
   "inventoryIcon" : "starpoundschampionschalice.png",
   "description" : "The champions of the Gluttonists are the only Floran allowed to drink this noxious smelling booze.",

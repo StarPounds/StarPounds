@@ -1,0 +1,38 @@
+{
+  "itemName" : "starpoundsdietstardust",
+  "rarity" : "Legendary",
+  "price" : 5000,
+  "tooltipKind" : "food",
+  "category" : "drink",
+  "inventoryIcon" : "starpoundsdietstardust.png",
+  "description" : "A modified form of the legendary Stardust Rootpop, now made slightly more healthy!",
+  "shortdescription" : "Diet Stardust Rootpop",
+  "maxStack" : 1,
+  "effects" : [ [
+    {
+        "effect" : "starpoundssugarrush100",
+        "duration" : 600
+    },
+    {
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 600
+    },
+    {
+        "effect" : "glow",
+        "duration" : 600
+    },
+    {
+        "effect" : "runboostfood",
+        "duration" : 600
+    },
+    {
+        "effect" : "jumpboostfood",
+        "duration" : 600
+    }
+  ] ],
+  "foodValue": 30,  
+  "emitters" : [ "drinking" ],
+  "blockingEffects" : [
+    "starpoundssugarcrash"
+  ]
+}
