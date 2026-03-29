@@ -2,9 +2,10 @@
   "input" : [
     { "item" : "starpounds_carbonatedwater", "count" : 1 },
     { "item" : "sugar", "count" : 1 },
+    { "item" : "neonmelon", "count" : 1 },
     { "item" : "diodia", "count" : 1 },
-    { "item" : "staticcell", "count" : 1 }
+    { "item" : "boltbulb", "count" : 1 }
   ],
-  "output" : { "item" : "starpoundsjolt", "count" : 1 },
+  "output" : { "item" : "starpoundsnano", "count" : 1 },
   "groups" : [ "craftingstill", "starpoundssodas" ]
 }

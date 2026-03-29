@@ -1,8 +1,9 @@
 {
   "input" : [
     { "item" : "starpounds_carbonatedwater", "count" : 1 },
-    { "item" : "neonmelon", "count" : 1 },
     { "item" : "sugar", "count" : 10 },
+    { "item" : "neonmelon", "count" : 1 },
+    { "item" : "dirturchin", "count" : 1 },
     { "item" : "liquidpoison", "count" : 10 },
     { "item" : "toxicwaste", "count" : 5 }
   ],

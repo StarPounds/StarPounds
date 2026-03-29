@@ -1,6 +1,7 @@
 {
   "input" : [
     { "item" : "starpounds_carbonatedwater", "count" : 1 },
+    { "item" : "sugar", "count" : 1 },
     { "item" : "toxictop", "count" : 1 },
     { "item" : "venomsample", "count" : 1 }
   ],

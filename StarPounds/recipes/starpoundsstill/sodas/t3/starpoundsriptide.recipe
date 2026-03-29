@@ -2,8 +2,9 @@
   "input" : [
     { "item" : "starpounds_carbonatedwater", "count" : 1 },
     { "item" : "sugar", "count" : 1 },
-    { "item" : "grapes", "count" : 1 }
+    { "item" : "reefpod", "count" : 1 },
+    { "item" : "kiwi", "count" : 1 }
   ],
-  "output" : { "item" : "starpoundsvino", "count" : 1 },
+  "output" : { "item" : "starpoundsriptide", "count" : 1 },
   "groups" : [ "craftingstill", "starpoundssodas" ]
 }

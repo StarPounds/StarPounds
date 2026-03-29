@@ -1,0 +1,14 @@
+{
+  "name" : "starpoundscyberneonglow",
+  "effectConfig" : {},
+  "defaultDuration" : 5,
+
+  "scripts" : [
+    "starpoundscyberneonglow.lua"
+  ],
+
+  "animationConfig" : "starpoundscyberneonglow.animation",
+
+  "label" : "Cyber-Neon Glow",
+  "icon" : "/interface/statuses/glow.png"
+}

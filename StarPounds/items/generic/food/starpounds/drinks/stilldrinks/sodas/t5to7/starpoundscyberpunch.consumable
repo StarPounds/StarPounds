@@ -1,30 +1,35 @@
 {
   "itemName" : "starpoundscyberpunch",
   "rarity" : "Rare",
-  "price" : 400, //tweak price when you get to fleshing out sodas more
+  "price" : 375,
   "tooltipKind" : "food",
   "category" : "drink",
   "inventoryIcon" : "starpoundscyberpunch.png",
-  "description" : "Now with nanites for extra fizz!",
+  "description" : "Tastes like getting punched by a gorilla!",
   "shortdescription" : "Cyber Punch",
   "maxStack" : 1,
   "effects" : [ [
     {
         "effect" : "starpoundssugarrush",
-        "duration" : 420
+        "duration" : 375
     },
     {
-        "effect" : "starpounds_electricspikes",
-        "duration" : 420
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 375
     },
     {
-        "effect" : "starpoundsphysicalresist",
-        "duration" : 420
+        "effect" : "runboostfood",
+        "duration" : 375
+    },
+    {
+        "effect" : "starpoundscyberneonglow",
+        "duration" : 375
     }
   ] ],
   "foodValue": 10,  
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundssugarcrash"
-  ]
+  ],
+  "learnBlueprintsOnPickup" : [ "starpoundsnano" ]
 }

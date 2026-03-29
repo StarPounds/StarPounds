@@ -1,28 +1,32 @@
 {
-  "itemName" : "starpoundsnukabonk",
+  "itemName" : "starpoundsnano",
   "rarity" : "Legendary",
-  "price" : 1560,
+  "price" : 830,
   "tooltipKind" : "food",
   "category" : "drink",
-  "inventoryIcon" : "starpoundsnukabonk.png",
-  "description" : "It shines with nuclear power and 300% the daily recommended amount of sugar.",
-  "shortdescription" : "NukaBonk!",
+  "inventoryIcon" : "starpoundsnano.png",
+  "description" : "Now with nanites for extra fizz!",
+  "shortdescription" : "Nano",
   "maxStack" : 1,
   "effects" : [ [
     {
-        "effect" : "starpoundssugarrush100",
+        "effect" : "starpoundssugarrush",
         "duration" : 420
     },
     {
-        "effect" : "starpoundsirradiatedglow",
+        "effect" : "maxenergyscalingboostfood",
         "duration" : 420
-    },
+    },	
     {
-        "effect" : "runboostfood",
+        "effect" : "starpounds_electricspikes",
         "duration" : 420
     },
     {
         "effect" : "starpoundsphysicalresist",
+        "duration" : 420
+    },
+    {
+        "effect" : "starpoundscyberneonglow",
         "duration" : 420
     }
   ] ],

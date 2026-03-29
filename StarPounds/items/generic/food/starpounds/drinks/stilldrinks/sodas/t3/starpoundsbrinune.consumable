@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsbrinune",
   "rarity" : "Uncommon",
-  "price" : 205,
+  "price" : 315,
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsbrinune.png",
@@ -22,5 +22,6 @@
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundssugarcrash"
-  ]
+  ],
+  "learnBlueprintsOnPickup" : [ "starpoundsriptide" ]
 }

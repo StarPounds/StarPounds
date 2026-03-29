@@ -1,6 +1,7 @@
 {
   "input" : [
     { "item" : "starpounds_carbonatedwater", "count" : 1 },
+    { "item" : "sugar", "count" : 1 },
     { "item" : "staticcell", "count" : 3 },
     { "item" : "currentcorn", "count" : 1 }
   ],

@@ -1,6 +1,7 @@
 {
   "input" : [
     { "item" : "starpounds_carbonatedwater", "count" : 1 },
+    { "item" : "sugar", "count" : 1 },
     { "item" : "reefpod", "count" : 1 }
   ],
   "output" : { "item" : "starpoundsbrinune", "count" : 1 },

@@ -1,12 +1,12 @@
 {
-  "itemName" : "starpoundsoculus",
+  "itemName" : "starpoundsriptide",
   "rarity" : "Rare",
-  "price" : 375,
+  "price" : 460,
   "category" : "drink",
   "tooltipKind" : "food",
-  "inventoryIcon" : "starpoundsoculus.png",
-  "description" : "It'll let you see faster!",
-  "shortdescription" : "Oculus",
+  "inventoryIcon" : "starpoundsriptide.png",
+  "description" : "Best served cold for those summer vacation days!",
+  "shortdescription" : "Riptide",
   "maxStack" : 1,
   "effects" : [ [
     {
@@ -14,7 +14,11 @@
         "duration" : 330
     },
     {
-        "effect" : "runboostfood",
+        "effect" : "jumpboostfood",
+        "duration" : 330
+    },
+    {
+        "effect" : "swimboostcola",
         "duration" : 330
     }
   ] ],

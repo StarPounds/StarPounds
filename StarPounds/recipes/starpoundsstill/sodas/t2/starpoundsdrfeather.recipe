@@ -1,6 +1,7 @@
 {
   "input" : [
     { "item" : "starpounds_carbonatedwater", "count" : 1 },
+    { "item" : "sugar", "count" : 1 },
     { "item" : "feathercrown", "count" : 1 }
   ],
   "output" : { "item" : "starpoundsdrfeather", "count" : 1 },
