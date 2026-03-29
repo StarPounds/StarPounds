@@ -1,0 +1,26 @@
+{
+  "itemName" : "starpoundsappleschnapps",
+  "rarity" : "Legendary",
+  "price" : 2500,
+  "tooltipKind" : "food",
+  "category" : "drink",
+  "inventoryIcon" : "starpoundsappleschnapps.png",
+  "description" : "It smells quite pungent... Almost like medical ethanol...",
+  "shortdescription" : "Apple Schnapps",
+  "maxStack" : 1,
+  "effects" : [ [
+    {
+        "effect" : "starpoundsdrunk100",
+        "duration" : 600
+    },
+    {
+        "effect" : "weakpoison",
+        "duration" : 600
+    }
+  ] ],
+  "foodValue": 10,  
+  "emitters" : [ "drinking" ],
+  "blockingEffects" : [
+    "starpoundshangover"
+  ]
+}
