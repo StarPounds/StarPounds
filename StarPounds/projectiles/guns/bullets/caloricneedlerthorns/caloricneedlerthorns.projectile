@@ -43,13 +43,13 @@
         }
       ]
     },
-  {
+    {
       "action" : "projectile",
       "type" : "smallregularexplosion",
       "inheritDamageFactor" : 1,
-    "config" : {
-      "damageKind" : "caloric"
-    }
+      "config" : {
+        "damageKind" : "caloric"
+      }
     }
   ],
   "actionOnCollide" : [
@@ -78,6 +78,7 @@
   "power" : 15.0,
   "speed" : 100,
   "damageKind" : "caloric",
+  "damagePoly" : [ [-1, 0], [-0.5, -0.75], [0.5, -1.5], [4, 0], [0.5, 1.5], [-0.5, 0.75] ],
 
   "scripts" : [ "/scripts/projectiles/starpoundscaloricneedlerthorn.lua" ]
 }
