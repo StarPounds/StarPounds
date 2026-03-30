@@ -8,6 +8,10 @@
   "shortdescription" : "Shy's Chateau Milk",
   "effects" : [ [
     {
+        "effect" : "starpoundsdrunk",
+        "duration" : 3600
+    },
+    {
         "effect" : "maxenergyscalingboostfood",
         "duration" : 3600.0
     },

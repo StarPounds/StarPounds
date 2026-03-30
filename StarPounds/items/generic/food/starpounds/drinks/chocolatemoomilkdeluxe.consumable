@@ -8,6 +8,10 @@
   "shortdescription" : "Chateau Choco Milk",
   "effects" : [ [
     {
+        "effect" : "starpoundsdrunk",
+        "duration" : 450
+    },
+    {
         "effect" : "maxenergyscalingboostfood",
         "duration" : 450
     }

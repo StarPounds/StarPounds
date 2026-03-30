@@ -8,6 +8,10 @@
   "shortdescription" : "Chateau Strawberry Milk",
   "effects" : [ [
     {
+        "effect" : "starpoundsdrunk",
+        "duration" : 450
+    },
+    {
         "effect" : "maxenergyscalingboostfood",
         "duration" : 450
     }
