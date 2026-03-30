@@ -1,5 +1,10 @@
 local SpinSlashSlash_old = SpinSlash.slash
 function SpinSlash:slash(...)
+  if not self.hover then
+    SpinSlashSlash_old(self, ...)
+    return
+  end
+
   local defaultHoverYSpeed = self.hoverYSpeed
   local defaultHoverForce = self.hoverForce
 
