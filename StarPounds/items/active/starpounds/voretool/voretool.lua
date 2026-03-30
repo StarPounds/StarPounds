@@ -20,12 +20,11 @@ function activate(fireMode, shiftHeld)
   if shiftHeld then
     starPounds.moduleFunc("pred", "release")
   elseif starPounds.moduleFunc("pred", "cooldown") == 0 then
-    if nonCombat then return end
     local mouthPosition = vec2.add(starPounds.mcontroller.mouthPosition, {0, (starPounds.currentSize.yOffset or 0)})
     local aimPosition = activeItem.ownerAimPosition()
     local positionMagnitude = math.min(world.magnitude(mouthPosition, aimPosition), range - querySize - (starPounds.currentSize.yOffset or 0))
     local targetPosition = vec2.add(mouthPosition, vec2.mul(vec2.norm(world.distance(aimPosition, mouthPosition)), math.max(positionMagnitude, 0)))
-    local valid = starPounds.moduleFunc("pred", "eatNearby", targetPosition, range - (starPounds.currentSize.yOffset or 0), querySize, {particles = true})
+    local valid = not nonCombat and starPounds.moduleFunc("pred", "eatNearby", targetPosition, range - (starPounds.currentSize.yOffset or 0), querySize, {particles = true})
     if (valid and valid[1]) then
       starPounds.moduleFunc("pred", "cooldownStart")
       updateCursor()
@@ -46,10 +45,8 @@ function update(dt, _, shiftHeld)
   local aimAngle, aimDirection = activeItem.aimAngleAndDirection(0, aimPosition)
   activeItem.setFacingDirection(aimDirection)
 
-  if nonCombat then return end
-
   updateTick = ((updateTick or 0) % checkUpdateTicks) + 1
-  if updateTick == 1 then
+  if not nonCombat and updateTick == 1 then
     local mouthPosition = starPounds.mcontroller.mouthPosition
     if starPounds.currentSize.yOffset then
       mouthPosition = vec2.add(mouthPosition, {0, starPounds.currentSize.yOffset})
