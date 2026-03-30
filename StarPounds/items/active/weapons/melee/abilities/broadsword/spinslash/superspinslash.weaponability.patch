@@ -1,0 +1,7 @@
+[
+  {
+    "op": "add",
+    "path": "/ability/scripts/-",
+    "value": "/items/active/weapons/melee/abilities/broadsword/spinslash/starpounds_superspinslash.lua"
+  }
+]
