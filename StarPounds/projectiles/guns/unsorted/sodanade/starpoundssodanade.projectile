@@ -82,5 +82,5 @@
   "damageKind" : "caloricplasma",
   "bounceFactor" : 0.5,
   "piercing" : true,
-  "scripts" : [ "/scripts/projectiles/starPounds_bounce.lua" ]
+  "scripts" : [ "/scripts/projectiles/starpoundsbounce.lua" ]
 }
