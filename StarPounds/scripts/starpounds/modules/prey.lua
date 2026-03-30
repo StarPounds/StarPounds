@@ -134,7 +134,9 @@ function prey:swallowed(pred, options)
       npc.setInteractive(false)
     end
   end
-  storage.starPounds.damageTeam = world.entityDamageTeam(starPounds.entityId)
+  if not (starPounds.type == "player") then
+    storage.starPounds.damageTeam = world.entityDamageTeam(starPounds.entityId)
+  end
   -- Player specific.
   if starPounds.type == "player" then
     self.oldTech = {}
@@ -331,8 +333,11 @@ function prey:released(source, overrideStatus)
   source = tonumber(source)
   overrideStatus = overrideStatus and tostring(overrideStatus) or nil
   -- Reset damage team.
-  entity.setDamageTeam(storage.starPounds.damageTeam)
-  storage.starPounds.damageTeam = nil
+  if not (starPounds.type == "player") then
+    entity.setDamageTeam(storage.starPounds.damageTeam)
+    storage.starPounds.damageTeam = nil
+  end
+
   local pred = storage.starPounds.pred
   local options = self.options
   -- Remove the pred id from storage.

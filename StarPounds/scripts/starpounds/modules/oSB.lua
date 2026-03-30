@@ -40,6 +40,11 @@ function oSB:update(dt)
     self.offsetOld = self.offset
   end
 
+  -- Change damage team while eaten.
+  if storage.starPounds.pred then
+    player.setDamageTeam("ghostly")
+  end
+
   -- Update food items in the player's hotbar.
   if starPounds.swapSlotItem then self.selectedSlot = nil return end -- Action slots are ignored while we have something in the cursor.
   local slot = player.selectedActionBarSlot()
