@@ -626,7 +626,7 @@ function generateStatString(stats)
       local amount = stat[3]
       if op == "mult" then
         local negative = (modStat.negative and amount > 1) or (not modStat.negative and amount < 1)
-        statString = string.format("%sx%s", negative and "^red;" or "^green;", string.format("%.2f", (modStat.invertDescriptor and (1/amount) or amount)):gsub("%.?0+$", ""))
+        statString = string.format("%s%sx", negative and "^red;" or "^green;", string.format("%.2f", (modStat.invertDescriptor and (1/amount) or amount)):gsub("%.?0+$", ""))
       else
         local negative = (modStat.negative and amount > 0) or (not modStat.negative and amount < 0)
         if op == "sub" then negative = not negative end

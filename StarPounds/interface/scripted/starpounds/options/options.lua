@@ -67,7 +67,7 @@ function populateOptions()
         local amount = stat[3]
         if stat[2] == "mult" then
           local negative = (modStat.negative and amount > 1) or (not modStat.negative and amount < 1)
-          statString = string.format("%s%s x%s", amount > 1 and "increased to" or "decreased to", negative and "^red;" or "^green;", string.format("%.2f", (modStat.invertDescriptor and (1/amount) or amount)):gsub("%.?0+$", ""))
+          statString = string.format("%s%s %sx", amount > 1 and "increased to" or "decreased to", negative and "^red;" or "^green;", string.format("%.2f", (modStat.invertDescriptor and (1/amount) or amount)):gsub("%.?0+$", ""))
         elseif stat[2] ~= "override" then
           local negative = (modStat.negative and amount > 0) or (not modStat.negative and amount < 0)
           if stat[2] == "sub" then negative = not negative end
