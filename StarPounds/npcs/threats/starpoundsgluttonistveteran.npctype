@@ -12,23 +12,10 @@
     "behaviorConfig" : {
       "friendlyNpcTypes" : ["crewmembergluttonist"]
     },
-  "starPounds_skills": {
-      "softMinimumSize": [4, 5],
-      "digestion": [20, 20],
-      "health": [20, 20],
-      "capacity": [20, 20],
-      "gurgleRate": [5, 5],
-      "gurgleAmount": [3, 3],
-      "bloatDigestion": [5, 5],
-      "poisonResistance": [3, 3],
-      "knockbackResistance": [5, 5],
-      "movement": [20, 20],
-      "absorption": [20, 20],
-      "voreCritter": [1, 1],
-      "voreMonster": [1, 1],
-      "voreHumanoid": [1, 1],
-      "voreDamage": [5, 5]
+    "starPounds_skills": {
+      "softMinimumSize": [4, 5]
     },
+    "starPounds_traits": ["vore", "npc_gluttonistVeteran"],
 
     "dialog" : {
       "attack" : {
