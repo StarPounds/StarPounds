@@ -40,12 +40,12 @@
     "scripts" : ["/items/active/weapons/ranged/gunfire.lua"],
     "class" : "GunFire",
 
-    "baseDps" : 60.5,
-    "energyUsage" : 25.5,
-    "fireTime" : 0.125,
-    "inaccuracy" : 0.15,
+    "baseDps" : 30,
+    "energyUsage" : 10,
+    "fireTime" : 0.085,
+    "inaccuracy" : 0.05,
 
-    "projectileCount" : 5,
+    "projectileCount" : 1,
     "fireType" : "auto",
 
     "projectileType" : "starpoundsgreatforkmeat",
