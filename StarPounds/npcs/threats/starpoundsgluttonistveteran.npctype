@@ -39,16 +39,6 @@
     }
   },
 
-  "touchDamage": {
-    "damage": 0,
-    "teamType": "enemy",
-    "damageType": "knockback",
-    "damageSourceKind": "nodamage",
-    "damageRepeatGroup": "npcTouchKnockback",
-    "damageRepeatTimeout": 0.5,
-    "knockback": 75,
-    "statusEffects": []
-  },
   "displayTitle" : "Gluttonist Veteran",
 
   "items" : {
@@ -73,16 +63,13 @@
  "statusControllerSettings" : {
     "stats" : {
       "maxHealth" : {
-        "baseValue" : 200.0
+        "baseValue" : 250.0
       },
       "powerMultiplier" : {
-        "baseValue" : 2.5
+        "baseValue" : 1.0
       },
       "protection" : {
         "baseValue" : 1.0
-      },
-      "healthRegen" : {
-        "baseValue" : 0.0
       }
     }
   }

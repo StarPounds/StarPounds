@@ -27,7 +27,7 @@
   "primaryAbilityType" : "axecleave",
   "primaryAbility" : {
     "fireTime" : 0.4,
-    "baseDps" : 20
+    "baseDps" : 18 // Doubled since the fireTime is actually much slower.
   },
   "fireSounds" : [ "/sfx/melee/swing_axe.ogg" ],
 

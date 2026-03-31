@@ -50,10 +50,10 @@
  "statusControllerSettings" : {
     "stats" : {
       "maxHealth" : {
-        "baseValue" : 120.0
+        "baseValue" : 125.0
       },
       "powerMultiplier" : {
-        "baseValue" : 1.5
+        "baseValue" : 1.0
       }
     }
   }

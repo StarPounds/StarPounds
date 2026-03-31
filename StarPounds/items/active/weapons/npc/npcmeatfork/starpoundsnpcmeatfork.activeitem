@@ -8,8 +8,8 @@
   "tooltipKind" : "gun",
   "category" : "uniqueWeapon",
   "twoHanded" : true,
+  "fixedLevel" : false,
   "itemTags" : ["weapon","ranged","sniperrifle"],
-  "level" : 5,
 
   "inventoryIcon" : "starpoundsnpcmeatfork.png",
 
@@ -42,7 +42,7 @@
 
     "baseDps" : 60.5,
     "energyUsage" : 25.5,
-    "fireTime" : 0.045,
+    "fireTime" : 0.125,
     "inaccuracy" : 0.15,
 
     "projectileCount" : 5,
@@ -71,7 +71,7 @@
         "allowFlip" : false
       },
       "cooldown" : {
-        "duration" : 0.25,
+        "duration" : 0.15,
         "armRotation" : 5,
         "weaponRotation" : 5,
         "twoHanded" : true,

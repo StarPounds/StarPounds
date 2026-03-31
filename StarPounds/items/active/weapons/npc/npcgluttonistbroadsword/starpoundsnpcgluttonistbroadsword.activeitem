@@ -25,8 +25,8 @@
     "scripts" : ["/items/active/weapons/melee/meleeslash.lua"],
     "class" : "MeleeSlash",
 
-    "fireTime" : [1.7, 1.7],
-    "baseDps" : [5, 6],
+    "fireTime" : 1.7,
+    "baseDps" : 6.5, // One-handed, shortsword dps
     "damageConfig" : {
       "damageSourceKind" : "broadsword",
       "statusEffects" : [ ],

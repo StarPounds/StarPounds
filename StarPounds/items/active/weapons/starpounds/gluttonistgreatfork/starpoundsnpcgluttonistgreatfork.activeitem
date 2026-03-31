@@ -1,7 +1,6 @@
 {
   "itemName" : "starpoundsnpcgluttonistgreatfork",
   "price" : 2500,
-  "level" : 4,
   "maxStack" : 1,
   "rarity" : "Legendary",
   "description" : "^gray;Floran Gluttonists use forks like this to slay and eat monsters at once.",
@@ -10,6 +9,7 @@
   "tooltipFields" : {"damageKindImage" : "/interface/elements/caloric.png"},
   "category" : "trident",
   "twoHanded" : true,
+  "fixedLevel" : false,
   "itemTags" : ["weapon","melee","trident","upgradeableWeapon"],
 
   "inventoryIcon" : "starpoundsgluttonistgreatfork.png",
@@ -34,7 +34,7 @@
   "primaryAbilityType" : "spearstab",
   "primaryAbility" : {
     "fireTime" : 0.95,
-    "baseDps" : 7.5,
+    "baseDps" : 11,
     "allowHold" : false,
     "stances" : {
       "idle" : {

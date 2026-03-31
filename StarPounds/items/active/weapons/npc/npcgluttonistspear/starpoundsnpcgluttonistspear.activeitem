@@ -36,8 +36,8 @@
 
   "primaryAbilityType" : "spearstab",
   "primaryAbility" : {
-    "fireTime" : [1.4, 1.4],
-    "baseDps" : [3, 4],
+    "fireTime" : 1.4,
+    "baseDps" : 9.5,
 
     "allowHold" : false,
     "stances" : {

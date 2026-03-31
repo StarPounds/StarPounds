@@ -5,6 +5,8 @@
 
   "dropPools" : [ "gluttonistchampiontreasure" ],
 
+  "levelVariance" : [2, 2],
+
   "identity" : {
      "species" : "floran"
    },
@@ -83,7 +85,7 @@
         "baseValue" : 150.0
       },
       "powerMultiplier" : {
-        "baseValue" : 2.5
+        "baseValue" : 1.0
       },
       "protection" : {
         "baseValue" : 1.0

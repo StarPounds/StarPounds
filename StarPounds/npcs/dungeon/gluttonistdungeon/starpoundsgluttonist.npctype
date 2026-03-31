@@ -53,11 +53,11 @@
             "primary" : [
               "starpoundsnpcgluttonistspear",
               "starpoundsnpcgluttonistaxe",
-              "starpoundscaloricneedler",
+              "starpoundsnpccaloricneedler",
               "starpoundsnpcgluttonistbroadsword"
             ],
             "sheathedprimary" : [
-              "starpoundscaloricneedler",
+              "starpoundsnpccaloricneedler",
               ""
             ],
             "alt" : [
@@ -77,10 +77,7 @@
  "statusControllerSettings" : {
     "stats" : {
       "maxHealth" : {
-        "baseValue" : 80.0
-      },
-      "powerMultiplier" : {
-        "baseValue" : 1.4
+        "baseValue" : 100.0
       }
     }
   }
