@@ -13,7 +13,7 @@ function _npc:init()
     for k, v in pairs(skills) do
       local level = 0
       if type(v) == "table" then
-        level = math.random(v[1], v[2])
+        level = sb.staticRandomI32Range(v[1], v[2], npc.seed())
       elseif type(v) == "number" then
         level = v
       end
