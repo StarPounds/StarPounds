@@ -149,6 +149,12 @@ function _player:footstep(dt)
     local stomachMult = self.data.sloshStomachMultiplier * starPounds.stomach.contents / (entity.weight * starPounds.currentSize.thresholdMultiplier)
     local sloshVolume = math.round(math.min(weightMult + stomachMult, self.data.maximumSloshVolume), 2)
 
+    -- Quieter if we're walking.
+    if not starPounds.mcontroller.running then
+      stepVolume = math.round(math.min(stepVolume * self.data.walkingStepVolumeMultiplier, self.data.maximumStepVolume), 2)
+      sloshVolume = math.round(math.min(sloshVolume * self.data.walkingSloshVolumeMultiplier, self.data.maximumSloshVolume), 2)
+    end
+
     -- No step sound if we can't move (i.e. Immobile without the skill), but boost the slosh volume.
     if starPounds.movementMultiplier == 0 then
       stepVolume = 0
