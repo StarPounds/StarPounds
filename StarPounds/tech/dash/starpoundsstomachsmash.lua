@@ -1,11 +1,18 @@
 require "/scripts/vec2.lua"
-local startDash_old = (startDash_old or startDash) or function() end
-function startDash(direction)
-  starPounds = getmetatable ''.starPounds
-  local movementModifier = math.max(starPounds.movementMultiplier or 1, 0.25)
-  self.dashControlForce = self.baseDashControlForce * starPounds.weightMultiplier
+local startDash_old = startDash or function() end
+function startDash(...)
+  -- Save this so we can revert to it
+  self.baseDashControlForce = self.dashControlForce
+  self.baseDashSpeed = self.dashSpeed
+  starPounds = getmetatable ''.starPounds or {}
+  self.dashControlForce = self.baseDashControlForce * (starPounds.weightMultiplier or 1)
+  local movementModifier = (starPounds.movementMultiplier or 1) * 0.9 + 0.1
   self.dashSpeed = self.baseDashSpeed * (movementModifier + (1 - movementModifier) * starPounds.getStat("stomachSmashRange"))
-  startDash_old(direction)
+  -- controlApproachVelocity takes into account the speedModifier for whatever reason, so divide by it after the reduction.
+  self.dashSpeed = self.dashSpeed / starPounds.movementMultiplier
+
+  startDash_old(...)
+
   local multiplier = starPounds.weightMultiplier ^ (1/3)
   local width = 0
   for _,v in ipairs(mcontroller.collisionPoly()) do
@@ -21,6 +28,14 @@ function startDash(direction)
 
   animator.setSoundVolume("weightDash", starPounds.moduleFunc("size", "effectScaling") * 0.5 + 0.5)
   animator.playSound("weightDash")
+end
+
+local endDash_old = endDash or function() end
+function endDash(...)
+  self.dashControlForce = self.baseDashControlForce
+  self.dashSpeed = self.baseDashSpeed
+
+  endDash_old(...)
 end
 
 

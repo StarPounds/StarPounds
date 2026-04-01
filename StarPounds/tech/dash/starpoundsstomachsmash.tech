@@ -2,10 +2,10 @@
   "name" : "starpoundsstomachsmash",
   "type" : "body",
 
-  "scripts" : ["dash.lua", "starpoundsstomachsmash.lua", "/tech/starpoundstech.lua"],
+  "scripts" : ["dash.lua", "starpoundsstomachsmash.lua"],
   "animator" : "starpoundsstomachsmash.animation",
 
-  "description" : "A powerful dash that stuns and knocks away enemies! Cooldown: 0.8s",
+  "description" : "A powerful dash that knocks away enemies! Cooldown: 0.8s",
   "shortDescription" : "Stomach Smash",
   "rarity" : "Legendary",
   "icon" : "/tech/starpoundsstomachsmash.png",

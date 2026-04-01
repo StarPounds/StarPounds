@@ -2,6 +2,6 @@
   {
     "op": "add",
     "path": "/scripts/-",
-    "value": "/tech/starpoundstech.lua"
+    "value": "starpoundssphere.lua"
   }
 ]

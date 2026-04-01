@@ -2,7 +2,7 @@
   "name" : "starpoundsthrogsphere",
   "type" : "head",
 
-  "scripts" : ["starpoundsthrogsphere.lua", "/tech/starpoundstech.lua"],
+  "scripts" : ["starpoundsthrogsphere.lua", "starpoundssphere.lua"],
   "animator" : "starpoundsthrogsphere.animation",
 
   "description" : "Turn into a sphere that can smash through enemies! ^#ccbbff;[F]",
