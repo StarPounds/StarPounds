@@ -70,7 +70,7 @@ _player.damageListener = damageListener("damageTaken", function(notifications)
       end
       if starPounds.currentSizeIndex > 1 and string.find(notification.damageSourceKind, "fire") and starPounds.getStat("firePenalty") > 0 then
         local percentLost = math.round(notification.healthLost/status.resourceMax("health"), 2)
-        percentLost = 2 * percentLost * starPounds.getStat("firePenalty") * (starPounds.currentSizeIndex - 1)/(#starPounds.sizes - 1)
+        percentLost = 2 * percentLost * starPounds.getStat("firePenalty") * (starPounds.currentSizeIndex - 1)/(#starPounds.moduleFunc("size", "sizes") - 1)
 
         if percentLost > 0.01 then
           status.overConsumeResource("energy", status.resourceMax("energy") * percentLost)
@@ -194,7 +194,7 @@ function _player:soundMult()
   -- Just a cache for math so we only do it once.
   self.sizeMultipliers = self.sizeMultipliers or {}
   -- Dumb but the immobile skill edits the movement penalty.
-  local size = starPounds.sizes[starPounds.currentSizeIndex]
+  local size = starPounds.moduleFunc("size", "sizes")[starPounds.currentSizeIndex]
   if not self.sizeMultipliers[size.size] then
     local mult = math.round(math.min((1 - size.movementMultiplier) ^ 0.4, self.data.maximumStepVolume), 2)
     self.sizeMultipliers[size.size] = mult

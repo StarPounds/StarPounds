@@ -714,7 +714,7 @@ function selectSkill(skill)
     descriptionTitle:setText("^shadow;"..skill.pretty)
     descriptionIcon:setFile(string.format("icons/skills/%s.png", skill.icon or skill.name))
     descriptionIcon:queueRedraw()
-    descriptionText:setText(skill.description:gsub("<activationSize>", starPounds.sizes[starPounds.moduleFunc("size", "activationSize")].size:gsub("^%l", string.upper)))
+    descriptionText:setText(skill.description:gsub("<activationSize>", starPounds.moduleFunc("size", "sizes")[starPounds.moduleFunc("size", "activationSize")].size:gsub("^%l", string.upper)))
 
     local currentLevel = starPounds.moduleFunc("skills", "level", skill.name)
     local unlockedLevel = starPounds.moduleFunc("skills", "unlockedLevel", skill.name)
@@ -772,7 +772,7 @@ function selectSkill(skill)
       )
       statInfo.toolTip = stat.description
       if stat.scaling then
-        statInfo.toolTip = statInfo.toolTip.."\n^gray,set;This stat scales until ^#00ebce;"..starPounds.sizes[starPounds.moduleFunc("size", "scalingSize")].size:gsub("^%l", string.upper).."^reset;."
+        statInfo.toolTip = statInfo.toolTip.."\n^gray,set;This stat scales until ^#00ebce;"..starPounds.moduleFunc("size", "sizes")[starPounds.moduleFunc("size", "scalingSize")].size:gsub("^%l", string.upper).."^reset;."
       end
     end
 
@@ -1077,17 +1077,19 @@ function setProgress(experience, level)
 end
 
 function weightDecrease:onClick()
-  local progress = (starPounds.weight - starPounds.currentSize.weight)/((starPounds.sizes[starPounds.currentSizeIndex + 1] and starPounds.sizes[starPounds.currentSizeIndex + 1].weight or starPounds.settings.maxWeight) - starPounds.currentSize.weight)
-  local targetWeight = starPounds.sizes[math.max(starPounds.currentSizeIndex - 1, 1)].weight
-  local targetWeight2 = starPounds.sizes[starPounds.currentSizeIndex].weight
+  local sizes = starPounds.moduleFunc("size", "sizes")
+  local progress = (starPounds.weight - starPounds.currentSize.weight)/((sizes[starPounds.currentSizeIndex + 1] and sizes[starPounds.currentSizeIndex + 1].weight or starPounds.moduleFunc("size", "maximumWeight")) - starPounds.currentSize.weight)
+  local targetWeight = sizes[math.max(starPounds.currentSizeIndex - 1, 1)].weight
+  local targetWeight2 = sizes[starPounds.currentSizeIndex].weight
   starPounds.moduleFunc("size", "setWeight", metagui.checkShift() and 0 or (targetWeight + (targetWeight2 - targetWeight) * progress))
 end
 
 function weightIncrease:onClick()
-  local progress = math.max(0.01, (starPounds.weight - starPounds.currentSize.weight)/((starPounds.sizes[starPounds.currentSizeIndex + 1] and starPounds.sizes[starPounds.currentSizeIndex + 1].weight or starPounds.settings.maxWeight) - starPounds.currentSize.weight))
-  local targetWeight = starPounds.sizes[starPounds.currentSizeIndex + 1] and starPounds.sizes[starPounds.currentSizeIndex + 1].weight or starPounds.settings.maxWeight
-  local targetWeight2 = starPounds.sizes[starPounds.currentSizeIndex + 2] and starPounds.sizes[starPounds.currentSizeIndex + 2].weight or starPounds.settings.maxWeight
-  starPounds.moduleFunc("size", "setWeight", metagui.checkShift() and starPounds.settings.maxWeight or (targetWeight + (targetWeight2 - targetWeight) * progress))
+  local sizes = starPounds.moduleFunc("size", "sizes")
+  local progress = math.max(0.01, (starPounds.weight - starPounds.currentSize.weight)/((sizes[starPounds.currentSizeIndex + 1] and sizes[starPounds.currentSizeIndex + 1].weight or starPounds.moduleFunc("size", "maximumWeight")) - starPounds.currentSize.weight))
+  local targetWeight = sizes[starPounds.currentSizeIndex + 1] and sizes[starPounds.currentSizeIndex + 1].weight or starPounds.moduleFunc("size", "maximumWeight")
+  local targetWeight2 = sizes[starPounds.currentSizeIndex + 2] and sizes[starPounds.currentSizeIndex + 2].weight or starPounds.moduleFunc("size", "maximumWeight")
+  starPounds.moduleFunc("size", "setWeight", metagui.checkShift() and starPounds.moduleFunc("size", "maximumWeight") or (targetWeight + (targetWeight2 - targetWeight) * progress))
 end
 
 function admin()

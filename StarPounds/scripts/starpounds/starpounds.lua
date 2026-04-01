@@ -6,7 +6,6 @@ require "/scripts/rect.lua"
 starPounds = {
   version = root.assetJson("/scripts/starpounds/starpounds.config:version"),
   settings = root.assetJson("/scripts/starpounds/starpounds.config:settings"),
-  sizes = root.assetJson("/scripts/starpounds/starpounds_sizes.config:sizes"),
   options = root.assetJson("/scripts/starpounds/starpounds_options.config:options"),
   species = root.assetJson("/scripts/starpounds/starpounds_species.config")
 }

@@ -3,8 +3,6 @@ require "/scripts/messageutil.lua"
 function init()
   self.chatOptions = config.getParameter("chatOptions", {})
   self.chatTimer = 0
-  self.sizes = root.assetJson("/scripts/starpounds/starpounds_sizes.config:sizes")
-  self.settings = root.assetJson("/scripts/starpounds/starpounds.config:settings")
   self.activationTime = config.getParameter("activationTime") or 60
 
   if storage.active == nil then activate() end
@@ -51,13 +49,15 @@ function use(args)
       -- Gain a size
       gainWeight = function()
         promises:add(world.sendEntityMessage(targetId, "starPounds.getData", "weight"), function(weight)
-          currentSize, currentSizeIndex = getSize(weight)
-          if currentSizeIndex == #self.sizes then return end
-          local currentProgress = (weight - currentSize.weight)/(self.sizes[currentSizeIndex + 1].weight - currentSize.weight)
-          local amount = math.floor(0.5 + self.sizes[currentSizeIndex + 1].weight - weight + currentProgress * ((self.sizes[currentSizeIndex + 2] and self.sizes[currentSizeIndex + 2].weight or self.settings.maxWeight) - self.sizes[currentSizeIndex + 1].weight))
-          world.sendEntityMessage(targetId, "starPounds.gainWeight", amount)
-          deactivate()
-          animator.playSound("use")
+          promises:add(world.sendEntityMessage(targetId, "starPounds.sizeConfig"), function(sizeConfig)
+            currentSize, currentSizeIndex = getSize(weight, sizeConfig.sizes)
+            if currentSizeIndex == #sizeConfig.sizes then return end
+            local currentProgress = (weight - currentSize.weight)/(sizeConfig.sizes[currentSizeIndex + 1].weight - currentSize.weight)
+            local amount = math.floor(0.5 + sizeConfig.sizes[currentSizeIndex + 1].weight - weight + currentProgress * ((sizeConfig.sizes[currentSizeIndex + 2] and sizeConfig.sizes[currentSizeIndex + 2].weight or sizeConfig.maxWeight) - sizeConfig.sizes[currentSizeIndex + 1].weight))
+            world.sendEntityMessage(targetId, "starPounds.gainWeight", amount)
+            deactivate()
+            animator.playSound("use")
+          end)
         end)
       end,
       -- Gain bloat
@@ -99,14 +99,14 @@ function deactivate()
   object.setInteractive(false)
 end
 
-function getSize(weight)
+function getSize(weight, sizes)
   local sizeIndex = 0
   -- Go through all sizes (smallest to largest) to find which size.
-  for i in ipairs(self.sizes) do
-    if weight >= self.sizes[i].weight then
+  for i in ipairs(sizes) do
+    if weight >= sizes[i].weight then
       sizeIndex = i
     end
   end
 
-  return self.sizes[sizeIndex], sizeIndex
+  return sizes[sizeIndex], sizeIndex
 end

@@ -29,7 +29,7 @@ function _npc:init()
     storage.starPounds.parsedInitialSkills = true
     -- Triggers the minimumSize weight floor.
     local minimumSize = math.max(starPounds.moduleFunc("skills", "level", "minimumSize"), starPounds.moduleFunc("skills", "level", "softMinimumSize"), 0)
-    starPounds.moduleFunc("size", "setWeight", starPounds.sizes[minimumSize + 1].weight)
+    starPounds.moduleFunc("size", "setWeight", starPounds.moduleFunc("size", "sizes")[minimumSize + 1].weight)
   end
   self:setup()
   starPounds.moduleFunc("skills", "parse")

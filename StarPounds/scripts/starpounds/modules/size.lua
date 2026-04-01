@@ -5,6 +5,9 @@ function size:init()
   message.setHandler("starPounds.loseWeight", function(_, _, ...) return self:loseWeight(...) end)
   message.setHandler("starPounds.setWeight", function(_, _, ...) return self:setWeight(...) end)
   message.setHandler("starPounds.getSize", function(_, _, ...) return self:get(...) end)
+  message.setHandler("starPounds.sizes", function(_, _, ...) return self:sizes(...) end)
+  message.setHandler("starPounds.sizeConfig", function(_, _, ...) return self:config(...) end)
+  message.setHandler("starPounds.maximumWeight", function(_, _, ...) return self:maximumWeight(...) end)
   message.setHandler("starPounds.getChestVariant", function(_, _, ...) return self:getVariant(...) end)
   message.setHandler("starPounds.resetWeight", localHandler(self.reset))
 
@@ -24,11 +27,12 @@ function size:init()
   end
 
   self.canGain = speciesData.weightGain
-  -- Fetch thresholds for variants.
-  self.thresholds = root.assetJson("/scripts/starpounds/starpounds_sizes.config:thresholds")
+
+  self.sizeConfig = root.assetJson(speciesData.sizes)
   -- Fetch the first supersize index for future use.
   self.supersizeIndex = math.huge
-  for i, size in ipairs(starPounds.sizes) do
+
+  for i, size in ipairs(self.sizeConfig.sizes) do
     if size.yOffset then
       self.supersizeIndex = math.min(self.supersizeIndex, i)
     end
@@ -69,7 +73,7 @@ function size:update(dt)
     -- Don't play the sound on the first load.
     if self.oldSizeIndex then
       -- Play sound to indicate size change.
-      starPounds.moduleFunc("sound", "play", "digest", 0.75, math.random(10,15) * 0.1 - storage.starPounds.weight/(starPounds.settings.maxWeight * 2))
+      starPounds.moduleFunc("sound", "play", "digest", 0.75, math.random(10,15) * 0.1 - storage.starPounds.weight/(self.sizeConfig.maxWeight * 2))
     end
     -- Update status effect tracker.
     starPounds.moduleFunc("trackers", "clearStatuses")
@@ -96,7 +100,7 @@ function size:gainWeight(amount, fullAmount)
   if starPounds.hasOption("disableGain") then return 0 end
   -- Argument sanitisation.
   amount = tonumber(amount) or 0
-  amount = util.clamp(amount * (fullAmount and 1 or starPounds.getStat("weightGain")), 0, starPounds.settings.maxWeight - storage.starPounds.weight)
+  amount = util.clamp(amount * (fullAmount and 1 or starPounds.getStat("weightGain")), 0, self.sizeConfig.maxWeight - storage.starPounds.weight)
   self:setWeight(storage.starPounds.weight + amount)
   return amount
 end
@@ -118,13 +122,13 @@ function size:setWeight(amount)
   if not (storage.starPounds.enabled and self.canGain) then return end
   -- Argument sanitisation.
   amount = math.round(tonumber(amount) or 0, 4)
-  storage.starPounds.weight = util.clamp(amount, self:minimumWeight(), starPounds.settings.maxWeight)
+  storage.starPounds.weight = util.clamp(amount, self:minimumWeight(), self.sizeConfig.maxWeight)
 end
 
 function size:get(weight)
   -- Default to base size if the mod is off.
   if not (storage.starPounds.enabled and self.canGain) then
-    return starPounds.sizes[1], 1
+    return self.sizeConfig.sizes[1], 1
   end
   -- Argument sanitisation.
   weight = math.max(tonumber(weight) or 0, 0)
@@ -133,20 +137,32 @@ function size:get(weight)
   -- Disable supersized stages with options, or on the tech missions so you can actually complete them.
   local supersizeDisabled = starPounds.hasOption("disableSupersize") or status.uniqueStatusEffectActive("starpoundstechmissionmobility")
   -- Go through all starPounds.sizes (smallest to largest) to find which size.
-  for i in ipairs(starPounds.sizes) do
-    local skipSize = starPounds.sizes[i].yOffset and supersizeDisabled
-    if weight >= starPounds.sizes[i].weight and not skipSize then
+  for i in ipairs(self.sizeConfig.sizes) do
+    local skipSize = self.sizeConfig.sizes[i].yOffset and supersizeDisabled
+    if weight >= self.sizeConfig.sizes[i].weight and not skipSize then
       sizeIndex = i
     else
       break
     end
   end
 
-  return starPounds.sizes[sizeIndex], sizeIndex
+  return self.sizeConfig.sizes[sizeIndex], sizeIndex
+end
+
+function size:sizes()
+  return self.sizeConfig.sizes
+end
+
+function size:config()
+  return self.sizeConfig
+end
+
+function size:maximumWeight()
+  return self.sizeConfig.maxWeight
 end
 
 function size:minimumWeight()
-  return starPounds.sizes[((starPounds.moduleFunc("skills", "level", "minimumSize") or 0) + 1)].weight
+  return self.sizeConfig.sizes[((starPounds.moduleFunc("skills", "level", "minimumSize") or 0) + 1)].weight
 end
 
 function size:offset()
@@ -213,7 +229,7 @@ function size:updateStats(forceUpdate)
     -- If we have the anti-immobile skill, use double the movement penalty of blob instead.
     local isImmobileProtected = movementMultiplier == 0 and starPounds.moduleFunc("skills", "has", "preventImmobile")
     if isImmobileProtected then
-      movementMultiplier = starPounds.sizes[sizeIndex - 1].movementMultiplier
+      movementMultiplier = self.sizeConfig.sizes[sizeIndex - 1].movementMultiplier
     end
     -- Store the amount we'd be at without any stat changes.
     starPounds.baseMovementMultiplier = movementMultiplier
@@ -314,8 +330,8 @@ function size:getVariant(size)
   local variants = size.variants or jarray()
   local variant = nil
   local thresholdMultiplier = starPounds.currentSize.thresholdMultiplier
-  local breastThresholds = self.thresholds.breasts
-  local stomachThresholds = self.thresholds.stomach
+  local breastThresholds = self.sizeConfig.thresholds.breasts
+  local stomachThresholds = self.sizeConfig.thresholds.stomach
 
   local breastSize = (starPounds.hasOption("disableBreastGrowth") and 0 or (starPounds.moduleFunc("breasts", "get").contents or 0)) + (
     starPounds.hasOption("busty") and breastThresholds[1].amount * thresholdMultiplier or (
@@ -404,7 +420,7 @@ function size:equipmentConfig(sizeIndex)
   local legsIndex = math.min(sizeIndex, vehicleCap.legs)
 
   -- Don't do this for supersized stages.
-  if not starPounds.sizes[sizeIndex].yOffset then
+  if not self.sizeConfig.sizes[sizeIndex].yOffset then
     -- Calculate the 'target' size based on options and vehicle caps.
     for option, amount in pairs(self.data.sizeOptions.chest) do
       if starPounds.hasOption(option) then
@@ -419,14 +435,14 @@ function size:equipmentConfig(sizeIndex)
     end
   end
   -- Variant based on the 'adjusted' chest size.
-  local chestVariant = self:getVariant(starPounds.sizes[chestIndex])
+  local chestVariant = self:getVariant(self.sizeConfig.sizes[chestIndex])
 
   return {
-    chest = starPounds.sizes[chestIndex].size,
+    chest = self.sizeConfig.sizes[chestIndex].size,
     chestVariant = chestVariant,
     chestIndex = chestIndex,
 
-    legs = starPounds.sizes[legsIndex].size,
+    legs = self.sizeConfig.sizes[legsIndex].size,
     legsIndex = legsIndex
   }
 end
@@ -578,9 +594,9 @@ function size:progress()
   end
   -- Progress to next stage.
   local currentSizeWeight = starPounds.currentSize.weight
-  local nextSizeWeight = starPounds.sizes[starPounds.currentSizeIndex + 1] and starPounds.sizes[starPounds.currentSizeIndex + 1].weight or starPounds.settings.maxWeight
-  if nextSizeWeight ~= starPounds.settings.maxWeight and starPounds.sizes[starPounds.currentSizeIndex + 1].yOffset and starPounds.hasOption("disableSupersize") then
-    nextSizeWeight = starPounds.settings.maxWeight
+  local nextSizeWeight = self.sizeConfig.sizes[starPounds.currentSizeIndex + 1] and self.sizeConfig.sizes[starPounds.currentSizeIndex + 1].weight or self.sizeConfig.maxWeight
+  if nextSizeWeight ~= self.sizeConfig.maxWeight and self.sizeConfig.sizes[starPounds.currentSizeIndex + 1].yOffset and starPounds.hasOption("disableSupersize") then
+    nextSizeWeight = self.sizeConfig.maxWeight
   end
   return math.round((storage.starPounds.weight - currentSizeWeight)/(nextSizeWeight - currentSizeWeight) * 100)
 end
@@ -606,7 +622,7 @@ function size:cursorCheck()
 end
 
 function size.reset()
-  storage.starPounds.weight = starPounds.sizes[(starPounds.moduleFunc("skills", "level", "minimumSize") + 1)].weight
+  storage.starPounds.weight = self.sizeConfig.sizes[(starPounds.moduleFunc("skills", "level", "minimumSize") + 1)].weight
   return true
 end
 

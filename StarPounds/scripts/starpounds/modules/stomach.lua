@@ -508,7 +508,8 @@ function stomach:gurgle(noDigest)
     self:digest(seconds, true, isBelch)
   end
   if not starPounds.hasOption("disableGurgleSounds") then
-    starPounds.moduleFunc("sound", "play", "digest", 0.75, (2 - seconds/5) - storage.starPounds.weight/(starPounds.settings.maxWeight * 2))
+    local maxWeight = starPounds.moduleFunc("size", "maximumWeight") or entity.weight
+    starPounds.moduleFunc("sound", "play", "digest", 0.75, (2 - seconds/5) - storage.starPounds.weight/(maxWeight * 2))
   end
 end
 
@@ -689,7 +690,7 @@ function stomach:sloshing(dt)
     local sloshEffectiveness = (1 - (self.sloshTimer/self.data.sloshTimer)) * activationMultiplier
     -- Sloshy sound, with volume increasing until activated.
     local soundMultiplier = 0.65 * (0.5 + 0.5 * math.min(self.stomach.contents/self.data.stomachCapacity, 1)) * activationMultiplier
-    local pitchMultiplier = 1.25 - storage.starPounds.weight/(starPounds.settings.maxWeight * 2)
+    local pitchMultiplier = 1.25 - storage.starPounds.weight/(starPounds.moduleFunc("size", "maximumWeight") * 2)
     starPounds.moduleFunc("sound", "play", "slosh", soundMultiplier, pitchMultiplier)
     if activationMultiplier > 0 then
       local energyMultiplier = sloshEffectiveness * starPounds.getStat("sloshingEnergy") * math.min(self.stomach.fullness, 1)

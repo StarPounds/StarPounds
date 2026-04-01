@@ -16,7 +16,8 @@ function update()
     local weight = starPounds.moduleFunc("data", "get", "weight")
     if canExtract() then
       if extractTimer == 0 then
-        local nextWeight = starPounds.sizes[starPounds.currentSizeIndex + 1] and starPounds.sizes[starPounds.currentSizeIndex + 1].weight or starPounds.settings.maxWeight
+        local sizes = starPounds.moduleFunc("size", "sizes")
+        local nextWeight = sizes[starPounds.currentSizeIndex + 1] and sizes[starPounds.currentSizeIndex + 1].weight or starPounds.moduleFunc("size", "maximumWeight")
         local caloriumCost = caloriumFat + math.floor(0.02 * (nextWeight - starPounds.currentSize.weight) + 0.5)
         local converted = math.floor(starPounds.moduleFunc("size", "loseWeight", caloriumCost, true)/caloriumCost + 0.5)
         starPounds.caloriumExtractTracker = (starPounds.caloriumExtractTracker or 0) + (caloriumCost * converted)

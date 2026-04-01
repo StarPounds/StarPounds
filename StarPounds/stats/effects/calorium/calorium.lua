@@ -8,12 +8,9 @@ function init()
   self.tickTimeMinimum = effect.getParameter("tickTimeMinimum", self.tickTime)
   self.tickTimer = self.tickTime
   self.minimumLiquid = root.assetJson("/player.config:statusControllerSettings.minimumLiquidStatusEffectPercentage")
-  self.settings = root.assetJson("/scripts/starpounds/starpounds.config:settings")
 
   animator.setSoundVolume("digest", 0.75)
   animator.setSoundPitch("digest", 2/(1 + self.tickTime))
-
-  starPounds = getmetatable ''.starPounds
 end
 
 function update(dt)

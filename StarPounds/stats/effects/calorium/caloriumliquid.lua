@@ -8,7 +8,6 @@ function init()
   self.tickTimeMinimum = effect.getParameter("tickTimeMinimum", self.tickTime)
   self.tickTimer = self.tickTime
   self.minimumLiquid = root.assetJson("/player.config:statusControllerSettings.minimumLiquidStatusEffectPercentage")
-  self.sizes = root.assetJson("/scripts/starpounds/starpounds_sizes.config:sizes")
   self.caloriumFat = root.assetJson("/scripts/starpounds/modules/liquid.config:liquids.starpoundscaloriumliquid").food.fatLiquid
 
   animator.setSoundVolume("digest", 0.75)

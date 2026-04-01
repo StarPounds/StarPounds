@@ -4,7 +4,8 @@ require "/scripts/util.lua"
 function init()
   starPounds = getmetatable ''.starPounds
   experienceConfig = root.assetJson("/scripts/starPounds/modules/experience.config")
-  breastThresholds = root.assetJson("/scripts/starpounds/starpounds_sizes.config:thresholds.breasts")
+  breastThresholds = starPounds.moduleFunc("size", "config").thresholds.breasts
+  sizes = starPounds.moduleFunc("size", "sizes")
   -- Offset to the left of the action bar, with a 10 pixel buffer.
   offsetPane()
   displayPane()
@@ -24,7 +25,7 @@ function update(dt)
   if starPounds.isEnabled() then
     sizeProgress = starPounds.progress * 0.01
     -- Overlay a red bar for the last immobile size.
-    if starPounds.moduleFunc("size", "sizeIndex") == #starPounds.sizes then
+    if starPounds.moduleFunc("size", "sizeIndex") == #sizes then
       immobileProgress = sizeProgress
       sizeProgress = 1
     end

@@ -389,8 +389,9 @@ function pred:digestPrey(preyId, items, preyStomach)
   local doBelchParticles = doBelch and not starPounds.hasOption("disableBelchParticles")
   -- Burp/Stomach gurgle.
   if doBelch then
+    local maxWeight = starPounds.moduleFunc("size", "maximumWeight") or entity.weight
     local belchVolume = 0.75
-    local belchPitch = 1 - math.round(((digestedEntity.base + digestedEntity.weight) - starPounds.species.default.weight)/(starPounds.settings.maxWeight * 4), 2)
+    local belchPitch = 1 - math.round(((digestedEntity.base + digestedEntity.weight) - starPounds.species.default.weight)/(maxWeight * 4), 2)
     starPounds.moduleFunc("belch", "belch", belchVolume, belchPitch)
     starPounds.moduleFunc("stomach", "stopBelch") -- Cancel queued belch.
   end
@@ -485,8 +486,9 @@ function pred:release(preyId, releaseAll)
       end
     end
     if releasedEntity and world.entityExists(releasedEntity.id, true) then
+      local maxWeight = starPounds.moduleFunc("size", "maximumWeight") or entity.weight
       local belchVolume = 0.75
-      local belchPitch = 1 - math.round((releasedEntity.weight + storage.starPounds.weight - starPounds.species.default.weight)/(starPounds.settings.maxWeight * 4), 2)
+      local belchPitch = 1 - math.round((releasedEntity.weight + storage.starPounds.weight - starPounds.species.default.weight)/(maxWeight * 4), 2)
       starPounds.moduleFunc("belch", "belch", belchVolume, belchPitch)
       starPounds.moduleFunc("stomach", "stopBelch") -- Cancel queued belch.
     end
@@ -505,8 +507,9 @@ function pred:release(preyId, releaseAll)
     end
     -- Call back to release the entity incase the pred is releasing them.
     if releasedEntity and world.entityExists(releasedEntity.id, true) then
+      local maxWeight = starPounds.moduleFunc("size", "maximumWeight") or entity.weight
       local belchVolume = 0.75
-      local belchPitch = 1 - math.round((releasedEntity.weight + storage.starPounds.weight - starPounds.species.default.weight)/(starPounds.settings.maxWeight * 4), 2)
+      local belchPitch = 1 - math.round((releasedEntity.weight + storage.starPounds.weight - starPounds.species.default.weight)/(maxWeight * 4), 2)
       starPounds.moduleFunc("belch", "belch", belchVolume, belchPitch)
       starPounds.moduleFunc("stomach", "stopBelch") -- Cancel queued belch.
 
