@@ -25,7 +25,8 @@
       "minimumSize": [6, 6]
     },
     "starPounds_options": {
-      "disablePrey": true
+      "disablePrey": true,
+      "disableGain": true
     },
     "starPounds_traits": ["vore", "npc_gluttonistChampion"],
 
@@ -92,6 +93,31 @@
       },
       "healthRegen" : {
         "baseValue" : 0.0
+      },
+      "fireStatusImmunity" : {
+        "baseValue" : 1.0
+      },
+      "iceStatusImmunity" : {
+        "baseValue" : 1.0
+      },
+      "electricStatusImmunity" : {
+        "baseValue" : 1.0
+      },
+      "poisonStatusImmunity" : {
+        "baseValue" : 1.0
+      },
+      "specialStatusImmunity" : {
+        "baseValue" : 1.0
+      },
+      "stunImmunity" : {
+        "baseValue" : 1.0
+      }
+    },
+    "resources" : {
+      "stunned" : {
+        "maxValue" : 0.0,
+        "deltaValue" : -1.0,
+        "initialValue" : 0.0
       }
     }
   }
