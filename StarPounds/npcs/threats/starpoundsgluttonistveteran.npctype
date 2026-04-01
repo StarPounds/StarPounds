@@ -10,7 +10,9 @@
 
   "scriptConfig" : {
     "behaviorConfig" : {
-      "friendlyNpcTypes" : ["crewmembergluttonist"]
+      "friendlyNpcTypes" : ["crewmembergluttonist"],
+      "rangedAimTime" : 0.5,
+      "rangedWindupTime" : 0.01
     },
     "starPounds_skills": {
       "softMinimumSize": [4, 5]

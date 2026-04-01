@@ -23,9 +23,9 @@
   "animationCustom" : {
     "sounds" : {
       "fire" : [ "/sfx/projectiles/bloodvomit1.ogg", "/sfx/projectiles/bloodvomit2.ogg", "/sfx/projectiles/bloodvomit3.ogg", "/sfx/projectiles/bloodvomit4.ogg", "/sfx/projectiles/bloodvomit5.ogg", "/sfx/projectiles/bloodvomit6.ogg", "/sfx/projectiles/bloodvomit7.ogg" ],
-      "fireStart" : [ "/sfx/tech/tech_jetpack_thrust1.ogg" ],
-      "fireLoop" : [ "/sfx/melee/rocketspear_loop_fire.ogg" ],
-      "fireEnd" : [ "/sfx/melee/rocketspear_stop_fire.ogg" ]
+      "fireStart" : [ ],
+      "fireLoop" : [ "/sfx/projectiles/bloodvomit1.ogg", "/sfx/projectiles/bloodvomit2.ogg", "/sfx/projectiles/bloodvomit3.ogg", "/sfx/projectiles/bloodvomit4.ogg", "/sfx/projectiles/bloodvomit5.ogg", "/sfx/projectiles/bloodvomit6.ogg", "/sfx/projectiles/bloodvomit7.ogg" ],
+      "fireEnd" : [ "/sfx/projectiles/bloodvomit1.ogg", "/sfx/projectiles/bloodvomit2.ogg", "/sfx/projectiles/bloodvomit3.ogg", "/sfx/projectiles/bloodvomit4.ogg", "/sfx/projectiles/bloodvomit5.ogg", "/sfx/projectiles/bloodvomit6.ogg", "/sfx/projectiles/bloodvomit7.ogg" ]
     }
   },
 
@@ -37,21 +37,22 @@
   "elementalType" : "physical",
 
   "primaryAbility" : {
-    "scripts" : ["/items/active/weapons/ranged/gunfire.lua"],
-    "class" : "GunFire",
+    "scripts" : ["/items/active/weapons/ranged/abilities/flamethrower/flamethrower.lua"],
+    "class" : "FlamethrowerAttack",
 
-    "baseDps" : 30,
+    "baseDps" : 20,
     "energyUsage" : 10,
-    "fireTime" : 0.085,
-    "inaccuracy" : 0.05,
+    "fireTime" : 0.065,
+    "inaccuracy" : 0.15,
 
     "projectileCount" : 1,
     "fireType" : "auto",
 
     "projectileType" : "starpoundsgreatforkmeat",
     "projectileParameters" : {
-      "speed" : 60
+      "speed" : 40
     },
+
     "stances" : {
       "idle" : {
         "armRotation" : 0,
@@ -71,9 +72,9 @@
         "allowFlip" : false
       },
       "cooldown" : {
-        "duration" : 0.15,
-        "armRotation" : 5,
-        "weaponRotation" : 5,
+        "duration" : 0,
+        "armRotation" : 0,
+        "weaponRotation" : 0,
         "twoHanded" : true,
 
         "allowRotate" : false,
