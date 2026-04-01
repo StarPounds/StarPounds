@@ -380,11 +380,11 @@ function stomach:digest(dt, isGurgle, isBelch)
     local maxEnergy = status.isResource("energy") and status.resourceMax("energy") or 0
     local hasFood = status.isResource("food")
     local maxFood = hasFood and (status.resourceMax("food") - 0.01) or 0 -- Capped so the wellfed status doesn't apply automatically.
-    local foodDelta = status.stat("foodDelta")
 
     local belchParticlesDisabled = starPounds.hasOption("disableBelchParticles")
     local hungerDisabled = starPounds.hasOption("disableHunger")
 
+    local gainedFood = false
     local satiated = false
     local digestionStatCache = {}
 
@@ -420,11 +420,9 @@ function stomach:digest(dt, isGurgle, isBelch)
         if foodConfig.multipliers.food > 0 then
           -- Only add actual food stat if it exists/we need to.
           if hasFood and not hungerDisabled then
-            local foodAmount = math.min(maxFood - status.resource("food"), digestAmount)
-            -- Stops the player losing hunger while they digest food.
-            local foodDeltaDiff = not isGurgle and math.abs(math.min(foodDelta * seconds, 0)) or 0
-            local food = foodAmount * foodValue * foodConfig.multipliers.food + foodDeltaDiff
-            status.giveResource("food", foodAmount * foodValue * foodConfig.multipliers.food + foodDeltaDiff)
+            local foodAmount = math.min(maxFood - status.resource("food"), digestAmount * foodValue * foodConfig.multipliers.food)
+            status.giveResource("food", foodAmount)
+            gainedFood = true
           end
         end
 
@@ -473,6 +471,12 @@ function stomach:digest(dt, isGurgle, isBelch)
       end
 
       starPounds.moduleFunc("effects", "add", "satiated")
+    end
+
+    -- Stops the player losing hunger while they digest food.
+    if gainedFood then
+      local foodDeltaDiff = not isGurgle and math.abs(math.min(status.stat("foodDelta") * seconds, 0)) or 0
+      status.giveResource("food", math.min(maxFood - status.resource("food"), foodDeltaDiff))
     end
 
     self.digestionExperience = self.digestionExperience or 0
