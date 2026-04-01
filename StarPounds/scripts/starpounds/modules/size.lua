@@ -307,19 +307,19 @@ function size:updateStats(forceUpdate)
 end
 
 function size:scalingSize()
-  return self.data.scalingSize
+  return self.sizeConfig.scalingSize
 end
 
 function size:activationSize()
-  return self.data.activationSize
+  return self.sizeConfig.activationSize
 end
 
 function size:effectScaling()
-  return math.min(1, (self:sizeIndex() - 1) / (self.data.scalingSize - 1))
+  return math.min(1, (self:sizeIndex() - 1) / (self.sizeConfig.scalingSize - 1))
 end
 
 function size:effectActivated()
-  return self:sizeIndex() >= self.data.activationSize
+  return self:sizeIndex() >= self.sizeConfig.activationSize
 end
 
 function size:getVariant(size)
