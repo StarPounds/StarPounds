@@ -18,6 +18,7 @@ function init()
   end
   -- Already in the throg sphere.
   if config.getParameter("name") ~= "starpoundsthrogsphere" then
+    local update_old = update or function() end
     function update(args)
       starPounds = getmetatable ''.starPounds or {}
       self.currentSize = starPounds.currentSize and starPounds.currentSize.size or ""
