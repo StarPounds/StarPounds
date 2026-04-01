@@ -111,8 +111,9 @@ function update()
     updateTraitInfo()
   end
 
-  if experience ~= starPounds.experience or level ~= starPounds.level then
-    setProgress(starPounds.experience, starPounds.level)
+  if level ~= starPounds.level then
+    experience = (starPounds.experience + starPounds.modules.stomach.digestionExperience)
+    setProgress(experience, starPounds.level)
 
     if level ~= starPounds.level then
       checkSkills()
@@ -122,12 +123,17 @@ function update()
 
       updateTraitInfo()
     end
+
   end
 
   -- Check promises.
   promises:update()
   level = starPounds.level
-  experience = starPounds.experience
+
+  if experience ~= (starPounds.experience + starPounds.modules.stomach.digestionExperience) then
+    experience = (starPounds.experience + starPounds.modules.stomach.digestionExperience)
+    setProgress(experience, level)
+  end
 end
 
 function uninit()
@@ -1068,6 +1074,7 @@ end
 function setProgress(experience, level)
   local experienceConfig = starPounds.moduleFunc("experience", "config")
   local progress = experience/(experienceConfig.experienceAmount * (1 + level * experienceConfig.experienceIncrement))
+
   experienceText:setText(string.format("%s XP", level))
   experienceBar:setFile(string.format("bar.png?crop;0;0;%s;14", math.floor(70 * (progress or 0) + 0.5)))
   experienceBar:queueRedraw()
