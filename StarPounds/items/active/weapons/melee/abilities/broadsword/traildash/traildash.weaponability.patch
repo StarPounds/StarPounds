@@ -28,5 +28,10 @@
     "op" : "add",
     "path" : "/ability/elementalConfig/caloric",
     "value" : { "projectileType" : "calorictrail" }
+  },
+  {
+    "op": "add",
+    "path": "/ability/scripts/-",
+    "value": "/items/active/weapons/melee/abilities/broadsword/traildash/starpounds_traildash.lua"
   }
 ]
