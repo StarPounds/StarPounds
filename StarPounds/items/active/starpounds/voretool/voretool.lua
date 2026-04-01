@@ -14,6 +14,7 @@ function init()
   readyEmote = config.getParameter("readyEmote", "Happy")
   starPounds.events:on("pred:eatEntity", updateCooldown)
   starPounds.events:on("pred:bite", updateCooldown)
+  starPounds.events:on("pred:entityEscape", updateCooldown)
 end
 
 function activate(fireMode, shiftHeld)
@@ -103,6 +104,7 @@ end
 function uninit()
   starPounds.events:off("pred:eatEntity", updateCooldown)
   starPounds.events:off("pred:bite", updateCooldown)
+  starPounds.events:off("pred:entityEscape", updateCooldown)
 
   if wasValid then
     activeItem.emote("Idle")
