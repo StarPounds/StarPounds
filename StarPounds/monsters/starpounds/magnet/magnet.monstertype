@@ -1,0 +1,111 @@
+{
+  "type" : "starpoundsmagnet",
+
+  "categories" : [ "starpoundsmagnet" ],
+  "parts" : [ "body" ],
+
+  "animation" : "magnet.animation",
+
+  "dropPools" : [
+  ],
+
+  "baseParameters" : {
+    "scripts" : [
+      "/monsters/starpounds/magnet/magnet.lua"
+    ],
+
+    "forceRegions" : {
+      "magnet" : {
+        "type" : "RadialForceRegion",
+        "center" : [0, 0],
+        "categoryWhitelist" : ["itemdrop"],
+        "outerRadius" : 3,
+        "innerRadius" : 3,
+        "targetRadialVelocity" : -10,
+        "controlForce" : 125
+      }
+    },
+
+    "clientEntityMode" : "ClientPresenceMaster",
+
+    "metaBoundBox" : [-20, -20, 20, 20],
+    "scale" : 1.0,
+
+    "movementSettings" : {
+      "collisionPoly" : [ [-0.25, -0.25], [0.25, -0.25], [0.25, 0.25], [-0.25, 0.25] ],
+
+      "mass" : 1,
+      "walkSpeed" : 0,
+      "runSpeed" : 0,
+      "jumpSpeed" : 0,
+      "flySpeed" : 0,
+      "airFriction" : 0,
+      "airForce" : 0,
+      "gravityEnabled" : false
+    },
+
+    "bodyMaterialKind" : "organic",
+
+    "knockoutTime" : 0,
+    "knockoutEffect" : "",
+
+    "damageTeamType" : "ghostly",
+
+    "statusSettings" : {
+      "statusProperties" : {
+        "targetMaterialKind" : "organic"
+      },
+
+      "appliesEnvironmentStatusEffects" : false,
+      "appliesWeatherStatusEffects" : false,
+      "minimumLiquidStatusEffectPercentage" : 0.1,
+
+      "primaryScriptSources" : [
+        "/stats/monster_primary.lua"
+      ],
+      "primaryScriptDelta" : 5,
+
+      "stats" : {
+        "knockbackStunTime" : {
+          "baseValue" : 0
+        },
+        "knockbackThreshold" : {
+          "baseValue" : 0
+        },
+        "maxHealth" : {
+          "baseValue" : 1
+        },
+        "protection" : {
+          "baseValue" : 0.0
+        },
+        "healthRegen" : {
+          "baseValue" : 0.0
+        },
+        "statusImmunity" : {
+          "baseValue" : 1.0
+        },
+        "powerMultiplier" : {
+          "baseValue" : 0.0
+        }
+      },
+
+      "resources" : {
+        "stunned" : {
+          "deltaValue" : -1.0,
+          "initialValue" : 0.0
+        },
+        "health" : {
+          "maxStat" : "maxHealth",
+          "deltaStat" : "healthRegen",
+          "defaultPercentage" : 100
+        }
+      }
+    },
+
+    "mouthOffset" : [0, 0],
+    "feetOffset" : [0, -8],
+
+    "capturable" : false,
+    "relocatable" : false
+  }
+}

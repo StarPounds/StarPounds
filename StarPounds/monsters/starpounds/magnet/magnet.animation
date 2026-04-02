@@ -1,0 +1,34 @@
+{
+  "animatedParts" : {
+    "parts" : {
+      "body" : {
+        "properties" : {
+          "rotationGroup" : "body",
+          "image" : "<partImage>"
+        }
+      }
+    }
+  },
+
+  "rotationGroups" : {
+    "body" : {
+      "rotationCenter" : [0, 0],
+      "angularVelocity" : 5
+    }
+  },
+
+  "particleEmitters" : { },
+
+  "effects" : {
+    "blink" : {
+      "type" : "flash",
+      "time" : 0,
+      "directives" : "fade=ffffff;0.5"
+    }
+  },
+
+  "sounds" : {
+    "turnHostile" : [ ],
+    "deathPuff" : [ ]
+  }
+}

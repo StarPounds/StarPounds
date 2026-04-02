@@ -66,10 +66,10 @@ function size:update(dt)
   starPounds.weightMultiplier = self:weightMultiplier()
   starPounds.progress = self:progress()
 
+  local sizeChange = false
+  local weightChange = false
   if starPounds.currentSizeIndex ~= self.oldSizeIndex then
-    starPounds.events:fire("sizes:changed", starPounds.currentSizeIndex - (self.oldSizeIndex or 0))
-    -- Force stat update.
-    starPounds.events:fire("stats:calculate", "sizes:changed")
+    sizeChange = true
     -- Don't play the sound on the first load.
     if self.oldSizeIndex then
       -- Play sound to indicate size change.
@@ -79,18 +79,27 @@ function size:update(dt)
     starPounds.moduleFunc("trackers", "clearStatuses")
     starPounds.moduleFunc("trackers", "createStatuses")
   elseif starPounds.weightMultiplier ~= self.oldWeightMultiplier then
-    starPounds.events:fire("stats:calculate", "sizes:weightMultChanged")
+    weightChange = true
+  end
+
+  self:cursorCheck()
+  self:progress()
+  self:trackVehicleCap()
+  self:equip(self:equipmentConfig(starPounds.currentSizeIndex))
+  self:updateStats()
+
+  -- Fire events. (Size gets priority for stat event)
+  if sizeChange then
+    -- Force stat update.
+    starPounds.events:fire("stats:calculate", "size:changed")
+    starPounds.events:fire("size:changed", starPounds.currentSizeIndex - (self.oldSizeIndex or 0))
+  elseif weightChange then
+    -- Force stat update.
+    starPounds.events:fire("stats:calculate", "size:weightMultChanged")
   end
 
   self.oldSizeIndex = starPounds.currentSizeIndex
   self.oldWeightMultiplier = starPounds.weightMultiplier
-
-  self:cursorCheck()
-  size:progress()
-  self:trackVehicleCap()
-  self:equip(self:equipmentConfig(starPounds.currentSizeIndex))
-
-  self:updateStats()
 end
 
 function size:gainWeight(amount, fullAmount)

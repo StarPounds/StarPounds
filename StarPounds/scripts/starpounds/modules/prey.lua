@@ -10,7 +10,7 @@ function prey:init()
   message.setHandler("starPounds.prey.drinkVoreNudge", function(_, _, sourceId, maxWeight, args)
     if storage.starPounds.pred then return end
     if maxWeight < (entity.weight + storage.starPounds.weight) then return end
-    if mcontroller.liquidPercentage() < 0.25 then return end
+    if starPounds.mcontroller.liquidPercentage < 0.25 then return end
     if not entity.entityInSight(sourceId) then return end
 
     return mcontroller.controlApproachVelocityAlongAngle(table.unpack(args))

@@ -15,7 +15,7 @@ function supersize:init()
     self.didUpdate = false
   end
 
-  starPounds.events:on("sizes:changed", self.triggerSizeUpdate)
+  starPounds.events:on("size:changed", self.triggerSizeUpdate)
 end
 
 function supersize:update(dt)
@@ -42,7 +42,7 @@ end
 
 function supersize:uninit()
   self:killProjectile()
-  starPounds.events:off("sizes:changed", self.triggerSizeUpdate)
+  starPounds.events:off("size:changed", self.triggerSizeUpdate)
 end
 
 function supersize:sizeUpdate()
@@ -73,6 +73,7 @@ function supersize:doProjectile()
   if not self.projectileType then return false end
   if starPounds.hasOption("disableCollision") then return false end
   if status.stat("activeMovementAbilities") >= 1 then return false end
+  if starPounds.mcontroller.zeroG then return false end
   return true
 end
 

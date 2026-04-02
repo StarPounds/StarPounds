@@ -13,28 +13,11 @@
     }
   },
   "physicsForces" : {
-    "vacuumMiddle" : {
+    "vacuum" : {
       "type" : "DirectionalForceRegion",
-      "polyRegion" : [[-2.5, 0.0], [2.5, 0], [2.5, -4.5], [-2.5, -4.5]],
-      "xTargetVelocity" : 0,
-      "yTargetVelocity" : 25,
-      "controlForce" : 500,
-      "categoryWhitelist" : ["itemdrop"]
-    },
-    "vacuumLeft" : {
-      "type" : "DirectionalForceRegion",
-      "polyRegion" : [[-2.5, 0.0], [-4.8, -1.85], [-5.3, -3.5], [-4.9, -4.0], [-2.5, -4.5]],
-      "xTargetVelocity" : 25,
-      "yTargetVelocity" : 15,
-      "controlForce" : 500,
-      "categoryWhitelist" : ["itemdrop"]
-    },
-    "vacuumRight" : {
-      "type" : "DirectionalForceRegion",
-      "polyRegion" : [[2.5, 0.0], [4.8, -1.85], [5.3, -3.5], [4.9, -4.0], [2.5, -4.5]],
-      "xTargetVelocity" : -25,
-      "yTargetVelocity" : 15,
-      "controlForce" : 500,
+      "polyRegion" : [[-5, -4.5], [5, -4.5], [5, -2.5], [-5, -2.5]],
+      "yTargetVelocity" : 3,
+      "controlForce" : 200,
       "categoryWhitelist" : ["itemdrop"]
     }
   },

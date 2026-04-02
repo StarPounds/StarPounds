@@ -1,0 +1,9 @@
+{
+  "name" : "starpoundsmagnet",
+  "category" : "starpoundsmagnet",
+  "type" : "body",
+
+  "frames" : {
+    "body" : "magnet.png"
+  }
+}

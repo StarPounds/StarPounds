@@ -9,7 +9,7 @@ function init()
   -- Setup message handlers
   starPounds.messageHandlers()
   -- Reload whenever the entity loads in/beams/etc.
-  starPounds.moduleInit({"base", "entity", "humanoid", "player", "vore"})
+  starPounds.moduleInit({"base", "entity", "humanoid", "player", "vore", "miscellaneous"})
   -- Apply species trait skills.
   starPounds.moduleFunc("traits", "applySpeciesTrait")
 end
