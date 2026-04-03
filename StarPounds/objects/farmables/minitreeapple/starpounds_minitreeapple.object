@@ -1,0 +1,62 @@
+{
+  "objectName" : "starpounds_minitreeapple",
+  "colonyTags" : ["nature"],
+  "rarity" : "Rare",
+  "category" : "seed",
+  "description" : "Your very own miniature apple tree. Make sure it has space to grow!",
+  "shortdescription" : "Apple Tree Minisapling",
+  "objectType" : "farmable",
+  "printable" : false,
+  "price" : 100,
+
+  "apexDescription" : "Delightfully crisp apples grown by my two hands.",
+  "avianDescription" : "Apples are nice to peck at.",
+  "floranDescription" : "Crunchy tasssty apples!",
+  "glitchDescription" : "Pleased. I've always had a fondness for apple cider.",
+  "humanDescription" : "Now this place is protected from doctors.",
+  "hylotlDescription" : "While I could've bought apples from the store, growing them yourself makes them taste much better.",
+  "novakidDescription" : "A bottle of hard cider sounds nice right 'bout now...",
+
+  "inventoryIcon" : "starpounds_minitreeappleicon.png",
+
+  "tooltipKind" : "seed",
+  "largeImage" : "starpounds_minitreeapple.png:default.4.0",
+
+  "orientations" : [
+    {
+      "dualImage" : "starpounds_minitreeapple.png:<color>.<stage>.<alt>",
+      "imagePosition" : [-24, 0],
+      "frames" : 1,
+      "animationCycle" : 0.5,
+
+      "spaces" : [ [-1, 0], [0, 0], [-1, 1], [0, 1], [-1, 2], [0, 2], [-3, 3], [-2, 3], [-1, 3], [0, 3], [1, 3], [2, 3], [-3, 4], [-2, 4], [-1, 4], [0, 4], [1, 4], [2, 4], [-3, 4], [-2, 4], [-1, 4], [0, 4], [1, 4], [2, 4], [-3, 5], [-2, 5], [-1, 5], [0, 5], [1, 5], [2, 5], [-3, 6], [-2, 6], [-1, 6], [0, 6], [1, 6], [2, 6], [-2, 7], [-1, 7], [0, 7], [1, 7] ],
+      "requireTilledAnchors" : true,
+      "anchors" : [ "bottom" ]
+
+    }
+  ],
+
+  "radioMessagesOnPickup" : [ "pickupseed" ],
+
+  "stages" : [
+    {
+      "duration" : [600, 630]
+    },
+    {
+      "duration" : [600, 630]
+    },
+    {
+      "alts" : 5,
+      "duration" : [1360, 1560]
+    },
+    {
+      "alts" : 5,
+      "duration" : [1500, 1600]
+    },
+    {
+      "alts" : 5,
+      "harvestPool" : "starpounds_appletreeHarvest",
+      "resetToStage" : 2
+    }
+  ]
+}

@@ -1,0 +1,62 @@
+{
+  "objectName" : "starpounds_minitreecoconut",
+  "colonyTags" : ["nature"],
+  "rarity" : "Rare",
+  "category" : "seed",
+  "description" : "Your very own miniature coconut palm. Make sure it has space to grow!",
+  "shortdescription" : "Coconut Palm Minisapling",
+  "objectType" : "farmable",
+  "printable" : false,
+  "price" : 150,
+
+  "apexDescription" : "I've always wanted a tropical vacation...",
+  "avianDescription" : "A tough shell with a great reward!",
+  "floranDescription" : "Floran knowsss to fear and ressspect the coconut tree.",
+  "glitchDescription" : "Curious. Where did this coconut come from. Carried by an Arcturan Swallow? Or an Elkurudi Swallow?",
+  "humanDescription" : "The only thing more dangerous than sharks. Or so I'm told.",
+  "hylotlDescription" : "A common sight back home. I remember being told to stay away from them when I was younger.",
+  "novakidDescription" : "T'would be perfect for a beachside vacation!",
+
+  "inventoryIcon" : "starpounds_minitreecoconuticon.png",
+
+  "tooltipKind" : "seed",
+  "largeImage" : "starpounds_minitreecoconut.png:default.4.0",
+
+  "orientations" : [
+    {
+      "dualImage" : "starpounds_minitreecoconut.png:<color>.<stage>.<alt>",
+      "imagePosition" : [-24, 0],
+      "frames" : 1,
+      "animationCycle" : 0.5,
+
+      "spaces" : [ [-1, 0], [0, 0], [-1, 1], [0, 1], [-1, 2], [0, 2], [-1, 3], [0, 3], [-3, 4], [-2, 4], [-1, 4], [0, 4], [1, 4], [2, 4], [-3, 4], [-2, 4], [-1, 4], [0, 4], [1, 4], [2, 4], [-3, 5], [-2, 5], [-1, 5], [0, 5], [1, 5], [2, 5], [-3, 6], [-2, 6], [-1, 6], [0, 6], [1, 6], [2, 6], [-2, 7], [-1, 7], [0, 7], [1, 7] ],
+      "requireTilledAnchors" : true,
+      "anchors" : [ "bottom" ]
+
+    }
+  ],
+
+  "radioMessagesOnPickup" : [ "pickupseed" ],
+
+  "stages" : [
+    {
+      "duration" : [600, 630]
+    },
+    {
+      "duration" : [600, 630]
+    },
+    {
+      "alts" : 5,
+      "duration" : [1360, 1560]
+    },
+    {
+      "alts" : 5,
+      "duration" : [1500, 1600]
+    },
+    {
+      "alts" : 5,
+      "harvestPool" : "starpounds_appletreeHarvest",
+      "resetToStage" : 2
+    }
+  ]
+}

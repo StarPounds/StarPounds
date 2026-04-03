@@ -18,6 +18,10 @@
         "duration" : 420
     },
     {
+        "effect" : "starpoundsphysicalresist",
+        "duration" : 420
+    },
+    {
         "effect" : "rage",
         "duration" : 420
     },

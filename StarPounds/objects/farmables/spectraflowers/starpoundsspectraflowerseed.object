@@ -1,0 +1,61 @@
+{
+  "objectName" : "starpoundsspectraflowerseed",
+  "colonyTags" : ["nature"],
+  "rarity" : "Rare",
+  "category" : "seed",
+  "description" : "A multi-colored flower that can be harvested for all colors of petals.",
+  "shortdescription" : "Spectra Flower Seed",
+  "objectType" : "farmable",
+  "printable" : false,
+  "price" : 100,
+
+  "apexDescription" : "A gorgeous flower that produces all the important pigments.",
+  "avianDescription" : "Colorful like a tropical bird!",
+  "floranDescription" : "Floran likesss pretty flowers. But where green, orange, purple?",
+  "glitchDescription" : "Knowing. Glitch royalty use these as a symbol of status.",
+  "humanDescription" : "I've heard these are really pretty when in bloom.",
+  "hylotlDescription" : "A majestic flood of colors when in full bloom...",
+  "novakidDescription" : "Pretty 'ol rainbow flowers. Well, missing half the colors but pretty either way.",
+
+  "inventoryIcon" : "starpoundsspectraflowerseedicon.png",
+
+  "tooltipKind" : "seed",
+  "largeImage" : "starpoundsspectraflowerseed.png:default.3.0",
+
+
+  "orientations" : [
+    {
+      "dualImage" : "starpoundsspectraflowerseed.png:<color>.<stage>.<alt>",
+      "imagePosition" : [-8, 0],
+      "frames" : 1,
+      "animationCycle" : 0.5,
+
+      "spaces" : [ [1, 0], [0, 0], [1, 1], [0, 1], [1, 2], [0, 2], [1, 3], [0, 3] ],
+      "requireTilledAnchors" : true,
+      "anchors" : [ "bottom" ]
+
+    }
+  ],
+
+  "radioMessagesOnPickup" : [ "pickupseed" ],
+
+  "stages" : [
+    {
+      "duration" : [430, 470]
+    },
+    {
+      "duration" : [430, 470]
+    },
+    {
+      "alts" : 5,
+      "duration" : [1740, 1860]
+    },
+    {
+      "alts" : 5,
+      "harvestPool" : "starpounds_spectraflowerHarvest",
+      "resetToStage" : 2
+    }
+  ],
+
+  "maxImmersion" : 0.125
+}

@@ -33,5 +33,85 @@
                 }
             ]
         ]
+    },
+    {
+        "op": "add",
+        "path": "/starpounds_spectraflowerHarvest",
+        "value": [
+            [
+                0,
+                {
+                    "pool": [
+        {"weight" : 0.4, "item" : ["petalblue", 3]},					
+        {"weight" : 0.4, "item" : ["petalred", 3]},
+        {"weight" : 0.4, "item" : ["petalyellow", 3]}
+                    ],
+                    "poolRounds": [
+                        [
+                            0.6,
+                            3
+                        ],
+                        [
+                            0.4,
+                            6
+                        ]
+                    ]
+                }
+            ]
+        ]
+    },
+    {
+        "op": "add",
+        "path": "/starpounds_appletreeHarvest",
+        "value": [
+            [
+                0,
+                {
+                    "pool": [
+                        {
+                            "weight": 1.0,
+                            "item": "redapple"
+                        }
+                    ],
+                    "poolRounds": [
+                        [
+                            0.6,
+                            2
+                        ],
+                        [
+                            0.4,
+                            3
+                        ]
+                    ]
+                }
+            ]
+        ]
+    },
+    {
+        "op": "add",
+        "path": "/starpounds_coconuttreeHarvest",
+        "value": [
+            [
+                0,
+                {
+                    "pool": [
+                        {
+                            "weight": 1.0,
+                            "item": "coconut"
+                        }
+                    ],
+                    "poolRounds": [
+                        [
+                            0.6,
+                            3
+                        ],
+                        [
+                            0.4,
+                            4
+                        ]
+                    ]
+                }
+            ]
+        ]
     }
 ]
