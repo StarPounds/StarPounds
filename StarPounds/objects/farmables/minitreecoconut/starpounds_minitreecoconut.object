@@ -55,7 +55,7 @@
     },
     {
       "alts" : 5,
-      "harvestPool" : "starpounds_appletreeHarvest",
+      "harvestPool" : "starpounds_coconuttreeHarvest",
       "resetToStage" : 2
     }
   ]
