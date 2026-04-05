@@ -15,5 +15,6 @@
   ] ],
   "foodValue": 30,
   "emote" : "",
-  "emitters" : [ "drinkinghealing" ]
+  "emitters" : [ "drinkinghealing" ],
+  "learnBlueprintsOnPickup" : [ "starpoundsmead" ]  
 }

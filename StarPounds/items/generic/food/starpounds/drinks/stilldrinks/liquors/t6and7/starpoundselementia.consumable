@@ -11,27 +11,27 @@
   "effects" : [ [
     {
         "effect" : "starpoundsdrunk100",
-        "duration" : 480
+        "duration" : 600
     },
       {
         "effect" : "fireblock",
-        "duration" : 480
+        "duration" : 600
       },
       {
         "effect" : "iceblock",
-        "duration" : 480
+        "duration" : 600
       },
       {
         "effect" : "electricblock",
-        "duration" : 480
+        "duration" : 600
       },
       {
         "effect" : "poisonblock",
-        "duration" : 480
+        "duration" : 600
       },
       {
         "effect" : "starpoundsexperienceup",
-        "duration" : 480
+        "duration" : 600
       }
   ] ],
   "foodValue": 30,  
@@ -49,23 +49,23 @@
     "effects" : [[
     {
         "effect" : "starpoundsdrunk",
-        "duration" : 720
+        "duration" : 900
     },
       {
         "effect" : "fireblock",
-        "duration" : 720
+        "duration" : 900
       },
       {
         "effect" : "iceblock",
-        "duration" : 720
+        "duration" : 900
       },
       {
         "effect" : "electricblock",
-        "duration" : 720
+        "duration" : 900
       },
       {
         "effect" : "poisonblock",
-        "duration" : 720
+        "duration" : 900
       }
     ]]
   }

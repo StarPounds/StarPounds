@@ -36,6 +36,13 @@
     "op": "add",
     "path": "/defaultBlueprints/tier1/-",
     "value": {
+      "item": "starpoundsstill"
+    }
+  },
+  {
+    "op": "add",
+    "path": "/defaultBlueprints/tier1/-",
+    "value": {
       "item": "starpoundsagingcask"
     }
   },{
@@ -67,6 +74,49 @@
     "path": "/defaultBlueprints/tier1/-",
     "value": {
       "item": "starpoundspoitin"
+    }
+  },{
+    "op": "add",
+    "path": "/defaultBlueprints/tier1/-",
+    "value": {
+      "item": "starpoundsscrumpy"
+    }
+  },{
+    "op": "add",
+    "path": "/defaultBlueprints/tier1/-",
+    "value": {
+      "item": "starpoundsbloodymary"
+    }
+  },
+  {
+    "op": "add",
+    "path": "/defaultBlueprints/tier1/-",
+    "value": {
+      "item": "starpoundsfattyred"
+    }
+  },{
+    "op": "add",
+    "path": "/defaultBlueprints/tier1/-",
+    "value": {
+      "item": "starpoundslagocola"
+    }
+  },{
+    "op": "add",
+    "path": "/defaultBlueprints/tier1/-",
+    "value": {
+      "item": "starpoundssylph"
+    }
+  },{
+    "op": "add",
+    "path": "/defaultBlueprints/tier1/-",
+    "value": {
+      "item": "starpoundsdandelionsunrise"
+    }
+  },{
+    "op": "add",
+    "path": "/defaultBlueprints/tier1/-",
+    "value": {
+      "item": "starpoundsfizzycider"
     }
   },{
     "op": "add",

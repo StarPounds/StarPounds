@@ -401,7 +401,7 @@
                  "y":248
                 }, 
                 {
-                 "gid":7807,
+                 "gid":7808,
                  "height":16,
                  "id":731,
                  "name":"",
@@ -421,7 +421,7 @@
                  "y":272
                 }, 
                 {
-                 "gid":2147491455,
+                 "gid":2147491456,
                  "height":16,
                  "id":732,
                  "name":"",
@@ -441,47 +441,7 @@
                  "y":272
                 }, 
                 {
-                 "gid":7807,
-                 "height":16,
-                 "id":733,
-                 "name":"",
-                 "properties":
-                    {
-                     "parameters":"{\"treasurePools\":[\"starpoundsfloranfeasthallTreasure\"]}"
-                    },
-                 "propertytypes":
-                    {
-                     "parameters":"string"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":24,
-                 "x":112,
-                 "y":256
-                }, 
-                {
-                 "gid":7807,
-                 "height":16,
-                 "id":734,
-                 "name":"",
-                 "properties":
-                    {
-                     "parameters":"{\"treasurePools\":[\"starpoundsfloranfeasthallTreasure\"]}"
-                    },
-                 "propertytypes":
-                    {
-                     "parameters":"string"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":24,
-                 "x":344,
-                 "y":368
-                }, 
-                {
-                 "gid":2147491455,
+                 "gid":2147491456,
                  "height":16,
                  "id":735,
                  "name":"",
@@ -501,7 +461,7 @@
                  "y":264
                 }, 
                 {
-                 "gid":7807,
+                 "gid":7808,
                  "height":16,
                  "id":736,
                  "name":"",
@@ -521,7 +481,7 @@
                  "y":280
                 }, 
                 {
-                 "gid":7807,
+                 "gid":7808,
                  "height":16,
                  "id":737,
                  "name":"",
@@ -541,7 +501,7 @@
                  "y":168
                 }, 
                 {
-                 "gid":2147491455,
+                 "gid":2147491456,
                  "height":16,
                  "id":738,
                  "name":"",
@@ -558,46 +518,6 @@
                  "visible":true,
                  "width":24,
                  "x":200,
-                 "y":168
-                }, 
-                {
-                 "gid":7807,
-                 "height":16,
-                 "id":739,
-                 "name":"",
-                 "properties":
-                    {
-                     "parameters":"{\"treasurePools\":[\"starpoundsfloranfeasthallTreasure\"]}"
-                    },
-                 "propertytypes":
-                    {
-                     "parameters":"string"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":24,
-                 "x":216,
-                 "y":152
-                }, 
-                {
-                 "gid":7807,
-                 "height":16,
-                 "id":741,
-                 "name":"",
-                 "properties":
-                    {
-                     "parameters":"{\"treasurePools\":[\"starpoundsfloranfeasthallTreasure\"]}"
-                    },
-                 "propertytypes":
-                    {
-                     "parameters":"string"
-                    },
-                 "rotation":0,
-                 "type":"",
-                 "visible":true,
-                 "width":24,
-                 "x":304,
                  "y":168
                 }, 
                 {
@@ -681,7 +601,7 @@
                  "type":"",
                  "visible":true,
                  "width":8,
-                 "x":416,
+                 "x":424,
                  "y":272
                 }, 
                 {
@@ -729,8 +649,108 @@
                  "type":"",
                  "visible":true,
                  "width":8,
-                 "x":328,
+                 "x":344,
+                 "y":176
+                }, 
+                {
+                 "gid":2147491386,
+                 "height":24,
+                 "id":756,
+                 "name":"",
+                 "properties":
+                    {
+                     "parameters":"{\"treasurePools\":[\"starpoundsfloranfeasthallIceboxTreasure\"]}"
+                    },
+                 "propertytypes":
+                    {
+                     "parameters":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":208,
+                 "y":152
+                }, 
+                {
+                 "gid":7738,
+                 "height":24,
+                 "id":757,
+                 "name":"",
+                 "properties":
+                    {
+                     "parameters":"{\"treasurePools\":[\"starpoundsfloranfeasthallIceboxTreasure\"]}"
+                    },
+                 "propertytypes":
+                    {
+                     "parameters":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":104,
+                 "y":256
+                }, 
+                {
+                 "gid":7738,
+                 "height":24,
+                 "id":758,
+                 "name":"",
+                 "properties":
+                    {
+                     "parameters":"{\"treasurePools\":[\"starpoundsfloranfeasthallIceboxTreasure\"]}"
+                    },
+                 "propertytypes":
+                    {
+                     "parameters":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":304,
                  "y":168
+                }, 
+                {
+                 "gid":7738,
+                 "height":24,
+                 "id":759,
+                 "name":"",
+                 "properties":
+                    {
+                     "parameters":"{\"treasurePools\":[\"starpoundsfloranfeasthallIceboxTreasure\"]}"
+                    },
+                 "propertytypes":
+                    {
+                     "parameters":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":344,
+                 "y":368
+                }, 
+                {
+                 "gid":2147491386,
+                 "height":24,
+                 "id":760,
+                 "name":"",
+                 "properties":
+                    {
+                     "parameters":"{\"treasurePools\":[\"starpoundsfloranfeasthallIceboxTreasure\"]}"
+                    },
+                 "propertytypes":
+                    {
+                     "parameters":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":128,
+                 "y":368
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -801,7 +821,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":756,
+ "nextobjectid":761,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.1.6",
@@ -912,7 +932,7 @@
          "source":"..\/..\/..\/tilesets\/Starpounds-Fatty-Dungeons.json"
         }, 
         {
-         "firstgid":7738,
+         "firstgid":7739,
          "source":"..\/..\/..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/assets\/packed\/tilesets\/packed\/objects-by-category\/storage.json"
         }],
  "tilewidth":8,

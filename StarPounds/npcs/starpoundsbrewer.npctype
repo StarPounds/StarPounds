@@ -1,0 +1,206 @@
+{
+  "type" : "starpoundsbrewer",
+  "baseType" : "merchant",
+
+  "scriptConfig" : {
+    "merchant" : {
+      "waitTime" : 40,
+      "storeRadius" : 8,
+      "categories" : {
+        "default" : ["starpounds_brewer_human"],
+        "apex" : ["starpounds_brewer_apex" ],
+        "avian" : ["starpounds_brewer_avian" ],
+        "floran" : ["starpounds_brewer_floran" ],
+        "glitch" : ["starpounds_brewer_glitch" ],
+        "human" : ["starpounds_brewer_human" ],
+        "hylotl" : ["starpounds_brewer_hylotl" ],
+        "novakid" : ["starpounds_brewer_novakid" ]
+      },
+      "buyFactorRange" : [ 3.0, 3.0 ],
+      "sellFactorRange" : [ 0.2, 0.2 ],
+      "numItems" : 6,
+      "paneLayoutOverride" : {
+        "windowtitle" : {
+          "title" : "  Brewer",
+          "subtitle" : "  Sells liquors and craft sodas"
+
+        }
+      }
+    },
+
+    "dialog" : {
+      "merchant" : {
+        "start" : {
+          "default" : {
+            "default" : [
+              "Thirsty? Got some of the good stuff for you!"
+            ]
+          },
+          "apex" : {
+            "default" : [
+              "How may I serve you?",
+              "It's nice being able to brew without worrying about the looming eye of Big Ape.",
+              "Wish to sample my drinks?",
+              "These are much better than what you'd get from brewing from ration cubes!",
+              "Welcome to my little speakeasy."
+            ]
+          },
+          "avian" : {
+            "default" : [
+              "Want some of my finest cocktails?",
+              "Don't worry, I do have lightweight options too!",
+              "Take your pick, I got drinks for everyone!",
+              "Got some of the best liquors and liqueurs!",
+              "So what do you want to drink?"
+            ]
+          },
+          "floran" : {
+            "default" : [
+              "Floran got the ssstrong sstuff!",
+              "If friend wantsss to get hammered, Floran hasss the sstuff!",
+              "Tribe ssaysss Floran iss besst brewer!",
+              "Want to punish liver?",
+              "Floran hasss all the good slosh!"
+            ]
+          },
+          "glitch" : {
+            "default" : [
+              "Proud. I'm the latest model of this line of brewers!",
+              "Polite. Want the strong stuff, or the mellow drinks?",
+              "Welcoming. Welcome to my tavern! Questioning. Which drink do you desire?",
+              "Encouraging. Help yourself to a big, frothing flagon!",
+              "Cordial. So what will be your order?"
+            ]
+          },
+          "human" : {
+            "default" : [
+              "So whatcha orderin today?",
+              "Pick your poison. Not actual, literal poison- You get what I mean!",
+              "Got a little bit of everything, so help yourself.",
+              "Thirsty? You're at the right place.",
+              "Long day? Don't worry, it'll melt away after a few drinks."
+
+            ]
+          },
+          "hylotl" : {
+            "default" : [
+              "I've got modern cocktails and traditional liquors!",
+              "Many of my recipes go back generations in my family- I've got a good pedigree as a brewer.",
+              "I'm sure all my drinks may help you loosen up a bit.",
+              "Let your woes wash away, pick a drink.",
+              "Traditional brewing methods lead to better drinking!"
+            ]
+          },
+          "novakid" : {
+            "default" : [
+              "So what'll it be, pardner?",
+              "Got the good moonshine here, pick whatcha want!",
+              "Just got a fresh batch of hooch!",
+              "Want the strong stuff? Or the tasty stuff?",
+              "Welcome to my lil waterin' hole!"
+            ]
+          }
+        },
+        "end" : {
+          "default" : {
+            "default" : [
+              "Come back anytime!"
+            ]
+          },
+          "apex" : {
+            "default" : [
+              "Drink responsibly.",
+              "Take care!",
+              "Always welcome here!"
+            ]
+          },
+          "avian" : {
+            "default" : [
+              "Drink responsibly!",
+              "See you later!",
+              "Thanks for the patronage!"
+            ]
+          },
+          "floran" : {
+            "default" : [
+              "Drink resssponssibly!",
+              "Tap'sss always ready for you!",
+              "Friend is alwaysss welcome!"
+            ]
+          },
+          "glitch" : {
+            "default" : [
+              "Reminding. Drink responsibly.",
+              "Friendly. Cheers!",
+              "Enticing. You're always welcome at my tavern!"
+            ]
+          },
+          "human" : {
+            "default" : [
+              "Ciao!",
+              "If you ever need a drink you know who to call.",
+              "Drink responsibly!"
+            ]
+          },
+          "hylotl" : {
+            "default" : [
+              "Drink responsibly.",
+              "Pleasure doing business!",
+              "Do take care!"
+            ]
+          },
+          "novakid" : {
+            "default" : [
+              "Drink responsibly!",
+              "I feel like I'm forgetting something... Right- drink responsibly!",
+              "Cheers, pardner!",
+              "This waterin' hole's always open for ya!"
+            ]
+          }
+        }
+      },
+      "tenant" : {
+        "grumbles" : {
+          "tagCriteria" : "/dialog/merchant.config:tagCriteria",
+          "enclosedArea" : "/dialog/merchant.config:enclosedArea",
+          "otherDeed" : "/dialog/merchant.config:otherDeed",
+          "severe" : "/dialog/merchant.config:severe",
+          "final" : "/dialog/merchant.config:final"
+        },
+        "arrivedHome" : {
+          "beacon" : "/dialog/merchant.config:beacon",
+          "rent" : "/dialog/merchant.config:rent"
+        }
+      }
+    }
+  },
+
+  "items" : {
+    "override" : [
+      [0, [
+          {
+            "back" : [
+              { "name" : "pirateback", "parameters" : { "colorIndex" : 0 } },
+              ""
+            ],
+            "chest" : [
+              { "name" : "novakidwaistcoat", "parameters" : { "colorIndex" : 1 } },
+              { "name" : "novakidwaistcoat", "parameters" : { "colorIndex" : 2 } },
+              { "name" : "novakidwaistcoat", "parameters" : { "colorIndex" : 3 } },
+              { "name" : "novakidwaistcoat", "parameters" : { "colorIndex" : 4 } },
+              { "name" : "novakidwaistcoat", "parameters" : { "colorIndex" : 5 } },
+              { "name" : "novakidwaistcoat", "parameters" : { "colorIndex" : 6 } },
+              { "name" : "novakidwaistcoat", "parameters" : { "colorIndex" : 7 } },
+              { "name" : "novakidwaistcoat", "parameters" : { "colorIndex" : 8 } },
+              { "name" : "novakidwaistcoat", "parameters" : { "colorIndex" : 9 } },
+              { "name" : "novakidwaistcoat", "parameters" : { "colorIndex" : 10 } },
+              { "name" : "novakidwaistcoat", "parameters" : { "colorIndex" : 11 } }
+            ],
+            "legs" : [
+              { "name" : "novakidblackpants", "parameters" : { "colorIndex" : 1 } }
+            ]
+          }
+      ]]
+    ]
+  }
+}

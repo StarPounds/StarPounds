@@ -1,10 +1,11 @@
 {
   "input" : [
-    { "item" : "starpoundsgoldenwine", "count" : 1 },
-    { "item" : "starpoundsmississippiqueen", "count" : 1 },
-    { "item" : "starpoundswastelander", "count" : 1 },
-    { "item" : "starpoundsvalorale", "count" : 1 },
-    { "item" : "essence", "count" : 300 }
+    { "item" : "starpoundsbrewpod", "count" : 5 },  
+    { "item" : "oculemon", "count" : 1 },
+    { "item" : "goldbar", "count" : 1 },
+    { "item" : "neonmelon", "count" : 1 },
+    { "item" : "avesmingo", "count" : 1 },
+    { "item" : "essence", "count" : 500 }
   ],
   "output" : { "item" : "starpoundsgargleblaster", "count" : 1 },
   "groups" : [ "craftingstill", "starpoundsalcohol" ]

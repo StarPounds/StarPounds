@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsneonsunrise",
   "rarity" : "Rare",
-  "price" : 425,
+  "price" : 430,
   "tooltipKind" : "food",
   "category" : "drink",
   "inventoryIcon" : "starpoundsneonsunrise.png",
@@ -40,6 +40,5 @@
         "duration" : 540
     }
     ]]
-  },
-  "learnBlueprintsOnPickup" : [ "starpoundsvalorale" ]  
+  }
 }

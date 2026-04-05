@@ -1,0 +1,16 @@
+{
+  "starpounds_unlockElementia" : [
+    [0, {
+      "fill" : [
+        { "item" : "starpoundselementia-recipe" }
+      ]
+    }]
+  ],
+  "starpounds_unlockGargleblaster" : [
+    [0, {
+      "fill" : [
+        { "item" : "starpoundsgargleblaster-recipe" }
+      ]
+    }]
+  ]
+}

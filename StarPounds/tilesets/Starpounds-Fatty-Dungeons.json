@@ -8,7 +8,7 @@
  "margin":0,
  "name":"Starpounds-Fatty-Dungeons",
  "spacing":0,
- "tilecount":68,
+ "tilecount":69,
  "tileheight":88,
  "tileproperties":
     {
@@ -465,6 +465,13 @@
          "imagePositionX":"-8",
          "imagePositionY":"0",
          "object":"ponderouschair",
+         "tilesetDirection":"right"
+        },
+     "68":
+        {
+         "imagePositionX":"-16",
+         "imagePositionY":"0",
+         "object":"gluttonisticebox",
          "tilesetDirection":"right"
         },
      "7":
@@ -946,6 +953,13 @@
          "object":"string",
          "tilesetDirection":"string"
         },
+     "68":
+        {
+         "imagePositionX":"string",
+         "imagePositionY":"string",
+         "object":"string",
+         "tilesetDirection":"string"
+        },
      "7":
         {
          "imagePositionX":"string",
@@ -1359,6 +1373,12 @@
          "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/ponderouschair.png",
          "imageheight":23,
          "imagewidth":16
+        },
+     "68":
+        {
+         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/gluttonisticebox.png",
+         "imageheight":24,
+         "imagewidth":32
         },
      "7":
         {

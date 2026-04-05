@@ -1,0 +1,25 @@
+{
+  "name": "starpoundsbrewer_random",
+  "priority": 4,
+
+  "colonyTagCriteria": {
+    "light": 1,
+    "door": 1,
+    "brewing": 24
+  },
+
+  "tenants": [
+    {
+      "spawn": "npc",
+      "species": ["human", "apex", "avian", "floran", "glitch", "hylotl", "novakid"],
+      "type": "starpoundsbrewertenant",
+      "overrides": {
+       }
+     }
+   ],
+
+  "rent": {
+    "periodRange": [1200.0, 1800.0],
+    "pool": "merchantGift"
+  }
+}

@@ -5,10 +5,8 @@
       "pool" : [
         {"weight" : 0.85, "pool" : "basicTreasure"},
         {"weight" : 0.05, "pool" : "starpoundsfloranfeasthallLore"},
-        {"weight" : 0.05, "item" : [ "starpoundsfatfriedchicken", 1]},
         {"weight" : 0.05, "item" : [ "starpoundshoneymoomilk", 1]},
         {"weight" : 0.03, "item" : [ "starpoundshoneymoomilkdeluxe", 1]},
-        {"weight" : 0.05, "item" : [ "starpoundsmeatwich", 1]},
         {"weight" : 0.05, "item" : [ "florandrum4", 1]},
         {"weight" : 0.05, "item" : [ "floranarmchair", 1]},
         {"weight" : 0.05, "item" : [ "huntingtrophy1", 1]},
@@ -40,6 +38,35 @@
         [0.05, 3]
       ],
       "allowDuplication" : false
+    }]
+  ],
+
+  "starpoundsfloranfeasthallIceboxTreasure" : [
+    [1, {
+      "pool" : [
+        {"weight" : 0.70, "pool" : "starpoundsfloranfeasthallMeatTreasure"},
+        {"weight" : 0.30, "item" : [ "ice", 6]}
+      ],
+      "poolRounds" : [
+        [0.55, 2],
+        [0.40, 3]
+      ],
+      "allowDuplication" : true
+    }]
+  ],  
+
+  "starpoundsfloranfeasthallMeatTreasure" : [
+    [1, {
+      "pool" : [
+        {"weight" : 0.20, "item" : [ "starpoundsfatfriedchicken", 1]},
+        {"weight" : 0.20, "item" : [ "starpoundsmeatwich", 1]},
+        {"weight" : 0.20, "item" : [ "alienmeat", 1]},
+        {"weight" : 0.20, "item" : [ "rawpoultry", 1]},
+        {"weight" : 0.20, "item" : [ "rawtentacle", 1]},
+        {"weight" : 0.20, "item" : [ "rawribmeat", 1]},
+        {"weight" : 0.20, "item" : [ "rawfish", 1]},
+        {"weight" : 0.01, "item" : [ "rawham", 1]}
+      ]
     }]
   ],
 

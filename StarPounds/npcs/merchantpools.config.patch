@@ -150,5 +150,183 @@
         { "item" : { "name" : "uniqueaccessorybox" }, "rarity" : 0.25 }
       ] ]
     ]
-  }
+  },
+    {
+        "op": "add",
+        "path": "/starpounds_brewer_apex",
+        "value": [
+            [
+                0,
+                [
+      { "item" : { "name" : "starpoundsbananavodka" } },
+      { "item" : { "name" : "starpoundsbourbon" } },
+      { "item" : { "name" : "starpoundsgrapewine" } },
+      { "item" : { "name" : "starpoundspoitin" } },
+      { "item" : { "name" : "starpoundsale" } },
+      { "item" : { "name" : "starpoundsbloodymary" } },
+      { "item" : { "name" : "starpoundseggnog" } },
+      { "item" : { "name" : "starpoundssylph" } },
+      { "item" : { "name" : "starpoundstropicasunrise" } },
+      { "item" : { "name" : "starpoundsvino" } },
+      { "item" : { "name" : "starpoundsfattyred" } },
+      { "item" : { "name" : "starpoundsapexacola" } }
+                ]
+            ]
+        ]
+    },
+    {
+        "op": "add",
+        "path": "/starpounds_brewer_avian",
+        "value": [
+            [
+                0,
+                [
+      { "item" : { "name" : "starpoundsrum" } },
+      { "item" : { "name" : "starpoundspinacolada" } },
+      { "item" : { "name" : "starpoundsmarooners" } },
+      { "item" : { "name" : "starpoundsneonsunrise" } },
+      { "item" : { "name" : "starpoundstepache" } },
+      { "item" : { "name" : "starpoundsbirdofparadise" } },
+      { "item" : { "name" : "starpoundsbloodymary" } },
+      { "item" : { "name" : "starpoundsmacawla" } },
+      { "item" : { "name" : "starpoundscockstail" } },
+      { "item" : { "name" : "starpoundsfattyred" } },
+      { "item" : { "name" : "starpoundssylph" } },
+      { "item" : { "name" : "starpoundslagocola" } },
+      { "item" : { "name" : "starpoundstropicasunrise" } }
+                ]
+            ]
+        ]
+    },
+    {
+        "op": "add",
+        "path": "/starpounds_brewer_floran",
+        "value": [
+            [
+                0,
+                [
+      { "item" : { "name" : "starpoundsmead" } },
+      { "item" : { "name" : "starpoundsnectarous" } },
+      { "item" : { "name" : "starpoundsnepentha" } },
+      { "item" : { "name" : "starpoundspinacolada" } },
+      { "item" : { "name" : "starpoundssanguine" } },
+      { "item" : { "name" : "starpoundsskullsmash" } },
+      { "item" : { "name" : "starpoundsvitreous" } },
+      { "item" : { "name" : "starpoundscarnicola" } },
+      { "item" : { "name" : "starpoundsichorade" } },
+      { "item" : { "name" : "starpoundsmarrownade" } },
+      { "item" : { "name" : "starpoundsoculus" } },
+      { "item" : { "name" : "starpoundsthornade" } }
+                ]
+            ]
+        ]
+    },
+    {
+        "op": "add",
+        "path": "/starpounds_brewer_glitch",
+        "value": [
+            [
+                0,
+                [
+      { "item" : { "name" : "starpoundsale" } },
+      { "item" : { "name" : "starpoundscoolantstout" } },
+      { "item" : { "name" : "starpoundsfireblast" } },
+      { "item" : { "name" : "starpoundsgrapewine" } },
+      { "item" : { "name" : "starpoundsmanapot" } },
+      { "item" : { "name" : "starpoundsmead" } },
+      { "item" : { "name" : "starpoundspetrolager" } },
+      { "item" : { "name" : "starpoundsscrapshot" } },
+      { "item" : { "name" : "starpoundsscrumpy" } },
+      { "item" : { "name" : "starpoundstinkerale" } },
+      { "item" : { "name" : "starpounds48hourenergy" } },
+      { "item" : { "name" : "starpoundsfizzycider" } },
+      { "item" : { "name" : "starpoundsberserkerhorn" } },
+      { "item" : { "name" : "starpoundsdragoon" } },
+      { "item" : { "name" : "starpoundsiris" } },
+      { "item" : { "name" : "starpoundslilyred" } }
+                ]
+            ]
+        ]
+    },
+    {
+        "op": "add",
+        "path": "/starpounds_brewer_human",
+        "value": [
+            [
+                0,
+                [
+      { "item" : { "name" : "starpoundsale" } },
+      { "item" : { "name" : "starpoundssake" } },
+      { "item" : { "name" : "starpoundsrum" } },
+      { "item" : { "name" : "starpoundsgrapewine" } },
+      { "item" : { "name" : "starpoundsbourbon" } },
+      { "item" : { "name" : "starpoundseggnog" } },
+      { "item" : { "name" : "starpoundsmead" } },
+      { "item" : { "name" : "starpoundsmilkstout" } },
+      { "item" : { "name" : "starpoundspoitin" } },
+      { "item" : { "name" : "starpoundsscrumpy" } },
+      { "item" : { "name" : "starpoundstepache" } },
+      { "item" : { "name" : "starpoundsmutagin" } },
+      { "item" : { "name" : "starpoundsneonsunrise" } },
+      { "item" : { "name" : "starpoundsfattyred" } },
+      { "item" : { "name" : "starpoundssylph" } },
+      { "item" : { "name" : "starpoundslagocola" } },
+      { "item" : { "name" : "starpoundsfizzycider" } },
+      { "item" : { "name" : "starpoundstropicasunrise" } },
+      { "item" : { "name" : "starpoundsvino" } }
+                ]
+            ]
+        ]
+    },
+    {
+        "op": "add",
+        "path": "/starpounds_brewer_hylotl",
+        "value": [
+            [
+                0,
+                [
+      { "item" : { "name" : "starpoundssake" } },
+      { "item" : { "name" : "starpoundsbourbon" } },
+      { "item" : { "name" : "starpoundscockstail" } },
+      { "item" : { "name" : "starpoundsgrapewine" } },
+      { "item" : { "name" : "starpoundsneonsunrise" } },
+      { "item" : { "name" : "starpoundspinacolada" } },
+      { "item" : { "name" : "starpoundsthunderbrew" } },
+      { "item" : { "name" : "starpoundstidepooler" } },
+      { "item" : { "name" : "starpoundsfattyred" } },
+      { "item" : { "name" : "starpoundssylph" } },
+      { "item" : { "name" : "starpoundslagocola" } },
+      { "item" : { "name" : "starpoundsbrinune" } },
+      { "item" : { "name" : "starpoundscyberpunch" } },
+      { "item" : { "name" : "starpoundsriptide" } }
+                ]
+            ]
+        ]
+    },
+    {
+        "op": "add",
+        "path": "/starpounds_brewer_novakid",
+        "value": [
+            [
+                0,
+                [
+      { "item" : { "name" : "starpoundsbourbon" } },
+      { "item" : { "name" : "starpoundsale" } },
+      { "item" : { "name" : "starpoundspoitin" } },
+      { "item" : { "name" : "starpoundsbloodymary" } },
+      { "item" : { "name" : "starpoundsrum" } },
+      { "item" : { "name" : "starpoundsfireblast" } },
+      { "item" : { "name" : "starpoundsscrumpy" } },
+      { "item" : { "name" : "starpoundsstarshine" } },
+      { "item" : { "name" : "starpoundsstarshine" } },
+      { "item" : { "name" : "starpoundsfattyred" } },
+      { "item" : { "name" : "starpoundssylph" } },
+      { "item" : { "name" : "starpoundslagocola" } },
+      { "item" : { "name" : "starpoundsfizzycider" } },
+      { "item" : { "name" : "starpoundsdandelionsunrise" } },
+      { "item" : { "name" : "starpoundsmoonrider" } }                    
+                ]
+            ]
+        ]
+    }
 ]

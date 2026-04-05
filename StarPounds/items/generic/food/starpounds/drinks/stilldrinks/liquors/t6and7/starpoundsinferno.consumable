@@ -1,0 +1,53 @@
+{
+  "itemName" : "starpoundsinferno",
+  "rarity" : "Uncommon",
+  "price" : 345,
+  "tooltipKind" : "food",
+  "category" : "drink",
+  "inventoryIcon" : "starpoundsinferno.png",
+  "description" : "A spiced liquor that's sure to scorch your tongue!",
+  "shortdescription" : "Inferno",
+  "maxStack" : 1,
+  "effects" : [ [
+    {
+        "effect" : "starpoundsdrunk",
+        "duration" : 270
+    },
+    {
+        "effect" : "nova",
+        "duration" : 270
+    },
+    {
+        "effect" : "burning",
+        "duration" : 5
+	}
+    ] ],
+  "foodValue": 10,  
+  "emitters" : [ "drinking" ],
+  "blockingEffects" : [
+    "starpoundshangover"
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Inferno ^yellow;^reset;",  
+    "price" : 690,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk25",
+        "duration" : 540
+    },
+    {
+        "effect" : "nova",
+        "duration" : 540
+    },
+    {
+        "effect" : "burning",
+        "duration" : 5
+	}
+    ]]
+  },
+  "learnBlueprintsOnPickup" : [ "starpoundsdiablo" ]
+}

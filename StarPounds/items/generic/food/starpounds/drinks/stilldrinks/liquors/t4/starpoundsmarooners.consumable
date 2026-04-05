@@ -5,7 +5,7 @@
   "category" : "drink",
   "tooltipKind" : "food",
   "inventoryIcon" : "starpoundsmarooners.png",
-  "description" : "Said to originate from the pirate Xeloxal's attempt at approximating rum while marooned on an ocean world.",
+  "description" : "Said to originate from a castaway pirate's attempt to approximate rum.",
   "shortdescription" : "Marooner's",
   "maxStack" : 1,
   "effects" : [ [

@@ -1,6 +1,6 @@
 {
   "itemName" : "starpoundsvalorale",
-  "rarity" : "Rare",
+  "rarity" : "Legendary",
   "price" : 880,
   "tooltipKind" : "food",
   "category" : "drink",
@@ -55,6 +55,7 @@
         "effect" : "starpoundsphysicalresist",
         "duration" : 420
     }
-    ]]
+    ]],
+  "learnBlueprintsOnPickup" : [ "starpounds_drinkrecipeunlock_gargleblaster" ]
   }
 }

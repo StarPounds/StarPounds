@@ -1,0 +1,12 @@
+[
+    {
+        "op": "add",
+        "path": "/learnBlueprintsOnPickup/-",
+        "value": "starpoundsmutagin"
+    },
+    {
+        "op": "add",
+        "path": "/learnBlueprintsOnPickup/-",
+        "value": "starpoundsmoonrider"
+    }
+]

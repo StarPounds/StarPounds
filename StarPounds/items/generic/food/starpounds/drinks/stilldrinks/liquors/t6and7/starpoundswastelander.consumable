@@ -1,25 +1,21 @@
 {
   "itemName" : "starpoundswastelander",
-  "rarity" : "Rare",
-  "price" : 475,
+  "rarity" : "Uncommon",
+  "price" : 260,
   "tooltipKind" : "food",
   "category" : "drink",
   "inventoryIcon" : "starpoundswastelander.png",
-  "description" : "A drink for the truly adventurous; you will be setting off radiation alarms for weeks after one sip!",
+  "description" : "It may taste like rusty runoff, but it'll for sure knock you on your ass!",
   "shortdescription" : "Wastelander",
   "maxStack" : 1,
   "effects" : [ [
     {
         "effect" : "starpoundsdrunk",
-        "duration" : 450
+        "duration" : 290
     },
     {
-        "effect" : "runboostfood",
-        "duration" : 450
-    },
-    {
-        "effect" : "starpoundsirradiatedglow",
-        "duration" : 450
+        "effect" : "maxhealthscalingboostfood",
+        "duration" : 290
     },
     {
         "effect" : "weakpoison",
@@ -37,24 +33,21 @@
 
   "agedParameters": {
     "shortdescription" : "Wastelander ^yellow;^reset;",  
-    "price" : 950,  
+    "price" : 520,  
     "effects" : [[
     {
-        "effect" : "starpoundsdrunk25",
-        "duration" : 675
+        "effect" : "starpoundsdrunk",
+        "duration" : 580
     },
     {
-        "effect" : "runboostfood",
-        "duration" : 675
-    },
-    {
-        "effect" : "starpoundsirradiatedglow",
-        "duration" : 675
+        "effect" : "maxhealthscalingboostfood",
+        "duration" : 580
     },
     {
         "effect" : "weakpoison",
-        "duration" : 10
+        "duration" : 6
     }
     ]]
-  }
+  },
+  "learnBlueprintsOnPickup" : [ "starpoundsscavengersdelight" ]
 }

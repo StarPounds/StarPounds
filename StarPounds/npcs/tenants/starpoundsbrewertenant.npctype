@@ -1,0 +1,12 @@
+{
+  "type" : "starpoundsbrewertenant",
+  "baseType" : "starpoundsbrewer",
+  
+  "dropPools" : [],
+
+  "scriptConfig" : {
+    "questGenerator" : {
+      "pools" : ["common", "tenant"]
+    }
+  }
+}

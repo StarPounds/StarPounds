@@ -31,5 +31,5 @@
   "blockingEffects" : [
     "starpoundssugarcrash"
   ],
-  "learnBlueprintsOnPickup" : [ "starpoundsnano" ]
+  "learnBlueprintsOnPickup" : [ "starpoundsnano", "starpoundsnukabonk" ]
 }

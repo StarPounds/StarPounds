@@ -1,0 +1,24 @@
+{
+  "itemName" : "starpounds_drinkrecipeunlock_gargleblaster",
+  "price" : 0,
+  "level" : 1,
+  "maxStack" : 1,
+  "rarity" : "Legendary",
+  "category" : "mysteriousReward",
+  "description" : "A tome containing the recipe to the King of Drinks...",
+  "shortdescription" : "Hitchhiker's Favorite",
+  "twoHanded" : true,
+
+  "inventoryIcon" : "starpounds_drinkrecipeunlock_gargleblaster.png",
+  "animation" : "starpounds_drinkrecipeunlock_gargleblaster.animation",
+  "animationCustom" : {},
+  "scripts" : ["starpoundsdrinkunlock.lua"],
+
+  "fireTime" : 1.0,
+  "fireOffset" : [0.5, 0.0],
+
+  "treasure" : {
+    "pool" : "starpounds_unlockGargleblaster",
+    "level" : 1
+  }
+}

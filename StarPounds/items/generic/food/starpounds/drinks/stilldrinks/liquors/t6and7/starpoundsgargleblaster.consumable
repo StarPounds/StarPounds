@@ -1,11 +1,11 @@
 {
   "itemName" : "starpoundsgargleblaster",
   "rarity" : "Legendary",
-  "price" : 5000,
+  "price" : 2500,
   "tooltipKind" : "food",
   "category" : "drink",
   "inventoryIcon" : "starpoundsgargleblaster.png",
-  "description" : "Feels like being hit by a lemon wrapped around a gold bar!",
+  "description" : "Known as the King of All Liquors. Tastes like being hit by a lemon wrapped around a gold bar!",
   "shortdescription" : "Gargle Blaster",
   "maxStack" : 1,
 
@@ -56,7 +56,7 @@
 
   "agedParameters": {
     "shortdescription" : "Gargle Blaster ^yellow;^reset;",  
-    "price" : 10000,  
+    "price" : 5000,  
     "effects" : [[
     {
         "effect" : "starpoundsdrunk",

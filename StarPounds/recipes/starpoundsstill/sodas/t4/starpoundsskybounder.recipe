@@ -1,0 +1,11 @@
+{
+  "input" : [
+    { "item" : "starpounds_carbonatedwater", "count" : 1 },
+    { "item" : "sugar", "count" : 1 },
+    { "item" : "avesmingo", "count" : 1 },
+    { "item" : "feathercrown", "count" : 1 },
+    { "item" : "beakseed", "count" : 1 }
+  ],
+  "output" : { "item" : "starpoundsskybounder", "count" : 1 },
+  "groups" : [ "craftingstill", "starpoundssodas" ]
+}

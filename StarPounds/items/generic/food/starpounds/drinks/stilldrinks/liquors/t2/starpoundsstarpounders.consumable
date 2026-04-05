@@ -52,6 +52,7 @@
         "effect" : "maxenergyscalingboostfood",
         "duration" : 450
     }
-    ]]
+    ]],
+  "learnBlueprintsOnPickup" : [ "starpounds_drinkrecipeunlock_elementia" ]
   }
 }

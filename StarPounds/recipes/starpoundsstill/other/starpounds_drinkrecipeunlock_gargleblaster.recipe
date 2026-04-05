@@ -1,0 +1,11 @@
+{
+  "input" : [
+    { "item" : "starpoundsgoldenwine", "count" : 1 },
+    { "item" : "starpoundsmississippiqueen", "count" : 1 },
+    { "item" : "starpoundsatomiccocktail", "count" : 1 },
+    { "item" : "starpoundsvalorale", "count" : 1 },
+    { "item" : "essence", "count" : 300 }
+  ],
+  "output" : { "item" : "starpounds_drinkrecipeunlock_gargleblaster", "count" : 1 },
+  "groups" : [ "craftingstill", "starpoundstillothers" ]
+}

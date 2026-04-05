@@ -1,0 +1,65 @@
+{
+  "itemName" : "starpoundsscavengersdelight",
+  "rarity" : "Rare",
+  "price" : 500,
+  "tooltipKind" : "food",
+  "category" : "drink",
+  "inventoryIcon" : "starpoundsscavengersdelight.png",
+  "description" : "Deadbeats swear by its flavor!",
+  "shortdescription" : "Scavenger's Delight",
+  "maxStack" : 1,
+  "effects" : [ [
+    {
+        "effect" : "starpoundsdrunk",
+        "duration" : 370
+    },
+    {
+        "effect" : "maxhealthscalingboostfood",
+        "duration" : 370
+    },
+    {
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 370
+    },
+    {
+        "effect" : "starpoundsirradiatedglow",
+        "duration" : 370
+    },
+    {
+        "effect" : "weakpoison",
+        "duration" : 5
+    }
+  ] ],
+  "foodValue": 10,  
+  "emitters" : [ "drinking" ],
+  "blockingEffects" : [
+    "starpoundshangover"
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Scavenger's Delight ^yellow;^reset;",  
+    "price" : 1000,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk25",
+        "duration" : 555
+    },
+    {
+        "effect" : "runboostfood",
+        "duration" : 555
+    },
+    {
+        "effect" : "starpoundsirradiatedglow",
+        "duration" : 555
+    },
+    {
+        "effect" : "weakpoison",
+        "duration" : 10
+    }
+    ]]
+  },
+  "learnBlueprintsOnPickup" : [ "starpoundsatomiccocktail" ]
+}

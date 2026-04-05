@@ -1,0 +1,12 @@
+{
+  "input" : [
+    { "item" : "starpoundsfireblast", "count" : 1 },
+    { "item" : "starpoundscoolantstout", "count" : 1 },
+    { "item" : "starpoundsthunderbrew", "count" : 1 },
+    { "item" : "starpoundsmithridate", "count" : 1 },
+    { "item" : "starpoundsstarpounders", "count" : 1 },
+    { "item" : "essence", "count" : 500 }
+  ],
+  "output" : { "item" : "starpounds_drinkrecipeunlock_elementia", "count" : 1 },
+  "groups" : [ "craftingstill", "starpoundstillothers" ]
+}

@@ -1,0 +1,77 @@
+{
+  "itemName" : "starpoundsatomiccocktail",
+  "rarity" : "Legendary",
+  "price" : 475,
+  "tooltipKind" : "food",
+  "category" : "drink",
+  "inventoryIcon" : "starpoundsatomiccocktail.png",
+  "description" : "A drink for the truly adventurous; you will be setting off radiation alarms for weeks after one sip!",
+  "shortdescription" : "Atomic Cocktail",
+  "maxStack" : 1,
+  "effects" : [ [
+    {
+        "effect" : "starpoundsdrunk",
+        "duration" : 450
+    },
+    {
+        "effect" : "runboostfood",
+        "duration" : 450
+    },
+    {
+        "effect" : "starpoundsirradiatedglow",
+        "duration" : 450
+    },
+    {
+        "effect" : "maxhealthscalingboostfood",
+        "duration" : 450
+    },
+    {
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 450
+    },	
+    {
+        "effect" : "weakpoison",
+        "duration" : 5
+    }
+  ] ],
+  "foodValue": 10,  
+  "emitters" : [ "drinking" ],
+  "blockingEffects" : [
+    "starpoundshangover"
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Atomic Cocktail ^yellow;^reset;",  
+    "price" : 950,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk25",
+        "duration" : 675
+    },
+    {
+        "effect" : "runboostfood",
+        "duration" : 675
+    },
+    {
+        "effect" : "starpoundsirradiatedglow",
+        "duration" : 675
+    },
+    {
+        "effect" : "maxhealthscalingboostfood",
+        "duration" : 675
+    },
+	{
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 675
+    },	
+    {
+        "effect" : "weakpoison",
+        "duration" : 10
+    }
+    ]],
+  "learnBlueprintsOnPickup" : [ "starpounds_drinkrecipeunlock_gargleblaster" ]
+  }
+}

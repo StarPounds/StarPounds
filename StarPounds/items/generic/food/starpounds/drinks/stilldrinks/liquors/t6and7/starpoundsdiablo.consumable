@@ -1,0 +1,61 @@
+{
+  "itemName" : "starpoundsdiablo",
+  "rarity" : "Rare",
+  "price" : 595,
+  "tooltipKind" : "food",
+  "category" : "drink",
+  "inventoryIcon" : "starpoundsdiablo.png",
+  "description" : "Some say it's potency depends on the weight of your sins...",
+  "shortdescription" : "Diablo",
+  "maxStack" : 1,
+  "effects" : [ [
+    {
+        "effect" : "starpoundsdrunk",
+        "duration" : 360
+    },
+    {
+        "effect" : "rage",
+        "duration" : 360
+    },
+    {
+        "effect" : "nova",
+        "duration" : 360
+    },
+    {
+        "effect" : "burning",
+        "duration" : 5
+	}
+  ] ],
+  "foodValue": 10,  
+  "emitters" : [ "drinking" ],
+  "blockingEffects" : [
+    "starpoundshangover"
+  ],
+  
+  "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
+  "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
+
+  "agedParameters": {
+    "shortdescription" : "Diablo ^yellow;^reset;",  
+    "price" : 1190,  
+    "effects" : [[
+    {
+        "effect" : "starpoundsdrunk",
+        "duration" : 540
+    },
+    {
+        "effect" : "rage",
+        "duration" : 540
+    },
+    {
+        "effect" : "nova",
+        "duration" : 540
+    },
+    {
+        "effect" : "burning",
+        "duration" : 5
+	}
+    ]]
+  },
+  "learnBlueprintsOnPickup" : [ "starpoundsmississippiqueen" ]
+}

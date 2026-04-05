@@ -249,7 +249,7 @@
                  "y":360
                 }, 
                 {
-                 "gid":2147491413,
+                 "gid":2147491414,
                  "height":36,
                  "id":705,
                  "name":"",
@@ -409,7 +409,7 @@
                  "y":272
                 }, 
                 {
-                 "gid":7887,
+                 "gid":7888,
                  "height":16,
                  "id":726,
                  "name":"",
@@ -429,7 +429,7 @@
                  "y":368
                 }, 
                 {
-                 "gid":2147491535,
+                 "gid":2147491536,
                  "height":16,
                  "id":727,
                  "name":"",
@@ -596,6 +596,26 @@
                  "width":40,
                  "x":392,
                  "y":56
+                }, 
+                {
+                 "gid":7738,
+                 "height":24,
+                 "id":764,
+                 "name":"",
+                 "properties":
+                    {
+                     "parameters":"{\"treasurePools\":[\"starpoundsfloranfeasthallIceboxTreasure\"]}"
+                    },
+                 "propertytypes":
+                    {
+                     "parameters":"string"
+                    },
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":32,
+                 "x":160,
+                 "y":368
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -788,7 +808,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":761,
+ "nextobjectid":765,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.1.6",
@@ -899,11 +919,11 @@
          "source":"..\/..\/..\/tilesets\/Starpounds-Fatty-Dungeons.json"
         }, 
         {
-         "firstgid":7738,
+         "firstgid":7739,
          "source":"..\/..\/..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/assets\/packed\/tilesets\/packed\/objects-by-category\/crafting.json"
         }, 
         {
-         "firstgid":7818,
+         "firstgid":7819,
          "source":"..\/..\/..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/assets\/packed\/tilesets\/packed\/objects-by-category\/storage.json"
         }],
  "tilewidth":8,

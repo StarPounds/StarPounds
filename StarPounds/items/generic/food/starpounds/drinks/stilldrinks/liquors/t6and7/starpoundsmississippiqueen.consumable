@@ -1,7 +1,7 @@
 {
   "itemName" : "starpoundsmississippiqueen",
-  "rarity" : "Rare",
-  "price" : 500,
+  "rarity" : "Legendary",
+  "price" : 715,
   "tooltipKind" : "food",
   "category" : "drink",
   "inventoryIcon" : "starpoundsmississippiqueen.png",
@@ -41,7 +41,7 @@
 
   "agedParameters": {
     "shortdescription" : "Mississippi Queen ^yellow;^reset;",  
-    "price" : 1000,  
+    "price" : 1430,  
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",
@@ -63,6 +63,7 @@
         "effect" : "burning",
         "duration" : 10
     }
-    ]]
+    ]],
+  "learnBlueprintsOnPickup" : [ "starpounds_drinkrecipeunlock_gargleblaster" ]
   }
 }

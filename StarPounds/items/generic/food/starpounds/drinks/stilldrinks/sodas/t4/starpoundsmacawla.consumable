@@ -1,0 +1,27 @@
+{
+  "itemName" : "starpoundsmacawla",
+  "rarity" : "Uncommon",
+  "price" : 315,
+  "category" : "drink",
+  "tooltipKind" : "food",
+  "inventoryIcon" : "starpoundsmacawla.png",
+  "description" : "Bird up!",
+  "shortdescription" : "Mawcawla",
+  "maxStack" : 1,
+  "effects" : [ [
+    {
+        "effect" : "starpoundssugarrush",
+        "duration" : 270
+    },
+    {
+        "effect" : "runboostfood",
+        "duration" : 270
+    }
+  ] ],
+  "foodValue": 10,  
+  "emitters" : [ "drinking" ],
+  "blockingEffects" : [
+    "starpoundssugarcrash"
+  ],
+  "learnBlueprintsOnPickup" : [ "starpoundsskybounder" ]
+}

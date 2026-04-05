@@ -1,0 +1,34 @@
+{
+  "itemName" : "starpoundsskybounder",
+  "rarity" : "Rare",
+  "price" : 565,
+  "category" : "drink",
+  "tooltipKind" : "food",
+  "inventoryIcon" : "starpoundsskybounder.png",
+  "description" : "Taste the heavens!",
+  "shortdescription" : "Skybounder",
+  "maxStack" : 1,
+  "effects" : [ [
+    {
+        "effect" : "starpoundssugarrush",
+        "duration" : 270
+    },
+    {
+        "effect" : "maxenergyscalingboostfood",
+        "duration" : 270
+    },
+    {
+        "effect" : "jumpboost",
+        "duration" : 270
+    },	
+    {
+        "effect" : "runboostfood",
+        "duration" : 270
+    }
+  ] ],
+  "foodValue": 10,  
+  "emitters" : [ "drinking" ],
+  "blockingEffects" : [
+    "starpoundssugarcrash"
+  ]
+}

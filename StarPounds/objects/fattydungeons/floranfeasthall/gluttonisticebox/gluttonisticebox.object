@@ -1,0 +1,41 @@
+{
+  "objectName" : "gluttonisticebox",
+  "colonyTags" : ["floran","fatdungeons","gluttonist","storage"],
+  "rarity" : "Uncommon",
+  "objectType" : "container",
+  "tooltipKind" : "container",
+
+  "category" : "storage",
+  "price" : 200,
+  "description" : "Its interior is coated in cryonic extract, letting you store your meatsss for longer.",
+  "shortdescription" : "Gluttonist Icebox",
+  "race" : "floran",
+  "health" : 1.5,
+
+  "apexDescription" : "The inside is smeared with a form of cryogenic fluid. Simple, yet effective.",
+  "avianDescription" : "A simple ice box. But it works well enough.",
+  "floranDescription" : "Ice box keepsss the meatsss fresh!",
+  "glitchDescription" : "Observant. A primitive method of refridgeration.",
+  "humanDescription" : "Might have to \"borrow\" one of these for next time I go fishing.",
+  "hylotlDescription" : "A Floran's meatlocker. Hopefully I don't find anything too grisly in there.",
+  "novakidDescription" : "A quaint lil icebox.",
+
+  "inventoryIcon" : "gluttonisticeboxicon.png",
+  "orientations" : [
+    {
+      "dualImage" : "gluttonisticebox.png:<color>.<key>",
+      "imagePosition" : [-16, 0],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ]
+    }
+  ],
+
+  "openSounds" : [ "/sfx/objects/chest_medium_open.ogg" ],
+  "closeSounds" : [ "/sfx/objects/chest_medium_close.ogg" ],
+  "slotCount" : 24,
+  "uiConfig" : "/interface/chests/chest<slots>.config",
+  "frameCooldown" : 5,
+  "autoCloseCooldown" : 3600, 
+  "itemAgeMultiplier" : 0.0
+}
