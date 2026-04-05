@@ -8,7 +8,17 @@
   "interactAction" : "OpenCraftingInterface",
   "interactData" : {
     "config" : "/interface/windowconfig/craftingstill.config",
-    "filter" : [ "craftingstill" ]
+    "filter" : [ "craftingstill" ],
+    "initialRecipeUnlocks" : [
+      // Objects
+      "starpoundscarbonationdevice", "starpoundscarbonationdevicealt",
+      "starpoundsagingcask", "starpoundsagingcaskalt",
+      // Drinks
+      "starpoundsale", "starpoundsbourbon", "starpoundsmilkstout",
+      "starpoundspoitin", "starpoundsscrumpy", "starpoundsbloodymary",
+      "starpoundsfattyred", "starpoundslagocola", "starpoundssylph",
+      "starpoundsdandelionsunrise", "starpoundsfizzycider", "starpoundssake"
+    ]
   },
   "description" : "Used to brew liquors and homemade sodas with various effects.",
   "shortdescription" : "^orange;Still^white;",
@@ -35,17 +45,6 @@
       "anchors" : [ "bottom" ]
 
     }
-  ],
-
-  "learnBlueprintsOnPickup" : [
-    // Objects
-    "starpoundscarbonationdevice", "starpoundscarbonationdevicealt",
-    "starpoundsagingcask", "starpoundsagingcaskalt",
-    // Drinks
-    "starpoundsale", "starpoundsbourbon", "starpoundsmilkstout",
-    "starpoundspoitin", "starpoundsscrumpy", "starpoundsbloodymary",
-    "starpoundsfattyred", "starpoundslagocola", "starpoundssylph",
-    "starpoundsdandelionsunrise", "starpoundsfizzycider", "starpoundssake"
   ],
 
   "npcToy" : {}
