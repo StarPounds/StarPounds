@@ -35,7 +35,17 @@
       "anchors" : [ "bottom" ]
 
     }
-	
+  ],
+
+  "learnBlueprintsOnPickup" : [
+    // Objects
+    "starpoundscarbonationdevice", "starpoundscarbonationdevicealt",
+    "starpoundsagingcask", "starpoundsagingcaskalt",
+    // Drinks
+    "starpoundsale", "starpoundsbourbon", "starpoundsmilkstout",
+    "starpoundspoitin", "starpoundsscrumpy", "starpoundsbloodymary",
+    "starpoundsfattyred", "starpoundslagocola", "starpoundssylph",
+    "starpoundsdandelionsunrise", "starpoundsfizzycider", "starpoundssake"
   ],
 
   "npcToy" : {}
