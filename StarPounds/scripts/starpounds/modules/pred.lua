@@ -424,7 +424,7 @@ function pred:struggle(preyId, struggleStrength, escape)
       local preyHealthPercent = preyHealth[1]/preyHealth[2]
       local preyWeight = (prey.base or 0) + (prey.weight or 0)
       local struggleStrength = root.evalFunction2("protection", struggleStrength, status.stat("protection"))
-      local escapeChance = 0.5 * struggleStrength
+      local escapeChance = starPounds.getStat("voreEscapeChance") * struggleStrength
       local released = false
       -- If struggles are on cooldown, store the 'strength' and weight and apply it to the next valid one.
       if self.struggleCooldown > 0 then
@@ -440,7 +440,7 @@ function pred:struggle(preyId, struggleStrength, escape)
       if escape and (math.random() < escapeChance) then
         local canEscape = (world.entityType(preyId) == "player") or (preyHealthPercent > self.data.inescapableHealth)
         if canEscape and starPounds.moduleFunc("strain", "get") == 1 then
-          -- Trigger cooldown for vore. 
+          -- Trigger cooldown for vore.
           self:cooldownStart()
           released = self:release(preyId)
           starPounds.events:fire("pred:entityEscape", released)
