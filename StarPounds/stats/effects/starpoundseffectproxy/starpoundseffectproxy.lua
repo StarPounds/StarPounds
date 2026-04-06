@@ -19,6 +19,8 @@ function init()
 end
 
 function update(dt)
+  -- Cross script voodoo witch magic.
+  starPounds = getmetatable ''.starPounds
   local effectData = starPounds.moduleFunc("effects", "get", effectName)
   if starPounds.isEnabled() and effectData then
     local percent = math.min(effectData.duration / baseDuration, 1)
