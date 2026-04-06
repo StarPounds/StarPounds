@@ -146,7 +146,7 @@ function _player:footstep(dt)
     local stepVolume = self:soundMult()
 
     local weightMult = self.data.sloshWeightMultiplier * stepVolume
-    local stomachMult = self.data.sloshStomachMultiplier * starPounds.stomach.contents / (entity.weight * starPounds.currentSize.thresholdMultiplier)
+    local stomachMult = self.data.sloshStomachMultiplier * starPounds.stomach.contents / (entity.weight * (starPounds.moduleFunc("size", "stomachCapacity") / starPounds.moduleFunc("size", "config").stomachCapacity))
     local sloshVolume = math.round(math.min(weightMult + stomachMult, self.data.maximumSloshVolume), 2)
 
     -- Quieter if we're walking.
@@ -179,7 +179,7 @@ function _player:landing()
 
   if self.wasFalling and not starPounds.mcontroller.falling then
     if starPounds.mcontroller.groundMovement then
-      local stomachMult = self.data.sloshStomachMultiplier * starPounds.stomach.contents / (entity.weight * starPounds.currentSize.thresholdMultiplier)
+      local stomachMult = self.data.sloshStomachMultiplier * starPounds.stomach.contents / (entity.weight * (starPounds.moduleFunc("size", "stomachCapacity") / starPounds.moduleFunc("size", "config").stomachCapacity))
       starPounds.events:fire("player:landing", math.min(stomachMult, 1))
       -- Sounds.
       if not starPounds.hasOption("disableMovementSounds") then

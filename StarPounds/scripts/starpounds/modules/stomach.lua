@@ -210,11 +210,7 @@ function stomach:get()
   -- Don't recalculate multiple times a tick.
   if self.stomach then return self.stomach end
 
-  local baseCapacity = self.data.stomachCapacity
-  -- Multiply based on size.
-  if starPounds.currentSize then
-    baseCapacity = baseCapacity * starPounds.currentSize.stomachMultiplier
-  end
+  local baseCapacity = starPounds.moduleFunc("size", "stomachCapacity") or self.data.stomachCapacity
 
   local capacity = baseCapacity * starPounds.getStat("capacity")
 

@@ -51,7 +51,7 @@ function breasts:get()
   if not storage.starPounds.enabled then return self.defaultContents end
   -- Don't recalculate multiple times a tick.
   if self.breasts then return self.breasts end
-  local breastCapacity = self.data.breastCapacity * starPounds.getStat("breastCapacity")
+  local breastCapacity = (starPounds.moduleFunc("size", "breastCapacity") or self.data.breastCapacity) * starPounds.getStat("breastCapacity")
   if starPounds.hasOption("disableLeaking") then
     storage.starPounds.breasts.amount = math.min(storage.starPounds.breasts.amount, breastCapacity)
   end

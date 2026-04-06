@@ -4,7 +4,6 @@ require "/scripts/util.lua"
 function init()
   starPounds = getmetatable ''.starPounds
   experienceConfig = root.assetJson("/scripts/starPounds/modules/experience.config")
-  breastThresholds = starPounds.moduleFunc("size", "config").thresholds.breasts
   sizes = starPounds.moduleFunc("size", "sizes")
   -- Offset to the left of the action bar, with a 10 pixel buffer.
   offsetPane()
@@ -134,15 +133,19 @@ function updateMilk()
 
   widget.setProgress("milkBar", fullness)
 
-  local thresholdMultiplier = starPounds.currentSize.thresholdMultiplier
-  contents = (starPounds.hasOption("disableBreastGrowth") and 0 or contents) + (
-    starPounds.hasOption("busty") and breastThresholds[1].amount * thresholdMultiplier or (
-    starPounds.hasOption("milky") and breastThresholds[2].amount * thresholdMultiplier or 0)
-  )
+  local breastSize = (starPounds.hasOption("disableBreastGrowth") and 0 or contents)
+  if starPounds.currentSize.breastOptions then
+    local additionalSize = 0
+    for option, amount in pairs(starPounds.currentSize.breastOptions) do
+      additionalSize = math.max(additionalSize, starPounds.hasOption(option) and amount or 0)
+    end
+
+    breastSize = breastSize + additionalSize
+  end
 
   local milkFrame = 1
-  for i, threshold in ipairs(breastThresholds) do
-    if contents >= (threshold.amount * thresholdMultiplier) then
+  for i, threshold in ipairs(starPounds.currentSize.thresholds.breasts) do
+    if breastSize >= threshold.amount then
       milkFrame = i + 1
     end
   end

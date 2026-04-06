@@ -166,6 +166,24 @@ function size:config()
   return self.sizeConfig
 end
 
+function size:stomachCapacity()
+  local capacity = self.sizeConfig.stomachCapacity
+  if starPounds.currentSize and starPounds.currentSize.stomachCapacity then
+    capacity = starPounds.currentSize.stomachCapacity
+  end
+
+  return capacity
+end
+
+function size:breastCapacity()
+  local capacity = self.sizeConfig.breastCapacity
+  if starPounds.currentSize and starPounds.currentSize.breastCapacity then
+    capacity = starPounds.currentSize.breastCapacity
+  end
+
+  return capacity
+end
+
 function size:maximumWeight()
   return self.sizeConfig.maxWeight
 end
@@ -203,7 +221,7 @@ function size:updateStats(forceUpdate)
     local gritReduction = status.stat("activeMovementAbilities") <= 1 and -((starPounds.weightMultiplier - 1) * math.max(0, 1 - starPounds.getStat("knockbackResistance"))) or 0
     local persistentEffects = {
       {stat = "maxHealth", baseMultiplier = 1 + math.round((size.healthMultiplier - 1) * starPounds.getStat("health"), 2)},
-      {stat = "foodDelta", effectiveMultiplier = ((starPounds.stomach.food > 0) or starPounds.hasOption("disableHunger")) and 0 or math.round(starPounds.getStat("hunger"), 2)},
+      {stat = "foodDelta", effectiveMultiplier = ((starPounds.moduleFunc("stomach", "get").food > 0) or starPounds.hasOption("disableHunger")) and 0 or math.round(starPounds.getStat("hunger"), 2)},
       {stat = "grit", amount = gritReduction},
       {stat = "shieldHealth", effectiveMultiplier = 1 + starPounds.getStat("shieldHealth") * bonusEffectiveness},
       {stat = "knockbackThreshold", effectiveMultiplier = 1 - gritReduction},
@@ -338,75 +356,71 @@ function size:getVariant(size)
   local size = type(size) == "table" and size or {}
   local variants = size.variants or jarray()
   local variant = nil
-  local thresholdMultiplier = starPounds.currentSize.thresholdMultiplier
-  local breastThresholds = self.sizeConfig.thresholds.breasts
-  local stomachThresholds = self.sizeConfig.thresholds.stomach
+  local thresholds = starPounds.currentSize.thresholds
 
-  local breastSize = (starPounds.hasOption("disableBreastGrowth") and 0 or (starPounds.moduleFunc("breasts", "get").contents or 0)) + (
-    starPounds.hasOption("busty") and breastThresholds[1].amount * thresholdMultiplier or (
-    starPounds.hasOption("milky") and breastThresholds[2].amount * thresholdMultiplier or 0)
-  )
+  local breastSize = (starPounds.hasOption("disableBreastGrowth") and 0 or (starPounds.moduleFunc("breasts", "get").contents or 0))
+  if starPounds.currentSize.breastOptions then
+    local additionalSize = 0
+    for option, amount in pairs(starPounds.currentSize.breastOptions) do
+      additionalSize = math.max(additionalSize, starPounds.hasOption(option) and amount or 0)
+    end
 
-  local stomachSize = (starPounds.hasOption("disableStomachGrowth") and 0 or (starPounds.moduleFunc("stomach", "get").interpolatedContents or 0)) + (
-    starPounds.hasOption("stuffed") and stomachThresholds[2].amount * thresholdMultiplier or (
-    starPounds.hasOption("filled") and stomachThresholds[4].amount * thresholdMultiplier or (
-    starPounds.hasOption("gorged") and stomachThresholds[6].amount * thresholdMultiplier or 0))
-  )
+    breastSize = breastSize + additionalSize
+  end
+
+
+  local stomachSize = (starPounds.hasOption("disableStomachGrowth") and 0 or (starPounds.moduleFunc("stomach", "get").interpolatedContents or 0))
+  if starPounds.currentSize.stomachOptions then
+    local additionalSize = 0
+    for option, amount in pairs(starPounds.currentSize.stomachOptions) do
+      additionalSize = math.max(additionalSize, starPounds.hasOption(option) and amount or 0)
+    end
+
+    stomachSize = stomachSize + additionalSize
+  end
 
   -- Testing, remove later. ----------------------------------
   if starPounds.hasOption("combinedStageTest") then
     variant = ""
 
-    if starPounds.hasOption("hyper") then
-      if contains(variants, "hyper") then
-        variant = variant .. "hyper"
-      end
-    end
-
     local breastVariant = ""
-    for _, v in ipairs(breastThresholds) do
-      if contains(variants, v.name) then
-        if breastSize >= (v.amount * thresholdMultiplier) then
-          breastVariant = v.name
-        end
+    for _, v in ipairs(thresholds.breasts) do
+      if breastSize >= v.amount then
+        breastVariant = v.name
       end
     end
     variant = variant .. breastVariant
 
     local stomachVariant = ""
-    for _, v in ipairs(stomachThresholds) do
-      if contains(variants, v.name) then
-        if stomachSize >= (v.amount * thresholdMultiplier) then
-          stomachVariant = v.name
-        end
+    for _, v in ipairs(thresholds.stomach) do
+      if stomachSize >= v.amount then
+        stomachVariant = v.name
       end
     end
     variant = variant .. stomachVariant
+
+    if not starPounds.currentSize.disableHyper and starPounds.hasOption("hyper") then
+      variant = "hyper" .. variant
+    end
 
     return variant
   end
   -- Testing, remove later. ----------------------------------
 
-  for _, v in ipairs(breastThresholds) do
-    if contains(variants, v.name) then
-      if breastSize >= (v.amount * thresholdMultiplier) then
-        variant = v.name
-      end
+  for _, v in ipairs(thresholds.breasts) do
+    if breastSize >= v.amount then
+      variant = v.name
     end
   end
 
-  for _, v in ipairs(stomachThresholds) do
-    if contains(variants, v.name) then
-      if stomachSize >= (v.amount * thresholdMultiplier) then
-        variant = v.name
-      end
+  for _, v in ipairs(thresholds.stomach) do
+    if stomachSize >= v.amount then
+      variant = v.name
     end
   end
 
-  if starPounds.hasOption("hyper") then
-    if contains(variants, "hyper") then
-      variant = "hyper"
-    end
+  if not starPounds.currentSize.disableHyper and starPounds.hasOption("hyper") then
+    variant = "hyper"
   end
 
   return variant
