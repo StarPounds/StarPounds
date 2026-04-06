@@ -598,7 +598,7 @@ end
 function size:trackVehicleCap()
   -- Reset if the mod is disabled.
   if not (storage.starPounds.enabled and self.canGain) then self.anchored = nil return end
-  local anchored, index = mcontroller.anchorState()
+  local anchored, index = starPounds.mcontroller.anchorState
   if self.anchored ~= anchored then
     self.vehicleCap = nil
 
