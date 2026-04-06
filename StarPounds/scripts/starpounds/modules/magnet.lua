@@ -44,6 +44,11 @@ function magnet:active()
 end
 
 function magnet:enabled()
+  -- Don't do anything if the mod is disabled.
+  if not storage.starPounds.enabled then return false end
+  -- Don't do anything inside morphballs.
+  if status.stat("activeMovementAbilities") > 1 then return false end
+
   local range = starPounds.getStat("magnetRange") * starPounds.moduleFunc("size", "effectScaling")
   return range > 0
 end
