@@ -624,6 +624,11 @@ function size:progress()
   return math.round((storage.starPounds.weight - currentSizeWeight)/(nextSizeWeight - currentSizeWeight) * 100)
 end
 
+function size:stomachMultiplier()
+  if not storage.starPounds.enabled then return 1 end
+  return self:stomachCapacity() / self.sizeConfig.stomachCapacity
+end
+
 function size:cursorCheck()
   -- Return if not a player.
   if not starPounds.type == "player" then return end

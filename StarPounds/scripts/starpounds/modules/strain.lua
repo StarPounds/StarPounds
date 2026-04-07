@@ -25,10 +25,17 @@ function strain:update(dt)
   -- Strain reduction.
   if not straining and self.strain > 0 and self.strainCooldown == 0 then
     local strainReduction = self.data.decreaseAmount
-    -- Bigger bonus if we're not strained.
-    if not strained then strainReduction = self.data.largeDecreaseAmount end
+    -- Full bonus if we're not strained.
+    if not strained then
+      strainReduction = self.data.largeDecreaseAmount
+    else
+      local range = self.data.decreaseFullnessRange
+      local ratio = math.max(0, math.min(1, (starPounds.stomach.interpolatedFullness - range[1]) / (range[2] - range[1])))
+      strainReduction = util.lerp(ratio, self.data.largeDecreaseAmount, strainReduction)
+      player.say(strainReduction)
+    end
     -- Rapidly reduce strain.
-    self.strain = math.max(self.strain - (strainReduction * dt), 0)
+    self:remove(strainReduction * dt)
   end
   -- Skip the rest if we're not a player.
   if starPounds.type ~= "player" then return end
@@ -70,7 +77,7 @@ function strain:update(dt)
     local min = self.data.scalingRange[1]
     local max = self.data.scalingRange[2]
     local strainFactor = util.clamp((starPounds.stomach.interpolatedFullness - min) / (max - min), self.data.minimumScalingFactor, 1) * self.data.scalingFactor
-    self.strain = math.min(self.strain + (self.data.increaseAmount * self.effort * dt * strainFactor), 1)
+    self:add(self.data.increaseAmount * self.effort * dt * strainFactor)
     self.strainCooldown = self.data.decreaseDelay
     -- Stomach makes more rumble sounds while straining.
     starPounds.moduleFunc("stomach", "stepTimer", "rumble", self.data.rumbleBonus * strainFactor * dt)
@@ -93,8 +100,21 @@ function strain:add(amount)
   -- Don't do anything if the mod is disabled.
   if not storage.starPounds.enabled then return end
   -- Argument sanitisation.
-  amount = util.clamp(tonumber(amount) or 0, 0, 1)
+
+  amount = util.clamp(tonumber(amount) or 0, 0, 1) / self:capacity()
   self.strain = math.min(self.strain + amount, 1)
+end
+
+function strain:remove(amount)
+  -- Don't do anything if the mod is disabled.
+  if not storage.starPounds.enabled then return end
+  -- Argument sanitisation.
+  amount = util.clamp(tonumber(amount) or 0, 0, 1) / self:capacity()
+  self.strain = math.max(self.strain - amount, 0)
+end
+
+function strain:capacity() -- Gain more 'capacity' for strain, based on the increase in stomach capacity from your size.
+  return starPounds.moduleFunc("size", "stomachMultiplier") or 1
 end
 
 function strain:strained()
