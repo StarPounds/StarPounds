@@ -373,16 +373,24 @@ function pred:digestPrey(preyId, items, preyStomach)
       end
     end
   end
+
+  local immediateItems = {}
   for _, item in pairs(items or jarray()) do
     for _, scrapItem in ipairs(self:digestItem(item)) do
       if scrapItem.name == "essence" then
         if starPounds.type == "player" then player.giveItem(scrapItem) end
         hasEssence = true
       else
-        starPounds.moduleFunc("stomach", "addItem", scrapItem)
+        if math.random() > self.data.immediateRegurgitateChance then
+          starPounds.moduleFunc("stomach", "addItem", scrapItem)
+        else
+          immediateItems[#immediateItems + 1] = scrapItem
+        end
       end
     end
   end
+
+  starPounds.moduleFunc("stomach", "spawnRegurgitatedItems", immediateItems)
 
   local doBelch = not (starPounds.hasOption("disableBelches") or starPounds.hasOption("disablePredBelches") or digestedEntity.noBelch)
   -- No belching up items if belching (or their particles) is disabled on the pred or prey side.

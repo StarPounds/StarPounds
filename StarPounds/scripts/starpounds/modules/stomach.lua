@@ -594,10 +594,21 @@ function stomach:regurgitateItems()
       regurgitatedItems[#regurgitatedItems + 1] = item
     end
 
-    if not starPounds.hasOption("disableItemRegurgitation") then
-      starPounds.moduleFunc("belch", "spawnParticles", math.random(#regurgitatedItems, #regurgitatedItems * 2))
-      for _, item in ipairs(regurgitatedItems) do
+    self:spawnRegurgitatedItems(regurgitatedItems)
+  end
+end
+
+function stomach:spawnRegurgitatedItems(items)
+  if #items == 0 then return end
+  if not starPounds.hasOption("disableItemRegurgitation") then
+    if not starPounds.hasOption("disableBelches") then
+      starPounds.moduleFunc("belch", "spawnParticles", math.random(#items, #items * 2))
+      for _, item in ipairs(items) do
         world.spawnItem(item, starPounds.mcontroller.mouthPosition, nil, nil, vec2.rotate({math.random(7, 10) * starPounds.mcontroller.facingDirection, math.random(7, 10)}, starPounds.mcontroller.rotation), 1)
+      end
+    elseif starPounds.type == "player" then -- Add items directly to players if belches are disabled.
+      for _, item in ipairs(items) do
+        player.giveItem(item)
       end
     end
   end
