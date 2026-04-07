@@ -7,7 +7,7 @@
   "price" : 10000,
   "description" : "A large Troll Empress, with a fitting throne sized posterior.",
   "shortdescription" : "Condesce: Butt",
-  "race" : "generic",
+  "race" : "tirastrolls",
 
   "apexDescription" : "Reminds me of rumours about miniknog test subjects.",
   "avianDescription" : "With a rump that size, you'd be hard pressed to fly using a ship, let alone wings.",
@@ -25,7 +25,7 @@
     {
       "image" : "condescebutt.png:default.default",
       "imagePosition" : [-23, -32],
-    
+
       "direction" : "right",
 
       "mouthPosition": [-0.05, -1.5],

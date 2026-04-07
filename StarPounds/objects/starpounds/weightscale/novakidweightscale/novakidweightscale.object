@@ -5,7 +5,7 @@
   "description" : "A weight scale for seeing just how big you've gotten.",
   "shortdescription" : "Western Weight Scale",
   "subtitle" : "Try to be the biggest fatty you can be.",
-  "race" : "generic",
+  "race" : "novakid",
   "price" : 10,
   "category" : "decorative",
   "interactAction" : "OpenCraftingInterface",

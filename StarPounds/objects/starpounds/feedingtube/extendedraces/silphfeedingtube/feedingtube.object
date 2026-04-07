@@ -7,6 +7,7 @@
   "description" : "A Silph Co. brand tank that can be filled with any liquid. \n^green;Fill by using the [Q] key to drop liquids.^reset;",
   "shortdescription" : "Silph Feeding Tube",
   "race" : "pokemon",
+  "races" : ["eevee", "glaceonfox", "hisuzor", "lucario", "serperior", "sylveonoid", "vaporeon", "zoroark"],
 
   "apexDescription" : "This brings a bad feeling to me. But of what, I cannot say.",
   "avianDescription" : "I'm confused. It looks bad, but it feeds you? Isn't that good?",

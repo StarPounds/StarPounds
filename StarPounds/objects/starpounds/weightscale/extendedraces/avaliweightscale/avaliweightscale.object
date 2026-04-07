@@ -5,7 +5,7 @@
   "description" : "A weight scale for seeing just how big you've gotten.",
   "shortdescription" : "Avali Weight Scale",
   "subtitle" : "Try to be the biggest fatty you can be.",
-  "race" : "generic",
+  "race" : "avali",
   "price" : 10,
   "category" : "decorative",
   "interactAction" : "OpenCraftingInterface",

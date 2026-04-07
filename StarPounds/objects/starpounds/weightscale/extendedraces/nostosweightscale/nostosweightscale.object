@@ -5,7 +5,7 @@
   "description" : "A weight scale for seeing just how big you've gotten.",
   "shortdescription" : "NostOS Weight Scale",
   "subtitle" : "Try to be the biggest fatty you can be.",
-  "race" : "generic",
+  "race" : "nostos",
   "price" : 10,
   "category" : "decorative",
   "interactAction" : "OpenCraftingInterface",
@@ -30,7 +30,7 @@
       "dualImage" : "nostosweightscale.png",
 
       "imagePosition" : [-8, 0],
-    
+
       "spaceScan" : 0.1,
       "anchors" : [ "bottom" ],
       "collision" : "platform",

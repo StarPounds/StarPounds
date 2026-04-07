@@ -5,7 +5,7 @@
   "description" : "A weight scale for seeing just how big you've gotten.",
   "shortdescription" : "Medieval Weight Scale",
   "subtitle" : "Try to be the biggest fatty you can be.",
-  "race" : "generic",
+  "race" : "glitch",
   "price" : 10,
   "category" : "decorative",
   "interactAction" : "OpenCraftingInterface",
