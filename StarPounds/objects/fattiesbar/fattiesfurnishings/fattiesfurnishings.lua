@@ -109,9 +109,6 @@ function addRecipes(interactData, items, category)
       -- Cache checked species.
       if species and (self.species[species] == nil) then
         self.species[species] = pcall(function () root.npcVariant(species, "base", 1, 1) return true end)
-        if not self.species[species] then
-          sb.logInfo(species.." is invalid")
-        end
       end
 
       showItem = showItem or self.species[species]
