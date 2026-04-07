@@ -32,7 +32,6 @@ function strain:update(dt)
       local range = self.data.decreaseFullnessRange
       local ratio = math.max(0, math.min(1, (starPounds.stomach.interpolatedFullness - range[1]) / (range[2] - range[1])))
       strainReduction = util.lerp(ratio, self.data.largeDecreaseAmount, strainReduction)
-      player.say(strainReduction)
     end
     -- Rapidly reduce strain.
     self:remove(strainReduction * dt)
