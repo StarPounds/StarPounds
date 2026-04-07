@@ -19,8 +19,8 @@
         "type" : "RadialForceRegion",
         "center" : [0, 0],
         "categoryWhitelist" : ["itemdrop"],
-        "outerRadius" : 3,
-        "innerRadius" : 3,
+        "outerRadius" : null, // Set by script.
+        "innerRadius" : null, // Set by script.
         "targetRadialVelocity" : -10,
         "controlForce" : 125
       }

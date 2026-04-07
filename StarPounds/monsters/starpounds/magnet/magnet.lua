@@ -1,11 +1,15 @@
 require "/scripts/util.lua"
 require "/scripts/vec2.lua"
 function init()
+  self.itemDropConfig = root.assetJson("/itemdrop.config")
+
   if config.getParameter("uniqueId") then
     monster.setUniqueId(config.getParameter("uniqueId"))
     self.owner = config.getParameter("owner")
     self.forceRegions = ControlMap:new(config.getParameter("forceRegions", {}))
   end
+
+  setRange(0)
 
   script.setUpdateDelta(10)
 end
@@ -32,8 +36,9 @@ function uninit()
 end
 
 function setRange(range)
-  self.forceRegions.controlValues.magnet.innerRadius = math.min(range, 3)
-  self.forceRegions.controlValues.magnet.outerRadius = range
+  local magnet = self.forceRegions.controlValues.magnet
+  magnet.innerRadius = math.min(range, self.itemDropConfig.pickupDistance * 2) -- 2x because it's actually diameter?????
+  magnet.outerRadius = range
 end
 
 function setPhysicsForces()
