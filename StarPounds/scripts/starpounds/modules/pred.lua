@@ -266,7 +266,7 @@ function pred:eatNearby(position, range, querySize, options, check)
   end
 
   local function isTargetValid(target)
-    return not eatenTargets[target] and not world.lineTileCollision(mouthPosition, world.entityPosition(target), {"Null", "Block", "Dynamic", "Slippery"})
+    return not eatenTargets[target] and not world.lineTileCollision(mouthPosition, world.entityPosition(target), {"Null", "Block", "Dynamic", "Slippery"}) and not contains(self.data.ignoreEntities, world.entityTypeName(target))
   end
 
   local safeSkill = starPounds.moduleFunc("skills", "has", "voreSafe")
