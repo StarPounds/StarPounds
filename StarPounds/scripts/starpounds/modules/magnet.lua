@@ -15,7 +15,7 @@ end
 
 function magnet:update(dt)
   -- Create magnet if it's enabled, and doesn't exist/is not in the process of being created.
-  if self:enabled() and ((self.magnetPromise and not self.magnetId) or not self:active()) then
+  if self:enabled() and not self:active() then
     self:create()
   elseif self:active() and not self:enabled() then -- Remove magnet if exists and it's not enabled.
     self:remove()
@@ -32,6 +32,8 @@ function magnet:update(dt)
       self.updateSizeDelay = nil
     end
   end
+
+  self:findMagnet()
 end
 
 function magnet:uninit()
@@ -44,6 +46,7 @@ function magnet:active()
 end
 
 function magnet:enabled()
+  player.say(sb.print(self.magnetPromise))
   -- Don't do anything if the mod is disabled.
   if not storage.starPounds.enabled then return false end
   -- Don't do anything inside morphballs.
@@ -65,6 +68,10 @@ function magnet:create()
     self.magnetPromise = world.findUniqueEntity(self.magnetUuid)
     return
   end
+end
+
+function magnet:findMagnet()
+  if not self.magnetPromise then return end
   -- Wait for the promise.
   if not self.magnetPromise:finished() then return end
   -- Retry if the promise fails.
