@@ -1,0 +1,36 @@
+{
+  "objectName" : "starpoundsfloranbarstool",
+  "colonyTags" : ["floran","floranvillage"],
+  "rarity" : "Common",
+  "category" : "furniture",
+  "price" : 80,
+  "description" : "A Floran bar stool covered in a soft leather seat.",
+  "shortdescription" : "Tribal Bar Stool",
+
+  "apexDescription" : "A roughshod bar stool. Seems functional enough.",
+  "avianDescription" : "A grown bar stool. The cushioning is... A choice.",
+  "floranDescription" : "Floran bar stoolsss rooted to ground to prevent use in barfightsss. That not work.",
+  "glitchDescription" : "Concern. And what species did this skin come from?",
+  "humanDescription" : "Seems like this bar stool's growing out of the ground.",
+  "hylotlDescription" : "A barbaric bar stool...",
+  "novakidDescription" : "Not quite my style, but looks comfortable enough.",
+
+  "inventoryIcon" : "starpoundsfloranbarstoolicon.png",
+  "orientations" : [
+    {
+      "dualImage" : "starpoundsfloranbarstool.png:<color>",
+      "imagePosition" : [-8, 0],
+      "frames" : 1,
+      "animationCycle" : 0.5,
+      
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ]
+
+    }
+  ],
+
+  "objectType" : "loungeable",
+  "sitFlipDirection" : false,
+  "sitPosition" : [2, 22]
+
+}

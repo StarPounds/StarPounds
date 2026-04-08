@@ -1,0 +1,58 @@
+{
+  "objectName" : "starpoundshumanbar",
+  "colonyTags" : ["human","humanvillage","commerce"],
+  "rarity" : "Common",
+  "category" : "furniture",
+  "price" : 280,
+  "description" : "A chic modern bar in the common Human style.",
+  "shortdescription" : "Modern Bar",
+  "race" : "human",
+
+  "apexDescription" : "I can see their selection of drinks underneath.",
+  "avianDescription" : "A chic and slick bar. Not sure if I like the glass panel thing.",
+  "floranDescription" : "Floran worriesss about kicking glasss in.",
+  "glitchDescription" : "Curious. I can see the drink's they serve underneath. There seems to be a wide variety down there.",
+  "humanDescription" : "Oooo, I can see the selection of drinks underneath!",
+  "hylotlDescription" : "It's nice to be able to see what they're serving down there.",
+  "novakidDescription" : "A good place to kick my legs up.",
+
+  "objectType" : "loungeable",
+  "sitFlipDirection" : false,
+
+  "inventoryIcon" : "starpoundshumanbaricon.png",
+  "orientations" : [
+    {
+      "image" : "starpoundshumanbar.png:<color>",
+      "imagePosition" : [-40, 0],
+      "direction" : "left",
+      "flipImages" : true,
+
+      "sitPositions" : [
+        // Positions from front to back.
+        [-18, 24], // Right
+        [7, 24], // Middle
+        [32, 24] // Left
+      ],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ],
+      "collision" : "platform"
+    },
+    {
+      "image" : "starpoundshumanbar.png:<color>",
+      "imagePosition" : [-40, 0],
+      "direction" : "right",
+
+      "sitPositions" : [
+        // Positions from front to back.
+        [-18, 24], // Left
+        [7, 24], // Middle
+        [32, 24] // Right
+      ],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ],
+      "collision" : "platform"
+    }
+  ]
+}

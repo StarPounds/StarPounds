@@ -1,0 +1,33 @@
+{
+  "objectName" : "starpoundsapexbartable",
+  "colonyTags" : ["apex","apexvillage","commerce"],
+  "rarity" : "Common",
+  "category" : "furniture",
+  "price" : 110,
+  "description" : "A tastefully decorated bar table.",
+  "shortdescription" : "Classy Bar Table",
+  "race" : "apex",
+
+  "apexDescription" : "Makes me want to order a glass of fine banana liqueur.",
+  "avianDescription" : "A classily decorated table.",
+  "floranDescription" : "Fancy looking table.",
+  "glitchDescription" : "Pleased. A finely decorated Apex-styled table.",
+  "humanDescription" : "A high class bar table.",
+  "hylotlDescription" : "A pleasing enough bar table.",
+  "novakidDescription" : "Feelin' like kickin my boots on this thing.",
+
+  "inventoryIcon" : "starpoundsapexbartableicon.png",
+  "orientations" : [
+    {
+      "dualImage" : "starpoundsapexbartable.png:<color>",
+      "imagePosition" : [-24, 0],
+      "frames" : 1,
+      "animationCycle" : 0.5,
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ],
+      "collision" : "platform"
+
+    }
+  ]
+}

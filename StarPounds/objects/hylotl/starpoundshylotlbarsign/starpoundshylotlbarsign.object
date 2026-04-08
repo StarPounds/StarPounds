@@ -1,0 +1,67 @@
+{
+  "objectName" : "starpoundshylotlbarsign",
+  "colonyTags" : ["hylotl","hylotlvillage","commerce"],
+  "rarity" : "Common",
+  "category" : "decorative",
+  "price" : 80,
+
+  "shortdescription" : "Aquatic Bar Sign",
+  "description" : "A sign advertising a Hylotl bar.",
+  "race" : "hylotl",
+
+  "apexDescription" : "An eyecatching sign. Do they have any sweet cocktails?",
+  "avianDescription" : "I could go for a quick drink or two from here.",
+  "floranDescription" : "Fishmen don't have the ssstrong sstuff. Floran interessst iss lower than ever.",
+  "glitchDescription" : "Disinterested. Hylotl bars tend to mostly serve lightweight drinks. Not a pint in sight.",
+  "humanDescription" : "This looks hip and trendy.",
+  "hylotlDescription" : "This must be for one of those new, trendy bars that have been popping up lately.",
+  "novakidDescription" : "A gaudy shinin sign for a Hylotl bar.",
+
+  "lightColor" : [0, 20, 120],
+
+  "inventoryIcon" : "starpoundshylotlbarsignicon.png",
+
+  "animation" : "/objects/wired/light/lighttogglebgfullbright.animation",
+
+
+  "orientations" : [
+    {
+      "image" : "starpoundshylotlbarsignleft.png:<color>.<frame>",
+      "imagePosition" : [0, -16],
+
+      "direction" : "right", 
+
+      "animationParts" : {
+        "bg" : "starpoundshylotlbarsignleft.png",
+        "fg" : "starpoundshylotlbarsignleftlit.png"
+      },
+      "animationPosition" : [0, -16],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "left" ]
+
+    },
+    {
+      "image" : "starpoundshylotlbarsignright.png:<color>.<frame>",
+      "imagePosition" : [-16, -16],
+
+      "direction" : "right", //why are you like this starbound
+
+      "animationParts" : {
+        "bg" : "starpoundshylotlbarsignright.png",
+        "fg" : "starpoundshylotlbarsignrightlit.png"
+      },
+      "animationPosition" : [-16, -16],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "right" ]
+
+    }
+  ],
+
+  "scripts" : [ "/objects/wired/light/light.lua" ],
+  "scriptDelta" : 60,
+
+  "inputNodes" : [ [0, 1] ]
+  
+}

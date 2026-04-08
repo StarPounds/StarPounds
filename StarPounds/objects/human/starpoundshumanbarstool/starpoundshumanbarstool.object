@@ -1,0 +1,37 @@
+{
+  "objectName" : "starpoundshumanbarstool",
+  "colonyTags" : ["human","humanvillage"],
+  "rarity" : "Common",
+  "category" : "furniture",
+  "price" : 80,
+  "description" : "A sturdy bar stool popular in Human bars.",
+  "shortdescription" : "Modern Bar Stool",
+  "race" : "human",
+
+  "apexDescription" : "A comfortable looking bar stool.",
+  "avianDescription" : "A durable bar stool.",
+  "floranDescription" : "Floran alwaysss wanted to swing bar ssstool.",
+  "glitchDescription" : "Pleased. A comfortable enough bar seat.",
+  "humanDescription" : "A comfortable place to sit and get super sloshed.",
+  "hylotlDescription" : "A chic bar stool.",
+  "novakidDescription" : "Comfortable and sturdy.",
+
+  "inventoryIcon" : "starpoundshumanbarstoolicon.png",
+  "orientations" : [
+    {
+      "dualImage" : "starpoundshumanbarstool.png:<color>",
+      "imagePosition" : [-8, 0],
+      "frames" : 1,
+      "animationCycle" : 0.5,
+      
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ]
+
+    }
+  ],
+
+  "objectType" : "loungeable",
+  "sitFlipDirection" : false,
+  "sitPosition" : [2, 22]
+
+}

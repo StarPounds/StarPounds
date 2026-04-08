@@ -1,0 +1,67 @@
+{
+  "objectName" : "starpoundshumanbarsign",
+  "colonyTags" : ["human","humanvillage","commerce"],
+  "rarity" : "Common",
+  "category" : "decorative",
+  "price" : 80,
+
+  "shortdescription" : "Modern Bar Sign",
+  "description" : "A neon sign advertising a Human bar.",
+  "race" : "human",
+
+  "apexDescription" : "A neon bar sign. Could go for a drink or two.",
+  "avianDescription" : "A Human bar. They tend to have a variety of drinks.",
+  "floranDescription" : "Sssign buzzing annoy Floran.",
+  "glitchDescription" : "Curious. A neon bar sign. What do they have in stock?.",
+  "humanDescription" : "I could use a quick drink or two...",
+  "hylotlDescription" : "Lacking in class, but suppose most people don't care about aesthetics when getting drunk.",
+  "novakidDescription" : "A neon waterin' hole sign.",
+
+  "lightColor" : [120, 70, 20],
+
+  "inventoryIcon" : "starpoundshumanbarsignicon.png",
+
+  "animation" : "/objects/wired/light/lighttogglebgfullbright.animation",
+
+
+  "orientations" : [
+    {
+      "image" : "starpoundshumanbarsignleft.png:<color>.<frame>",
+      "imagePosition" : [0, -16],
+
+      "direction" : "right", 
+
+      "animationParts" : {
+        "bg" : "starpoundshumanbarsignleft.png",
+        "fg" : "starpoundshumanbarsignleftlit.png"
+      },
+      "animationPosition" : [0, -16],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "left" ]
+
+    },
+    {
+      "image" : "starpoundshumanbarsignright.png:<color>.<frame>",
+      "imagePosition" : [-16, -16],
+
+      "direction" : "right", //why are you like this starbound
+
+      "animationParts" : {
+        "bg" : "starpoundshumanbarsignright.png",
+        "fg" : "starpoundshumanbarsignrightlit.png"
+      },
+      "animationPosition" : [-16, -16],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "right" ]
+
+    }
+  ],
+
+  "scripts" : [ "/objects/wired/light/light.lua" ],
+  "scriptDelta" : 60,
+
+  "inputNodes" : [ [0, 1] ]
+  
+}

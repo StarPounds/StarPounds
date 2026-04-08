@@ -1,0 +1,33 @@
+{
+  "objectName" : "starpoundsavianbartable",
+  "colonyTags" : ["avian","avianvillage","commerce"],
+  "rarity" : "Common",
+  "category" : "furniture",
+  "price" : 110,
+  "description" : "An intricately carved table.",
+  "shortdescription" : "Carved Bar Table",
+  "race" : "avian",
+
+  "apexDescription" : "An ornately carved bar table.",
+  "avianDescription" : "A table commonly seen in nectar bars.",
+  "floranDescription" : "Birdman round table pleasesss Floran.",
+  "glitchDescription" : "Impressed. The patterns perfectly follow the curve of this table.",
+  "humanDescription" : "A round table covered in pretty patterns.",
+  "hylotlDescription" : "The craftsmanship in the patterns are top notch.",
+  "novakidDescription" : "A fine bar table. Those Avians got class!",
+
+  "inventoryIcon" : "starpoundsavianbartableicon.png",
+  "orientations" : [
+    {
+      "dualImage" : "starpoundsavianbartable.png:<color>",
+      "imagePosition" : [-24, 0],
+      "frames" : 1,
+      "animationCycle" : 0.5,
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ],
+      "collision" : "platform"
+
+    }
+  ]
+}

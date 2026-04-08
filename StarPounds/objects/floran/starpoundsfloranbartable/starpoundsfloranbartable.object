@@ -1,0 +1,33 @@
+{
+  "objectName" : "starpoundsfloranbartable",
+  "colonyTags" : ["floran","floranvillage","commerce"],
+  "rarity" : "Common",
+  "category" : "furniture",
+  "price" : 110,
+  "description" : "It seems to have been grown out of the ground.",
+  "shortdescription" : "Grown Bar Table",
+  "race" : "floran",
+
+  "apexDescription" : "This table seems to have been grown, rather than carved.",
+  "avianDescription" : "I think this table might be entirely made of living wood.",
+  "floranDescription" : "Floran goesss to bar table and tell talesss of lassst hunt. Everyone hasss good time!",
+  "glitchDescription" : "Intrigued. This table seems to have been grown for this purpose.",
+  "humanDescription" : "This thing seems rooted to the ground.",
+  "hylotlDescription" : "I wonder what tales of wanton butchery this table has heard...",
+  "novakidDescription" : "What good is a table you can't flip after a bad game of cards?",
+
+  "inventoryIcon" : "starpoundsfloranbartableicon.png",
+  "orientations" : [
+    {
+      "dualImage" : "starpoundsfloranbartable.png:<color>",
+      "imagePosition" : [-24, 0],
+      "frames" : 1,
+      "animationCycle" : 0.5,
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ],
+      "collision" : "platform"
+
+    }
+  ]
+}

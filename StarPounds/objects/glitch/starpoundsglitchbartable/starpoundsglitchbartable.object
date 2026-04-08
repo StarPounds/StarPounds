@@ -1,0 +1,33 @@
+{
+  "objectName" : "starpoundsglitchbartable",
+  "colonyTags" : ["glitch","glitchvillage","commerce"],
+  "rarity" : "Common",
+  "category" : "furniture",
+  "price" : 110,
+  "description" : "A rounded, simple table commonly seen in a tavern.",
+  "shortdescription" : "Tavern Bar Table",
+  "race" : "glitch",
+
+  "apexDescription" : "A quaint pub table. I think it might have a case of woodworms...",
+  "avianDescription" : "The carpentry's a little lacking here.",
+  "floranDescription" : "Table isss hard. If needed Floran can use as cover!",
+  "glitchDescription" : "Content. A tavern table, where many nights of merriment are had.",
+  "humanDescription" : "It's sturdy but unappealing.",
+  "hylotlDescription" : "Uninspired, but suppose my expectations are a little too high.",
+  "novakidDescription" : "Bit plain but I've drank at worse.",
+
+  "inventoryIcon" : "starpoundsglitchbartableicon.png",
+  "orientations" : [
+    {
+      "dualImage" : "starpoundsglitchbartable.png:<color>",
+      "imagePosition" : [-24, 0],
+      "frames" : 1,
+      "animationCycle" : 0.5,
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ],
+      "collision" : "platform"
+
+    }
+  ]
+}

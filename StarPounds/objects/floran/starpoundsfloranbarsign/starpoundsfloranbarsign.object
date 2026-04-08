@@ -1,0 +1,43 @@
+{
+  "objectName" : "starpoundsfloranbarsign",
+  "colonyTags" : ["floran","floranvillage","commerce"],
+  "rarity" : "Common",
+  "category" : "decorative",
+  "price" : 80,
+
+  "shortdescription" : "Floran Bar Sign",
+  "description" : "Stretched hide advertising a Floran bar.",
+  "race" : "floran",
+
+  "apexDescription" : "A sign made from treated skin for a Floran bar.",
+  "avianDescription" : "Well... It's certainly eyecatching.",
+  "floranDescription" : "Floran bar! Huntersss like to visit and tell ssstories!",
+  "glitchDescription" : "Alarmed. A bar sign made of stretched hide.",
+  "humanDescription" : "Suppose it wouldn't be a stretch to say this is a Floran bar.",
+  "hylotlDescription" : "This tells me that this is a Floran space. Oh and a bar too, I guess.",
+  "novakidDescription" : "Those plants oughta have some interestin hooch.",
+
+  "inventoryIcon" : "starpoundsfloranbarsignicon.png",
+  "orientations" : [
+    {
+      "image" : "starpoundsfloranbarsignleft.png:<color>",
+      "imagePosition" : [0, -16],
+
+      "direction" : "right",
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "left" ]
+
+    },
+    {
+      "image" : "starpoundsfloranbarsignright.png:<color>",
+      "imagePosition" : [-16, -16],
+
+      "direction" : "left",
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "right" ]
+
+    }
+  ]
+}

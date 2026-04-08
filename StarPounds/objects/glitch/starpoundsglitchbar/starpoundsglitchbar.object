@@ -1,0 +1,58 @@
+{
+  "objectName" : "starpoundsglitchbar",
+  "colonyTags" : ["glitch","glitchvillage","commerce"],
+  "rarity" : "Common",
+  "category" : "furniture",
+  "price" : 280,
+  "description" : "A rustic medieval bartop. No doubt its been greatly cared for by its tavernkeep.",
+  "shortdescription" : "Tavern Bar",
+  "race" : "glitch",
+
+  "apexDescription" : "An antiquated bartop. It looks quite durable.",
+  "avianDescription" : "A good spot to have a pint or two I suppose.",
+  "floranDescription" : "Floran wantsss to drink with armored metalmen.",
+  "glitchDescription" : "Nostalgic. The heart of the tavern...",
+  "humanDescription" : "Where be thy strongeth ale?",
+  "hylotlDescription" : "A sturdy, hardy bar.",
+  "novakidDescription" : "That bar ain't goin down any time soon.",
+
+  "objectType" : "loungeable",
+  "sitFlipDirection" : false,
+
+  "inventoryIcon" : "starpoundsglitchbaricon.png",
+  "orientations" : [
+    {
+      "image" : "starpoundsglitchbar.png:<color>",
+      "imagePosition" : [-40, 0],
+      "direction" : "left",
+      "flipImages" : true,
+
+      "sitPositions" : [
+        // Positions from front to back.
+        [-18, 24], // Right
+        [7, 24], // Middle
+        [32, 24] // Left
+      ],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ],
+      "collision" : "platform"
+    },
+    {
+      "image" : "starpoundsglitchbar.png:<color>",
+      "imagePosition" : [-40, 0],
+      "direction" : "right",
+
+      "sitPositions" : [
+        // Positions from front to back.
+        [-18, 24], // Left
+        [7, 24], // Middle
+        [32, 24] // Right
+      ],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ],
+      "collision" : "platform"
+    }
+  ]
+}

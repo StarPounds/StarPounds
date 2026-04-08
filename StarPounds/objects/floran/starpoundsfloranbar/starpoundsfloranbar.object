@@ -1,0 +1,58 @@
+{
+  "objectName" : "starpoundsfloranbar",
+  "colonyTags" : ["floran","floranvillage","commerce"],
+  "rarity" : "Common",
+  "category" : "furniture",
+  "price" : 280,
+  "description" : "A Floran-styled bartop. It seems a little beat up...",
+  "shortdescription" : "Tribal Bar",
+  "race" : "floran",
+
+  "apexDescription" : "A rough looking bar. Seems like it's seen a few tussles.",
+  "avianDescription" : "No doubt many a hunt has been retold at this bar.",
+  "floranDescription" : "Bar fightsss are part of the fun with Floran barhopping!",
+  "glitchDescription" : "Curious. Seems that this bar is partly made from solid plant matter.",
+  "humanDescription" : "Looks like the kind of place I'd find great hunters",
+  "hylotlDescription" : "I can faintly smell some foul concoction on this table...",
+  "novakidDescription" : "I wonder what the Floran serve for drinks...",
+
+  "objectType" : "loungeable",
+  "sitFlipDirection" : false,
+
+  "inventoryIcon" : "starpoundsfloranbaricon.png",
+  "orientations" : [
+    {
+      "image" : "starpoundsfloranbar.png:<color>",
+      "imagePosition" : [-40, 0],
+      "direction" : "left",
+      "flipImages" : true,
+
+      "sitPositions" : [
+        // Positions from front to back.
+        [-18, 24], // Right
+        [7, 24], // Middle
+        [32, 24] // Left
+      ],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ],
+      "collision" : "platform"
+    },
+    {
+      "image" : "starpoundsfloranbar.png:<color>",
+      "imagePosition" : [-40, 0],
+      "direction" : "right",
+
+      "sitPositions" : [
+        // Positions from front to back.
+        [-18, 24], // Left
+        [7, 24], // Middle
+        [32, 24] // Right
+      ],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ],
+      "collision" : "platform"
+    }
+  ]
+}

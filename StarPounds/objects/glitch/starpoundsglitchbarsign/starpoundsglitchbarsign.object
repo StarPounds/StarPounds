@@ -1,0 +1,43 @@
+{
+  "objectName" : "starpoundsglitchbarsign",
+  "colonyTags" : ["glitch","glitchvillage","commerce"],
+  "rarity" : "Common",
+  "category" : "decorative",
+  "price" : 80,
+
+  "shortdescription" : "Tavern Sign",
+  "description" : "A sign advertisin ye olde bar.",
+  "race" : "glitch",
+
+  "apexDescription" : "A sign for a medieval pub.",
+  "avianDescription" : "I doubt they have anything more on the mild side here.",
+  "floranDescription" : "Metalman sssign for metal man bar. Floran knowsss metalmen do not messs around with beer!",
+  "glitchDescription" : "Jovial. This sign portends great frothing flagons!",
+  "humanDescription" : "Ye all meet in a Tavern.",
+  "hylotlDescription" : "I doubt they serve anything other than ale.",
+  "novakidDescription" : "\"Tavern\" is just old timey talk for saloon. And I want in!",
+
+  "inventoryIcon" : "starpoundsglitchbarsignicon.png",
+  "orientations" : [
+    {
+      "image" : "starpoundsglitchbarsignleft.png:<color>",
+      "imagePosition" : [0, -16],
+
+      "direction" : "right",
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "left" ]
+
+    },
+    {
+      "image" : "starpoundsglitchbarsignright.png:<color>",
+      "imagePosition" : [-16, -16],
+
+      "direction" : "left",
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "right" ]
+
+    }
+  ]
+}

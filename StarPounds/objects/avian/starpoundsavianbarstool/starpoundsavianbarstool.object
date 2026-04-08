@@ -1,0 +1,36 @@
+{
+  "objectName" : "starpoundsavianbarstool",
+  "colonyTags" : ["avian","avianvillage"],
+  "rarity" : "Common",
+  "category" : "furniture",
+  "price" : 80,
+  "description" : "A comfortable bar stool in the Avian style.",
+  "shortdescription" : "Avian Bar Stool",
+
+  "apexDescription" : "Just a fancy bar stool.",
+  "avianDescription" : "A Grounded styled barstool. How quaint.",
+  "floranDescription" : "Birdman cushion sssoft.",
+  "glitchDescription" : "Neutral. A comfortable enough bar stool.",
+  "humanDescription" : "A fancy bar stool.",
+  "hylotlDescription" : "An Avian's barstool.",
+  "novakidDescription" : "A comfortable lookin barstool.",
+
+  "inventoryIcon" : "starpoundsavianbarstoolicon.png",
+  "orientations" : [
+    {
+      "dualImage" : "starpoundsavianbarstool.png:<color>",
+      "imagePosition" : [-8, 0],
+      "frames" : 1,
+      "animationCycle" : 0.5,
+      
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ]
+
+    }
+  ],
+
+  "objectType" : "loungeable",
+  "sitFlipDirection" : false,
+  "sitPosition" : [2, 22]
+
+}

@@ -239,11 +239,7 @@
       { "item" : { "name" : "starpoundsscrumpy" } },
       { "item" : { "name" : "starpoundstinkerale" } },
       { "item" : { "name" : "starpounds48hourenergy" } },
-      { "item" : { "name" : "starpoundsfizzycider" } },
-      { "item" : { "name" : "starpoundsberserkerhorn" } },
-      { "item" : { "name" : "starpoundsdragoon" } },
-      { "item" : { "name" : "starpoundsiris" } },
-      { "item" : { "name" : "starpoundslilyred" } }
+      { "item" : { "name" : "starpoundsfizzycider" } }
                 ]
             ]
         ]
@@ -296,9 +292,7 @@
       { "item" : { "name" : "starpoundsfattyred" } },
       { "item" : { "name" : "starpoundssylph" } },
       { "item" : { "name" : "starpoundslagocola" } },
-      { "item" : { "name" : "starpoundsbrinune" } },
-      { "item" : { "name" : "starpoundscyberpunch" } },
-      { "item" : { "name" : "starpoundsriptide" } }
+      { "item" : { "name" : "starpoundsbrinune" } }
                 ]
             ]
         ]
@@ -317,7 +311,6 @@
       { "item" : { "name" : "starpoundsrum" } },
       { "item" : { "name" : "starpoundsfireblast" } },
       { "item" : { "name" : "starpoundsscrumpy" } },
-      { "item" : { "name" : "starpoundsstarshine" } },
       { "item" : { "name" : "starpoundsstarshine" } },
       { "item" : { "name" : "starpoundsfattyred" } },
       { "item" : { "name" : "starpoundssylph" } },

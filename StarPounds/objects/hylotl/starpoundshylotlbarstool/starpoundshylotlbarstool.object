@@ -1,0 +1,37 @@
+{
+  "objectName" : "starpoundshylotlbarstool",
+  "colonyTags" : ["hylotl","hylotlvillage"],
+  "rarity" : "Common",
+  "category" : "furniture",
+  "price" : 80,
+  "description" : "A traditional-styled Hylotl bar stool, commonly seen in old tea houses.",
+  "shortdescription" : "Traditional Bar Stool",
+  "race" : "hylotl",
+
+  "apexDescription" : "Comfortable enough, though I get the feeling it's more form than function.",
+  "avianDescription" : "Seems a little delicate.",
+  "floranDescription" : "Fishman bar ssstool. Floran could snap with one kick.",
+  "glitchDescription" : "Concern. This stool seems a little too delicate to support my weight.",
+  "humanDescription" : "Comfortable enough.",
+  "hylotlDescription" : "A stylish, yet comfortable bar stool.",
+  "novakidDescription" : "Lil too posh for my likin.",
+
+  "inventoryIcon" : "starpoundshylotlbarstoolicon.png",
+  "orientations" : [
+    {
+      "dualImage" : "starpoundshylotlbarstool.png:<color>",
+      "imagePosition" : [-8, 0],
+      "frames" : 1,
+      "animationCycle" : 0.5,
+      
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ]
+
+    }
+  ],
+
+  "objectType" : "loungeable",
+  "sitFlipDirection" : false,
+  "sitPosition" : [2, 22]
+
+}

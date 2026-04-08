@@ -1,0 +1,67 @@
+{
+  "objectName" : "starpoundsapexbarsign",
+  "colonyTags" : ["apex","apexvillage","commerce"],
+  "rarity" : "Common",
+  "category" : "decorative",
+  "price" : 80,
+
+  "shortdescription" : "Classic Bar Sign",
+  "description" : "A sign for an Apex bar.",
+  "race" : "apex",
+
+  "apexDescription" : "An old pre-prohibition sign. These used to be the popular hangouts back in the day.",
+  "avianDescription" : "An electronic Apex bar sign. Wouldn't mind some sweet drinks right now.",
+  "floranDescription" : "Apeman bar sssign. Probably pretty boring.",
+  "glitchDescription" : "Neutral. A glowing sign for an Apex bar.",
+  "humanDescription" : "Wonder if Apex are all sick of banana stuff...",
+  "hylotlDescription" : "Hope you like banana liqueurs.",
+  "novakidDescription" : "Hope they got some good stuff...",
+
+  "lightColor" : [153, 153, 122],
+
+  "inventoryIcon" : "starpoundsapexbarsignicon.png",
+
+  "animation" : "/objects/wired/light/lighttogglebgfullbright.animation",
+
+
+  "orientations" : [
+    {
+      "image" : "starpoundsapexbarsignleft.png:<color>.<frame>",
+      "imagePosition" : [0, -16],
+
+      "direction" : "right", 
+
+      "animationParts" : {
+        "bg" : "starpoundsapexbarsignleft.png",
+        "fg" : "starpoundsapexbarsignleftlit.png"
+      },
+      "animationPosition" : [0, -16],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "left" ]
+
+    },
+    {
+      "image" : "starpoundsapexbarsignright.png:<color>.<frame>",
+      "imagePosition" : [-16, -16],
+
+      "direction" : "right", //why are you like this starbound
+
+      "animationParts" : {
+        "bg" : "starpoundsapexbarsignright.png",
+        "fg" : "starpoundsapexbarsignrightlit.png"
+      },
+      "animationPosition" : [-16, -16],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "right" ]
+
+    }
+  ],
+
+  "scripts" : [ "/objects/wired/light/light.lua" ],
+  "scriptDelta" : 60,
+
+  "inputNodes" : [ [0, 1] ]
+  
+}

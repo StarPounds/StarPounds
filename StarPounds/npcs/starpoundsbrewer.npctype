@@ -3,6 +3,9 @@
   "baseType" : "merchant",
 
   "scriptConfig" : {
+    "questGenerator" : {
+      "pools" : ["common"]
+    },
     "merchant" : {
       "waitTime" : 40,
       "storeRadius" : 8,
@@ -157,7 +160,70 @@
               "This waterin' hole's always open for ya!"
             ]
           }
-        }
+        },
+  "tout" : {
+    "default" : {
+    	"default" : [
+	      "Thirsty? You've come to the right spot!",
+	      "Got liquors and sodas!",
+	      "Drinks fresh from the tap!",
+	      "Freshly brewed drinks here!"
+      ]
+    },
+    "apex" : {
+      "default" : [
+        "Better than any other moonshine!",
+        "Got a good selection here. Pick your poison.",
+        "Freshly brewed liquors and fizzy drinks!",
+        "Come, treat yourself!"
+      ]
+    },
+    
+    "avian" : {
+      "default" : [
+        "Get your cocktails here!",
+        "Fresh brews and fizzy drinks here!",
+        "I have a great selection of drinks for sale.",
+        "You look like you've had a long day. Why not unwind with a fresh brew?"
+      ]
+    },
+    
+    "floran" : {
+      "default" : [
+        "Fresh drinksss, homebrewed by Floran!",
+        "Floran hasss the besstesst drinkss!",
+        "Friend want a drink?",
+        "Got booze for ssssale!"
+      ]
+    },
+    
+    "glitch" : {
+      "default" : [
+        "Boisterous. Some of the best beer in the land!",
+        "Proud. Centuries of brewing experience!",
+        "Enticing. Thirsty? You've come to the right place, friend!",
+        "Encouraging. Why not rest your legs a bit and have a pint?"
+      ]
+    },
+    
+    "hylotl" : {
+      "default" : [
+        "Traditional techniques meets modern efficiency! Liquors for sale!",
+        "Tried and true for thousands of years, taste Hylotl tradition!",
+        "Please, treat yourself to a drink. You look exhausted!",
+        "My shop is resplendent with liquors and craft sodas."
+      ]
+    },
+    
+    "novakid" : {
+      "default" : [
+        "Got fresh 'shine and hooch here!",
+        "Fresh booze for all the weary cowpokes!",
+        "You look tired partner, wanna unwind with a pint or two?",
+        "Got a fresh batch straight from the still!"
+      ]
+    }
+  }
       },
       "tenant" : {
         "grumbles" : {
@@ -175,26 +241,175 @@
     }
   },
 
+  "matchColorIndices" : true,
   "items" : {
-    "override" : [
+"apex" : [	
+      [0, [
+	  {
+            "back" : [
+              { "name" : "pirateback", "parameters" : { "colorIndex" : 0 } }
+            ],
+            "head" : [
+             { "name" : "glasses1head", "parameters" : { "colorIndex" : 1 } },
+			 { "name" : "glasses2head", "parameters" : { "colorIndex" : [0] } },
+			 { "name" : "glasses5head", "parameters" : { "colorIndex" : [0] } },
+			 { "name" : "glasses5head", "parameters" : { "colorIndex" : [0] } },
+			 { "name" : "eyepatchhead", "parameters" : { "colorIndex" : 0 } },
+			 { "name" : "scientisthead", "parameters" : { "colorIndex" : 0 } }, 
+			 { "name" : "berethead", "parameters" : { "colorIndex" : 0 } }, 
+			 { "name" : "bandithat1", "parameters" : { "colorIndex" : [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11 ] } },
+			 ""
+            ],
+            "chest" : [
+              { "name" : "novakidwaistcoat", "parameters" : { "colorIndex" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] } },
+			  { "name" : "pilotchest", "parameters" : { "colorIndex" : [0] } },
+			  { "name" : "moneybagschest", "parameters" : { "colorIndex" : [0] } },
+			  { "name" : "cowboychest", "parameters" : { "colorIndex" : [0] } }
+            ],
+            "legs" : [
+              { "name" : "novakidblackpants", "parameters" : { "colorIndex" : 1 } }
+            ]
+	  }
+      ]]
+    ],
+    "avian" : [	
       [0, [
           {
             "back" : [
-              { "name" : "pirateback", "parameters" : { "colorIndex" : 0 } },
-              ""
+              { "name" : "pirateback", "parameters" : { "colorIndex" : 0 } }
+            ],
+            "head" : [
+             { "name" : "featherhead", "parameters" : { "colorIndex" : 0 } },
+             { "name" : "aviantier1head", "parameters" : { "colorIndex" : 6 } },
+			 { "name" : "bandithat1", "parameters" : { "colorIndex" : [ 4 ] } },
+			 ""
+            ],			
+            "chest" : [
+              { "name" : "piratechest", "parameters" : { "colorIndex" : [0] } },
+              { "name" : "buccaneerchest", "parameters" : { "colorIndex" : [0] } }
+            ],
+            "legs" : [
+              { "name" : "piratelegs", "parameters" : { "colorIndex" : 0 } },
+              { "name" : "buccaneerlegs", "parameters" : { "colorIndex" : 0 } }
+            ]
+          }
+      ]]
+    ],
+    "floran" : [	
+      [0, [
+          {
+            "back" : [
+              { "name" : "pirateback", "parameters" : { "colorIndex" : 0 } }
+            ],
+            "head" : [
+             { "name" : "reedhead", "parameters" : { "colorIndex" : 0 } },
+             { "name" : "hawaiianhead", "parameters" : { "colorIndex" : 0 } },
+             { "name" : "mushroomhead", "parameters" : { "colorIndex" : 0 } },
+			 ""
             ],
             "chest" : [
-              { "name" : "novakidwaistcoat", "parameters" : { "colorIndex" : 1 } },
-              { "name" : "novakidwaistcoat", "parameters" : { "colorIndex" : 2 } },
-              { "name" : "novakidwaistcoat", "parameters" : { "colorIndex" : 3 } },
-              { "name" : "novakidwaistcoat", "parameters" : { "colorIndex" : 4 } },
-              { "name" : "novakidwaistcoat", "parameters" : { "colorIndex" : 5 } },
-              { "name" : "novakidwaistcoat", "parameters" : { "colorIndex" : 6 } },
-              { "name" : "novakidwaistcoat", "parameters" : { "colorIndex" : 7 } },
-              { "name" : "novakidwaistcoat", "parameters" : { "colorIndex" : 8 } },
-              { "name" : "novakidwaistcoat", "parameters" : { "colorIndex" : 9 } },
-              { "name" : "novakidwaistcoat", "parameters" : { "colorIndex" : 10 } },
-              { "name" : "novakidwaistcoat", "parameters" : { "colorIndex" : 11 } }
+              { "name" : "floransurvivalistchest", "parameters" : { "colorIndex" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] } },
+              { "name" : "floranpeltchest", "parameters" : { "colorIndex" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] } },
+              { "name" : "floranhunterchest", "parameters" : { "colorIndex" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] } }
+            ],
+            "legs" : [
+              { "name" : "floransurvivalistlegs", "parameters" : { "colorIndex" : 1 } },
+              { "name" : "wildfunguspants", "parameters" : { "colorIndex" : 1 } }
+            ]
+          }
+      ]]
+    ],
+    "glitch" : [	
+      [0, [
+          {
+            "back" : [
+              { "name" : "pirateback", "parameters" : { "colorIndex" : 0 } }
+            ],
+            "head" : [
+             { "name" : "glasses1head", "parameters" : { "colorIndex" : 1 } },
+			 { "name" : "glasses2head", "parameters" : { "colorIndex" : [0] } },
+			 { "name" : "glasses5head", "parameters" : { "colorIndex" : [0] } },
+			 { "name" : "glasses5head", "parameters" : { "colorIndex" : [0] } },
+			 { "name" : "scientisthead", "parameters" : { "colorIndex" : 0 } },
+			 ""
+            ],			
+            "chest" : [
+              { "name" : "craftsmenchest", "parameters" : { "colorIndex" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] } },
+              { "name" : "merchantchest", "parameters" : { "colorIndex" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] } }
+            ],
+            "legs" : [
+              { "name" : "craftsmenlegs", "parameters" : { "colorIndex" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] } },
+              { "name" : "merchantlegs", "parameters" : { "colorIndex" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] } }
+            ]
+          }
+      ]]
+    ],
+    "human" : [	
+      [0, [
+          {
+            "back" : [
+              { "name" : "pirateback", "parameters" : { "colorIndex" : 0 } }
+            ],
+            "head" : [
+             { "name" : "glasses1head", "parameters" : { "colorIndex" : 1 } },
+			 { "name" : "glasses2head", "parameters" : { "colorIndex" : [0] } },
+			 { "name" : "glasses5head", "parameters" : { "colorIndex" : [0] } },
+			 { "name" : "glasses5head", "parameters" : { "colorIndex" : [0] } },
+			 { "name" : "eyepatchhead", "parameters" : { "colorIndex" : 0 } },
+			 { "name" : "scientisthead", "parameters" : { "colorIndex" : 0 } },
+			 ""
+            ],
+            "chest" : [
+              { "name" : "novakidwaistcoat", "parameters" : { "colorIndex" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] } },
+			  { "name" : "pilotchest", "parameters" : { "colorIndex" : [0] } },
+			  { "name" : "moneybagschest", "parameters" : { "colorIndex" : [0] } },
+			  { "name" : "cowboychest", "parameters" : { "colorIndex" : [0] } }
+            ],
+            "legs" : [
+              { "name" : "novakidblackpants", "parameters" : { "colorIndex" : 1 } }
+            ]
+          }
+      ]]
+    ],
+    "hylotl" : [	
+      [0, [
+          {
+            "back" : [
+              { "name" : "pirateback", "parameters" : { "colorIndex" : 0 } }
+            ],
+            "head" : [
+             { "name" : "glasses3eyes", "parameters" : { "colorIndex" : 0 } },
+			 ""
+            ],
+            "chest" : [
+              { "name" : "novakidwaistcoat", "parameters" : { "colorIndex" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] } },
+              { "name" : "kimonochest", "parameters" : { "colorIndex" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] } },
+              { "name" : "monkchest", "parameters" : { "colorIndex" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] } }
+            ],
+            "legs" : [
+              { "name" : "novakidblackpants", "parameters" : { "colorIndex" : 1 } },
+              { "name" : "kimonolegs", "parameters" :  { "colorIndex" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] } },
+              { "name" : "monklegs", "parameters" :  { "colorIndex" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] } }
+            ]
+          }
+      ]]
+    ],
+    "novakid" : [	
+      [0, [
+          {
+            "back" : [
+              { "name" : "pirateback", "parameters" : { "colorIndex" : 0 } }
+            ],
+            "head" : [
+			 { "name" : "bandithat1", "parameters" : { "colorIndex" : [ 4 ] } },
+			 { "name" : "sombrerohead", "parameters" : { "colorIndex" : [ 0 ] } },
+			 { "name" : "tophathead", "parameters" : { "colorIndex" : [ 0 ] } },
+			 ""
+            ],			
+            "chest" : [
+              { "name" : "novakidwaistcoat", "parameters" : { "colorIndex" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] } },
+              { "name" : "novakidsuspenders", "parameters" : { "colorIndex" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11] } },
+			  { "name" : "cowboychest", "parameters" : { "colorIndex" : [0] } }
             ],
             "legs" : [
               { "name" : "novakidblackpants", "parameters" : { "colorIndex" : 1 } }

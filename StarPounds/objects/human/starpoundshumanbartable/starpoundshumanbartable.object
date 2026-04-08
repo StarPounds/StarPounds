@@ -1,0 +1,33 @@
+{
+  "objectName" : "starpoundshumanbartable",
+  "colonyTags" : ["human","humanvillage","commerce"],
+  "rarity" : "Common",
+  "category" : "furniture",
+  "price" : 110,
+  "description" : "A sleek table commonly seen in bars.",
+  "shortdescription" : "Modern Bar Table",
+  "race" : "human",
+
+  "apexDescription" : "A cold table common in Human bars.",
+  "avianDescription" : "A nicely maintained table.",
+  "floranDescription" : "Shiny table. Floran wondersss how long Human cleansss thiss.",
+  "glitchDescription" : "Content. This table's been polished to a pleasant shine.",
+  "humanDescription" : "Looks like it's been polished to a shine.",
+  "hylotlDescription" : "Lacking in form, but certainly works well enough.",
+  "novakidDescription" : "I can see myself being reflected on this table.",
+
+  "inventoryIcon" : "starpoundshumanbartableicon.png",
+  "orientations" : [
+    {
+      "dualImage" : "starpoundshumanbartable.png:<color>",
+      "imagePosition" : [-24, 0],
+      "frames" : 1,
+      "animationCycle" : 0.5,
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ],
+      "collision" : "platform"
+
+    }
+  ]
+}

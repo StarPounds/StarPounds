@@ -1,0 +1,58 @@
+{
+  "objectName" : "starpoundsavianbar",
+  "colonyTags" : ["avian","avianvillage","commerce"],
+  "rarity" : "Common",
+  "category" : "furniture",
+  "price" : 280,
+  "description" : "An ornately carved bartop where you can drink your cocktails.",
+  "shortdescription" : "Carved Bar",
+  "race" : "avian",
+
+  "apexDescription" : "Intricate patterns adorn this bartop.",
+  "avianDescription" : "The Grounded gather around bars like this, sharing stories.",
+  "floranDescription" : "Floran tempted to start fightsss with bird bargoersss...",
+  "glitchDescription" : "Complimentary. The woodwork is impeccable- must've taken hours to carve those patterns.",
+  "humanDescription" : "Got any cocktails? Rooster talons? Hen beaks?",
+  "hylotlDescription" : "The craftsmanship behind this bar is impressive.",
+  "novakidDescription" : "The geometric patterns aren't quite my style but this bar's got character!",
+
+  "objectType" : "loungeable",
+  "sitFlipDirection" : false,
+
+  "inventoryIcon" : "starpoundsavianbaricon.png",
+  "orientations" : [
+    {
+      "image" : "starpoundsavianbar.png:<color>",
+      "imagePosition" : [-40, 0],
+      "direction" : "left",
+      "flipImages" : true,
+
+      "sitPositions" : [
+        // Positions from front to back.
+        [-18, 24], // Right
+        [7, 24], // Middle
+        [32, 24] // Left
+      ],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ],
+      "collision" : "platform"
+    },
+    {
+      "image" : "starpoundsavianbar.png:<color>",
+      "imagePosition" : [-40, 0],
+      "direction" : "right",
+
+      "sitPositions" : [
+        // Positions from front to back.
+        [-18, 24], // Left
+        [7, 24], // Middle
+        [32, 24] // Right
+      ],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ],
+      "collision" : "platform"
+    }
+  ]
+}

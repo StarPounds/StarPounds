@@ -1,0 +1,36 @@
+{
+  "objectName" : "starpoundsglitchbarstool",
+  "colonyTags" : ["glitch","glitchvillage"],
+  "rarity" : "Common",
+  "category" : "furniture",
+  "price" : 80,
+  "description" : "A very uncomfortable bar stool. At least by organics' standards.",
+  "shortdescription" : "Tavern Bar Stool",
+
+  "apexDescription" : "I suppose this'd be more comfortable for Glitch.",
+  "avianDescription" : "Not quite what I'd like to roost on.",
+  "floranDescription" : "Floran butt not like hard seat.",
+  "glitchDescription" : "Content. A fine bar stool.",
+  "humanDescription" : "Could they not have gotten a cushion or two?",
+  "hylotlDescription" : "Lacking in creature comforts.",
+  "novakidDescription" : "Seems a bit wobbly.",
+
+  "inventoryIcon" : "starpoundsglitchbarstoolicon.png",
+  "orientations" : [
+    {
+      "dualImage" : "starpoundsglitchbarstool.png:<color>",
+      "imagePosition" : [-8, 0],
+      "frames" : 1,
+      "animationCycle" : 0.5,
+      
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ]
+
+    }
+  ],
+
+  "objectType" : "loungeable",
+  "sitFlipDirection" : false,
+  "sitPosition" : [2, 22]
+
+}

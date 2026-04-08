@@ -1,0 +1,33 @@
+{
+  "objectName" : "starpoundshylotlbartable",
+  "colonyTags" : ["hylotl","hylotlvillage","commerce"],
+  "rarity" : "Common",
+  "category" : "furniture",
+  "price" : 110,
+  "description" : "A tastefully decorated bar table.",
+  "shortdescription" : "Traditional Bar Table",
+  "race" : "hylotl",
+
+  "apexDescription" : "A well-crafted bar table.",
+  "avianDescription" : "A good place to have a cup of tea.",
+  "floranDescription" : "Floran tempted to flip table.",
+  "glitchDescription" : "Satisfied. A satisfactory bar table.",
+  "humanDescription" : "A fancy bar table.",
+  "hylotlDescription" : "Every drink is a pleasant time at these tables.",
+  "novakidDescription" : "Don't think I can kick my legs up on these without mucking up the top.",
+
+  "inventoryIcon" : "starpoundshylotlbartableicon.png",
+  "orientations" : [
+    {
+      "dualImage" : "starpoundshylotlbartable.png:<color>",
+      "imagePosition" : [-24, 0],
+      "frames" : 1,
+      "animationCycle" : 0.5,
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ],
+      "collision" : "platform"
+
+    }
+  ]
+}

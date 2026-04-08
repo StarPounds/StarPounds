@@ -1,0 +1,37 @@
+{
+  "objectName" : "starpoundsapexbarstool",
+  "colonyTags" : ["apex","apexvillage"],
+  "rarity" : "Common",
+  "category" : "furniture",
+  "price" : 80,
+  "description" : "A modestly decorated bar stool for the high class bars.",
+  "shortdescription" : "Classy Bar Stool",
+  "race" : "apex",
+
+  "apexDescription" : "A classic style barstool. Makes me want to sit down and unwind...",
+  "avianDescription" : "A moderately classy bar stool.",
+  "floranDescription" : "Fancy bar ssstool.",
+  "glitchDescription" : "Content. A fine bar stool.",
+  "humanDescription" : "A comfortable enough bar stool.",
+  "hylotlDescription" : "Lacking in creature comforts.",
+  "novakidDescription" : "Feels a lil too fancy for my likin'.",
+
+  "inventoryIcon" : "starpoundsapexbarstoolicon.png",
+  "orientations" : [
+    {
+      "dualImage" : "starpoundsapexbarstool.png:<color>",
+      "imagePosition" : [-8, 0],
+      "frames" : 1,
+      "animationCycle" : 0.5,
+      
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ]
+
+    }
+  ],
+
+  "objectType" : "loungeable",
+  "sitFlipDirection" : false,
+  "sitPosition" : [2, 22]
+
+}

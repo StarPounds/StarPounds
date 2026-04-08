@@ -1,0 +1,43 @@
+{
+  "objectName" : "starpoundsavianbarsign",
+  "colonyTags" : ["avian","avianvillage","commerce"],
+  "rarity" : "Common",
+  "category" : "decorative",
+  "price" : 80,
+
+  "shortdescription" : "Avian Bar Sign",
+  "description" : "A finely woven banner advertising an Avian bar.",
+  "race" : "avian",
+
+  "apexDescription" : "A woven banner advertising a bar.",
+  "avianDescription" : "Banners like these typically mark nectar bars. Usually its more a place to be social than a place to get drunk.",
+  "floranDescription" : "Birdman advertisssing beerss.",
+  "glitchDescription" : "Observant. A banner advertising an Avian bar.",
+  "humanDescription" : "A decent cocktail sounds nice right now.",
+  "hylotlDescription" : "A finely woven banner to mark a bar.",
+  "novakidDescription" : "A banner for bird bars. Personally I would prefer harder stuff.",
+
+  "inventoryIcon" : "starpoundsavianbarsignicon.png",
+  "orientations" : [
+    {
+      "image" : "starpoundsavianbarsignleft.png:<color>",
+      "imagePosition" : [0, -16],
+
+      "direction" : "right",
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "left" ]
+
+    },
+    {
+      "image" : "starpoundsavianbarsignright.png:<color>",
+      "imagePosition" : [-16, -16],
+
+      "direction" : "left",
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "right" ]
+
+    }
+  ]
+}
