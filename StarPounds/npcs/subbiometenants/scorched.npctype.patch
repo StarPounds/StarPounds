@@ -1,6 +1,11 @@
 [
   {
     "op": "add",
+    "path": "/scripts/-",
+    "value": "/scripts/starpounds/loaders/npc.lua"
+  },
+  {
+    "op": "add",
     "path": "/identity",
     "value": {
       "hairType": "0",
