@@ -48,6 +48,8 @@ function magnet:enabled()
   if not storage.starPounds.enabled then return false end
   -- Don't do anything inside morphballs.
   if status.stat("activeMovementAbilities") > 1 then return false end
+  -- Only works when crouched.
+  if not starPounds.mcontroller.crouching then return false end
 
   local range = starPounds.getStat("magnetRange") * starPounds.moduleFunc("size", "effectScaling")
   return range > 0
