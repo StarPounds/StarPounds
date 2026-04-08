@@ -1,8 +1,8 @@
 {
   "version" : "1.0.0",
   "author" : "^#ccbbff;ShyDispatch^reset; (& ^#77aaff;LittleVulpine^reset;)",
-  "description" : "Official Addon for ^#ccbbff;StarPounds!^reset;\n\nProvides various encounters that can be fattening to the player and fattens up the appearance of shopkeepers.\n\nJoin the discord!\n^#ccbbff;discord.gg/starpounds",
   "requires" : ["starpounds"],
+  "description" : "Official Addon for ^#ccbbff;StarPounds!^reset;\n\nProvides various encounters that can be fattening to the player and fattens up the appearance of shopkeepers.\n\nJoin the discord!\n^#ccbbff;discord.gg/starpounds",
   "name" : "starpoundsthrogverse",
   "friendlyName" : "^#ccbbff;StarPounds Addon: ^reset;Throgverse",
   "icon" : "/interface/modsmenu/starpoundsmodicon.png",
