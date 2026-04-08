@@ -8,9 +8,16 @@ function hunger:update(dt)
   -- Holy shit why can we not detect what gamemode the player is using.
   if starPounds.hasOption("disableHunger") then
     status.setResource("food", status.resourceMax("food") - 0.01)
+    status.clearPersistentEffects("starpoundshunger")
+    self.isStarving = false
+    return
   end
   -- Don't do anything if the mod is disabled.
   if not storage.starPounds.enabled then return end
+  -- Set hunger delta.
+  status.setPersistentEffects("starpoundshunger", {
+    {stat = "foodDelta", effectiveMultiplier = (starPounds.moduleFunc("stomach", "get").food > 0) and 0 or math.round(starPounds.getStat("hunger"), 2)}
+  })
   -- Check if the player is starving.
   self.isStarving = status.uniqueStatusEffectActive("starving")
   -- Check upgrade for preventing starving and they have weight loss enabled.
@@ -28,6 +35,10 @@ function hunger:update(dt)
       end
     end
   end
+end
+
+function hunger:uninit()
+  status.clearPersistentEffects("starpoundshunger")
 end
 
 starPounds.modules.hunger = hunger

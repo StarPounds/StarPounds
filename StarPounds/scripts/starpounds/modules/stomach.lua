@@ -460,13 +460,15 @@ function stomach:digest(dt, isGurgle, isBelch)
     -- Apply satiated effect if we maxed the hunger bar (or gained food for NPCs)
     if satiated then
       local applyEffect = false
-      if hasFood and (status.resource("food") >= maxFood) then
+      if hasFood and (math.round(status.resource("food"), 2) >= maxFood) then
         applyEffect = true
       elseif not hasFood then
         applyEffect = true
       end
 
-      starPounds.moduleFunc("effects", "add", "satiated")
+      if applyEffect then
+        starPounds.moduleFunc("effects", "add", "satiated")
+      end
     end
 
     -- Stops the player losing hunger while they digest food.
