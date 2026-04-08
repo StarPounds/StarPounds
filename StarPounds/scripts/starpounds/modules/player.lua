@@ -23,6 +23,10 @@ function _player:init()
     starPounds.moduleFunc("effects", "add", "gracePeriod")
     starPounds.firstLoad = nil
   end
+  -- If we're on a shipworld.
+  if world.getProperty("ship.level") then
+    starPounds.moduleFunc("effects", "add", "shipWorld", -1)
+  end
 end
 
 function _player:update(dt)
