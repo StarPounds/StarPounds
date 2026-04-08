@@ -46,7 +46,6 @@ function magnet:active()
 end
 
 function magnet:enabled()
-  player.say(sb.print(self.magnetPromise))
   -- Don't do anything if the mod is disabled.
   if not storage.starPounds.enabled then return false end
   -- Don't do anything inside morphballs.
