@@ -113,8 +113,8 @@ function updateStomachButton(frame)
   local image = string.format("/interface/scripted/starpounds/toolbar/stomach.png:%s", frame)
   widget.setButtonImages("stomachButton", {
     base = image,
-    hover = image,
-    pressed = image,
+    hover = image..".hover",
+    pressed = image..".hover",
   })
 end
 
@@ -170,8 +170,8 @@ function updateMilkButton(frame)
   local image = string.format("/interface/scripted/starpounds/toolbar/milk.png:%s", frame)
   widget.setButtonImages("milkButton", {
     base = image,
-    hover = image,
-    pressed = image,
+    hover = image..".hover",
+    pressed = image..".hover",
   })
 end
 

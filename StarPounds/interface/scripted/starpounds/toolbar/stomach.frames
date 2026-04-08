@@ -1,10 +1,11 @@
 {
   "frameGrid" : {
     "size" : [16, 16],
-    "dimensions" : [3, 1],
+    "dimensions" : [3, 2],
 
     "names" : [
-      [ "1", "2", "3" ]
+      [ "1", "2", "3" ],
+      [ "1.hover", "2.hover", "3.hover" ]
     ]
   }
 }
