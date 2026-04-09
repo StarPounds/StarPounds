@@ -986,415 +986,415 @@
     {
      "0":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/starpoundsblazegraffitti.png",
+         "image":"Starpounds-Fatty-Dungeons\/starpoundsblazegraffitti.png",
          "imageheight":32,
          "imagewidth":64
         },
      "1":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/starpoundsblossomgraffitti.png",
+         "image":"Starpounds-Fatty-Dungeons\/starpoundsblossomgraffitti.png",
          "imageheight":32,
          "imagewidth":64
         },
      "10":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/starpoundsskewerplate.png",
+         "image":"Starpounds-Fatty-Dungeons\/starpoundsskewerplate.png",
          "imageheight":16,
          "imagewidth":16
         },
      "11":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/starpoundsskullsmashsoup.png",
+         "image":"Starpounds-Fatty-Dungeons\/starpoundsskullsmashsoup.png",
          "imageheight":16,
          "imagewidth":16
         },
      "12":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/feaststatue.png",
+         "image":"Starpounds-Gluttonist\/feaststatue.png",
          "imageheight":88,
          "imagewidth":128
         },
      "13":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/floranweightscale.png",
+         "image":"Starpounds-Equipment\/floranweightscale.png",
          "imageheight":38,
          "imagewidth":36
         },
      "14":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/gluttonistlamp1.png",
+         "image":"Starpounds-Fatty-Dungeons\/gluttonistlamp1.png",
          "imageheight":32,
          "imagewidth":24
         },
      "15":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/gluttonistlight1.png",
+         "image":"Starpounds-Fatty-Dungeons\/gluttonistlight1.png",
          "imageheight":32,
          "imagewidth":16
         },
      "16":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/gluttonistlight2.png",
+         "image":"Starpounds-Fatty-Dungeons\/gluttonistlight2.png",
          "imageheight":24,
          "imagewidth":8
         },
      "17":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/gluttonistlight3.png",
+         "image":"Starpounds-Fatty-Dungeons\/gluttonistlight3.png",
          "imageheight":24,
          "imagewidth":12
         },
      "18":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/gluttonistlightback.png",
+         "image":"Starpounds-Fatty-Dungeons\/gluttonistlightback.png",
          "imageheight":16,
          "imagewidth":16
         },
      "19":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/starpoundsmeatberryplant.png",
+         "image":"Starpounds-Fatty-Dungeons\/starpoundsmeatberryplant.png",
          "imageheight":40,
          "imagewidth":16
         },
      "2":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/starpoundsgluttonistfeastpainting1.png",
+         "image":"Starpounds-Fatty-Dungeons\/starpoundsgluttonistfeastpainting1.png",
          "imageheight":40,
          "imagewidth":32
         },
      "20":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/gluttoniststatue.png",
+         "image":"Starpounds-Gluttonist\/gluttoniststatue.png",
          "imageheight":36,
          "imagewidth":40
         },
      "21":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/bossdoor_feasthall.png",
+         "image":"Starpounds-Fatty-Dungeons\/bossdoor_feasthall.png",
          "imageheight":40,
          "imagewidth":16
         },
      "22":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/ponderoustankard.png",
+         "image":"Starpounds-Fatty-Dungeons\/ponderoustankard.png",
          "imageheight":8,
          "imagewidth":8
         },
      "23":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/ponderoushalberdrack.png",
+         "image":"Starpounds-Fatty-Dungeons\/ponderoushalberdrack.png",
          "imageheight":40,
          "imagewidth":16
         },
      "24":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/ponderouscounter.png",
+         "image":"Starpounds-Fatty-Dungeons\/ponderouscounter.png",
          "imageheight":16,
          "imagewidth":32
         },
      "25":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/ponderousflagon.png",
+         "image":"Starpounds-Fatty-Dungeons\/ponderousflagon.png",
          "imageheight":16,
          "imagewidth":16
         },
      "26":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/ponderousalchemypestle.png",
+         "image":"Starpounds-Fatty-Dungeons\/ponderousalchemypestle.png",
          "imageheight":16,
          "imagewidth":16
         },
      "27":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/ponderousalchemybottlerack.png",
+         "image":"Starpounds-Fatty-Dungeons\/ponderousalchemybottlerack.png",
          "imageheight":16,
          "imagewidth":16
         },
      "28":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/ponderousalchemyretort.png",
+         "image":"Starpounds-Fatty-Dungeons\/ponderousalchemyretort.png",
          "imageheight":24,
          "imagewidth":16
         },
      "29":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/ponderouskeg2.png",
+         "image":"Starpounds-Fatty-Dungeons\/ponderouskeg2.png",
          "imageheight":24,
          "imagewidth":24
         },
      "3":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/starpoundsgluttonistfeastpainting2.png",
+         "image":"Starpounds-Fatty-Dungeons\/starpoundsgluttonistfeastpainting2.png",
          "imageheight":80,
          "imagewidth":64
         },
      "30":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/ponderousorbswitch.png",
+         "image":"Starpounds-Fatty-Dungeons\/ponderousorbswitch.png",
          "imageheight":24,
          "imagewidth":24
         },
      "31":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/ponderousdoorlarge.png",
+         "image":"Starpounds-Fatty-Dungeons\/ponderousdoorlarge.png",
          "imageheight":64,
          "imagewidth":56
         },
      "32":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/ponderousdoorsmall2.png",
+         "image":"Starpounds-Fatty-Dungeons\/ponderousdoorsmall2.png",
          "imageheight":40,
          "imagewidth":40
         },
      "33":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/ponderousdoorsmall1.png",
+         "image":"Starpounds-Fatty-Dungeons\/ponderousdoorsmall1.png",
          "imageheight":40,
          "imagewidth":40
         },
      "34":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/ponderousbarrel.png",
+         "image":"Starpounds-Fatty-Dungeons\/ponderousbarrel.png",
          "imageheight":24,
          "imagewidth":24
         },
      "35":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/bossdoor_ponderouskeep.png",
+         "image":"Starpounds-Fatty-Dungeons\/bossdoor_ponderouskeep.png",
          "imageheight":40,
          "imagewidth":16
         },
      "36":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/ponderouschest2.png",
+         "image":"Starpounds-Fatty-Dungeons\/ponderouschest2.png",
          "imageheight":16,
          "imagewidth":24
         },
      "37":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/ponderouschest1.png",
+         "image":"Starpounds-Fatty-Dungeons\/ponderouschest1.png",
          "imageheight":16,
          "imagewidth":16
         },
      "38":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/starpoundsponderousidol.png",
+         "image":"Starpounds-Fatty-Dungeons\/starpoundsponderousidol.png",
          "imageheight":24,
          "imagewidth":24
         },
      "39":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/wispflamelamp.png",
+         "image":"Starpounds-Fatty-Dungeons\/wispflamelamp.png",
          "imageheight":24,
          "imagewidth":6
         },
      "4":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/starpoundsgluttonistfeastpainting3.png",
+         "image":"Starpounds-Fatty-Dungeons\/starpoundsgluttonistfeastpainting3.png",
          "imageheight":40,
          "imagewidth":32
         },
      "40":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/wispflametorch.png",
+         "image":"Starpounds-Fatty-Dungeons\/wispflametorch.png",
          "imageheight":16,
          "imagewidth":8
         },
      "41":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/wisplightlarge.png",
+         "image":"Starpounds-Fatty-Dungeons\/wisplightlarge.png",
          "imageheight":40,
          "imagewidth":24
         },
      "42":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/wisplightmed.png",
+         "image":"Starpounds-Fatty-Dungeons\/wisplightmed.png",
          "imageheight":32,
          "imagewidth":16
         },
      "43":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/wisplightsmall.png",
+         "image":"Starpounds-Fatty-Dungeons\/wisplightsmall.png",
          "imageheight":32,
          "imagewidth":8
         },
      "44":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/wisplighttall.png",
+         "image":"Starpounds-Fatty-Dungeons\/wisplighttall.png",
          "imageheight":40,
          "imagewidth":8
         },
      "45":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/wispflamebrazier.png",
+         "image":"Starpounds-Fatty-Dungeons\/wispflamebrazier.png",
          "imageheight":24,
          "imagewidth":16
         },
      "46":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/ponderousdesk.png",
+         "image":"Starpounds-Fatty-Dungeons\/ponderousdesk.png",
          "imageheight":24,
          "imagewidth":48
         },
      "47":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/ponderouscauldron.png",
+         "image":"Starpounds-Fatty-Dungeons\/ponderouscauldron.png",
          "imageheight":42,
          "imagewidth":80
         },
      "48":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/ponderousoven.png",
+         "image":"Starpounds-Fatty-Dungeons\/ponderousoven.png",
          "imageheight":24,
          "imagewidth":24
         },
      "49":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/starpoundsponderousbookshelf.png",
+         "image":"Starpounds-Fatty-Dungeons\/starpoundsponderousbookshelf.png",
          "imageheight":40,
          "imagewidth":24
         },
      "5":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/starpoundsgluttonistfeasttable.png",
+         "image":"Starpounds-Fatty-Dungeons\/starpoundsgluttonistfeasttable.png",
          "imageheight":16,
          "imagewidth":80
         },
      "50":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/starpoundsponderousknightarmor.png",
+         "image":"Starpounds-Fatty-Dungeons\/starpoundsponderousknightarmor.png",
          "imageheight":48,
          "imagewidth":32
         },
      "51":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/starpoundsstainedglassiron.png",
+         "image":"Starpounds-Fatty-Dungeons\/starpoundsstainedglassiron.png",
          "imageheight":64,
          "imagewidth":40
         },
      "52":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/starpoundsstainedglassbronze.png",
+         "image":"Starpounds-Fatty-Dungeons\/starpoundsstainedglassbronze.png",
          "imageheight":64,
          "imagewidth":40
         },
      "53":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/starpoundsponderoustapestry.png",
+         "image":"Starpounds-Fatty-Dungeons\/starpoundsponderoustapestry.png",
          "imageheight":32,
          "imagewidth":32
         },
      "54":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/starpoundsponderoustable.png",
+         "image":"Starpounds-Fatty-Dungeons\/starpoundsponderoustable.png",
          "imageheight":16,
          "imagewidth":80
         },
      "55":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/ponderousfoundersstatue.png",
+         "image":"Starpounds-Fatty-Dungeons\/ponderousfoundersstatue.png",
          "imageheight":48,
          "imagewidth":64
         },
      "56":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/starpoundsponderouscouch.png",
+         "image":"Starpounds-Fatty-Dungeons\/starpoundsponderouscouch.png",
          "imageheight":18,
          "imagewidth":32
         },
      "57":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/starpoundsponderousbannersmall.png",
+         "image":"Starpounds-Fatty-Dungeons\/starpoundsponderousbannersmall.png",
          "imageheight":24,
          "imagewidth":16
         },
      "58":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/starpoundsponderousbannerlarge.png",
+         "image":"Starpounds-Fatty-Dungeons\/starpoundsponderousbannerlarge.png",
          "imageheight":40,
          "imagewidth":24
         },
      "59":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/ponderousidolpedestal.png",
+         "image":"Starpounds-Fatty-Dungeons\/ponderousidolpedestal.png",
          "imageheight":16,
          "imagewidth":24
         },
      "6":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/starpoundsgluttonisthangingmeat1.png",
+         "image":"Starpounds-Fatty-Dungeons\/starpoundsgluttonisthangingmeat1.png",
          "imageheight":64,
          "imagewidth":40
         },
      "60":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/starpoundsblossomknightsarmor.png",
+         "image":"Starpounds-Fatty-Dungeons\/starpoundsblossomknightsarmor.png",
          "imageheight":48,
          "imagewidth":32
         },
      "61":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/wispflameventtrapfloor.png",
+         "image":"Starpounds-Fatty-Dungeons\/wispflameventtrapfloor.png",
          "imageheight":8,
          "imagewidth":16
         },
      "62":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/wispflameventtrapcieling.png",
+         "image":"Starpounds-Fatty-Dungeons\/wispflameventtrapcieling.png",
          "imageheight":8,
          "imagewidth":16
         },
      "63":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/starpoundsstainedglasscopper.png",
+         "image":"Starpounds-Fatty-Dungeons\/starpoundsstainedglasscopper.png",
          "imageheight":64,
          "imagewidth":40
         },
      "64":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/starpoundsstainedglassgold.png",
+         "image":"Starpounds-Fatty-Dungeons\/starpoundsstainedglassgold.png",
          "imageheight":64,
          "imagewidth":40
         },
      "65":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/ponderouskeephiddendoor.png",
+         "image":"Starpounds-Fatty-Dungeons\/ponderouskeephiddendoor.png",
          "imageheight":40,
          "imagewidth":40
         },
      "66":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/ponderouskeephiddentrapdoor.png",
+         "image":"Starpounds-Fatty-Dungeons\/ponderouskeephiddentrapdoor.png",
          "imageheight":25,
          "imagewidth":41
         },
      "67":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/ponderouschair.png",
+         "image":"Starpounds-Fatty-Dungeons\/ponderouschair.png",
          "imageheight":23,
          "imagewidth":16
         },
      "68":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/gluttonisticebox.png",
+         "image":"Starpounds-Fatty-Dungeons\/gluttonisticebox.png",
          "imageheight":24,
          "imagewidth":32
         },
      "7":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/starpoundsgluttonisthangingmeat2.png",
+         "image":"Starpounds-Fatty-Dungeons\/starpoundsgluttonisthangingmeat2.png",
          "imageheight":64,
          "imagewidth":40
         },
      "8":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/starpoundsgluttonisthangingsoup.png",
+         "image":"Starpounds-Fatty-Dungeons\/starpoundsgluttonisthangingsoup.png",
          "imageheight":64,
          "imagewidth":40
         },
      "9":
         {
-         "image":"..\/..\/..\/..\/..\/..\/..\/Program Files (x86)\/Steam\/steamapps\/common\/Starbound\/tiled\/starpounds\/objects\/starpoundsixolingroast.png",
+         "image":"Starpounds-Fatty-Dungeons\/starpoundsixolingroast.png",
          "imageheight":24,
          "imagewidth":32
         }
