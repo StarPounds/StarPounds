@@ -1,14 +1,11 @@
 function init()
-  -- Cross script voodoo witch magic.
-  starPounds = getmetatable ''.starPounds
   -- Kill status if we're not a player.
-  isPlayer = starPounds and (starPounds.type == "player")
-  if not isPlayer then
-    update = function() end
-    effect.expire()
+  if world.entityType(entity.id()) ~= "player" then
+    update = effect.expire
     return
   end
-
+  -- Cross script voodoo witch magic.
+  starPounds = getmetatable ''.starPounds
   effectName = effect.getParameter("effect")
   local effectConfig = starPounds.moduleFunc("effects", "getConfig", effect.getParameter("effect"))
   if effectConfig then
