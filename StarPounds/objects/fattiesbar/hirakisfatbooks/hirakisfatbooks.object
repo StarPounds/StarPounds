@@ -146,7 +146,8 @@
     ],
     "tabmisc" : [
       "erchiusproblem-codex", "starpoundsasranox-codex", "starpoundsstowawayguide-codex",
-      "starpoundsmamfan-codex", "starpoundsmammodel-codex", "starpoundsmamtribe-codex"
+      "starpoundsmamfan-codex", "starpoundsmammodel-codex", "starpoundsmamtribe-codex",
+	  "starpoundsracedrinks-codex", "starpoundsbrewingguide-codex"
     ]
   }
 }

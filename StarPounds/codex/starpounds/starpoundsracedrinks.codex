@@ -1,0 +1,72 @@
+{
+  "id" : "starpoundsracedrinks",
+  "title" : "Liquors of the Galaxy",
+  "description" : "A volume of the renowned Tippler's Guide to the Galaxy series.",
+  "icon" : "starpoundsracedrinks.png",
+  "contentPages" : [
+"Alcoholic beverages in their various forms are a near-universal aspect of all cultures in the cosmos- ranging from the high proof stouts and ales to the light but flavorful cocktail mixtures.
+
+Each culture has their own sensibilities regarding a good brew, and understanding that will make your barhopping ventures much more enjoyable.",
+
+"^#71f2f6;//Apex^reset;
+
+While the Miniknog's prohibits the commercial sale of liquor, it has not stopped many an Apex from discretely brewing them and running speakeasies in the shadows.
+
+Apex liquors tend to be fairly strong, with drinks like Banana Vodka (made from Banana Flavored Ration Cubes rather than the actual fruit) having a serious kick with a slight degree of flavor.",
+
+"Rumors also say that the Miniknog may reward its agents with particularly well made banana flavored liqueurs and wines as well. Of course, the Miniknog themselves deny that this is the case.",
+
+"^red;//Avian^reset;
+
+The Grounded have had a rich history of brewing, free from the religious exemptions that the Kluexites enforce.
+
+Avians are most well known for smoother, mellower drinks meant to be mixed in cocktails- often served and sold in special nectar bars that serve as social gatherings.",
+
+"The lost religion of Velhanuism was also known for its brewing culture, said to have concocted some of the finest liquors the galaxy had seen before its mysterious decline.",
+
+"^green;//Floran^reset;
+
+In ancient times the Floran concocted their brews by stuffing them into hollow pods and hoping whatever came out was safe to drink.
+
+When they discovered the stillery technology of other species it wasn't long until the Floran appropiated it to properly brew their own concoctions.",
+
+"Floran liquors are very strong, and very heady- most infamous is the soupy liquor known as Skullsmash, so named for the sensation it leaves you when it wears off. Others are derived from ancient folk remedies and medicines.
+
+The Gluttonist tribe in particular has been known for brewing the fiercest liquors, including one that's been said to awaken voracious instincts.",
+
+"^orange;//Glitch^reset;
+
+Many Glitch societies have strong brewing traditions with many brewers hailing from a long lineage of brewers. While limited to the techniques of the medieval eras, many Glitch breweries are renowned across the cosmos.
+
+Glitch liquors are hard hitting, with various forms of ale and beer being popular among the peasantry, and various forms of wines and liqueurs being often reserved for nobility.",
+
+"It's been a long standing rumor that some Glitch have modified themselves to be able to brew liquor within their own mechanical bodies. While evidence for this has been lacking, it still lingers on in the collective memory of the Glitch.",
+
+"^red;//Human^reset;
+
+With Humanity's diversity and long storied history of experimentation, there's no doubt that when it comes to drink variety there's no doubts about it. You can probably find a little bit of everything looking through the menu of a Human bar, regardless of which star nation.
+
+Of course, you may also find more experimental brews from the various alien flora they've gotten their hands on.",
+
+"^blue;//Hylotl^reset;
+
+The Hylotl are a unique case- being distinctly split between tradition and modernity. You can take a step between a space-age aquatic city bathed in neon and find yourself in a wood and shoji house.
+
+Naturally Hylotl drinks are split in a similar way- between traditional sakes with histories that can be traced back to the Hylotl's own feudal period to more modern drinks one can find in a common night bar.",
+
+"Generally speaking however, Hylotl liquors tend towards the lighter end- generally being brewed to emphasize flavor over getting drunk.
+
+With one expection: the Umiyoni, a self-described barbarian tribe of bandits, are renowned for concocting some of the strongest liquors short of the nigh-mythical Gargleblaster, including the fearsome Onikiller.",
+
+"^yellow;//Novakid^reset;
+
+While generally more preferential to the various forms of sodas, the Novakid are prone to concocting their own moonshine- or rather, Starshine.
+
+Novakid liquors tend to be hard hitting, with a preference for bourbons and sweetened liquors like rum. Since they rarely write down their recipes (and if they do, typically in bits and pieces across various paper scraps), Novakid drinks tend to fluctuate in taste."
+
+  ],
+    "itemConfig" : {
+    "rarity" : "Common",
+    "price" : 25
+  }
+}

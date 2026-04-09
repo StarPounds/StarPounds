@@ -1,0 +1,32 @@
+{
+  "metadata" : {
+    "name" : "starpounds_bar_encounter",
+    "species" : "generic",
+    "rules" : [
+    ],
+
+    "anchor" : [ "starpounds_apexbar1", "starpounds_apexbar2" ],
+
+    "gravity" : 80,
+    "maxRadius" : 1000000,
+    "maxParts" : 100,
+    "protected" : false
+  },
+
+  "parts" : [
+    {
+      "name" : "starpounds_apexbar1",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "starpounds_apexbar1.json" ]
+    },
+    {
+      "name" : "starpounds_apexbar2",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "starpounds_apexbar2.json" ]
+    }
+  ]
+}

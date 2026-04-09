@@ -1,0 +1,44 @@
+{
+  "id" : "starpoundsbrewingguide",
+  "title" : "The Homebrewer's Pocket Book",
+  "description" : "A guide to brewing liquors and craft sodas.",
+  "icon" : "starpoundsbrewingguide.png",
+  "contentPages" : [
+
+"Booze. Hooch. Liquor. The lifeblood of many cultures: from fancy wines to cheap moonshines the alcoholic arts have been a cornerstone of societies alongside food, music, and art.
+
+And in this enlightened age, why should only the big brewing companies of the galaxy be indulging in this? In recent years the homebrewing scene has exploded, and we here at Bronzepot Publishing desire to educate the masses on the time honored traditions of the brewing arts.",
+
+"^yellow;--Homebrewing Liquors--^reset;
+
+First you will require a still- either bought from a catalog, a hypernet store, or made by your own hands. Thanks to the wonders of modern science, you only need a fermenter and the flavorings of your choice.
+
+Conveniently, brewpods, due to being symbiotic hosts to many forms of alien yeasts, are the perfect fermenters for this!",
+	
+"^yellow;--Aging Liquors--^reset;
+
+Of course, while liquors can be drank fresh from the brewery, there is good reason to be patient: most liquors are improved by being left to age and ferment further.
+
+Liquors are best kept in a room temperature container- specialized aging casks are greatly recommended for it. Do not leave liquors in cold storage!",
+	
+"^yellow;--Craft Sodas--^reset;
+
+While this book is predominantly concerned with brewing liquor, craft sodas are also an option!
+
+Craft sodas can be made at a still as well, using distilled cane sugar to enhance flavor and the potency of the oncoming sugar rush. While the crash may sound like a risk, they will still have fairly potent effects!",
+	
+"^yellow;--Experiment!--^reset;
+
+Above all else, like most skills, the best way to improve at homebrewing is to practice and experiment. Sometimes you may think of new drinks from making others. Inspecting aged liquors may also spark some inspiration.
+
+And of course, always be willing to try and brew anything you can!
+
+Happy brewing!"
+
+
+  ],
+    "itemConfig" : {
+    "rarity" : "Common",
+    "price" : 25
+  }
+}
