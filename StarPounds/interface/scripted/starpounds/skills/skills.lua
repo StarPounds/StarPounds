@@ -1073,7 +1073,7 @@ end
 
 function setProgress(experience, level)
   local experienceConfig = starPounds.moduleFunc("experience", "config")
-  local progress = experience/(experienceConfig.experienceAmount * (1 + level * experienceConfig.experienceIncrement))
+  local progress = math.min(experience/(experienceConfig.experienceAmount * (1 + level * experienceConfig.experienceIncrement)), 1)
 
   experienceText:setText(string.format("%s XP", level))
   experienceBar:setFile(string.format("bar.png?crop;0;0;%s;14", math.floor(70 * (progress or 0) + 0.5)))
