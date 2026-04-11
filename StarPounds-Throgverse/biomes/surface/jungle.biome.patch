@@ -24,7 +24,7 @@
       "distribution" : "/biomes/starpoundsmicrodungeon.config:starpoundsraremicrodungeon",
 
       "type" : "microdungeon",
-      "microdungeons" : [ "gluttonistcookout" ]
+      "microdungeons" : [ "gluttonistcookout", "starpounds_bar_encounter" ]
     }
   }
 ]
