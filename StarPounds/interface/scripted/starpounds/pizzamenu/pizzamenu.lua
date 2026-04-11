@@ -23,7 +23,6 @@ function init()
 
   rareFees = {
     {id = "grace", name = "^#2862e9;« Cute Employee Fee", beaconColours = {splash = {{40, 98, 233, 196}}}, npcType = "starpoundspizzaapple", price = 250},
-    {id = "mam", name = "^#a5ee7d;$ Mam Stream Donation", beaconColours = {splash = {{165, 238, 125, 196}}}, extraItems = {starpoundsmammerchbox = 1}, price = 250},
     {id = "mini", name = "^yellow;^#c4855d; Deer Trainee", beaconColours = {splash = {{193, 133, 93, 196}}}, npcType = "starpoundspizzamini", npcData = {teleportVore = true}, price = -250}
   }
   local randomSeed = math.floor(os.time()/300)
