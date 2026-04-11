@@ -7,6 +7,8 @@ function magnet:init()
     self.updateSizeDelay = 2 -- Defer by 2 ticks in case they line up.
   end
 
+  self.activationTimer = self.data.activationTime
+
   self.width = 0
   self.queueSizeUpdate()
 
@@ -14,14 +16,18 @@ function magnet:init()
 end
 
 function magnet:update(dt)
+  self.activationTimer = starPounds.mcontroller.crouching and math.max(self.activationTimer - dt, 0) or self.data.activationTime
+
+  local enabled = self:enabled()
+  local active = self:active()
   -- Create magnet if it's enabled, and doesn't exist/is not in the process of being created.
-  if self:enabled() and not self:active() then
+  if enabled and not active then
     self:create()
-  elseif self:active() and not self:enabled() then -- Remove magnet if exists and it's not enabled.
+  elseif active and not enabled then -- Remove magnet if exists and it's not enabled.
     self:remove()
   end
   -- Update the range of the magnet.
-  if self:enabled() and self:active() then
+  if enabled and active then
     self:updateRange()
   end
   -- Update width.
@@ -50,8 +56,8 @@ function magnet:enabled()
   if not storage.starPounds.enabled then return false end
   -- Don't do anything inside morphballs.
   if status.stat("activeMovementAbilities") > 1 then return false end
-  -- Only works when crouched.
-  if not starPounds.mcontroller.crouching then return false end
+  -- Only works when crouched for activationTime.
+  if self.activationTimer ~= 0 then return false end
 
   local range = starPounds.getStat("magnetRange") * starPounds.moduleFunc("size", "effectScaling")
   return range > 0
