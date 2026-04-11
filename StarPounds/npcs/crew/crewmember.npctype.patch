@@ -38,27 +38,21 @@
   },
   {"op": "add", "path": "/scriptConfig/dialog/crewmember/follow/throg","value":{
     "default":[
-      "Finally, some action.",
+      "Finally, some action!",
       "Let's get to those meals then!",
       "Lead the way, captain.",
-      "I promise I won't eat all your supplies and have you and your crew starve.",
-      "I need some action in my life! I can't just stand around here all day any longer.",
-      "Obviously you need someone of my talents to improve the life on your ship.",
-      "Take me with you and I promise you won't regret it.",
-      "Just let me aboard and I'll make myself useful."
+      "Good, I was getting hungry.",
+      "With us, they'll never stand a chance."
       ]
     }
   },
   {"op": "add", "path": "/scriptConfig/dialog/crewmember/cantreach/throg","value":{
     "default":[
-      "You look like you could use a Throg in your crew, I'm overqualified.",
-      "Is there food on your ship? If so, I'll be the most useful member of your crew!",
-      "This place is a dump. There's no action, can you take me with you?",
-      "I promise I won't eat all your supplies and have you and your crew starve.",
-      "I need some action in my life! I can't just stand around here all day any longer.",
-      "Obviously you need someone of my talents to improve the life on your ship.",
-      "Take me with you and I promise you won't regret it.",
-      "Just let me aboard and I'll make myself useful."
+      "I can't reach you!",
+      "You're too far!",
+      "Hey, wait up!",
+      "Don't go too far!",
+      "Let me catch up!"
       ]
     }
   },
