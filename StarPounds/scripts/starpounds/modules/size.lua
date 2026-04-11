@@ -75,6 +75,14 @@ function size:update(dt)
       -- Play sound to indicate size change.
       starPounds.moduleFunc("sound", "play", "digest", 0.75, math.random(10,15) * 0.1 - storage.starPounds.weight/(self.sizeConfig.maxWeight * 2))
     end
+    -- Adjust position to center if going to/from a supersize.
+    if not starPounds.mcontroller.zeroG and self.oldSizeIndex then
+      local oldOffset = self.sizeConfig.sizes[(self.oldSizeIndex or 1)].yOffset or 0
+      local offset = (starPounds.currentSize.yOffset or 0) - oldOffset
+      if offset ~= 0 then
+        mcontroller.translate({0, -offset})
+      end
+    end
     -- Update status effect tracker.
     starPounds.moduleFunc("trackers", "clearStatuses")
     starPounds.moduleFunc("trackers", "createStatuses")
