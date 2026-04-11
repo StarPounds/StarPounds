@@ -20,11 +20,8 @@ function init()
     "Interstellar Toll", "Cheese Recovery", "Free Delivery Fee", "No Coupon Fee", "Blubberbutt Tribute"
   }
   randomFeeName = randomFeeNames[math.random(1, #randomFeeNames)]
+  rareFees = root.assetJson(metagui.path("rareFees.config"))
 
-  rareFees = {
-    {id = "grace", name = "^#2862e9;« Cute Employee Fee", beaconColours = {splash = {{40, 98, 233, 196}}}, npcType = "starpoundspizzaapple", price = 250},
-    {id = "mini", name = "^yellow;^#c4855d; Deer Trainee", beaconColours = {splash = {{193, 133, 93, 196}}}, npcType = "starpoundspizzamini", npcData = {teleportVore = true}, price = -250}
-  }
   local randomSeed = math.floor(os.time()/300)
 
   if sb.staticRandomDouble(randomSeed, string.format("rareFee.%s.%s", player.worldId(), starPounds and starPounds.lastOrdered or "")) < (25/100) then
