@@ -67,9 +67,11 @@ function effects:load(effect)
       self.effects[effect].data = storage.starPounds.effects.active[effect]
       self.effects[effect].config = copy(effectConfig.effectConfig)
       self.effects[effect]:moduleInit()
-
-      starPounds.modules[string.format("effect_%s", effect)] = self.effects[effect]
-      starPounds.modules[string.format("effect_%s", effect)]:setUpdateDelta(effectConfig.scriptDelta or 1)
+      -- In case an effect removes itself through a check on init.
+      if self.effects[effect] then
+        starPounds.modules[string.format("effect_%s", effect)] = self.effects[effect]
+        starPounds.modules[string.format("effect_%s", effect)]:setUpdateDelta(effectConfig.scriptDelta or 1)
+      end
     end
     -- Vanilla effect that tracks duration.
     if starPounds.type == "player" and effectConfig.proxyEffect then
