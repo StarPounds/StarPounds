@@ -1,5 +1,3 @@
-require "/scripts/messageutil.lua"
-
 function init()
   script.setUpdateDelta(5)
   self.progressStep = effect.getParameter("progressStep", 0.02)
@@ -17,8 +15,6 @@ function init()
 end
 
 function update(dt)
-  -- Check promises.
-  promises:update()
   if mcontroller.liquidPercentage() < self.minimumLiquid then return end
   if world.entityType(entity.id()) == "npc" or (starPounds and starPounds.isEnabled()) then
     wasActive = true
@@ -39,8 +35,12 @@ function update(dt)
       end)
       shuffle(filteredLiquids)
 
+      --chat.send(sb.print(filteredLiquids))
       for _, liquid in ipairs(filteredLiquids) do
-        consumedLiquid = math.floor((consumedLiquid + world.destroyLiquid(liquid[1])[2]) * 10 + 0.5)/10
+        local destroyedLiquid = world.destroyLiquid(liquid[1])
+        if destroyedLiquid then
+          consumedLiquid = consumedLiquid + destroyedLiquid[2]
+        end
         if consumedLiquid >= 1 then break end
       end
 
@@ -48,10 +48,15 @@ function update(dt)
         self.tickTime = math.max(self.tickTime - self.tickTimeStep, self.tickTimeMinimum)
         self.tickTimer = self.tickTime
 
-        promises:add(world.sendEntityMessage(entity.id(), "starPounds.getData"), function(starPounds)
-          increaseWeightProgress(starPounds.weight, self.progressStep * consumedLiquid)
-          world.sendEntityMessage(entity.id(), "starPounds.gainWeight", self.caloriumFat * consumedLiquid, true)
-        end)
+        local weightGain = self.caloriumFat * consumedLiquid
+
+        if starPounds and starPounds.isEnabled() then
+          starPounds.moduleFunc("size", "gainWeight", weightGain, true)
+          increaseWeightProgress(starPounds.moduleFunc("data", "get", "weight"), self.progressStep * consumedLiquid)
+        else
+          gained = world.callScriptedEntity(entity.id(), "starPounds.moduleFunc", "size", "gainWeight", weightGain, true)
+          increaseWeightProgress(world.callScriptedEntity(entity.id(), "starPounds.moduleFunc", "data", "get", "weight"), self.progressStep * consumedLiquid)
+        end
 
         animator.setSoundPitch("digest", 2/(1 + self.tickTime))
         animator.playSound("digest")

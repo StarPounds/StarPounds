@@ -22,7 +22,11 @@ function increaseWeightProgress(weight, step)
   local currentSize, currentSizeIndex = getSize(weight)
   local nextWeight = self.sizes[currentSizeIndex + 1] and self.sizes[currentSizeIndex + 1].weight or self.maxWeight
   local weightGain = math.floor(step * (nextWeight - self.sizes[currentSizeIndex].weight) + 0.5)
-  world.sendEntityMessage(entity.id(), "starPounds.gainWeight", weightGain, true)
+  if starPounds and starPounds.isEnabled() then
+    starPounds.moduleFunc("size", "gainWeight", weightGain, true)
+  else
+    gained = world.callScriptedEntity(entity.id(), "starPounds.moduleFunc", "size", "gainWeight", weightGain, true)
+  end
 end
 
 function decreaseWeightProgress(weight, step)
@@ -30,7 +34,11 @@ function decreaseWeightProgress(weight, step)
   local currentSize, currentSizeIndex = getSize(weight)
   local nextWeight = self.sizes[currentSizeIndex + 1] and self.sizes[currentSizeIndex + 1].weight or self.maxWeight
   local weightLoss = math.floor(step * (nextWeight - self.sizes[currentSizeIndex].weight) + 0.5)
-  world.sendEntityMessage(entity.id(), "starPounds.loseWeight", weightLoss, true)
+  if starPounds and starPounds.isEnabled() then
+    starPounds.moduleFunc("size", "loseWeight", weightLoss, true)
+  else
+    gained = world.callScriptedEntity(entity.id(), "starPounds.moduleFunc", "size", "loseWeight", weightLoss, true)
+  end
 end
 
 function getSize(weight)

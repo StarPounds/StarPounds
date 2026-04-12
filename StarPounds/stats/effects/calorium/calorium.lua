@@ -1,5 +1,3 @@
-require "/scripts/messageutil.lua"
-
 function init()
   script.setUpdateDelta(5)
   self.progressStep = effect.getParameter("progressStep", 0.02)
@@ -16,16 +14,17 @@ end
 function update(dt)
   if status.uniqueStatusEffectActive("caloriumliquid") then return end
   if world.entityType(entity.id()) == "npc" or (starPounds and starPounds.isEnabled()) then
-    -- Check promises.
-    promises:update()
+
     self.tickTimer = self.tickTimer - dt
     if self.tickTimer <= 0 then
       self.tickTime = math.max(self.tickTime - self.tickTimeStep, self.tickTimeMinimum)
       self.tickTimer = self.tickTime
 
-      promises:add(world.sendEntityMessage(entity.id(), "starPounds.getData"), function(starPounds)
-        increaseWeightProgress(starPounds.weight, self.progressStep)
-      end)
+      if starPounds and starPounds.isEnabled() then
+        increaseWeightProgress(starPounds.moduleFunc("data", "get", "weight"), self.progressStep)
+      else
+        increaseWeightProgress(world.callScriptedEntity(entity.id(), "starPounds.moduleFunc", "data", "get", "weight"), self.progressStep)
+      end
 
       animator.setSoundPitch("digest", 2/(1 + self.tickTime))
       animator.playSound("digest")
