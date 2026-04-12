@@ -5,18 +5,18 @@
   "description" : "A book describing a common occurance of fat Glitch and their existence.",
   "icon" : "htgfglitch.png",
   "contentPages" : [
-    "To those unfamiliar with Glitch, and that's incredibly common due to complications in how Glitch are assembled, it's easy to think it's weird that Glitch are capable of packing on weight. They are just robots after all, right?
+    // Page 1
+    "To those unfamiliar with Glitch - which is common given their construction - it may seem strange that Glitch are capable of gaining weight. After all, they're just robots, right?
 
-While true, Glitch are a bit more advanced in their design. With their primary function and directive being to simulate an evolving civilization, they can simulate a living organism in multiple ways. Such as needing air to breath, food and drink to survive, and storing fat.",
+In truth, Glitch are more advanced than typical machines. Their primary directive is to simulate an evolving civilization, so they mimic many traits of living organisms: breathing air, consuming food and drink, and storing fat.",
+    // Page 2
+    "The reason for this design goes beyond merely simulating life; artificial fat gives them reserve energy, helping them remain self-sustaining and long-lived.
 
-"Why Glitch are designed in such a way goes beyond the simple answer of simulating life but also gives them a means to be self sustainable and last forever. With artificial fat acting as reserve energy for them.
+Their simulated roles also play into it. Glitch that gain weight are often those of noble rank or \"noble oil\".",
+    // Page 3
+    "From kings and queens to princes, princesses, dukes, and duchesses, nobility are able to enjoy luxuries unavailable to lower classes, and may even unconsciously lean into indulgence.
 
-Though it does also lean into the roles of their simulation as well. As notable Glitch that would end up gaining weight would be those that are of more noble blood, or noble oil.",
-
-"From Kings and Queens, to princes and princess', to dukes and duchess'. Even the lower end of nobility, all are capable of enjoying luxury those of a lower class aren't able to. They may even unconsciously lean into gaining weight.
-
-As a part of their protocols, Glitch still under control of their protocols do not have free will like those free of their programming. And fat, pompous nobility indulging in their gluttony adds to the role they are forced to play."
-
+Because Glitch remain bound by their protocols rather than free will, any fat, pompous nobility they display becomes part of the role their programming forces them to perform."
   ],
     "itemConfig" : {
     "rarity" : "uncommon",
