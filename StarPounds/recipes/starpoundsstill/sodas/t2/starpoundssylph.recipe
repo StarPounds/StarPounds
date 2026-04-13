@@ -1,6 +1,6 @@
 {
   "input" : [
-    { "item" : "starpounds_carbonatedwater", "count" : 1 },
+    { "item" : "starpoundscarbonatedwater", "count" : 1 },
     { "item" : "sugar", "count" : 1 },
     { "item" : "petalblue", "count" : 4 },
     { "item" : "petalyellow", "count" : 4 }

@@ -2,6 +2,6 @@
   "input" : [
     { "item" : "bottledwater", "count" : 1 }
   ],
-  "output" : { "item" : "starpounds_carbonatedwater", "count" : 1 },
+  "output" : { "item" : "starpoundscarbonatedwater", "count" : 1 },
   "groups" : [ "starpoundscarbonation" ]
 }
