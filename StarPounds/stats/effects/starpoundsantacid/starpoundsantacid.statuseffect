@@ -1,0 +1,10 @@
+{
+  "name": "starpoundsantacid",
+  "effectConfig" : {
+    "removeEffects" : ["foodpoison"]
+  },
+  "scripts": [
+    "starpoundsantacid.lua"
+  ],
+  "defaultDuration": 1
+}

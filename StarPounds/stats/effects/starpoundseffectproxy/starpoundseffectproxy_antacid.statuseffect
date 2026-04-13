@@ -1,0 +1,13 @@
+{
+  "name": "starpoundseffectproxy_antacid",
+  "defaultDuration": 1,
+  "effectConfig": {
+    "effect" : "antacid"
+  },
+  "scripts": [
+    "starpoundseffectproxy.lua"
+  ],
+
+  "label" : "Antacids",
+  "icon" : "/interface/scripted/starpounds/effects/icons/effects/antacid.png"
+}

@@ -1,0 +1,13 @@
+{
+  "itemName" : "starpoundsantacid",
+  "price" : 5,
+  "rarity" : "common",
+  "category" : "medicine",
+  "inventoryIcon" : "starpoundsantacid.png",
+  "description" : "A common medicine used to relieve an upset stomach or indigestion.",
+  "shortdescription" : "Antacid",
+  "maxStack" : 1000,
+  "effects": [[ "starpoundsantacid" ]],
+  "emote" : "",
+  "emitters" : [ "drinking" ]
+}

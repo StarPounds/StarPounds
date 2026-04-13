@@ -147,7 +147,7 @@ end
 
 function effects:get(effect)
   -- Return empty if the mod is disabled.
-  --if not storage.starPounds.enabled then return end
+  if not storage.starPounds.enabled then return end
   -- Argument sanitisation.
   effect = tostring(effect)
   return storage.starPounds.effects.active[effect]

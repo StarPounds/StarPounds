@@ -1,0 +1,7 @@
+{
+  "input" : [
+    { "item" : "limestone", "count" : 10 }
+  ],
+  "output" : { "item" : "starpoundsantacid", "count" : 1 },
+  "groups" : [ "craftingmedical", "healing" ]
+}

@@ -25,8 +25,9 @@ end
 
 function bloatCola:update(dt)
   -- Decrease fizz amount and sound volume as it runs out.
+  local antacidMultiplier = self:antacidMultiplier()
   self.fizzMultiplier = util.clamp(self.data.duration/self.baseDuration, 0.25, 1)
-  self.volumeMultiplier = (self.fizzMultiplier + 1) * 0.5
+  self.volumeMultiplier = math.min((self.fizzMultiplier + 1) * antacidMultiplier * 0.5, 1)
   -- Update the sound volume after the first update.
   if self.firstUpdate then
     starPounds.moduleFunc("sound", "setVolume", "fizzloop", self.fizzVolume * self.volumeMultiplier, dt)
@@ -41,7 +42,13 @@ function bloatCola:update(dt)
     self.expiring = true
     starPounds.moduleFunc("sound", "setVolume", "fizzloop", 0, 1)
   end
-  starPounds.moduleFunc("stomach", "feed", self.airAmount * self.fizzMultiplier * dt, "air")
+  starPounds.moduleFunc("stomach", "feed", self.airAmount * self.fizzMultiplier * dt * antacidMultiplier, "air")
+
+  if antacidMultiplier > 1 then
+    local duration = dt * (antacidMultiplier - 1)
+    self.data.duration = math.max(self.data.duration - duration, 0)
+    starPounds.moduleFunc("effect_antacid", "reduceDuration", duration)
+  end
 end
 
 function bloatCola:expire()
@@ -54,9 +61,20 @@ function bloatCola:uninit()
   starPounds.events:off("player:landing", self.onSlosh)
 end
 
+function bloatCola:antacidMultiplier()
+  local antacid = starPounds.moduleFunc("effects", "get", "antacid")
+  if antacid then
+    local antacidLevel = math.min(antacid.level, #self.config.antacidMultiplier)
+    return self.config.antacidMultiplier[antacidLevel]
+  end
+  return 1
+end
+
 function bloatCola:shake(duration)
   -- Remove duration for double the air.
+  local duration = duration * self:antacidMultiplier()
   self.data.duration = math.max(self.data.duration - duration, 0)
+  starPounds.moduleFunc("effect_antacid", "reduceDuration", duration)
   starPounds.moduleFunc("stomach", "feed", duration * self.airAmount * self.fizzMultiplier * 2, "air")
   starPounds.moduleFunc("stomach", "rumble", self.volumeMultiplier)
 end
