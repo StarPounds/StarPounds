@@ -9,6 +9,8 @@ function init()
   self.liquids = root.assetJson("/scripts/starpounds/modules/liquid.config:liquids")
   self.pickupBounds = rect.pad(object.boundBox(), -1)
 
+  self.feedAmount = 0 -- Tracker for when to apply the diluted effect.
+
   self.statusBlacklist = {
     "wet", "swimming", "slimeslow", "tarslow",
     "starpoundschocolateslow", "starpoundshoneyslow", "caloriumliquid"
@@ -44,6 +46,7 @@ function update(dt)
   if self.feedTarget and not self.startedLounging then
     if not world.loungeableOccupied(entity.id()) then
       self.feedTarget = nil
+      self.feedAmount = 0
     end
   else
     self.startedLounging = false
@@ -78,6 +81,12 @@ function update(dt)
         animator.setAnimationState("feedState", "feeding")
         -- Set the amount/speed again in case the skill changes.
         setDrinkSpeed()
+
+        self.feedAmount = self.feedAmount + amount
+        if self.feedAmount >= 10 then
+          world.sendEntityMessage(self.feedTarget, "starPounds.addEffect", "feedingTube", 10)
+          self.feedAmount = self.feedAmount - 10
+        end
       end
     else
       -- Make NPCs hop off when empty.
@@ -114,6 +123,7 @@ end
 function onInteraction(args)
   if not world.loungeableOccupied(entity.id()) then
     self.feedTarget = args.sourceId
+    self.feedAmount = 0
     self.startedLounging = true
     animator.setAnimationRate(1)
     setDrinkSpeed()
