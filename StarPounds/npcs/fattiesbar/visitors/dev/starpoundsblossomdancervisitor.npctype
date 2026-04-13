@@ -3,6 +3,12 @@
   "baseType" : "fattiesbarvisitor",
   "displayTitle" : "StarPounds Dungeon Master",
 
+  "scripts" : [
+    "/npcs/bmain.lua",
+    "/scripts/starpounds/loaders/npc.lua",
+    "/scripts/starpounds_statusText.lua"
+  ],
+
   "scriptConfig" : {
     "initialStorage": {
       "homePosition": [0,0]
