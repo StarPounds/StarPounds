@@ -1,10 +1,10 @@
 local sound = starPounds.module:new("sound")
 
 function sound:init()
-  message.setHandler("starPounds.playSound", function(_, _, ...) return self:play(...) end)
-  message.setHandler("starPounds.stopSound", function(_, _, ...) return self:stop(...) end)
-  message.setHandler("starPounds.setSoundVolume", function(_, _, ...) return self:setVolume(...) end)
-  message.setHandler("starPounds.setSoundPitch", function(_, _, ...) return self:setPitch(...) end)
+  message.setHandler("starPounds.sound.play", function(_, _, ...) return self:play(...) end)
+  message.setHandler("starPounds.sound.stop", function(_, _, ...) return self:stop(...) end)
+  message.setHandler("starPounds.sound.setVolume", function(_, _, ...) return self:setVolume(...) end)
+  message.setHandler("starPounds.sound.setPitch", function(_, _, ...) return self:setPitch(...) end)
 
   if storage.starPounds.enabled then
     status.addEphemeralEffect("starpoundssoundhandler")

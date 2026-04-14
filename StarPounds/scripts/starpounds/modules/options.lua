@@ -1,8 +1,8 @@
 local options = starPounds.module:new("options")
 
 function options:init()
-  message.setHandler("starPounds.hasOption", simpleHandler(starPounds.hasOption))
-  message.setHandler("starPounds.setOption", localHandler(starPounds.setOption))
+  message.setHandler("starPounds.options.has", simpleHandler(starPounds.hasOption))
+  message.setHandler("starPounds.options.set", localHandler(starPounds.setOption))
 
   self.globalOptions = {}
   for _, option in ipairs(self.data.globalOptions) do

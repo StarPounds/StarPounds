@@ -1,7 +1,7 @@
 require "/scripts/messageutil.lua"
 
 function init()
-  message.setHandler("starPounds.expire", localHandler(effect.expire))
+  message.setHandler("starPounds.expireEffects", localHandler(effect.expire))
   message.setHandler("starPounds.expireSizeTracker", localHandler(effect.expire))
   self.fillRange = effect.getParameter("fillRange", {1, 16})
   self.scale = ( self.fillRange[2] - (self.fillRange[1] - 1) ) / 16

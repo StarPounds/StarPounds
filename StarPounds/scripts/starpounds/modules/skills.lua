@@ -1,9 +1,9 @@
 local skills = starPounds.module:new("skills")
 
 function skills:init()
-  message.setHandler("starPounds.upgradeSkill", function(_, _, ...) return self:upgrade(...) end)
-  message.setHandler("starPounds.getSkillLevel", function(_, _, ...) return self:level(...) end)
-  message.setHandler("starPounds.hasSkill", function(_, _, ...) return self:has(...) end)
+  message.setHandler("starPounds.skills.upgrades", function(_, _, ...) return self:upgrade(...) end)
+  message.setHandler("starPounds.skills.level", function(_, _, ...) return self:level(...) end)
+  message.setHandler("starPounds.skills.has", function(_, _, ...) return self:has(...) end)
 
   self:parse()
 end

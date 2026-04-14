@@ -1,7 +1,7 @@
 local experience = starPounds.module:new("experience")
 
 function experience:init()
-  message.setHandler("starPounds.addExperience", function(_, _, ...) return self:add(...) end)
+  message.setHandler("starPounds.experience.add", function(_, _, ...) return self:add(...) end)
 
   self:add(0)
 

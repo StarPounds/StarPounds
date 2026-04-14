@@ -6,7 +6,7 @@ function init()
   message.setHandler("starPounds.handler_setSoundVolume", localHandler(animator.setSoundVolume))
   message.setHandler("starPounds.handler_setSoundPitch", localHandler(animator.setSoundPitch))
   message.setHandler("starPounds.handler_setSoundPool", localHandler(animator.setSoundPool))
-  message.setHandler("starPounds.expire", localHandler(effect.expire))
+  message.setHandler("starPounds.expireEffects", localHandler(effect.expire))
 end
 
 function update(dt)

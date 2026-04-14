@@ -34,16 +34,16 @@ end
 function onInteraction(args)
   -- Don't allow if they're on cooldown.
   if self.eatDelayTracker[args.sourceId] then return end
-  promises:add(world.sendEntityMessage(args.sourceId, "starPounds.canEat"), function(canEat)
+  promises:add(world.sendEntityMessage(args.sourceId, "starPounds.stomach.canEat"), function(canEat)
     if not canEat then return end
 
     animator.burstParticleEmitter("bite")
     animator.playSound("bite")
 
-    world.sendEntityMessage(args.sourceId, "starPounds.feed", self.food, "hugeFood")
-    world.sendEntityMessage(args.sourceId, "starPounds.feed", self.fat, "fatFood")
-    world.sendEntityMessage(args.sourceId, "starPounds.feed", self.bonusExperience, "bonusExperience")
-    world.sendEntityMessage(args.sourceId, "starPounds.playSound", "swallow", 0.75)
+    world.sendEntityMessage(args.sourceId, "starPounds.stomach.feed", self.food, "hugeFood")
+    world.sendEntityMessage(args.sourceId, "starPounds.stomach.feed", self.fat, "fatFood")
+    world.sendEntityMessage(args.sourceId, "starPounds.stomach.feed", self.bonusExperience, "bonusExperience")
+    world.sendEntityMessage(args.sourceId, "starPounds.sound.play", "swallow", 0.75)
 
     setEatDelay(args.sourceId)
 

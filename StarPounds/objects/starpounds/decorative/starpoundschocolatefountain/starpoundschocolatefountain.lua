@@ -30,7 +30,7 @@ end
 
 function use(args)
   if storage.active then
-    promises:add(world.sendEntityMessage(args.sourceId, "starPounds.feed", 50, "liquid"), function()
+    promises:add(world.sendEntityMessage(args.sourceId, "starPounds.stomach.feed", 50, "liquid"), function()
       animator.playSound("use")
       deactivate()
     end)

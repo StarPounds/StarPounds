@@ -1,7 +1,7 @@
 require"/scripts/messageutil.lua"
 
 function init()
-  message.setHandler("starPounds.expire", localHandler(effect.expire))
+  message.setHandler("starPounds.expireEffects", localHandler(effect.expire))
   self.mainStatGroup = effect.addStatModifierGroup({
     {stat = "invisible", amount = 1},
     {stat = "invulnerable", amount = 1},

@@ -11,7 +11,7 @@ function update(dt)
   border = 64 + math.floor(math.sin(os.clock()*15)*64 + 0.5)
   effect.setParentDirectives("?saturation=-25?brightness=15?multiply=EEFFBB?fade=EEFFBB;0.2?border=2;EEFFBB"..hexConverter(border)..";DDFF9900")
   -- Lose 50lb/sec
-  world.sendEntityMessage(entity.id(), "starPounds.loseWeight", 50 * dt)
+  world.sendEntityMessage(entity.id(), "starPounds.size.loseWeight", 50 * dt)
 end
 
 function uninit()

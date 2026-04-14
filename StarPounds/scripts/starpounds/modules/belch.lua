@@ -1,7 +1,7 @@
 local belch = starPounds.module:new("belch")
 
 function belch:init()
-  message.setHandler("starPounds.belch", function(_, _, ...) return self:belch(...) end)
+  message.setHandler("starPounds.belch.belch", function(_, _, ...) return self:belch(...) end)
 end
 
 function belch:belch(volume, pitch, addMomentum)

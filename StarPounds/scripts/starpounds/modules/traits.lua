@@ -1,9 +1,9 @@
 local traits = starPounds.module:new("traits")
 
 function traits:init()
-  message.setHandler("starPounds.getTraits", function(_, _, ...) return self:get(...) end)
-  message.setHandler("starPounds.hasTrait", function(_, _, ...) return self:has(...) end)
-  message.setHandler("starPounds.addTrait", function(_, _, ...) return self:add(...) end)
+  message.setHandler("starPounds.traits.get", function(_, _, ...) return self:get(...) end)
+  message.setHandler("starPounds.traits.has", function(_, _, ...) return self:has(...) end)
+  message.setHandler("starPounds.traits.add", function(_, _, ...) return self:add(...) end)
   -- This is stupid, but prevents 'null' data being saved.
   getmetatable(storage.starPounds.traits.active).__nils = {}
   getmetatable(storage.starPounds.traits.available).__nils = {}

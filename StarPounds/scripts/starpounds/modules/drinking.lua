@@ -1,7 +1,7 @@
 local drinking = starPounds.module:new("drinking")
 
 function drinking:init()
-  message.setHandler("starPounds.spawnDrinkingParticles", function(_, _, ...) return self:spawnParticles(...) end)
+  message.setHandler("starPounds.drinking.spawnParticles", function(_, _, ...) return self:spawnParticles(...) end)
 
   self.drinkTimer = 0
   self.drinkCounter = 0

@@ -14,8 +14,8 @@ function init()
     end,
     -- Gain bloat
     gainBloat = function()
-      world.sendEntityMessage(targetId, "starPounds.feed", 50 + math.random(0, 150), "bloat")
-      world.sendEntityMessage(targetId, "starPounds.playSound", "digest", 0.75)
+      world.sendEntityMessage(targetId, "starPounds.stomach.feed", 50 + math.random(0, 150), "bloat")
+      world.sendEntityMessage(targetId, "starPounds.sound.play", "digest", 0.75)
       deactivate()
       animator.playSound("use")
     end,

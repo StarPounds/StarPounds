@@ -11,7 +11,7 @@ function init()
         args.dialogType = "dialog.bless"
         -- Bless them.
         starPounds_hasInteracted[args.entity] = os.time()
-        world.sendEntityMessage(args.entity, "starPounds.addEffect", "alipos")
+        world.sendEntityMessage(args.entity, "starPounds.effects.add", "alipos")
       end
     end
     -- Do old stuff.

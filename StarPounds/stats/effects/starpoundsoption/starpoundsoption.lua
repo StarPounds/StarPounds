@@ -9,7 +9,7 @@ function init()
   local optionList = effect.getParameter("options")
   selectedOption = optionList[math.ceil(effect.duration())]
   if selectedOption then
-    promises:add(world.sendEntityMessage(entityId, "starPounds.getData", "options"), function(entityOptions)
+    promises:add(world.sendEntityMessage(entityId, "starPounds.data.get", "options"), function(entityOptions)
       if selectedOption.children then
         local currentIndex = 0
         for i, optionName in ipairs(selectedOption.children) do
@@ -31,10 +31,10 @@ function init()
         end
       end
       -- Set the option.                                                    I hate it.
-      world.sendEntityMessage(entityId, "starPounds.setOption", option.name, not not selectedOption.value)
+      world.sendEntityMessage(entityId, "starPounds.options.set", option.name, not not selectedOption.value)
       if selectedOption.value then
         for _, v in ipairs(disableOptions) do
-          world.sendEntityMessage(entityId, "starPounds.setOption", v, false)
+          world.sendEntityMessage(entityId, "starPounds.options.set", v, false)
         end
       end
       effect.expire()

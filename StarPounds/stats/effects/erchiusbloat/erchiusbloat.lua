@@ -27,7 +27,7 @@ function update(dt)
 
       local multiply = {255 + self.multiply[1] * self.bloatAmount * 0.01, 255 + self.multiply[2] * self.bloatAmount * 0.01, 255 + self.multiply[3] * self.bloatAmount * 0.01}
       local multiplyHex = string.format("%s%s%s", toHex(multiply[1]), toHex(multiply[2]), toHex(multiply[3]))
-      world.sendEntityMessage(entity.id(), "starPounds.feed", self.bloatAmount, "bloat")
+      world.sendEntityMessage(entity.id(), "starPounds.stomach.feed", self.bloatAmount, "bloat")
       effect.setParentDirectives(string.format("?saturation=%d?multiply=%s", self.saturation, multiplyHex))
       if playedSound then
         animator.setSoundVolume("geiger", self.soundVolume * (self.bloatAmount/self.bloatCap))

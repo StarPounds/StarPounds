@@ -5,7 +5,7 @@ function update(dt)
 end
 
 function onInteraction(args)
-  promises:add(world.sendEntityMessage(args.sourceId, "starPounds.getData"), function(data)
+  promises:add(world.sendEntityMessage(args.sourceId, "starPounds.data.get"), function(data)
     local weightMult = 1
     local weightUnit = "kg"
     local isPounds = data.options and data.options.useImperial

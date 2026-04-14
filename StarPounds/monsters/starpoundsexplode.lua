@@ -41,9 +41,9 @@ function starPoundsExplode()
       end
 
       starPounds.explodeDelay = 0.15
-      world.sendEntityMessage(storage.starPounds.pred, "starPounds.feed", power, "air")
-      world.sendEntityMessage(storage.starPounds.pred, "starPounds.playSound", "slosh", 1, 0.75)
-      world.sendEntityMessage(storage.starPounds.pred, "starPounds.playSound", "digest", 1, 0.75)
+      world.sendEntityMessage(storage.starPounds.pred, "starPounds.stomach.feed", power, "air")
+      world.sendEntityMessage(storage.starPounds.pred, "starPounds.sound.play", "slosh", 1, 0.75)
+      world.sendEntityMessage(storage.starPounds.pred, "starPounds.sound.play", "digest", 1, 0.75)
       world.spawnProjectile("invisibleprojectile", mcontroller.position(), entity.id(), {0,0}, true, {
         damageKind = "hidden",
         universalDamage = false,

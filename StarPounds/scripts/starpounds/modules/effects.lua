@@ -1,11 +1,11 @@
 local effects = starPounds.module:new("effects")
 
 function effects:init()
-  message.setHandler("starPounds.addEffect", function(_, _, ...) return self:add(...) end)
-  message.setHandler("starPounds.removeEffect", function(_, _, ...) return self:remove(...) end)
-  message.setHandler("starPounds.getEffect", function(_, _, ...) return self:get(...) end)
-  message.setHandler("starPounds.hasDiscoveredEffect", function(_, _, ...) return self:hasDiscovered(...) end)
-  message.setHandler("starPounds.resetEffects", localHandler(self.reset))
+  message.setHandler("starPounds.effects.add", function(_, _, ...) return self:add(...) end)
+  message.setHandler("starPounds.effects.remove", function(_, _, ...) return self:remove(...) end)
+  message.setHandler("starPounds.effects.get", function(_, _, ...) return self:get(...) end)
+  message.setHandler("starPounds.effects.hasDiscovered", function(_, _, ...) return self:hasDiscovered(...) end)
+  message.setHandler("starPounds.effects.reset", localHandler(self.reset))
 
   self.effects = {}
   self.loaded = false

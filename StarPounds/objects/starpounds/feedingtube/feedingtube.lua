@@ -60,7 +60,7 @@ function update(dt)
         storage.amount = math.max(0, storage.amount - amount)
         -- Give food.
         for foodType, foodAmount in pairs((self.liquids[storage.liquid.name] or self.liquids.default).food) do
-          world.sendEntityMessage(self.feedTarget, "starPounds.feed", foodAmount * amount, foodType)
+          world.sendEntityMessage(self.feedTarget, "starPounds.stomach.feed", foodAmount * amount, foodType)
         end
         -- Give status effects.
         for _, statusEffect in pairs(storage.liquid.statusEffects) do
@@ -69,10 +69,10 @@ function update(dt)
           end
         end
         -- Prevent belches, and spawn drinking particles.
-        world.sendEntityMessage(self.feedTarget, "starPounds.spawnDrinkingParticles", storage.liquid.name)
+        world.sendEntityMessage(self.feedTarget, "starPounds.drinking.spawnParticles", storage.liquid.name)
         world.sendEntityMessage(self.feedTarget, "applyStatusEffect", "starpoundsdrinking")
         -- Swallow sound.
-        world.sendEntityMessage(self.feedTarget, "starPounds.playSound", "swallow", math.min(0.3 + 0.06 * amount, 0.6)) -- 30% -> 60% volume.
+        world.sendEntityMessage(self.feedTarget, "starPounds.sound.play", "swallow", math.min(0.3 + 0.06 * amount, 0.6)) -- 30% -> 60% volume.
         -- Play sound. Pitch decreases by 7.5% per liquid amount, volume increases by 7.5%.
         animator.setSoundVolume("drink", math.min(1 + 0.075 * (amount - 1), 1.3)) -- 100% -> 130% volume.
         animator.setSoundPitch("drink", math.max(1 - 0.075 * (amount - 1), 0.7)) -- 100% -> 70% pitch.
@@ -84,7 +84,7 @@ function update(dt)
 
         self.feedAmount = self.feedAmount + amount
         if self.feedAmount >= 10 then
-          world.sendEntityMessage(self.feedTarget, "starPounds.addEffect", "feedingTube", 10)
+          world.sendEntityMessage(self.feedTarget, "starPounds.effects.add", "feedingTube", 10)
           self.feedAmount = self.feedAmount - 10
         end
       end
@@ -187,7 +187,7 @@ end
 function setDrinkSpeed()
   self.liquidAmount = 1
   if self.feedTarget then
-    promises:add(world.sendEntityMessage(self.feedTarget, "starPounds.getStat", "drinkStrength"), function(level)
+    promises:add(world.sendEntityMessage(self.feedTarget, "starPounds.stats.get", "drinkStrength"), function(level)
       self.liquidAmount = math.max(level, 1)
       animator.setAnimationRate(1 + (level - 1) * 0.125)
     end)

@@ -21,7 +21,7 @@ end
 
 function starPoundsCheck()
   -- Check if we have the prevention skill.
-  promises:add(world.sendEntityMessage(entity.id(), "starPounds.hasSkill", "foodPoisonImmunity"), function(hasSkill)
+  promises:add(world.sendEntityMessage(entity.id(), "starPounds.skills.has", "foodPoisonImmunity"), function(hasSkill)
     if hasSkill then effect.expire() end
   end)
 end

@@ -1,7 +1,7 @@
 local data = starPounds.module:new("data")
 
 function data:init()
-  message.setHandler("starPounds.getData", function(_, _, ...) return self:get(...) end)
+  message.setHandler("starPounds.data.get", function(_, _, ...) return self:get(...) end)
   self:load()
 end
 

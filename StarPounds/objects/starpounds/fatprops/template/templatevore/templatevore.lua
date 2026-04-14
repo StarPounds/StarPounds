@@ -227,7 +227,7 @@ starPounds = {
   end,
 
   messageHandlers = function()
-    message.setHandler("starPounds.digest", simpleHandler(starPounds.digest))
+    message.setHandler("starPounds.stomach.digest", simpleHandler(starPounds.digest))
     -- Ditto but vore.
     message.setHandler("starPounds.pred.eat", simpleHandler(starPounds.eatEntity))
     message.setHandler("starPounds.pred.hasPrey", simpleHandler(starPounds.hasPrey))
@@ -235,7 +235,7 @@ starPounds = {
     message.setHandler("starPounds.pred.struggle", simpleHandler(starPounds.preyStruggle))
     message.setHandler("starPounds.pred.release", simpleHandler(starPounds.releaseEntity))
     -- sounds
-    message.setHandler("starPounds.playSound", simpleHandler(playSound))
+    message.setHandler("starPounds.sound.play", simpleHandler(playSound))
   end
 }
 

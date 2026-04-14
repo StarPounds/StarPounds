@@ -1,7 +1,7 @@
 local accessories = starPounds.module:new("accessories")
 
 function accessories:init()
-  message.setHandler("starPounds.getAccessory", function(_, _, ...) return self:get(...) end)
+  message.setHandler("starPounds.accessories.get", function(_, _, ...) return self:get(...) end)
 end
 
 function accessories:get(liq)

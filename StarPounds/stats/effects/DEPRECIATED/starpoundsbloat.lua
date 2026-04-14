@@ -1,6 +1,6 @@
 function init()
   if effect.duration() > 0 then
-    world.sendEntityMessage(entity.id(), "starPounds.feed", effect.duration(), "bloat")
+    world.sendEntityMessage(entity.id(), "starPounds.stomach.feed", effect.duration(), "bloat")
   end
   world.sendEntityMessage(entity.id(), "queueRadioMessage", {
     messageId = "bloatWarning",

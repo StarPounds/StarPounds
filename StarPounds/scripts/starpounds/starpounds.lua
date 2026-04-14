@@ -221,7 +221,7 @@ starPounds.toggleEnable = function()
     starPounds.moduleUninit()
     starPounds.movementMultiplier = 1
     starPounds.jumpMultiplier = 1
-    world.sendEntityMessage(starPounds.entityId, "starPounds.expire")
+    world.sendEntityMessage(starPounds.entityId, "starPounds.expireEffects")
     status.clearPersistentEffects("starpounds")
     status.clearPersistentEffects("starpoundsstrained")
     status.clearPersistentEffects("starpoundseaten")

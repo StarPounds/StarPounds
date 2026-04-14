@@ -36,7 +36,7 @@ function update(dt)
 
     if effectTimer == 0 then
       effectTimer = 10
-      world.sendEntityMessage(entity.id(), "starPounds.addEffect", "treadmill")
+      world.sendEntityMessage(entity.id(), "starPounds.effects.add", "treadmill")
     end
   end
 end

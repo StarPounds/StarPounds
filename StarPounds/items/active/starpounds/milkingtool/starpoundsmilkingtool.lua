@@ -28,7 +28,7 @@ function update(dt, fireMode, shiftHeld)
   self.active = false
 
   if storage.firing and animator.animationState("firing") == "off" then
-    promises:add(world.sendEntityMessage(activeItem.ownerEntityId(), "starPounds.getBreasts"), function(breasts)
+    promises:add(world.sendEntityMessage(activeItem.ownerEntityId(), "starPounds.breasts.get"), function(breasts)
       local liquidConfig = root.liquidConfig(breasts.type).config
       promises:add(world.sendEntityMessage(activeItem.ownerEntityId(), "starPounds.loseMilk", 10), function(amount)
         if player and liquidConfig.itemDrop then

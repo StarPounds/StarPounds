@@ -12,7 +12,7 @@ function breasts:init()
     fullness = 0
   }
 
-  message.setHandler("starPounds.getBreasts", function(_, _, ...) return self:get(...) end)
+  message.setHandler("starPounds.breasts.get", function(_, _, ...) return self:get(...) end)
   message.setHandler("starPounds.setMilkType", function(_, _, ...) return self:setMilkType(...) end)
   message.setHandler("starPounds.setMilk", function(_, _, ...) return self:setMilk(...) end)
   message.setHandler("starPounds.gainMilk", function(_, _, ...) return self:gainMilk(...) end)

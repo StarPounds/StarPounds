@@ -7,7 +7,7 @@ function update(dt)
     speedModifier = 0.5,
     airJumpModifier = 0.5
   })
-  world.sendEntityMessage(entity.id(), "starPounds.gainWeight", 50 * dt)
+  world.sendEntityMessage(entity.id(), "starPounds.size.gainWeight", 50 * dt)
 end
 
 function uninit()

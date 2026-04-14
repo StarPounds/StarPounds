@@ -1,7 +1,7 @@
 require "/scripts/messageutil.lua"
 
 function init()
-  message.setHandler("starPounds.expire", localHandler(effect.expire))
+  message.setHandler("starPounds.expireEffects", localHandler(effect.expire))
   self.range = effect.getParameter("range", {0, 1})
   self.maxRangeExpire = effect.getParameter("maxRangeExpire", true)
   self.fillRange = effect.getParameter("fillRange", {1, 16})

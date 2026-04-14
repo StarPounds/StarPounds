@@ -1,7 +1,7 @@
 local stats = starPounds.module:new("stats")
 
 function stats:init()
-  message.setHandler("starPounds.getStat", function(_, _, ...) return self:get(...) end)
+  message.setHandler("starPounds.stats.get", function(_, _, ...) return self:get(...) end)
 
   self.cache = {}
 

@@ -4,7 +4,7 @@ function init()
   local level = math.max(effect.getParameter("level", 1), 1)
 
   if effectType and (duration > 0) then
-    world.sendEntityMessage(entity.id(), "starPounds.addEffect", effectType, duration, level)
+    world.sendEntityMessage(entity.id(), "starPounds.effects.add", effectType, duration, level)
   end
 end
 

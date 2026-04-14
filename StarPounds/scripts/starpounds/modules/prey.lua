@@ -464,13 +464,13 @@ function prey:digested()
   world.sendEntityMessage(storage.starPounds.pred, "starPounds.pred.digestPrey", starPounds.entityId, self:createDrops(self.options.items), storage.starPounds.stomachEntities)
   -- Transfer over stomach contents.
   for foodType, amount in pairs(storage.starPounds.stomach) do
-    world.sendEntityMessage(storage.starPounds.pred, "starPounds.feed", amount, foodType)
+    world.sendEntityMessage(storage.starPounds.pred, "starPounds.stomach.feed", amount, foodType)
   end
   -- Transfer over breast contents.
   local breastContents = starPounds.moduleFunc("breasts", "get")
   if breastContents then
     for foodType, amount in pairs(starPounds.moduleFunc("liquid", "get", breastContents.type).food) do
-      world.sendEntityMessage(storage.starPounds.pred, "starPounds.feed", breastContents.contents * amount, foodType)
+      world.sendEntityMessage(storage.starPounds.pred, "starPounds.stomach.feed", breastContents.contents * amount, foodType)
     end
   end
   -- Player stuff.

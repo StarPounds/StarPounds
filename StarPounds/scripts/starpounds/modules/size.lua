@@ -1,17 +1,17 @@
 local size = starPounds.module:new("size")
 
 function size:init()
-  message.setHandler("starPounds.gainWeight", function(_, _, ...) return self:gainWeight(...) end)
-  message.setHandler("starPounds.loseWeight", function(_, _, ...) return self:loseWeight(...) end)
-  message.setHandler("starPounds.setWeight", function(_, _, ...) return self:setWeight(...) end)
-  message.setHandler("starPounds.setSize", function(_, _, ...) return self:setSize(...) end)
-  message.setHandler("starPounds.offsetSize", function(_, _, ...) return self:offsetSize(...) end)
-  message.setHandler("starPounds.getSize", function(_, _, ...) return self:get(...) end)
-  message.setHandler("starPounds.sizes", function(_, _, ...) return self:sizes(...) end)
-  message.setHandler("starPounds.sizeConfig", function(_, _, ...) return self:config(...) end)
-  message.setHandler("starPounds.maximumWeight", function(_, _, ...) return self:maximumWeight(...) end)
-  message.setHandler("starPounds.getChestVariant", function(_, _, ...) return self:getVariant(...) end)
-  message.setHandler("starPounds.resetWeight", localHandler(self.reset))
+  message.setHandler("starPounds.size.gainWeight", function(_, _, ...) return self:gainWeight(...) end)
+  message.setHandler("starPounds.size.loseWeight", function(_, _, ...) return self:loseWeight(...) end)
+  message.setHandler("starPounds.size.setWeight", function(_, _, ...) return self:setWeight(...) end)
+  message.setHandler("starPounds.size.setSize", function(_, _, ...) return self:setSize(...) end)
+  message.setHandler("starPounds.size.offsetSize", function(_, _, ...) return self:offsetSize(...) end)
+  message.setHandler("starPounds.size.get", function(_, _, ...) return self:get(...) end)
+  message.setHandler("starPounds.size.sizes", function(_, _, ...) return self:sizes(...) end)
+  message.setHandler("starPounds.size.config", function(_, _, ...) return self:config(...) end)
+  message.setHandler("starPounds.size.maximumWeight", function(_, _, ...) return self:maximumWeight(...) end)
+  message.setHandler("starPounds.size.getVariant", function(_, _, ...) return self:getVariant(...) end)
+  message.setHandler("starPounds.size.reset", localHandler(self.reset))
 
   local function nullFunction() end
   -- Kinda gross, but deal with it.

@@ -1,15 +1,15 @@
 local stomach = starPounds.module:new("stomach")
 
 function stomach:init()
-  message.setHandler("starPounds.getStomach", function(_, _, ...) return self:get(...) end)
-  message.setHandler("starPounds.feed", function(_, _, ...) return self:feed(...) end)
-  message.setHandler("starPounds.eat", function(_, _, ...) return self:eat(...) end)
-  message.setHandler("starPounds.digest", function(_, _, ...) return self:digest(...) end)
-  message.setHandler("starPounds.gurgle", function(_, _, ...) return self:gurgle(...) end)
-  message.setHandler("starPounds.rumble", function(_, _, ...) return self:rumble(...) end)
-  message.setHandler("starPounds.isFull", function(_, _, ...) return self:isFull(...) end)
-  message.setHandler("starPounds.canEat", function(_, _, ...) return self:canEat(...) end)
-  message.setHandler("starPounds.resetStomach", localHandler(self.reset))
+  message.setHandler("starPounds.stomach.get", function(_, _, ...) return self:get(...) end)
+  message.setHandler("starPounds.stomach.feed", function(_, _, ...) return self:feed(...) end)
+  message.setHandler("starPounds.stomach.eat", function(_, _, ...) return self:eat(...) end)
+  message.setHandler("starPounds.stomach.digest", function(_, _, ...) return self:digest(...) end)
+  message.setHandler("starPounds.stomach.gurgle", function(_, _, ...) return self:gurgle(...) end)
+  message.setHandler("starPounds.stomach.rumble", function(_, _, ...) return self:rumble(...) end)
+  message.setHandler("starPounds.stomach.isFull", function(_, _, ...) return self:isFull(...) end)
+  message.setHandler("starPounds.stomach.canEat", function(_, _, ...) return self:canEat(...) end)
+  message.setHandler("starPounds.stomach.reset", localHandler(self.reset))
   -- Timers.
   self.digestTimer = 0
   self.gurgleTimer = nil
