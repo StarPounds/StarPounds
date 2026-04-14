@@ -13,12 +13,12 @@ function breasts:init()
   }
 
   message.setHandler("starPounds.breasts.get", function(_, _, ...) return self:get(...) end)
-  message.setHandler("starPounds.setMilkType", function(_, _, ...) return self:setMilkType(...) end)
-  message.setHandler("starPounds.setMilk", function(_, _, ...) return self:setMilk(...) end)
-  message.setHandler("starPounds.gainMilk", function(_, _, ...) return self:gainMilk(...) end)
-  message.setHandler("starPounds.loseMilk", function(_, _, ...) return self:loseMilk(...) end)
-  message.setHandler("starPounds.lactate", function(_, _, ...) return self:lactate(...) end)
-  message.setHandler("starPounds.resetBreasts", localHandler(self.reset))
+  message.setHandler("starPounds.breasts.setMilkType", function(_, _, ...) return self:setMilkType(...) end)
+  message.setHandler("starPounds.breasts.setMilk", function(_, _, ...) return self:setMilk(...) end)
+  message.setHandler("starPounds.breasts.gainMilk", function(_, _, ...) return self:gainMilk(...) end)
+  message.setHandler("starPounds.breasts.loseMilk", function(_, _, ...) return self:loseMilk(...) end)
+  message.setHandler("starPounds.breasts.lactate", function(_, _, ...) return self:lactate(...) end)
+  message.setHandler("starPounds.breasts.reset", localHandler(self.reset))
 end
 
 function breasts:update(dt)

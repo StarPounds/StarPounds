@@ -13,8 +13,8 @@ function update(dt)
   self.tickTimer = self.tickTimer - dt
   if self.tickTimer <= 0 then
     self.tickTimer = self.tickTime
-    promises:add(world.sendEntityMessage(entity.id(), "starPounds.gainMilk", self.amount * self.tickTime), function()
-      world.sendEntityMessage(entity.id(), "starPounds.lactate", 0.5 * self.amount * self.tickTime, true)
+    promises:add(world.sendEntityMessage(entity.id(), "starPounds.breasts.gainMilk", self.amount * self.tickTime), function()
+      world.sendEntityMessage(entity.id(), "starPounds.breasts.lactate", 0.5 * self.amount * self.tickTime, true)
     end)
   end
 end
