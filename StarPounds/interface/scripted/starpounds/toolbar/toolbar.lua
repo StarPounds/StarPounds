@@ -22,14 +22,13 @@ function update(dt)
   local immobileProgress = 0
 
   if starPounds.isEnabled() then
-    sizeProgress = starPounds.progress * 0.01
+    sizeProgress = starPounds.progress
     -- Overlay a red bar for the last immobile size.
     if starPounds.moduleFunc("size", "sizeIndex") == #sizes then
       immobileProgress = sizeProgress
       sizeProgress = 1
     end
   end
-
   widget.setProgress("sizeBar", sizeProgress)
   widget.setProgress("sizeBarImmobile", immobileProgress)
   widget.setProgress("experienceBar", starPounds.level / experienceConfig.maxLevel)

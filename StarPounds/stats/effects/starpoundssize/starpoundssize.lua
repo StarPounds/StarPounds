@@ -15,7 +15,7 @@ function update(dt)
   if isPlayer and starPounds.progress then
     if effect.duration() and (effect.duration() > 0) then
       -- "Center" the animation.
-      effect.modifyDuration((starPounds.progress * self.scale) + self.buffer + dt - effect.duration())
+      effect.modifyDuration((starPounds.progress * 100 * self.scale) + self.buffer + dt - effect.duration())
     end
     if starPounds.hasOption("disableSizeMeter") then
       effect.expire()

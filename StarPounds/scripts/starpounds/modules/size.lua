@@ -4,6 +4,8 @@ function size:init()
   message.setHandler("starPounds.gainWeight", function(_, _, ...) return self:gainWeight(...) end)
   message.setHandler("starPounds.loseWeight", function(_, _, ...) return self:loseWeight(...) end)
   message.setHandler("starPounds.setWeight", function(_, _, ...) return self:setWeight(...) end)
+  message.setHandler("starPounds.setSize", function(_, _, ...) return self:setSize(...) end)
+  message.setHandler("starPounds.offsetSize", function(_, _, ...) return self:offsetSize(...) end)
   message.setHandler("starPounds.getSize", function(_, _, ...) return self:get(...) end)
   message.setHandler("starPounds.sizes", function(_, _, ...) return self:sizes(...) end)
   message.setHandler("starPounds.sizeConfig", function(_, _, ...) return self:config(...) end)
@@ -91,7 +93,6 @@ function size:update(dt)
   end
 
   self:cursorCheck()
-  self:progress()
   self:trackVehicleCap()
   self:equip(self:equipmentConfig(starPounds.currentSizeIndex))
   self:updateStats()
@@ -140,6 +141,41 @@ function size:setWeight(amount)
   -- Argument sanitisation.
   amount = math.round(tonumber(amount) or 0, 4)
   storage.starPounds.weight = util.clamp(amount, self:minimumWeight(), self.sizeConfig.maxWeight)
+end
+
+function size:offsetSize(offset)
+  -- Don't do anything if the mod is disabled.
+  if not (storage.starPounds.enabled and self.canGain) then return end
+  -- Argument sanitisation.
+  amount = math.round(tonumber(amount) or 0)
+  self:setSize(self:sizeIndex() + offset, self:progress())
+end
+
+function size:setSize(index, progress)
+  -- Don't do anything if the mod is disabled.
+  if not (storage.starPounds.enabled and self.canGain) then return 0 end
+  -- Argument sanitisation.
+  index = math.floor(tonumber(index) or 1)
+  progress = util.clamp(tonumber(progress) or 0, 0, 1)
+  -- Just fill/reset the progress if we go past index values.
+  if index > #self.sizeConfig.sizes then
+    index = #self.sizeConfig.sizes
+    progress = 1
+  elseif index < 1 then
+    index = 1
+    progress = 0
+  end
+
+  local currentWeight = storage.starPounds.weight
+  -- Weight bounds for this size tier
+  local minWeight = self.sizeConfig.sizes[index].weight
+  local nextSize = self.sizeConfig.sizes[index + 1]
+  local maxWeight = nextSize and nextSize.weight or self:maximumWeight()
+  -- Interpolate weight based on progress.
+  local targetWeight = minWeight + (maxWeight - minWeight) * progress
+  self:setWeight(targetWeight)
+  -- Return difference.
+  return math.round(storage.starPounds.weight - currentWeight, 4)
 end
 
 function size:get(weight)
@@ -628,7 +664,7 @@ function size:progress()
   if nextSizeWeight ~= self.sizeConfig.maxWeight and self.sizeConfig.sizes[starPounds.currentSizeIndex + 1].yOffset and starPounds.hasOption("disableSupersize") then
     nextSizeWeight = self.sizeConfig.maxWeight
   end
-  return math.round((storage.starPounds.weight - currentSizeWeight)/(nextSizeWeight - currentSizeWeight) * 100)
+  return math.round((storage.starPounds.weight - currentSizeWeight)/(nextSizeWeight - currentSizeWeight), 4)
 end
 
 function size:stomachMultiplier()

@@ -1,11 +1,35 @@
-require "/scripts/messageutil.lua"
-
 function init()
   self.chatOptions = config.getParameter("chatOptions", {})
   self.chatTimer = 0
   self.activationTime = config.getParameter("activationTime") or 60
 
   if storage.active == nil then activate() end
+
+  options = {
+    -- Gain a size
+    gainWeight = function()
+      world.sendEntityMessage(targetId, "starPounds.offsetSize", 1)
+      deactivate()
+      animator.playSound("use")
+    end,
+    -- Gain bloat
+    gainBloat = function()
+      world.sendEntityMessage(targetId, "starPounds.feed", 50 + math.random(0, 150), "bloat")
+      world.sendEntityMessage(targetId, "starPounds.playSound", "digest", 0.75)
+      deactivate()
+      animator.playSound("use")
+    end,
+    -- Activate, but do nothing
+    crack = function()
+      deactivate()
+      animator.playSound("crack")
+    end,
+    -- Smash
+    smash = function()
+      animator.playSound("use")
+      object.smash()
+    end
+  }
 
   animator.setAnimationState("state", storage.active and "active" or "expire")
 end
@@ -17,8 +41,6 @@ function onInteraction(args)
 end
 
 function update(dt)
-  promises:update()
-
   if isTimeToActivate() and not world.isVisibleToPlayer(object.boundBox()) then
     activate()
   end
@@ -45,38 +67,6 @@ function use(args)
     targetId = args.sourceId
     local optionList = config.getParameter("activateOptions")
     local option = optionList[math.random(1, #optionList)]
-    local options = {
-      -- Gain a size
-      gainWeight = function()
-        promises:add(world.sendEntityMessage(targetId, "starPounds.getData", "weight"), function(weight)
-          promises:add(world.sendEntityMessage(targetId, "starPounds.sizeConfig"), function(sizeConfig)
-            currentSize, currentSizeIndex = getSize(weight, sizeConfig.sizes)
-            if currentSizeIndex == #sizeConfig.sizes then return end
-            local currentProgress = (weight - currentSize.weight)/(sizeConfig.sizes[currentSizeIndex + 1].weight - currentSize.weight)
-            local amount = math.floor(0.5 + sizeConfig.sizes[currentSizeIndex + 1].weight - weight + currentProgress * ((sizeConfig.sizes[currentSizeIndex + 2] and sizeConfig.sizes[currentSizeIndex + 2].weight or sizeConfig.maxWeight) - sizeConfig.sizes[currentSizeIndex + 1].weight))
-            world.sendEntityMessage(targetId, "starPounds.gainWeight", amount)
-            deactivate()
-            animator.playSound("use")
-          end)
-        end)
-      end,
-      -- Gain bloat
-      gainBloat = function()
-        world.sendEntityMessage(targetId, "starPounds.feed", 50 + math.random(0, 150), "bloat")
-        deactivate()
-        animator.playSound("use")
-      end,
-      -- Activate, but do nothing
-      crack = function()
-        deactivate()
-        animator.playSound("crack")
-      end,
-      -- Smash
-      smash = function()
-        animator.playSound("use")
-        object.smash()
-      end
-    }
     if options[option] then
       options[option]()
     else

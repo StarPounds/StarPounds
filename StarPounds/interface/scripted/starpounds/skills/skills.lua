@@ -1084,19 +1084,19 @@ function setProgress(experience, level)
 end
 
 function weightDecrease:onClick()
-  local sizes = starPounds.moduleFunc("size", "sizes")
-  local progress = (starPounds.weight - starPounds.currentSize.weight)/((sizes[starPounds.currentSizeIndex + 1] and sizes[starPounds.currentSizeIndex + 1].weight or starPounds.moduleFunc("size", "maximumWeight")) - starPounds.currentSize.weight)
-  local targetWeight = sizes[math.max(starPounds.currentSizeIndex - 1, 1)].weight
-  local targetWeight2 = sizes[starPounds.currentSizeIndex].weight
-  starPounds.moduleFunc("size", "setWeight", metagui.checkShift() and 0 or (targetWeight + (targetWeight2 - targetWeight) * progress))
+  if metagui.checkShift() then
+    starPounds.moduleFunc("size", "setWeight", 0)
+  else
+    starPounds.moduleFunc("size", "setSize", starPounds.currentSizeIndex - 1, math.min(starPounds.progress, 0.99))
+  end
 end
 
 function weightIncrease:onClick()
-  local sizes = starPounds.moduleFunc("size", "sizes")
-  local progress = math.max(0.01, (starPounds.weight - starPounds.currentSize.weight)/((sizes[starPounds.currentSizeIndex + 1] and sizes[starPounds.currentSizeIndex + 1].weight or starPounds.moduleFunc("size", "maximumWeight")) - starPounds.currentSize.weight))
-  local targetWeight = sizes[starPounds.currentSizeIndex + 1] and sizes[starPounds.currentSizeIndex + 1].weight or starPounds.moduleFunc("size", "maximumWeight")
-  local targetWeight2 = sizes[starPounds.currentSizeIndex + 2] and sizes[starPounds.currentSizeIndex + 2].weight or starPounds.moduleFunc("size", "maximumWeight")
-  starPounds.moduleFunc("size", "setWeight", metagui.checkShift() and starPounds.moduleFunc("size", "maximumWeight") or (targetWeight + (targetWeight2 - targetWeight) * progress))
+  if metagui.checkShift() then
+    starPounds.moduleFunc("size", "setWeight", starPounds.moduleFunc("size", "maximumWeight"))
+  else
+    starPounds.moduleFunc("size", "setSize", starPounds.currentSizeIndex + 1, math.max(starPounds.progress, 0.01))
+  end
 end
 
 function admin()
