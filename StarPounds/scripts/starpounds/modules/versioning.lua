@@ -10,7 +10,7 @@ versioning.versions = {
     data.stomachContents = nil
     data.stomachLerp = nil
     data.stomach = stomachContents or {}
-    
+
     -- New milk format.
     local milkAmount = tonumber(data.breasts) or 0
     local milkType = data.breastType or "milk"
@@ -37,6 +37,7 @@ versioning.versions = {
     data.traitStats = nil
     data.accessories = nil
     data.bloat = nil
+    data.pizzaEmployeesEaten = nil
 
     return data
   end

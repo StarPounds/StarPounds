@@ -490,8 +490,8 @@ function prey:digested()
   end
   -- NPC stuff.
   if starPounds.type == "npc" then
-    if world.entityUniqueId(storage.starPounds.pred) and world.entityUniqueId(storage.starPounds.pred) == self.deliveryTarget then
-      world.sendEntityMessage(storage.starPounds.pred, "starPounds.digestedPizzaEmployee")
+    if world.entityUniqueId(storage.starPounds.pred) and world.entityUniqueId(storage.starPounds.pred) == _ENV.self.deliveryTarget then
+      world.sendEntityMessage(storage.starPounds.pred, "starPounds.effects.add", "pizzaFee", -1)
     end
     -- Are they a crewmate?
     if recruitable then
