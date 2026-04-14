@@ -200,7 +200,7 @@ end
 
 function doSlam()
   mcontroller.setYVelocity(-75)
-  self.voreSlam = starPounds.moduleFunc("skills", "has", "voreSlam")
+  self.voreSlam = starPounds.isEnabled() and starPounds.moduleFunc("skills", "has", "voreSlam")
   self.weightMultiplier = 1 + math.floor(0.5 + (starPounds.currentSize or {weight = 0}).weight/1.2)/100
   self.scale = math.min(math.floor(0.5 + 10 * self.weightMultiplier ^ (1/3))/10, 4)
   self.slammed = true
