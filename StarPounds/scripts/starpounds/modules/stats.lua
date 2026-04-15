@@ -50,7 +50,7 @@ function stats:get(stat)
     -- Multipliers.
     statAmount = statAmount * self:traitMult(stat) * self:effectMult(stat) * self:statusEffectMult(stat) * self:optionsMult(stat)
     -- Option multipliers, bonuses, and overrides.
-    statAmount = self:optionsOverride(stat) or statAmount
+    statAmount = self:optionsOverride(stat) or self:statusEffectOverride(stat) or statAmount
     -- Cap the stat between 0 and it's maxValue.
     self.cache[stat] = math.round(util.clamp(statAmount, self.data.stats[stat].minValue or 0, self.data.stats[stat].maxValue or math.huge), 4)
   end
@@ -183,6 +183,10 @@ end
 
 function stats:statusEffectBonus(stat)
   return starPounds.moduleFunc("statuses", "getStatusEffectBonus", stat) or 0
+end
+
+function stats:statusEffectOverride(stat)
+  return starPounds.moduleFunc("statuses", "getStatusEffectOverride", stat)
 end
 -- Options ------------------------------------------------------
 function stats:optionsMult(stat)

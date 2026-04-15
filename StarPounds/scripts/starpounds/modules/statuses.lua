@@ -1,8 +1,7 @@
 local statuses = starPounds.module:new("statuses")
 
 function statuses:init()
-  self.bonuses = {}
-  self.multipliers = {}
+  self.statusStats = {}
   self.activeStatuses = {}
   -- Trigger an update straight away.
   self:update()
@@ -34,39 +33,46 @@ function statuses:update(dt)
   -- Only recalculate stat values if we need to.
   if updateStats then
     self:updateStats()
+      -- Don't recalculate if we've already done it.
+      if self.speciesStats then return self.speciesStats end
   end
 end
 
 function statuses:updateStats()
-  self.bonuses = {}
-  self.multipliers = {}
-
+  self.statusStats = {}
+  -- Iterate over stats.
   for effectName in pairs(self.activeStatuses) do
     local effectConfig = self.data.statuses[effectName] or {}
-    -- Bonuses.
-    for stat, bonus in pairs(effectConfig.bonuses or {}) do
-      local currentBonus = self.bonuses[stat] or 0
-      self.bonuses[stat] = currentBonus + bonus
-    end
-    -- Multipliers.
-    for stat, multiplier in pairs(effectConfig.multipliers or {}) do
-      local currentMultiplier = self.multipliers[stat] or 1
-      self.multipliers[stat] = currentMultiplier * multiplier
+    for _, stat in ipairs(effectConfig) do
+      self.statusStats[stat[1]] = self.statusStats[stat[1]] or {0, 1}
+      if stat[2] == "add" then
+        self.statusStats[stat[1]][1] = self.statusStats[stat[1]][1] + stat[3]
+      elseif stat[2] == "sub" then
+        self.statusStats[stat[1]][1] = self.statusStats[stat[1]][1] - stat[3]
+      elseif stat[2] == "mult" then
+        self.statusStats[stat[1]][2] = self.statusStats[stat[1]][2] * stat[3]
+      elseif stat[2] == "override" then
+        self.statusStats[stat[1]][3] = stat[3]
+      end
     end
   end
   -- Fire stat change event.
   starPounds.events:fire("stats:calculate", "statuses:updatedStats")
 end
 
--- Overwrite stub functions.
 function statuses:getStatusEffectMultiplier(stat)
-  if not self.multipliers then self.multipliers = {} end
-  return self.multipliers[stat] or 1
+  self.statusStats = self.statusStats or {}
+  return (self.statusStats[stat] or {0, 1})[2]
 end
 
 function statuses:getStatusEffectBonus(stat)
-  if not self.bonuses then self.bonuses = {} end
-  return self.bonuses[stat] or 0
+  self.statusStats = self.statusStats or {}
+  return (self.statusStats[stat] or {0, 1})[1]
+end
+
+function statuses:getStatusEffectOverride(stat)
+  self.statusStats = self.statusStats or {}
+  return (self.statusStats[stat] or {0, 1})[3]
 end
 
 starPounds.modules.statuses = statuses
