@@ -1,0 +1,23 @@
+[
+    {
+        "op": "add",
+        "path": "/interactData/items/-",
+        "value": {
+            "item": "starpounds_minitreeapple"
+        }
+    },
+    {
+        "op": "add",
+        "path": "/interactData/items/-",
+        "value": {
+            "item": "starpounds_minitreecoconut"
+        }
+    },
+    {
+        "op": "add",
+        "path": "/interactData/items/-",
+        "value": {
+            "item": "starpoundsspectraflowerseed"
+        }
+    }
+]

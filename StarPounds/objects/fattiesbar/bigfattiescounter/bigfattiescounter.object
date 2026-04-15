@@ -45,7 +45,7 @@
       "imageLayers" : [ { "image" : "bigfattiescounter.png:default.<frame>" }, { "image" : "bigfattiescounterlit.png:default.<frame>", "fullbright" : true } ],
       "direction" : "right",
 
-      "imagePosition" : [-16, 0],
+      "imagePosition" : [-24, 0],
       "frames" : 32,
       "animationCycle" : 3.2,
 
