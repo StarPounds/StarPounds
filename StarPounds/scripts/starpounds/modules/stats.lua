@@ -41,18 +41,16 @@ function stats:get(stat)
   if not self.data.stats[stat] then return 0 end
   -- Only recalculate per tick, otherwise use the cached value. (self.cache gets reset every tick)
   if not self.cache[stat] then
+    -- Base stat
+    local statAmount = self.data.stats[stat].base
     -- Default amount (or 1, so we can boost stats that start at 0), modified by accessory values.
     local accessoryBonus = (self.data.stats[stat].base ~= 0 and self.data.stats[stat].base or 1) * self:accessoryMods(stat)
-    -- Base stat + Skill bonuses + Accessory bonuses.
-    local statAmount = self.data.stats[stat].base + self:skillBonus(stat) + accessoryBonus
-    -- Trait multiplier and effect multiplier.
-    statAmount = statAmount * self:traitMult(stat) * self:effectMult(stat)
-    -- Trait bonus and effect bonus
-    statAmount = statAmount + self:traitBonus(stat) + self:effectBonus(stat)
-    -- Status effect multipliers and bonuses.
-    statAmount = statAmount * self:statusEffectMult(stat) + self:statusEffectBonus(stat)
+    -- Bonuses.
+    statAmount = statAmount + self:traitBonus(stat) + self:skillBonus(stat) + self:effectBonus(stat) + self:statusEffectBonus(stat) + self:optionsBonus(stat) + accessoryBonus
+    -- Multipliers.
+    statAmount = statAmount * self:traitMult(stat) * self:effectMult(stat) * self:statusEffectMult(stat) * self:optionsMult(stat)
     -- Option multipliers, bonuses, and overrides.
-    statAmount = self:optionsOverride(stat) or (statAmount * self:optionsMult(stat) + self:optionsBonus(stat))
+    statAmount = self:optionsOverride(stat) or statAmount
     -- Cap the stat between 0 and it's maxValue.
     self.cache[stat] = math.round(util.clamp(statAmount, self.data.stats[stat].minValue or 0, self.data.stats[stat].maxValue or math.huge), 4)
   end
