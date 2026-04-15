@@ -64,6 +64,11 @@ end
 _player.damageListener = damageListener("damageTaken", function(notifications)
   local self = _player
   for _, notification in pairs(notifications) do
+    -- Fire damage.
+    if starPounds.moduleFunc("size", "effectScaling") > 0 and starPounds.getStat("fireResistance") < 0 and root.elementalResistance(notification.damageSourceKind) == "fireResistance" then
+      status.addEphemeralEffect("sweat")
+    end
+    -- Falling damage.
     if notification.sourceEntityId == starPounds.entityId and notification.targetEntityId == starPounds.entityId then
       if notification.damageSourceKind == "falling" and starPounds.currentSizeIndex > 1 then
         -- "explosive" damage (ignores tilemods) to blocks is reduced by 80%, for a total of 5% damage applied to blocks. (Isn't reduced by the fall damage skill)
@@ -71,15 +76,6 @@ _player.damageListener = damageListener("damageTaken", function(notifications)
         local tileDamage = baseDamage * starPounds.currentSize.healthMultiplier * 0.25
         self:damageHitboxTiles(tileDamage)
         break
-      end
-      if starPounds.currentSizeIndex > 1 and string.find(notification.damageSourceKind, "fire") and starPounds.getStat("firePenalty") > 0 then
-        local percentLost = math.round(notification.healthLost/status.resourceMax("health"), 2)
-        percentLost = 2 * percentLost * starPounds.getStat("firePenalty") * (starPounds.currentSizeIndex - 1)/(#starPounds.moduleFunc("size", "sizes") - 1)
-
-        if percentLost > 0.01 then
-          status.overConsumeResource("energy", status.resourceMax("energy") * percentLost)
-          status.addEphemeralEffect("sweat")
-        end
       end
     end
   end

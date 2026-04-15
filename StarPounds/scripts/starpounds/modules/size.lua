@@ -272,7 +272,8 @@ function size:updateStats(forceUpdate)
       {stat = "physicalResistance", amount = starPounds.getStat("physicalResistance") * bonusEffectiveness},
       {stat = "iceResistance", amount = starPounds.getStat("iceResistance") * bonusEffectiveness},
       {stat = "poisonResistance", amount = starPounds.getStat("poisonResistance") * bonusEffectiveness},
-      {stat = "electricResistance", amount = starPounds.getStat("electricResistance") * bonusEffectiveness}
+      {stat = "electricResistance", amount = starPounds.getStat("electricResistance") * bonusEffectiveness},
+      {stat = "fireResistance", amount = starPounds.getStat("fireResistance") * bonusEffectiveness}
     }
     -- Probably not optimal, but don't apply effects if they do nothing.
     local filteredPersistentEffects = jarray()
