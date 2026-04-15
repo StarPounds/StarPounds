@@ -443,7 +443,7 @@ function size:getVariant(size)
     variant = variant .. stomachVariant
 
     if not starPounds.currentSize.disableHyper and starPounds.hasOption("hyper") then
-      variant = "hyper" .. variant
+      variant = "hyper" .. stomachVariant
     end
 
     return variant
