@@ -64,7 +64,7 @@
         "type" : "object",
         "objectSets" : [
           {
-            "pool" : [ [1, "starpounds_brewpodseedwild" ] ],
+            "pool" : [ [1, "starpoundsbrewpodseedwild" ] ],
             "parameters" : {
               "startingStage" : 4
             }

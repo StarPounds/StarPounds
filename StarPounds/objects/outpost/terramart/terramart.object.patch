@@ -3,14 +3,14 @@
         "op": "add",
         "path": "/interactData/items/-",
         "value": {
-            "item": "starpounds_minitreeapple"
+            "item": "starpoundsminitreeapple"
         }
     },
     {
         "op": "add",
         "path": "/interactData/items/-",
         "value": {
-            "item": "starpounds_minitreecoconut"
+            "item": "starpoundsminitreecoconut"
         }
     },
     {
