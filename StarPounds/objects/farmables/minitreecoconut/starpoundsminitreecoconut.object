@@ -1,5 +1,5 @@
 {
-  "objectName" : "starpounds_minitreecoconut",
+  "objectName" : "starpoundsminitreecoconut",
   "colonyTags" : ["nature"],
   "rarity" : "Rare",
   "category" : "seed",
@@ -17,14 +17,14 @@
   "hylotlDescription" : "A common sight back home. I remember being told to stay away from them when I was younger.",
   "novakidDescription" : "T'would be perfect for a beachside vacation!",
 
-  "inventoryIcon" : "starpounds_minitreecoconuticon.png",
+  "inventoryIcon" : "starpoundsminitreecoconuticon.png",
 
   "tooltipKind" : "seed",
-  "largeImage" : "starpounds_minitreecoconut.png:default.4.0",
+  "largeImage" : "starpoundsminitreecoconut.png:default.4.0",
 
   "orientations" : [
     {
-      "dualImage" : "starpounds_minitreecoconut.png:<color>.<stage>.<alt>",
+      "dualImage" : "starpoundsminitreecoconut.png:<color>.<stage>.<alt>",
       "imagePosition" : [-24, 0],
       "frames" : 1,
       "animationCycle" : 0.5,
@@ -55,7 +55,7 @@
     },
     {
       "alts" : 5,
-      "harvestPool" : "starpounds_coconuttreeHarvest",
+      "harvestPool" : "starpoundscoconuttreeHarvest",
       "resetToStage" : 2
     }
   ]

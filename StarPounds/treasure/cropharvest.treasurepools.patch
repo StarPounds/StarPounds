@@ -1,7 +1,7 @@
 [
     {
         "op": "add",
-        "path": "/starpounds_brewpodHarvest",
+        "path": "/starpoundsbrewpodHarvest",
         "value": [
             [
                 0,
@@ -13,7 +13,7 @@
                         },
                         {
                             "weight": 0.01,
-                            "item": "starpounds_brewpodseed"
+                            "item": "starpoundsbrewpodseed"
                         },
                         {
                             "weight": 0.1,
@@ -36,13 +36,13 @@
     },
     {
         "op": "add",
-        "path": "/starpounds_spectraflowerHarvest",
+        "path": "/starpoundsspectraflowerHarvest",
         "value": [
             [
                 0,
                 {
                     "pool": [
-        {"weight" : 0.4, "item" : ["petalblue", 3]},					
+        {"weight" : 0.4, "item" : ["petalblue", 3]},
         {"weight" : 0.4, "item" : ["petalred", 3]},
         {"weight" : 0.4, "item" : ["petalyellow", 3]}
                     ],
@@ -62,7 +62,7 @@
     },
     {
         "op": "add",
-        "path": "/starpounds_appletreeHarvest",
+        "path": "/starpoundsappletreeHarvest",
         "value": [
             [
                 0,
@@ -89,7 +89,7 @@
     },
     {
         "op": "add",
-        "path": "/starpounds_coconuttreeHarvest",
+        "path": "/starpoundscoconuttreeHarvest",
         "value": [
             [
                 0,

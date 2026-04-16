@@ -52,7 +52,7 @@
     },
     {
       "alts" : 5,
-      "harvestPool" : "starpounds_spectraflowerHarvest",
+      "harvestPool" : "starpoundsspectraflowerHarvest",
       "resetToStage" : 2
     }
   ],

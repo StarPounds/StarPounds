@@ -1,5 +1,5 @@
 {
-  "objectName" : "starpounds_minitreeapple",
+  "objectName" : "starpoundsminitreeapple",
   "colonyTags" : ["nature"],
   "rarity" : "Rare",
   "category" : "seed",
@@ -17,14 +17,14 @@
   "hylotlDescription" : "While I could've bought apples from the store, growing them yourself makes them taste much better.",
   "novakidDescription" : "A bottle of hard cider sounds nice right 'bout now...",
 
-  "inventoryIcon" : "starpounds_minitreeappleicon.png",
+  "inventoryIcon" : "starpoundsminitreeappleicon.png",
 
   "tooltipKind" : "seed",
-  "largeImage" : "starpounds_minitreeapple.png:default.4.0",
+  "largeImage" : "starpoundsminitreeapple.png:default.4.0",
 
   "orientations" : [
     {
-      "dualImage" : "starpounds_minitreeapple.png:<color>.<stage>.<alt>",
+      "dualImage" : "starpoundsminitreeapple.png:<color>.<stage>.<alt>",
       "imagePosition" : [-24, 0],
       "frames" : 1,
       "animationCycle" : 0.5,
@@ -55,7 +55,7 @@
     },
     {
       "alts" : 5,
-      "harvestPool" : "starpounds_appletreeHarvest",
+      "harvestPool" : "starpoundsappletreeHarvest",
       "resetToStage" : 2
     }
   ]
