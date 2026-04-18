@@ -1,19 +1,19 @@
 {
-  "itemName" : "fattyhypergorgedmindflayerchest",
+  "itemName" : "plumphypergluttedmindflayerchest",
   "price" : 0,
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",
-  "description" : "Every pound in your stomach you can feel turning into fat right now.",
-  "shortdescription" : "Hyper Gorged Bust",
+  "description" : "Either you're just that gluttonous or your stomach is quite elastic.",
+  "shortdescription" : "Hyper Glutted Chest",
   "tooltipKind" : "starpoundsarmor",
   "bypassNude" : true,
 
   "statusEffects": [
-    "starpoundsfatty",
+    "starpoundsplump",
     "starpoundshyper",
-    "starpoundsgorged"
+    "starpoundsglutted"
   ],
 
   "maleFrames" : {
@@ -23,7 +23,7 @@
   },
 
   "femaleFrames" : {
-    "body" : "fatty_chestf.png",
+    "body" : "chestf.png",
     "backSleeve" : "bsleeve.png",
     "frontSleeve" : "fsleeve.png"
   }
