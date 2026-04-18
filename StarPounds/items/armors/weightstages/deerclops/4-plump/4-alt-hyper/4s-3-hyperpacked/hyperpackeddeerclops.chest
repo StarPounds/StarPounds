@@ -1,19 +1,19 @@
 {
-  "itemName" : "fattyhyperfilleddeerclopschest",
+  "itemName" : "plumphyperpackeddeerclopschest",
   "price" : 0,
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",
-  "description" : "You can start visualizing how much padding you're gonna get from all this food.",
-  "shortdescription" : "Hyper Filled Bust",
+  "description" : "You've since passed the point you could try sucking in this gut.",
+  "shortdescription" : "Hyper Packed Chest",
   "tooltipKind" : "starpoundsarmor",
   "bypassNude" : true,
 
   "statusEffects": [
-    "starpoundsfatty",
+    "starpoundsplump",
     "starpoundshyper",
-    "starpoundsfilled"
+    "starpoundspacked"
   ],
 
   "maleFrames" : {
@@ -23,7 +23,7 @@
   },
 
   "femaleFrames" : {
-    "body" : "fatty_chestf.png",
+    "body" : "chestf.png",
     "backSleeve" : "bsleeve.png",
     "frontSleeve" : "fsleeve.png"
   }

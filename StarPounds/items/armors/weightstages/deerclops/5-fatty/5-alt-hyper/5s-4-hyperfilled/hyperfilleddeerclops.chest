@@ -1,19 +1,19 @@
 {
-  "itemName" : "plumphypergorgeddeerclopschest",
+  "itemName" : "fattyhyperfilleddeerclopschest",
   "price" : 0,
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",
-  "description" : "Every pound in your stomach you can feel turning into fat right now.",
-  "shortdescription" : "Hyper Gorged Bust",
+  "description" : "You can start visualizing how much padding you're gonna get from all this food.",
+  "shortdescription" : "Hyper Filled Chest",
   "tooltipKind" : "starpoundsarmor",
   "bypassNude" : true,
 
   "statusEffects": [
-    "starpoundsplump",
+    "starpoundsfatty",
     "starpoundshyper",
-    "starpoundsgorged"
+    "starpoundsfilled"
   ],
 
   "maleFrames" : {
@@ -23,7 +23,7 @@
   },
 
   "femaleFrames" : {
-    "body" : "chestf.png",
+    "body" : "fatty_chestf.png",
     "backSleeve" : "bsleeve.png",
     "frontSleeve" : "fsleeve.png"
   }
