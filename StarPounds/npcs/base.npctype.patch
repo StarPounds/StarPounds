@@ -1,55 +1,75 @@
 [
-  {
-    "op": "add",
-    "path": "/scripts/-",
-    "value": "/scripts/starpounds/loaders/npc.lua"
-  },
-  {
-    "op": "add",
-    "path": "/scriptConfig/chatSounds/throg",
-    "value": {
-    "male": [ "/sfx/humanoid/throg_chatter_male1.ogg", "/sfx/humanoid/throg_chatter_male2.ogg", "/sfx/humanoid/throg_chatter_male3.ogg" ],
-    "female": [ "/sfx/humanoid/throg_chatter_female1.ogg", "/sfx/humanoid/throg_chatter_female2.ogg", "/sfx/humanoid/throg_chatter_female3.ogg" ]
+  [
+    {
+      "op": "add",
+      "path": "/scripts/-",
+      "value": "/scripts/starpounds/loaders/npc.lua"
+    },
+    {
+      "op": "add",
+      "path": "/scriptConfig/chatSounds/throg",
+      "value": {
+      "male": [ "/sfx/humanoid/throg_chatter_male1.ogg", "/sfx/humanoid/throg_chatter_male2.ogg", "/sfx/humanoid/throg_chatter_male3.ogg" ],
+      "female": [ "/sfx/humanoid/throg_chatter_female1.ogg", "/sfx/humanoid/throg_chatter_female2.ogg", "/sfx/humanoid/throg_chatter_female3.ogg" ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/scriptConfig/chatSounds/mootant",
+      "value": {
+      "male": [ "/sfx/humanoid/mootant_chatter_male1.ogg", "/sfx/humanoid/mootant_chatter_male2.ogg", "/sfx/humanoid/mootant_chatter_male3.ogg" ],
+      "female": [ "/sfx/humanoid/mootant_chatter_female1.ogg", "/sfx/humanoid/mootant_chatter_female2.ogg", "/sfx/humanoid/mootant_chatter_female3.ogg" ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/scriptConfig/chatSounds/agaran",
+      "value": {
+      "male": [ "/sfx/humanoid/agaran_chatter_male1.ogg", "/sfx/humanoid/agaran_chatter_male2.ogg", "/sfx/humanoid/agaran_chatter_male3.ogg", "/sfx/humanoid/agaran_chatter_male4.ogg", "/sfx/humanoid/agaran_chatter_male5.ogg", "/sfx/humanoid/agaran_chatter_male6.ogg" ],
+      "female": [ "/sfx/humanoid/agaran_chatter_female1.ogg", "/sfx/humanoid/agaran_chatter_female2.ogg", "/sfx/humanoid/agaran_chatter_female3.ogg", "/sfx/humanoid/agaran_chatter_female4.ogg", "/sfx/humanoid/agaran_chatter_female5.ogg", "/sfx/humanoid/agaran_chatter_female6.ogg" ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/scriptConfig/chatSounds/alpaca",
+      "value": {
+      "male": [ "/sfx/humanoid/alpaca_chatter_male1.ogg", "/sfx/humanoid/alpaca_chatter_male2.ogg", "/sfx/humanoid/alpaca_chatter_male3.ogg" ],
+      "female": [ "/sfx/humanoid/alpaca_chatter_female1.ogg", "/sfx/humanoid/alpaca_chatter_female2.ogg", "/sfx/humanoid/alpaca_chatter_female3.ogg" ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/scriptConfig/chatSounds/deadbeat",
+      "value": {
+      "male": [ "/sfx/humanoid/deadbeat_chatter_male1.ogg", "/sfx/humanoid/deadbeat_chatter_male2.ogg", "/sfx/humanoid/deadbeat_chatter_male3.ogg" ],
+      "female": [ "/sfx/humanoid/deadbeat_chatter_female1.ogg", "/sfx/humanoid/deadbeat_chatter_female2.ogg", "/sfx/humanoid/deadbeat_chatter_female3.ogg" ]
+      }
+    },
+    {
+      "op": "add",
+      "path": "/scriptConfig/chatSounds/frogg",
+      "value": {
+      "male": [ "/sfx/humanoid/frog_chatter1.ogg", "/sfx/humanoid/frog_chatter2.ogg", "/sfx/humanoid/frog_chatter3.ogg" ],
+      "female": [ "/sfx/humanoid/frog_chatter1.ogg", "/sfx/humanoid/frog_chatter2.ogg", "/sfx/humanoid/frog_chatter3.ogg" ]
+      }
     }
-  },
-  {
-    "op": "add",
-    "path": "/scriptConfig/chatSounds/mootant",
-    "value": {
-    "male": [ "/sfx/humanoid/mootant_chatter_male1.ogg", "/sfx/humanoid/mootant_chatter_male2.ogg", "/sfx/humanoid/mootant_chatter_male3.ogg" ],
-    "female": [ "/sfx/humanoid/mootant_chatter_female1.ogg", "/sfx/humanoid/mootant_chatter_female2.ogg", "/sfx/humanoid/mootant_chatter_female3.ogg" ]
+  ],
+  // Knockback fix.
+  [
+    {
+      "op" : "test",
+      "path": "/apple_npcKnockbackFix",
+      "inverse" : true
+    },
+    {
+      "op": "add",
+      "path": "/statusControllerSettings/primaryScriptSources/-",
+      "value": "/stats/apple_npcKnockbackFix.lua"
+    },
+    {
+      "op": "add",
+      "path": "/apple_npcKnockbackFix",
+      "value": true
     }
-  },
-  {
-    "op": "add",
-    "path": "/scriptConfig/chatSounds/agaran",
-    "value": {
-    "male": [ "/sfx/humanoid/agaran_chatter_male1.ogg", "/sfx/humanoid/agaran_chatter_male2.ogg", "/sfx/humanoid/agaran_chatter_male3.ogg", "/sfx/humanoid/agaran_chatter_male4.ogg", "/sfx/humanoid/agaran_chatter_male5.ogg", "/sfx/humanoid/agaran_chatter_male6.ogg" ],
-    "female": [ "/sfx/humanoid/agaran_chatter_female1.ogg", "/sfx/humanoid/agaran_chatter_female2.ogg", "/sfx/humanoid/agaran_chatter_female3.ogg", "/sfx/humanoid/agaran_chatter_female4.ogg", "/sfx/humanoid/agaran_chatter_female5.ogg", "/sfx/humanoid/agaran_chatter_female6.ogg" ]
-    }
-  },
-  {
-    "op": "add",
-    "path": "/scriptConfig/chatSounds/alpaca",
-    "value": {
-    "male": [ "/sfx/humanoid/alpaca_chatter_male1.ogg", "/sfx/humanoid/alpaca_chatter_male2.ogg", "/sfx/humanoid/alpaca_chatter_male3.ogg" ],
-    "female": [ "/sfx/humanoid/alpaca_chatter_female1.ogg", "/sfx/humanoid/alpaca_chatter_female2.ogg", "/sfx/humanoid/alpaca_chatter_female3.ogg" ]
-    }
-  },
-  {
-    "op": "add",
-    "path": "/scriptConfig/chatSounds/deadbeat",
-    "value": {
-    "male": [ "/sfx/humanoid/deadbeat_chatter_male1.ogg", "/sfx/humanoid/deadbeat_chatter_male2.ogg", "/sfx/humanoid/deadbeat_chatter_male3.ogg" ],
-    "female": [ "/sfx/humanoid/deadbeat_chatter_female1.ogg", "/sfx/humanoid/deadbeat_chatter_female2.ogg", "/sfx/humanoid/deadbeat_chatter_female3.ogg" ]
-    }
-  },
-  {
-    "op": "add",
-    "path": "/scriptConfig/chatSounds/frogg",
-    "value": {
-    "male": [ "/sfx/humanoid/frog_chatter1.ogg", "/sfx/humanoid/frog_chatter2.ogg", "/sfx/humanoid/frog_chatter3.ogg" ],
-    "female": [ "/sfx/humanoid/frog_chatter1.ogg", "/sfx/humanoid/frog_chatter2.ogg", "/sfx/humanoid/frog_chatter3.ogg" ]
-    }
-  }
+  ]
 ]
