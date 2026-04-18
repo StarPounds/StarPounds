@@ -1,6 +1,6 @@
 {
   "itemName" : "thickhyperapexchest",
-  "price" : 0,
+  "price" : 0,    
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",

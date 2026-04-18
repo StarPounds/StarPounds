@@ -1,19 +1,19 @@
 {
-  "itemName" : "hyperstuffedapexchest",
+  "itemName" : "fattyhyperfilledapexchest",
   "price" : 0,
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",
-  "description" : "Quite a large meal you've had with that big gut.",
-  "shortdescription" : "Hyper Stuffed Bust",
+  "description" : "You can start visualizing how much padding you're gonna get from all this food.",
+  "shortdescription" : "Hyper Filled Chest",
   "tooltipKind" : "starpoundsarmor",
   "bypassNude" : true,
 
   "statusEffects": [
-    "starpounds",
+    "starpoundsfatty",
     "starpoundshyper",
-    "starpoundsstuffed"
+    "starpoundsfilled"
   ],
 
   "maleFrames" : {
@@ -23,7 +23,7 @@
   },
 
   "femaleFrames" : {
-    "body" : "chestf.png",
+    "body" : "fatty_chestf.png",
     "backSleeve" : "bsleeve.png",
     "frontSleeve" : "fsleeve.png"
   }
