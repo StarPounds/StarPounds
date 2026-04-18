@@ -1,19 +1,19 @@
 {
-  "itemName" : "fattyhyperstuffedthrogchest",
+  "itemName" : "plumphypergluttedthrogchest",
   "price" : 0,
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",
-  "description" : "Quite a large meal you've had with that big gut.",
-  "shortdescription" : "Hyper Stuffed Bust",
+  "description" : "Either you're just that gluttonous or your stomach is quite elastic.",
+  "shortdescription" : "Hyper Glutted Chest",
   "tooltipKind" : "starpoundsarmor",
   "bypassNude" : true,
 
   "statusEffects": [
-    "starpoundsfatty",
+    "starpoundsplump",
     "starpoundshyper",
-    "starpoundsstuffed"
+    "starpoundsglutted"
   ],
 
   "maleFrames" : {
@@ -23,7 +23,7 @@
   },
 
   "femaleFrames" : {
-    "body" : "fatty_chestf.png",
+    "body" : "chestf.png",
     "backSleeve" : "bsleeve.png",
     "frontSleeve" : "fsleeve.png"
   }

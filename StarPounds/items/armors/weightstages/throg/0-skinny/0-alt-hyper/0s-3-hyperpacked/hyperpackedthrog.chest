@@ -6,10 +6,10 @@
   "rarity" : "legendary",
   "category" : "chestwear",
   "description" : "You've since passed the point you could try sucking in this gut.",
-  "shortdescription" : "Hyper Packed Bust",
+  "shortdescription" : "Hyper Packed Chest",
   "tooltipKind" : "starpoundsarmor",
   "bypassNude" : true,
-
+  
   "statusEffects": [
     "starpounds",
     "starpoundshyper",

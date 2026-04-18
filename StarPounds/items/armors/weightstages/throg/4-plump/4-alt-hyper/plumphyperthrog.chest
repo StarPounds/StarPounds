@@ -1,15 +1,15 @@
 {
   "itemName" : "plumphyperthrogchest",
-  "price" : 0,
+  "price" : 0,  
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
-  "category" : "chestwear",
+  "category" : "chestwear",  
   "description" : "Tables must fear a rack of that size.",
   "shortdescription" : "Hyper Plump Bust",
   "tooltipKind" : "starpoundsarmor",
   "bypassNude" : true,
-
+ 
   "statusEffects": [
     "starpoundsplump",
     "starpoundshyper"

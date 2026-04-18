@@ -1,19 +1,19 @@
 {
-  "itemName" : "fattyhypergorgedthrogchest",
+  "itemName" : "plumphyperstuffedthrogchest",
   "price" : 0,
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",
-  "description" : "Every pound in your stomach you can feel turning into fat right now.",
-  "shortdescription" : "Hyper Gorged Bust",
+  "description" : "Quite a large meal you've had with that big gut.",
+  "shortdescription" : "Hyper Stuffed Chest",
   "tooltipKind" : "starpoundsarmor",
   "bypassNude" : true,
 
   "statusEffects": [
-    "starpoundsfatty",
+    "starpoundsplump",
     "starpoundshyper",
-    "starpoundsgorged"
+    "starpoundsstuffed"
   ],
 
   "maleFrames" : {
@@ -23,7 +23,7 @@
   },
 
   "femaleFrames" : {
-    "body" : "fatty_chestf.png",
+    "body" : "chestf.png",
     "backSleeve" : "bsleeve.png",
     "frontSleeve" : "fsleeve.png"
   }

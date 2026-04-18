@@ -1,15 +1,15 @@
 {
   "itemName" : "chubsterhyperthrogchest",
-  "price" : 0,
+  "price" : 0,    
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
-  "category" : "chestwear",
+  "category" : "chestwear",  
   "description" : "My, my. Your breasts are bigger than your own head.",
-  "shortdescription" : "Hyper Chubster Bust",
+  "shortdescription" : "Hyper Chubby Bust",
   "tooltipKind" : "starpoundsarmor",
   "bypassNude" : true,
-
+  
   "statusEffects": [
     "starpoundschubster",
     "starpoundshyper"
