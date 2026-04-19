@@ -1,0 +1,69 @@
+{
+  "objectName" : "starpoundschateaumieux",
+  "colonyTags" : ["starpounds","commerce"],
+  "rarity" : "Common",
+  "category" : "other",
+  "description" : "The premier bar of Deep Fry Five!",
+  "shortdescription" : "Chateau Mieux",
+  "race" : "generic",
+  "printable" : false,
+
+  "apexDescription" : "Seems like they've got a good stock in here. Though I do wonder where they get the chateau milk...",
+  "avianDescription" : "Wonder if she has the typical nectar bar drinks?",
+  "floranDescription" : "Big Mooshi lady sssellss booze. Doess she have Floran drinkss?",
+  "glitchDescription" : "Impressed. This Mootant has a great big... collection of drinks.",
+  "humanDescription" : "A milk bar? Fascinating... Though now I wonder where- or who- the milk comes from...",
+  "hylotlDescription" : "I've heard that Chateau Moo Milk is quite good. Fattening but good.",
+  "novakidDescription" : "A milk bar, eh? Does she have any whiskey or bourbon?",
+  "mootantDescription" : "I'm glad I'm not alone in this condition...",
+
+  "interactAction" : "OpenMerchantInterface",
+  "interactData" : {
+    "config" : "/interface/windowconfig/merchant.config",
+    "paneLayoutOverride" : {
+      "windowtitle" : {
+        "title" : "Chateau Mieux",
+        "subtitle" : "Sells liquors!"
+      }
+    },
+    "buyFactor" : 2.5,
+    "sellFactor" : 0.2,
+    "items" : [
+      { "item" : { "name" : "starpoundsmoomilkdeluxe" } },
+      { "item" : { "name" : "starpoundsmoomilk" } },
+      { "item" : { "name" : "starpoundsbourbon" } },
+      { "item" : { "name" : "starpoundspoitin" } },
+      { "item" : { "name" : "starpoundssake" } },
+      { "item" : { "name" : "starpoundsale" } },
+      { "item" : { "name" : "starpoundsbloodymary" } },
+      { "item" : { "name" : "starpoundsrum" } },
+      { "item" : { "name" : "starpoundsscrumpy" } },
+      { "item" : { "name" : "starpoundsmead" } },
+      { "item" : { "name" : "starpoundscockstail" } },
+      { "item" : { "name" : "starpoundsbananavodka" } },
+      { "item" : { "name" : "starpoundspinacolada" } },
+      { "item" : { "name" : "starpoundseggnog" } },
+      { "item" : { "name" : "starpoundsgrapewine" } },
+      { "item" : { "name" : "starpoundsskullsmash" } },
+      { "item" : { "name" : "starpoundstepache" } },
+      { "item" : { "name" : "starpoundstidepooler" } },
+      { "item" : { "name" : "starpoundsvitreous" } },
+      { "item" : { "name" : "starpoundsbirdofparaadise" } }
+    ]
+  },
+
+  "inventoryIcon" : "icon.png",
+  "orientations" : [
+    {
+      "imageLayers" : [ { "image" : "starpoundschateaumieux.png:default.<frame>", "fullbright" : false } ],
+      "direction" : "left",
+
+      "imagePosition" : [-24, 0],
+      "frames" : 56,
+      "animationCycle" : 5.0,
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ]
+    }
+  ]
+}
