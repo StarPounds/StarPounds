@@ -254,7 +254,12 @@ end
 
 function size:updateStats(forceUpdate)
   -- Don't do anything if the mod is disabled.
-  if not storage.starPounds.enabled then return end
+  if not storage.starPounds.enabled then
+    starPounds.movementMultiplier = 1
+    starPounds.jumpMultiplier = 1
+    starPounds.swimMultiplier = 1
+    return
+  end
   -- Give the entity hitbox, bonus stats, and effects based on fatness.
   local size = starPounds.currentSize
   local sizeIndex = starPounds.currentSizeIndex
