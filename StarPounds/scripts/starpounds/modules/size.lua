@@ -10,7 +10,6 @@ function size:init()
   message.setHandler("starPounds.size.sizes", function(_, _, ...) return self:sizes(...) end)
   message.setHandler("starPounds.size.config", function(_, _, ...) return self:config(...) end)
   message.setHandler("starPounds.size.maximumWeight", function(_, _, ...) return self:maximumWeight(...) end)
-  message.setHandler("starPounds.size.getVariant", function(_, _, ...) return self:getVariant(...) end)
   message.setHandler("starPounds.size.reset", localHandler(self.reset))
 
   local function nullFunction() end
@@ -63,7 +62,7 @@ end
 
 function size:update(dt)
   starPounds.currentSize, starPounds.currentSizeIndex = self:get(storage.starPounds.weight)
-  starPounds.currentVariant = self:getVariant(starPounds.currentSize)
+  starPounds.currentVariant = self:getVariant()
   starPounds.weight = storage.starPounds.weight
   starPounds.weightMultiplier = self:weightMultiplier()
   starPounds.progress = self:progress()
@@ -399,90 +398,98 @@ function size:effectActivated()
 end
 
 function size:getVariant(size)
+  -- Fallback.
+  if not starPounds.hasOption("combinedStageTest") then
+    return self:getVariantOld(size)
+  end
   -- Don't do anything if the mod is disabled.
   if not (storage.starPounds.enabled and self.canGain) then return "" end
-  -- Argument sanitisation.
-  local size = type(size) == "table" and size or {}
-  local variants = size.variants or jarray()
-  local variant = nil
-  local thresholds = starPounds.currentSize.thresholds
+  local size = size or starPounds.currentSize
 
-  local breastSize = (starPounds.hasOption("disableBreastGrowth") and 0 or (starPounds.moduleFunc("breasts", "get").contents or 0))
-  if starPounds.currentSize.breastOptions then
-    local additionalSize = 0
-    for option, amount in pairs(starPounds.currentSize.breastOptions) do
-      additionalSize = math.max(additionalSize, starPounds.hasOption(option) and amount or 0)
-    end
+  local breastVariant = self:getBreastVariant(size)
+  local stomachVariant = self:getStomachVariant(size)
 
-    breastSize = breastSize + additionalSize
+  return breastVariant .. stomachVariant
+end
+
+function size:getStomachVariant(size)
+  local isHyper = starPounds.hasOption("hyper") and not size.disableHyper
+  -- Hyper uses base stomach thresholds.
+  if isHyper then
+    size = self.sizeConfig.sizes[1]
   end
 
-
+  local thresholds = size.thresholds.stomach
   local stomachSize = (starPounds.hasOption("disableStomachGrowth") and 0 or (starPounds.moduleFunc("stomach", "get").interpolatedContents or 0))
-  if starPounds.currentSize.stomachOptions then
+  if size.stomachOptions then
     local additionalSize = 0
-    for option, amount in pairs(starPounds.currentSize.stomachOptions) do
+    for option, amount in pairs(size.stomachOptions) do
       additionalSize = math.max(additionalSize, starPounds.hasOption(option) and amount or 0)
     end
 
     stomachSize = stomachSize + additionalSize
   end
 
-  -- Testing, remove later. ----------------------------------
-  if starPounds.hasOption("combinedStageTest") then
-    variant = ""
-
-    -- Hyper.
-    if not starPounds.currentSize.disableHyper and starPounds.hasOption("hyper") then
-      local stomachThresholds = self.sizeConfig.sizes[1].thresholds.stomach
-      local stomachVariant = ""
-      for _, v in ipairs(stomachThresholds) do
-        if stomachSize >= v.amount then
-          stomachVariant = v.name
-        end
-      end
-
-      variant = "hyper" .. stomachVariant
-      return variant
-    end
-
-    local breastVariant = ""
-    for _, v in ipairs(thresholds.breasts) do
-      if breastSize >= v.amount then
-        breastVariant = v.name
-      end
-    end
-    variant = variant .. breastVariant
-
-    local stomachVariant = ""
-    for _, v in ipairs(thresholds.stomach) do
-      if stomachSize >= v.amount then
-        stomachVariant = v.name
-      end
-    end
-    variant = variant .. stomachVariant
-
-    return variant
-  end
-  -- Testing, remove later. ----------------------------------
-
-  for _, v in ipairs(thresholds.breasts) do
-    if breastSize >= v.amount then
-      variant = v.name
-    end
-  end
-
-  for _, v in ipairs(thresholds.stomach) do
+  local variant = ""
+  for _, v in ipairs(thresholds) do
     if stomachSize >= v.amount then
       variant = v.name
     end
   end
+  -- Returns the index increase if hyper is enabled.
+  return variant
+end
 
-  if not starPounds.currentSize.disableHyper and starPounds.hasOption("hyper") then
-    variant = "hyper"
+function size:getBreastVariant(size)
+  local isHyper = starPounds.hasOption("hyper") and not size.disableHyper
+  if isHyper then return "hyper" end
+
+  local thresholds = size.thresholds.breasts
+  local breastSize = (starPounds.hasOption("disableBreastGrowth") and 0 or (starPounds.moduleFunc("breasts", "get").contents or 0))
+
+  if size.breastOptions then
+    local additionalSize = 0
+    for option, amount in pairs(size.breastOptions) do
+      additionalSize = math.max(additionalSize, starPounds.hasOption(option) and amount or 0)
+    end
+
+    breastSize = breastSize + additionalSize
   end
 
+  local variant = ""
+  for _, v in ipairs(thresholds) do
+    if breastSize >= v.amount then
+      variant = v.name
+    end
+  end
+  -- Returns the index increase if hyper is enabled.
   return variant
+end
+
+function size:getHyperOffset(size)
+  local isHyper = starPounds.hasOption("hyper") and not size.disableHyper
+  if not isHyper then return 0 end
+
+  local thresholds = size.thresholds.breasts
+  local breastSize = (starPounds.hasOption("disableBreastGrowth") and 0 or (starPounds.moduleFunc("breasts", "get").contents or 0))
+
+  if size.breastOptions then
+    local additionalSize = 0
+    for option, amount in pairs(size.breastOptions) do
+      additionalSize = math.max(additionalSize, starPounds.hasOption(option) and amount or 0)
+    end
+
+    breastSize = breastSize + additionalSize
+  end
+
+  local index = 0
+  for i, v in ipairs(thresholds) do
+    if breastSize >= v.amount then
+      index = i
+    end
+  end
+
+  return index
 end
 
 function size:equipmentConfig(sizeIndex)
@@ -508,6 +515,11 @@ function size:equipmentConfig(sizeIndex)
       if starPounds.hasOption(option) then
         chestIndex = math.min(sizeIndex + amount, self.supersizeIndex - 1, vehicleCap.chest)
       end
+    end
+    -- Hyper index shifting.
+    local isHyper = starPounds.hasOption("hyper") and not self.sizeConfig.sizes[chestIndex].disableHyper
+    if isHyper then
+      chestIndex = math.min(chestIndex + self:getHyperOffset(self.sizeConfig.sizes[chestIndex]), self.supersizeIndex - 1, vehicleCap.chest)
     end
     -- Same for legs.
     for option, amount in pairs(self.data.sizeOptions.legs) do
@@ -711,6 +723,55 @@ end
 function size.reset()
   storage.starPounds.weight = self.sizeConfig.sizes[(starPounds.moduleFunc("skills", "level", "minimumSize") + 1)].weight
   return true
+end
+
+-- Delete eventually.
+function size:getVariantOld(size)
+  -- Don't do anything if the mod is disabled.
+  if not (storage.starPounds.enabled and self.canGain) then return "" end
+  -- Argument sanitisation.
+  local size = type(size) == "table" and size or starPounds.currentSize
+  local variant = nil
+  local thresholds = starPounds.currentSize.thresholds
+
+  local breastSize = (starPounds.hasOption("disableBreastGrowth") and 0 or (starPounds.moduleFunc("breasts", "get").contents or 0))
+  if starPounds.currentSize.breastOptions then
+    local additionalSize = 0
+    for option, amount in pairs(starPounds.currentSize.breastOptions) do
+      additionalSize = math.max(additionalSize, starPounds.hasOption(option) and amount or 0)
+    end
+
+    breastSize = breastSize + additionalSize
+  end
+
+
+  local stomachSize = (starPounds.hasOption("disableStomachGrowth") and 0 or (starPounds.moduleFunc("stomach", "get").interpolatedContents or 0))
+  if starPounds.currentSize.stomachOptions then
+    local additionalSize = 0
+    for option, amount in pairs(starPounds.currentSize.stomachOptions) do
+      additionalSize = math.max(additionalSize, starPounds.hasOption(option) and amount or 0)
+    end
+
+    stomachSize = stomachSize + additionalSize
+  end
+
+  for _, v in ipairs(thresholds.breasts) do
+    if breastSize >= v.amount then
+      variant = v.name
+    end
+  end
+
+  for _, v in ipairs(thresholds.stomach) do
+    if stomachSize >= v.amount then
+      variant = v.name
+    end
+  end
+
+  if not starPounds.currentSize.disableHyper and starPounds.hasOption("hyper") then
+    variant = "hyper"
+  end
+
+  return variant
 end
 
 starPounds.modules.size = size
