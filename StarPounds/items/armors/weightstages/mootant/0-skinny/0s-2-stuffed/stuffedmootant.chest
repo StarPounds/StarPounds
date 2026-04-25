@@ -1,10 +1,10 @@
 {
   "itemName" : "stuffedmootantchest",
-  "price" : 0,
+  "price" : 0,  
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
-  "category" : "chestwear",
+  "category" : "chestwear",  
   "description" : "Quite a large meal you've had with that big gut.",
   "shortdescription" : "Stuffed Belly",
   "tooltipKind" : "starpoundsarmor",

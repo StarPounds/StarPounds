@@ -1,10 +1,10 @@
 {
   "itemName" : "fattymilkymootantchest",
-  "price" : 0,
+  "price" : 0,  
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
-  "category" : "chestwear",
+  "category" : "chestwear",  
   "description" : "From a certain angle, your chest can give the illusion your stomach isn't as big as it is.",
   "shortdescription" : "XBusty Fatty Belly",
   "tooltipKind" : "starpoundsarmor",

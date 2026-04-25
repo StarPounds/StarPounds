@@ -1,6 +1,6 @@
 {
   "itemName" : "plumpmilkymootantchest",
-  "price" : 0,
+  "price" : 0,  
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
@@ -24,6 +24,6 @@
   "femaleFrames" : {
     "body" : "chestf.png",
     "backSleeve" : "bsleeve.png",
-    "frontSleeve" : "fsleeve.png"
+    "frontSleeve" : "fsleevef.png"
   }
 }

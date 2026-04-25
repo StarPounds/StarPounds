@@ -1,12 +1,12 @@
 {
   "itemName" : "thickmootantlegs",
-  "price" : 0,
+  "price" : 0,  
   "inventoryIcon" : "icons.png:pants",
   "maxStack" : 1,
   "rarity" : "legendary",
-  "category" : "legwear",
+  "category" : "legwear",  
   "description" : "Thighs touching one another? Seems like someone is a bit thicker than most.",
-  "shortdescription" : "Thick Legs",
+  "shortdescription" : "Thick Bottom",
   "tooltipKind" : "starpoundsarmor",
   "bypassNude" : true,
   

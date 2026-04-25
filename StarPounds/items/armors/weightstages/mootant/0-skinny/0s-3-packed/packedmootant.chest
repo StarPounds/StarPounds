@@ -1,10 +1,10 @@
 {
   "itemName" : "packedmootantchest",
-  "price" : 0,
+  "price" : 0,  
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
-  "category" : "chestwear",
+  "category" : "chestwear",  
   "description" : "You've since passed the point you could try sucking in this gut.",
   "shortdescription" : "Packed Belly",
   "tooltipKind" : "starpoundsarmor",

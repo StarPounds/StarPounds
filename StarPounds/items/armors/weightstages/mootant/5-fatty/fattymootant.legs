@@ -1,12 +1,12 @@
 {
   "itemName" : "fattymootantlegs",
-  "price" : 0,
+  "price" : 0,  
   "inventoryIcon" : "icons.png:pants",
   "maxStack" : 1,
   "rarity" : "legendary",
-  "category" : "legwear",
+  "category" : "legwear",  
   "description" : "That butt is an absolute dumptruck. Only good for sitting down every single day.",
-  "shortdescription" : "Fatty Legs",
+  "shortdescription" : "Fatty Bottom",
   "tooltipKind" : "starpoundsarmor",
   "bypassNude" : true,
   

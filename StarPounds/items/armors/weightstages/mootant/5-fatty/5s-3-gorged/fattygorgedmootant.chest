@@ -4,7 +4,7 @@
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
-  "category" : "chestwear",
+  "category" : "chestwear",  
   "description" : "Your gut is the size of a person. You're just a hopeless, fat glutton.",
   "shortdescription" : "Gorged Fatty Belly",
   "tooltipKind" : "starpoundsarmor",

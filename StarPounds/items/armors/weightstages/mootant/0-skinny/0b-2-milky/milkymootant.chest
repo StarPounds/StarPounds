@@ -1,10 +1,10 @@
 {
   "itemName" : "milkymootantchest",
-  "price" : 0,
+  "price" : 0,  
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
-  "category" : "chestwear",
+  "category" : "chestwear",  
   "description" : "You can hear the sloshing with every bounce.",
   "shortdescription" : "XBusty Bust",
   "tooltipKind" : "starpoundsarmor",

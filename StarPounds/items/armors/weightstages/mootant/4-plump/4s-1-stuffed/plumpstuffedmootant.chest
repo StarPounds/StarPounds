@@ -1,10 +1,10 @@
 {
   "itemName" : "plumpstuffedmootantchest",
-  "price" : 0,
+  "price" : 0,  
   "inventoryIcon" : "icons.png:chest",
   "maxStack" : 1,
   "rarity" : "legendary",
-  "category" : "chestwear",
+  "category" : "chestwear",  
   "description" : "It's hard to even tell you've just eaten.",
   "shortdescription" : "Stuffed Plump Belly",
   "tooltipKind" : "starpoundsarmor",
@@ -24,6 +24,6 @@
   "femaleFrames" : {
     "body" : "chestf.png",
     "backSleeve" : "bsleeve.png",
-    "frontSleeve" : "fsleeve.png"
+    "frontSleeve" : "fsleevef.png"
   }
 }
