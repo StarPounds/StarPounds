@@ -1,0 +1,43 @@
+{
+  "objectName" : "throgdiningtable",
+  "colonyTags" : ["throg","commerce"],
+  "rarity" : "Common",
+  "category" : "furniture",
+  "price" : 180,
+  "description" : "A large table that's seen many a feast.",
+  "shortdescription" : "Throg Dining Table",
+  "race" : "apex",
+
+  "apexDescription" : "An extravagant table by day to day Apex standards.",
+  "avianDescription" : "I have never seen a table so large. The Avians tend to dine alone.",
+  "floranDescription" : "Feassst! A table big enough for many foodss.",
+  "glitchDescription" : "Nostalgic. The Glitch would host great feasts at tables such as these. There would be singing and dancing, and a motley fool filling the host with humour.",
+  "humanDescription" : "What a dining table. It looks brand new, barely used.",
+  "hylotlDescription" : "Hylotl believe a table should be full before a meal begins. Perhaps here it would never start.",
+  "novakidDescription" : "This table is huge! The shape'd make it hard for playin' cards though.",
+
+  "inventoryIcon" : "classicdiningtableicon.png",
+  "orientations" : [
+    {
+     "imageLayers" : [ { "image" : "throgdiningtable.png:<color>", "fullbright" : true }, { "image" : "throgdiningtablelit.png:<color>" } ],
+      "imagePosition" : [-40, 0],
+      "direction" : "left",
+      "flipImages" : true,
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ],
+      "collision" : "platform",
+      "collisionSpaces" : [ [-2, 1], [-1, 1], [0, 1], [1, 1] ]
+    },
+    {
+     "imageLayers" : [ { "image" : "throgdiningtable.png:<color>", "fullbright" : true }, { "image" : "throgdiningtablelit.png:<color>" } ],
+      "imagePosition" : [-40, 0],
+      "direction" : "right",
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ],
+      "collision" : "platform",
+      "collisionSpaces" : [ [-2, 1], [-1, 1], [0, 1], [1, 1] ]
+    }
+  ]
+}

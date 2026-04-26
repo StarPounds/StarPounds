@@ -1,0 +1,58 @@
+{
+  "objectName" : "throgbar",
+  "colonyTags" : ["throg","commerce"],
+  "rarity" : "Common",
+  "category" : "furniture",
+  "price" : 280,
+  "description" : "A sleek luminous bartop.",
+  "shortdescription" : "Throg Bar",
+  "race" : "generic",
+
+  "apexDescription" : "A shiny bar. Must be easy to clean at least.",
+  "avianDescription" : "A shiny, sleek metal bartop.",
+  "floranDescription" : "Floran likesss shiny bar.",
+  "glitchDescription" : "Pleased. This bartop's been cleaned to a mirror finish.",
+  "humanDescription" : "Sleek!",
+  "hylotlDescription" : "Reminds me of the trendier nightclubs back home.",
+  "novakidDescription" : "A sleek lookin' bar",
+
+  "objectType" : "loungeable",
+  "sitFlipDirection" : false,
+
+  "inventoryIcon" : "throgbaricon.png",
+  "orientations" : [
+    {
+      "imageLayers" : [ { "image" : "throgbar.png:<color>", "fullbright" : true }, { "image" : "throgbarlit.png:<color>" } ],
+      "imagePosition" : [-40, 0],
+      "direction" : "left",
+      "flipImages" : true,
+
+      "sitPositions" : [
+        // Positions from front to back.
+        [-18, 24], // Right
+        [7, 24], // Middle
+        [32, 24] // Left
+      ],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ],
+      "collision" : "platform"
+    },
+    {
+      "imageLayers" : [ { "image" : "throgbar.png:<color>", "fullbright" : true }, { "image" : "throgbarlit.png:<color>" } ],
+      "imagePosition" : [-40, 0],
+      "direction" : "right",
+
+      "sitPositions" : [
+        // Positions from front to back.
+        [-18, 24], // Left
+        [7, 24], // Middle
+        [32, 24] // Right
+      ],
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ],
+      "collision" : "platform"
+    }
+  ]
+}

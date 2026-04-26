@@ -1,0 +1,34 @@
+{
+  "objectName" : "starpoundsdeepfryfivesign",
+  "colonyTags" : [],
+  "rarity" : "Common",
+  "category" : "decorative",
+  "price" : 80,
+  "printable" : false,
+
+  "description" : "A sign for DFV, a former Throg Starbase.",
+  "shortdescription" : "Deep Fry Five Sign",
+  "race" : "generic",
+
+  "apexDescription" : "Must be full of unhealthy foods.",
+  "avianDescription" : "I wonder what they have to eat here...",
+  "floranDescription" : "Floran wantsss to explore Deep Fry Vee!",
+  "glitchDescription" : "Desiring. Looking at this sign is making me feel hungry.",
+  "humanDescription" : "Deep Fry V? Sounds like a major greasetrap... I'm in!",
+  "hylotlDescription" : "The food here seems a little unhealthy...",
+  "novakidDescription" : "If there's a bar here I wanna hit it up!",
+
+  "inventoryIcon" : "starpoundsdeepfryfivesignicon.png",
+  "orientations" : [
+    {
+      "image" : "starpoundsdeepfryfivesign.png:<color>",
+      "imagePosition" : [-56, -24],
+      "frames" : 1,
+      "animationCycle" : 0.5,
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "background" ]
+
+    }
+  ]
+}
