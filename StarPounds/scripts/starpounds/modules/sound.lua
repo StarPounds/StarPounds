@@ -37,21 +37,11 @@ end
 function sound:play(soundPool, volume, pitch, loops)
   -- No sound with the option.
   if starPounds.hasOption("disableSound") then return end
-
+  -- Set volume/pitch.
   self:setVolume(soundPool, volume)
   self:setPitch(soundPool, pitch)
   -- Hehe.
-  if self.secret then
-    local secretPool
-    if soundPool:find("loop") then
-      secretPool = {"/sfx/starpounds/other/secret.ogg"}
-    else
-      if not self.secretIndex[soundPool] then self.secretIndex[soundPool] = 1 end
-      secretPool = {"/sfx/starpounds/other/secret" .. self.secretIndex[soundPool] .. ".ogg"}
-      self.secretIndex[soundPool] = (self.secretIndex[soundPool] % 8) + 1
-    end
-    world.sendEntityMessage(starPounds.entityId, "starPounds.handler_setSoundPool", soundPool, secretPool)
-  end
+  if self.secret then self:applySecret(soundPool) end
 
   world.sendEntityMessage(starPounds.entityId, "starPounds.handler_playSound", soundPool, loops)
 end
@@ -82,6 +72,18 @@ function sound:setPitch(soundPool, pitch, rampTime)
   end
 
   world.sendEntityMessage(starPounds.entityId, "starPounds.handler_setSoundPitch", soundPool, pitch, rampTime)
+end
+
+function sound:applySecret(soundPool)
+  local secretPool
+  if soundPool:find("loop") then
+    secretPool = {"/sfx/starpounds/other/secret.ogg"}
+  else
+    if not self.secretIndex[soundPool] then self.secretIndex[soundPool] = 1 end
+    secretPool = {"/sfx/starpounds/other/secret" .. self.secretIndex[soundPool] .. ".ogg"}
+    self.secretIndex[soundPool] = (self.secretIndex[soundPool] % 8) + 1
+  end
+  world.sendEntityMessage(starPounds.entityId, "starPounds.handler_setSoundPool", soundPool, secretPool)
 end
 
 starPounds.modules.sound = sound
