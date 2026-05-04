@@ -1,0 +1,120 @@
+{
+  "name": "starpoundsreaction-treadmill",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/starpounds.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/world.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "starpoundsObjectDirection",
+        "type": "action",
+        "name": "starpoundsObjectDirection",
+        "parameters": {
+          "entity": {"key": "reactTarget"}
+        },
+        "output": {
+          "number": "treadmillDirection"
+        }
+      },
+      {
+        "title": "faceDirection",
+        "type": "action",
+        "name": "faceDirection",
+        "parameters": {
+          "direction": {"key": "treadmillDirection"}
+        }
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 0.25}
+        }
+      },
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": 2},
+          "success": {"value": 2}
+        },
+        "children": [
+          {
+            "title": "entityExists",
+            "type": "action",
+            "name": "entityExists",
+            "parameters": {
+              "entity": {"key": "reactTarget"}
+            }
+          },
+          {
+            "title": "timer",
+            "type": "action",
+            "name": "timer",
+            "parameters": {
+              "time": {"value": 5}
+            }
+          },
+          {
+            "title": "failer",
+            "type": "decorator",
+            "name": "failer",
+            "parameters": {},
+            "child": {
+              "title": "controlMove",
+              "type": "action",
+              "name": "controlMove",
+              "parameters": {
+                "direction": {"key": "treadmillDirection"},
+                "run": {"value": true}
+              }
+            }
+          }
+        ]
+      },
+      {
+        "title": "timer",
+        "type": "action",
+        "name": "timer",
+        "parameters": {
+          "time": {"value": 0.25}
+        }
+      },
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "entityExists",
+            "type": "action",
+            "name": "entityExists",
+            "parameters": {
+              "entity": {"key": "reactTarget"}
+            }
+          },
+          {
+            "title": "interactObject",
+            "type": "action",
+            "name": "interactObject",
+            "parameters": {
+              "entity": {"key": "reactTarget"}
+            }
+          }
+        ]
+      }
+    ]
+  }
+}

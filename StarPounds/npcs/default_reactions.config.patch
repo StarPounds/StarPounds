@@ -1,0 +1,9 @@
+[
+  {
+    "op": "add",
+    "path": "/behaviorReactions/starpoundstreadmill",
+    "value": {
+      "behavior": "starpoundsreaction-treadmill"
+    }
+  }
+]

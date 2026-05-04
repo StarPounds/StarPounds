@@ -1,0 +1,15 @@
+{
+  "starpoundsObjectDirection": {
+    "type": "action",
+    "name": "starpoundsObjectDirection",
+    "title": "starpoundsObjectDirection",
+    "properties": {
+      "entity": {"type": "entity", "value": null}
+    },
+    "category": "starpounds",
+    "script": "/scripts/actions/starpounds.lua",
+    "output": {
+      "number": {"type": "number", "key": null}
+    }
+  }
+}
