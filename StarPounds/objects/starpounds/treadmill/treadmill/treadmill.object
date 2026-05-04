@@ -40,6 +40,7 @@
       "collisionSpaces" : [ [-1, 0], [0, 0], [1, 0], [2, 0], [3, 0] ]
     }
   ],
+
   "npcToy": {
     "ownerOnly" : false,
     "influence" : [
@@ -52,6 +53,7 @@
     },
     "maxNpcs" : 1
   },
+
   "scripts" : [
     "/scripts/npcToyObject.lua",
     "/objects/starpounds/treadmill/treadmill.lua"
