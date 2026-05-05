@@ -2,10 +2,10 @@
   "name": "starpoundsreaction-treadmill",
   "description": "",
   "scripts": [
+    "/scripts/actions/world.lua",
     "/scripts/actions/starpounds.lua",
-    "/scripts/actions/movement.lua",
     "/scripts/actions/time.lua",
-    "/scripts/actions/world.lua"
+    "/scripts/actions/movement.lua"
   ],
   "parameters": {},
   "root": {
@@ -15,6 +15,22 @@
     "parameters": {},
     "children": [
       {
+        "title": "entityExists",
+        "type": "action",
+        "name": "entityExists",
+        "parameters": {
+          "entity": {"key": "reactTarget"}
+        }
+      },
+      {
+        "title": "interactObject",
+        "type": "action",
+        "name": "interactObject",
+        "parameters": {
+          "entity": {"key": "reactTarget"}
+        }
+      },
+      {
         "title": "starpoundsObjectDirection",
         "type": "action",
         "name": "starpoundsObjectDirection",
@@ -23,14 +39,6 @@
         },
         "output": {
           "number": "treadmillDirection"
-        }
-      },
-      {
-        "title": "faceDirection",
-        "type": "action",
-        "name": "faceDirection",
-        "parameters": {
-          "direction": {"key": "treadmillDirection"}
         }
       },
       {
@@ -72,13 +80,29 @@
             "name": "failer",
             "parameters": {},
             "child": {
-              "title": "controlMove",
-              "type": "action",
-              "name": "controlMove",
-              "parameters": {
-                "direction": {"key": "treadmillDirection"},
-                "run": {"value": true}
-              }
+              "title": "sequence",
+              "type": "composite",
+              "name": "sequence",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "faceDirection",
+                  "type": "action",
+                  "name": "faceDirection",
+                  "parameters": {
+                    "direction": {"key": "treadmillDirection"}
+                  }
+                },
+                {
+                  "title": "controlMove",
+                  "type": "action",
+                  "name": "controlMove",
+                  "parameters": {
+                    "direction": {"key": "treadmillDirection"},
+                    "run": {"value": true}
+                  }
+                }
+              ]
             }
           }
         ]
@@ -92,28 +116,20 @@
         }
       },
       {
-        "title": "sequence",
-        "type": "composite",
-        "name": "sequence",
-        "parameters": {},
-        "children": [
-          {
-            "title": "entityExists",
-            "type": "action",
-            "name": "entityExists",
-            "parameters": {
-              "entity": {"key": "reactTarget"}
-            }
-          },
-          {
-            "title": "interactObject",
-            "type": "action",
-            "name": "interactObject",
-            "parameters": {
-              "entity": {"key": "reactTarget"}
-            }
-          }
-        ]
+        "title": "entityExists",
+        "type": "action",
+        "name": "entityExists",
+        "parameters": {
+          "entity": {"key": "reactTarget"}
+        }
+      },
+      {
+        "title": "interactObject",
+        "type": "action",
+        "name": "interactObject",
+        "parameters": {
+          "entity": {"key": "reactTarget"}
+        }
       }
     ]
   }

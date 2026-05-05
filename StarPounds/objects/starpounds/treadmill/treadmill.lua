@@ -26,10 +26,6 @@ function onInteraction(args)
   end
 end
 
-function onNpcPlay(npcId)
-  onInteraction({sourceId = npcId})
-end
-
 function npcToy.isOccupied()
   return (npcToy.getMaxNpcs() ~= nil and npcToy.npcCount >= npcToy.getMaxNpcs()) or target
 end
