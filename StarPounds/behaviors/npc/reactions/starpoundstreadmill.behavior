@@ -108,14 +108,6 @@
         ]
       },
       {
-        "title": "timer",
-        "type": "action",
-        "name": "timer",
-        "parameters": {
-          "time": {"value": 0.25}
-        }
-      },
-      {
         "title": "entityExists",
         "type": "action",
         "name": "entityExists",
