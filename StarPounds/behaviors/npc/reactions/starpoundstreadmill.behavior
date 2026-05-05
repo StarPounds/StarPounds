@@ -4,8 +4,8 @@
   "scripts": [
     "/scripts/actions/world.lua",
     "/scripts/actions/starpounds.lua",
-    "/scripts/actions/time.lua",
-    "/scripts/actions/movement.lua"
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/time.lua"
   ],
   "parameters": {},
   "root": {
@@ -39,6 +39,14 @@
         },
         "output": {
           "number": "treadmillDirection"
+        }
+      },
+      {
+        "title": "faceDirection",
+        "type": "action",
+        "name": "faceDirection",
+        "parameters": {
+          "direction": {"key": "treadmillDirection"}
         }
       },
       {
