@@ -5,5 +5,12 @@
     "value": {
       "behavior": "starpoundsreaction-treadmill"
     }
+  },
+  {
+    "op": "add",
+    "path": "/behaviorReactions/starpoundsfeedingtube",
+    "value": {
+      "behavior": "starpoundsreaction-feedingtube"
+    }
   }
 ]

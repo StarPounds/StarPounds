@@ -40,6 +40,7 @@ function init()
   animator.setGlobalTag("liquidLevel", math.max(0, math.min(math.ceil(self.liquidLevel * 39/self.capacity), 39)))
 end
 
+
 function update(dt)
   promises:update()
   -- Player/NPC detection. Resets the target if nobody lounging.
@@ -53,6 +54,7 @@ function update(dt)
   end
   -- Main loop.
   if self.feedTarget then
+    object.setInteractive(false)
     if canFeed() then
       if animator.animationState("feedState") == "default" then
         -- Remove stored liquid.
@@ -89,15 +91,11 @@ function update(dt)
         end
       end
     else
-      -- Make NPCs hop off when empty.
-      if world.entityType(self.feedTarget ) == "npc" then
-        world.callScriptedEntity(self.feedTarget, "status.setResource", "stunned", 0)
-        world.callScriptedEntity(self.feedTarget, "mcontroller.resetAnchorState")
-      end
       -- Connected to mouth, static.
       animator.setAnimationState("feedState", "default")
     end
   else
+    object.setInteractive(true)
     -- Disconnected.
     animator.setAnimationState("feedState", "idle")
   end
@@ -121,7 +119,7 @@ function canFeed()
 end
 
 function onInteraction(args)
-  if not world.loungeableOccupied(entity.id()) then
+  if not self.feedTarget then
     self.feedTarget = args.sourceId
     self.feedAmount = 0
     self.startedLounging = true
@@ -132,17 +130,8 @@ function onInteraction(args)
   end
 end
 
-function onNpcPlay(npcId)
-  onInteraction({sourceId = npcId})
-  if self.feedTarget == npcId then
-    world.callScriptedEntity(npcId, "lounge", {entity = entity.id()})
-    world.callScriptedEntity(npcId, "mcontroller.clearControls")
-    world.callScriptedEntity(npcId, "status.setResource", "stunned", math.random(5, 30))
-  end
-end
-
 function npcToy.isOccupied()
-  return (npcToy.getMaxNpcs() ~= nil and npcToy.npcCount >= npcToy.getMaxNpcs()) or world.loungeableOccupied(entity.id())
+  return (npcToy.getMaxNpcs() ~= nil and npcToy.npcCount >= npcToy.getMaxNpcs()) or self.feedTarget
 end
 
 function npcToy.isAvailable()

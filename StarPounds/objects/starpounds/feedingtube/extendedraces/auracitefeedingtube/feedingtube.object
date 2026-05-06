@@ -63,12 +63,11 @@
   "npcToy": {
     "ownerOnly" : false,
     "influence" : [
-      "feedingTube"
+      "feedingtube"
     ],
     "defaultReactions" : {
-      "feedingTube" : [
-        [3.0, "neutral"],
-        [1.0, "love"]
+      "feedingtube" : [
+        [1.0, "starpoundsfeedingtube"]
       ]
     },
     "maxNpcs" : 1

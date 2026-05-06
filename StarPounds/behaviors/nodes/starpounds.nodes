@@ -11,5 +11,15 @@
     "output": {
       "number": {"type": "number", "key": null}
     }
+  },
+  "starpoundsFeedingTubeEmpty": {
+    "type": "action",
+    "name": "starpoundsFeedingTubeEmpty",
+    "title": "starpoundsFeedingTubeEmpty",
+    "properties": {
+      "entity": {"type": "entity", "value": null}
+    },
+    "category": "starpounds",
+    "script": "/scripts/actions/starpounds.lua"
   }
 }
