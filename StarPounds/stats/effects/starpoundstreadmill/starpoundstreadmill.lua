@@ -13,6 +13,10 @@ function init()
   ))
   message.setHandler("starpounds.treadmill.uninit", simpleHandler(effect.expire))
   effectTimer = 10
+  entityType = world.entityType(entity.id())
+
+  outOfEnergyModifier = {movementSuppressed = true}
+  runningModifier = {groundMovementModifier = 0, speedModifier = 0}
 end
 
 function update(dt)
@@ -26,9 +30,10 @@ function update(dt)
       world.sendEntityMessage(target, "starpounds.treadmill.uninit")
     -- Disable movement when out of energy.
     elseif not status.resourcePositive("energy") or status.resourceLocked("energy") then
-      mcontroller.controlModifiers({movementSuppressed = true})
+      mcontroller.controlModifiers(outOfEnergyModifier)
     -- Sweat and consume energy when running.
     elseif mcontroller.running() then
+      mcontroller.controlModifiers(runningModifier)
       status.addEphemeralEffect("sweat")
       status.overConsumeResource("energy", status.resourceMax("energy") * 0.05 * dt)
       effectTimer = math.max(effectTimer - dt, 0)
@@ -37,6 +42,15 @@ function update(dt)
     if effectTimer == 0 then
       effectTimer = 10
       world.sendEntityMessage(entity.id(), "starPounds.effects.add", "treadmill")
+    end
+
+    -- Disable the treadmill for NPCs the moment they stop running.
+    if entityType == "npc" then
+      local moving = (mcontroller.walking() or mcontroller.running())
+      if wasMoving and not moving then
+        effect.expire()
+      end
+      wasMoving = moving
     end
   end
 end

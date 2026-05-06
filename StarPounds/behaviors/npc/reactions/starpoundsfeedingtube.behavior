@@ -1,0 +1,140 @@
+{
+  "name": "starpoundsreaction-feedingtube",
+  "description": null,
+  "scripts": [
+    "/scripts/actions/world.lua",
+    "/scripts/actions/npc.lua",
+    "/scripts/actions/math.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/entity.lua",
+    "/scripts/actions/dialog.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "parallel",
+    "type": "composite",
+    "name": "parallel",
+    "parameters": {
+      "fail": {"value": -1},
+      "success": {"value": -1}
+    },
+    "children": [
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "entityExists",
+            "type": "action",
+            "name": "entityExists",
+            "parameters": {
+              "entity": {"key": "reactTarget"}
+            }
+          },
+          {
+            "title": "lounge",
+            "type": "action",
+            "name": "lounge",
+            "parameters": {
+              "entity": {"key": "reactTarget"}
+            }
+          },
+          {
+            "title": "random",
+            "type": "action",
+            "name": "random",
+            "parameters": {
+              "max": {"value": 5},
+              "min": {"value": 30}
+            },
+            "output": {
+              "number": "feedingDuration"
+            }
+          },
+          {
+            "title": "interactObject",
+            "type": "action",
+            "name": "interactObject",
+            "parameters": {
+              "entity": {"key": "reactTarget"}
+            }
+          },
+          {
+            "title": "parallel",
+            "type": "composite",
+            "name": "parallel",
+            "parameters": {
+              "fail": {"value": 1},
+              "success": {"value": -1}
+            },
+            "children": [
+              {
+                "title": "inverter",
+                "type": "decorator",
+                "name": "inverter",
+                "parameters": {},
+                "child": {
+                  "title": "timer",
+                  "type": "action",
+                  "name": "timer",
+                  "parameters": {
+                    "time": {"key": "feedingDuration"}
+                  }
+                }
+              },
+              {
+                "title": "entityExists",
+                "type": "action",
+                "name": "entityExists",
+                "parameters": {
+                  "entity": {"key": "reactTarget"}
+                }
+              },
+              {
+                "title": "lounge",
+                "type": "action",
+                "name": "lounge",
+                "parameters": {
+                  "entity": {"key": "reactTarget"}
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "title": "Converse",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "wasInteracted",
+            "type": "action",
+            "name": "wasInteracted",
+            "parameters": {}
+          },
+          {
+            "title": "sayToEntity",
+            "type": "action",
+            "name": "sayToEntity",
+            "parameters": {
+              "dialogType": {"value": "dialog.converse"},
+              "entity": {"key": "interactionSource"}
+            }
+          },
+          {
+            "title": "timer",
+            "type": "action",
+            "name": "timer",
+            "parameters": {
+              "time": {"value": 1}
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
