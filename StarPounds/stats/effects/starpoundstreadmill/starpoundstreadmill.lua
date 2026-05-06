@@ -49,6 +49,7 @@ function update(dt)
       local moving = (mcontroller.walking() or mcontroller.running())
       if wasMoving and not moving then
         effect.expire()
+        world.sendEntityMessage(target, "starpounds.treadmill.uninit")
       end
       wasMoving = moving
     end
