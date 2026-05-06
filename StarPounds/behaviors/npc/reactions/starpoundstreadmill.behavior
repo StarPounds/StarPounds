@@ -3,12 +3,12 @@
   "description": "",
   "scripts": [
     "/scripts/actions/world.lua",
-    "/scripts/behavior.lua",
     "/scripts/actions/starpounds.lua",
     "/scripts/actions/time.lua",
     "/scripts/actions/movement.lua",
     "/scripts/actions/npc.lua",
-    "/scripts/actions/math.lua"
+    "/scripts/actions/math.lua",
+    "/scripts/behavior.lua"
   ],
   "parameters": {},
   "root": {
@@ -31,14 +31,6 @@
         "name": "interactObject",
         "parameters": {
           "entity": {"key": "reactTarget"}
-        }
-      },
-      {
-        "title": "setFlag",
-        "type": "action",
-        "name": "setFlag",
-        "parameters": {
-          "name": {"value": "nochat"}
         }
       },
       {
@@ -188,6 +180,14 @@
         }
       },
       {
+        "title": "entityExists",
+        "type": "action",
+        "name": "entityExists",
+        "parameters": {
+          "entity": {"key": "reactTarget"}
+        }
+      },
+      {
         "title": "dance",
         "type": "action",
         "name": "dance",
@@ -201,44 +201,6 @@
         "name": "timer",
         "parameters": {
           "time": {"value": 0.75}
-        }
-      },
-      {
-        "title": "unsetFlag",
-        "type": "action",
-        "name": "unsetFlag",
-        "parameters": {
-          "name": {"value": "nochat"}
-        }
-      },
-      {
-        "title": "succeeder",
-        "type": "decorator",
-        "name": "succeeder",
-        "parameters": {},
-        "child": {
-          "title": "sequence",
-          "type": "composite",
-          "name": "sequence",
-          "parameters": {},
-          "children": [
-            {
-              "title": "entityExists",
-              "type": "action",
-              "name": "entityExists",
-              "parameters": {
-                "entity": {"key": "reactTarget"}
-              }
-            },
-            {
-              "title": "interactObject",
-              "type": "action",
-              "name": "interactObject",
-              "parameters": {
-                "entity": {"key": "reactTarget"}
-              }
-            }
-          ]
         }
       },
       {
