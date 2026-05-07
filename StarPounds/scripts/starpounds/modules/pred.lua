@@ -94,7 +94,7 @@ function pred:eat(preyId, options, check)
   -- Don't do anything if eaten.
   if storage.starPounds.pred then return false end
   -- Can only eat if you're below capacity.
-  if not starPounds.moduleFunc("stomach", "canEat") then
+  if not (options.ignoreCapacity or starPounds.moduleFunc("stomach", "canEat")) then
     return false
   end
   -- Don't do anything if they're already eaten.
