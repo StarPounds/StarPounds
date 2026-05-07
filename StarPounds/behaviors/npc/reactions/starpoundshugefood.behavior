@@ -1,0 +1,193 @@
+{
+  "name": "starpoundsreaction-hugefood",
+  "description": null,
+  "scripts": [
+    "/scripts/actions/status.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/starpounds.lua",
+    "/scripts/actions/movement.lua",
+    "/scripts/actions/npc.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/behavior/bdata.lua"
+  ],
+  "parameters": {
+    "useFatteningObjects": true
+  },
+  "root": {
+    "title": "selector",
+    "type": "composite",
+    "name": "selector",
+    "parameters": {},
+    "children": [
+      {
+        "title": "optional",
+        "type": "decorator",
+        "name": "optional",
+        "parameters": {
+          "shouldRun": {"key": "<useFatteningObjects>"}
+        },
+        "child": {
+          "title": "sequence",
+          "type": "composite",
+          "name": "sequence",
+          "parameters": {},
+          "children": [
+            {
+              "title": "addEphemeralEffect",
+              "type": "action",
+              "name": "addEphemeralEffect",
+              "parameters": {
+                "name": {"value": "love"}
+              }
+            },
+            {
+              "title": "repeater",
+              "type": "decorator",
+              "name": "repeater",
+              "parameters": {
+                "maxLoops": {"value": -1},
+                "untilSuccess": {"value": true}
+              },
+              "child": {
+                "title": "selector",
+                "type": "composite",
+                "name": "selector",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "inverter",
+                    "type": "decorator",
+                    "name": "inverter",
+                    "parameters": {},
+                    "child": {
+                      "title": "entityExists",
+                      "type": "action",
+                      "name": "entityExists",
+                      "parameters": {
+                        "entity": {"key": "reactTarget"}
+                      }
+                    }
+                  },
+                  {
+                    "title": "inverter",
+                    "type": "decorator",
+                    "name": "inverter",
+                    "parameters": {},
+                    "child": {
+                      "title": "starpoundsCanEat",
+                      "type": "action",
+                      "name": "starpoundsCanEat",
+                      "parameters": {}
+                    }
+                  },
+                  {
+                    "title": "failer",
+                    "type": "decorator",
+                    "name": "failer",
+                    "parameters": {},
+                    "child": {
+                      "title": "sequence",
+                      "type": "composite",
+                      "name": "sequence",
+                      "parameters": {},
+                      "children": [
+                        {
+                          "title": "entityExists",
+                          "type": "action",
+                          "name": "entityExists",
+                          "parameters": {
+                            "entity": {"key": "reactTarget"}
+                          }
+                        },
+                        {
+                          "title": "starpoundsCanEat",
+                          "type": "action",
+                          "name": "starpoundsCanEat",
+                          "parameters": {}
+                        },
+                        {
+                          "title": "faceEntity",
+                          "type": "action",
+                          "name": "faceEntity",
+                          "parameters": {
+                            "entity": {"key": "reactTarget"},
+                            "headingDirection": {"value": [1, 0]}
+                          }
+                        },
+                        {
+                          "title": "dance",
+                          "type": "action",
+                          "name": "dance",
+                          "parameters": {
+                            "dance": {"value": "starpoundshugefood"}
+                          }
+                        },
+                        {
+                          "title": "timer",
+                          "type": "action",
+                          "name": "timer",
+                          "parameters": {
+                            "time": {"value": 1.5}
+                          }
+                        },
+                        {
+                          "title": "interactObject",
+                          "type": "action",
+                          "name": "interactObject",
+                          "parameters": {
+                            "entity": {"key": "reactTarget"}
+                          }
+                        },
+                        {
+                          "title": "emote",
+                          "type": "action",
+                          "name": "emote",
+                          "parameters": {
+                            "emote": {"value": "Eat"}
+                          }
+                        },
+                        {
+                          "title": "timer",
+                          "type": "action",
+                          "name": "timer",
+                          "parameters": {
+                            "time": {"value": 0.75}
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "title": "timer",
+              "type": "action",
+              "name": "timer",
+              "parameters": {
+                "time": {"value": 0.75}
+              }
+            },
+            {
+              "title": "unset",
+              "type": "action",
+              "name": "unset",
+              "parameters": {
+                "key": {"value": "playTarget"},
+                "type": {"value": "entity"}
+              }
+            }
+          ]
+        }
+      },
+      {
+        "title": "emote",
+        "type": "action",
+        "name": "emote",
+        "parameters": {
+          "emote": {"value": "Annoyed"}
+        }
+      }
+    ]
+  }
+}

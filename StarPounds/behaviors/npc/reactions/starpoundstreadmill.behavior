@@ -2,12 +2,12 @@
   "name": "starpoundsreaction-treadmill",
   "description": "",
   "scripts": [
-    "/scripts/actions/world.lua",
     "/scripts/actions/starpounds.lua",
+    "/scripts/actions/math.lua",
+    "/scripts/actions/world.lua",
     "/scripts/actions/time.lua",
     "/scripts/actions/movement.lua",
     "/scripts/actions/npc.lua",
-    "/scripts/actions/math.lua",
     "/scripts/behavior.lua"
   ],
   "parameters": {},
@@ -17,6 +17,24 @@
     "name": "sequence",
     "parameters": {},
     "children": [
+      {
+        "title": "starpoundsWeight",
+        "type": "action",
+        "name": "starpoundsWeight",
+        "parameters": {},
+        "output": {
+          "number": "weight"
+        }
+      },
+      {
+        "title": "greaterThan",
+        "type": "action",
+        "name": "greaterThan",
+        "parameters": {
+          "first": {"key": "weight"},
+          "second": {"value": 0}
+        }
+      },
       {
         "title": "entityExists",
         "type": "action",
@@ -164,6 +182,38 @@
                   },
                   "output": {
                     "bool": "nochat"
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "title": "inverter",
+            "type": "decorator",
+            "name": "inverter",
+            "parameters": {},
+            "child": {
+              "title": "sequence",
+              "type": "composite",
+              "name": "sequence",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "starpoundsWeight",
+                  "type": "action",
+                  "name": "starpoundsWeight",
+                  "parameters": {},
+                  "output": {
+                    "number": "weight"
+                  }
+                },
+                {
+                  "title": "greaterThan",
+                  "type": "action",
+                  "name": "greaterThan",
+                  "parameters": {
+                    "first": {"key": "weight"},
+                    "second": {"value": 0}
                   }
                 }
               ]

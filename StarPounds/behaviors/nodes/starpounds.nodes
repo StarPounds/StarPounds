@@ -1,4 +1,14 @@
 {
+  "starpoundsWeight": {
+    "type": "action",
+    "name": "starpoundsWeight",
+    "title": "starpoundsWeight",
+    "category": "starpounds",
+    "script": "/scripts/actions/starpounds.lua",
+    "output": {
+      "number": {"type": "number", "key": null}
+    }
+  },
   "starpoundsObjectDirection": {
     "type": "action",
     "name": "starpoundsObjectDirection",
@@ -19,6 +29,13 @@
     "properties": {
       "entity": {"type": "entity", "value": null}
     },
+    "category": "starpounds",
+    "script": "/scripts/actions/starpounds.lua"
+  },
+  "starpoundsCanEat": {
+    "type": "action",
+    "name": "starpoundsCanEat",
+    "title": "starpoundsCanEat",
     "category": "starpounds",
     "script": "/scripts/actions/starpounds.lua"
   }

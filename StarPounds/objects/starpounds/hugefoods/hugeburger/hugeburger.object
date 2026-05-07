@@ -37,16 +37,21 @@
       "anchors" : ["bottom"]
     }
   ],
-
   "npcToy": {
     "ownerOnly" : false,
-    "influence" : [],
-    "defaultReactions" : {}
+    "influence" : [
+      "hugefood"
+    ],
+    "defaultReactions" : {
+      "hugefood" : [
+        [1.0, "starpoundshugefood"]
+      ]
+    },
+    "maxNpcs" : 1
   },
-
   "scripts" : [
-    "/objects/starpounds/hugefoods/hugefood.lua",
-    "/scripts/npcToyObject.lua"
+    "/scripts/npcToyObject.lua",
+    "/objects/starpounds/hugefoods/hugefood.lua"
   ],
   "scriptDelta" : 1,
 

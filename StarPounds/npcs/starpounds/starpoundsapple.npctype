@@ -17,6 +17,9 @@
     // their preferences. Please respect them and don't remove,
     // change, or otherwise alter these settings.
     // ======================== PLEASE READ ========================
+    "behaviorConfig" : {
+      "useFatteningObjects" : false
+    },
     "starPounds_options": {
       "disableSupersize" : true,
       "disableBreastGrowth" : true,

@@ -1,0 +1,21 @@
+{
+  "name" : "starpoundshugefood",
+  "states" : ["idle","sit"],
+  "cycle" : 2.2,
+  "cyclic" : true,
+  "duration" : 2.2,
+  "steps" : [
+    // body, frontArm, backArm, headOffset, frontArmOffset, backArmOffset
+    [ null, "swim.5", "swim.5", null, [0, 0], [-2, 0] ],
+    [ null, "swim.4", "swim.4", null, [0, 0], [0, 0] ],
+    [ null, "swim.4", "swim.4", null, [0, 1], [0, -1] ],
+    [ null, "swim.4", "swim.4", null, [0, 0], [0, 0] ],
+    [ null, "swim.4", "swim.4", null, [0, -1], [0, 1] ],
+    [ null, "swim.4", "swim.4", null, [0, 0], [0, 0] ],
+    [ null, "swim.5", "swim.5", null, [0, 0], [-2, 0] ],
+    [ null, "run.1", "run.4", null, [0, 0], [0, 2] ],
+    [ null, "run.1", "run.4", null, [-1, 1], [-1, 3] ],
+    [ null, "run.1", "run.4", null, [0, 0], [0, 2] ],
+    [ null, "run.1", "run.4", null, [-1, 1], [-1, 3] ]
+  ]
+}

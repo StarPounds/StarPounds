@@ -71,10 +71,6 @@ function onInteraction(args)
   end)
 end
 
-function onNpcPlay(npcId)
-  onInteraction({sourceId = npcId})
-end
-
 function setEatDelay(id)
   self.eatDelayTracker[id] = self.eatDelay
 end
