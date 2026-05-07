@@ -31,8 +31,8 @@
   "orientations" : [
     {
       "dualImage" : "hugeburger.png:<stage>",
-      "imagePosition" : [-49.5, -16],
-      "animationPosition" : [-49.5, -16],
+      "imagePosition" : [-28, -16],
+      "animationPosition" : [-28, -16],
       "spaceScan" : 0.1,
       "anchors" : ["bottom"]
     }

@@ -5,7 +5,7 @@
         "properties" : {
           "image" : "<partImage>:<stage>",
           "centered" : false,
-          "imagePosition" : [49.5, 0]
+          "imagePosition" : [28, 0]
         }
       }
     }
