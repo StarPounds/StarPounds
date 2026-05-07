@@ -8,7 +8,8 @@
     "/scripts/actions/time.lua",
     "/scripts/actions/starpounds.lua",
     "/scripts/actions/npc.lua",
-    "/scripts/behavior.lua"
+    "/scripts/behavior.lua",
+    "/scripts/behavior/bdata.lua"
   ],
   "parameters": {
     "useFatteningObjects": true
@@ -167,6 +168,15 @@
               "type": "module",
               "name": "reaction-jumpforjoy",
               "parameters": {}
+            },
+            {
+              "title": "unset",
+              "type": "action",
+              "name": "unset",
+              "parameters": {
+                "key": {"value": "playTarget"},
+                "type": {"value": "entity"}
+              }
             }
           ]
         }
