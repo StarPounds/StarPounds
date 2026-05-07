@@ -130,8 +130,12 @@ function onInteraction(args)
   end
 end
 
+function npcToy.isPriority()
+  return true
+end
+
 function npcToy.isOccupied()
-  return (npcToy.getMaxNpcs() ~= nil and npcToy.npcCount >= npcToy.getMaxNpcs()) or self.feedTarget
+  return not not self.feedTarget
 end
 
 function npcToy.isAvailable()
@@ -194,6 +198,10 @@ function setLiquidType(liquidName)
     animator.setGlobalTag("liquidImage", "")
     object.setLightColor({0, 0, 0})
   end
+end
+
+function isFattening()
+  return true
 end
 
 function math.round(num, numDecimalPlaces)

@@ -46,8 +46,7 @@
       "hugefood" : [
         [1.0, "starpoundshugefood"]
       ]
-    },
-    "maxNpcs" : 1
+    }
   },
   "scripts" : [
     "/scripts/npcToyObject.lua",

@@ -79,6 +79,25 @@ function isHugeFood()
   return true
 end
 
+function isFattening()
+  return true
+end
+
+function npcToy.isPriority()
+  return true
+end
+
+function npcToy.isOccupied()
+  local totalBites = self.stages * self.bitesPerStage
+  local remainingBites = totalBites - (storage.stage * self.bitesPerStage + storage.bites)
+  if npcToy.npcCount >= remainingBites then
+    return true
+  end
+
+  return false
+end
+
+
 function die()
   if storage.stage < self.stages then
     world.spawnItem(config.getParameter("objectName"), entity.position(), 1, {stage = storage.stage, bites = storage.bites})

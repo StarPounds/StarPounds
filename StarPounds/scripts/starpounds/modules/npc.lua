@@ -39,6 +39,17 @@ function _npc:init()
     _ENV.self.damaged = true
     _ENV.self.board:setEntity("damageSource", args.sourceId)
   end))
+  -- NPCs won't treat fattening objects as priorty if they're flagged to not use them
+  if _ENV.self.behaviorConfig and (_ENV.self.behaviorConfig.useFatteningObjects == false) then
+    self.npcToyIsPriority = npcToyIsPriority or self.npcToyIsPriority
+    function npcToyIsPriority(args, board)
+      if args.target == nil then return false end
+      if world.callScriptedEntity(args.target, "isFattening") then
+        return false
+      end
+      return self.npcToyIsPriority(args, board)
+    end
+  end
   -- I hate it.
   self.setNpcItemSlot_old = setNpcItemSlot
   self.setNpcItemSlotCC_old = setNpcItemSlotCC or nullFunction
