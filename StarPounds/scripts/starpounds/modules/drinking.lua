@@ -15,7 +15,7 @@ function drinking:update(dt)
   -- Space out 'drinks', otherwise they'll happen every script update.
   self.drinkTimer = math.max(self.drinkTimer - dt, 0)
   -- Don't do anything if drinking is disabled.
-  if starPounds.hasOption("disableDrinking") then return end
+  if starPounds.type ~= "player" or starPounds.hasOption("disableDrinking") then return end
   -- Drink.
   self:drink()
 end
