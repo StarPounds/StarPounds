@@ -8,6 +8,8 @@ function init()
       facing = direction
       target = id
 
+      standPosition = vec2.add(position, world.entityPosition(target))
+
       world.sendEntityMessage(entity.id(), "queueRadioMessage", "starpounds_treadmill")
     end
   ))
@@ -23,7 +25,13 @@ function update(dt)
   if target and world.entityExists(target) then
     -- Keep status alive and hold player in position.
     effect.modifyDuration(dt)
-    mcontroller.setPosition(vec2.add(position, world.entityPosition(target)))
+    local offset = supersizeOffset()
+    if not (lastOffset and vec2.eq(offset, lastOffset)) then
+      standPosition = vec2.sub(vec2.add(position, world.entityPosition(target)), offset)
+      lastOffset = offset
+    end
+
+    mcontroller.setPosition(standPosition)
     -- Kick the player off the treadmill if they jump or run the other way.
     if mcontroller.jumping() or (mcontroller.movingDirection() ~= facing and (mcontroller.walking() or mcontroller.running())) then
       effect.expire()
@@ -54,4 +62,19 @@ function update(dt)
       wasMoving = moving
     end
   end
+end
+
+function supersizeOffset()
+  local offset = 0
+
+  if world.entityType(entity.id()) == "player" then
+    starPounds = getmetatable ''.starPounds
+    offset = starPounds and starPounds.moduleFunc("size", "offset") or 0
+  end
+
+  if world.entityType(entity.id()) == "npc" then
+    offset = world.callScriptedEntity(entity.id(), "starPounds.moduleFunc", "size", "offset") or 0
+  end
+
+  return offset
 end
