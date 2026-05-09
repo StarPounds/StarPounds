@@ -2,12 +2,13 @@
   "name": "starpoundsreaction-hugefood",
   "description": null,
   "scripts": [
-    "/scripts/actions/status.lua",
-    "/scripts/actions/world.lua",
     "/scripts/actions/starpounds.lua",
+    "/scripts/actions/world.lua",
     "/scripts/actions/npc.lua",
     "/scripts/actions/time.lua",
+    "/scripts/actions/movement.lua",
     "/scripts/behavior.lua",
+    "/scripts/actions/status.lua",
     "/scripts/behavior/bdata.lua"
   ],
   "parameters": {
@@ -33,12 +34,21 @@
           "parameters": {},
           "children": [
             {
-              "title": "addEphemeralEffect",
+              "title": "starpoundsObjectDirection",
               "type": "action",
-              "name": "addEphemeralEffect",
+              "name": "starpoundsObjectDirection",
               "parameters": {
-                "name": {"value": "love"}
+                "entity": {"key": "reactTarget"}
+              },
+              "output": {
+                "number": "hugeFoodDirection"
               }
+            },
+            {
+              "title": "starpoundsCanEat",
+              "type": "action",
+              "name": "starpoundsCanEat",
+              "parameters": {}
             },
             {
               "title": "parallel",
@@ -166,6 +176,20 @@
                   "name": "failer",
                   "parameters": {},
                   "child": {
+                    "title": "faceDirection",
+                    "type": "action",
+                    "name": "faceDirection",
+                    "parameters": {
+                      "direction": {"key": "hugeFoodDirection"}
+                    }
+                  }
+                },
+                {
+                  "title": "failer",
+                  "type": "decorator",
+                  "name": "failer",
+                  "parameters": {},
+                  "child": {
                     "title": "controlFlag",
                     "type": "action",
                     "name": "controlFlag",
@@ -178,6 +202,14 @@
                   }
                 }
               ]
+            },
+            {
+              "title": "addEphemeralEffect",
+              "type": "action",
+              "name": "addEphemeralEffect",
+              "parameters": {
+                "name": {"value": "love"}
+              }
             },
             {
               "title": "timer",
