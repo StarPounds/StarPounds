@@ -5,7 +5,6 @@
     "/scripts/actions/status.lua",
     "/scripts/actions/world.lua",
     "/scripts/actions/starpounds.lua",
-    "/scripts/actions/movement.lua",
     "/scripts/actions/npc.lua",
     "/scripts/actions/time.lua",
     "/scripts/behavior.lua",
@@ -114,15 +113,6 @@
                               "type": "action",
                               "name": "starpoundsCanEat",
                               "parameters": {}
-                            },
-                            {
-                              "title": "faceEntity",
-                              "type": "action",
-                              "name": "faceEntity",
-                              "parameters": {
-                                "entity": {"key": "reactTarget"},
-                                "headingDirection": {"value": [1, 0]}
-                              }
                             },
                             {
                               "title": "dance",
