@@ -298,18 +298,18 @@ function stomach:digest(dt, isGurgle, isBelch)
   -- A bit silly.
   isBelch = isGurgle and isBelch
   -- Rumbles. (Outside of the other block, because we still want them to happen without food if the rumble rate is above 0)
-  if not starPounds.hasOption("disableRumbles") then
-    if (self.stomach.contents + starPounds.getStat("baseRumbleRate")) > 0 then
-      if self.rumbleTimer and self.rumbleTimer > 0 then
-        -- If the gurgle rate is greater than the rumble rate (and we have food), use that.
-        local gurgleRate = self.stomach.contents > 0 and starPounds.getStat("gurgleRate") or 0
-        local rumbleRate = self.stomach.contents > 0 and starPounds.getStat("rumbleRate") or 0
-        rumbleRate = math.max(starPounds.getStat("baseRumbleRate"), rumbleRate, gurgleRate)
-        self.rumbleTimer = math.max(self.rumbleTimer - (dt * rumbleRate), 0)
-      else
-        if self.rumbleTimer then self:rumble() end
-        self.rumbleTimer = math.round(util.randomInRange({self.data.minimumRumbleTime, (self.data.rumbleTime * 2) - self.data.minimumRumbleTime}))
-      end
+  if (not starPounds.hasOption("disableRumbles"))
+          and ((self.stomach.contents + starPounds.getStat("baseRumbleRate")) > 0)
+  then
+    if self.rumbleTimer and self.rumbleTimer > 0 then
+      -- If the gurgle rate is greater than the rumble rate (and we have food), use that.
+      local gurgleRate = self.stomach.contents > 0 and starPounds.getStat("gurgleRate") or 0
+      local rumbleRate = self.stomach.contents > 0 and starPounds.getStat("rumbleRate") or 0
+      rumbleRate = math.max(starPounds.getStat("baseRumbleRate"), rumbleRate, gurgleRate)
+      self.rumbleTimer = math.max(self.rumbleTimer - (dt * rumbleRate), 0)
+    else
+      if self.rumbleTimer then self:rumble() end
+      self.rumbleTimer = math.round(util.randomInRange({self.data.minimumRumbleTime, (self.data.rumbleTime * 2) - self.data.minimumRumbleTime}))
     end
   end
 
