@@ -518,7 +518,6 @@ function stomach:tryRumble(dt)
     rumbleRate = math.max(starPounds.getStat("baseRumbleRate"), rumbleRate, gurgleRate)
     self.rumbleTimer = math.max(self.rumbleTimer - (dt * rumbleRate), 0)
   else
-    sb.logInfo("rumbling") 
     self:rumble()
     self.rumbleTimer = math.round(util.randomInRange({self.data.minimumRumbleTime, (self.data.rumbleTime * 2) - self.data.minimumRumbleTime}))
   end
