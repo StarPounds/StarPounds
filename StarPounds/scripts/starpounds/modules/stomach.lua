@@ -315,10 +315,7 @@ function stomach:digest(dt, isGurgle, isBelch)
   self.digestTimer = self.data.digestTimer
   local seconds = self.data.digestTimer + diff
   -- Cumulative totals.
-  local food = 0
-  local weight = 0
-  local healing = 0
-  local experience = 0
+  local food, weight, healing, experience = 0, 0, 0, 0
   local satiated = false
 
   local belchParticles
