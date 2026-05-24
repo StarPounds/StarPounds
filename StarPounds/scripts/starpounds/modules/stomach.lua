@@ -327,7 +327,6 @@ function stomach:digest(dt, isGurgle, isBelch)
 
     local belchAmount = starPounds.getStat("belchAmount")
 
-    local maxHealth = status.resourceMax("health")
     local hasFood = status.isResource("food")
     local maxFood = hasFood and (status.resourceMax("food") - 0.01) or 0 -- Capped so the wellfed status doesn't apply automatically.
 
@@ -338,7 +337,6 @@ function stomach:digest(dt, isGurgle, isBelch)
     local satiated = false
     local digestionStatCache = {}
 
-    local availableHealing = maxHealth * self.data.healingCap * seconds
     -- Iterate through food types
     for foodType, amount in pairs(storage.starPounds.stomach) do
 
@@ -394,7 +392,7 @@ function stomach:digest(dt, isGurgle, isBelch)
       -- Gain weight based on amount digested, milk production, and digestion efficiency.
       starPounds.moduleFunc("size", "gainWeight", (digestAmount * (foodConfig.ignoreAbsorption and 1 or absorption) * foodConfig.multipliers.weight) - (milkCost or 0))
       
-      self:handleDigestionHeal(digestAmount, foodConfig, isGurgle)
+      self:handleDigestionHeal(digestAmount, foodConfig, isGurgle, seconds)
 
       ::continue::
     end
@@ -426,10 +424,10 @@ function stomach:digest(dt, isGurgle, isBelch)
 end
 
 -- handle healing from digestion 
-function stomach:handleDigestionHeal(digestAmount, foodConfig, isGurgle)
+function stomach:handleDigestionHeal(digestAmount, foodConfig, isGurgle, seconds)
   -- Don't heal if eaten or dead
-  if not storage.starPounds.pred or
-         (not status.resourcePositive("health"))
+  if storage.starPounds.pred or
+     (not status.resourcePositive("health"))
   then return end
 
   -- Base amount 1 health (100 food would restore 100 health, modified by healing and absorption)
@@ -438,6 +436,9 @@ function stomach:handleDigestionHeal(digestAmount, foodConfig, isGurgle)
   local digestionEnergy = starPounds.getStat("digestionEnergy")
   local healBaseAmount = digestAmount * foodConfig.multipliers.healing
   local healAmount = math.min(healBaseAmount * healing * self.data.healingRatio)
+  local maxHealth = status.resourceMax("health")
+  local availableHealing = maxHealth * self.data.healingCap * seconds
+  
 
 
   if not foodConfig.ignoreHealingCap then
@@ -451,7 +452,7 @@ function stomach:handleDigestionHeal(digestAmount, foodConfig, isGurgle)
   if starPounds.moduleFunc("strain", "straining") or
      isGurgle or 
      (not status.isResource("energy")) or
-     (not status.resourcePercentage("energy") < 1) or
+     (not (status.resourcePercentage("energy") < 1)) or
      (not digestionEnergy > 0) 
   then
     return  
@@ -497,7 +498,7 @@ function stomach:tryGurgle(dt,isGurgle)
       self.gurgleTimer = math.round(util.randomInRange({self.data.minimumGurgleTime, (self.data.gurgleTime * 2) - self.data.minimumGurgleTime}))
     end
   end
-  
+
 end
 function stomach:gurgle(noDigest)
   -- Don't do anything if the mod is disabled.
