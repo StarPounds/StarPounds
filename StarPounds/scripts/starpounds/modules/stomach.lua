@@ -312,33 +312,8 @@ function stomach:digest(dt, isGurgle, isBelch)
     return
   end
 
-  if not isGurgle then
-    -- Vore stuff.
-    if not starPounds.hasOption("disablePredDigestion") then
-      -- Timer overrun incase function is called directly with multiple seconds.
-      local diff = math.abs(math.min((self.voreDigestTimer or 0) - dt, 0))
-      self.voreDigestTimer = math.max((self.voreDigestTimer or 0) - dt, 0)
-      if self.voreDigestTimer == 0 then
-        self.voreDigestTimer = self.data.voreDigestTimer
-        starPounds.moduleFunc("pred", "digest", self.data.voreDigestTimer + diff)
-      end
-    end
-    -- Gurgle stuff.
-    if not starPounds.hasOption("disableGurgles") then
-      if self.gurgleTimer and self.gurgleTimer > 0 then
-        self.gurgleTimer = math.max(self.gurgleTimer - (dt * starPounds.getStat("gurgleRate")), 0)
-      else
-        -- gurgleTime (default 30) is the average, minimumGurgleTime (default 5) is the minimum, so (5 + (60 - 5))/2 = 30
-        if self.gurgleTimer then self:gurgle() end
-        self.gurgleTimer = math.round(util.randomInRange({self.data.minimumGurgleTime, (self.data.gurgleTime * 2) - self.data.minimumGurgleTime}))
-      end
-    end
-  else
-    if not starPounds.hasOption("disablePredDigestion") then
-      -- 25% strength for vore digestion on gurgles.
-      starPounds.moduleFunc("pred", "digest", dt * 0.25)
-    end
-  end
+  
+  self:tryGurgle(dt,isGurgle)
 
   -- Timer overrun incase function is called directly with multiple seconds.
   local diff = math.abs(math.min((self.digestTimer or 0) - dt, 0))
@@ -351,7 +326,6 @@ function stomach:digest(dt, isGurgle, isBelch)
     local foodValue = starPounds.getStat("foodValue")
     local healing = starPounds.getStat("healing")
     local digestionEnergy = starPounds.getStat("digestionEnergy")
-    local breastEfficiency = starPounds.getStat("breastEfficiency")
     local belchAmount = starPounds.getStat("belchAmount")
 
     local maxHealth = status.resourceMax("health")
@@ -466,6 +440,37 @@ function stomach:digest(dt, isGurgle, isBelch)
   end
 end
 
+function stomach:tryGurgle(dt,isGurgle)
+  if isGurgle then
+    if not starPounds.hasOption("disablePredDigestion") then
+      -- 25% strength for vore digestion on gurgles.
+      starPounds.moduleFunc("pred", "digest", dt * 0.25)
+    end
+    return
+  end
+
+  -- Vore stuff.
+  if not starPounds.hasOption("disablePredDigestion") then
+    -- Timer overrun incase function is called directly with multiple seconds.
+    local diff = math.abs(math.min((self.voreDigestTimer or 0) - dt, 0))
+    self.voreDigestTimer = math.max((self.voreDigestTimer or 0) - dt, 0)
+    if self.voreDigestTimer == 0 then
+      self.voreDigestTimer = self.data.voreDigestTimer
+      starPounds.moduleFunc("pred", "digest", self.data.voreDigestTimer + diff)
+    end
+  end
+
+  -- Gurgle stuff.
+  if not starPounds.hasOption("disableGurgles") then
+    if self.gurgleTimer and self.gurgleTimer > 0 then
+      self.gurgleTimer = math.max(self.gurgleTimer - (dt * starPounds.getStat("gurgleRate")), 0)
+    else
+      -- gurgleTime (default 30) is the average, minimumGurgleTime (default 5) is the minimum, so (5 + (60 - 5))/2 = 30
+      if self.gurgleTimer then self:gurgle() end
+      self.gurgleTimer = math.round(util.randomInRange({self.data.minimumGurgleTime, (self.data.gurgleTime * 2) - self.data.minimumGurgleTime}))
+    end
+  end
+end
 function stomach:gurgle(noDigest)
   -- Don't do anything if the mod is disabled.
   if not storage.starPounds.enabled then return end
