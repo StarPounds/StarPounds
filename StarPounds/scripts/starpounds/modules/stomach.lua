@@ -57,6 +57,7 @@ function stomach:update(dt)
   self:sloshing(dt)
   self:squelching(dt)
   self:interpolateContents(dt)
+  self:handleDelayedBelch(dt)
 
   -- Don't do anything if the mod is disabled.
   if not storage.starPounds.enabled then return end
@@ -298,28 +299,9 @@ function stomach:digest(dt, isGurgle, isBelch)
   -- A bit silly.
   isBelch = isGurgle and isBelch
   -- Rumbles. (Outside of the other block, because we still want them to happen without food if the rumble rate is above 0)
-  if (not starPounds.hasOption("disableRumbles"))
-          and ((self.stomach.contents + starPounds.getStat("baseRumbleRate")) > 0)
-  then
-    if self.rumbleTimer and self.rumbleTimer > 0 then
-      -- If the gurgle rate is greater than the rumble rate (and we have food), use that.
-      local gurgleRate = self.stomach.contents > 0 and starPounds.getStat("gurgleRate") or 0
-      local rumbleRate = self.stomach.contents > 0 and starPounds.getStat("rumbleRate") or 0
-      rumbleRate = math.max(starPounds.getStat("baseRumbleRate"), rumbleRate, gurgleRate)
-      self.rumbleTimer = math.max(self.rumbleTimer - (dt * rumbleRate), 0)
-    else
-      if self.rumbleTimer then self:rumble() end
-      self.rumbleTimer = math.round(util.randomInRange({self.data.minimumRumbleTime, (self.data.rumbleTime * 2) - self.data.minimumRumbleTime}))
-    end
-  end
+  self:tryRumble(dt)
 
-  -- Delayed belch.
-  if self.belchTimer and self.belchTimer > 0 then
-    self.belchTimer = math.max(self.belchTimer - dt, 0)
-  elseif self.belchTimer == 0 then
-    self:belch()
-    self.belchTimer = nil
-  end
+
 
   -- Don't do anything if stomach is empty.
   if self.stomach.amount == 0 then
@@ -515,6 +497,34 @@ function stomach:gurgle(noDigest)
   end
 end
 
+-- handles rumbling, checking if it's time to rumble.
+function stomach:tryRumble(dt)
+  if  starPounds.hasOption("disableRumbles")
+      or ((self.stomach.contents + starPounds.getStat("baseRumbleRate")) <= 0)
+  then
+    return
+  end
+
+  -- if rumbleTimer = nil set it to some random time.
+  if not self.rumbleTimer then
+    self.rumbleTimer = math.round(util.randomInRange({self.data.minimumRumbleTime, (self.data.rumbleTime * 2) - self.data.minimumRumbleTime}))
+  end
+
+  dt = math.max(tonumber(dt) or 0, 0)
+  if self.rumbleTimer > 0 then
+    -- If the gurgle rate is greater than the rumble rate (and we have food), use that.
+    local gurgleRate = self.stomach.contents > 0 and starPounds.getStat("gurgleRate") or 0
+    local rumbleRate = self.stomach.contents > 0 and starPounds.getStat("rumbleRate") or 0
+    rumbleRate = math.max(starPounds.getStat("baseRumbleRate"), rumbleRate, gurgleRate)
+    self.rumbleTimer = math.max(self.rumbleTimer - (dt * rumbleRate), 0)
+  else
+    sb.logInfo("rumbling") 
+    self:rumble()
+    self.rumbleTimer = math.round(util.randomInRange({self.data.minimumRumbleTime, (self.data.rumbleTime * 2) - self.data.minimumRumbleTime}))
+  end
+  
+end
+
 function stomach:rumble(volume)
   -- Don't do anything if the mod is disabled.
   if not storage.starPounds.enabled then return end
@@ -524,6 +534,18 @@ function stomach:rumble(volume)
   if starPounds.hasOption("disableRumbles") then return end
   -- Rumble sound.
   starPounds.moduleFunc("sound", "play", "rumble", util.clamp(volume, 0, 2) * 0.75, (math.random(90,110)/100))
+end
+
+function stomach:handleDelayedBelch(dt)
+
+  if not self.belchTimer then return end
+  dt = math.max(tonumber(dt) or 0, 0)
+  if self.belchTimer > 0 then
+    self.belchTimer = math.max(self.belchTimer - dt, 0)
+    return
+  end
+  self:belch()
+  self.belchTimer = nil
 end
 
 -- Just runs the belch module function based on stomach contents.
