@@ -363,7 +363,7 @@ function stomach:digest(dt, isGurgle, isBelch)
   end
   -- Milk production. ('Consumes' weight, capped at lowest between weight or food gained)
   local milkNutrients = math.min(food, weight)
-  local milkProduced, milkCost = starPounds.moduleFunc("breasts", "milkProduction", milkNutrients * starPounds.getStat("absorption") * starPounds.getStat("breastProduction"))
+  local milkProduced, milkCost = starPounds.moduleFunc("breasts", "milkProduction", milkNutrients * starPounds.getStat("breastProduction"))
   starPounds.moduleFunc("breasts", "gainMilk", milkProduced)
   -- Add weight.
   starPounds.moduleFunc("size", "gainWeight", weight - (milkCost or 0))
@@ -412,19 +412,43 @@ function stomach:digestFood(foodType, isGurgle, isBelch, dt, statCache)
   -- Just make a new one if it's not provided.
   local statCache = statCache or {}
   -- Add up all the digestion stats.
-  local digestionRate = foodConfig.baseDigestion
+  local digestionRate = 0
   for _, digestStat in ipairs(foodConfig.digestionStats) do
-    -- Cache the stat for other food types
-    if not statCache[digestStat[1]] then
-      statCache[digestStat[1]] = starPounds.getStat(digestStat[1])
-    end
+    if type(digestStat) == "number" then
+      digestionRate = digestionRate + digestStat
+    else
+      -- Cache the stat for other food types
+      if not statCache[digestStat[1]] then
+        statCache[digestStat[1]] = starPounds.getStat(digestStat[1])
+      end
 
-    if digestStat[2] == "add" then
-      digestionRate = digestionRate + (statCache[digestStat[1]] * digestStat[3])
-    elseif digestStat[2] == "sub" then
-      digestionRate = digestionRate - (statCache[digestStat[1]] * digestStat[3])
-    elseif digestStat[2] == "mult" then
-      digestionRate = digestionRate * (statCache[digestStat[1]] * digestStat[3])
+      if digestStat[2] == "add" then
+        digestionRate = digestionRate + (statCache[digestStat[1]] * digestStat[3])
+      elseif digestStat[2] == "sub" then
+        digestionRate = digestionRate - (statCache[digestStat[1]] * digestStat[3])
+      elseif digestStat[2] == "mult" then
+        digestionRate = digestionRate * (statCache[digestStat[1]] * digestStat[3])
+      end
+    end
+  end
+  -- Add up all the absorption stats.
+  local absorption = 0
+  for _, absorptionStat in ipairs(foodConfig.absorptionStats) do
+    if type(absorptionStat) == "number" then
+      absorption = absorption + absorptionStat
+    else
+      -- Cache the stat for other food types
+      if not statCache[absorptionStat[1]] then
+        statCache[absorptionStat[1]] = starPounds.getStat(absorptionStat[1])
+      end
+
+      if absorptionStat[2] == "add" then
+        absorption = absorption + (statCache[absorptionStat[1]] * absorptionStat[3])
+      elseif absorptionStat[2] == "sub" then
+        absorption = absorption - (statCache[absorptionStat[1]] * absorptionStat[3])
+      elseif absorptionStat[2] == "mult" then
+        absorption = absorption * (statCache[absorptionStat[1]] * absorptionStat[3])
+      end
     end
   end
 
@@ -442,7 +466,6 @@ function stomach:digestFood(foodType, isGurgle, isBelch, dt, statCache)
 
   local baseDigestAmount = (foodConfig.digestionRate + amount * foodConfig.percentDigestionRate) * dt * ratio
   local digestAmount = math.min(amount, math.round(digestionRate * baseDigestAmount, 4))
-  local absorption = (foodConfig.ignoreAbsorption and 1 or starPounds.getStat("absorption"))
   return {
     amount = digestAmount,
     food = digestAmount * foodConfig.multipliers.food * absorption,
