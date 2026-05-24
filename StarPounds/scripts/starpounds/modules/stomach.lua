@@ -325,8 +325,6 @@ function stomach:digest(dt, isGurgle, isBelch)
     local absorption = starPounds.getStat("absorption")
     local foodValue = starPounds.getStat("foodValue")
 
-    local belchAmount = starPounds.getStat("belchAmount")
-
     local hasFood = status.isResource("food")
     local maxFood = hasFood and (status.resourceMax("food") - 0.01) or 0 -- Capped so the wellfed status doesn't apply automatically.
 
@@ -335,7 +333,7 @@ function stomach:digest(dt, isGurgle, isBelch)
 
     local gainedFood = false
     local satiated = false
-    local digestionStatCache = {}
+    
 
     -- Iterate through food types
     for foodType, amount in pairs(storage.starPounds.stomach) do
@@ -347,31 +345,12 @@ function stomach:digest(dt, isGurgle, isBelch)
       end
 
       local foodConfig = starPounds.moduleFunc("food", "foodType", foodType)
-      local ratio = 1
-      if self.stomach.contents > 0 and not foodConfig.ignoreCapacity then
-        ratio = math.max(math.round((amount * foodConfig.multipliers.capacity) / self.stomach.contents, 2), 0.05)
-      end
-
-      -- Add up all the digestion stats.
-      local digestionRate = foodConfig.baseDigestion
-      for _, digestStat in ipairs(foodConfig.digestionStats) do
-        -- Cache the stat for other food types
-        if not digestionStatCache[digestStat[1]] then
-          digestionStatCache[digestStat[1]] = starPounds.getStat(digestStat[1])
-        end
-        digestionRate = digestionRate + digestionStatCache[digestStat[1]] * digestStat[2]
-      end
-
-      -- Bonus digestion for belches.
-      if isBelch and foodConfig.multipliers.belch > 0 then
-        digestionRate = digestionRate + digestionRate * foodConfig.multipliers.belch * belchAmount
-      end
 
       if isBelch and foodConfig.belchParticles and not belchParticlesDisabled then
         self:spawnBelchParticles(foodConfig.belchParticles, foodConfig.belchParticleCount)
       end
 
-      local digestAmount = math.min(amount, math.round(digestionRate * ratio * seconds * (foodConfig.digestionRate + amount * foodConfig.percentDigestionRate), 4))
+      local digestAmount = self:calculateDigestionAmount(foodConfig, amount, seconds, isBelch)
       self.digestionExperience = self.digestionExperience + digestAmount * foodConfig.multipliers.experience * starPounds.getStat(foodConfig.experienceStat)
       storage.starPounds.stomach[foodType] = math.round(math.max(amount - digestAmount, 0), 3)
       
@@ -426,6 +405,34 @@ function stomach:digest(dt, isGurgle, isBelch)
     self.digestionExperience = self.digestionExperience - gainedExperience
     starPounds.moduleFunc("experience", "add", gainedExperience)
   end
+end
+
+-- calculates how much of the food item we actually digest.
+function stomach:calculateDigestionAmount(foodConfig, amount, seconds, isBelch)
+
+  local belchAmount = starPounds.getStat("belchAmount")
+  local ratio = 1
+  local digestionStatCache = {}
+  if self.stomach.contents > 0 and not foodConfig.ignoreCapacity then
+    ratio = math.max(math.round((amount * foodConfig.multipliers.capacity) / self.stomach.contents, 2), 0.05)
+  end
+
+  -- Add up all the digestion stats.
+  local digestionRate = foodConfig.baseDigestion
+  for _, digestStat in ipairs(foodConfig.digestionStats) do
+    -- Cache the stat for other food types
+    if not digestionStatCache[digestStat[1]] then
+      digestionStatCache[digestStat[1]] = starPounds.getStat(digestStat[1])
+    end
+    digestionRate = digestionRate + digestionStatCache[digestStat[1]] * digestStat[2]
+  end
+
+  -- Bonus digestion for belches.
+  if isBelch and foodConfig.multipliers.belch > 0 then
+    digestionRate = digestionRate + digestionRate * foodConfig.multipliers.belch * belchAmount
+  end
+  
+  return math.min(amount, math.round(digestionRate * ratio * seconds * (foodConfig.digestionRate + amount * foodConfig.percentDigestionRate), 4))
 end
 
 -- handle healing from digestion 
