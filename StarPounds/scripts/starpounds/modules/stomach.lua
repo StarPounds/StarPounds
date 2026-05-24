@@ -54,6 +54,7 @@ end
 function stomach:update(dt)
   self:set()
   self:digest(dt)
+  self:activity(dt)
   self:sloshing(dt)
   self:squelching(dt)
   self:interpolateContents(dt)
@@ -297,7 +298,192 @@ function stomach:digest(dt, isGurgle, isBelch)
   if dt == 0 then return end
   -- A bit silly.
   isBelch = isGurgle and isBelch
-  -- Rumbles. (Outside of the other block, because we still want them to happen without food if the rumble rate is above 0)
+  -- Don't do anything if stomach is empty.
+  if self.stomach.amount == 0 then
+    self.digestTimer = 0
+    self.voreDigestTimer = 0
+    return
+  end
+  -- Vore digestion.
+  self:voreDigest(dt, isGurgle)
+  -- Timer overrun incase function is called directly with multiple seconds.
+  local diff = math.abs(math.min((self.digestTimer or 0) - dt, 0))
+  self.digestTimer = math.max((self.digestTimer or 0) - dt, 0)
+  -- Skip if waiting for timer.
+  if self.digestTimer > 0 then return end
+  -- Reset timer.
+  self.digestTimer = self.data.digestTimer
+  local seconds = self.data.digestTimer + diff
+  -- Cumulative totals.
+  local food = 0
+  local weight = 0
+  local healing = 0
+  local experience = 0
+  local satiated = false
+
+  local belchParticles
+  if isBelch then
+    belchParticles = {}
+  end
+  -- Iterate through food types
+  local statCache = {}
+  for foodType, amount in pairs(storage.starPounds.stomach) do
+    local digested = self:digestFood(foodType, isGurgle, isBelch, dt, statCache)
+    -- Remove entry if we've finished digesting this type.
+    local remaining = math.max(amount - digested.amount, 0)
+    storage.starPounds.stomach[foodType] = (remaining > 0) and remaining or nil
+    -- Add to cumulative totals.
+    food = food + digested.food
+    weight = weight + digested.weight
+    healing = healing + digested.healing
+    experience = experience + digested.experience
+    satiated = satiated or digested.satiated
+    if isBelch then
+      belchParticles[foodType] = digested.belchParticles
+    end
+  end
+  -- Add food.
+  local isSatiated = false
+  if status.isResource("food") then -- Players.
+    local maxFood = status.resourceMax("food") - 0.01 -- Capped so the wellfed status doesn't apply automatically.
+    local hungerDisabled = starPounds.hasOption("disableHunger")
+    if food > 0 then
+      if not hungerDisabled then
+        local foodDeltaDiff = not isGurgle and math.abs(math.min(status.stat("foodDelta") * seconds, 0)) or 0 -- Stops the player losing hunger while they digest food.
+        status.giveResource("food", math.min(maxFood - status.resource("food"), food * starPounds.getStat("foodValue") + foodDeltaDiff))
+      end
+      -- Trigger satiated.
+      if hungerDisabled or (math.round(status.resource("food"), 2) >= maxFood) then
+        isSatiated = true
+      end
+    end
+  else -- NPCs/monsters/players if their food stat got removed for some stupid reason.
+    isSatiated = food > 0
+  end
+  -- Apply satiated.
+  if isSatiated then
+    starPounds.moduleFunc("effects", "add", "satiated")
+  end
+  -- Milk production. ('Consumes' weight, capped at lowest between weight or food gained)
+  local milkNutrients = math.min(food, weight)
+  local milkProduced, milkCost = starPounds.moduleFunc("breasts", "milkProduction", milkNutrients * starPounds.getStat("absorption") * starPounds.getStat("breastProduction"))
+  starPounds.moduleFunc("breasts", "gainMilk", milkProduced)
+  -- Add weight.
+  starPounds.moduleFunc("size", "gainWeight", weight - (milkCost or 0))
+  -- Healing/energy.
+  if status.resourcePositive("health") and not storage.starPounds.pred then
+    healing = math.min(healing, status.resourceMax("health") * self.data.healingCap * seconds * starPounds.getStat("healing"))
+    status.modifyResource("health", healing)
+    -- Energy regenerates faster than health, and energy lock time gets reduced.
+    local digestionEnergy = starPounds.getStat("digestionEnergy")
+    if not isGurgle and not starPounds.moduleFunc("strain", "straining") and status.isResource("energy") and status.resourcePercentage("energy") < 1 and digestionEnergy > 0 then
+      local energyAmount = math.min(healing * digestionEnergy * self.data.energyRatio, status.resourceMax("energy") * self.data.energyCap * seconds)
+      if not status.resourcePositive("energyRegenBlock") then
+        status.modifyResource("energy", energyAmount)
+      end
+      -- Energy regen block is capped at 2x the speed (decreases by the delta)
+      status.modifyResource("energyRegenBlock", -math.min(healing * digestionEnergy, seconds))
+    end
+  end
+  -- Additional belch particles.
+  if isBelch and belchParticles and not starPounds.hasOption("disableBelchParticles") then
+    for _, conf in pairs(belchParticles) do
+      self:spawnBelchParticles(conf[1], conf[2])
+    end
+  end
+  -- Add experience.
+  self.digestionExperience = self.digestionExperience + experience
+  local gainedExperience = math.floor(self.digestionExperience)
+  self.digestionExperience = self.digestionExperience - gainedExperience
+  starPounds.moduleFunc("experience", "add", gainedExperience)
+end
+
+function stomach:digestFood(foodType, isGurgle, isBelch, dt, statCache)
+  local foodConfig = starPounds.moduleFunc("food", "foodType", foodType)
+  local amount = storage.starPounds.stomach[foodType] or 0
+  -- Skip if we've fully digested this food type.
+  if not (foodConfig and amount > 0) then return end
+  -- Skip if this type ignores gurgles.
+  if isGurgle and foodConfig.ignoreGurgles then
+    return {amount = 0, food = 0, weight = 0, healing = 0, experience = 0}
+  end
+  -- Food digestion is split up between capacity.
+  local ratio = 1
+  if self.stomach.contents > 0 and not foodConfig.ignoreCapacity then
+    ratio = math.max(math.round((amount * foodConfig.multipliers.capacity) / self.stomach.contents, 2), 0.05)
+  end
+  -- Just make a new one if it's not provided.
+  local statCache = statCache or {}
+  -- Add up all the digestion stats.
+  local digestionRate = foodConfig.baseDigestion
+  for _, digestStat in ipairs(foodConfig.digestionStats) do
+    -- Cache the stat for other food types
+    if not statCache[digestStat[1]] then
+      statCache[digestStat[1]] = starPounds.getStat(digestStat[1])
+    end
+
+    if digestStat[2] == "add" then
+      digestionRate = digestionRate + (statCache[digestStat[1]] * digestStat[3])
+    elseif digestStat[2] == "sub" then
+      digestionRate = digestionRate - (statCache[digestStat[1]] * digestStat[3])
+    elseif digestStat[2] == "mult" then
+      digestionRate = digestionRate * (statCache[digestStat[1]] * digestStat[3])
+    end
+  end
+
+  local belchParticles
+  if isBelch then
+    -- Multiplier on belches.
+    if foodConfig.multipliers.belch > 0 then
+      digestionRate = digestionRate + digestionRate * foodConfig.multipliers.belch * starPounds.getStat("belchAmount")
+    end
+    -- Add belch particles.
+    if foodConfig.belchParticles and not starPounds.hasOption("disableBelchParticles") then
+      belchParticles = {foodConfig.belchParticles, foodConfig.belchParticleCount}
+    end
+  end
+
+  local baseDigestAmount = (foodConfig.digestionRate + amount * foodConfig.percentDigestionRate) * dt * ratio
+  local digestAmount = math.min(amount, math.round(digestionRate * baseDigestAmount, 4))
+  local absorption = (foodConfig.ignoreAbsorption and 1 or starPounds.getStat("absorption"))
+  return {
+    amount = digestAmount,
+    food = digestAmount * foodConfig.multipliers.food * absorption,
+    weight = digestAmount * foodConfig.multipliers.weight * absorption,
+    healing = digestAmount * foodConfig.multipliers.healing * absorption,
+    experience = digestAmount * foodConfig.multipliers.experience * starPounds.getStat(foodConfig.experienceStat),
+    satiated = foodConfig.triggersSatiated,
+    belchParticles = belchParticles
+  }
+end
+
+function stomach:voreDigest(dt, isGurgle)
+  if starPounds.hasOption("disablePredDigestion") then return end
+  if isGurgle then
+    -- 25% strength for vore digestion on gurgles.
+    starPounds.moduleFunc("pred", "digest", dt * self.data.voreGurgleDigestion)
+    return
+  end
+  -- Timer overrun incase function is called directly with multiple seconds.
+  local diff = math.abs(math.min((self.voreDigestTimer or 0) - dt, 0))
+  self.voreDigestTimer = math.max((self.voreDigestTimer or 0) - dt, 0)
+  if self.voreDigestTimer == 0 then
+    self.voreDigestTimer = self.data.voreDigestTimer
+    starPounds.moduleFunc("pred", "digest", self.data.voreDigestTimer + diff)
+  end
+end
+
+function stomach:activity(dt)
+  -- Don't do anything if the mod is disabled.
+  if not storage.starPounds.enabled then return end
+  -- Delayed belch.
+  if self.belchTimer and self.belchTimer > 0 then
+    self.belchTimer = math.max(self.belchTimer - dt, 0)
+  elseif self.belchTimer == 0 then
+    self:belch()
+    self.belchTimer = nil
+  end
+  -- Rumbles.
   if not starPounds.hasOption("disableRumbles") then
     if (self.stomach.contents + starPounds.getStat("baseRumbleRate")) > 0 then
       if self.rumbleTimer and self.rumbleTimer > 0 then
@@ -312,175 +498,21 @@ function stomach:digest(dt, isGurgle, isBelch)
       end
     end
   end
-
-  -- Delayed belch.
-  if self.belchTimer and self.belchTimer > 0 then
-    self.belchTimer = math.max(self.belchTimer - dt, 0)
-  elseif self.belchTimer == 0 then
-    self:belch()
-    self.belchTimer = nil
-  end
-
   -- Don't do anything if stomach is empty.
   if self.stomach.amount == 0 then
-    self.digestTimer = 0
-    self.voreDigestTimer = 0
     self.gurgleTimer = nil
     if starPounds.getStat("baseRumbleRate") == 0 then self.rumbleTimer = nil end
     return
   end
-
-  if not isGurgle then
-    -- Vore stuff.
-    if not starPounds.hasOption("disablePredDigestion") then
-      -- Timer overrun incase function is called directly with multiple seconds.
-      local diff = math.abs(math.min((self.voreDigestTimer or 0) - dt, 0))
-      self.voreDigestTimer = math.max((self.voreDigestTimer or 0) - dt, 0)
-      if self.voreDigestTimer == 0 then
-        self.voreDigestTimer = self.data.voreDigestTimer
-        starPounds.moduleFunc("pred", "digest", self.data.voreDigestTimer + diff)
-      end
+  -- Gurgles.
+  if not starPounds.hasOption("disableGurgles") then
+    if self.gurgleTimer and self.gurgleTimer > 0 then
+      self.gurgleTimer = math.max(self.gurgleTimer - (dt * starPounds.getStat("gurgleRate")), 0)
+    else
+      -- gurgleTime (default 30) is the average, minimumGurgleTime (default 5) is the minimum, so (5 + (60 - 5))/2 = 30
+      if self.gurgleTimer then self:gurgle() end
+      self.gurgleTimer = math.round(util.randomInRange({self.data.minimumGurgleTime, (self.data.gurgleTime * 2) - self.data.minimumGurgleTime}))
     end
-    -- Gurgle stuff.
-    if not starPounds.hasOption("disableGurgles") then
-      if self.gurgleTimer and self.gurgleTimer > 0 then
-        self.gurgleTimer = math.max(self.gurgleTimer - (dt * starPounds.getStat("gurgleRate")), 0)
-      else
-        -- gurgleTime (default 30) is the average, minimumGurgleTime (default 5) is the minimum, so (5 + (60 - 5))/2 = 30
-        if self.gurgleTimer then self:gurgle() end
-        self.gurgleTimer = math.round(util.randomInRange({self.data.minimumGurgleTime, (self.data.gurgleTime * 2) - self.data.minimumGurgleTime}))
-      end
-    end
-  else
-    if not starPounds.hasOption("disablePredDigestion") then
-      -- 25% strength for vore digestion on gurgles.
-      starPounds.moduleFunc("pred", "digest", dt * 0.25)
-    end
-  end
-
-  -- Timer overrun incase function is called directly with multiple seconds.
-  local diff = math.abs(math.min((self.digestTimer or 0) - dt, 0))
-  self.digestTimer = math.max((self.digestTimer or 0) - dt, 0)
-  if self.digestTimer == 0 then
-    self.digestTimer = self.data.digestTimer
-    local seconds = self.data.digestTimer + diff
-
-    local absorption = starPounds.getStat("absorption")
-    local foodValue = starPounds.getStat("foodValue")
-    local healing = starPounds.getStat("healing")
-    local digestionEnergy = starPounds.getStat("digestionEnergy")
-    local breastEfficiency = starPounds.getStat("breastEfficiency")
-    local belchAmount = starPounds.getStat("belchAmount")
-
-    local maxHealth = status.resourceMax("health")
-    local maxEnergy = status.isResource("energy") and status.resourceMax("energy") or 0
-    local hasFood = status.isResource("food")
-    local maxFood = hasFood and (status.resourceMax("food") - 0.01) or 0 -- Capped so the wellfed status doesn't apply automatically.
-
-    local belchParticlesDisabled = starPounds.hasOption("disableBelchParticles")
-    local hungerDisabled = starPounds.hasOption("disableHunger")
-
-    local gainedFood = false
-    local satiated = false
-    local digestionStatCache = {}
-
-    local availableHealing = maxHealth * self.data.healingCap * seconds
-    -- Iterate through food types
-    for foodType, amount in pairs(storage.starPounds.stomach) do
-      if starPounds.moduleFunc("food", "isFoodType", foodType) and (storage.starPounds.stomach[foodType] > 0) then
-        local foodConfig = starPounds.moduleFunc("food", "foodType", foodType)
-        local ratio = 1
-        if self.stomach.contents > 0 and not foodConfig.ignoreCapacity then
-          ratio = math.max(math.round((amount * foodConfig.multipliers.capacity) / self.stomach.contents, 2), 0.05)
-        end
-        -- Add up all the digestion stats.
-        local digestionRate = foodConfig.baseDigestion
-        for _, digestStat in ipairs(foodConfig.digestionStats) do
-          -- Cache the stat for other food types
-          if not digestionStatCache[digestStat[1]] then
-            digestionStatCache[digestStat[1]] = starPounds.getStat(digestStat[1])
-          end
-          digestionRate = digestionRate + digestionStatCache[digestStat[1]] * digestStat[2]
-        end
-        -- Bonus digestion for belches.
-        if isBelch and foodConfig.multipliers.belch > 0 then
-          digestionRate = digestionRate + digestionRate * foodConfig.multipliers.belch * belchAmount
-        end
-        if isBelch and foodConfig.belchParticles and not belchParticlesDisabled then
-          self:spawnBelchParticles(foodConfig.belchParticles, foodConfig.belchParticleCount)
-        end
-        local digestAmount = math.min(amount, math.round(digestionRate * ratio * seconds * (foodConfig.digestionRate + amount * foodConfig.percentDigestionRate), 4))
-        self.digestionExperience = self.digestionExperience + digestAmount * foodConfig.multipliers.experience * starPounds.getStat(foodConfig.experienceStat)
-        storage.starPounds.stomach[foodType] = math.round(math.max(amount - digestAmount, 0), 3)
-        -- Add food.
-        if foodConfig.multipliers.food > 0 then
-          -- Only add actual food stat if it exists/we need to.
-          if hasFood and not hungerDisabled then
-            local foodAmount = math.min(maxFood - status.resource("food"), digestAmount * foodValue * foodConfig.multipliers.food)
-            status.giveResource("food", foodAmount)
-            gainedFood = true
-          end
-        end
-
-        -- Check for whether to apply satiated effect afterwards.
-        if foodConfig.triggersSatiated then
-          satiated = true
-        end
-
-        if isGurgle and foodConfig.ignoreGurgles then digestAmount = 0 end
-
-        local milkProduced, milkCost = starPounds.moduleFunc("breasts", "milkProduction", digestAmount * absorption * foodConfig.multipliers.food * starPounds.getStat("breastProduction"))
-        starPounds.moduleFunc("breasts", "gainMilk", milkProduced)
-        -- Gain weight based on amount digested, milk production, and digestion efficiency.
-        starPounds.moduleFunc("size", "gainWeight", (digestAmount * (foodConfig.ignoreAbsorption and 1 or absorption) * foodConfig.multipliers.weight) - (milkCost or 0))
-        -- Don't heal if eaten.
-        if not storage.starPounds.pred then
-          -- Base amount 1 health (100 food would restore 100 health, modified by healing and absorption)
-          if status.resourcePositive("health") then
-            local healBaseAmount = digestAmount * foodConfig.multipliers.healing
-            local healAmount = math.min(healBaseAmount * healing * self.data.healingRatio)
-            if not foodConfig.ignoreHealingCap then
-              healAmount = math.min(healAmount, availableHealing)
-              availableHealing = math.max(availableHealing - healAmount, 0)
-            end
-            status.modifyResource("health", healAmount)
-            -- Energy regenerates faster than health, and energy lock time gets reduced.
-            if not starPounds.moduleFunc("strain", "straining") and not isGurgle and status.isResource("energy") and status.resourcePercentage("energy") < 1 and digestionEnergy > 0 then
-              local energyAmount = math.min(healBaseAmount * digestionEnergy * self.data.energyRatio, maxEnergy * self.data.energyCap * seconds)
-              if not status.resourcePositive("energyRegenBlock") and status.resourcePercentage("energy") < 1 then
-                status.modifyResource("energy", energyAmount)
-              end
-              -- Energy regen block is capped at 2x the speed (decreases by the delta)
-              status.modifyResource("energyRegenBlock", -math.min(digestAmount * absorption * digestionEnergy, seconds))
-            end
-          end
-        end
-      end
-    end
-    -- Apply satiated effect if we maxed the hunger bar (or gained food for NPCs)
-    if satiated then
-      local applyEffect = false
-      if hasFood and (math.round(status.resource("food"), 2) >= maxFood) then
-        applyEffect = true
-      elseif not hasFood then
-        applyEffect = true
-      end
-
-      if applyEffect then
-        starPounds.moduleFunc("effects", "add", "satiated")
-      end
-    end
-
-    -- Stops the player losing hunger while they digest food.
-    if gainedFood then
-      local foodDeltaDiff = not isGurgle and math.abs(math.min(status.stat("foodDelta") * seconds, 0)) or 0
-      status.giveResource("food", math.min(maxFood - status.resource("food"), foodDeltaDiff))
-    end
-
-    self.digestionExperience = self.digestionExperience or 0
-    local gainedExperience = math.floor(self.digestionExperience)
-    self.digestionExperience = self.digestionExperience - gainedExperience
-    starPounds.moduleFunc("experience", "add", gainedExperience)
   end
 end
 
