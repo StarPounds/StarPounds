@@ -120,11 +120,7 @@ function stomach:eat(amount, foodType)
     maxCapacity = self.stomach.capacity * (foodConfig.maxCapacity / foodConfig.multipliers.capacity)
   end
   -- Stats that affect the amount gained.
-  if foodConfig.amountStats then
-    for _, stat in pairs(foodConfig.amountStats) do
-      amount = math.max(amount * starPounds.getStat(stat), 0)
-    end
-  end
+  amount = math.max(amount * self:calculateFoodMult(foodConfig.amountStats), 0)
   -- Insert food into stomach.
   amount = math.round(amount, 3)
   storage.starPounds.stomach[foodType] = math.min((storage.starPounds.stomach[foodType] or 0) + amount, maxCapacity)
@@ -347,7 +343,7 @@ function stomach:digest(dt, isGurgle, isBelch)
     if food > 0 then
       if not hungerDisabled then
         local foodDeltaDiff = not isGurgle and math.abs(math.min(status.stat("foodDelta") * seconds, 0)) or 0 -- Stops the player losing hunger while they digest food.
-        status.giveResource("food", math.min(maxFood - status.resource("food"), food * starPounds.getStat("foodValue") + foodDeltaDiff))
+        status.giveResource("food", math.min(maxFood - status.resource("food"), food + foodDeltaDiff))
       end
       -- Trigger satiated.
       if hungerDisabled or (math.round(status.resource("food"), 2) >= maxFood) then
@@ -411,52 +407,17 @@ function stomach:digestFood(foodType, isGurgle, isBelch, dt, statCache)
   end
   -- Just make a new one if it's not provided.
   local statCache = statCache or {}
-  -- Add up all the digestion stats.
-  local digestionRate = 0
-  for _, digestStat in ipairs(foodConfig.digestionStats) do
-    if type(digestStat) == "number" then
-      digestionRate = digestionRate + digestStat
-    else
-      -- Cache the stat for other food types
-      if not statCache[digestStat[1]] then
-        statCache[digestStat[1]] = starPounds.getStat(digestStat[1])
-      end
-
-      if digestStat[2] == "add" then
-        digestionRate = digestionRate + (statCache[digestStat[1]] * digestStat[3])
-      elseif digestStat[2] == "sub" then
-        digestionRate = digestionRate - (statCache[digestStat[1]] * digestStat[3])
-      elseif digestStat[2] == "mult" then
-        digestionRate = digestionRate * (statCache[digestStat[1]] * digestStat[3])
-      end
-    end
-  end
-  -- Add up all the absorption stats.
-  local absorption = 0
-  for _, absorptionStat in ipairs(foodConfig.absorptionStats) do
-    if type(absorptionStat) == "number" then
-      absorption = absorption + absorptionStat
-    else
-      -- Cache the stat for other food types
-      if not statCache[absorptionStat[1]] then
-        statCache[absorptionStat[1]] = starPounds.getStat(absorptionStat[1])
-      end
-
-      if absorptionStat[2] == "add" then
-        absorption = absorption + (statCache[absorptionStat[1]] * absorptionStat[3])
-      elseif absorptionStat[2] == "sub" then
-        absorption = absorption - (statCache[absorptionStat[1]] * absorptionStat[3])
-      elseif absorptionStat[2] == "mult" then
-        absorption = absorption * (statCache[absorptionStat[1]] * absorptionStat[3])
-      end
-    end
-  end
+  -- Add up all the stats.
+  local absorptionMultiplier, statCache = self:calculateFoodMult(foodConfig.absorptionStats, statCache)
+  local digestionMultiplier, statCache = self:calculateFoodMult(foodConfig.digestionStats, statCache)
+  local foodMultiplier, statCache = self:calculateFoodMult(foodConfig.foodStats, statCache)
+  local experienceMultiplier, statCache = self:calculateFoodMult(foodConfig.experienceStats, statCache)
 
   local belchParticles
   if isBelch then
     -- Multiplier on belches.
     if foodConfig.multipliers.belch > 0 then
-      digestionRate = digestionRate + digestionRate * foodConfig.multipliers.belch * starPounds.getStat("belchAmount")
+      digestionMultiplier = digestionMultiplier + digestionMultiplier * foodConfig.multipliers.belch * starPounds.getStat("belchAmount")
     end
     -- Add belch particles.
     if foodConfig.belchParticles and not starPounds.hasOption("disableBelchParticles") then
@@ -465,16 +426,41 @@ function stomach:digestFood(foodType, isGurgle, isBelch, dt, statCache)
   end
 
   local baseDigestAmount = (foodConfig.digestionRate + amount * foodConfig.percentDigestionRate) * dt * ratio
-  local digestAmount = math.min(amount, math.round(digestionRate * baseDigestAmount, 4))
+  local digestAmount = math.min(amount, math.round(digestionMultiplier * baseDigestAmount, 4))
   return {
     amount = digestAmount,
-    food = digestAmount * foodConfig.multipliers.food * absorption,
-    weight = digestAmount * foodConfig.multipliers.weight * absorption,
-    healing = digestAmount * foodConfig.multipliers.healing * absorption,
-    experience = digestAmount * foodConfig.multipliers.experience * starPounds.getStat(foodConfig.experienceStat),
+    food = digestAmount * foodConfig.multipliers.food * foodMultiplier,
+    weight = digestAmount * foodConfig.multipliers.weight * absorptionMultiplier,
+    healing = digestAmount * foodConfig.multipliers.healing * absorptionMultiplier,
+    experience = digestAmount * foodConfig.multipliers.experience * experienceMultiplier,
     satiated = foodConfig.triggersSatiated,
     belchParticles = belchParticles
   }
+end
+
+function stomach:calculateFoodMult(stats, cache)
+  cache = cache or {}
+  local mult = 0
+  for _, stat in ipairs(stats) do
+    if type(stat) == "number" then
+      mult = mult + stat
+    else
+      -- Cache the stat for other food types
+      if not cache[stat[1]] then
+        cache[stat[1]] = starPounds.getStat(stat[1])
+      end
+
+      if stat[2] == "add" then
+        mult = mult + (cache[stat[1]] * stat[3])
+      elseif stat[2] == "sub" then
+        mult = mult - (cache[stat[1]] * stat[3])
+      elseif stat[2] == "mult" then
+        mult = mult * (cache[stat[1]] * stat[3])
+      end
+    end
+  end
+
+  return mult, cache
 end
 
 function stomach:voreDigest(dt, isGurgle)
