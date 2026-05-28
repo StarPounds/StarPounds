@@ -61,7 +61,8 @@ function prey:eaten(dt)
   self.heartbeat = math.max(self.heartbeat - dt, 0)
   if not storage.starPounds.spectatingPred and self.heartbeat == 0 then
     self.heartbeat = self.data.heartbeat
-    promises:add(world.sendEntityMessage(storage.starPounds.pred, "starPounds.pred.hasPrey", starPounds.entityId), function(eaten)
+    local preyConfig = { weight = storage.starPounds.weight, stomach = starPounds.moduleFunc("stomach", "get").contents }
+    promises:add(world.sendEntityMessage(storage.starPounds.pred, "starPounds.pred.heartbeat", starPounds.entityId, preyConfig), function(eaten)
       if not eaten then self:released() end
     end)
   end
@@ -200,6 +201,7 @@ function prey:swallowed(pred, options)
     base = entity.weight,
     foodType = entity.foodType,
     weight = storage.starPounds.weight,
+    stomach = starPounds.moduleFunc("stomach", "get").contents, -- Breast contents aren't included since the 'size' would be way too big.
     weightFoodType = entity.weightFoodType,
     noBelch = starPounds.hasOption("disablePreyBelches")
   }

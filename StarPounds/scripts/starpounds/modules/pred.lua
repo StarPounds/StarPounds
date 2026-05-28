@@ -2,6 +2,7 @@ local pred = starPounds.module:new("pred")
 
 function pred:init()
   message.setHandler("starPounds.pred.hasPrey", function(_, _, ...) return self:hasPrey(...) end)
+  message.setHandler("starPounds.pred.heartbeat", function(_, _, ...) return self:heartbeat(...) end)
   message.setHandler("starPounds.pred.eat", function(_, _, ...) return self:eat(...) end)
   message.setHandler("starPounds.pred.eatNearby", function(_, _, ...) return self:eatNearby(...) end)
   message.setHandler("starPounds.pred.digest", function(_, _, ...) return self:digest(...) end)
@@ -171,6 +172,7 @@ function pred:eat(preyId, options, check)
       id = preyId,
       base = prey.base or 0,
       weight = prey.weight or 0,
+      stomach = prey.stomach or 0,
       foodType = prey.foodType or "prey",
       weightFoodType = prey.weightFoodType or "preyWeight",
       world = (starPounds.type == "player") and player.worldId() or nil,
@@ -557,10 +559,21 @@ function pred:hasPrey(preyId)
   -- Argument sanitisation.
   preyId = tonumber(preyId)
   if not preyId then return false end
-  for _, prey in ipairs(storage.starPounds.stomachEntities) do
-    if prey.id == preyId then return true end
+  for i, prey in ipairs(storage.starPounds.stomachEntities) do
+    if prey.id == preyId then return true, i end
   end
   return false
+end
+
+function pred:heartbeat(preyId, preyConfig)
+  local hasPrey, index = self:hasPrey(preyId)
+  if not hasPrey then return false end
+  -- Update belly size if they prey size changes.
+  if preyConfig then
+    if preyConfig.weight then storage.starPounds.stomachEntities[index].weight = preyConfig.weight end
+    if preyConfig.stomach then storage.starPounds.stomachEntities[index].stomach = preyConfig.stomach end
+  end
+  return true
 end
 
 function pred:digestItem(item)
