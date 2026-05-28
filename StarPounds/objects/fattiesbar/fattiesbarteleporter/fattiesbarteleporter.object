@@ -5,8 +5,8 @@
   "printable" : false,
   "price" : 3000,
   "rarity" : "Uncommon",
-  "description" : "This teleporter can be marked to take you back to the Hog Diner.",
-  "shortdescription" : "Hog Diner Teleporter",
+  "description" : "This teleporter can be marked to take you back to Deep Fry Five.",
+  "shortdescription" : "Deep Fry Five Teleporter",
   "race" : "throg",
 
   "apexDescription" : "If I mark this teleporter I can return here from a different teleporter at any point.",

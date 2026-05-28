@@ -17,6 +17,20 @@
     },
     {
       "op": "add",
+      "path": "/starpounds_deepfryfive",
+      "value": {
+        "primaryDungeon": "starpounds_deepfryfive",
+        "threatLevel": 1,
+        "gravity": 80,
+        "worldSize": [2000, 2000],
+        "dungeonBaseHeight": 1000,
+        "ambientLightLevel": [161, 140, 189],
+        "musicTrack": "/music/the-peacekeepers.ogg",
+        "biome": "space"
+      }
+    },		
+    {
+      "op": "add",
       "path": "/mootantintro",
       "value": {
         "primaryDungeon": "mootantintro",

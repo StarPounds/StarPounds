@@ -3,10 +3,10 @@
     "op" : "add",
     "path" : "/destinations/-",
     "value" : {
-        "name" : "Hog Diner",
-        "planetName" : "Throg Blubberbutt",
-        "warpAction" : "InstanceWorld:fattiesbar",
-        "icon" : "fattiesbar"
+        "name" : "Deep Fry Five",
+        "planetName" : "",
+        "warpAction" : "InstanceWorld:starpounds_deepfryfive",
+        "icon" : "starpounds_deepfryfive"
     }
   }
 ]

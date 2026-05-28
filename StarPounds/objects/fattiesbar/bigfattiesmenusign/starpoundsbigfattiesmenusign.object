@@ -1,0 +1,35 @@
+{
+  "objectName" : "starpoundsbigfattiesmenusign",
+  "colonyTags" : ["throg","electronic"],
+  "rarity" : "Common",
+  "category" : "decorative",
+  "price" : 195,
+  "printable" : false,
+  "lightColor" : [175, 175, 175],
+
+  "shortdescription" : "Big Fatties Menu",
+  "description" : "The menu for the Big Fatties Resturant. The calorie counts are insane...",
+  "race" : "generic",
+
+  "apexDescription" : "A quite expansive menu, and all of it is probably quite disastrous for the waistline.",
+  "avianDescription" : "Even the smallest meals have obscene calorie counts.",
+  "floranDescription" : "Floran see lotss of big numbersss by foodss... Bigger is better?",
+  "glitchDescription" : "Concern. Everything here seems quite fattening.",
+  "humanDescription" : "So many options, so many calories...",
+  "hylotlDescription" : "I'm sure some of these calorie counts would be illegal back home.",
+  "novakidDescription" : "Oh my goodness gracious those calories!",
+
+  "inventoryIcon" : "starpoundsbigfattiesmenusignicon.png",
+  "orientations" : [
+
+    {
+     "imageLayers" : [ { "image" : "starpoundsbigfattiesmenusign.png:<color>", "fullbright" : true }, { "image" : "starpoundsbigfattiesmenusignlit.png:<color>" } ],
+      "imagePosition" : [-28, -20],
+      "direction" : "right",
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "background" ]
+    }
+	
+  ]
+}

@@ -8,7 +8,7 @@
  "margin":0,
  "name":"Starpounds-Deepfryfive",
  "spacing":0,
- "tilecount":13,
+ "tilecount":15,
  "tileheight":80,
  "tileproperties":
     {
@@ -45,6 +45,20 @@
          "imagePositionX":"-56",
          "imagePositionY":"-24",
          "object":"starpoundsdeepfryfivesign",
+         "tilesetDirection":"right"
+        },
+     "13":
+        {
+         "imagePositionX":"-24",
+         "imagePositionY":"-20",
+         "object":"starpoundsbigfattiesmenusign",
+         "tilesetDirection":"right"
+        },
+     "14":
+        {
+         "imagePositionX":"-24",
+         "imagePositionY":"-20",
+         "object":"starpoundschateauxmieuxsign",
          "tilesetDirection":"right"
         },
      "2":
@@ -141,6 +155,20 @@
          "object":"string",
          "tilesetDirection":"string"
         },
+     "13":
+        {
+         "imagePositionX":"string",
+         "imagePositionY":"string",
+         "object":"string",
+         "tilesetDirection":"string"
+        },
+     "14":
+        {
+         "imagePositionX":"string",
+         "imagePositionY":"string",
+         "object":"string",
+         "tilesetDirection":"string"
+        },
      "2":
         {
          "imagePositionX":"string",
@@ -229,6 +257,18 @@
          "image":"starpoundsdeepfryfivesign.png",
          "imageheight":48,
          "imagewidth":112
+        },
+     "13":
+        {
+         "image":"starpoundsbigfattiesmenusign.png",
+         "imageheight":40,
+         "imagewidth":56
+        },
+     "14":
+        {
+         "image":"starpoundschateauxmieuxsign.png",
+         "imageheight":40,
+         "imagewidth":56
         },
      "2":
         {

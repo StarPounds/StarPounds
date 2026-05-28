@@ -1,0 +1,35 @@
+{
+  "objectName" : "starpoundschateauxmieuxsign",
+  "colonyTags" : ["throg","electronic"],
+  "rarity" : "Common",
+  "category" : "decorative",
+  "price" : 195,
+  "printable" : false,
+  "lightColor" : [175, 175, 175],
+
+  "shortdescription" : "Chateau Mieux Sign",
+  "description" : "Mieux!",
+  "race" : "generic",
+
+  "apexDescription" : "\"Chateaux Mieux\"? Sounds like a very classy cow.",
+  "avianDescription" : "\"Chateaux Mieux\"? Sounds fancy!",
+  "floranDescription" : "\"Chat-oh-you Mee-you-ex\"?",
+  "glitchDescription" : "Amused. The Milk Bar's pronounced \"Moo\".",
+  "humanDescription" : "That's a very fancy way to say \"moo\".",
+  "hylotlDescription" : "A very chic, fancy name for a milk bar.",
+  "novakidDescription" : "\"Chat-tea-ough Me-you?\"? Is that how it's pronounced in Space Italy?",
+
+  "inventoryIcon" : "starpoundschateauxmieuxsignicon.png",
+  "orientations" : [
+
+    {
+     "imageLayers" : [ { "image" : "starpoundschateauxmieuxsign.png:<color>", "fullbright" : true }, { "image" : "starpoundschateauxmieuxsignlit.png:<color>" } ],
+      "imagePosition" : [-28, -20],
+      "direction" : "right",
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "background" ]
+    }
+	
+  ]
+}
