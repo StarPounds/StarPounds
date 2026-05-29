@@ -26,8 +26,7 @@
 
       "spaceScan" : 0.1,
       "anchors" : [ "bottom" ],
-      "collision" : "platform",
-      "collisionSpaces" : [ [-2, 1], [-1, 1], [0, 1], [1, 1] ]
+      "collision" : "platform"
     },
     {
      "imageLayers" : [ { "image" : "throgdiningtable.png:<color>", "fullbright" : true }, { "image" : "throgdiningtablelit.png:<color>" } ],
@@ -36,8 +35,7 @@
 
       "spaceScan" : 0.1,
       "anchors" : [ "bottom" ],
-      "collision" : "platform",
-      "collisionSpaces" : [ [-2, 1], [-1, 1], [0, 1], [1, 1] ]
+      "collision" : "platform"
     }
   ]
 }
