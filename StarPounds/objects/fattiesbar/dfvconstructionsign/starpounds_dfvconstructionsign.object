@@ -1,0 +1,47 @@
+{
+  "objectName" : "starpounds_dfvconstructionsign",
+  "colonyTags" : ["starpounds"],
+  "rarity" : "Common",
+  "category" : "decorative",
+  "price" : 140,
+  "lightColor" : [175, 40, 125],
+
+  "description" : "This area might be under construction.",
+  "shortdescription" : "Construction Holo-Tape",
+  "race" : "generic",
+  "printable" : false,
+
+  "apexDescription" : "Looks like this place is still a work in progress.",
+  "avianDescription" : "Guess they're still working on this area.",
+  "floranDescription" : "Sssign ssayss area not built yet. Maybe later update?",
+  "glitchDescription" : "Curious. Wonder what's under construction back there.",
+  "humanDescription" : "Wonder when this place'll open.",
+  "hylotlDescription" : "Suppose I just need to be patient and wait for construction to finish.",
+  "novakidDescription" : "Shucks, guess this place ain't built yet.",
+
+  "inventoryIcon" : "starpounds_dfvconstructionsignicon.png",
+  "orientations" : [
+    {
+      "imageLayers" : [ { "image" : "starpounds_dfvconstructionsign.png:<color>.<frame>"}, { "image" : "starpounds_dfvconstructionsignlit.png:<color>.<frame>", "fullbright" : true  } ],
+      "imagePosition" : [-20, 0],
+      "direction" : "left",
+      "flipImages" : true,	  
+      "frames" : 4,
+      "animationCycle" : 0.35,
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ]
+
+    },
+    {
+      "imageLayers" : [ { "image" : "starpounds_dfvconstructionsign.png:<color>.<frame>" }, { "image" : "starpounds_dfvconstructionsignlit.png:<color>.<frame>", "fullbright" : true  } ],
+      "imagePosition" : [-20, 0],
+      "direction" : "right",
+      "frames" : 4,
+      "animationCycle" : 0.35,
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ]
+
+    }
+  ]
+}
