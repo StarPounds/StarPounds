@@ -7,31 +7,67 @@
   "contentPages" : [
     "^red;Kluex, the Almighty Godking^reset;
 
-The Indomitable, the Arbiter of Justice. The one who leads us to our true potential and awaits all those who shall ascend to join the Sunborn.",
+The Indomitable, the Arbiter of Justice. The one who leads us to our true potential and awaits all those who shall ascend to join the Sunborn.
+
+^red;,   ^reset;
+
+ ,    .                    .",
 
 "^green;Harspex, Goddess of the Hunt^reset;
 
-The Fearsome, the Protector of Walls. The one who shall guide us to victory over our foes, and ensure we can meet our needs.",
+The Fearsome, the Protector of Walls. The one who shall guide us to victory over our foes, and ensure we can meet our needs.
+
+^green;,    ^reset;
+
+ ,    .           ,       .",
 
 "^pink;Velhanu, Goddess of Bliss^reset;
 
-The Gourmet, Enjoyer of Passions. The one who lets us enjoy the spoils of life. Where riches, good food, and luxury are within the tips of our wings in great abundance.",
+The Gourmet, Enjoyer of Passions. The one who lets us enjoy the spoils of life. Where riches, good food, and luxury are within the tips of our wings in great abundance.
+
+^pink;,   ^reset;
+
+ ,   .          .  ,  ,            .",
 
 "^yellow;Yemor, God of Merchantry^reset;
 
-The Banker,the Overseer of Commerce. The one who shall ensure our society remains civilized. Where fairness triumphs and we may prosper.",
+The Banker,the Overseer of Commerce. The one who shall ensure our society remains civilized. Where fairness triumphs and we may prosper.
+
+^yellow;,   ^reset;
+
+ ,   .         z.       .",
 
 "^orange;Amoxtli, Goddess of Knowledge^reset;
 
-The wise, Scholar of All Things. The one who shall ensure our minds are ever curious, and divert our eyes to the Stars to learn.",
+The wise, Scholar of All Things. The one who shall ensure our minds are ever curious, and divert our eyes to the Stars to learn.
 
-"^blue;Owdol, God of Work^reset;
+^orange;,   ^reset;
 
-The Architect, the Master Builder. The one who builds our homes and set us on the path of uncovering new technologies. The one who brought use out of the Avolite Crystals.",
+ ,    .          ,         .",
 
-"^gray;Ihuicatl, God of the Arts^reset;
+"^#2fdd8f;Owdol, God of Work^reset;
 
-The Sculptor, Imprint of Aether. The one who shall let our creativity flourish. Through our imagination we shall remember the Heavens in the mortal world and make it beautiful."
+The Architect, the Master Builder. The one who builds our homes and set us on the path of uncovering new technologies. The one who brought use out of the Avolite Crystals.
+
+^#2fdd8f;,   ^reset;
+
+ ,   .                .          .",
+
+"^cyan;Ihuicatl, God of the Arts^reset;
+
+The Sculptor, Imprint of Aether. The one who shall let our creativity flourish. Through our imagination we shall remember the Heavens in the mortal world and make it beautiful.
+
+^cyan;,    ^reset;
+
+ ,   .        .                .",
+
+"^black;Siaxaa, Goddess of Betrayal
+
+The traitor, who coveted the throne for her and her alone. One who'd leave us wingless, denying us the Aether.^reset;
+
+^blue;,   ^reset;
+
+ ,         .  '   ,    ."
 
   ],
     "itemConfig" : {
