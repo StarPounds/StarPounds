@@ -29,10 +29,11 @@ function size:init()
   self.canGain = speciesData.weightGain
 
   self.sizeConfig = root.assetJson(speciesData.sizes)
-  -- Fetch the first supersize index for future use.
+  -- Pre-fetch and cache the hitboxes and supersize index.
   self.supersizeIndex = math.huge
-
+  self.cachedHitboxes = {}
   for i, size in ipairs(self.sizeConfig.sizes) do
+    self.cachedHitboxes[i] = size.controlParameters[starPounds.getVisualSpecies()] or size.controlParameters.default or {}
     if size.yOffset then
       self.supersizeIndex = math.min(self.supersizeIndex, i)
     end
@@ -67,7 +68,11 @@ function size:update(dt)
   starPounds.currentVariant = self:getVariant()
   starPounds.weight = storage.starPounds.weight
   starPounds.weightMultiplier = self:weightMultiplier()
-  starPounds.progress = self:progress()
+  -- Only run progress math if the weight actually changed.
+  if starPounds.weight ~= self.oldWeight then
+    starPounds.progress = self:progress()
+    self.oldWeight = starPounds.weight
+  end
 
   local sizeChange = false
   local weightChange = false
@@ -315,8 +320,8 @@ function size:updateStats(forceUpdate)
   -- Check if the entity is using a morphball (Tech patch bumps this number for the morphball).
   if status.stat("activeMovementAbilities") > 1 then return end
 
-  if not baseParameters then baseParameters = mcontroller.baseParameters() end
-  local parameters = baseParameters
+  if not self.baseParameters then self.baseParameters = mcontroller.baseParameters() end
+  local parameters = self.baseParameters
 
   if forceUpdate or not (self.controlModifiers and self.controlParameters) then
     local movement = starPounds.getStat("movement")
@@ -394,7 +399,9 @@ function size:updateStats(forceUpdate)
     }
     -- Apply hitbox if we don't have the disable option checked, or we're a size that modifies our height.
     if size.yOffset or not starPounds.hasOption("disableHitbox") then
-      self.controlParameters = sb.jsonMerge(self.controlParameters, (size.controlParameters[starPounds.getVisualSpecies()] or size.controlParameters.default))
+      for k, v in pairs(self.cachedHitboxes[sizeIndex]) do
+        self.controlParameters[k] = v
+      end
     end
   end
   mcontroller.controlModifiers((not self.controlModifiersAlt or starPounds.mcontroller.groundMovement) and self.controlModifiers or self.controlModifiersAlt)
@@ -588,7 +595,11 @@ function size:equip(equipConfig)
 
     -- Only run lookups if the size or item data has changed.
     if itemChanged or sizeChanged then
-      local fitsSlot = item and (root.itemType(item.name):find(itemType) ~= nil)
+      -- Only check if it fits when there's a new item.
+      if itemChanged then
+        self.slotCache[slot.."_fits"] = item and (root.itemType(item.name):find(itemType) ~= nil)
+      end
+      local fitsSlot = self.slotCache[slot.."_fits"]
       local variant = equipConfig[itemType.."Variant"] or ""
       local targetSizeString = equipConfig[itemType] .. variant
 
