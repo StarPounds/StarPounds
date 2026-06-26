@@ -49,7 +49,7 @@ function skills:upgrade(skill)
   storage.starPounds.skills[skill][2] = math.min(self:unlockedLevel(skill) + 1, self.data.skills[skill].levels or 1)
 
   self:parse()
-  starPounds.events:fire("stats:calculate", "upgradeSkill")
+  starPounds.events:fire("stats:calculate", "skills:upgrade")
 end
 
 function skills:upgradeCost(skill, startLevel, endLevel)
@@ -104,7 +104,7 @@ function skills:forceUnlock(skill, level)
   self:parse()
   -- Update stats if we're already up and running.
   if starPounds.currentSize then
-    starPounds.events:fire("stats:calculate", "forceUnlockSkill")
+    starPounds.events:fire("stats:calculate", "skills:forceUnlock")
   end
 end
 
@@ -120,7 +120,7 @@ function skills:set(skill, level)
     storage.starPounds.skills[skill][1] = util.clamp(level, 0, self:unlockedLevel(skill))
   end
   self:parse()
-  starPounds.events:fire("stats:calculate", "setSkill")
+  starPounds.events:fire("stats:calculate", "skills:set")
 end
 
 function skills:parse()

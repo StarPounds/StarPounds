@@ -16,7 +16,7 @@ function accessories:set(item)
     item = tostring(item)
   end
   storage.starPounds.accessory = item and root.createItem(item) or nil
-  starPounds.events:fire("stats:calculate", "setAccessory")
+  starPounds.events:fire("stats:calculate", "accessories:set")
 end
 
 -- Add the module.

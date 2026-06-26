@@ -127,7 +127,7 @@ function traits:add(trait, addSkillCost)
   end
   -- Refresh stats.
   self:parse()
-  starPounds.events:fire("stats:calculate", "addTrait")
+  starPounds.events:fire("stats:calculate", "traits:add")
   -- Set the trait successfully.
   return true
 end
@@ -137,7 +137,7 @@ function traits:remove(trait)
   storage.starPounds.traits.active[trait] = nil
   storage.starPounds.traits.unlockedSkills[trait] = nil
   self:parse()
-  starPounds.events:fire("stats:calculate", "removeTrait")
+  starPounds.events:fire("stats:calculate", "traits:remove")
 end
 
 function traits:unlockedSkills(trait)
@@ -231,7 +231,7 @@ function traits:reset()
   storage.starPounds.traits = {active = {}, available = {}, unlockedSkills = {}}
   -- Refresh stats.
   self:parse()
-  starPounds.events:fire("stats:calculate", "resetTraits")
+  starPounds.events:fire("stats:calculate", "traits:reset")
 end
 
 function traits:uninit()

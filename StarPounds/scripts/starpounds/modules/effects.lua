@@ -46,7 +46,7 @@ function effects:update(dt)
         if effectConfig.expirePerLevel and (effectData.level > 1) then
           effectData.level = effectData.level - 1
           effectData.duration = effectConfig.duration
-          starPounds.events:fire("stats:calculate", "effectLevelDecrease")
+          starPounds.events:fire("stats:calculate", "effects:levelDecrease")
         else
           self:remove(effectName)
         end
@@ -121,7 +121,7 @@ function effects:add(effect, duration, level)
       self.effects[effect]:apply()
     end
 
-    starPounds.events:fire("stats:calculate", "effectAdd")
+    starPounds.events:fire("stats:calculate", "effects:add")
     return true
   end
   return false
@@ -134,7 +134,7 @@ function effects:remove(effect)
   effect = tostring(effect)
   if storage.starPounds.effects.active[effect] then
     storage.starPounds.effects.active[effect] = nil
-    starPounds.events:fire("stats:calculate", "effectRemove")
+    starPounds.events:fire("stats:calculate", "effects:remove")
     if self.effects[effect] then
       self.effects[effect]:expire()
       self.effects[effect] = nil
@@ -166,7 +166,7 @@ end
 function effects.reset()
   storage.starPounds.effects.active = {}
   storage.starPounds.effects.discovered = {}
-  starPounds.events:fire("stats:calculate", "effectReset")
+  starPounds.events:fire("stats:calculate", "effects:reset")
 end
 
 function effects:uninit()

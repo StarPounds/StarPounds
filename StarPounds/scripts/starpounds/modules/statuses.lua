@@ -57,7 +57,7 @@ function statuses:updateStats()
     end
   end
   -- Fire stat change event.
-  starPounds.events:fire("stats:calculate", "statuses:updatedStats")
+  starPounds.events:fire("stats:calculate", "statuses:updateStats")
 end
 
 function statuses:getStatusEffectMultiplier(stat)

@@ -13,9 +13,22 @@ function stats:init()
   self.optionStats = {}
   self.accessoryModifiers = {}
 
+  self.cacheTimer = math.random() * self.data.cacheTimer
+
   self:calculate()
 
   starPounds.events:on("stats:calculate", self.updateEvent)
+end
+
+function stats:update(dt)
+  -- Add the time passed since the last frame
+  self.cacheTimer = math.max(self.cacheTimer - dt, 0)
+  -- Check if 5 seconds have passed
+  if self.cacheTimer == 0 then
+    -- Reset the timer with a small deviation to stagger if a stupid amount of NPCs/monsters get spawned.
+    self.cacheTimer = self.data.cacheTimer - math.random() * 0.5
+    starPounds.events:fire("stats:calculate", "stats:timer")
+  end
 end
 
 function stats.updateEvent(trace) -- Trace shows you where the 'change' is coming from.
@@ -23,11 +36,8 @@ function stats.updateEvent(trace) -- Trace shows you where the 'change' is comin
   local self = stats
   self.cache = {}
   self:calculate()
+  if player then player.say(sb.print(trace)) end
   starPounds.moduleFunc("size", "updateStats", true)
-end
-
-function stats:update(dt)
-  self.cache = {}
 end
 
 -- I don't feel like editing an absurd amount of files.
@@ -154,27 +164,23 @@ function stats:skillBonus(stat)
 end
 -- Traits -------------------------------------------------------
 function stats:traitMult(stat)
-  -- Argument sanitisation.
-  stat = tostring(stat)
-  return (self.traitStats[stat] or {0, 1})[2]
+  local t = self.traitStats[stat]
+  return t and t[2] or 1
 end
 
 function stats:traitBonus(stat)
-  -- Argument sanitisation.
-  stat = tostring(stat)
-  return (self.traitStats[stat] or {0, 1})[1]
+  local t = self.traitStats[stat]
+  return t and t[1] or 0
 end
 -- StarPounds Effects -------------------------------------------
 function stats:effectMult(stat)
-  -- Argument sanitisation.
-  stat = tostring(stat)
-  return (self.effectStats[stat] or {0, 1})[2]
+  local t = self.effectStats[stat]
+  return t and t[2] or 1
 end
 
 function stats:effectBonus(stat)
-  -- Argument sanitisation.
-  stat = tostring(stat)
-  return (self.effectStats[stat] or {0, 1})[1]
+  local t = self.effectStats[stat]
+  return t and t[1] or 0
 end
 -- Status Effects -----------------------------------------------
 function stats:statusEffectMult(stat)
@@ -190,28 +196,27 @@ function stats:statusEffectOverride(stat)
 end
 -- Options ------------------------------------------------------
 function stats:optionsMult(stat)
-  -- Argument sanitisation.
-  stat = tostring(stat)
-  return (self.optionStats[stat] or {0, 1})[2]
+  local t = self.optionStats[stat]
+  return t and t[2] or 1
 end
 
 function stats:optionsBonus(stat)
-  -- Argument sanitisation.
-  stat = tostring(stat)
-  return (self.optionStats[stat] or {0, 1})[1]
+  local t = self.optionStats[stat]
+  return t and t[1] or 0
 end
 
 function stats:optionsOverride(stat)
-  -- Argument sanitisation.
-  stat = tostring(stat)
-  return (self.optionStats[stat] or {0, 1})[3]
+  local t = self.optionStats[stat]
+  return t and t[3] or nil
 end
 -- Accessories --------------------------------------------------
 function stats:accessoryMods(stat)
   -- Argument sanitisation.
   stat = stat and tostring(stat) or nil
   if not stat then
-    self.accessoryModifiers = {}
+    for k in pairs(self.accessoryModifiers) do
+      self.accessoryModifiers[k] = nil
+    end
     local accessory = starPounds.moduleFunc("accessories", "get")
     if accessory then
       for _, stat in pairs(configParameter(accessory, "stats", {})) do

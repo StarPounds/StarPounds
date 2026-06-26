@@ -216,7 +216,7 @@ starPounds.toggleEnable = function()
   storage.starPounds.enabled = not storage.starPounds.enabled
   -- Make sure the movement penalty stuff gets reset as well.
   starPounds.moduleFunc("skills", "parse")
-  starPounds.events:fire("stats:calculate", "toggleEnable")
+  starPounds.events:fire("stats:calculate", "main:toggleEnable")
   if not storage.starPounds.enabled then
     starPounds.moduleUninit()
     starPounds.movementMultiplier = 1

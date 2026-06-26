@@ -30,7 +30,7 @@ function options:set(option, enable)
   -- Argument sanitisation.
   option = tostring(option)
   storage.starPounds.options[option] = enable and true or nil
-  starPounds.events:fire("stats:calculate", "setOption")
+  starPounds.events:fire("stats:calculate", "options:set")
   -- This is stupid, but prevents 'null' data being saved.
   if getmetatable(storage.starPounds.options) then
     getmetatable(storage.starPounds.options).__nils = {}
