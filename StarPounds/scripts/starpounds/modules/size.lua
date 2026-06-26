@@ -50,7 +50,10 @@ function size:init()
   -- Default slots.
   self.slots[#self.slots + 1] = {"chestCosmetic", {itemType = "chest", default = true}}
   self.slots[#self.slots + 1] = {"legsCosmetic", {itemType = "legs", default = true}}
-
+  self.equipConfigCache = {
+    chest = "", chestVariant = "", chestIndex = 1,
+    legs = "", legsIndex = 1
+  }
   -- Need this ready for other modules.
   starPounds.currentSize, starPounds.currentSizeIndex = self:get(0)
   starPounds.weightMultiplier = 1
@@ -187,10 +190,24 @@ function size:get(weight)
   end
   -- Argument sanitisation.
   weight = math.max(tonumber(weight) or 0, 0)
-
-  local sizeIndex = 0
   -- Disable supersized stages with options, or on the tech missions so you can actually complete them.
   local supersizeDisabled = starPounds.hasOption("disableSupersize") or status.uniqueStatusEffectActive("starpoundstechmissionmobility")
+
+  -- Just return the current size if the weight is still in the bounds of the current size.
+  if self.oldSizeIndex then
+    local currentSize = self.sizeConfig.sizes[self.oldSizeIndex]
+    local nextSize = self.sizeConfig.sizes[self.oldSizeIndex + 1]
+
+    local skipCurrent = currentSize.yOffset and supersizeDisabled
+    local overMin = weight >= currentSize.weight
+    local underMax = (not nextSize) or (weight < nextSize.weight)
+
+    if overMin and underMax and not skipCurrent then
+      return currentSize, self.oldSizeIndex
+    end
+  end
+
+  local sizeIndex = 0
   -- Go through all starPounds.sizes (smallest to largest) to find which size.
   for i in ipairs(self.sizeConfig.sizes) do
     local skipSize = self.sizeConfig.sizes[i].yOffset and supersizeDisabled
@@ -497,12 +514,11 @@ end
 
 function size:equipmentConfig(sizeIndex)
   if not self:isActive() then
-    return {
-      chest = "",
-      legs = "",
-      chestVariant = "",
-      sizeIndex = 1
-    }
+    self.equipConfigCache.chest = ""
+    self.equipConfigCache.legs = ""
+    self.equipConfigCache.chestVariant = ""
+    self.equipConfigCache.sizeIndex = 1
+    return self.equipConfigCache
   end
   -- Size cap based on occupied vehicle. Uses math.huge by default because
   -- math.min doesn't ignore nils and I'd rather not do 10 more if statements.
@@ -534,14 +550,13 @@ function size:equipmentConfig(sizeIndex)
   -- Variant based on the 'adjusted' chest size.
   local chestVariant = self:getVariant(self.sizeConfig.sizes[chestIndex])
 
-  return {
-    chest = self.sizeConfig.sizes[chestIndex].size,
-    chestVariant = chestVariant,
-    chestIndex = chestIndex,
+  self.equipConfigCache.chest = self.sizeConfig.sizes[chestIndex].size
+  self.equipConfigCache.chestVariant = chestVariant
+  self.equipConfigCache.chestIndex = chestIndex
+  self.equipConfigCache.legs = self.sizeConfig.sizes[legsIndex].size
+  self.equipConfigCache.legsIndex = legsIndex
 
-    legs = self.sizeConfig.sizes[legsIndex].size,
-    legsIndex = legsIndex
-  }
+  return self.equipConfigCache
 end
 
 function size:equip(equipConfig)
@@ -556,7 +571,7 @@ function size:equip(equipConfig)
   end
 
   -- Hash the current state of equips.
-  local targetConfigHash = string.format("%s|%s|%s|%s", equipConfig.chest, equipConfig.chestVariant or "", equipConfig.legs, equipConfig.legsVariant or "")
+  local targetConfigHash = equipConfig.chest .. "|" .. (equipConfig.chestVariant or "") .. "|" .. equipConfig.legs .. "|" .. (equipConfig.legsVariant or "")
 
   self.slotCache = self.slotCache or {}
   local playedSound = false
