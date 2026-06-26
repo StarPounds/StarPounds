@@ -669,23 +669,27 @@ function size:updateClothing(item, itemType, equipConfig)
     return item, true
   end
 
-  -- Cache item configs.
-  self.hideBodyCache = self.hideBodyCache or {}
-  if self.hideBodyCache[itemName] == nil then
-    local itemData = root.itemConfig(item)
-    self.hideBodyCache[itemName] = (itemData and itemData.config and itemData.config.hideBody) or configParameter(item, "ignoreSize") or false
-  end
+  -- Cache root.itemConfig lookups.
+    self.hideBodyCache = self.hideBodyCache or {}
+    if self.hideBodyCache[itemName] == nil then
+      -- Pass just the itemName string to get the base configuration without instance parameters.
+      local itemData = root.itemConfig(itemName)
+      self.hideBodyCache[itemName] = (itemData and itemData.config and (itemData.config.hideBody or itemData.config.ignoreSize)) or false
+    end
 
-  -- Just give items that hide the body the tags so we ignore them.
-  if equipConfig[itemType.."Index"] < self.supersizeIndex and self.hideBodyCache[itemName] then
-    item.parameters.baseName = itemName
-    item.parameters.scaledSize = equipConfig[itemType]
-    return item, true
-  end
+    -- Fallback to the item config if necessary.
+    local ignoresSize = (item.parameters and item.parameters.ignoreSize) or self.hideBodyCache[itemName]
 
-  -- Return the old, restored item if a new one could not be found.
-  return self:restoreClothing(item), false
-end
+    -- Just give items that hide the body the tags so we ignore them.
+    if equipConfig[itemType.."Index"] < self.supersizeIndex and ignoresSize then
+      item.parameters.baseName = itemName
+      item.parameters.scaledSize = equipConfig[itemType]
+      return item, true
+    end
+
+    -- Return the old, restored item if a new one could not be found.
+    return self:restoreClothing(item), false
+  end
 
 function size:restoreClothing(item)
   -- Only run if it's actually a scaled up piece.
