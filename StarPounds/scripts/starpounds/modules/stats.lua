@@ -36,7 +36,6 @@ function stats.updateEvent(trace) -- Trace shows you where the 'change' is comin
   local self = stats
   self.cache = {}
   self:calculate()
-  if player then player.say(sb.print(trace)) end
   starPounds.moduleFunc("size", "updateStats", true)
 end
 
