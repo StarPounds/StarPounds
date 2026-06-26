@@ -21,9 +21,8 @@ function stats:init()
 end
 
 function stats:update(dt)
-  -- Add the time passed since the last frame
+  -- Wipe the cache (roughly) every cacheTime.
   self.cacheTimer = math.max(self.cacheTimer - dt, 0)
-  -- Check if 5 seconds have passed
   if self.cacheTimer == 0 then
     -- Reset the timer with a small deviation to stagger if a stupid amount of NPCs/monsters get spawned.
     self.cacheTimer = self.data.cacheTimer - math.random() * 0.5
