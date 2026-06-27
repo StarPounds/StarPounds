@@ -3,11 +3,22 @@ require "/scripts/util.lua"
 require "/scripts/vec2.lua"
 require "/scripts/rect.lua"
 
+-- Shared metatable for NPCs so we don't have to store a heap of data more than once.
+-- Data module resets the metatable for players, but that shouldn't really matter.
+local shared = getmetatable ""
+shared.starPounds = shared.starPounds or {}
+shared.starPounds.configData = shared.starPounds.configData or {}
+
+shared.starPounds.configData.version = shared.starPounds.configData.version or root.assetJson("/scripts/starpounds/starpounds.config:version")
+shared.starPounds.configData.settings = shared.starPounds.configData.settings or root.assetJson("/scripts/starpounds/starpounds.config:settings")
+shared.starPounds.configData.options = shared.starPounds.configData.options or root.assetJson("/scripts/starpounds/starpounds_options.config:options")
+shared.starPounds.configData.species = shared.starPounds.configData.species or root.assetJson("/scripts/starpounds/starpounds_species.config")
+
 starPounds = {
-  version = root.assetJson("/scripts/starpounds/starpounds.config:version"),
-  settings = root.assetJson("/scripts/starpounds/starpounds.config:settings"),
-  options = root.assetJson("/scripts/starpounds/starpounds_options.config:options"),
-  species = root.assetJson("/scripts/starpounds/starpounds_species.config")
+  version = shared.starPounds.configData.version,
+  settings = shared.starPounds.configData.settings,
+  options = shared.starPounds.configData.options,
+  species = shared.starPounds.configData.species
 }
 -- Mod functions
 ----------------------------------------------------------------------------------
@@ -70,7 +81,13 @@ starPounds.module = {}
 function starPounds.module:new(name)
   local module = {}
   local modulePath = "/scripts/starpounds/modules/%s.config"
-  module.data = root.assetJson(string.format(modulePath, name))
+  -- Shared metatable for NPCs so we don't have to store a heap of data more than once.
+  local shared = getmetatable ""
+  shared.starPounds = shared.starPounds or {}
+  shared.starPounds.moduleData = shared.starPounds.moduleData or {}
+  shared.starPounds.moduleData[name] = shared.starPounds.moduleData[name] or root.assetJson(string.format(modulePath, name))
+
+  module.data = shared.starPounds.moduleData[name]
   setmetatable(module, extend(self))
   return module
 end

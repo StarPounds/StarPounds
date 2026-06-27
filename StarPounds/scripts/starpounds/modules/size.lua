@@ -305,7 +305,7 @@ function size:updateStats(forceUpdate)
   if forceUpdate then
     local sizeStats = jarray()
     local bonusEffectiveness = self:effectScaling()
-    -- Max Health
+    -- Max health.
     local healthMult = 1 + math.round((size.healthMultiplier - 1) * starPounds.getStat("health"), 2)
     if healthMult ~= 1 then
       sizeStats[#sizeStats + 1] = {stat = "maxHealth", baseMultiplier = healthMult}
