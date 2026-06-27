@@ -27,17 +27,32 @@ function size:init()
   end
 
   self.canGain = speciesData.weightGain
-
   self.sizeConfig = root.assetJson(speciesData.sizes)
-  -- Pre-fetch and cache the hitboxes and supersize index.
+
+  -- Pre-fetch and cache the supersize index.
   self.supersizeIndex = math.huge
-  self.cachedHitboxes = {}
   for i, size in ipairs(self.sizeConfig.sizes) do
-    self.cachedHitboxes[i] = size.controlParameters[starPounds.getVisualSpecies()] or size.controlParameters.default or {}
     if size.yOffset then
       self.supersizeIndex = math.min(self.supersizeIndex, i)
     end
   end
+
+  -- Shared hitbox cache for NPCs.
+  local shared = getmetatable ""
+  shared.starPounds = shared.starPounds or {}
+  shared.starPounds.sizeCache = shared.starPounds.sizeCache or {}
+  shared.starPounds.sizeCache.hitboxes = shared.starPounds.sizeCache.hitboxes or {}
+
+  local visualSpecies = starPounds.getVisualSpecies()
+  -- Create/grab hitboxes for this species.
+  if not shared.starPounds.sizeCache.hitboxes[visualSpecies] then
+    shared.starPounds.sizeCache.hitboxes[visualSpecies] = {}
+    for i, size in ipairs(self.sizeConfig.sizes) do
+      shared.starPounds.sizeCache.hitboxes[visualSpecies][i] = size.controlParameters[visualSpecies] or size.controlParameters.default or {}
+    end
+  end
+
+  self.cachedHitboxes = shared.starPounds.sizeCache.hitboxes[visualSpecies]
 
   -- Scaled slots.
   -- Sucks this has to be an array but the oSB slots need to load first to cap the vanilla slot variant.
@@ -602,13 +617,11 @@ function size:equip(equipConfig)
       local fitsSlot = self.slotCache[slot.."_fits"]
       local variant = equipConfig[itemType.."Variant"] or ""
       local targetSizeString = equipConfig[itemType] .. variant
-
       -- If we have a generated item, check if it's invalid.
       if item and item.parameters.size then
         if item.parameters.size ~= targetSizeString then
           self.setEquippedItem(slot, self:makeSizeItem(itemType, equipConfig))
         end
-
       -- If the item is not generated, try to update it. Otherwise, give it back and remove it.
       elseif item and not item.parameters.size then
         local needsUpdate = (equipConfig[itemType] == "" and item.parameters.scaledSize) or ((equipConfig[itemType] ~= "") and (equipConfig[itemType] ~= item.parameters.scaledSize))
@@ -626,7 +639,7 @@ function size:equip(equipConfig)
           else
             self.setEquippedItem(slot)
             self.giveItem(updatedItem)
-            item = nil
+            item = nil -- Item is now nil!
             -- Play clothing rip sound.
             if not playedSound then
               starPounds.moduleFunc("sound", "play", "clothingrip", 0.75)
@@ -638,8 +651,9 @@ function size:equip(equipConfig)
         if item and (itemType == "chest") and not conf.default then
           equipConfig.chestVariant = ""
         end
-      -- Otherwise, apply the base item.
-      elseif conf.default and not item then
+      end
+      -- Apply the base item if the slot is empty,
+      if conf.default and not item then
         if targetSizeString ~= "" then
           self.setEquippedItem(slot, self:makeSizeItem(itemType, equipConfig))
         end
@@ -680,42 +694,44 @@ function size:updateClothing(item, itemType, equipConfig)
 
   local itemName = item.parameters.baseName or item.name
   local newItemName = equipConfig[itemType] .. itemName
-
+  -- This makes NPCs share their size caches too.
+  local shared = getmetatable ""
+  shared.starPounds = shared.starPounds or {}
+  shared.starPounds.sizeCache = shared.starPounds.sizeCache or {}
+  -- Initialize caches if they don't exist.
+  shared.starPounds.sizeCache.validClothing = shared.starPounds.sizeCache.validClothing or {}
+  shared.starPounds.sizeCache.hideBody = shared.starPounds.sizeCache.hideBody or {}
+  -- Locals so code is neater below.
+  local validClothingCache = shared.starPounds.sizeCache.validClothing
+  local hideBodyCache = shared.starPounds.sizeCache.hideBody
   -- Cache item pcall lookups.
-  self.validClothingCache = self.validClothingCache or {}
-  if self.validClothingCache[newItemName] == nil then
-    self.validClothingCache[newItemName] = pcall(root.itemType, newItemName)
+  if validClothingCache[newItemName] == nil then
+    validClothingCache[newItemName] = pcall(root.itemType, newItemName)
   end
-
-  if self.validClothingCache[newItemName] then
+  if validClothingCache[newItemName] then
     -- If found, give the new item some parameters for easier checking.
     item.parameters.baseName = itemName
     item.parameters.scaledSize = equipConfig[itemType]
     item.name = newItemName
     return item, true
   end
-
-  -- Cache root.itemConfig lookups.
-    self.hideBodyCache = self.hideBodyCache or {}
-    if self.hideBodyCache[itemName] == nil then
-      -- Pass just the itemName string to get the base configuration without instance parameters.
-      local itemData = root.itemConfig(itemName)
-      self.hideBodyCache[itemName] = (itemData and itemData.config and (itemData.config.hideBody or itemData.config.ignoreSize)) or false
-    end
-
-    -- Fallback to the item config if necessary.
-    local ignoresSize = (item.parameters and item.parameters.ignoreSize) or self.hideBodyCache[itemName]
-
-    -- Just give items that hide the body the tags so we ignore them.
-    if equipConfig[itemType.."Index"] < self.supersizeIndex and ignoresSize then
-      item.parameters.baseName = itemName
-      item.parameters.scaledSize = equipConfig[itemType]
-      return item, true
-    end
-
-    -- Return the old, restored item if a new one could not be found.
-    return self:restoreClothing(item), false
+  -- Cache root.itemConfig lookups globally.
+  if hideBodyCache[itemName] == nil then
+    local itemData = root.itemConfig(itemName)
+    hideBodyCache[itemName] = (itemData and itemData.config and (itemData.config.hideBody or itemData.config.ignoreSize)) or false
   end
+  -- Item config fallback.
+  local ignoresSize = (item.parameters and item.parameters.ignoreSize) or hideBodyCache[itemName]
+  -- Just give items that hide the body the tags so we ignore them.
+  if equipConfig[itemType.."Index"] < self.supersizeIndex and ignoresSize then
+    item.parameters.baseName = itemName
+    item.parameters.scaledSize = equipConfig[itemType]
+    return item, true
+  end
+
+  -- Return the old, restored item if a new one could not be found.
+  return self:restoreClothing(item), false
+end
 
 function size:restoreClothing(item)
   -- Only run if it's actually a scaled up piece.
