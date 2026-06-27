@@ -303,33 +303,39 @@ function size:updateStats(forceUpdate)
   local size = starPounds.currentSize
   local sizeIndex = starPounds.currentSizeIndex
   if forceUpdate then
-    -- Shouldn't activate at base size, so indexes are reduced by one.
+    local sizeStats = jarray()
     local bonusEffectiveness = self:effectScaling()
-    local applyImmunity = self:effectActivated()
-    local gritReduction = status.stat("activeMovementAbilities") <= 1 and -((starPounds.weightMultiplier - 1) * math.max(0, 1 - starPounds.getStat("knockbackResistance"))) or 0
-    local persistentEffects = {
-      {stat = "maxHealth", baseMultiplier = 1 + math.round((size.healthMultiplier - 1) * starPounds.getStat("health"), 2)},
-      {stat = "grit", amount = gritReduction},
-      {stat = "shieldHealth", effectiveMultiplier = 1 + starPounds.getStat("shieldHealth") * bonusEffectiveness},
-      {stat = "knockbackThreshold", effectiveMultiplier = 1 - gritReduction},
-      {stat = "fallDamageMultiplier", effectiveMultiplier = 1 + (size.healthMultiplier - 1) * math.min(1 - starPounds.getStat("fallDamageResistance"), 1)},
-      {stat = "physicalResistance", amount = starPounds.getStat("physicalResistance") * bonusEffectiveness},
-      {stat = "iceResistance", amount = starPounds.getStat("iceResistance") * bonusEffectiveness},
-      {stat = "poisonResistance", amount = starPounds.getStat("poisonResistance") * bonusEffectiveness},
-      {stat = "electricResistance", amount = starPounds.getStat("electricResistance") * bonusEffectiveness},
-      {stat = "fireResistance", amount = starPounds.getStat("fireResistance") * bonusEffectiveness}
-    }
-    -- Probably not optimal, but don't apply effects if they do nothing.
-    local filteredPersistentEffects = jarray()
-    for i, effect in ipairs(persistentEffects) do
-      local skip = (
-        effect.baseMultiplier and effect.baseMultiplier == 1) or (
-        effect.effectiveMultiplier and effect.effectiveMultiplier == 1) or (
-        effect.amount and effect.amount == 0
-      )
-      if not skip then filteredPersistentEffects[#filteredPersistentEffects + 1] = effect end
+    -- Max Health
+    local healthMult = 1 + math.round((size.healthMultiplier - 1) * starPounds.getStat("health"), 2)
+    if healthMult ~= 1 then
+      sizeStats[#sizeStats + 1] = {stat = "maxHealth", baseMultiplier = healthMult}
     end
-    status.setPersistentEffects("starpounds", filteredPersistentEffects)
+    -- Knockback.
+    local gritReduction = status.stat("activeMovementAbilities") <= 1 and -((starPounds.weightMultiplier - 1) * math.max(0, 1 - starPounds.getStat("knockbackResistance"))) or 0
+    if gritReduction ~= 0 then
+      sizeStats[#sizeStats + 1] = {stat = "grit", amount = gritReduction}
+      sizeStats[#sizeStats + 1] = {stat = "knockbackThreshold", effectiveMultiplier = 1 - gritReduction}
+    end
+    -- Shield health.
+    local shieldMult = 1 + starPounds.getStat("shieldHealth") * bonusEffectiveness
+    if shieldMult ~= 1 then
+      sizeStats[#sizeStats + 1] = {stat = "shieldHealth", effectiveMultiplier = shieldMult}
+    end
+    -- Fall damage.
+    local fallDamageMult = 1 + (size.healthMultiplier - 1) * math.min(1 - starPounds.getStat("fallDamageResistance"), 1)
+    if fallDamageMult ~= 1 then
+      sizeStats[#sizeStats + 1] = {stat = "fallDamageMultiplier", effectiveMultiplier = fallDamageMult}
+    end
+    -- Resistances.
+    local resistances = {"physicalResistance", "iceResistance", "poisonResistance", "electricResistance", "fireResistance"}
+    for _, resistance in ipairs(resistances) do
+      local amount = starPounds.getStat(resistance) * bonusEffectiveness
+      if amount ~= 0 then
+        sizeStats[#sizeStats + 1] = {stat = resistance, amount = amount}
+      end
+    end
+
+    status.setPersistentEffects("starpounds", sizeStats)
   end
 
   -- Check if the entity is using a morphball (Tech patch bumps this number for the morphball).
