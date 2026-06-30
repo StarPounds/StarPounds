@@ -321,7 +321,7 @@ function stomach:digest(dt, isGurgle, isBelch)
   -- Iterate through food types
   local statCache = {}
   for foodType, amount in pairs(storage.starPounds.stomach) do
-    local digested = self:digestFood(foodType, isGurgle, isBelch, dt, statCache)
+    local digested = self:digestFood(foodType, isGurgle, isBelch, seconds, statCache)
     -- Remove entry if we've finished digesting this type.
     local remaining = math.max(amount - digested.amount, 0)
     storage.starPounds.stomach[foodType] = (remaining > 0) and remaining or nil
