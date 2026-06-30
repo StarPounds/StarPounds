@@ -113,7 +113,6 @@ function size:update(dt)
     weightChange = true
   end
 
-  self:cursorCheck()
   self:trackVehicleCap()
   self:equip(self:equipmentConfig(starPounds.currentSizeIndex))
   self:updateStats()
@@ -788,26 +787,6 @@ end
 function size:stomachMultiplier()
   if not storage.starPounds.enabled then return 1 end
   return self:stomachCapacity() / self.sizeConfig.stomachCapacity
-end
-
-function size:cursorCheck()
-  -- Return if not a player.
-  if starPounds.type ~= "player" then return end
-  -- Check the item the player is holding.
-  if starPounds.swapSlotItem then
-    local item = starPounds.swapSlotItem
-    item.parameters = item.parameters or {}
-    -- Delete base size items.
-    if starPounds.swapSlotItem.parameters.size then
-      player.setSwapSlotItem(nil)
-      return
-    end
-    -- Restore scaled up clothing items.
-    if item.parameters.scaledSize and item.parameters.baseName then
-      item = self:restoreClothing(item)
-      player.setSwapSlotItem(item)
-    end
-  end
 end
 
 function size.reset()

@@ -38,11 +38,30 @@ function _player:update(dt)
   self:landing()
 
   starPounds.swapSlotItem = player.swapSlotItem()
-  if starPounds.swapSlotItem and root.itemType(starPounds.swapSlotItem.name) == "consumable" then
-    local updated = starPounds.moduleFunc("food", "updateItem", starPounds.swapSlotItem)
+  self:swapSlotCheck(starPounds.swapSlotItem)
+end
+
+function _player:swapSlotCheck(slotItem)
+  -- Skip if nothing.
+  if not slotItem then return end
+  -- Update food items.
+  if root.itemType(slotItem.name) == "consumable" then
+    local updated = starPounds.moduleFunc("food", "updateItem", slotItem)
     if updated then
       player.setSwapSlotItem(updated)
+      return
     end
+  end
+  -- Delete base size items.
+  local parameters = slotItem.parameters or {}
+  if parameters.size then
+    player.setSwapSlotItem(nil)
+    return
+  end
+  -- Restore scaled up clothing items.
+  if parameters.scaledSize and parameters.baseName then
+    player.setSwapSlotItem(self:restoreClothing(slotItem))
+    return
   end
 end
 
