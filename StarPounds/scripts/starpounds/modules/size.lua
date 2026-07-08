@@ -240,6 +240,12 @@ function size:get(weight)
   return self.sizeConfig.sizes[sizeIndex], sizeIndex
 end
 
+function size:weight()
+  return {
+
+  }
+end
+
 function size:sizes()
   return self.sizeConfig.sizes
 end
@@ -467,14 +473,13 @@ function size:getStomachVariant(size)
   end
 
   local thresholds = size.thresholds.stomach
-  local stomachSize = (starPounds.hasOption("disableStomachGrowth") and 0 or (starPounds.moduleFunc("stomach", "get").interpolatedContents or 0))
-  if size.stomachOptions then
-    local additionalSize = 0
-    for option, amount in pairs(size.stomachOptions) do
-      additionalSize = math.max(additionalSize, starPounds.hasOption(option) and amount or 0)
-    end
 
-    stomachSize = stomachSize + additionalSize
+  local stomachSize = (starPounds.hasOption("disableStomachGrowth") and 0 or (starPounds.moduleFunc("stomach", "get").interpolatedContents or 0))
+  if size.stomachOption then
+    local sizeBonus = starPounds.getOption(size.stomachOption)
+    if sizeBonus > 0 then
+      stomachSize = stomachSize + size.stomachOptions[math.min(#size.stomachOptions, sizeBonus)]
+    end
   end
 
   local variant = ""
@@ -492,15 +497,13 @@ function size:getBreastVariant(size)
   if isHyper then return "hyper" end
 
   local thresholds = size.thresholds.breasts
+
   local breastSize = (starPounds.hasOption("disableBreastGrowth") and 0 or (starPounds.moduleFunc("breasts", "get").contents or 0))
-
-  if size.breastOptions then
-    local additionalSize = 0
-    for option, amount in pairs(size.breastOptions) do
-      additionalSize = math.max(additionalSize, starPounds.hasOption(option) and amount or 0)
+  if size.breastOption then
+    local sizeBonus = starPounds.getOption(size.breastOption)
+    if sizeBonus > 0 then
+      breastSize = breastSize + size.breastOptions[math.min(#size.breastOptions, sizeBonus)]
     end
-
-    breastSize = breastSize + additionalSize
   end
 
   local variant = ""
@@ -557,21 +560,19 @@ function size:equipmentConfig(sizeIndex)
   -- Don't do this for supersized stages.
   if not self.sizeConfig.sizes[sizeIndex].yOffset then
     -- Calculate the 'target' size based on options and vehicle caps.
-    for option, amount in pairs(self.data.sizeOptions.chest) do
-      if starPounds.hasOption(option) then
-        chestIndex = math.min(sizeIndex + amount, self.supersizeIndex - 1, vehicleCap.chest)
-      end
+    local bonusChestIndex = 0
+    local bonusLegsIndex = 0
+    local shape = starPounds.getOption("bodyShape")
+    if shape > 0 then
+      chestIndex = math.min(sizeIndex + shape, self.supersizeIndex - 1, vehicleCap.chest)
+    else
+      legsIndex = math.min(sizeIndex + math.abs(shape), self.supersizeIndex - 1, vehicleCap.legs)
     end
+
     -- Hyper index shifting.
     local isHyper = starPounds.hasOption("hyper") and not self.sizeConfig.sizes[chestIndex].disableHyper
     if isHyper then
       chestIndex = math.min(chestIndex + self:getHyperOffset(self.sizeConfig.sizes[chestIndex]), self.supersizeIndex - 1, vehicleCap.chest)
-    end
-    -- Same for legs.
-    for option, amount in pairs(self.data.sizeOptions.legs) do
-      if starPounds.hasOption(option) then
-        legsIndex = math.min(sizeIndex + amount, self.supersizeIndex - 1, vehicleCap.legs)
-      end
     end
   end
   -- Variant based on the 'adjusted' chest size.
@@ -804,24 +805,20 @@ function size:getVariantOld(size)
   local thresholds = starPounds.currentSize.thresholds
 
   local breastSize = (starPounds.hasOption("disableBreastGrowth") and 0 or (starPounds.moduleFunc("breasts", "get").contents or 0))
-  if starPounds.currentSize.breastOptions then
-    local additionalSize = 0
-    for option, amount in pairs(starPounds.currentSize.breastOptions) do
-      additionalSize = math.max(additionalSize, starPounds.hasOption(option) and amount or 0)
+  if starPounds.currentSize.breastOption then
+    local sizeBonus = starPounds.getOption(starPounds.currentSize.breastOption)
+    if sizeBonus > 0 then
+      breastSize = breastSize + starPounds.currentSize.breastOptions[math.min(#starPounds.currentSize.breastOptions, sizeBonus)]
     end
-
-    breastSize = breastSize + additionalSize
   end
 
 
   local stomachSize = (starPounds.hasOption("disableStomachGrowth") and 0 or (starPounds.moduleFunc("stomach", "get").interpolatedContents or 0))
-  if starPounds.currentSize.stomachOptions then
-    local additionalSize = 0
-    for option, amount in pairs(starPounds.currentSize.stomachOptions) do
-      additionalSize = math.max(additionalSize, starPounds.hasOption(option) and amount or 0)
+  if starPounds.currentSize.stomachOption then
+    local sizeBonus = starPounds.getOption(starPounds.currentSize.stomachOption)
+    if sizeBonus > 0 then
+      stomachSize = stomachSize + starPounds.currentSize.stomachOptions[math.min(#starPounds.currentSize.stomachOptions, sizeBonus)]
     end
-
-    stomachSize = stomachSize + additionalSize
   end
 
   for _, v in ipairs(thresholds.breasts) do

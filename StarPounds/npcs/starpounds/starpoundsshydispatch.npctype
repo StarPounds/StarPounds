@@ -10,7 +10,7 @@
       "minimumSize": [3, 3]
     },
     "starPounds_options": {
-      "extraBottomHeavy": true
+      "bodyShape": -2
     },
     "dialogMode": "tutorial",
     "dialog": {

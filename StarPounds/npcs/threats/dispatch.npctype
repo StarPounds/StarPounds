@@ -12,7 +12,7 @@
     },
 
     "starPounds_options": {
-      "extraBottomHeavy": true
+      "bodyShape": -2
     }
   },
 

@@ -8,8 +8,8 @@
       "minimumSize": [1, 4]
     },
     "starPounds_options": {
-      "bottomHeavy": true,
-      "milky": true
+      "bodyShape": -1,
+      "breastSize": 2
     },
     "questGenerator" : {
       "pools" : ["mootantcommon", "tenant"],

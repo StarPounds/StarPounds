@@ -17,7 +17,7 @@
       "minimumSize": [2, 2]
     },
     "starPounds_options": {
-      "bottomHeavy": true
+      "bodyShape": -1
     },
 
     "starPounds_optionsClientside" : true,

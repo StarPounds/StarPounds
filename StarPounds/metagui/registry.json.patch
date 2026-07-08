@@ -1,10 +1,7 @@
 [
   { "op" : "add", "path" : "/panes/starpounds", "value" : {
     // Menu Related
-    "menu" : "/interface/scripted/starpounds/menu/menu.ui",
-    "skills" : "/interface/scripted/starpounds/skills/skills.ui",
-    "effects" : "/interface/scripted/starpounds/effects/effects.ui",
-    "options" : "/interface/scripted/starpounds/options/options.ui",
+    "main" : "/interface/scripted/starpounds/main/main.ui",
     // Objects
     "caloriumextractor" : "/interface/scripted/starpounds/caloriumextractor/caloriumextractor.ui",
     // Other

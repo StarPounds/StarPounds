@@ -19,8 +19,8 @@
     },
     "starPounds_options": {
       "disableGain": true,
-      "bottomHeavy": true,
-      "milky": true
+      "bodyShape": -1,
+      "breastSize": 2
     },
     "dialogMode": "tutorial",
     "dialog": {

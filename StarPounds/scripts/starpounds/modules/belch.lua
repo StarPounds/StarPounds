@@ -77,11 +77,8 @@ function belch:pitch(multiplier)
       pitch = pitch + (self.data.belchGenderModifiers[gender] or 0)
     end
   end
-  -- Option pitch modifiers.
-  if starPounds.hasOption("disableBelches") then return end
-  if starPounds.hasOption("higherBelches") then pitch = pitch * 1.25 end
-  if starPounds.hasOption("deeperBelches") then pitch = pitch * 0.75 end
-
+  -- Option pitch modifier.
+  pitch = pitch * starPounds.getOption("belchPitch")
   pitch = math.round(pitch * multiplier, 2)
   return pitch
 end

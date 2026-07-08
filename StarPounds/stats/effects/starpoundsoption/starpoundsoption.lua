@@ -1,6 +1,6 @@
 require "/scripts/messageutil.lua"
 function init()
-  local options = root.assetJson("/scripts/starpounds/starpounds_options.config:options")
+  local options = root.assetJson("/scripts/starpounds/options.config:options")
   -- Entity message will always return local from a status, so we have to check it again here.
   -- Prevents editing other player's options.
   entityId = entity.id()

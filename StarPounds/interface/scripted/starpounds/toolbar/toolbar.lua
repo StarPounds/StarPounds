@@ -175,7 +175,7 @@ function updateMilkButton(frame)
 end
 
 function sizeButton()
-  player.interact("ScriptPane", {gui = {}, scripts = {"/metagui.lua"}, ui = "starpounds:menu"})
+  player.interact("ScriptPane", {gui = {}, scripts = {"/metagui.lua"}, ui = "starpounds:main"})
 end
 
 function stomachButton()

@@ -16,7 +16,7 @@
     // ======================== PLEASE READ ========================
     "starPounds_options": {
       "disablePrey": true,
-      "milky": true
+      "breastSize": 2
     },
 
     "starPounds_optionsClientside" : true,

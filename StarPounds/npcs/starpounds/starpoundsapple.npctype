@@ -30,8 +30,8 @@
       "disableMilkGain" : true,
       "disableLeaking" : true,
       "disablePred" : true,
-      "disableSound" : true,
-      "disableStomachGrowth" : true
+      "disableStomachGrowth" : true,
+      "volume" : 0
     },
 
     "starPounds_optionsClientside" : true,

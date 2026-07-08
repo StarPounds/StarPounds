@@ -16,8 +16,8 @@
       "softMinimumSize": [0, 1]
     },
     "starPounds_options": {
-      "bottomHeavy": true,
-      "milky": true
+      "bodyShape": -1,
+      "breastSize": 2
     },
     "dialog" : {
       "converse" : {

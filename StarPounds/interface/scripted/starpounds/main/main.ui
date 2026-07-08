@@ -1,0 +1,346 @@
+{
+  "style" : "window",
+  "size" : [400, 230],
+  "title" : "StarPounds",
+  "icon" : "icon.png",
+  "accentColor" : "8866ff",
+  "uniqueBy" : "path",
+  "uniqueMode" : "toggle",
+  "scripts" : [ "main.lua" ],
+  "children" : [
+    {"mode": "vertical"},
+    [
+      {"size" : 209},
+      [
+        {"expandMode": [1, 1]},
+        {
+          "type": "tabField",
+          "id": "tabField",
+          "layout": "vertical",
+          "tabWidth": 18,
+          "tabs": [],
+          "data": {
+            "tabTemplate": [{"type": "panel", "style": "convex", "children": [
+              {
+                "type": "scrollArea",
+                "id": "skillTree",
+                "scrollDirections" : [1, 1],
+                "scrollBars" : false,
+                "thumbScrolling" : false,
+                "children": [
+                  {"mode": "manual"},
+                  {"type": "image", "noAutoCrop": true, "file": "body.png"},
+                  {"type": "canvas", "id": "skillCanvas", "size": [480, 320]},
+                  {"type": "layout", "id": "skillWidgets", "size": [480, 320], "mode": "manual", "children": []}
+                ]
+              }]
+            }],
+            "traitTab": {
+              "title": " ",
+              "id": "traits",
+              "icon": "icons/tabs/traits.png",
+              "contents": [{"mode": "horizontal"},
+                {"type": "layout", "id": "availableTraitPanel", "mode": "vertical", "expandMode": [1, 1], "children": [
+                  {"type": "panel", "mode": "vertical", "expandMode": [1, 0], "style": "convex", "spacing": 1, "children": [
+                    {"type": "image", "id": "availableTraitIcon", "noAutoCrop": true, "file": "traitAvailable.png"},
+                    {"type": "label", "id": "availableTraitLabel", "align": "center", "text": "Available Traits"}, 0.5
+                  ]},
+                  {"type": "panel", "style": "convex", "children": [
+                    {
+                      "type": "scrollArea",
+                      "id": "availableTraits",
+                      "children": []
+                    }
+                  ]},
+                  [
+                    {"size" : 20},
+                    {"type": "panel", "style": "convex", "children": [
+                      0,
+                      [
+                        "spacer",
+                        {"type": "image", "file": "traitSortUnique.png"},
+                        { "id": "traitSort_unique", "type": "checkBox", "toolTip": "Show ^yellow;unique^reset; traits." },
+                        "spacer"
+                      ]
+                    ]},
+                    {"type": "panel", "style": "convex", "children": [
+                      0,
+                      [
+                        "spacer",
+                        {"type": "image", "file": "traitSortNegative.png"},
+                        { "id": "traitSort_negative", "type": "checkBox", "toolTip": "Show ^red;negative^reset; traits." },
+                        "spacer"
+                      ]
+                    ]},
+                    {"type": "panel", "style": "convex", "children": [
+                      0,
+                      [
+                        "spacer",
+                        {"type": "image", "file": "traitSortNeutral.png"},
+                        { "id": "traitSort_neutral", "type": "checkBox", "toolTip": "Show ^lightgray;neutral^reset; traits." },
+                        "spacer"
+                      ]
+                    ]},
+                    {"type": "panel", "style": "convex", "children": [
+                      0,
+                      [
+                        "spacer",
+                        {"type": "image", "file": "traitSortPositive.png"},
+                        { "id": "traitSort_positive", "type": "checkBox", "toolTip": "Show ^green;positive^reset; traits." },
+                        "spacer"
+                      ]
+                    ]}
+                  ]
+                ]},
+                {"type": "layout", "id": "activeTraitPanel", "mode": "vertical", "expandMode": [1, 1], "children": [
+                  {"type": "panel", "mode": "vertical", "expandMode": [1, 0], "style": "convex", "spacing": 1, "children": [
+                    {"type": "image", "id": "activeTraitIcon", "noAutoCrop": true, "file": "traitActive.png"},
+                    {"type": "label", "id": "activeTraitLabel", "align": "center", "text": "Active Traits"}, 0.5
+                  ]},
+                  {"type": "panel", "style": "convex", "children": [
+                    {"type": "layout", "id": "speciesTrait", "mode": "vertical", "children": []},
+                    {
+                      "type": "scrollArea",
+                      "id": "activeTraits",
+                      "children": []
+                    }
+                  ]},
+                  [
+                    { "size" : 20 },
+                    {"type": "panel", "style": "convex", "children": [
+                      [
+                        2,
+                        {"type": "iconButton", "id": "traitPointsImage", "toolTip": "^#ccbbff;Trait Points^reset; remaining.",
+                          "image": "traitAvailable.png",
+                          "hoverImage": "traitAvailable.png",
+                          "pressImage": "traitAvailable.png"
+                        },
+                        {"type": "image", "file": "traitCount.png"},
+                        {"type": "label", "id": "traitPointsLabel", "align": "center", "text": "0"},
+                        "spacer",
+                        {"type": "layout", "mode": "manual", "children": [
+                          {"type": "image", "position": [0, 0], "file": "experienceBacking.png"},
+                          {"type": "label", "position": [0, 4], "size": [32, 13], "id": "traitExperienceLabel", "align": "center", "text": "^gray;0 XP"}
+                        ]},
+                        {"type": "iconButton", "id": "traitReset", "toolTip": "Reset changes to traits.",
+                          "image": "traitReset.png",
+                          "hoverImage": "traitReset.png",
+                          "pressImage": "traitReset.png?border=1;00000000;00000000?crop=1;2;17;18"
+                        },
+                        {"type": "iconButton", "id": "traitSelect",
+                          "image": "traitSelect.png",
+                          "hoverImage": "traitSelect.png",
+                          "pressImage": "traitSelect.png?border=1;00000000;00000000?crop=1;2;23;18"
+                        }
+                      ]
+                    ]}
+                  ]
+                ]}
+              ]
+            },
+            "effectsTab": {
+              "title": " ",
+              "id": "effects",
+              "icon": "icons/tabs/effects.png",
+              "contents": [
+                {"type": "panel", "style": "convex", "mode": "vertical", "children": [
+                  {
+                    "type": "tabField",
+                    "id": "effectsTabField",
+                    "layout": "horizontal",
+                    "tabs": [],
+                    "data": [
+                      1,
+                      {"text": "<title>", "type": "label", "align": "center"},
+                      {"type": "panel", "style": "concave", "expandMode": [1, 1], "children": [
+                        {
+                          "id": "<panel>",
+                          "type": "scrollArea",
+                          "children": []
+                        }
+                      ]},
+                      {"type": "layout", "id": "<accessory>", "mode": "vertical", "children": []}
+                    ]
+                  }
+                ]}
+              ]
+            },
+            "optionsTab": {
+              "title": " ",
+              "id": "options",
+              "icon": "icons/tabs/options.png",
+              "contents": [
+                {"type": "panel", "style": "convex", "mode": "vertical", "children": [
+                  {
+                    "type": "tabField",
+                    "id": "optionsTabField",
+                    "layout": "horizontal",
+                    "tabs": [],
+                    "data": [
+                      1,
+                      {"text": "<title>", "type": "label", "align": "center"},
+                      1,
+                      {
+                        "type": "scrollArea",
+                        "id": "<panel>",
+                        "children": []
+                      }
+                    ]
+                  }
+                ]}
+              ]
+            },
+            "changelogTab": {
+              "title": " ",
+              "id": "changelog",
+              "icon": "icons/tabs/changelog.png",
+              "contents": [
+                {"type": "panel", "style": "convex", "mode": "vertical", "children": [
+                  {
+                    "type": "tabField",
+                    "id": "changelogTabField",
+                    "layout": "vertical",
+                    "tabWidth": 30,
+                    "tabs": [],
+                    "data": [
+                      1,
+                      {"type": "label", "align": "center", "text": "<title>"},
+                      1,
+                      {"type": "panel", "style": "concave", "children": [
+                        1,
+                        {"type": "scrollArea", "children": [
+                          {"type": "layout", "mode": "vertical", "children": "<textWidgets>"}
+                        ]},
+                        1
+                      ]}
+                    ]
+                  }
+                ]}
+              ]
+            }
+          }
+        }
+      ],
+      [
+        {"size" : 120},
+        {"type": "panel", "style": "convex", "children": [
+          1,
+          {"type": "image", "id": "descriptionIcon", "noAutoCrop": true, "scale": 2, "file": "/assetmissing.png"},
+          1,
+          {"type": "label", "id": "descriptionTitle", "align": "center", "fontSize": 10, "text": ""},
+          1,
+          {"type": "label", "id": "descriptionText", "align": "center", "text": ""},
+          "spacer",
+          {"type": "layout", "id": "descriptionWidget", "mode": "vertical", "children": []}
+        ]},
+        {"type": "layout", "id": "infoPanel", "mode": "vertical", "children": [
+            {"type": "panel", "style": "convex", "expandMode": [2, 0], "children": [
+              1,
+              [
+                {"mode": "stack"},
+                {"type": "label", "id": "infoCurrent", "align": "center", "text": ""},
+                [{"mode": "manual"}, {"type": "iconButton", "id": "statInfo", "position": [103, 8],
+                    "image": "info.png",
+                    "hoverImage": "info.png",
+                    "pressImage": "info.png"
+                }]
+              ],
+              1
+            ]}
+        ]},
+        {"type": "layout", "id": "unlockPanel", "mode": "vertical", "children": [{"type": "panel", "style": "convex", "children": [
+          1,
+          [{"id": "itemPanel"}, 1, {"type": "panel", "style": "concave", "expandMode": [1, 0], "children": ["spacer", {"type": "itemGrid", "id": "unlockItems", "slots": 5, "columns": 5, "autoInteract": false}, "spacer"]}, 1],
+          {"type": "layout", "mode": "horizontal", "children": [
+            1,
+            {"type": "layout", "mode": "manual", "children": [
+              {"type": "image", "position": [0, 0], "noAutoCrop": true, "file": "unlockLevel.png"},
+              {"type": "label", "position": [0, 8], "size": [36, 12], "id": "unlockExperience", "align": "center", "text": "0 XP"},
+              {"type": "label", "position": [36, 8], "size": [36, 12], "id": "unlockText", "align": "center", "text": "?/?"},
+              {"type": "iconButton", "id": "unlockIncrease", "position": [73, 0],
+                "image": "unlockIncrease.png",
+                "hoverImage": "unlockIncrease.png",
+                "pressImage": "unlockIncrease.png?border=1;00000000;00000000?crop=1;2;13;15"
+              },
+              {"type": "iconButton", "id": "unlockDecrease", "position": [73, 12],
+                "image": "unlockDecrease.png",
+                "hoverImage": "unlockDecrease.png",
+                "pressImage": "unlockDecrease.png?border=1;00000000;00000000?crop=1;2;13;15"
+              },
+              {"type": "iconButton", "id": "unlockToggle", "position": [73, 0],
+                "image": "unlockToggle.png:off.disabled",
+                "hoverImage": "unlockToggle.png:off.disabled",
+                "pressImage": "unlockToggle.png:off.disabled?border=1;00000000;00000000?crop=1;2;13;27"
+              }
+            ]},
+            "spacer",
+            {"id": "unlockButton", "type": "iconButton",
+              "image": "unlock.png",
+              "hoverImage": "unlock.png",
+              "pressImage": "unlock.png?border=1;00000000;00000000?crop=1;2;25;27"
+            },
+            1
+          ]},
+          1
+        ]}]},
+        {"type": "panel", "id": "effectsStatsPanel", "visible": false, "expandMode": [1, 1], "size": [0, 70], "style": "convex", "children": [
+          1,
+          {"type": "label", "text": "Stats", "align": "center"},
+          {"type": "panel", "style": "concave", "expandMode": [1, 1], "children": [
+            {"type": "scrollArea", "children": [
+              {"type": "layout", "mode": "vertical", "expandMode": [1, 0], "children": [
+                1,
+                {"type": "layout", "mode": "horizontal", "expandMode": [1, 0], "children": [
+                  1,
+                  {"type": "layout", "mode": "stack", "expandMode": [1, 0], "children": [
+                    {"type": "label", "id": "effectStats", "fontSize": 7, "align": "left", "expandMode": [1, 0], "text": ""},
+                    {"type": "label", "id": "effectStatValues", "fontSize": 7, "align": "right", "expandMode": [1, 0], "text": ""}
+                  ]},
+                  1
+                ]},
+                1
+              ]}
+            ]}
+          ]},
+          {"type": "layout", "id": "effectLevelSpinner", "visible": false, "mode": "horizontal", "position": [0, 0], "size": [32, 10], "children": [
+            {"id": "effectLevelDown", "type": "iconButton", "image": "/interface/pickleft.png", "hoverImage": "/interface/pickleftover.png", "pressImage": "/interface/pickleftover.png"},
+            [{"id": "effectLevelValue", "type": "label", "fontSize": 7, "text": "1", "size": [12, 8], "align": "center"}],
+            {"id": "effectLevelUp", "type": "iconButton", "image": "/interface/pickright.png", "hoverImage": "/interface/pickrightover.png", "pressImage": "/interface/pickrightover.png"}
+          ]}
+        ]}
+      ]
+    ],
+    [
+      12,
+      "spacer",
+      {"type": "layout", "id": "barPadding", "visible": true, "size": [18, 19], "children": []},
+      {"type": "iconButton", "id": "weightDecrease", "visible": false, "toolTip": "Decrease your weight by 1 stage.", "image" : "weightDecrease.png", "hoverImage" : "weightDecrease.png", "pressImage" : "weightDecrease.png?border=1;00000000;00000000?crop=1;2;19;21"},
+      {"type": "iconButton", "id": "weightIncrease", "visible": false, "toolTip": "Increase your weight by 1 stage.", "image" : "weightIncrease.png", "hoverImage" : "weightIncrease.png", "pressImage" : "weightIncrease.png?border=1;00000000;00000000?crop=1;2;19;21"},
+      {"type": "iconButton", "id": "enable", "toolTip": "Enable or Disable the mod.", "image" : "enabled.png", "hoverImage" : "enabled.png", "pressImage" : "enabled.png?border=1;00000000;00000000?crop=1;2;87;21"},
+      {"type": "iconButton", "id": "reset", "toolTip": "Reset the mod.", "image" : "reset.png", "hoverImage" : "reset.png", "pressImage" : "reset.png?border=1;00000000;00000000?crop=1;2;19;21"},
+      {"type": "iconButton", "id": "unlockAll", "visible": false, "toolTip": "Unlock all skills.", "image" : "unlockAll.png", "hoverImage" : "unlockAll.png", "pressImage" : "unlockAll.png?border=1;00000000;00000000?crop=1;2;19;21"},
+      "spacer",
+      {
+        "type": "layout",
+        "id": "experienceLayout",
+        "mode": "manual",
+        "size" : [104, 18],
+        "children": [
+          {"type": "image", "position": [0, 0], "noAutoCrop": true, "file": "bar_body.png"},
+          {"type": "label", "position": [2, 5], "size": [28, 12], "id": "experienceText", "align": "center", "text": "0 XP"},
+          {
+            "type": "layout",
+            "mode": "horizontal",
+            "position": [32, 2],
+            "size" : [70, 14],
+            "children": [
+              {"type": "image", "id": "experienceBar", "file": "bar.png"}
+            ]
+          },
+          {"type": "image", "position": [32, 2], "noAutoCrop": true, "file": "bar_overlay.png"}
+        ]
+      },
+      6
+    ]
+  ]
+}

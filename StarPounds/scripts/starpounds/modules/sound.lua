@@ -36,7 +36,7 @@ end
 
 function sound:play(soundPool, volume, pitch, loops)
   -- No sound with the option.
-  if starPounds.hasOption("disableSound") then return end
+  if starPounds.getOption("volume") == 0 then return end
   -- Set volume/pitch.
   self:setVolume(soundPool, volume)
   self:setPitch(soundPool, pitch)
@@ -56,10 +56,8 @@ function sound:setVolume(soundPool, volume, rampTime)
   if self.secret and volume > 0 then
     volume = (volume + 0.75) * 0.5
   end
-  -- Quiet sound option.
-  if starPounds.hasOption("quietSounds") then
-    volume = volume * 0.5
-  end
+  -- Volume option.
+  volume = volume * (starPounds.getOption("volume") / 100) ^ 0.5
 
   world.sendEntityMessage(starPounds.entityId, "starPounds.handler_setSoundVolume", soundPool, volume, rampTime)
 end

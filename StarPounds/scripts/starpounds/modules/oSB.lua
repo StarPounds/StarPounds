@@ -11,7 +11,6 @@ function oSB:init()
   self.notConsumableCache = {}
 
   self.openStarbound = root.assetJson("/player.config:genericScriptContexts").OpenStarbound and true or false
-  starPounds.moduleFunc("options", "oSB")
   -- Load up the toolbar if we have oSB isntalled.
   if self.openStarbound and not self.loadedToolbar then
     player.interact("ScriptPane", "/interface/scripted/starpounds/toolbar/toolbar.config")

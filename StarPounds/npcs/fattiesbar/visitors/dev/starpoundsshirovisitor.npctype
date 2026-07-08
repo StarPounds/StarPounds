@@ -32,8 +32,8 @@
       "disableLeaking" : true,
       "disablePred" : true,
       "disablePrey" : true,
-      "disableSound" : true,
-      "disableStomachGrowth" : true
+      "disableStomachGrowth" : true,
+      "volume" : 0
     },
 
     "starPounds_optionsClientside" : true,

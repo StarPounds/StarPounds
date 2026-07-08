@@ -11,8 +11,8 @@ shared.starPounds.configData = shared.starPounds.configData or {}
 
 shared.starPounds.configData.version = shared.starPounds.configData.version or root.assetJson("/scripts/starpounds/starpounds.config:version")
 shared.starPounds.configData.settings = shared.starPounds.configData.settings or root.assetJson("/scripts/starpounds/starpounds.config:settings")
-shared.starPounds.configData.options = shared.starPounds.configData.options or root.assetJson("/scripts/starpounds/starpounds_options.config:options")
-shared.starPounds.configData.species = shared.starPounds.configData.species or root.assetJson("/scripts/starpounds/starpounds_species.config")
+shared.starPounds.configData.options = shared.starPounds.configData.options or root.assetJson("/scripts/starpounds/options.config:options")
+shared.starPounds.configData.species = shared.starPounds.configData.species or root.assetJson("/scripts/starpounds/species.config")
 
 starPounds = {
   version = shared.starPounds.configData.version,

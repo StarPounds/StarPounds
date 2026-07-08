@@ -57,7 +57,7 @@
   ],
 
   "interactAction" : "ScriptPane",
-  "interactData" : {"gui" : { }, "scripts" : ["/metagui.lua"], "ui" : "starpounds:skills", "data": {"isObject": true, "tabs": ["skills", "vore", "breasts", "tech"], "title": "Infusion Table", "iconSuffix": "Infusion"}},
+  "interactData" : {"gui" : { }, "scripts" : ["/metagui.lua"], "ui" : "starpounds:main", "data": {"isObject": true, "tabs": ["base", "vore", "breasts", "tech"], "title": "Infusion Table", "iconSuffix": "Infusion"}},
   "interactive" : false,
 
   "smashOnBreak": true,

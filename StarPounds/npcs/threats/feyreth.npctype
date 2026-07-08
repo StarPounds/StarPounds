@@ -16,8 +16,8 @@
     // change, or otherwise alter these settings.
     // ======================== PLEASE READ ========================
     "starPounds_options": {
-      "bottomHeavy": true,
-      "stuffed": true,
+      "bodyShape": -1,
+      "stomachSize": 1,
       "disablePrey": true
     },
 
