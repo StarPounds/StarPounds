@@ -484,7 +484,7 @@ function buildTraitTab()
     end
 
     availableTraitCache = {}
-    for _, trait in ipairs(traits.selectableTraits) do
+    for _, trait in ipairs(trts.selectableTraits) do
       availableTraitCache[trait] = true
     end
 
