@@ -302,9 +302,9 @@
               ]}
             ]}
           ]},
-          {"type": "layout", "id": "effectLevelSpinner", "visible": false, "mode": "horizontal", "position": [0, 0], "size": [32, 10], "children": [
+          {"type": "layout", "id": "effectLevelSpinner", "visible": false, "mode": "horizontal", "position": [0, 0], "size": [48, 10], "children": [
             {"id": "effectLevelDown", "type": "iconButton", "image": "/interface/pickleft.png", "hoverImage": "/interface/pickleftover.png", "pressImage": "/interface/pickleftover.png"},
-            [{"id": "effectLevelValue", "type": "label", "fontSize": 7, "text": "1", "size": [12, 8], "align": "center"}],
+            [{"id": "effectLevelValue", "type": "label", "fontSize": 7, "text": "1", "size": [28, 8], "align": "center"}],
             {"id": "effectLevelUp", "type": "iconButton", "image": "/interface/pickright.png", "hoverImage": "/interface/pickrightover.png", "pressImage": "/interface/pickrightover.png"}
           ]}
         ]}

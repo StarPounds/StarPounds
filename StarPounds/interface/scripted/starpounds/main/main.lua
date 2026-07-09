@@ -727,6 +727,7 @@ function buildEffectsTab()
   effectsSelection = tabField:newTab(tabField.data.effectsTab)
   effectsSelection.pretty = "Effects"
   effectsSelection.description = "View your active effects, discovered effects, and equip accessories!"
+  effectsSelection.tabWidget.toolTip = "Effects"
 
   firstEffectsTab = nil
   for _, tab in ipairs(effectTabs) do
@@ -815,14 +816,14 @@ function buildEffectsTab()
   function effectLevelUp:onClick()
     if selectedEffect and codexEffectLevel < (selectedEffect.levels or 1) then
       codexEffectLevel = metagui.checkShift() and selectedEffect.levels or (codexEffectLevel + 1)
-      effectLevelValue:setText(tostring(codexEffectLevel))
+      effectLevelValue:setText(string.format("%s/%s", codexEffectLevel, selectedEffect.levels))
       setEffectStats(selectedEffectKey, selectedEffect)
     end
   end
   function effectLevelDown:onClick()
     if selectedEffect and codexEffectLevel > 1 then
       codexEffectLevel = metagui.checkShift() and 1 or (codexEffectLevel - 1)
-      effectLevelValue:setText(tostring(codexEffectLevel))
+      effectLevelValue:setText(string.format("%s/%s", codexEffectLevel, selectedEffect.levels))
       setEffectStats(selectedEffectKey, selectedEffect)
     end
   end
@@ -944,7 +945,7 @@ function selectEffect(effectKey, effect)
   -- Show spinner in codex tab.
   if currentEffectTab and currentEffectTab.id == "codex" and (effect.levels or 1) > 1  then
     codexEffectLevel = 1
-    effectLevelValue:setText(tostring(codexEffectLevel))
+    effectLevelValue:setText(string.format("%s/%s", codexEffectLevel, effect.levels))
     effectLevelSpinner:setVisible(true)
   else
     effectLevelSpinner:setVisible(false)
