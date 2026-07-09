@@ -34,10 +34,8 @@ function _npc:init()
   self:setup()
   starPounds.moduleFunc("skills", "parse")
   -- Triggers aggro.
-  message.setHandler("starPounds.notifyDamage", simpleHandler(damage))
   message.setHandler("starPounds.notifyDamage", simpleHandler(function(args)
-    _ENV.self.damaged = true
-    _ENV.self.board:setEntity("damageSource", args.sourceId)
+    notify({ sourceId = starPounds.entityId, targetId = args.sourceId, type = "attack" })
   end))
   -- NPCs won't treat fattening objects as priorty if they're flagged to not use them
   if _ENV.self.behaviorConfig and (_ENV.self.behaviorConfig.useFatteningObjects == false) then
