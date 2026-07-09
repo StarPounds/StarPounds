@@ -38,7 +38,9 @@ local function buildTraitTooltipText(traitConfig, traitName, spacer)
   end
 
   if traitConfig.skills then
-    skillString = string.format("%s^green;Unlocks skill%s:", (statString..effectString) ~= "" and "\n\n" or "", #traitConfig.skills > 1 and "s" or "")
+    local sectionPrefix = (statString..effectString) ~= "" and ("\n\n" .. spacer) or ("\n" .. spacer)
+    skillString = string.format("%s^green;Unlocks skill%s:", sectionPrefix, #traitConfig.skills > 1 and "s" or "")
+
     for _, skillData in ipairs(traitConfig.skills) do
       local skillName, skillLevel = skillData[1], skillData[2]
       local skill = skills[skillName]
@@ -58,7 +60,7 @@ local function buildTraitTooltipText(traitConfig, traitName, spacer)
         end
       end
 
-      skillString = string.format("%s\n%s %s%s^gray;%s", skillString, prefix, colour, skill.pretty, levelString)
+      skillString = string.format("%s\n%s%s %s%s^gray;%s", skillString, spacer, prefix, colour, skill.pretty, levelString)
     end
   end
 
