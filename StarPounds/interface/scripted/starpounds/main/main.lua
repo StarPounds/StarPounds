@@ -192,8 +192,9 @@ function init()
   setProgress(starPounds.experience or starPounds.moduleFunc("data", "get", "experience"), starPounds.level or starPounds.moduleFunc("data", "get", "level"))
 
   populateSkillTree()
-  populateTraitTab()
+  tabField.tabScroll.children[1]:addChild({type = "spacer"})
   populateEffectsTab()
+  populateTraitTab()
   populateOptionsTab()
   populateChangelogTab()
   resetInfoPanel()
@@ -440,9 +441,6 @@ function populateSkillTree()
 end
 
 function buildTraitTab()
-  local tabLayout = tabField.tabScroll.children[1]
-  tabLayout:addChild({type = "spacer"})
-
   traitSelection = tabField:newTab(tabField.data.traitTab)
   traitSelection.pretty = "Traits"
   traitSelection.description = "This menu allows you to modify traits!\n\nTraits can affect stats, unlocked skills, and more! \n\nYou begin with limited ^#ccbbff;Trait Points^reset;, but can earn more through progression or selecting negative traits.\nChoose wisely!"
@@ -723,7 +721,6 @@ function updateTraitInfo()
 end
 
 function buildEffectsTab()
-  local tabLayout = tabField.tabScroll.children[1]
   effectsSelection = tabField:newTab(tabField.data.effectsTab)
   effectsSelection.pretty = "Effects"
   effectsSelection.description = "View your active effects, discovered effects, and equip accessories!"
@@ -1441,7 +1438,6 @@ function toggleOption(option)
 end
 
 function buildChangelogTab()
-  local tabLayout = tabField.tabScroll.children[1]
   changelogSelection = tabField:newTab(tabField.data.changelogTab)
   changelogSelection.pretty = "Changelog"
   changelogSelection.description = "Use this menu to view updates and changes to ^#ccbbff;StarPounds^reset;!"
