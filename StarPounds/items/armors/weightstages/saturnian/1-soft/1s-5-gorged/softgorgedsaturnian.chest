@@ -9,7 +9,7 @@
   "shortdescription" : "Gorged Soft Belly",
   "tooltipKind" : "starpoundsarmor",
   "bypassNude" : true,
-  
+
   "statusEffects": [
     "starpoundssoft",
     "starpoundsgorged"

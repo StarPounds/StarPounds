@@ -9,7 +9,7 @@
   "shortdescription" : "Filled Plump Belly",
   "tooltipKind" : "starpoundsarmor",
   "bypassNude" : true,
-  
+
   "statusEffects": [
     "starpoundsplump",
     "starpoundsfilled"
@@ -24,6 +24,6 @@
   "femaleFrames" : {
     "body" : "chestf.png",
     "backSleeve" : "bsleeve.png",
-    "frontSleeve" : "fsleeve.png"
+    "frontSleeve" : "fsleevef.png"
   }
 }
