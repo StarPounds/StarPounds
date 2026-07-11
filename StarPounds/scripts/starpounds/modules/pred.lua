@@ -399,11 +399,7 @@ function pred:digestPrey(preyId, items, preyStomach)
   local doBelchParticles = doBelch and not starPounds.hasOption("disableBelchParticles")
   -- Burp/Stomach gurgle.
   if doBelch then
-    local maxWeight = starPounds.moduleFunc("size", "maximumWeight") or entity.weight
-    local belchVolume = 0.75
-    local belchPitch = 1 - math.round(((digestedEntity.base + digestedEntity.weight) - starPounds.species.default.weight)/(maxWeight * 4), 2)
-    starPounds.moduleFunc("belch", "belch", belchVolume, belchPitch)
-    starPounds.moduleFunc("stomach", "stopBelch") -- Cancel queued belch.
+    self:preyBelch(digestedEntity)
   end
 
   if doBelchParticles then
@@ -498,11 +494,7 @@ function pred:release(preyId, releaseAll)
       end
     end
     if releasedEntity and world.entityExists(releasedEntity.id, true) then
-      local maxWeight = starPounds.moduleFunc("size", "maximumWeight") or entity.weight
-      local belchVolume = 0.75
-      local belchPitch = 1 - math.round((releasedEntity.weight + storage.starPounds.weight - starPounds.species.default.weight)/(maxWeight * 4), 2)
-      starPounds.moduleFunc("belch", "belch", belchVolume, belchPitch)
-      starPounds.moduleFunc("stomach", "stopBelch") -- Cancel queued belch.
+      self:preyBelch(releasedEntity)
     end
     storage.starPounds.stomachEntities = jarray()
   else
@@ -520,11 +512,7 @@ function pred:release(preyId, releaseAll)
     -- Call back to release the entity incase the pred is releasing them.
     if releasedEntity and world.entityExists(releasedEntity.id, true) then
       local maxWeight = starPounds.moduleFunc("size", "maximumWeight") or entity.weight
-      local belchVolume = 0.75
-      local belchPitch = 1 - math.round((releasedEntity.weight + storage.starPounds.weight - starPounds.species.default.weight)/(maxWeight * 4), 2)
-      starPounds.moduleFunc("belch", "belch", belchVolume, belchPitch)
-      starPounds.moduleFunc("stomach", "stopBelch") -- Cancel queued belch.
-
+      self:preyBelch(releasedEntity)
       world.sendEntityMessage(releasedEntity.id, "starPounds.prey.released", starPounds.entityId, statusEffect)
       starPounds.events:fire("pred:releaseEntity", releasedEntity)
     end
@@ -673,6 +661,23 @@ function pred:digestClothing(item)
   -- Delete json metadata so we don't store nils.
   setmetatable(item.parameters, nil)
   return item
+end
+
+function pred:belchPitch(weight)
+  local minimumPitch = self.data.minimumBelchPitch
+  local baseWeight = entity.weight or starPounds.species.default.weight
+  local maxWeight = starPounds.moduleFunc("size", "maximumWeight") or (baseWeight * 100)
+  if weight <= baseWeight then
+    return 1
+  end
+
+  local ratio = weight / baseWeight
+  return minimumPitch + ((1 - minimumPitch) * (0.5 ^ (ratio - 1)))
+end
+
+function pred:preyBelch(prey)
+  starPounds.moduleFunc("belch", "belch", self.data.belchVolume, self:belchPitch(prey.base + prey.weight))
+  starPounds.moduleFunc("stomach", "stopBelch") -- Cancel queued belch.
 end
 
 function pred:belchParticles(prey, essence)
