@@ -6,7 +6,7 @@ function passiveMilk:init()
     setmetatable(self.data, nil)
   end
   -- Only because I'd rather not have mootant NPCs slowly gain cup sizes over time.
-  if not starPounds.type == "player" then
+  if not (starPounds.type == "player") then
     function self:update(dt) end
   end
 end
