@@ -13,12 +13,21 @@ function belch:belch(volume, pitch, addMomentum)
   if addMomentum == nil then addMomentum = true end
   -- Skip if belches are disabled.
   if starPounds.hasOption("disableBelches") then return end
+  -- Volume multiplier based on size.
+  if not starPounds.hasOption("disableSizeBelches") then
+    local belchMultiplier = self:sizeMultiplier()
+    if belchMultiplier and belchMultiplier.pitch then
+      pitch = pitch * belchMultiplier.pitch
+    end
+  end
+  -- Quieter and no particles in distortion spheres.
   local distortionSphere = status.stat("activeMovementAbilities") > 1
   if status.stat("activeMovementAbilities") > 1 then
     volume = volume * 0.5
     starPounds.moduleFunc("sound", "play", "belch", volume, self:pitch(pitch))
     return
   end
+  -- Belch sound.
   starPounds.moduleFunc("sound", "play", "belch", volume, self:pitch(pitch))
   -- 7.5 (Rounded to 8) to 10 particles, decreased or increased by up to 2x, -5
   -- Ends up yielding around 10 - 15 particles if the belch is very loud and deep, 3 - 5 at normal volume and pitch, and none if it's half volume or twice as high pitch.
@@ -77,10 +86,24 @@ function belch:pitch(multiplier)
       pitch = pitch + (self.data.belchGenderModifiers[gender] or 0)
     end
   end
+
+  if not starPounds.hasOption("disableSizeBelches") then
+    local belchMultiplier = self:sizeMultiplier()
+    if belchMultiplier and belchMultiplier.pitch then
+      pitch = pitch * belchMultiplier.pitch
+    end
+  end
   -- Option pitch modifier.
   pitch = pitch * starPounds.getOption("belchPitch")
   pitch = math.round(pitch * multiplier, 2)
   return pitch
+end
+
+function belch:sizeMultiplier()
+  local index = starPounds.moduleFunc("size", "sizeIndex")
+  local sizes = starPounds.moduleFunc("size", "sizes")
+
+  if index and sizes then return sizes[index].belchMultiplier end
 end
 
 -- Add the module.
