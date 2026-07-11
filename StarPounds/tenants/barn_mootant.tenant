@@ -14,27 +14,27 @@
       "species": "mootant",
       "type": "mootantbarntenant",
       "overrides": {
-  "scriptConfig" : {
-    "starPounds_skills": {
-      "minimumSize": [1, 4]
-    },
-    "starPounds_options": {
-      "bottomHeavy": true,
-      "milky": true
+        "scriptConfig" : {
+          "starPounds_skills": {
+            "minimumSize": [1, 4]
+          },
+          "starPounds_options": {
+            "bodyShape": -1,
+            "breastSize": 2
+          }
+        },
+        "identity" : {
+          "species" : "mootant",
+          "gender" : "female",
+          "hairGroup" : "hair",
+          "hairType" : "0",
+          "bodyDirectives" : "?replace;c7815b=7b7b7b;ffe2c5=f5f5f5;ffc181=e6e6e6;d39c6c=b6b6b6?replace;dc1f00=555555;951500=151515;be1b00=373737",
+          "emoteDirectives" : "?replace;c7815b=7b7b7b;ffe2c5=f5f5f5;ffc181=e6e6e6;d39c6c=b6b6b6?replace;dc1f00=555555;951500=151515;be1b00=373737",
+          "hairDirectives" : "?replace;735e3a=7b7b7b;a38d59=b6b6b6;d9c189=e6e6e6?replace;dc1f00=555555;951500=151515;be1b00=373737"
+        }
+      }
     }
-  },
-  "identity" : {
-    "species" : "mootant",
-    "gender" : "female",
-    "hairGroup" : "hair",
-    "hairType" : "0",
-    "bodyDirectives" : "?replace;c7815b=7b7b7b;ffe2c5=f5f5f5;ffc181=e6e6e6;d39c6c=b6b6b6?replace;dc1f00=555555;951500=151515;be1b00=373737",
-    "emoteDirectives" : "?replace;c7815b=7b7b7b;ffe2c5=f5f5f5;ffc181=e6e6e6;d39c6c=b6b6b6?replace;dc1f00=555555;951500=151515;be1b00=373737",
-    "hairDirectives" : "?replace;735e3a=7b7b7b;a38d59=b6b6b6;d9c189=e6e6e6?replace;dc1f00=555555;951500=151515;be1b00=373737"
-  }
-       }
-     }
-   ],
+  ],
 
   "rent": {
     "periodRange": [600.0, 1200.0],

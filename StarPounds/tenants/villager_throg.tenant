@@ -14,14 +14,14 @@
       "species": "throg",
       "type": "throggenerictenant",
       "overrides": {
-  "scriptConfig" : {
-    "starPounds_skills": {
-      "minimumSize": [3, 3]
+        "scriptConfig" : {
+          "starPounds_skills": {
+            "minimumSize": [3, 3]
+          }
+        }
+      }
     }
-  }
-       }
-     }
-   ],
+  ],
 
   "rent": {
     "periodRange": [900.0, 1800.0],

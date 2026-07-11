@@ -13,10 +13,9 @@
       "spawn": "npc",
       "species": ["human", "apex", "avian", "floran", "glitch", "hylotl", "novakid"],
       "type": "starpoundsbrewertenant",
-      "overrides": {
-       }
-     }
-   ],
+      "overrides": {}
+    }
+  ],
 
   "rent": {
     "periodRange": [1200.0, 1800.0],

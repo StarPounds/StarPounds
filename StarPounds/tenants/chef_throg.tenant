@@ -15,14 +15,14 @@
       "species": "throg",
       "type": "throgchefmerchanttenant",
       "overrides": {
-  "scriptConfig" : {
-    "starPounds_skills": {
-      "minimumSize": [3, 3]
+        "scriptConfig" : {
+          "starPounds_skills": {
+            "minimumSize": [3, 3]
+          }
+        }
+      }
     }
-  }
-       }
-     }
-   ],
+  ],
 
   "rent": {
     "periodRange": [900.0, 1800.0],

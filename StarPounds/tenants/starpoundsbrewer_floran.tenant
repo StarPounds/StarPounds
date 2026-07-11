@@ -14,10 +14,9 @@
       "spawn": "npc",
       "species": "floran",
       "type": "starpoundsbrewertenant",
-      "overrides": {
-       }
-     }
-   ],
+      "overrides": {}
+    }
+  ],
 
   "rent": {
     "periodRange": [900.0, 1800.0],
