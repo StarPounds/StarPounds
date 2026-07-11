@@ -60,7 +60,7 @@ function _player:swapSlotCheck(slotItem)
   end
   -- Restore scaled up clothing items.
   if parameters.scaledSize and parameters.baseName then
-    player.setSwapSlotItem(self:restoreClothing(slotItem))
+    player.setSwapSlotItem(starPounds.moduleFunc("size", "restoreClothing", slotItem))
     return
   end
 end
