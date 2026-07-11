@@ -61,7 +61,8 @@ function prey:eaten(dt)
   self.heartbeat = math.max(self.heartbeat - dt, 0)
   if not storage.starPounds.spectatingPred and self.heartbeat == 0 then
     self.heartbeat = self.data.heartbeat
-    local preyConfig = { weight = storage.starPounds.weight, stomach = starPounds.moduleFunc("stomach", "get").contents }
+    local stomach = starPounds.moduleFunc("stomach", "get")
+    local preyConfig = { weight = storage.starPounds.weight, stomach = stomach and stomach.contents or 0 }
     promises:add(world.sendEntityMessage(storage.starPounds.pred, "starPounds.pred.heartbeat", starPounds.entityId, preyConfig), function(eaten)
       if not eaten then self:released() end
     end)
@@ -197,11 +198,12 @@ function prey:swallowed(pred, options)
     {stat = "statusImmunity", effectiveMultiplier = 0}
   })
   status.addEphemeralEffect("starpoundseaten")
+  local stomach = starPounds.moduleFunc("stomach", "get")
   return {
     base = entity.weight,
     foodType = entity.foodType,
     weight = storage.starPounds.weight,
-    stomach = starPounds.moduleFunc("stomach", "get").contents, -- Breast contents aren't included since the 'size' would be way too big.
+    stomach = stomach and stomach.contents or 0, -- Breast contents aren't included since the 'size' would be way too big.
     weightFoodType = entity.weightFoodType,
     noBelch = starPounds.hasOption("disablePreyBelches")
   }
