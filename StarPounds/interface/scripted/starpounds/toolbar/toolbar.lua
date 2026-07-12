@@ -60,7 +60,7 @@ function offsetPane()
 end
 
 function displayPane()
-  local shouldHide = not (starPounds.isEnabled() and starPounds.moduleFunc("oSB", "hasOpenStarbound") and not starPounds.hasOption("disableInterface"))
+  local shouldHide = not (starPounds.isEnabled() and starPounds.openStarbound and not starPounds.hasOption("disableInterface"))
   if not hidden and shouldHide then
     pane.hide()
     hidden = true

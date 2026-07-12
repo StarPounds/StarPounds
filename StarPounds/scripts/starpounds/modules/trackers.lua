@@ -9,7 +9,7 @@ function trackers:update(dt)
   -- Don't do anything if the mod is disabled.
   if not storage.starPounds.enabled then return end
   -- We don't need status effect trackers if we're running oSB.
-  if starPounds.moduleFunc("oSB", "hasOpenStarbound") then return end
+  if starPounds.openStarbound then return end
   -- Don't create if we can't add statuses anyway.
   if status.statPositive("statusImmunity") then return end
   -- Don't create if we're eaten.
@@ -48,7 +48,7 @@ function trackers:createStatuses()
   -- Removing them just puts them back in order (Size tracker before stomach tracker)
   self:clearStatuses()
   -- No statuses if we're running oSB, we have a fancy interface.
-  if starPounds.moduleFunc("oSB", "hasOpenStarbound") then return end
+  if starPounds.openStarbound then return end
 
   local stomachTracker = self:getStomachTracker()
   local sizeTracker = "starpounds"..starPounds.currentSize.size

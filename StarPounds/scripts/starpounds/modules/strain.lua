@@ -39,7 +39,7 @@ function strain:update(dt)
   -- Skip the rest if we're not a player.
   if starPounds.type ~= "player" then return end
   -- Apply tracking effect.
-  if strained and not starPounds.moduleFunc("oSB", "hasOpenStarbound") and not starPounds.hasOption("disableStrainedMeter") and not status.uniqueStatusEffectActive("starpoundsstrained") then
+  if strained and not starPounds.openStarbound and not starPounds.hasOption("disableStrainedMeter") and not status.uniqueStatusEffectActive("starpoundsstrained") then
     status.addEphemeralEffect("starpoundsstrained")
   end
   -- Move speed stuffs.

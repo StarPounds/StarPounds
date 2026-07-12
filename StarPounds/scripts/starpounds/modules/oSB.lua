@@ -18,10 +18,6 @@ function oSB:init()
   end
 end
 
-function oSB:hasOpenStarbound()
-  return self.openStarbound
-end
-
 function oSB:update(dt)
   if not self.openStarbound then return end
 

@@ -118,14 +118,13 @@ function init()
 
   skills = root.assetJson("/scripts/starpounds/modules/skills.config:skills")
   tabs = root.assetJson("/scripts/starpounds/modules/skills.config:tabs")
-  openStarbound = starPounds.moduleFunc("oSB", "hasOpenStarbound")
   -- Funky names because the variable space is taken up by the tab id.
   trts = root.assetJson("/scripts/starpounds/modules/traits.config")
   optns = {}
   -- Changelogs.
   changelogs = root.assetJson("/scripts/starpounds/changelog.config")
   for _, option in ipairs(starPounds.options) do
-    local isValid = (not option.oSBOnly and not option.retailOnly) or (option.oSBOnly and openStarbound) or (option.retailOnly and not openStarbound)
+    local isValid = (not option.oSBOnly and not option.retailOnly) or (option.oSBOnly and starPounds.openStarbound) or (option.retailOnly and not starPounds.openStarbound)
 
     if isValid then
       table.insert(optns, option)

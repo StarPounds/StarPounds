@@ -19,7 +19,6 @@ function options:init()
 
   -- Ignore clientside options for players/configured NPCs.
   local isClient = starPounds.type == "player" or config.getParameter("starPounds_optionsClientside")
-  local openStarbound = starPounds.moduleFunc("oSB", "hasOpenStarbound")
 
   for _, option in ipairs(starPounds.options) do
     if option.type == "slider" then
@@ -32,10 +31,10 @@ function options:init()
       self.globalOptions[option.name] = nil
     end
 
-    if option.oSBOnly and not openStarbound then
+    if option.oSBOnly and not starPounds.openStarbound then
       self.disabledOptions[option.name] = true
     end
-    if option.retailOnly and openStarbound then
+    if option.retailOnly and starPounds.openStarbound then
       self.disabledOptions[option.name] = true
     end
   end
