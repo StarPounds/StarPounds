@@ -103,10 +103,7 @@ end
 -- Burpy.
 function oSB:belchBind()
   if input.bindDown("starpounds", "belch") then
-    local belchVolume = 0.75
-    local belchPitch = 1
-    local addMomentum = false
-    starPounds.moduleFunc("belch", "belch", belchVolume, belchPitch, addMomentum)
+    starPounds.moduleFunc("belch", "belch", self.data.belchVolume, nil, false)
   end
 end
 -- Eat/Regurgitate/Bite entities.
