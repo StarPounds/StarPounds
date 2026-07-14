@@ -533,7 +533,7 @@ function stomach:gurgle(noDigest)
     -- Chance to belch.
     local regurgitateItems = false
     local itemBaseBelchChance = 0
-    if self.data.itemRegurgitateChance > math.random() then
+    if (#storage.starPounds.stomachItems > 0) and (self.data.itemRegurgitateChance > math.random()) then
       regurgitateItems = true
       itemBaseBelchChance = #storage.starPounds.stomachItems * self.data.itemBelchChance
     end
