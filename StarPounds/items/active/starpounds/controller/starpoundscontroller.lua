@@ -476,8 +476,8 @@ function openRadialInterface(offset)
       pretty = "Breasts", description = "Bind breast\nactions", icon = "/items/active/starpounds/controller/icons/breastsMenu.png",
       options = compact(
         { name = "lactate", pretty = "Lactate", weight = 1 + (starPounds.moduleFunc("skills", "has", "breastChocolate") and 1 or 0) + (starPounds.moduleFunc("skills", "has", "breastHoney") and 1 or 0), icon = "/interface/scripted/starpounds/main/icons/skills/breastEfficiency.png" },
-        starPounds.moduleFunc("skills", "has", "breastHoney") and { name = "breastHoney", title = "Honey", description = "Set your milk\ntype", instant = true, keepOpen = true, colour = {247, 166, 25, 200}, icon = "/interface/scripted/starpounds/main/icons/skills/breastHoney.png" } or nil,
-        starPounds.moduleFunc("skills", "has", "breastChocolate") and { name = "breastChocolate", title = "Chocolate", description = "Set your milk\ntype", instant = true, keepOpen = true, colour = {117, 70, 26, 200}, icon = "/interface/scripted/starpounds/main/icons/skills/breastChocolate.png" } or nil,
+        starPounds.moduleFunc("skills", "has", "breastHoney") and { name = "breastHoney", pretty = "Honey", description = "Set your milk\ntype", instant = true, keepOpen = true, colour = {247, 166, 25, 200}, icon = "/interface/scripted/starpounds/main/icons/skills/breastHoney.png" } or nil,
+        starPounds.moduleFunc("skills", "has", "breastChocolate") and { name = "breastChocolate", pretty = "Chocolate", description = "Set your milk\ntype", instant = true, keepOpen = true, colour = {117, 70, 26, 200}, icon = "/interface/scripted/starpounds/main/icons/skills/breastChocolate.png" } or nil,
         { name = "breastMilk", pretty = "Milk", description = "Set your milk\ntype", instant = true, keepOpen = true, icon = "/interface/scripted/starpounds/main/icons/skills/breastMilk.png", colour = {151, 221, 247, 200} }
       )
     },
