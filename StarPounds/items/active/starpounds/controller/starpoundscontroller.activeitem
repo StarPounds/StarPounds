@@ -1,0 +1,16 @@
+{
+  "itemName" : "starpoundscontroller",
+  "shortdescription" : "StarPounds Controller",
+  "description" : "^#ccbbff;[Left-click]^reset; to use an action.\n^#ccbbff;[Right-click]^reset; to set an action.",
+  "price" : 0,
+  "maxStack" : 1,
+  "rarity" : "Essential",
+  "category" : "tool",
+  "twoHanded" : true,
+
+  "inventoryIcon" : "icons/inventory_default.png",
+
+  "retainScriptStorageInItem": true,
+
+  "scripts" : ["/items/active/starpounds/controller/starpoundscontroller.lua"]
+}

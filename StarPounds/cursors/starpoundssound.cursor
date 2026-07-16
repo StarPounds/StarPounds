@@ -1,0 +1,12 @@
+{
+  "sound": { "animation" : { "frames" : "/cursors/starpoundssound.png:ready.<index>", "frameNumber" : 2, "animationCycle" : 1, "mode" : "loopforever" }, "offset" : [8, 8] },
+
+  "sound_0": { "image" : "/cursors/starpoundssound.png:cooldown.0", "offset" : [8, 8] },
+  "sound_1": { "image" : "/cursors/starpoundssound.png:cooldown.1", "offset" : [8, 8] },
+  "sound_2": { "image" : "/cursors/starpoundssound.png:cooldown.2", "offset" : [8, 8] },
+  "sound_3": { "image" : "/cursors/starpoundssound.png:cooldown.3", "offset" : [8, 8] },
+  "sound_4": { "image" : "/cursors/starpoundssound.png:cooldown.4", "offset" : [8, 8] },
+  "sound_5": { "image" : "/cursors/starpoundssound.png:cooldown.5", "offset" : [8, 8] },
+  "sound_6": { "image" : "/cursors/starpoundssound.png:cooldown.6", "offset" : [8, 8] },
+  "sound_7": { "image" : "/cursors/starpoundssound.png:cooldown.7", "offset" : [8, 8] }
+}

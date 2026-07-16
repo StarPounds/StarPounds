@@ -38,8 +38,7 @@ local function buildTraitTooltipText(traitConfig, traitName, spacer)
   end
 
   if traitConfig.skills then
-    local sectionPrefix = (statString..effectString) ~= "" and ("\n\n" .. spacer) or ("\n" .. spacer)
-    skillString = string.format("%s^green;Unlocks skill%s:", sectionPrefix, #traitConfig.skills > 1 and "s" or "")
+    skillString = string.format("\n%s^green;Unlocks skill%s:", spacer, #traitConfig.skills > 1 and "s" or "")
 
     for _, skillData in ipairs(traitConfig.skills) do
       local skillName, skillLevel = skillData[1], skillData[2]
@@ -47,15 +46,15 @@ local function buildTraitTooltipText(traitConfig, traitName, spacer)
       local levelString = (skill.levels and skill.levels > 1) and string.format(" (%s)", skillLevel) or ""
 
       local colour = skill.colour and string.format("^#%s;", skill.colour) or "^lightgray;"
-      local prefix = "^green; +"
+      local prefix = "^green;+"
 
       -- Apply locked/greyed out formatting if skill is already unlocked.
       if traitName then
         if starPounds.moduleFunc("traits", "has", traitName) and not starPounds.moduleFunc("traits", "unlockedSkills", traitName)[skillName] then
-          prefix = "^darkgray; +"
+          prefix = "^darkgray;+"
           colour = "^darkgray;"
         elseif starPounds.moduleFunc("skills", "has", skillName, skillLevel) and not starPounds.moduleFunc("traits", "has", traitName) then
-          prefix = "^darkgray; +"
+          prefix = "^darkgray;+"
           colour = "^darkgray;"
         end
       end
@@ -115,6 +114,10 @@ function init()
 
   local buttonIcon = string.format("%s.png", starPounds.isEnabled() and "enabled" or "disabled")
   setButtonImage(enable, buttonIcon, "?border=2;00000000;00000000?crop=2;3;88;22")
+
+  -- Controller button.
+  controllerTimer = 0.5
+  controllerBlinking = false
 
   skills = root.assetJson("/scripts/starpounds/modules/skills.config:skills")
   tabs = root.assetJson("/scripts/starpounds/modules/skills.config:tabs")
@@ -277,6 +280,22 @@ function update()
     end
   end
 
+  -- Controller button blinky.
+  if player.hasItem("starpoundscontroller") then
+    if controllerBlinking then
+      controllerBlinking = false
+      spawnController:setImage("controller.png:default", "controller.png:default", "controller.png:default?border=1;00000000;00000000?crop=1;2;19;21")
+    end
+  else
+    controllerTimer = (controllerTimer or 0.5) - script.updateDt()
+    if controllerTimer <= 0 then
+      controllerTimer = 0.5
+      controllerBlinking = not controllerBlinking
+      local frame = controllerBlinking and "blink" or "default"
+      spawnController:setImage("controller.png:"..frame, "controller.png:"..frame, "controller.png:"..frame.."?border=1;00000000;00000000?crop=1;2;19;21")
+    end
+  end
+
   -- Update the effects list only while it's open.
   listTimer = math.max(listTimer - script.updateDt(), 0)
   if listTimer == 0 and currentTab and currentTab.id == "effects" and currentEffectTab and currentEffectTab.id == "active" then
@@ -343,6 +362,22 @@ end
 function enable:onClick()
   local buttonIcon = string.format("%s.png", starPounds.toggleEnable() and "enabled" or "disabled")
   setButtonImage(enable, buttonIcon, "?border=2;00000000;00000000?crop=2;3;88;22")
+end
+
+function spawnController:onClick()
+  -- Only spawn a new one if they have no blank controllers.
+  local checkItem = metagui.checkShift() and root.createItem({
+    name = "starpoundscontroller",
+    parameters = {
+      twoHanded = false,
+      description = "^#ccbbff;[Click]^reset; to set or use an action.\n^gray;Cannot open the selection menu once an action is set.",
+      inventoryIcon = "icons/inventory_default_oneHanded.png"
+    }
+  }) or "starpoundscontroller"
+
+  if not player.hasItem(root.createItem(checkItem), true) then
+    player.giveItem(checkItem)
+  end
 end
 
 function reset:onClick()

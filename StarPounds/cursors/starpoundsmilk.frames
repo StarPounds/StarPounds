@@ -1,0 +1,11 @@
+{
+  "frameGrid" : {
+    "size" : [16, 16],
+    "dimensions" : [12, 2],
+
+    "names" : [
+      ["capacity.0", "capacity.1", "capacity.2", "capacity.3", "capacity.4", "capacity.5", "capacity.6", "capacity.7", "capacity.8", "capacity.9", "capacity.10", "capacity.11"],
+      ["empty", "full", null, null, null, null, null, null, null, null, null, null]
+    ]
+  }
+}

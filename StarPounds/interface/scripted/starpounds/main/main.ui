@@ -312,14 +312,15 @@
       ]
     ],
     [
-      12,
       "spacer",
       {"type": "layout", "id": "barPadding", "visible": true, "size": [18, 19], "children": []},
       {"type": "iconButton", "id": "weightDecrease", "visible": false, "toolTip": "Decrease your weight by 1 stage.", "image" : "weightDecrease.png", "hoverImage" : "weightDecrease.png", "pressImage" : "weightDecrease.png?border=1;00000000;00000000?crop=1;2;19;21"},
       {"type": "iconButton", "id": "weightIncrease", "visible": false, "toolTip": "Increase your weight by 1 stage.", "image" : "weightIncrease.png", "hoverImage" : "weightIncrease.png", "pressImage" : "weightIncrease.png?border=1;00000000;00000000?crop=1;2;19;21"},
+      {"type": "iconButton", "id": "spawnController", "toolTip": "Spawn a ^#ccbbff;StarPounds^reset; Controller\n^gray;Hold shift for a one-handed controller.", "image": "controller.png:default", "hoverImage": "controller.png:default", "pressImage": "controller.png:default?border=1;00000000;00000000?crop=1;2;19;21"},
       {"type": "iconButton", "id": "enable", "toolTip": "Enable or Disable the mod.", "image" : "enabled.png", "hoverImage" : "enabled.png", "pressImage" : "enabled.png?border=1;00000000;00000000?crop=1;2;87;21"},
       {"type": "iconButton", "id": "reset", "toolTip": "Reset the mod.", "image" : "reset.png", "hoverImage" : "reset.png", "pressImage" : "reset.png?border=1;00000000;00000000?crop=1;2;19;21"},
       {"type": "iconButton", "id": "unlockAll", "visible": false, "toolTip": "Unlock all skills.", "image" : "unlockAll.png", "hoverImage" : "unlockAll.png", "pressImage" : "unlockAll.png?border=1;00000000;00000000?crop=1;2;19;21"},
+      2,
       "spacer",
       {
         "type": "layout",
