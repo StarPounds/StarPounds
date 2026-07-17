@@ -4,6 +4,9 @@ require "/scripts/util.lua"
 local shared = getmetatable ""
 local starPounds = shared.starPounds
 
+shared.starPoundsRadialMenu = shared.starPoundsRadialMenu or {}
+local radialMenu = shared.starPoundsRadialMenu
+
 function buildActions()
   actions = {
     menu = {
@@ -247,6 +250,11 @@ function buildActions()
         self.querySize = config.getParameter("querySize", 0.5)
         self.cooldownFrames = 8
         self.cooldown = 0
+
+        self.syncCooldown = function() self.cooldown = starPounds.moduleFunc("pred", "cooldown") end
+        starPounds.events:on("pred:eatEntity", self.syncCooldown)
+        starPounds.events:on("pred:bite", self.syncCooldown)
+        starPounds.events:on("pred:entityEscape", self.syncCooldown)
       end,
 
       update = function(self, dt, fireMode, isButtonHeld, shiftHeld)
@@ -275,6 +283,9 @@ function buildActions()
       end,
 
       uninit = function(self)
+        starPounds.events:off("pred:eatEntity", self.syncCooldown)
+        starPounds.events:off("pred:bite", self.syncCooldown)
+        starPounds.events:off("pred:entityEscape", self.syncCooldown)
         activeItem.setCursor()
       end
     },
@@ -375,10 +386,13 @@ end
 function init()
   activeItem.setHoldingItem(false)
 
+  self.uuid = sb.makeUuid()
   self.click = true
-  shared.starPoundsRadialMenu = nil
-  shared.starPoundsRadialMenuClose = nil
-  shared.starPoundsRadialMenuOpen = false
+
+  if not radialMenu.uuid then
+    radialMenu.close = nil
+    radialMenu.result = nil
+  end
 
   storage.action = storage.action or "default"
   buildActions()
@@ -421,13 +435,14 @@ function update(dt, fireMode, shiftHeld)
 
   checkInterface()
 
-  if shared.starPoundsRadialMenuOpen then
-    -- Clear any custom cursors while the menu is open.
-    activeItem.setCursor()
-    -- Close the menu on right click.
-    if not self.click and fireMode == "alt" then
-      self.click = true
-      shared.starPoundsRadialMenuClose = true
+  if radialMenu.uuid then
+    if radialMenu.uuid == self.uuid then
+      activeItem.setCursor()
+      -- Close the menu on right click.
+      if not self.click and fireMode == "alt" then
+        self.click = true
+        radialMenu.close = true
+      end
     end
   else
     local isPrimaryHeld = (fireMode == "primary")
@@ -455,9 +470,11 @@ function update(dt, fireMode, shiftHeld)
 end
 
 function openRadialInterface(offset)
-  shared.starPoundsRadialMenu = nil
+  radialMenu.result = nil
+  radialMenu.uuid = self.uuid
 
   local menuConfig = root.assetJson("/interface/scripted/starpounds/radialmenu/radialmenu.config")
+  menuConfig.uuid = self.uuid
   menuConfig.options = {
     { name = "menu", pretty = "Menu", instant = true, weight = 3, description = "Open the\n^#ccbbff;StarPounds^reset;\nmenu", icon = "/items/active/starpounds/controller/icons/menu.png" },
     {
@@ -503,26 +520,29 @@ function openRadialInterface(offset)
 end
 
 function checkInterface()
-  local interfaceData = shared.starPoundsRadialMenu
+  local result = radialMenu.result
 
-  if interfaceData and interfaceData.pressed then
-    if interfaceData.selection ~= "cancel" then
-      if interfaceData.instant then
-        local targetModule = actions[interfaceData.selection]
+  if result and result.pressed and result.uuid == self.uuid then
+    if result.selection ~= "cancel" then
+      if result.instant then
+        local targetModule = actions[result.selection]
         if targetModule and type(targetModule.onClick) == "function" then
           targetModule:onClick(false)
         end
       else
-        equipAction(interfaceData.selection)
+        equipAction(result.selection)
       end
     end
-    shared.starPoundsRadialMenu = nil
+    radialMenu.result = nil
     self.click = true
   end
 end
 
 function uninit()
-  shared.starPoundsRadialMenuClose = true
+  if radialMenu.uuid == self.uuid then
+    radialMenu.close = true
+    radialMenu.uuid = nil
+  end
   if self.action and self.action.uninit then self.action:uninit() end
 end
 

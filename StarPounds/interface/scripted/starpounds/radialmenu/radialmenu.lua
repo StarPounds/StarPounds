@@ -23,24 +23,27 @@ local colours = {
   textGrey = {170, 170, 170},
   textDark = {40, 50, 60}
 }
+
 local shared = getmetatable ""
+shared.starPoundsRadialMenu = shared.starPoundsRadialMenu or {}
+local radialMenu = shared.starPoundsRadialMenu
 
 local function loadMenu(newOptionsList)
   menuOptions = newOptionsList
   optionCount = #menuOptions
   if optionCount == 0 then return pane.dismiss() end
 
-  radiusInner = optionCount <= 6 and 36 or math.max(22, 50 - optionCount * 2)
+  radiusInner = 36
   radiusOuter = radiusInner + 22
+
   hoveredOptionIndex = nil
   isMouseDown = false
   isMouseReleased = false
   lastHoveredTarget = nil
 
   animationTimer = 0
-  -- Force redraw on load.
   needsRedraw = true
-  -- Calculate total weight.
+
   local totalWeight = 0
   for _, option in ipairs(menuOptions) do
     option.weight = tonumber(option.weight) or 1
@@ -65,8 +68,9 @@ local function loadMenu(newOptionsList)
 end
 
 function init()
-  shared.starPoundsRadialMenuOpen = true
-  shared.starPoundsRadialMenu = nil
+  radialMenu.result = nil
+
+  self.uuid = config.getParameter("uuid") or radialMenu.uuid
 
   canvasWidget = widget.bindCanvas("canvas")
   widget.focus("canvas")
@@ -76,9 +80,10 @@ function init()
   local canvasHeight = (canvasSize[2] > 0) and canvasSize[2] or 200
   centerCoordinates = {canvasWidth * 0.5, canvasHeight * 0.5}
 
-  local options = shared.starPoundsRadialOptions or config.getParameter("options", {})
+  local options = radialMenu.options or config.getParameter("options", {})
   loadMenu(options)
 end
+
 -- HELL. HELL. HATE. HELL.
 local function drawArcSegment(startAngle, endAngle, innerArcRadius, outerArcRadius, fillColour, linearGapInPixels)
   local halfGap = (linearGapInPixels or 0) * 0.5
@@ -115,11 +120,11 @@ local function drawArcSegment(startAngle, endAngle, innerArcRadius, outerArcRadi
 end
 
 function update(dt)
-  if shared.starPoundsRadialMenuClose then
-    shared.starPoundsRadialMenuClose = nil
+  if radialMenu.close or radialMenu.uuid ~= self.uuid then
+    radialMenu.close = nil
     return pane.dismiss()
   end
-  -- Redraw while the animation is running.
+
   if animationTimer < animationDuration then
     animationTimer = math.min(animationDuration, animationTimer + dt)
     needsRedraw = true
@@ -200,12 +205,14 @@ function update(dt)
       pane.playSound("/sfx/interface/crafting_medical.ogg")
 
       hasSelectedOption = true
-      shared.starPoundsRadialMenu = {
+
+      radialMenu.result = {
         selection = selectedOption.name,
         type = config.getParameter("type"),
         instant = selectedOption.instant,
         keepOpen = selectedOption.keepOpen,
-        pressed = true
+        pressed = true,
+        uuid = self.uuid
       }
 
       if not selectedOption.keepOpen then
@@ -251,12 +258,12 @@ function update(dt)
     local defaultColour = isPressed and colours.press or (isHovered and colours.hover or colours.base)
     local sliceColour = isHovered and currentOption.colour or defaultColour
 
-    local animInnerRadius = radiusInner
-    local animOuterRadius = radiusInner + (currentOuterRadius - radiusInner) * animationScale
+    local animationInnerRadius = radiusInner
+    local animationOuterRadius = radiusInner + (currentOuterRadius - radiusInner) * animationScale
 
-    drawArcSegment(startAngle, endAngle, animInnerRadius, animOuterRadius, sliceColour, 3.5)
+    drawArcSegment(startAngle, endAngle, animationInnerRadius, animationOuterRadius, sliceColour, 3.5)
 
-    local iconRadius = (radiusInner + animOuterRadius) * 0.5
+    local iconRadius = (radiusInner + animationOuterRadius) * 0.5
     local elementPosition = {centerCoordinates[1] + math.cos(midpointAngle) * iconRadius, centerCoordinates[2] + math.sin(midpointAngle) * iconRadius}
     local displayText = currentOption.pretty or currentOption.name or ""
 
@@ -322,9 +329,11 @@ function canvasClickEvent(clickPosition, mouseButton, isButtonDown)
 end
 
 function uninit()
-  shared.starPoundsRadialMenuOpen = false
-  if not hasSelectedOption then
-    shared.starPoundsRadialMenu = {selection = "cancel", pressed = true}
+  if radialMenu.uuid == self.uuid then
+    radialMenu.uuid = nil
   end
-  shared.starPoundsRadialOptions = nil
+  if not hasSelectedOption then
+    radialMenu.result = {selection = "cancel", pressed = true, uuid = self.uuid}
+  end
+  radialMenu.options = nil
 end
