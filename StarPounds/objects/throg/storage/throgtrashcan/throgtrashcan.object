@@ -1,0 +1,81 @@
+{
+  "objectName" : "throgtrashcan",
+  "colonyTags" : ["throg","storage"],
+  "rarity" : "Common",
+  "objectType" : "container",
+  "tooltipKind" : "container",
+  "category" : "storage",
+  "description" : "A throg-themed garbage bin.",
+  "shortdescription" : "Throg Trash Can",
+  "race" : "generic",
+  "price" : 75,
+  "health" : 1.5,
+  "lightColor" : [16, 23, 26],
+
+  "apexDescription" : "A garbage bin. I do want to question the glowing parts.",
+  "avianDescription" : "Well, can't miss the trash bins with stripes like that",
+  "floranDescription" : "Glowy trash!",
+  "glitchDescription" : "Neutral. An overdecorated bin.",
+  "humanDescription" : "Does it like, teleport trash to an incinerator or something?",
+  "hylotlDescription" : "Even their trash cans glow...",
+  "novakidDescription" : "A shiny garbage bin.",
+
+  "inventoryIcon" : "throgtrashcanicon.png",
+  "orientations" : [
+    {
+
+      "imageLayers" : [ { "image" : "throgtrashcan.png:<color>" }, { "image" : "throgtrashcanlit.png:<color>", "fullbright" : true } ],
+      "flipImages" : true,
+      "direction" : "left",
+      "lightPosition" : [-1, 1],
+
+      "imagePosition" : [-8, 0],
+      "frames" : 1,
+      "animationCycle" : 1.0,
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ],
+      "collision" : "platform"
+    },
+    {
+
+      "imageLayers" : [ { "image" : "throgtrashcan.png:<color>" }, { "image" : "throgtrashcanlit.png:<color>", "fullbright" : true } ],
+      "direction" : "right",
+      "lightPosition" : [-1, 1],
+
+      "imagePosition" : [-8, 0],
+      "frames" : 1,
+      "animationCycle" : 1.0,
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ],
+      "collision" : "platform"
+    }
+  ],
+
+  "slotCount" : 9,
+  "uiConfig" : "/interface/chests/chest<slots>.config",
+  "frameCooldown" : 5,
+  "autoCloseCooldown" : 3600,
+
+  "scripts" : [ "/scripts/npcToyObject.lua"],
+  "npcToy" : {
+    "influence" : [
+      "trashcan",
+      "trashcanComplete"
+    ],
+    "defaultReactions" : {
+      "trashcan" : [
+        [1.0, "droptrash"]
+      ],
+      "trashcanComplete" : [
+        [1.0, "smile"],
+        [1.0, "annoyed"],
+        [1.0, "punch"]
+      ]
+    },
+    "preciseStandPositionLeft" : [-1, 0.0],
+    "preciseStandPositionRight" : [1, 0.0],
+    "maxNpcs" : 1
+  }
+}
