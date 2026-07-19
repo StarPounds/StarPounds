@@ -482,10 +482,18 @@ function openRadialInterface(offset)
       pretty = "Vore", description = "Bind vore\nactions", icon = "/items/active/starpounds/controller/icons/voreMenu.png",
       options = {
         { name = "voreEat", pretty = "Eat", weight = 1, description = "Hold ^#ccbbff;[Shift]^reset; to\nrelease prey", icon = "/items/active/starpounds/controller/icons/voreEat.png" },
-        { name = "voreEatUnsafe", pretty = "Fatal", title = "Eat: ^#ed7272;Fatal^reset;", weight = 0.5, description = "^#ccbbff;Eat^reset;, but ignores\nskills for safe\nvore", colour = {237, 114, 114, 200}, icon = "/items/active/starpounds/controller/icons/voreEat.png?border=1;ed7272bb;00000000" },
+        { name = "voreEatUnsafe", pretty = "Fatal", title = "Eat: ^#ed7272;Fatal^reset;", weight = 0.5, description = "^#ccbbff;Eat^reset;, but ignores\nskills for safe\nvore", icon = "/items/active/starpounds/controller/icons/voreEat.png",
+          hoverColour = {237, 114, 114, 180},
+          pressColour = {255, 140, 140, 200},
+          iconBorderColour = "ed7272bb"
+        },
         { name = "voreBite", pretty = "Bite", description = string.format("^#ccbbff;%g^reset; damage", string.format("%.2f", starPounds.moduleFunc("pred", "biteDamage"))), icon = "/items/active/starpounds/controller/icons/voreBite.png" },
         { name = "vorePrey", pretty = "Feed", description = "Become prey for\nothers", icon = "/items/active/starpounds/controller/icons/vorePrey.png" },
-        { name = "voreEatSafe", pretty = "Endo", title = "Eat: ^#72ed72;Endo^reset;", weight = 0.5, description = "^#ccbbff;Eat^reset;, but will\nnever digest\nprey", colour = {114, 237, 114, 200}, icon = "/items/active/starpounds/controller/icons/voreEat.png?border=1;72ed72bb;00000000" }
+        { name = "voreEatSafe", pretty = "Endo", title = "Eat: ^#72ed72;Endo^reset;", weight = 0.5, description = "^#ccbbff;Eat^reset;, but will\nnever digest\nprey", icon = "/items/active/starpounds/controller/icons/voreEat.png",
+          hoverColour = {114, 237, 114, 180},
+          pressColour = {140, 255, 140, 200},
+          iconBorderColour = "72ed72bb"
+        }
       }
     },
     {
@@ -493,9 +501,18 @@ function openRadialInterface(offset)
       pretty = "Breasts", description = "Bind breast\nactions", icon = "/items/active/starpounds/controller/icons/breastsMenu.png",
       options = compact(
         { name = "lactate", pretty = "Lactate", weight = 1 + (starPounds.moduleFunc("skills", "has", "breastChocolate") and 1 or 0) + (starPounds.moduleFunc("skills", "has", "breastHoney") and 1 or 0), icon = "/interface/scripted/starpounds/main/icons/skills/breastEfficiency.png" },
-        starPounds.moduleFunc("skills", "has", "breastHoney") and { name = "breastHoney", pretty = "Honey", description = "Set your milk\ntype", instant = true, keepOpen = true, colour = {247, 166, 25, 200}, icon = "/interface/scripted/starpounds/main/icons/skills/breastHoney.png" } or nil,
-        starPounds.moduleFunc("skills", "has", "breastChocolate") and { name = "breastChocolate", pretty = "Chocolate", description = "Set your milk\ntype", instant = true, keepOpen = true, colour = {117, 70, 26, 200}, icon = "/interface/scripted/starpounds/main/icons/skills/breastChocolate.png" } or nil,
-        { name = "breastMilk", pretty = "Milk", description = "Set your milk\ntype", instant = true, keepOpen = true, icon = "/interface/scripted/starpounds/main/icons/skills/breastMilk.png", colour = {151, 221, 247, 200} }
+        starPounds.moduleFunc("skills", "has", "breastHoney") and { name = "breastHoney", pretty = "Honey", description = "Set your milk\ntype", instant = true, keepOpen = true, icon = "/interface/scripted/starpounds/main/icons/skills/breastHoney.png",
+          hoverColour = {247, 166, 25, 180},
+          pressColour = {255, 177, 43, 200}
+        } or nil,
+        starPounds.moduleFunc("skills", "has", "breastChocolate") and { name = "breastChocolate", pretty = "Chocolate", description = "Set your milk\ntype", instant = true, keepOpen = true, icon = "/interface/scripted/starpounds/main/icons/skills/breastChocolate.png",
+          hoverColour = {117, 70, 26, 180},
+          pressColour = {135, 86, 39, 200}
+        } or nil,
+        { name = "breastMilk", pretty = "Milk", description = "Set your milk\ntype", instant = true, keepOpen = true, icon = "/interface/scripted/starpounds/main/icons/skills/breastMilk.png",
+          hoverColour = {151, 221, 247, 180},
+          pressColour = {173, 233, 255, 200}
+        }
       )
     },
     {

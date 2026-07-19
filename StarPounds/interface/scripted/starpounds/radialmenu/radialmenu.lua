@@ -21,8 +21,12 @@ local colours = {
   text = {190, 180, 200},
   textHover = {255, 255, 255},
   textGrey = {170, 170, 170},
-  textDark = {40, 50, 60}
+  textDark = {40, 50, 60},
+  -- Border.
+  iconBorder = "beb4c888"
 }
+
+local iconBorderDirective = "?border=1;%s;00000000"
 
 local shared = getmetatable ""
 shared.starPoundsRadialMenu = shared.starPoundsRadialMenu or {}
@@ -85,8 +89,8 @@ function init()
 end
 
 -- HELL. HELL. HATE. HELL.
-local function drawArcSegment(startAngle, endAngle, innerArcRadius, outerArcRadius, fillColour, linearGapInPixels)
-  local halfGap = (linearGapInPixels or 0) * 0.5
+local function drawArcSegment(startAngle, endAngle, innerArcRadius, outerArcRadius, fillColour, gap)
+  local halfGap = (gap or 0) * 0.5
   local deltaAngleInner = (innerArcRadius > 0) and (halfGap / innerArcRadius) or 0
   local deltaAngleOuter = (outerArcRadius > 0) and (halfGap / outerArcRadius) or 0
 
@@ -255,8 +259,7 @@ function update(dt)
 
     local currentOuterRadius = isHovered and (radiusOuter + 5) or radiusOuter
 
-    local defaultColour = isPressed and colours.press or (isHovered and colours.hover or colours.base)
-    local sliceColour = isHovered and currentOption.colour or defaultColour
+    local sliceColour = isPressed and (currentOption.pressColour or colours.press) or (isHovered and (currentOption.hoverColour or colours.hover) or (currentOption.baseColour or colours.base))
 
     local animationInnerRadius = radiusInner
     local animationOuterRadius = radiusInner + (currentOuterRadius - radiusInner) * animationScale
@@ -269,7 +272,7 @@ function update(dt)
 
     if currentOption.icon then
       local iconPos = isHovered and {elementPosition[1], elementPosition[2] + 4} or elementPosition
-      canvasWidget:drawImage(currentOption.icon, iconPos, nil, nil, true)
+      canvasWidget:drawImage(currentOption.icon..string.format(iconBorderDirective, currentOption.iconBorderColour or colours.iconBorder), iconPos, nil, nil, true)
 
       if isHovered then
         local textPosition = {elementPosition[1], elementPosition[2] - 8}
