@@ -1,6 +1,7 @@
 descriptionFunctions.voreSouls = descriptionFunctions.voreSouls or function(descriptionWidget)
   local soulLabel = descriptionWidget.children[2]
   local soulRefresh = descriptionWidget.children[3]
+  local starPounds = getmetatable ''.starPounds
 
   local function updateSoulCount()
     local soulCount = 0
