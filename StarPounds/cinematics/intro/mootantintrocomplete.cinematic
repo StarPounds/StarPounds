@@ -1,11 +1,634 @@
 {
   "muteSfx" : true,
   "muteMusic" : true,
-  "skippable" : false,
+  "skippable" : true,
   "letterbox" : false,
   "backgroundFadeTime" : 0.3,
   "backgroundColor" : [0, 0, 0, 255],
   "panels" : [
+
+// ------------------ sky
+
+    {
+      "drawables" : [
+        {
+          "image" : "/cinematics/story/sky.png"
+        }
+      ],
+      "keyframes" : [
+        {
+          "timecode" : 4.01,
+          "zoom" : 0.75,
+          "alpha" : 0,
+          "position" : [480, 200]
+        },
+        {
+          "timecode" : 4.3,
+          "zoom" : 0.75,
+          "alpha" : 1,
+          "position" : [480, 200]
+        },
+        {
+          "timecode" : 13,
+          "zoom" : 0.75,
+          "alpha" : 1,
+          "position" : [480, 200]
+        },
+        {
+          "timecode" : 13.3,
+          "zoom" : 0.75,
+          "alpha" : 0,
+          "position" : [480, 200]
+        }
+      ]
+    },
+
+// ------------------ moon
+
+    {
+      "drawables" : [
+        {
+          "image" : "/cinematics/story/moon.png"
+        }
+      ],
+      "keyframes" : [
+        {
+          "timecode" : 4.01,
+          "zoom" : 0.5,
+          "alpha" : 0,
+          "position" : [180, 380]
+        },
+        {
+          "timecode" : 4.3,
+          "zoom" : 0.5,
+          "alpha" : 1,
+          "position" : [180, 380]
+        },
+        {
+          "timecode" : 13,
+          "zoom" : 0.5,
+          "alpha" : 1,
+          "position" : [180, 380]
+        },
+        {
+          "timecode" : 13.3,
+          "zoom" : 0.5,
+          "alpha" : 0,
+          "position" : [180, 380]
+        }
+      ]
+    },
+
+
+// ------------------ sun
+
+    {
+      "drawables" : [
+        {
+          "image" : "/cinematics/story/sunrays.png"
+        }
+      ],
+      "keyframes" : [
+        {
+          "timecode" : 4.01,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [450, 380]
+        },
+        {
+          "timecode" : 4.3,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [450, 380]
+        },
+        {
+          "timecode" : 13,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [450, 350]
+        },
+        {
+          "timecode" : 13.3,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [450, 350]
+        }
+      ]
+    },
+
+// ------------------ cloud2
+
+    {
+      "drawables" : [
+        {
+          "image" : "/cinematics/story/cloud2.png"
+        }
+      ],
+      "keyframes" : [
+        {
+          "timecode" : 4.01,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [900, 305]
+        },
+        {
+          "timecode" : 4.3,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [900, 305]
+        },
+        {
+          "timecode" : 13,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [880, 305]
+        },
+        {
+          "timecode" : 13.3,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [880, 305]
+        }
+      ]
+    },
+
+// ------------------ cloud3
+
+    {
+      "drawables" : [
+        {
+          "image" : "/cinematics/story/cloud3.png"
+        }
+      ],
+      "keyframes" : [
+        {
+          "timecode" : 4.01,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [750, 290]
+        },
+        {
+          "timecode" : 4.3,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [750, 290]
+        },
+        {
+          "timecode" : 13,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [730, 290]
+        },
+        {
+          "timecode" : 13.3,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [730, 290]
+        }
+      ]
+    },
+
+// ------------------ cloud4
+
+    {
+      "drawables" : [
+        {
+          "image" : "/cinematics/story/cloud4.png"
+        }
+      ],
+      "keyframes" : [
+        {
+          "timecode" : 4.01,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [-70, 310]
+        },
+        {
+          "timecode" : 4.3,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [-70, 310]
+        },
+        {
+          "timecode" : 13,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [-60, 310]
+        },
+        {
+          "timecode" : 13.3,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [-60, 310]
+        }
+      ]
+    },
+
+// ------------------ cloud5
+
+    {
+      "drawables" : [
+        {
+          "image" : "/cinematics/story/cloud5.png"
+        }
+      ],
+      "keyframes" : [
+        {
+          "timecode" : 4.01,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [20, 280]
+        },
+        {
+          "timecode" : 4.3,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [20, 280]
+        },
+        {
+          "timecode" : 13,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [40, 280]
+        },
+        {
+          "timecode" : 13.3,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [40, 280]
+        }
+      ]
+    },
+
+
+// ------------------ cloud5
+
+    {
+      "drawables" : [
+        {
+          "image" : "/cinematics/story/cloud5.png"
+        }
+      ],
+      "keyframes" : [
+        {
+          "timecode" : 4.01,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [890, 270]
+        },
+        {
+          "timecode" : 4.3,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [890, 270]
+        },
+        {
+          "timecode" : 13,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [870, 270]
+        },
+        {
+          "timecode" : 13.3,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [870, 270]
+        }
+      ]
+    },
+
+// ------------------ cloud6
+
+    {
+      "drawables" : [
+        {
+          "image" : "/cinematics/story/cloud6.png"
+        }
+      ],
+      "keyframes" : [
+        {
+          "timecode" : 4.01,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [100, 235]
+        },
+        {
+          "timecode" : 4.3,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [100, 235]
+        },
+        {
+          "timecode" : 13,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [90, 235]
+        },
+        {
+          "timecode" : 13.3,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [90, 235]
+        }
+      ]
+    },
+
+// ------------------ cloud6 2
+
+    {
+      "drawables" : [
+        {
+          "image" : "/cinematics/story/cloud6.png"
+        }
+      ],
+      "keyframes" : [
+        {
+          "timecode" : 4.01,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [930, 200]
+        },
+        {
+          "timecode" : 4.3,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [930, 200]
+        },
+        {
+          "timecode" : 13,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [920, 200]
+        },
+        {
+          "timecode" : 13.3,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [920, 200]
+        }
+      ]
+    },
+
+// ------------------ cloud7
+
+    {
+      "drawables" : [
+        {
+          "image" : "/cinematics/story/cloud7.png"
+        }
+      ],
+      "keyframes" : [
+        {
+          "timecode" : 4.01,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [630, 190]
+        },
+        {
+          "timecode" : 4.3,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [630, 190]
+        },
+        {
+          "timecode" : 13,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [610, 190]
+        },
+        {
+          "timecode" : 13.3,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [610, 190]
+        }
+      ]
+    },
+
+// ------------------ cloud8
+
+    {
+      "drawables" : [
+        {
+          "image" : "/cinematics/story/cloud8.png"
+        }
+      ],
+      "keyframes" : [
+        {
+          "timecode" : 4.01,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [250, 207]
+        },
+        {
+          "timecode" : 4.3,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [250, 207]
+        },
+        {
+          "timecode" : 13,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [260, 207]
+        },
+        {
+          "timecode" : 13.3,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [260, 207]
+        }
+      ]
+    },
+
+// ------------------ cloud8 - 2
+
+    {
+      "drawables" : [
+        {
+          "image" : "/cinematics/story/cloud8.png"
+        }
+      ],
+      "keyframes" : [
+        {
+          "timecode" : 4.01,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [950, 207]
+        },
+        {
+          "timecode" : 4.3,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [950, 207]
+        },
+        {
+          "timecode" : 13,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [960, 207]
+        },
+        {
+          "timecode" : 13.3,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [960, 207]
+        }
+      ]
+    },
+
+
+
+// ------------------ your ship
+
+
+    {
+      "drawables" : [
+        {
+          "image" : "/cinematics/story/smallship/<species>ship.png:<frame>"
+        }
+      ],
+      "animationFrames" : 2,
+      "keyframes" : [
+        {
+          "timecode" : 4.01,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [-67, -171],
+          "frame" : 0
+        },
+        {
+          "timecode" : 4.3,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [-25, -175],
+          "frame" : 0
+        },
+        {
+          "timecode" : 13.0,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [510, 300],
+          "frame" : 90
+        },
+        {
+          "timecode" : 13.3,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [510, 300]
+        }
+      ]
+    },
+
+
+// ------------------ cloud9
+
+    {
+      "drawables" : [
+        {
+          "image" : "/cinematics/story/cloud9.png"
+        }
+      ],
+      "keyframes" : [
+        {
+          "timecode" : 4.01,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [183, 183]
+        },
+        {
+          "timecode" : 4.3,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [183, 183]
+        },
+        {
+          "timecode" : 13,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [163, 183]
+        },
+        {
+          "timecode" : 13.3,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [163, 183]
+        }
+      ]
+    },
+
+
+// ------------------ cloud10
+
+    {
+      "drawables" : [
+        {
+          "image" : "/cinematics/story/cloud10.png"
+        }
+      ],
+      "keyframes" : [
+        {
+          "timecode" : 4.01,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [95, 135]
+        },
+        {
+          "timecode" : 4.3,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [95, 135]
+        },
+        {
+          "timecode" : 13,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [115, 135]
+        },
+        {
+          "timecode" : 13.3,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [115, 135]
+        }
+      ]
+    },
+
+// ------------------ cloud11
+
+    {
+      "drawables" : [
+        {
+          "image" : "/cinematics/story/cloud11.png"
+        }
+      ],
+      "keyframes" : [
+        {
+          "timecode" : 4.01,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [920, 170]
+        },
+        {
+          "timecode" : 4.3,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [920, 170]
+        },
+        {
+          "timecode" : 13,
+          "zoom" : 1,
+          "alpha" : 1,
+          "position" : [940, 170]
+        },
+        {
+          "timecode" : 13.3,
+          "zoom" : 1,
+          "alpha" : 0,
+          "position" : [940, 170]
+        }
+      ]
+    },
 
 // ------------------ Space background
 
@@ -675,18 +1298,6 @@
     {
       "timecode" : 7.25,
       "resource" : "/sfx/cinematics/protectorate/ship_takeoff_distant1.ogg"
-    },
-    {
-      "timecode" : 8.25,
-      "resource" : "/sfx/cinematics/protectorate/ship_takeoff_jetburst1left.ogg"
-    },
-    {
-      "timecode" : 10.4,
-      "resource" : "/sfx/cinematics/protectorate/ship_destroyed_left.ogg"
-    },
-    {
-      "timecode" : 11.4,
-      "resource" : "/sfx/cinematics/protectorate/ship_destroyed_right.ogg"
     }
   ]
 }
