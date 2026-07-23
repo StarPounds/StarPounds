@@ -42,7 +42,7 @@ function stomach:init()
 
   starPounds.stomach = self:get()
   -- Assume the lerp is the same as the contents on load (if the mod is enabled).
-  self.stomachLerp = storage.starPounds.enabled and self.stomach.contents or 0
+  self:resetLerp()
   -- Delete json metadata so we don't store nils.
   setmetatable(storage.starPounds.stomach, nil)
   setmetatable(storage.starPounds.stomachItems, nil)
@@ -857,6 +857,11 @@ function stomach:stepTimer(timer, dt)
   if timer == "gurgle" and self.gurgleTimer then
     self.gurgleTimer = math.max(self.gurgleTimer - dt, 0)
   end
+end
+
+function stomach:resetLerp()
+  self:set() -- Just incase it gets reset on the same tick.
+  self.stomachLerp = storage.starPounds.enabled and self.stomach.contents or 0
 end
 
 function stomach:spawnBelchParticles(particles, count)
