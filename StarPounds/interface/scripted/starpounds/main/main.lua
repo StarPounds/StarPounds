@@ -1638,7 +1638,7 @@ function makeSkillWidget(skill)
   local skillWidget = {
     type = "layout", position = skill.position, size = {48, 48}, mode = "manual", children = {
       {id = string.format("%sSkill_back", skill.name), type = "image", noAutoCrop = true, position = {12, 8}, file = string.format("back.png?multiply=%s", skill.colour)},
-      {id = string.format("%sSkill", skill.name), toolTip = toolTip, position = {16, 12}, type = "iconButton", image = skillIconPath, hoverImage = skillIconPath, pressImage = skillIconPath.."?border=1;00000000;00000000?crop=1;2;17;18"},
+      {id = string.format("%sSkill", skill.name), toolTip = toolTip, position = {14, 10}, type = "iconButton", size = {20, 20}, image = skillIconPath, hoverImage = skillIconPath, pressImage = skillIconPath.."?border=2;00000000;00000000?crop=2;2;18;20"},
       {id = string.format("%sSkill_locked", skill.name), toolTip = toolTip, visible = false, type = "iconButton", position = {12, 8}, image = "locked.png", hoverImage = "locked.png", pressImage = "locked.png"},
       {id = string.format("%sSkill_check", skill.name), visible = false, type = "image", noAutoCrop = true, position = {28, 20}, file = "check.png"}
     }
@@ -1651,7 +1651,7 @@ function makeSkillWidget(skill)
 
   if skill.hidden then
     local hiddenIconPath = string.format("icons/skills/%s.png", skill.hiddenIcon)
-    skillWidget.children[2] = {id = string.format("%sSkill", skill.name), position = {16, 12}, type = "iconButton", image = hiddenIconPath, hoverImage = hiddenIconPath, pressImage = hiddenIconPath.."?border=1;00000000;00000000?crop=1;2;17;18"}
+    skillWidget.children[2] = {id = string.format("%sSkill", skill.name), position = {16, 12}, type = "iconButton", image = hiddenIconPath, hoverImage = hiddenIconPath, pressImage = hiddenIconPath.."?border=2;00000000;00000000?crop=2;2;18;20"}
     skillWidget.children[4].file = "check.png?multiply=00000000"
   elseif isAdmin and starPounds.hasOption("showDebug") then
     skillWidget.children[2].toolTip = skillWidget.children[2].toolTip..string.format("\n\n^#665599;Skill Id: ^gray;%s\n^#665599;Total Cost: ^gray;%s XP", skill.name, starPounds.moduleFunc("skills", "upgradeCost", skill.name, 0, skill.levels))
@@ -1674,14 +1674,14 @@ function selectSkill(skill)
     local oldSkillIconPath = string.format("icons/skills/%s.png", selectedSkill.hidden and selectedSkill.hiddenIcon or (selectedSkill.icon or selectedSkill.name))
     _ENV[string.format("%sSkill_back", selectedSkill.name)]:setFile(string.format("back.png?multiply=%s", selectedSkill.colour))
     _ENV[string.format("%sSkill_back", selectedSkill.name)]:queueRedraw()
-    _ENV[string.format("%sSkill", selectedSkill.name)]:setImage(oldSkillIconPath, oldSkillIconPath, oldSkillIconPath)
+    _ENV[string.format("%sSkill", selectedSkill.name)]:setImage(oldSkillIconPath, oldSkillIconPath, oldSkillIconPath.."?border=2;00000000;00000000?crop=2;2;18;20")
   end
 
   if skill then
     local skillIconPath = string.format("icons/skills/%s.png?border=1;ffffffaa;00000000", skill.icon or skill.name)
     _ENV[string.format("%sSkill_back", skill.name)]:setFile(string.format("back.png?multiply=%s?brightness=50?saturation=-15", skill.colour))
     _ENV[string.format("%sSkill_back", skill.name)]:queueRedraw()
-    _ENV[string.format("%sSkill", skill.name)]:setImage(skillIconPath, skillIconPath, skillIconPath)
+    _ENV[string.format("%sSkill", skill.name)]:setImage(skillIconPath, skillIconPath, skillIconPath.."?border=2;00000000;00000000?crop=2;2;20;22")
 
     descriptionTitle:setText("^shadow;"..skill.pretty)
     descriptionIcon:setFile(string.format("icons/skills/%s.png", skill.icon or skill.name))
