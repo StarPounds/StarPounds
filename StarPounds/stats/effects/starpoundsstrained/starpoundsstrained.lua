@@ -4,7 +4,6 @@ function init()
 end
 
 function update(dt)
-
   if not starPounds.isEnabled() then
     effect.expire()
     return

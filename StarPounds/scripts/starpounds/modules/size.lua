@@ -474,7 +474,7 @@ function size:getStomachVariant(size)
 
   local thresholds = size.thresholds.stomach
 
-  local stomachSize = (starPounds.hasOption("disableStomachGrowth") and 0 or (starPounds.moduleFunc("stomach", "get").interpolatedContents or 0))
+  local stomachSize = (starPounds.hasOption("disableStomachGrowth") and 0 or (starPounds.stomach.interpolatedContents or 0))
   if size.stomachOption then
     local sizeBonus = starPounds.getOption(size.stomachOption)
     if sizeBonus > 0 then
@@ -813,7 +813,7 @@ function size:getVariantOld(size)
   end
 
 
-  local stomachSize = (starPounds.hasOption("disableStomachGrowth") and 0 or (starPounds.moduleFunc("stomach", "get").interpolatedContents or 0))
+  local stomachSize = (starPounds.hasOption("disableStomachGrowth") and 0 or (starPounds.stomach.interpolatedContents or 0))
   if starPounds.currentSize.stomachOption then
     local sizeBonus = starPounds.getOption(starPounds.currentSize.stomachOption)
     if sizeBonus > 0 then

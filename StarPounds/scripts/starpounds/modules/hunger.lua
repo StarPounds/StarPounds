@@ -16,7 +16,7 @@ function hunger:update(dt)
   if not storage.starPounds.enabled then return end
   -- Set hunger delta.
   status.setPersistentEffects("starpoundshunger", {
-    {stat = "foodDelta", effectiveMultiplier = (starPounds.moduleFunc("stomach", "get").food > 0) and 0 or math.round(starPounds.getStat("hunger"), 2)}
+    {stat = "foodDelta", effectiveMultiplier = (starPounds.stomach.food > 0) and 0 or math.round(starPounds.getStat("hunger"), 2)}
   })
   -- Check if the player is starving.
   self.isStarving = status.uniqueStatusEffectActive("starving")

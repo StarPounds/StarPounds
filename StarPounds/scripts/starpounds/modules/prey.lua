@@ -61,8 +61,7 @@ function prey:eaten(dt)
   self.heartbeat = math.max(self.heartbeat - dt, 0)
   if not storage.starPounds.spectatingPred and self.heartbeat == 0 then
     self.heartbeat = self.data.heartbeat
-    local stomach = starPounds.moduleFunc("stomach", "get")
-    local preyConfig = { weight = storage.starPounds.weight, stomach = stomach and stomach.contents or 0 }
+    local preyConfig = { weight = storage.starPounds.weight, stomach = starPounds.stomach and starPounds.stomach.contents or 0 }
     promises:add(world.sendEntityMessage(storage.starPounds.pred, "starPounds.pred.heartbeat", starPounds.entityId, preyConfig), function(eaten)
       if not eaten then self:released() end
     end)
