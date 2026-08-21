@@ -4,9 +4,11 @@
   "rarity" : "Common",
   "category" : "decorative",
   "price" : 50,
+  "basePrice": 5,
   "description" : "Well cooked meats skewered for clean* eatings.",
   "shortdescription" : "Skewer Plate",
   "race" : "generic",
+  "printable" : false,
 
   "apexDescription" : "Some delicious smelling meat skewers.",
   "avianDescription" : "Peck-sized delicious meat.",
@@ -16,18 +18,65 @@
   "hylotlDescription" : "It's like meat mochi.",
   "novakidDescription" : "These skewers look pretty good if I dare say so myself.",
 
-  "inventoryIcon" : "starpoundsskewerplateicon.png",
+  "inventoryIcon" : "starpoundsskewerplateicon.png:0",
+  "placementImagePosition" : [0, 0],
+
   "orientations" : [
     {
-      "dualImage" : "starpoundsskewerplate.png",
+      "dualImage" : "starpoundsskewerplate.png:0",
 
       "imagePosition" : [0, 0],
+      "animationPosition" : [0, 0],
       "frames" : 1,
       "animationCycle" : 0.5,
 
       "spaces" : [ [0, 0], [1, 0], [0, 1], [1, 1] ],
       "anchors" : [ "bottom" ]
-
     }
-  ]
+  ],
+
+  "food": {
+    "foodObject": 50,
+    "fatFood": 20
+  },
+  "npcFood": {
+    "bloat": 30,
+    "foodObject": 20,
+    "fatFood": 8
+  },
+
+  "stages": 2,
+  "emptyFinalStage": true,
+  "smashOnConsume": false,
+
+  "regenerate": true,
+  "regenerateTime": 180,
+  "npcRegenerateOnly": true,
+  "chefRefresh": true,
+
+  "updateInventoryIcon": true,
+  "baseInventoryIcon": "starpoundsskewerplateicon.png",
+
+  "npcToy": {
+    "ownerOnly" : false,
+    "influence" : [ "starpoundsfood" ],
+    "defaultReactions" : {
+      "starpoundsfood" : [
+        [1.0, "starpoundsfood"]
+      ]
+    },
+    "maxNpcs": 1
+  },
+
+  "animation" : "starpoundsskewerplate.animation",
+  "animationParts" : {
+    "food" : "starpoundsskewerplate.png"
+  },
+
+  "retainObjectParametersInItem": true,
+  "scripts" : [
+    "/scripts/npcToyObject.lua",
+    "/objects/scripts/starpoundsfood.lua"
+  ],
+  "scriptDelta" : 1
 }

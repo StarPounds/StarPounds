@@ -5,7 +5,7 @@
         "properties" : {
           "image" : "<partImage>:<stage>",
           "centered" : false,
-          "imagePosition" : [32, 0]
+          "imagePosition" : [16, 0]
         }
       }
     }
@@ -15,15 +15,15 @@
     "bite" : {
       "enabled" : false,
       "emissionRate" : 1.0,
-      "offsetRegion" : [1.0, 1.0, 7.0, 7.0],
+      "offsetRegion" : [0.0, 0.0, 4.0, 2.0],
       "particles" : [
-        { // choco, large
+        { // muscle, small
           "count" : 4,
           "particle" : {
             "type" : "ember",
-            "size" : 2.0,
-            "color" : [97, 43, 14, 255],
-            "initialVelocity" : [0, 2],
+            "size" : 1.0,
+            "color" : [121, 21, 0, 255],
+            "initialVelocity" : [0, 5],
             "finalVelocity" : [0, -50],
             "approach" : [0, 50],
             "timeToLive" : 0.75,
@@ -32,48 +32,33 @@
             }
           }
         },
-        { // choco, small
+        { // skin
           "count" : 4,
           "particle" : {
             "type" : "ember",
             "size" : 1.0,
-            "color" : [97, 43, 14, 255],
+            "color" : [112, 56, 22, 255],
             "initialVelocity" : [0, 5],
             "finalVelocity" : [0, -50],
             "approach" : [0, 50],
             "timeToLive" : 0.75,
             "variance" : {
-              "initialVelocity" : [10, 10]
+              "initialVelocity" : [10, 3]
             }
           }
         },
-        { // cream
-          "count" : 4,
-          "particle" : {
-            "type" : "ember",
-            "size" : 1.0,
-            "color" : [233, 226, 226, 255],
-            "initialVelocity" : [0, 5],
-            "finalVelocity" : [0, -50],
-            "approach" : [0, 50],
-            "timeToLive" : 0.75,
-            "variance" : {
-              "initialVelocity" : [10, 10]
-            }
-          }
-        },
-        { // cherry
+        { // sinew
           "count" : 2,
           "particle" : {
             "type" : "ember",
             "size" : 1.0,
-            "color" : [149, 21, 0, 255],
+            "color" : [156, 39, 20, 255],
             "initialVelocity" : [0, 5],
             "finalVelocity" : [0, -50],
             "approach" : [0, 50],
             "timeToLive" : 0.75,
             "variance" : {
-              "initialVelocity" : [10, 10]
+              "initialVelocity" : [10, 3]
             }
           }
         }

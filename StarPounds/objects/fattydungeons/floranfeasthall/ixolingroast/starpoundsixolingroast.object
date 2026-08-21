@@ -4,9 +4,11 @@
   "rarity" : "Uncommon",
   "category" : "decorative",
   "price" : 500,
+  "basePrice": 50,
   "description" : "A roasted larva of a terrifying beast. Bring out the butter!",
   "shortdescription" : "Roasted Ixoling",
   "race" : "floran",
+  "printable" : false,
 
   "apexDescription" : "This animal definitely did not go down without a fight.",
   "avianDescription" : "This creature seems to have been a predator rather than prey.",
@@ -16,18 +18,65 @@
   "hylotlDescription" : "A savage delicacy.",
   "novakidDescription" : "This lil varmint looks like it woulda put up a good fight.",
 
-  "inventoryIcon" : "starpoundsixolingroasticon.png",
+  "inventoryIcon" : "starpoundsixolingroasticon.png:0",
+  "placementImagePosition" : [-16, 0],
+
   "orientations" : [
     {
-      "dualImage" : "starpoundsixolingroast.png:<color>",
+      "dualImage" : "starpoundsixolingroast.png:0",
 
       "imagePosition" : [-16, 0],
+      "animationPosition" : [-16, 0],
       "frames" : 1,
       "animationCycle" : 1.0,
 
       "spaceScan" : 0.1,
       "anchors" : [ "bottom" ]
-
     }
-  ]
+  ],
+
+  "food": {
+    "foodObject": 100,
+    "fatFood": 40
+  },
+  "npcFood": {
+    "bloat": 50,
+    "foodObject": 50,
+    "fatFood": 16
+  },
+
+  "stages": 2,
+  "emptyFinalStage": true,
+  "smashOnConsume": false,
+
+  "regenerate": true,
+  "regenerateTime": 180,
+  "npcRegenerateOnly": true,
+  "chefRefresh": true,
+
+  "updateInventoryIcon": true,
+  "baseInventoryIcon": "starpoundsixolingroasticon.png",
+
+  "npcToy": {
+    "ownerOnly" : false,
+    "influence" : [ "starpoundsfood" ],
+    "defaultReactions" : {
+      "starpoundsfood" : [
+        [1.0, "starpoundsfood"]
+      ]
+    },
+    "maxNpcs": 1
+  },
+
+  "animation" : "starpoundsixolingroast.animation",
+  "animationParts" : {
+    "food" : "starpoundsixolingroast.png"
+  },
+
+  "retainObjectParametersInItem": true,
+  "scripts" : [
+    "/scripts/npcToyObject.lua",
+    "/objects/scripts/starpoundsfood.lua"
+  ],
+  "scriptDelta" : 1
 }

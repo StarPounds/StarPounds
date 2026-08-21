@@ -8,6 +8,7 @@ function init()
   self.capacity = config.getParameter("capacity", 1000)
   self.liquids = root.assetJson("/scripts/starpounds/modules/liquid.config:liquids")
   self.pickupBounds = rect.pad(object.boundBox(), -1)
+  self.npcConsume = config.getParameter("npcConsume", true)
 
   self.feedAmount = 0 -- Tracker for when to apply the diluted effect.
 
@@ -57,9 +58,13 @@ function update(dt)
     object.setInteractive(false)
     if canFeed() then
       if animator.animationState("feedState") == "default" then
+        local consume = self.npcConsume or (world.entityType(self.feedTarget) == "player")
         -- Remove stored liquid.
-        local amount = math.min(storage.amount, self.liquidAmount)
-        storage.amount = math.max(0, storage.amount - amount)
+        local amount = 0
+        if consume then
+          amount = math.min(storage.amount, self.liquidAmount)
+          storage.amount = math.max(0, storage.amount - amount)
+        end
         -- Give food.
         for foodType, foodAmount in pairs((self.liquids[storage.liquid.name] or self.liquids.default).food) do
           world.sendEntityMessage(self.feedTarget, "starPounds.stomach.feed", foodAmount * amount, foodType)
@@ -155,7 +160,8 @@ function collectLiquid()
       local item = world.itemDropItem(itemId)
       if root.itemType(item.name) == "liquid" then
         local liquidName = root.itemConfig(item.name).config.liquid
-        if not storage.liquid or liquidName == storage.liquid.name then
+        -- Don't accept inedible liquids.
+        if not self.liquids[liquidName].inedible and (not storage.liquid or liquidName == storage.liquid.name) then
           local itemDrop = world.takeItemDrop(itemId, entity.id())
           if itemDrop then
             storage.liquid = {

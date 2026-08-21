@@ -6,7 +6,8 @@
   "shortdescription" : "Hanging Hamshank",
   "race" : "generic",
   "category" : "decorative",
-  "price" : 500,
+  "price" : 750,
+  "basePrice": 50,
   "printable" : false,
 
   "apexDescription" : "I must wonder what massive animal this cut of meat came from.",
@@ -18,16 +19,51 @@
   "novakidDescription" : "Hot dang that must've come from a huge hog!",
 
   "inventoryIcon" : "starpoundsgluttonisthangingmeat1icon.png",
+  "placementImagePosition" : [-16, -32],
   "orientations" : [
     {
-      "dualImage" : "starpoundsgluttonisthangingmeat1.png",
+      "dualImage" : "starpoundsgluttonisthangingmeat1.png:0",
       "imagePosition" : [-16, -32],
+      "animationPosition" : [-16, -32],
       "frames" : 1,
       "animationCycle" : 0.5,
-    
+
       "spaceScan" : 0.1,
       "anchors" : [ "top" ]
-
     }
-  ]
+  ],
+
+  "stages": 4,
+  "bitesPerStage": 2,
+  "emptyFinalStage": true,
+  "smashOnConsume": false,
+  "npcSaveState": true,
+
+  "food": {
+    "hugeFood": 400,
+    "fatFood": 160
+  },
+
+  "npcToy": {
+    "ownerOnly" : false,
+    "influence" : [
+      "starpoundshugefood"
+    ],
+    "defaultReactions" : {
+      "starpoundshugefood" : [
+        [1.0, "starpoundshugefood"]
+      ]
+    }
+  },
+  "scripts" : [
+    "/scripts/npcToyObject.lua",
+    "/objects/scripts/starpoundsfood.lua"
+  ],
+  "scriptDelta" : 1,
+
+  "retainObjectParametersInItem": true,
+  "animation" : "starpoundsgluttonisthangingmeat1.animation",
+  "animationParts" : {
+    "food" : "starpoundsgluttonisthangingmeat1.png"
+  }
 }

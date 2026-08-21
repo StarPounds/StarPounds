@@ -30,13 +30,37 @@
       "entity": {"type": "entity", "value": null}
     },
     "category": "starpounds",
-    "script": "/scripts/actions/starpounds.lua"
+    "script": "/scripts/actions/starpounds.lua",
+    "output": {}
   },
   "starpoundsCanEat": {
     "type": "action",
     "name": "starpoundsCanEat",
     "title": "starpoundsCanEat",
     "category": "starpounds",
-    "script": "/scripts/actions/starpounds.lua"
+    "script": "/scripts/actions/starpounds.lua",
+    "output": {}
+  },
+  "starpoundsCanRefreshFoodObject": {
+    "type": "action",
+    "name": "starpoundsCanRefreshFoodObject",
+    "title": "starpoundsCanRefreshFoodObject",
+    "properties": {
+      "target": {"type": "entity", "value": null}
+    },
+    "category": "starpounds",
+    "script": "/scripts/actions/starpounds.lua",
+    "output": {}
+  },
+  "starpoundsCanEatFoodObject": {
+    "type": "action",
+    "name": "starpoundsCanEatFoodObject",
+    "title": "starpoundsCanEatFoodObject",
+    "properties": {
+      "target": {"type": "entity", "value": null}
+    },
+    "category": "starpounds",
+    "script": "/scripts/actions/starpounds.lua",
+    "output": {}
   }
 }

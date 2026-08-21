@@ -8,12 +8,7 @@
   "race" : "generic",
   "category" : "other",
   "price" : 1000,
-  "smashOnBreak" : true,
-
-  "stages": 5,
-  "bitesPerStage": 4,
-  "food": 1200,
-  "fat": 200,
+  "basePrice": 50,
 
   "apexDescription" : "This has been a new special on the Smile Burger menu.",
   "avianDescription" : "I fear how my stomach would react to trying to eat this massive burger.",
@@ -28,34 +23,49 @@
   "avaliDescription" : "This wouldn't surprise me if it's some Human fast food creation.",
 
   "inventoryIcon" : "hugeburgericon.png",
+
+  "placementImagePosition" : [-28, -16],
   "orientations" : [
     {
-      "dualImage" : "hugeburger.png:<stage>",
+      "dualImage" : "hugeburger.png:0",
       "imagePosition" : [-28, -16],
       "animationPosition" : [-28, -16],
       "spaceScan" : 0.1,
       "anchors" : ["bottom"]
     }
   ],
+
+  "stages": 5,
+  "bitesPerStage": 4,
+  "emptyFinalStage": false,
+  "smashOnConsume": true,
+  "npcSaveState": true,
+
+  "food": {
+    "hugeFood": 1200,
+    "fatFood": 200
+  },
+
   "npcToy": {
     "ownerOnly" : false,
     "influence" : [
-      "hugefood"
+      "starpoundshugefood"
     ],
     "defaultReactions" : {
-      "hugefood" : [
+      "starpoundshugefood" : [
         [1.0, "starpoundshugefood"]
       ]
     }
   },
   "scripts" : [
     "/scripts/npcToyObject.lua",
-    "/objects/starpounds/hugefoods/hugefood.lua"
+    "/objects/scripts/starpoundsfood.lua"
   ],
   "scriptDelta" : 1,
 
+  "retainObjectParametersInItem": true,
   "animation" : "hugeburger.animation",
   "animationParts" : {
-    "meat" : "hugeburger.png"
+    "food" : "hugeburger.png"
   }
 }

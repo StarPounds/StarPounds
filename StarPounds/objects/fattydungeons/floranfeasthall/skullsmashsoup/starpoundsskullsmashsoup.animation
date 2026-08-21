@@ -5,7 +5,7 @@
         "properties" : {
           "image" : "<partImage>:<stage>",
           "centered" : false,
-          "imagePosition" : [32, 0]
+          "imagePosition" : [0, 0]
         }
       }
     }
@@ -15,65 +15,50 @@
     "bite" : {
       "enabled" : false,
       "emissionRate" : 1.0,
-      "offsetRegion" : [1.0, 1.0, 7.0, 7.0],
+      "offsetRegion" : [0, 0, 2.0, 1.0],
       "particles" : [
-        { // choco, large
-          "count" : 4,
-          "particle" : {
-            "type" : "ember",
-            "size" : 2.0,
-            "color" : [97, 43, 14, 255],
-            "initialVelocity" : [0, 2],
-            "finalVelocity" : [0, -50],
-            "approach" : [0, 50],
-            "timeToLive" : 0.75,
-            "variance" : {
-              "initialVelocity" : [10, 3]
-            }
-          }
-        },
-        { // choco, small
+        { // meat
           "count" : 4,
           "particle" : {
             "type" : "ember",
             "size" : 1.0,
-            "color" : [97, 43, 14, 255],
+            "color" : [244, 189, 112, 255],
             "initialVelocity" : [0, 5],
             "finalVelocity" : [0, -50],
             "approach" : [0, 50],
             "timeToLive" : 0.75,
             "variance" : {
-              "initialVelocity" : [10, 10]
+              "initialVelocity" : [5, 3]
             }
           }
         },
-        { // cream
-          "count" : 4,
-          "particle" : {
-            "type" : "ember",
-            "size" : 1.0,
-            "color" : [233, 226, 226, 255],
-            "initialVelocity" : [0, 5],
-            "finalVelocity" : [0, -50],
-            "approach" : [0, 50],
-            "timeToLive" : 0.75,
-            "variance" : {
-              "initialVelocity" : [10, 10]
-            }
-          }
-        },
-        { // cherry
+        {
           "count" : 2,
           "particle" : {
             "type" : "ember",
             "size" : 1.0,
-            "color" : [149, 21, 0, 255],
+            "color" : [246, 149, 70, 255],
             "initialVelocity" : [0, 5],
             "finalVelocity" : [0, -50],
             "approach" : [0, 50],
             "timeToLive" : 0.75,
             "variance" : {
-              "initialVelocity" : [10, 10]
+              "initialVelocity" : [5, 3]
+            }
+          }
+        },
+        {
+          "count" : 2,
+          "particle" : {
+            "type" : "ember",
+            "size" : 1.0,
+            "color" : [204, 89, 51, 255],
+            "initialVelocity" : [0, 5],
+            "finalVelocity" : [0, -50],
+            "approach" : [0, 50],
+            "timeToLive" : 0.75,
+            "variance" : {
+              "initialVelocity" : [5, 3]
             }
           }
         }
@@ -82,6 +67,6 @@
   },
 
   "sounds" : {
-    "bite" : ["/sfx/humanoid/eat1.ogg", "/sfx/humanoid/eat2.ogg"]
+    "bite" : ["/sfx/humanoid/drink.ogg"]
   }
 }

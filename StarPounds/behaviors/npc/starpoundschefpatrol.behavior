@@ -1,0 +1,426 @@
+{
+  "name": "starpoundschefpatrol",
+  "description": null,
+  "scripts": [
+    "/scripts/actions/query.lua",
+    "/scripts/behavior/bdata.lua",
+    "/scripts/actions/starpounds.lua",
+    "/scripts/actions/reaction.lua",
+    "/scripts/behavior.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/actions/movement.lua"
+  ],
+  "parameters": {
+    "alwaysRun": false
+  },
+  "root": {
+    "title": "selector",
+    "type": "composite",
+    "name": "selector",
+    "parameters": {},
+    "children": [
+      {
+        "title": "sequence",
+        "type": "composite",
+        "name": "sequence",
+        "parameters": {},
+        "children": [
+          {
+            "title": "cooldown",
+            "type": "decorator",
+            "name": "cooldown",
+            "parameters": {
+              "cooldown": {"value": 30},
+              "onFail": {"value": true},
+              "onSuccess": {"value": true}
+            },
+            "child": {
+              "title": "queryEntity",
+              "type": "action",
+              "name": "queryEntity",
+              "parameters": {
+                "entityTypes": {"value": ["object"]},
+                "orderBy": {"value": "random"},
+                "position": {"key": "self"},
+                "range": {"value": 50},
+                "withoutEntity": {"key": "playTarget"}
+              },
+              "output": {
+                "list": "playTargets"
+              }
+            }
+          },
+          {
+            "title": "listClear",
+            "type": "action",
+            "name": "listClear",
+            "parameters": {},
+            "output": {
+              "list": "priorityTargets"
+            }
+          },
+          {
+            "title": "filter",
+            "type": "decorator",
+            "name": "filter",
+            "parameters": {
+              "list": {"key": "playTargets"},
+              "type": {"value": "entity"}
+            },
+            "child": {
+              "title": "starpoundsCanRefreshFoodObject",
+              "type": "action",
+              "name": "starpoundsCanRefreshFoodObject",
+              "parameters": {
+                "target": {"key": "filterItem"}
+              }
+            }
+          },
+          {
+            "title": "filter",
+            "type": "decorator",
+            "name": "filter",
+            "parameters": {
+              "list": {"key": "playTargets"},
+              "type": {"value": "entity"}
+            },
+            "child": {
+              "title": "sequence",
+              "type": "composite",
+              "name": "sequence",
+              "parameters": {},
+              "children": [
+                {
+                  "title": "npcToyIsAvailable",
+                  "type": "action",
+                  "name": "npcToyIsAvailable",
+                  "parameters": {
+                    "target": {"key": "filterItem"}
+                  }
+                },
+                {
+                  "title": "npcToyIsAttractive",
+                  "type": "action",
+                  "name": "npcToyIsAttractive",
+                  "parameters": {
+                    "target": {"key": "filterItem"}
+                  }
+                },
+                {
+                  "title": "succeeder",
+                  "type": "decorator",
+                  "name": "succeeder",
+                  "parameters": {},
+                  "child": {
+                    "title": "sequence",
+                    "type": "composite",
+                    "name": "sequence",
+                    "parameters": {},
+                    "children": [
+                      {
+                        "title": "npcToyIsPriority",
+                        "type": "action",
+                        "name": "npcToyIsPriority",
+                        "parameters": {
+                          "target": {"key": "filterItem"}
+                        }
+                      },
+                      {
+                        "title": "listPush",
+                        "type": "action",
+                        "name": "listPush",
+                        "parameters": {
+                          "entity": {"key": "filterItem"},
+                          "list": {"key": "priorityTargets"}
+                        },
+                        "output": {
+                          "list": "priorityTargets"
+                        }
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          },
+          {
+            "title": "selector",
+            "type": "composite",
+            "name": "selector",
+            "parameters": {},
+            "children": [
+              {
+                "title": "listGet",
+                "type": "action",
+                "name": "listGet",
+                "parameters": {
+                  "list": {"key": "priorityTargets"}
+                },
+                "output": {
+                  "entity": "playTarget"
+                }
+              },
+              {
+                "title": "listGet",
+                "type": "action",
+                "name": "listGet",
+                "parameters": {
+                  "list": {"key": "playTargets"}
+                },
+                "output": {
+                  "entity": "playTarget"
+                }
+              }
+            ]
+          },
+          {
+            "title": "entityPosition",
+            "type": "action",
+            "name": "entityPosition",
+            "parameters": {
+              "entity": {"key": "playTarget"}
+            },
+            "output": {
+              "position": "standPosition"
+            }
+          },
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "unset",
+                "type": "action",
+                "name": "unset",
+                "parameters": {
+                  "key": {"value": "standPositionX"},
+                  "type": {"value": "number"}
+                }
+              },
+              {
+                "title": "succeeder",
+                "type": "decorator",
+                "name": "succeeder",
+                "parameters": {},
+                "child": {
+                  "title": "selector",
+                  "type": "composite",
+                  "name": "selector",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "npcToyPreciseStandPosition",
+                      "type": "action",
+                      "name": "npcToyPreciseStandPosition",
+                      "parameters": {
+                        "target": {"key": "playTarget"}
+                      },
+                      "output": {
+                        "position": "standPosition",
+                        "x": "standPositionX"
+                      }
+                    },
+                    {
+                      "title": "npcToyImpreciseStandPosition",
+                      "type": "action",
+                      "name": "npcToyImpreciseStandPosition",
+                      "parameters": {
+                        "target": {"key": "playTarget"}
+                      },
+                      "output": {
+                        "position": "standPosition"
+                      }
+                    }
+                  ]
+                }
+              },
+              {
+                "title": "moveToPosition",
+                "type": "action",
+                "name": "moveToPosition",
+                "parameters": {
+                  "avoidLiquid": {"value": true},
+                  "groundPosition": {"value": true},
+                  "maxGround": {"value": 5},
+                  "minGround": {"value": -5},
+                  "position": {"key": "standPosition"},
+                  "run": {"key": "<alwaysRun>"}
+                }
+              },
+              {
+                "title": "succeeder",
+                "type": "decorator",
+                "name": "succeeder",
+                "parameters": {},
+                "child": {
+                  "title": "sequence",
+                  "type": "composite",
+                  "name": "sequence",
+                  "parameters": {},
+                  "children": [
+                    {
+                      "title": "setNumber",
+                      "type": "action",
+                      "name": "setNumber",
+                      "parameters": {
+                        "number": {"key": "standPositionX"}
+                      }
+                    },
+                    {
+                      "title": "setPosition",
+                      "type": "action",
+                      "name": "setPosition",
+                      "parameters": {
+                        "footPosition": {"value": false},
+                        "position": {"key": "self"},
+                        "x": {"key": "standPositionX"}
+                      }
+                    },
+                    {
+                      "title": "setVelocity",
+                      "type": "action",
+                      "name": "setVelocity",
+                      "parameters": {
+                        "velocity": {"value": [0, 0]}
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          },
+          {
+            "title": "entityExists",
+            "type": "action",
+            "name": "entityExists",
+            "parameters": {
+              "entity": {"key": "playTarget"}
+            }
+          },
+          {
+            "title": "starpoundsCanRefreshFoodObject",
+            "type": "action",
+            "name": "starpoundsCanRefreshFoodObject",
+            "parameters": {
+              "target": {"key": "playTarget"}
+            }
+          },
+          {
+            "title": "parallel",
+            "type": "composite",
+            "name": "parallel",
+            "parameters": {
+              "fail": {"value": 1},
+              "success": {"value": 1}
+            },
+            "children": [
+              {
+                "title": "npcToyPlay",
+                "type": "action",
+                "name": "npcToyPlay",
+                "parameters": {
+                  "entity": {"key": "playTarget"}
+                },
+                "output": {
+                  "influences": "influences"
+                }
+              },
+              {
+                "title": "sequence",
+                "type": "composite",
+                "name": "sequence",
+                "parameters": {},
+                "children": [
+                  {
+                    "title": "setEntity",
+                    "type": "action",
+                    "name": "setEntity",
+                    "parameters": {
+                      "entity": {"key": "playTarget"}
+                    },
+                    "output": {
+                      "entity": "reactTarget"
+                    }
+                  },
+                  {
+                    "title": "repeater",
+                    "type": "decorator",
+                    "name": "repeater",
+                    "parameters": {
+                      "maxLoops": {"value": -1},
+                      "untilSuccess": {"value": true}
+                    },
+                    "child": {
+                      "title": "inverter",
+                      "type": "decorator",
+                      "name": "inverter",
+                      "parameters": {},
+                      "child": {
+                        "title": "sequence",
+                        "type": "composite",
+                        "name": "sequence",
+                        "parameters": {},
+                        "children": [
+                          {
+                            "title": "listPopInfluence",
+                            "type": "action",
+                            "name": "listPopInfluence",
+                            "parameters": {
+                              "list": {"key": "influences"}
+                            },
+                            "output": {
+                              "list": "influences",
+                              "influence": "influence"
+                            }
+                          },
+                          {
+                            "title": "succeeder",
+                            "type": "decorator",
+                            "name": "succeeder",
+                            "parameters": {},
+                            "child": {
+                              "title": "",
+                              "type": "module",
+                              "name": "react",
+                              "parameters": {
+                                "faceReactTarget": {"value": true}
+                              }
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "title": "succeeder",
+            "type": "decorator",
+            "name": "succeeder",
+            "parameters": {},
+            "child": {
+              "title": "",
+              "type": "module",
+              "name": "finalreact",
+              "parameters": {}
+            }
+          }
+        ]
+      },
+      {
+        "title": "patrol",
+        "type": "module",
+        "name": "patrol",
+        "parameters": {
+          "idleTime": {"value": [2, 10]},
+          "alwaysRun": {"value": false},
+          "patrolTime": {"value": 1.5}
+        }
+      }
+    ]
+  }
+}

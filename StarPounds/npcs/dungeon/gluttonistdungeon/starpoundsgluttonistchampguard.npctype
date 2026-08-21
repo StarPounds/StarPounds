@@ -10,7 +10,7 @@
    },
 
   "scriptConfig" : {
-  "behaviorConfig" : {
+    "behaviorConfig" : {
       "leapWindup" : 0.75,
       "cantReachDialog": false
     },

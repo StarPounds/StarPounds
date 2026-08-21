@@ -3,10 +3,12 @@
   "colonyTags" : ["floran","fatdungeons","gluttonist","cooking"],
   "rarity" : "Common",
   "category" : "decorative",
-  "price" : 50,
+  "price" : 100,
+  "basePrice": 10,
   "description" : "A strong odor wafts from this strange soup.",
   "shortdescription" : "Floran Soupbowl",
   "race" : "generic",
+  "printable" : false,
 
   "apexDescription" : "This soup certainly has a presence.",
   "avianDescription" : "I can feel my liver dying just smelling this stuff.",
@@ -16,18 +18,70 @@
   "hylotlDescription" : "It reeks of death and liver failure.",
   "novakidDescription" : "Hot darn this stuff reeks!",
 
-  "inventoryIcon" : "starpoundsskullsmashsoupicon.png",
+  "inventoryIcon" : "starpoundsskullsmashsoupicon.png:0",
+  "placementImagePosition" : [0, 0],
+
   "orientations" : [
     {
-      "dualImage" : "starpoundsskullsmashsoup.png",
+      "dualImage" : "starpoundsskullsmashsoup.png:0",
 
       "imagePosition" : [0, 0],
+      "animationPosition" : [0, 0],
       "frames" : 1,
       "animationCycle" : 0.5,
 
       "spaces" : [ [0, 0], [1, 0], [0, 1], [1, 1] ],
       "anchors" : [ "bottom" ]
-
     }
-  ]
+  ],
+
+  "food": {
+    "foodObject": 50,
+    "fatFood": 20
+  },
+  "npcFood": {
+    "bloat": 30,
+    "foodObject": 20,
+    "fatFood": 8
+  },
+  "foodStatusEffects": [
+    { "effect" : "starpoundsdrunk", "duration" : 60 },
+    { "effect" : "rage", "duration" : 60 },
+    { "effect" : "maxhealthscalingboostfood", "duration" : 60 }
+  ],
+
+  "stages": 2,
+  "emptyFinalStage": true,
+  "smashOnConsume": false,
+
+  "regenerate": true,
+  "regenerateTime": 180,
+  "npcRegenerateOnly": true,
+  "chefRefresh": true,
+
+  "updateInventoryIcon": true,
+  "baseInventoryIcon": "starpoundsskullsmashsoupicon.png",
+
+  "npcToy": {
+    "ownerOnly" : false,
+    "influence" : [ "starpoundsfood" ],
+    "defaultReactions" : {
+      "starpoundsfood" : [
+        [1.0, "starpoundsfood"]
+      ]
+    },
+    "maxNpcs": 1
+  },
+
+  "animation" : "starpoundsskullsmashsoup.animation",
+  "animationParts" : {
+    "food" : "starpoundsskullsmashsoup.png"
+  },
+
+  "retainObjectParametersInItem": true,
+  "scripts" : [
+    "/scripts/npcToyObject.lua",
+    "/objects/scripts/starpoundsfood.lua"
+  ],
+  "scriptDelta" : 1
 }

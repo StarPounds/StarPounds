@@ -19,5 +19,26 @@
     "value": {
       "behavior": "starpoundsreaction-hugefood"
     }
+  },
+  {
+    "op": "add",
+    "path": "/behaviorReactions/starpoundsfood",
+    "value": {
+      "behavior": "starpoundsreaction-food"
+    }
+  },
+  {
+    "op": "add",
+    "path": "/behaviorReactions/starpoundsrefreshfood",
+    "value": {
+      "behavior": "starpoundsreaction-refreshfood"
+    }
+  },
+  {
+    "op": "add",
+    "path": "/behaviorReactions/starpoundschefpatrol",
+    "value": {
+      "behavior": "starpoundschefpatrol"
+    }
   }
 ]

@@ -8,12 +8,7 @@
   "race" : "generic",
   "category" : "other",
   "price" : 1000,
-  "smashOnBreak" : true,
-
-  "stages": 5,
-  "bitesPerStage": 3,
-  "food": 675,
-  "fat": 200,
+  "basePrice": 50,
 
   "apexDescription" : "These pancakes are thicker then bricks.",
   "avianDescription" : "Oh my, this is a lot of super sized pancakes!",
@@ -28,9 +23,11 @@
   "avaliDescription" : "Who, what? Why are these pancakes so huge?",
 
   "inventoryIcon" : "pancakesicon.png",
+
+  "placementImagePosition" : [-28, -16],
   "orientations" : [
     {
-      "dualImage" : "pancakes.png:<stage>",
+      "dualImage" : "pancakes.png:0",
       "imagePosition" : [-28, -16],
       "animationPosition" : [-28, -16],
       "spaceScan" : 0.1,
@@ -38,25 +35,37 @@
     }
   ],
 
+  "stages": 5,
+  "bitesPerStage": 3,
+  "emptyFinalStage": false,
+  "smashOnConsume": true,
+  "npcSaveState": true,
+
+  "food": {
+    "hugeFood": 675,
+    "fatFood": 200
+  },
+
   "npcToy": {
     "ownerOnly" : false,
     "influence" : [
-      "hugefood"
+      "starpoundshugefood"
     ],
     "defaultReactions" : {
-      "hugefood" : [
+      "starpoundshugefood" : [
         [1.0, "starpoundshugefood"]
       ]
     }
   },
   "scripts" : [
     "/scripts/npcToyObject.lua",
-    "/objects/starpounds/hugefoods/hugefood.lua"
+    "/objects/scripts/starpoundsfood.lua"
   ],
   "scriptDelta" : 1,
 
+  "retainObjectParametersInItem": true,
   "animation" : "pancakes.animation",
   "animationParts" : {
-    "pancake" : "pancakes.png"
+    "food" : "pancakes.png"
   }
 }

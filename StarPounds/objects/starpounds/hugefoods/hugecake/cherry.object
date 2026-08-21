@@ -8,12 +8,7 @@
   "race" : "generic",
   "category" : "other",
   "price" : 1750,
-  "smashOnBreak" : true,
-
-  "stages": 5,
-  "bitesPerStage": 4,
-  "food": 840,
-  "fat": 270,
+  "basePrice": 50,
 
   "apexDescription" : "This is an absurdly big cake.",
   "avianDescription" : "What a huge cake. The amount of sugar in this would make a person sick.",
@@ -28,9 +23,11 @@
   "avaliDescription" : "Impressive. Though the frosting to cake ratio is horrifying.",
 
   "inventoryIcon" : "cherryicon.png",
+
+  "placementImagePosition" : [-32, -16],
   "orientations" : [
     {
-      "dualImage" : "cherry.png:<stage>",
+      "dualImage" : "cherry.png:0",
       "imagePosition" : [-32, -16],
       "animationPosition" : [-32, -16],
       "spaceScan" : 0.1,
@@ -38,25 +35,37 @@
     }
   ],
 
+  "stages": 5,
+  "bitesPerStage": 4,
+  "emptyFinalStage": false,
+  "smashOnConsume": true,
+  "npcSaveState": true,
+
+  "food": {
+    "hugeFood": 840,
+    "fatFood": 270
+  },
+
   "npcToy": {
     "ownerOnly" : false,
     "influence" : [
-      "hugefood"
+      "starpoundshugefood"
     ],
     "defaultReactions" : {
-      "hugefood" : [
+      "starpoundshugefood" : [
         [1.0, "starpoundshugefood"]
       ]
     }
   },
   "scripts" : [
     "/scripts/npcToyObject.lua",
-    "/objects/starpounds/hugefoods/hugefood.lua"
+    "/objects/scripts/starpoundsfood.lua"
   ],
   "scriptDelta" : 1,
 
+  "retainObjectParametersInItem": true,
   "animation" : "cherry.animation",
   "animationParts" : {
-    "cake" : "cherry.png"
+    "food" : "cherry.png"
   }
 }

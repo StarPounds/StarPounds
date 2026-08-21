@@ -8,12 +8,7 @@
   "race" : "generic",
   "category" : "other",
   "price" : 1000,
-  "smashOnBreak" : true,
-
-  "stages": 5,
-  "bitesPerStage": 4,
-  "food": 1200,
-  "fat": 200,
+  "basePrice": 50,
 
   "apexDescription" : "An incredibly large chunk of meat. The beast this used to be must've been massive.",
   "avianDescription" : "I've never seen such a large amount of meat before, all from the same creature.",
@@ -28,9 +23,11 @@
   "avaliDescription" : "Such a large piece of meat, I'm curious what could've made it.",
 
   "inventoryIcon" : "hugechunkofmeaticon.png",
+
+  "placementImagePosition" : [-49.5, -16],
   "orientations" : [
     {
-      "dualImage" : "hugechunkofmeat.png:<stage>",
+      "dualImage" : "hugechunkofmeat.png:0",
       "imagePosition" : [-49.5, -16],
       "animationPosition" : [-49.5, -16],
       "spaceScan" : 0.1,
@@ -38,25 +35,37 @@
     }
   ],
 
+  "stages": 5,
+  "bitesPerStage": 4,
+  "emptyFinalStage": false,
+  "smashOnConsume": true,
+  "npcSaveState": true,
+
+  "food": {
+    "hugeFood": 1200,
+    "fatFood": 200
+  },
+
   "npcToy": {
     "ownerOnly" : false,
     "influence" : [
-      "hugefood"
+      "starpoundshugefood"
     ],
     "defaultReactions" : {
-      "hugefood" : [
+      "starpoundshugefood" : [
         [1.0, "starpoundshugefood"]
       ]
     }
   },
   "scripts" : [
     "/scripts/npcToyObject.lua",
-    "/objects/starpounds/hugefoods/hugefood.lua"
+    "/objects/scripts/starpoundsfood.lua"
   ],
   "scriptDelta" : 1,
 
+  "retainObjectParametersInItem": true,
   "animation" : "hugechunkofmeat.animation",
   "animationParts" : {
-    "meat" : "hugechunkofmeat.png"
+    "food" : "hugechunkofmeat.png"
   }
 }

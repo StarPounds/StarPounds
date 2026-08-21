@@ -1,0 +1,114 @@
+{
+  "name": "starpoundsreaction-refreshfood",
+  "description": "",
+  "scripts": [
+    "/scripts/actions/npc.lua",
+    "/scripts/actions/time.lua",
+    "/scripts/actions/world.lua",
+    "/scripts/behavior.lua",
+    "/scripts/behavior/bdata.lua"
+  ],
+  "parameters": {},
+  "root": {
+    "title": "sequence",
+    "type": "composite",
+    "name": "sequence",
+    "parameters": {},
+    "children": [
+      {
+        "title": "parallel",
+        "type": "composite",
+        "name": "parallel",
+        "parameters": {
+          "fail": {"value": -1},
+          "success": {"value": 1}
+        },
+        "children": [
+          {
+            "title": "sequence",
+            "type": "composite",
+            "name": "sequence",
+            "parameters": {},
+            "children": [
+              {
+                "title": "dance",
+                "type": "action",
+                "name": "dance",
+                "parameters": {
+                  "dance": {"value": "starpoundsrefreshfood"}
+                }
+              },
+              {
+                "title": "timer",
+                "type": "action",
+                "name": "timer",
+                "parameters": {
+                  "time": {"value": 1.4}
+                }
+              },
+              {
+                "title": "entityExists",
+                "type": "action",
+                "name": "entityExists",
+                "parameters": {
+                  "entity": {"key": "reactTarget"}
+                }
+              },
+              {
+                "title": "callScriptedEntity",
+                "type": "action",
+                "name": "callScriptedEntity",
+                "parameters": {
+                  "entity": {"key": "reactTarget"},
+                  "func": {"value": "refresh"}
+                }
+              },
+              {
+                "title": "emote",
+                "type": "action",
+                "name": "emote",
+                "parameters": {
+                  "emote": {"value": "Happy"}
+                }
+              },
+              {
+                "title": "timer",
+                "type": "action",
+                "name": "timer",
+                "parameters": {
+                  "time": {"value": 0.25}
+                }
+              }
+            ]
+          },
+          {
+            "title": "failer",
+            "type": "decorator",
+            "name": "failer",
+            "parameters": {},
+            "child": {
+              "title": "controlFlag",
+              "type": "action",
+              "name": "controlFlag",
+              "parameters": {
+                "bool": {"value": true}
+              },
+              "output": {
+                "bool": "nochat"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "title": "unset",
+        "type": "action",
+        "name": "unset",
+        "parameters": {
+          "key": {"value": "playTarget"},
+          "type": {"value": "entity"}
+        }
+      }
+    ]
+  }
+}

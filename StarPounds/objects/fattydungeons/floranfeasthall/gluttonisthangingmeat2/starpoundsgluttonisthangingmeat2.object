@@ -7,6 +7,7 @@
   "race" : "generic",
   "category" : "decorative",
   "price" : 500,
+  "basePrice": 50,
   "printable" : false,
 
   "apexDescription" : "The smell alone is tempting.",
@@ -18,16 +19,52 @@
   "novakidDescription" : "Mighty big for breakfast sausages! Not that I'd complain, of course.",
 
   "inventoryIcon" : "starpoundsgluttonisthangingmeat2icon.png",
+  "placementImagePosition" : [-16, -32],
+
   "orientations" : [
     {
-      "dualImage" : "starpoundsgluttonisthangingmeat2.png",
+      "dualImage" : "starpoundsgluttonisthangingmeat2.png:0",
       "imagePosition" : [-16, -32],
+      "animationPosition" : [-16, -32],
       "frames" : 1,
-      "animationCycle" : 0.5,    
+      "animationCycle" : 0.5,
 
       "spaceScan" : 0.1,
       "anchors" : [ "top" ]
-
     }
-  ]
+  ],
+
+  "food": {
+    "foodObject": 200,
+    "fatFood": 80
+  },
+
+  "stages": 4,
+  "bitesPerStage": 1,
+  "emptyFinalStage": true,
+  "smashOnConsume": false,
+  "npcSaveState": true,
+
+  "npcToy": {
+    "ownerOnly" : false,
+    "influence" : [
+      "starpoundshugefood"
+    ],
+    "defaultReactions" : {
+      "starpoundshugefood" : [
+        [1.0, "starpoundshugefood"]
+      ]
+    }
+  },
+  "scripts" : [
+    "/scripts/npcToyObject.lua",
+    "/objects/scripts/starpoundsfood.lua"
+  ],
+  "scriptDelta" : 1,
+
+  "retainObjectParametersInItem": true,
+  "animation" : "starpoundsgluttonisthangingmeat2.animation",
+  "animationParts" : {
+    "food" : "starpoundsgluttonisthangingmeat2.png"
+  }
 }

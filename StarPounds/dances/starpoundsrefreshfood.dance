@@ -1,0 +1,17 @@
+{
+  "name" : "starpoundsrefreshfood",
+  "states" : ["idle","sit"],
+  "cycle" : 1.4,
+  "cyclic" : true,
+  "duration" : 1.4,
+  "steps" : [
+    // body, frontArm, backArm, headOffset, frontArmOffset, backArmOffset
+    [ null, "swim.5", "swim.5", null, [0, 0], [-2, 0] ],
+    [ null, "swim.4", "swim.4", null, [0, 0], [0, 0] ],
+    [ null, "swim.4", "swim.4", null, [0, 1], [0, -1] ],
+    [ null, "swim.4", "swim.4", null, [0, 0], [0, 0] ],
+    [ null, "swim.4", "swim.4", null, [0, -1], [0, 1] ],
+    [ null, "swim.4", "swim.4", null, [0, 0], [0, 0] ],
+    [ null, "swim.5", "swim.5", null, [0, 0], [-2, 0] ]
+  ]
+}

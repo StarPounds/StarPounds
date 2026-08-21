@@ -5,7 +5,7 @@
         "properties" : {
           "image" : "<partImage>:<stage>",
           "centered" : false,
-          "imagePosition" : [32, 0]
+          "imagePosition" : [-16, 0]
         }
       }
     }
@@ -15,14 +15,14 @@
     "bite" : {
       "enabled" : false,
       "emissionRate" : 1.0,
-      "offsetRegion" : [1.0, 1.0, 7.0, 7.0],
+      "offsetRegion" : [0, 0, 5, 5],
       "particles" : [
-        { // choco, large
+        { // muscle, large
           "count" : 4,
           "particle" : {
             "type" : "ember",
             "size" : 2.0,
-            "color" : [97, 43, 14, 255],
+            "color" : [121, 21, 0, 255],
             "initialVelocity" : [0, 2],
             "finalVelocity" : [0, -50],
             "approach" : [0, 50],
@@ -32,12 +32,12 @@
             }
           }
         },
-        { // choco, small
+        { // muscle, small
           "count" : 4,
           "particle" : {
             "type" : "ember",
             "size" : 1.0,
-            "color" : [97, 43, 14, 255],
+            "color" : [121, 21, 0, 255],
             "initialVelocity" : [0, 5],
             "finalVelocity" : [0, -50],
             "approach" : [0, 50],
@@ -47,12 +47,12 @@
             }
           }
         },
-        { // cream
+        { // skin
           "count" : 4,
           "particle" : {
             "type" : "ember",
             "size" : 1.0,
-            "color" : [233, 226, 226, 255],
+            "color" : [112, 56, 22, 255],
             "initialVelocity" : [0, 5],
             "finalVelocity" : [0, -50],
             "approach" : [0, 50],
@@ -62,12 +62,12 @@
             }
           }
         },
-        { // cherry
+        { // sinew
           "count" : 2,
           "particle" : {
             "type" : "ember",
             "size" : 1.0,
-            "color" : [149, 21, 0, 255],
+            "color" : [156, 39, 20, 255],
             "initialVelocity" : [0, 5],
             "finalVelocity" : [0, -50],
             "approach" : [0, 50],

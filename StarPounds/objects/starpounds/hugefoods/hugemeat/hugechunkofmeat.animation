@@ -1,7 +1,7 @@
 {
   "animatedParts" : {
     "parts" : {
-      "meat" : {
+      "food" : {
         "properties" : {
           "image" : "<partImage>:<stage>",
           "centered" : false,

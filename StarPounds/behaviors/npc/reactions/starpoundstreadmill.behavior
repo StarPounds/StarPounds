@@ -1,6 +1,6 @@
 {
   "name": "starpoundsreaction-treadmill",
-  "description": "",
+  "description": null,
   "scripts": [
     "/scripts/actions/starpounds.lua",
     "/scripts/actions/math.lua",

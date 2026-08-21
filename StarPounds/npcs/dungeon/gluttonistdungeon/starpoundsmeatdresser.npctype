@@ -8,7 +8,16 @@
   "scriptConfig" : {
   "behaviorConfig" : {
       "leapWindup" : 0.50,
-    "cantReachDialog": false
+      "cantReachDialog": false
+    },
+    "reactions" : {
+      "spontaneous" : [
+        [5.0, "sleep", { "timeRange" : [0.7, 0.9] }],
+        [1.0, "starpoundschefpatrol"]
+      ],
+      "starpoundsemptyfood" : [
+        [1, "starpoundsrefreshfood"]
+      ]
     },
     "starPounds_skills": {
       "softMinimumSize": [4, 5]
