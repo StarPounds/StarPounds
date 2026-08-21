@@ -30,3 +30,21 @@ function starpoundsCanEat(args, board)
 
   return false
 end
+
+function starpoundsCanRefreshFoodObject(args, board)
+  if args.target == nil then return false end
+  if world.callScriptedEntity(args.target, "canRefresh") then
+    return true
+  end
+
+  return false
+end
+
+function starpoundsCanEatFoodObject(args, board)
+  if args.target == nil then return false end
+  if world.callScriptedEntity(args.target, "canEat") then
+    return true
+  end
+
+  return false
+end
