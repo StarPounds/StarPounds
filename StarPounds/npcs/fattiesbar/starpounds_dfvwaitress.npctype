@@ -8,9 +8,6 @@
       "useFatteningObjects" : false
     },
     "reactions" : {
-      "spontaneous" : [
-        [1.0, "starpoundschefpatrol"]
-      ],
       "starpoundsemptyfood" : [
         [1, "starpoundsrefreshfood"]
       ]

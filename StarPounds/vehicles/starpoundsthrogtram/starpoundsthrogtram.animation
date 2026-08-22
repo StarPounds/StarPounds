@@ -1,0 +1,206 @@
+{
+  "animatedParts" : {
+    "stateTypes" : {
+      "rail" : {
+        "default" : "off",
+        "states" : {
+          "off" : {
+            "properties" : {
+              "immediateSound" : "/sfx/objects/steel_elevator_hit.ogg",
+              "immediateSoundRangeMultiplier" : 0.5
+            }
+          },
+          "on" : {
+            "frames" : 8,
+            "cycle" : 0.4,
+            "mode" : "loop",
+            "properties" : {
+              "persistentSound" : "/sfx/tech/composite_platform_loop.ogg",
+              "persistentSoundRangeMultiplier" : 0.5
+            }
+          }
+        }
+      },
+      "gate" : {
+        "default" : "open",
+        "states" : {
+          "open" : {},
+          "closed" : {},
+          "closing" : {
+            "frames" : 1,
+            "cycle" : 0.07,
+            "mode" : "transition",
+            "transition" : "closed",
+            "properties" : {
+              "immediateSound" : "/sfx/objects/console_generic_switchon.ogg",
+              "immediateSoundRangeMultiplier" : 0.5
+            }
+          },
+          "opening" : {
+            "frames" : 1,
+            "cycle" : 0.07,
+            "mode" : "transition",
+            "transition" : "open",
+            "properties" : {
+              "immediateSound" : "/sfx/objects/console_generic_switchoff.ogg",
+              "immediateSoundRangeMultiplier" : 0.5
+            }
+
+
+          }
+        }
+      },
+      "controls" : {
+        "default" : "idle",
+        "states" : {
+          "idle" : {},
+          "up" : {},
+          "down" : {},
+          "left" : {},
+          "right" : {}
+        }
+      }
+    },
+
+    "parts" : {
+      "tramControls" : {
+        "properties" : {
+          "centered" : true,
+          "fullbright" : true,
+          "offset" : [0, 2.5],
+          "zLevel" : 2
+        },
+        "partStates" : {
+          "controls" : {
+            "up" : {
+              "properties" : {
+                "image" : "<partImage>:up"
+              }
+            },
+            "down" : {
+              "properties" : {
+                "image" : "<partImage>:down"
+              }
+            },
+            "left" : {
+              "properties" : {
+                "image" : "<partImage>:left"
+              }
+            },
+            "right" : {
+              "properties" : {
+                "image" : "<partImage>:right"
+              }
+            }
+          }
+        }
+      },
+	  "seat" : {
+        "properties" : {
+		  "centered" : true,
+		  "transformationGroups" : ["seat"],
+		  "offset" : [0, 2.5],
+		  "standPosition" : [0.0625, 1.5]
+        },
+		
+        "partStates" : {
+          "seat" : {
+            "default" : {
+              "properties" : {
+                "image" : "<partImage>:default"
+              }
+            }
+          }
+        }
+      },
+      "gate" : {
+        "properties" : {
+		  "centered" : true,
+          "fullbright" : true,
+          "offset" : [0, 2.5],
+		  "zLevel" : 1
+        },
+
+        "partStates" : {
+          "gate" : {
+            "open" : {
+              "properties" : {
+                "image" : "<partImage>:open"
+              }
+            },
+            "closed" : {
+              "properties" : {
+                "image" : "<partImage>:closed"
+              }
+            },
+            "opening" : {
+              "properties" : {
+                "image" : "<partImage>:opening.<frame>"
+              }
+            },
+            "closing" : {
+              "properties" : {
+                "image" : "<partImage>:closing.<frame>"
+              }
+            }
+          }
+        }
+      },
+      "tramfullbright" : {
+        "properties" : {
+          "centered" : true,
+          "offset" : [0, 0.5625],
+          "zLevel" : 0,
+          "fullbright" : true
+        },
+
+        "partStates" : {
+          "rail" : {
+            "on" : {
+              "properties" : {
+                "image" : "<partImage>:onRail.<frame>"
+              }
+            },
+            "off" : {
+              "properties" : {
+                "image" : "<partImage>:offRail"
+              }
+            }
+          }
+        }
+      },
+      "tram" : {
+        "properties" : {
+          "centered" : true,
+          "offset" : [0, 0.5625],
+          "zLevel" : -1
+        },
+
+        "partStates" : {
+          "rail" : {
+            "on" : {
+              "properties" : {
+                "image" : "<partImage>:onRail.<frame>"
+              }
+            },
+            "off" : {
+              "properties" : {
+                "image" : "<partImage>:offRail"
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  
+  "transformationGroups" : {
+	"seat" : {
+	"interpolated" : true
+    }
+  },  
+
+  "sounds" : {
+    "activate" : [ "/sfx/objects/console_button3.ogg" ]
+  }
+}

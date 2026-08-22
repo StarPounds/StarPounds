@@ -1,0 +1,59 @@
+{
+  "name" : "starpoundsthrogtram",
+  "boundBox" : [-2.5, -0.25, 2.5, 3.75],
+  "slaveControlTimeout" : 2.0,
+  "slaveControlHeartbeat" : 1.0,
+  "canBeHit" : false,
+
+  "persistent" : true,
+
+  "script" : "/vehicles/starpoundsthrogtram/starpoundsthrogtram.lua",
+  "animation" : "/vehicles/starpoundsthrogtram/starpoundsthrogtram.animation",
+
+  "animationPartTags" : {
+    "seat" : {
+      "partImage" : "/vehicles/starpoundsthrogtram/seat.png"
+    },
+	"gate" : {
+      "partImage" : "/vehicles/starpoundsthrogtram/starpoundsthrogtram_gate.png"
+    },
+    "tram" : {
+      "partImage" : "/vehicles/starpoundsthrogtram/starpoundsthrogtram.png"
+    },
+    "tramfullbright" : {
+      "partImage" : "/vehicles/starpoundsthrogtram/starpoundsthrogtram_fullbright.png"
+    }
+    ,
+    "tramControls" : {
+      "partImage" : "/vehicles/starpoundsthrogtram/starpoundsthrogtram_arrows.png"
+    }
+  },
+
+  "movementSettings" : {
+    "collisionPoly" : [ [-6.5, 4.25], [6.5, 4.25], [6.5, 1.5], [1.5, 0.25], [-1.5, 0.25], [-6.5, 1.5] ],
+    "mass" : 2.0,
+    "ignorePlatformCollision" : true,
+    "physicsEffectCategories" : []
+  },
+
+  "loungePositions" : {
+    "seat" : {
+      "part" : "seat",
+      "partAnchor" : "standPosition",
+      "orientation" : "stand"
+    }
+  },
+
+  "physicsCollisions" : {
+    "platform" : {
+      "collision" : [ [-6.5, 1.5], [6.5, 1.5] ],
+      "collisionKind" : "platform"
+    }
+  },
+
+  "railConfig" : {
+    "speed" : 15
+  }
+  
+//  "popItem" : "starpoundsthrogtram"
+}

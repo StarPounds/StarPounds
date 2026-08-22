@@ -62,5 +62,12 @@
         {"item" : [ "starpoundsarcadenote-codex", 1]}
       ]
     }]
+  ],
+  "starpounds_deepfryv_bookshelf" : [
+    [1, {
+      "fill" : [
+        {"item" : [ "starpounds_mysteriousnote", 1]}
+      ]
+    }]
   ]
 }
