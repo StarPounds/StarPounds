@@ -1,0 +1,55 @@
+{
+  "type" : "starpounds_dfvwaitress",
+  "baseType" : "outpostcivilian",
+
+  "scriptConfig" : {
+  
+    "behaviorConfig" : {
+      "useFatteningObjects" : false
+    },
+    "reactions" : {
+      "spontaneous" : [
+        [1.0, "starpoundschefpatrol"]
+      ],
+      "starpoundsemptyfood" : [
+        [1, "starpoundsrefreshfood"]
+      ]
+    },
+
+    "dialogMode": "tutorial",    
+    "dialog" : {
+      "converse" : {
+        "default" : {
+          "default" : [
+            "Enjoying your time here at Deep Fry V?",
+			"If you need a bite to eat, stop by Big Fatties!",
+			"Thirsty? Say hi to Franne for some nice, cold drinks!",
+			"Feel free to help yourself to the All* You Can Eat Buffet!\n^#ffffff46;*Not including customers or employees.^reset;"
+          ],
+          "novakd" : [
+            "Enjoying your time here at Deep Fry V, hon?",
+			"Treat yerself at Big Fatties!",
+			"You feelin' parched? Stop by Franne for the good hooch!",
+			"Feel free to help yerself to the All* You Can Eat Buffet!\n*Not including customers or employees."
+          ]
+        }
+      }
+    }
+  },
+  
+  "identity":  {
+    "gender" : "female"
+  },  
+
+  "items" : {
+    "override" : [
+      [0, [
+          {
+            "headCosmetic" : [ { "name" : "starpoundsmooshihead", "parameters" : { "colorIndex" : 0 } } ],
+            "chestCosmetic" : [ { "name" : "starpoundsbunnysuitchest", "parameters" : { "colorIndex" : 9 } } ],
+            "legsCosmetic" : [ { "name" : "starpoundsbunnysuitlegs", "parameters" : { "colorIndex" : 9 } } ]
+          }
+        ] ]
+    ]
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "type" : "starpounds_dfvexplorer",
+  "baseType" : "outpostcivilian",
+
+  "scriptConfig" : {
+
+    "starPounds_skills": {
+      "minimumSize": [3, 3]
+    },
+	
+    "dialogMode": "tutorial",    
+    "dialog" : {
+      "converse" : {
+        "default" : {
+          "default" : [
+			"Warning. If you happen across a mirror in the middle of nowhere, do not listen to it. Or do, I'm not your manufacturer.",
+			"Polite. If you happen to find a bar during your adventures, feel free to drink and rest up!",
+			"Curious. I've heard rumors of barns sheltering Mootants like our Franne here.",
+            "Knowledgable. Gluttonist Tribes like to settle Forests for their hunting grounds.",
+			"Knowing. I've heard rumors of abandoned keeps belonging to the Ponderous Order on Volcanic worlds."
+          ]
+        }
+      }
+    }
+  },
+
+  "items" : {
+    "override" : [
+      [0, [
+          {
+            "headCosmetic" : [ { "name" : "glasses2head", "parameters" : { "colorIndex" : 0 } } ],
+            "chestCosmetic" : [ { "name" : "neckruffle", "parameters" : { "colorIndex" : 4 } } ],
+            "legsCosmetic" : [ { "name" : "noblelegs", "parameters" : { "colorIndex" : 4 } } ],
+            "backCosmetic" : [ { "name" : "wizardback", "parameters" : { "colorIndex" : 0 } } ]
+			}
+        ] ]
+    ]
+  }
+}

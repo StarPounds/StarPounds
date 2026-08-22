@@ -1,0 +1,37 @@
+{
+  "type" : "starpounds_dfvthief",
+  "baseType" : "outpostcivilian",
+
+  "scriptConfig" : {
+
+    "starPounds_skills": {
+      "minimumSize": [3, 3]
+    },
+	
+    "dialogMode": "tutorial",    
+    "dialog" : {
+      "converse" : {
+        "default" : {
+          "default" : [
+"Say, mate... If you're ever want some fancy accessories, feel free to say hi to my associate Mossarrow downstairs.",
+"I'm not a superstitious person, but I've heard that some people feel changed when wearing accessories...",
+"If you're ever looking for trinkets, you're probably going to find 'em in chests!",
+"There's a wide variety of trinkets out and about- some rarer than others!"
+          ]
+        }
+      }
+    }
+  },
+
+  "items" : {
+    "override" : [
+      [0, [
+          {
+            "headCosmetic" : [ { "name" : "bandithat1", "parameters" : { "colorIndex" : 0 } } ],
+            "chestCosmetic" : [ { "name" : "explorerchest", "parameters" : { "colorIndex" : 9 } } ],
+            "legsCosmetic" : [ { "name" : "explorerlegs", "parameters" : { "colorIndex" : 9 } } ]
+			}
+        ] ]
+    ]
+  }
+}

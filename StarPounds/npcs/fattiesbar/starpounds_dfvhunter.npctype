@@ -1,0 +1,39 @@
+{
+  "type" : "starpounds_dfvhunter",
+  "baseType" : "outpostcivilian",
+
+  "scriptConfig" : {
+
+    "starPounds_skills": {
+      "minimumSize": [2, 2]
+    },
+	
+    "dialogMode": "tutorial",    
+    "dialog" : {
+      "converse" : {
+        "default" : {
+          "default" : [
+			"Floran heard rumorsss of big Mootants wandering forests... Some look like Floran!",
+			"They sssay that Ocean worldsss are haunted by Hylotl Ghosstss... Floran not sssupersstitiouss!",
+			"Floran hass sseen bird-women in mountainss. Not Avians- bird legs with human body!",
+            "Once found cave full of ssslime, ssome wanted to shove themsselves in floran throat!",
+            "Found sstrange sslimes in an eye-forest before. Tried feeding themsselves to me.",
+			"Floran's found many chubby beess wandering around flowery regions. Helped sself to honey once or twice."
+          ]
+        }
+      }
+    }
+  },
+
+  "items" : {
+    "override" : [
+      [0, [
+          {
+            "headCosmetic" : [ { "name" : "eyepatchhead", "parameters" : { "colorIndex" : 0 } } ],
+            "legsCosmetic" : [ { "name" : "predatorypants", "parameters" : { "directives" : "?replace;ffca8a=eab3db;e0975c=d35eae;a85636=97276d;6f2919=59163f;d93a3a=d35eae;932625=97276d;601119=59163f;" } } ],
+            "backCosmetic" : [ { "name" : "spearback", "parameters" : { "colorIndex" : 0 } } ]
+			}
+        ] ]
+    ]
+  }
+}

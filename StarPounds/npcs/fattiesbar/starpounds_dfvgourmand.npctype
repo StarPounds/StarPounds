@@ -1,0 +1,38 @@
+{
+  "type" : "starpounds_dfvgourmand",
+  "baseType" : "outpostcivilian",
+
+  "scriptConfig" : {
+
+    "starPounds_skills": {
+      "minimumSize": [4, 4]
+    },
+	
+    "dialogMode": "tutorial",    
+    "dialog" : {
+      "converse" : {
+        "default" : {
+          "default" : [
+"It's better to spoil yourself when you can- rarer foods will help your soul more than roasting carrots over a fire.",
+"The more nourishing it is the bigger you'll get! You'll see better results from big meals like burgers than from just eating rice and potatoes!",
+"You know, cooking's a great hobby to pick up if you plan on gaining weight and experience. You know what they say about skinny chefs!",
+"Did you know that you can train your stomach by eating lots of tasty food?",
+"I've heard some people have trained their guts by swallowing their enemies whole!... Not that I would try that, myself.",
+"Hose feeding is a great way to train your belly!"
+          ]
+        }
+      }
+    }
+  },
+
+  "items" : {
+    "override" : [
+      [0, [
+          {
+            "chestCosmetic" : [ { "name" : "chefchest", "parameters" : { "colorIndex" : 8 } } ],
+            "legsCosmetic" : [ { "name" : "cheflegs", "parameters" : { "colorIndex" : 8 } } ]
+			}
+        ] ]
+    ]
+  }
+}
