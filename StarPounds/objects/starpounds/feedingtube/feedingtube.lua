@@ -161,7 +161,7 @@ function collectLiquid()
       if root.itemType(item.name) == "liquid" then
         local liquidName = root.itemConfig(item.name).config.liquid
         -- Don't accept inedible liquids.
-        if not self.liquids[liquidName].inedible and (not storage.liquid or liquidName == storage.liquid.name) then
+        if not self.liquids[liquidName] or (not self.liquids[liquidName].inedible and (not storage.liquid or liquidName == storage.liquid.name)) then
           local itemDrop = world.takeItemDrop(itemId, entity.id())
           if itemDrop then
             storage.liquid = {
