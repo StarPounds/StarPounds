@@ -12,13 +12,11 @@ local update_old = update
 function update(dt)
   local driver = vehicle.entityLoungingIn("seat")
   if driver then
+    animator.resetTransformationGroup("seat")
     superSizeOffset(driver)
     if self.entityOffsets[driver] then
-      animator.resetTransformationGroup("seat")
       animator.translateTransformationGroup("seat", self.entityOffsets[driver])
     end
-  elseif self.driver and not driver then
-    animator.resetTransformationGroup("seat")
   end
 
   promises:update()
