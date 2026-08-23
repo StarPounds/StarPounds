@@ -9366,11 +9366,13 @@
                  "properties":
                     {
                      "npc":"human",
+                     "seed":"242",
                      "typeName":"fattiesbarguest"
                     },
                  "propertytypes":
                     {
                      "npc":"string",
+                     "seed":"string",
                      "typeName":"string"
                     },
                  "rotation":0,

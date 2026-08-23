@@ -27,13 +27,11 @@
         "default": {
           "default": [
             "Hey, you know what happened to all the peanut butter? I swear, someone's been buying it all up...",
-            "For the last time, NO! It's not weird for Avians to eat chicken!",
-            "All this new Throg tech's pretty cool, huh? It used to take forever to get around at my size!"
+            "For the last time, NO! It's not weird for Avians to eat chicken!"
           ],
           "avian": [
             "Hey, you know what happened to all the peanut butter? I swear, someone's been buying it all up...",
             "For the last time, NO! It's not weird for Avians to eat chicken!",
-            "All this new Throg tech's pretty cool, huh? It used to take forever to get around at my size!",
             "You know... if you like hanging around here a lot, I think you might be interested in Velhanu. I know a good temple or two dedicated to her.",
             "Damn your feathers are ON POINT today! Meeting with someone special~?",
             "Just between you and me... I think some of the Throg around have gotten a taste for birds. You watch yourself."
@@ -41,49 +39,41 @@
           "apex": [
             "Hey, you know what happened to all the peanut butter? I swear, someone's been buying it all up...",
             "For the last time, NO! It's not weird for Avians to eat chicken!",
-            "All this new Throg tech's pretty cool, huh? It used to take forever to get around at my size!",
             "Hey, you wouldn't happen to have a secret lab, would you? Settling a bet with a friend."
           ],
           "floran": [
             "Hey, you know what happened to all the peanut butter? I swear, someone's been buying it all up...",
             "For the last time, NO! It's not weird for Avians to eat chicken!",
-            "All this new Throg tech's pretty cool, huh? It used to take forever to get around at my size!",
             "Man, I could kill for some good ribs right now. You know a good place?"
           ],
           "glitch": [
             "Hey, you know what happened to all the peanut butter? I swear, someone's been buying it all up...",
             "For the last time, NO! It's not weird for Avians to eat chicken!",
-            "All this new Throg tech's pretty cool, huh? It used to take forever to get around at my size!",
             "I ordered a pizzap from the diner on accident one time... I don't know how you can just eat that stuff."
           ],
           "human": [
             "Hey, you know what happened to all the peanut butter? I swear, someone's been buying it all up...",
             "For the last time, NO! It's not weird for Avians to eat chicken!",
-            "All this new Throg tech's pretty cool, huh? It used to take forever to get around at my size!",
             "One of the best chefs I've ever met was a human. You ever see one of her restaurants, you've GOTTA give it a try!"
           ],
           "hylotl": [
             "Hey, you know what happened to all the peanut butter? I swear, someone's been buying it all up...",
             "For the last time, NO! It's not weird for Avians to eat chicken!",
-            "All this new Throg tech's pretty cool, huh? It used to take forever to get around at my size!",
             "Y'know, I wonder if this place reminds you of home... but instead of being underwater, it's tucked away in a sloshing mass of fat."
           ],
           "novakid": [
             "Hey, you know what happened to all the peanut butter? I swear, someone's been buying it all up...",
             "For the last time, NO! It's not weird for Avians to eat chicken!",
-            "All this new Throg tech's pretty cool, huh? It used to take forever to get around at my size!",
             "Man, I could kill for some good ribs right now. You know a good place?"
           ],
           "throg": [
             "Hey, you know what happened to all the peanut butter? I swear, someone's been buying it all up...",
             "For the last time, NO! It's not weird for Avians to eat chicken!",
-            "All this new Throg tech's pretty cool, huh? It used to take forever to get around at my size!",
             "So do you know if uh... y'know the meat they use in the--... the food, is it made with--... don't answer that actually..."
           ],
           "mootant": [
             "Hey, you know what happened to all the peanut butter? I swear, someone's been buying it all up...",
             "For the last time, NO! It's not weird for Avians to eat chicken!",
-            "All this new Throg tech's pretty cool, huh? It used to take forever to get around at my size!",
             "So you just like... produce milk like a cow? Asking for a friend..."
           ]
         }

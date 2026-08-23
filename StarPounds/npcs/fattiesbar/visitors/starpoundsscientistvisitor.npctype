@@ -15,79 +15,35 @@
       "converse": {
         "default": {
           "default": [
-            "The Throgs have quite the impressive amount of technology.",
-            "All this time the Throg have been on the otherside of the galaxy, and now they're in our corner.",
-            "It's so exciting to witness a new race to gather information on!",
-            "Do you think that a Throg would be willing to get tests?",
             "It looks like I've have plenty of snacks for my research here.",
             "Even if I wasn't a scientist, I can see how dense in calories the food here is.",
-            "Throgs require constant eating to not lose weight, which is actually healthy for them. Fascinating!"
-          ]
-        },
-        "apex": {
-          "default": [
-            "The technology the Throgs hold puts even the Miniknog to shame.",
-            "We've always heard about Throgs, though if there were any records on them, they were lost to the Miniknog long ago.",
-            "Throgs moving into this corner of the galaxy must mean many planets in their home sector are quite barren.",
-            "How persuasive could I be to get a Throg under an examination table?",
-            "I'm sure the food here is at least better then Miniknog approved food.",
-            "The food here is quite high in its calorie content, making it very fattening.",
-            "With how quickly Throgs lose weight, it's no wonder they pack their food with as much calories as possible."
-          ]
-        },
-        "avian": {
-          "default": [
-            "The Throgs technological might makes the Avian advancement seem primitive.",
-            "Avians made first contact with the Glitch and Florans long ago. This isn't the same thing but it's still exciting.",
-            "Throgs seem to be expanding their territory in search of more lush planets to harvest for food.",
-            "If only I could run all the tests I could imagine on a Throg.",
-            "I wonder if they have any good fluffy baked treats here to eat?",
             "If I'm not careful I could be packing away quite a lot of weight from all these high calorie treats.",
-            "For most species it's unhealthy to get obese, but it's the opposite for a Throg. Isn't that interesting?"
+			"I've heard interesting stories of odd, strangely fat themed, things happening across the universe lately.",
+			"Good thinking doesn't come from an empty stomach!",
+			"Calorium sounds like an interesting thing to study. An organic fat-derived FTL fuel? How fascinating!",
+			"One of my colleagues was studying some fatty tissue they found in the outer fringes. Wonder how he's doing right now?"
           ]
         },
         "floran": {
           "default": [
-            "Floran not worried about Throg technology.",
-            "Throgss ssseem like sstrong huntersss. Floran can't wait to sssee jusst how much.",
-            "Throgsss ran out of food in their part of galaxy. Came here sssearching for more.",
-            "Floran hopesss to eat Throg meat. For ssscience reasonsss.",
-            "Food here quite tasssty, and fattening.",
-            "Floran weight been going up sssince eating food here.",
-            "Throgsss mussst be good huntersss. Ssslow and fat but ssstrong and viciousss."
+            "Floran is resssearcher! Sstopping by for lunch.",
+            "Floran wants to ssstudy new Calorium fluid. Fuel from fatss? Interesssting!",
+            "Been hearing rumorsss of sstrange fatty monsterss appearing all over the place. Floran'ss mind is abuzz!",
+            "Firssst snacksss, then research!",
+            "Floran shuddersss reading calorie countsss on foodss here... And then eatsss it anyways.",
+            "Good ssscience needss fuel!",
+            "Good thing Floran only needss to think, not run, to be ssscientist."
           ]
         },
         "glitch": {
           "default": [
-            "Interested: Throgs have quite a substantial lead on technology compared to other races.",
-            "Statement: Glitch don't recall ever meeting the Throgs, though there were rumors they've been around for quite awhile.",
-            "Statement: Having dried up many bountiful planets in their sector, the Throgs came to this part of the galaxy for more food to harvest.",
-            "Curious: I wonder if I could get my hands on a Throg on top of my examination table?",
-            "Statement: This place has been great for lunch while I study the Throgs.",
-            "Statement: Normally it's not much of a concern for Glitch, but the food here is quite fattening.",
-            "Statement: Throgs are unusual, requiring to be fat and constantly eating to be healthy."
-          ]
-        },
-        "human": {
-          "default": [
-            "I think the only thing we have on the Throgs in terms of tech is the Matter Manipulator. What the Throgs have on the other hand...",
-            "Supposedly Throgs used to have scouts frequent this sector of the galaxy long ago, causing the rumors of them.",
-            "Throgs recently entered this part of the galaxy in search of food after exhausting all habitable planets in their sector.",
-            "It's against Protectorate Law to put a sapient species under an examination table like a lab rat. But I do still think about a what if...",
-            "A good thing about Throgs being so food obsessed is that I never have to go far to get a snack while I do my research.",
-            "With how quickly Throgs can lose weight, it's no wonder they make their food as fattening as it is. Has quite an effect on other races though.",
-            "Throgs are living the ancient USA dream, being fat and eating so much fattening food."
-          ]
-        },
-        "hylotl": {
-          "default": [
-            "Even Lethia doesn't have much of an advantage in technology the way the Throg Empire does.",
-            "Ancient Hylotl history used to describe a species of disgusting, gluttonous slobs devouring everything. The Throgs.",
-            "Despite showing up via scouts long ago. Throgs have been making a push into this part of the galaxy for more resources after demolishing theirs.",
-            "I'd like to get some tests done on the Throgs. But they've been quite unwilling to step up for science.",
-            "If I don't keep my portions for lunch in check, I'll have to switch my career into sumo wrestling.",
-            "Knowing how Throgs work, them making their food high in calories isn't malicious. It is actually good for them oddly enough.",
-            "Throgs are so obsessed with fat because they get healthier the fatter they are. A skinny Throg is very unhealthy."
+            "Defensive. I'm just stopping by for lunch.",
+            "Neutral. It looks like I've have plenty of snacks for my research here.",
+            "Curious. Been hearing rumors of all sorts of fat-related incidents happening all over the universe recently.",
+            "Rattled. My sensors are overwhelmed with how much calories they stuff into every meal here.",
+            "Fascinated. Calorium sounds like an interesting thing to study. An organic fat-derived FTL fuel? How fascinating!",
+            "Cautious. I should try to be a little more sparing with the food here. No doubt it'll have an effect on my waistline.",
+            "Snark. Good thing I didn't choose a career in sports."
           ]
         }
       }
