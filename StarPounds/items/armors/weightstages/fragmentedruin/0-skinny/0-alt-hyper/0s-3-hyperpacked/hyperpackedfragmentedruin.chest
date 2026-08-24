@@ -5,11 +5,11 @@
   "maxStack" : 1,
   "rarity" : "legendary",
   "category" : "chestwear",
-  "description" : "Someone is a bit well developed.",
-  "shortdescription" : "Hyper Packed Bust",
+  "description" : "You've since passed the point you could try sucking in this gut.",
+  "shortdescription" : "Hyper Packed Chest",
   "tooltipKind" : "starpoundsarmor",
   "bypassNude" : true,
-
+  
   "statusEffects": [
     "starpounds",
     "starpoundshyper",
