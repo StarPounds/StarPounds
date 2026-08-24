@@ -1,0 +1,8 @@
+{
+  "frames" : "starpoundspopbubbles.png",
+  "variants" : 1,
+  "frameNumber" : 4,
+  "loops" : 1.0,
+  "animationCycle" : 0.5,
+  "offset" : [0, 0]
+}

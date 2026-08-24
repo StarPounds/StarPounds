@@ -82,5 +82,6 @@
   "damageKind" : "caloricplasma",
   "bounceFactor" : 0.5,
   "piercing" : true,
-  "scripts" : [ "/scripts/projectiles/starpoundsbounce.lua" ]
+  "scripts" : [ "/scripts/projectiles/starpoundsbounce.lua" ],
+  "emitters" : [ "starpoundssodabubble", "starpoundssodabubble" ]
 }

@@ -1,0 +1,18 @@
+{
+  "kind" : "starpoundspopbubbles",
+  "definition" : {
+    "type" : "animated",
+    "looping" : true,
+    "animation" : "/animations/popbubbles/starpoundspopbubbles.animation",
+    "position" : [0, 0],
+    "finalVelocity" : [0, 0],
+    "approach" : [50, 50],
+    "size" : 0.7,
+    "layer" : "front",
+    "timeToLive" : 0.8,
+    "variance" : {
+      "finalVelocity" : [1.5, 1.5],
+      "position" : [0, 1.0]  
+    }
+  }
+}

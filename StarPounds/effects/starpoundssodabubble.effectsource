@@ -1,0 +1,30 @@
+{
+  "kind" : "starpoundssodabubble",
+  "definition" : {
+    "duration" : 0.08,
+    "durationVariance" : 0.04,
+    "loops" : true,
+    "start" : {
+      "particles" : [
+        [ ]
+      ],
+      "sounds" : [
+        [ ]
+      ]
+    },
+    "particles" : [
+      [ "starpoundspopbubbles" ]
+    ],
+    "sounds" : [
+      [ ]
+    ],
+    "stop" : {
+      "particles" : [
+        [ "starpoundspopbubbles" ]
+      ],
+      "sounds" : [
+        [ ]
+      ]
+    }
+  }
+}

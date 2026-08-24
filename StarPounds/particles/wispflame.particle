@@ -13,7 +13,7 @@
   "fullbright" : true,
     "light" : [90, 30, 0],
     "size" : 1.0,
-    "layer" : "back",
+    "layer" : "front",
     "timeToLive" : 0.425,
     "variance" : {
       "finalVelocity" : [1.5, 1.5]

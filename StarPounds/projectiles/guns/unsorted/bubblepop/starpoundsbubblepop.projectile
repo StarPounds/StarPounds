@@ -1,0 +1,20 @@
+{
+  "projectileName" : "starpoundsbubblepop",
+  "image" : "starpoundsbubblepop.png",
+  "animationCycle" : 0.1,
+  "frameNumber" : 3,
+  "speed" : 0,
+  "damagePoly" : [ [-12, 0], [-8, -8], [0, -12], [8, -8], [12, 0], [8, 8], [0, 12], [-8, 8] ],
+  "animationLoops" : false,
+  "piercing" : true,
+  "flippable" : false,
+  "damageKind" : "caloric",
+  "timeToLive" : 0.12,
+
+  "statusEffects" : [
+    {"effect": "starpoundsfood_weaponLiquid", "duration": 3},
+    {"effect": "starpoundsfood_liquid", "duration": 3}
+  ],  
+  
+  "emitters" : [ "starpoundssodabubble" ]
+}

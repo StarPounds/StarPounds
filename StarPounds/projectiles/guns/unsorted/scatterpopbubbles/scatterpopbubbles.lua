@@ -1,5 +1,9 @@
 require "/scripts/vec2.lua"
 function init()
-  local speedVariance = 1 + (math.random() - 0.5) * projectile.getParameter("speedVariance", 0)
-  mcontroller.setVelocity(vec2.mul(mcontroller.velocity(), speedVariance))
+  projectile.setTimeToLive(variance("timeToLiveVariance"))
+  mcontroller.setVelocity(vec2.mul(mcontroller.velocity(), variance("speedVariance")))
+end
+
+function variance(value)
+  return 1 + (math.random() - 0.5) * projectile.getParameter(value, 0)
 end

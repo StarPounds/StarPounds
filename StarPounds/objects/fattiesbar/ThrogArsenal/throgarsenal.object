@@ -3,20 +3,20 @@
   "colonyTags" : ["starpounds","throg"],
   "rarity" : "Uncommon",
   "category" : "other",
-  "description" : "A store with an assortment of weaponry sold by a Throg.",
-  "shortdescription" : "Throg Arsenal",
+  "description" : "A store with an assortment of weaponry sold by Fayanne.",
+  "shortdescription" : "Fatties' Arsenal",
   "race" : "throg",
   "printable" : false,
 
-  "apexDescription" : "This Throg has some, interesting weapons.",
+  "apexDescription" : "This store has some, interesting weapons.",
   "avianDescription" : "These are an odd collection of weapons being sold.",
-  "floranDescription" : "Floran wantss ssstabby Throg fork.",
+  "floranDescription" : "Floran wantss ssstabby hunting fork.",
   "glitchDescription" : "Curious. Despite their appearance, weapons are being sold here.",
-  "humanDescription" : "This pig, er Throg is selling some weird weapons.",
-  "hylotlDescription" : "The weaponry sold by this Throg is uh...  unique.",
+  "humanDescription" : "This store is selling some weird weapons.",
+  "hylotlDescription" : "The weaponry sold by this store is uh...  unique.",
   "novakidDescription" : "Got some interestin' weapons here. Makes me wonder what they all do.",
-  "throgDescription" : "Ah, I can reclaim a Throg Greatfork here. And some other weaponry that matches my tastes.",
-  "mootantDescription" : "This pig, er Throg is selling some weird weapons.",
+  "throgDescription" : "Ah, I can reclaim a Greatfork here. And some other weaponry that matches my tastes.",
+  "mootantDescription" : "This store is selling some weird weapons.",
   "harpyDescription" : "These are an odd collection of weapons being sold.",
 
   "avaliDescription" : "Weaponry is all well and good. Though these are some weird weapons.",
@@ -44,7 +44,7 @@
     "config" : "/interface/fattyshops/fatshops.config",
     "paneLayoutOverride" : {
       "windowtitle" : {
-        "title" : "Throg Arsenal",
+        "title" : "Fatties' Arsenal",
         "subtitle" : "Weaponry for fat enthusiasts",
         "icon" : {
           "file" : "/interface/fattyshops/icons/fayane.png"
@@ -83,7 +83,8 @@
     {"input": [["durasteelbar", 6], ["climbingrope", 4], ["starpoundsonikillersake", 1]], "output": "starpoundsogresmoonshiner"},
     {"input": [["durasteelbar", 6], ["phasematter", 4], ["starpoundsponderouscore", 1]], "output": "starpoundsponderousstaff"},
     {"input": [["durasteelbar", 6], ["copperbar", 6], ["starpoundsponderouscore", 1]], "output": "starpoundsponderoushammer"},
-    {"input": [["durasteelbar", 6], ["copperbar", 4], ["starpoundsstardustrootpop", 1]], "output": "starpoundsscatterpopper"}
+    {"input": [["durasteelbar", 6], ["copperbar", 4], ["starpoundsstardustrootpop", 1]], "output": "starpoundsscatterpopper"},
+    {"input": [["durasteelbar", 6], ["copperbar", 4], ["starpoundsstardustrootpop", 1]], "output": "starpoundssixpopper"}
     ],
     "utilities" : [
       {"input": [["money", 500], ["liquidmilk", 100], ["sugar", 3]], "output": "starpoundsmilkshakesquirtgun"},

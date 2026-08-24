@@ -15,5 +15,6 @@
     {"effect": "starpoundsfood_weaponLiquid", "duration": 10},
     {"effect": "starpoundsfood_liquid", "duration": 10}
   ],
-  "damageKind" : "caloric"
+  "damageKind" : "caloric",
+  "emitters" : [ "starpoundssodabubble", "starpoundssodabubble", "starpoundssodabubble" ]
 }

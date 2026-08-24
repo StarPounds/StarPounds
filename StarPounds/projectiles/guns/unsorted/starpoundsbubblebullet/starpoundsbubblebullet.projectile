@@ -1,10 +1,10 @@
 {
-  "projectileName" : "starpoundsscatterpopbubbles",
-  "image" : "starpoundsscatterpopbubbles.png",
-  "physics" : "bigbubble",
-  "animationCycle" : 1,
-  "frameNumber" : 15,
-  "animationLoops" : false,
+  "projectileName" : "starpoundsbubblebullet",
+  "image" : "starpoundsbubblebullet.png",
+  "physics" : "laser",
+  "animationCycle" : 0.25,
+  "frameNumber" : 1,
+  "damageKind" : "caloric",
   "pointLight" : false,
   "flippable" : true,
   "actionOnReap" : [
@@ -16,7 +16,7 @@
       "action" : "projectile",
       "type" : "starpoundsbubblepop",
       "inheritSpeedFactor" : 0.0,
-      "inheritDamageFactor" : 0.05
+      "inheritDamageFactor" : 0.25
     },
     {
       "action" : "loop",
@@ -48,15 +48,9 @@
   "statusEffects" : [
     {"effect": "starpoundsfood_weaponLiquid", "duration": 5},
     {"effect": "starpoundsfood_liquid", "duration": 5}
-  ],
-  "piercing" : false,
-  "power" : 1,
-  "speed" : 20,
-  "timeToLive" : 1.66,
-  "bounces" : -1,
-  "damagePoly" : [ [-4.5, 0], [-3, -3], [0, -4.5], [3, -3], [4.5, 0], [3, 3], [0, 4.5], [-3, 3] ],
-  "damageKind" : "caloric",
-  "emitters" : [ "starpoundssodabubble" ],
-  "scripts" : ["scatterpopbubbles.lua"],
-  "timeToLiveVariance" : 0.33
-  }
+	],
+  "emitters" : [ "starpoundssodabubble", "starpoundssodabubble" ],
+  "power" : 5.0,
+  "speed" : 150,
+  "knockback" : 0
+}
