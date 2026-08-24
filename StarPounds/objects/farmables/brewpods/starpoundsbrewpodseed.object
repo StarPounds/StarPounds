@@ -52,7 +52,7 @@
     },
     {
       "alts" : 5,
-      "harvestPool" : "starpoundsbrewpodharvest",
+      "harvestPool" : "starpoundsbrewpodHarvest",
       "resetToStage" : 2
     }
   ],
