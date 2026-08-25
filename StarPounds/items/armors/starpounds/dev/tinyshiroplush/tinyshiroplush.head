@@ -5,8 +5,8 @@
   "maxStack" : 1,
   "rarity" : "Legendary",
   "category" : "headwear",
-  "description" : "You feel the bloodlust of this plushie yet you put it on your head anyways.",
-  "shortdescription" : "^white;Tiny^reset; ^#ac0019;Shiro^reset; Plushie",
+  "description" : "The inside of this horrifying mask is warm and smells like a campfire. Still, you probably shouldn't wear it.",
+  "shortdescription" : "^#ac0019;Shiro^reset; ^white;Mask^reset;",
   "tooltipKind" : "armor",
 
   "maleFrames" : "head.png",
