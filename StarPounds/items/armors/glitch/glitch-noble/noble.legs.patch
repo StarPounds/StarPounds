@@ -1,0 +1,3 @@
+[
+  { "op": "replace", "path": "/colorOptions/0",  "value": { "ffca8a" : "D4C398", "e0975c" : "A28959", "a85636" : "715833", "6f2919" : "43331E" } }
+]
