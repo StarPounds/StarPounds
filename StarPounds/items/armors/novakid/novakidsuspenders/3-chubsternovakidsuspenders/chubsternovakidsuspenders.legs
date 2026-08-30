@@ -10,8 +10,8 @@
   "shortdescription" : "Suspender XL Pants",
   "tooltipKind" : "armor",
 
-  "maleFrames" : "pants.png",
-  "femaleFrames" : "pants.png",
+  "maleFrames" : "pantsM.png",
+  "femaleFrames" : "pantsF.png",
 
   "colorOptions" : [
     // BROWN
