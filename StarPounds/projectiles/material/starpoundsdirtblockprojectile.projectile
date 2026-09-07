@@ -1,0 +1,23 @@
+{
+  "projectileName" : "starpoundsdirtblockprojectile",
+  "physics" : "grenade",
+  "image" : "dirtblock.png",
+  "animationCycle" : 1,
+  "frameNumber" : 1,
+  "power" : 20,
+
+  "speed" : 45,
+
+  "actionOnReap" : [
+    {
+      "action" : "tile",
+      "materials" : [
+        {"kind" : "dirt"}
+      ]
+    }
+  ],
+  "onlyHitTerrain" : true,
+  "damageType" : "NoDamage",
+  "damageKind" : "default",
+  "emitters" : [ ]
+}

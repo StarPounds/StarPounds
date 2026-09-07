@@ -26,5 +26,20 @@
       "type" : "microdungeon",
       "microdungeons" : [ "gluttonistcookout", "starpounds_bar_encounter" ]
     }
+  },
+  {
+    "op": "add",
+    "path": "/surfacePlaceables/items/-",
+    "value":
+    {
+      "mode" : "floor",
+      "priority" : 1,
+      "variants" : 1,
+      "distribution" : "/biomes/starpoundsmicrodungeon.config:starpoundsraremicrodungeon",
+
+      "type" : "microdungeon",
+      "microdungeons" : [ "starpounds_rareencounter" ],
+	  "blockProbability" : 0.0001
+    }
   }
 ]

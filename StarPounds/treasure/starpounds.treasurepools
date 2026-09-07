@@ -69,5 +69,27 @@
         {"item" : [ "starpounds_mysteriousnote", 1]}
       ]
     }]
+  ],
+  
+    "starpounds2019machineloot" : [
+    [0, {
+      "fill" : [
+        {"item" : [ "starpounds2019special", 1]}
+      ],
+      "pool" : [
+        {"weight" : 0.30, "item" : [ "dirtmaterial", 1]},
+        {"weight" : 0.30, "item" : [ "soda", 1]},
+        {"weight" : 0.30, "item" : [ "dirtmaterial", 6]},
+        {"weight" : 0.30, "item" : [ "soda", 1]},
+        {"weight" : 0.30, "item" : [ "soda", 1]}	  
+      ],
+      "poolRounds" : [
+        [0.50, 2],
+        [0.30, 4],
+        [0.20, 6]
+      ],
+      "allowDuplication" : false
+    }]
   ]
+  
 }

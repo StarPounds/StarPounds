@@ -1,0 +1,65 @@
+{
+  "objectName" : "starpounds_2019sodamachine",
+  "colonyTags" : ["commerce"],
+  "rarity" : "Legendary",
+  "category" : "breakable",
+  "price" : 10000,
+  "lightColor" : [200, 225, 205],
+  "flickerPeriod" : 0.01,
+  "flickerMinIntensity" : 0.25,
+  "flickerMaxIntensity" : 0.75,
+  "flickerPeriodVariance" : 0.8,
+  "flickerIntensityVariance" : 0.25,
+    
+  "printable" : false,
+
+  "shortdescription" : "2019 Vending Machine",
+  "description" : "An old, half functional vending machine. Seems a little dirty...",
+  "race" : "generic",
+
+  "apexDescription" : "Looks like this machine's been here for a while...",
+  "avianDescription" : "How did this get here?!",
+  "floranDescription" : "Why isss machine full of dirt?",
+  "glitchDescription" : "Curious. How long has this vending machine been here?",
+  "humanDescription" : "I've only heard tales of the 2019 Summer Sale Incident...",
+  "hylotlDescription" : "It looks quite old and weathered... Wonder if any of the drinks are still good?",
+  "novakidDescription" : "What is this doing here?",
+
+  "inventoryIcon" : "starpounds_2019sodamachineicon.png",
+  "orientations" : [
+    {
+      "imageLayers" : [ { "image" : "starpounds_2019sodamachineleft.png:<color>", "fullbright" : true }, { "image" : "starpounds_2019sodamachineleftlit.png:<color>" } ],
+      "imagePosition" : [-16, 0],
+      "direction" : "left",
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ],
+      "collision" : "platform"
+
+    },
+    {
+      "imageLayers" : [ { "image" : "starpounds_2019sodamachineright.png:<color>", "fullbright" : true }, { "image" : "starpounds_2019sodamachinerightlit.png:<color>" } ],
+      "imagePosition" : [-16, 0],
+      "direction" : "right",
+
+      "spaceScan" : 0.1,
+      "anchors" : [ "bottom" ],
+      "collision" : "platform"
+
+    }
+  ],
+
+  "scripts" : [
+    "/objects/scripts/explodingsmashable.lua"
+  ],
+  
+  "smashable" : true,
+  "smashOnBreak" : true,
+  "smashSounds" : [ "/sfx/gun/grenadeblast1.ogg", "/sfx/gun/grenadeblast2.ogg", "/sfx/gun/grenadeblast3.ogg" ],
+  "smashDropPool" : "starpounds2019machineloot",
+  "breakDropPool" : "starpounds2019machineloot",  
+  
+  "explosionProjectile" : "starpounds_specialsodamachineexplosion",
+  "explosionOffset" : [1, 2]  
+  
+}
