@@ -2,11 +2,11 @@
   "projectileName" : "ponderousbolt",
   "physics" : "laser",
   "bounces" : 6,
-  "timeToLive" : 4,
+  "timeToLive" : 6,
   "image" : "ponderousbolt.png",
   "lightColor" : [178, 75, 6],
   "frameNumber" : 4,
-  "speed" : 0,
+  "speed" : 15,
   "animationCycle" : 0.2,
   "emitters" : [ "wispflame" ],
 
@@ -47,13 +47,10 @@
       ]
     }
   ],
-  "scripts" : [ "/projectiles/activeitems/staff/plasmablade/plasmablade.lua" ],
+  "scripts" : [ "/projectiles/activeitems/staff/staffprojectile.lua" ],
 
-  "triggerSpeed" : 80,
-
-  "controlRotation" : {
-    "maxSpeed" : 9,
-    "controlForce" : 70,
-    "friction" : 10
+  "controlMovement" : {
+    "maxSpeed" : 60,
+    "controlForce" : 40
   }
 }

@@ -96,20 +96,8 @@
 
   "elementalType" : "physical",
 
-  "primaryAbilityType" : "plasmabladebarrage",
+  "primaryAbilityType" : "starpoundswispswarm",
   "primaryAbility" : {
-    "name" : "Wisp Barrage",
-    "projectileType" : "ponderousbolt",
-    "projectileCount" : 8,
-    "maxCastRange" : 30,
-
-    "projectileParameters" : {
-      "baseDamage" : 40
-    },
-
-    "projectileDelayFirst" : 0.75,
-    "projectileDelayEach" : 0.15,
-
     "stances" : {
       "idle" : {
         "weaponOffset" : [-0.125, -0.5]
