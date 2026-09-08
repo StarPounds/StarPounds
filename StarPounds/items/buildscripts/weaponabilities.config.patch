@@ -46,8 +46,8 @@
   },
   {
     "op": "add",
-    "path": "/starpoundsrayofgain",
-    "value": "/items/active/weapons/ranged/abilities/rayofgain/starpoundsrayofgain.weaponability"
+    "path": "/starpoundsvelhanusembrace",
+    "value": "/items/active/weapons/staff/abilities/effectzone/starpoundsvelhanusembrace.weaponability"
   },
   {
     "op": "add",

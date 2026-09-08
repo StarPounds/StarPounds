@@ -1,0 +1,15 @@
+{
+  "ability" : {
+    "type" : "starpoundsvelhanusembrace",
+    "name" : "Velhanu's Embrace",
+    "scripts" : ["/items/active/weapons/staff/abilities/effectzone/effectzone.lua"],
+    "class" : "EffectZone",
+
+    "energyCost" : 130,
+
+    "maxCastRange" : 25,
+
+    "projectileType" : "starpoundsvelhanuzone",
+    "projectileParameters" : {}
+  }
+}

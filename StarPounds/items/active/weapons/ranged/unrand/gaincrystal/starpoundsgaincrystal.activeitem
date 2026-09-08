@@ -15,33 +15,108 @@
 
   "animation" : "starpoundsgaincrystal.animation",
   "animationParts" : {
-    "beamorigin" : "starpoundsgaincrystalbeam_muzzle.png",
-    "muzzleFlash" : "starpoundsgaincrystalbeam_muzzle.png",
-    "erchiuseye" : "starpoundsgaincrystal.png"
+    "beamorigin" : "starpoundsgaincrystal_muzzle.png",
+    "muzzleFlash" : "",
+    "erchiuseye" : "starpoundsgaincrystal.png",
+    "erchiuseyelit" : "starpoundsgaincrystallit.png",
+    "stone" : "",
+    "chargeEffect" : "starpoundscrystalglow.png"
   },
   "animationCustom" : {
     "sounds" : {
-      "fireStart" : [ "/sfx/gun/erchiuseyebeam_start.ogg" ],
-      "fireLoop" : [ "/sfx/gun/erchiuseyebeam_loop.ogg" ],
-      "fireEnd" : [ "/sfx/gun/erchiuseyebeam_stop.ogg" ],
-      "beamImpact" : [ "/sfx/projectiles/flame_burn.ogg" ]
+      "fireStart" : [ "/sfx/gun/aegisaltpistol_start.ogg" ],
+      "fireLoop" : [ "/sfx/gun/gnomebeam_loop1.ogg" ],
+      "fireEnd" : [ "/sfx/melee/elemental_aura_deactivate1.ogg" ],
+      "beamImpact" : [ "/sfx/projectiles/flame_burn.ogg" ],
+      "physicalcharge" : ["/sfx/melee/staff_charge4.ogg"],
+      "physicalfullcharge" : ["/sfx/melee/elemental_aura_activate.ogg"],
+      "physicalchargedloop" : ["/sfx/melee/charge_full_hold1.ogg"],
+      "physicaldischarge" : ["/sfx/melee/elemental_aura_deactivate1.ogg"],
+      "physicalactivate" : ["/sfx/projectiles/plasma3.ogg"],
+      "zoneactivate" : ["/sfx/gun/gnomebeam_start1.ogg"]  	  
     }
   },
   "animationScripts" : ["/items/active/effects/chain.lua"],
 
-  // "baseOffset" : [0.5, 0.75],
   "muzzleOffset" : [0.875, 0.75],
 
-  "scripts" : ["/items/active/weapons/ranged/gun.lua"],
+  "scripts" : [ "/items/active/weapons/ranged/gun.lua", "/items/active/weapons/staff/staff.lua" ],
 
   "elementalType" : "physical",
+
+  "stances" : {
+     "idle" : {
+        "armRotation" : -20,
+        "weaponRotation" : 20,
+        "twoHanded" : true,
+
+        "allowRotate" : true,
+        "allowFlip" : true
+      },
+      "fire" : {
+        "duration" : 0,
+        "armRotation" : 0,
+        "weaponRotation" : 0,
+        "twoHanded" : true,
+
+        "allowRotate" : true,
+        "allowFlip" : true
+      },
+    "charge" : {
+      "aimAngle" : 0,	
+      "weaponOffset" : [0.125, 0],
+
+      "duration" : 1.0,
+      "armRotation" : 20,
+      "weaponRotation" : -20,
+      "twoHanded" : true,
+
+      "allowRotate" : false,
+      "allowFlip" : true
+    },
+    "charged" : {
+      "aimAngle" : 0,	
+      "weaponOffset" : [0.125, 0],
+
+      "armRotation" : 30,
+      "weaponRotation" : -30,
+      "twoHanded" : true,
+
+      "allowRotate" : false,
+      "allowFlip" : true
+    },
+    "discharge" : {
+      "aimAngle" : 0,	
+      "weaponOffset" : [0.125, 0],
+
+      "duration" : 0.5,
+      "armRotation" : 10,
+      "weaponRotation" : -10,
+      "twoHanded" : false,
+
+      "allowRotate" : false,
+      "allowFlip" : true
+    },
+    "cooldown" : {
+      "aimAngle" : 0,	
+      "weaponOffset" : [ 0.150, 0.0],
+
+      "duration" : 0.25,
+      "armRotation" : -45,
+      "weaponRotation" : 45,
+      "twoHanded" : true,
+
+      "allowRotate" : false,
+      "allowFlip" : true
+    }
+  },
 
   "primaryAbilityType" : "starpoundsgainbeam",
   "primaryAbility" : {
 
   },
 
-  "altAbilityType" : "starpoundsrayofgain",
+  "altAbilityType" : "starpoundsvelhanusembrace",
   "altAbility" : {
 
   },
@@ -51,7 +126,9 @@
   "upgradeParameters" : {
     "inventoryIcon" : "starpoundsgaincrystalicon_l6.png",
     "animationParts" : {
-      "erchiuseye" : "starpoundsgaincrystal_l6.png"
+      "erchiuseye" : "starpoundsgaincrystal_l6.png",
+      "erchiuseyelit" : "starpoundsgaincrystallit_l6.png",
+      "chargeEffect" : "starpoundscrystalglow_l6.png"
     },
     "shortdescription" : "Crystal of Gain ^yellow;^reset;"
   }

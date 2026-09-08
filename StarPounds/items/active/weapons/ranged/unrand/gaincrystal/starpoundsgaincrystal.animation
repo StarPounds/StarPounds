@@ -5,11 +5,17 @@
         "default" : "squirm",
         "states" : {
           "idle" : {
-            "properties" : {
+            "frames" : 1,
+            "cycle" : 0.3,
+            "mode" : "transition",
+            "transition" : "squirm",
+          
+		  "properties" : {
               "lightsOff" : ["pink"],
               "lightsOn" : ["purple"]        
             }
           },
+		  
           "squirm" : {
             "frames" : 8,
             "cycle" : 1.0,
@@ -17,9 +23,9 @@
             "properties" : {
               "lightsOff" : ["pink"],
               "lightsOn" : ["purple"]
-        
             }
           },
+		  
           "fire" : {
             "frames" : 4,
             "cycle" : 0.25,
@@ -31,6 +37,35 @@
           }
         }
       },
+      "charge" : {
+        "default" : "idle",
+        "states" : {
+          "idle" : {},
+          "charge" : {
+            "frames" : 13,
+            "cycle" : 1.3,
+            "mode" : "transition",
+            "transition" : "spark"
+          },
+          "spark" : {
+            "frames" : 3,
+            "cycle" : 0.3,
+            "mode" : "transition",
+            "transition" : "charged"
+          },
+          "charged" : {
+            "frames" : 4,
+            "cycle" : 0.5,
+            "mode" : "loop"
+          },
+          "discharge" : {
+            "frames" : 3,
+            "cycle" : 0.3,
+            "mode" : "transition",
+            "transition" : "idle"
+          }
+        }
+      },	  
       "firing" : {
         "default" : "off",
         "states" : {
@@ -48,6 +83,7 @@
     "parts" : {
       "erchiuseye" : {
         "properties" : {
+          "zLevel" : 1,
           "centered" : true,
           "offset" : [0.125, 0.75],
           "transformationGroups" : ["weapon"]
@@ -70,12 +106,41 @@
                 "image" : "<partImage>:fire"
               }
             }
-          }
+          }	  
+        }
+      },
+      "erchiuseyelit" : {
+        "properties" : {
+          "zLevel" : 2,
+          "fullbright" : true,
+          "centered" : true,
+          "offset" : [0.125, 0.75],
+          "transformationGroups" : ["weapon"]
+        },
+
+        "partStates" : {
+          "erchiuseye" : {
+            "idle" : {
+              "properties" : {
+                "image" : "<partImage>:idle"
+              }
+            },
+            "squirm" : {
+              "properties" : {
+                "image" : "<partImage>:squirm.<frame>"
+              }
+            },
+            "fire" : {
+              "properties" : {
+                "image" : "<partImage>:fire"
+              }
+            }
+          }	  
         }
       },
       "beamorigin" : {
         "properties" : {
-          "zLevel" : 2,
+          "zLevel" : 6,
           "centered" : true,
           "offset" : [0.7, 0.7],
           "fullbright" : true,
@@ -89,6 +154,51 @@
             "fire" : {
               "properties" : {
                 "image" : "<partImage>:<frame>"
+              }
+            }
+          }
+        }
+      },
+      "stone" : {
+        "properties" : {
+          "zLevel" : 1,
+          "centered" : true,
+          "fullbright" : true,
+          "image" : "<partImage>",
+          "offset" : [0.0, 0.0],
+          "focalPoint" : [0.0, 2.5],
+          "transformationGroups" : ["weapon"]
+        }
+      },	  
+      "chargeEffect" : {
+        "properties" : {
+          "zLevel" : 4,
+          "fullbright" : true,
+          "centered" : true,
+          "offset" : [0.125, 0.75],
+          "transformationGroups" : ["weapon"]
+        },
+
+        "partStates" : {
+          "charge" : {
+            "charge" : {
+              "properties" : {
+                "image" : "<partImage>:charging.<frame>"
+              }
+            },
+            "spark" : {
+              "properties" : {
+                "image" : "<partImage>:spark.<frame>"
+              }
+            },
+            "charged" : {
+              "properties" : {
+                "image" : "<partImage>:loop.<frame>"
+              }
+            },
+            "discharge" : {
+              "properties" : {
+                "image" : "<partImage>:discharge.<frame>"
               }
             }
           }
@@ -117,6 +227,16 @@
   },
 
   "particleEmitters" : {
+    "physicalcharge" : {
+      "active" : false,
+      "transformationGroups" : ["weapon"],
+      "emissionRate" : 10,
+      "offsetRegion" : [-0.5, 1.5, 0.5, 1.5],
+      "particles" : [
+        {"particle" : "energyblade"},
+        {"particle" : "energyblade2"}
+      ]
+    },  
     "beamCollision" : {
       "active" : false,
       "transformationGroups" : ["muzzle", "beamEnd"],
@@ -125,8 +245,8 @@
         {
           "particle" : {
             "type" : "ember",
-            "color" : [225, 156, 244, 255],
-            "position" : [0, 0],
+            "color" : [255, 130, 185, 255],
+            "position" : [0, 0.5],
             "initialVelocity" : [0, 2.0],
             "finalVelocity" : [0, -4.0],
             "approach" : [0, 10],
@@ -139,7 +259,7 @@
             "layer" : "front",
             "collidesForeground" : false,
             "variance" : {
-              "position" : [0.5, 0.5],
+              "position" : [1.5, 1.5],
               "initialVelocity" : [2, 2]
             }
           }
@@ -147,21 +267,21 @@
         {
           "particle" : {
             "type" : "animated",
-            "animation" : "/animations/dust2/dust2.animation",
-            "position" : [0, 0],
+            "animation" : "/animations/mediumflamecaloric/mediumflamecaloric.animation",
+            "position" : [0.5, 0.5],
             "initialVelocity" : [0, 2.0],
             "finalVelocity" : [0, -2.0],
             "approach" : [0, 10],
             "fade" : 0.3,
             "destructionAction" : "shrink",
             "destructionTime" : 0.3,
-            "size" : 1,
+            "size" : 0.6,
             "timeToLive" : 0.5,
             "fullbright" : true,
             "layer" : "front",
             "collidesForeground" : false,
             "variance" : {
-              "position" : [0.5, 0.5],
+              "position" : [0.75, 0.75],
               "initialVelocity" : [2, 2]
             }
           }
@@ -171,9 +291,16 @@
   },
 
   "sounds" : {
+    "physicalcharge" : [],
+    "physicalfullcharge" : [],
+    "physicalchargedloop" : [],
+    "physicaldischarge" : [],
+    "physicalactivate" : [],  
     "fireStart" : [],
     "fireLoop" : [],
     "fireEnd" : [],
-    "beamImpact" : []
+    "beamImpact" : [],
+
+    "zoneactivate" : []
   }
 }
