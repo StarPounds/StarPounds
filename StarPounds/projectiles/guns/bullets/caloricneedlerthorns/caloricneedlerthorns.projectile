@@ -8,6 +8,8 @@
   "pointLight" : false,
   "timeToLive" : 3,
   "timeToLiveVariance" : 0.25,
+  "fullbright" : true,
+  "lightColor" : [110, 12, 50],
   "actionOnReap" : [
     {
       "action" : "sound",
@@ -31,6 +33,7 @@
                 "animation" : "/animations/mediumflamecaloric/mediumflamecaloric.animation",
                 "approach" : [0.5, 0.5],
                 "timeToLive" : 0.4,
+				"fullbright" : true,
                 "variance" : {
                   "timeToLive" : 0.15,
                   "position" : [0.5, 0.5],
