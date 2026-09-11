@@ -1,0 +1,24 @@
+{
+  "name": "starpoundsgluttonistfriendly",
+  "priority": 7,
+
+  "colonyTagCriteria": {
+    "light": 1,
+    "door": 1,
+    "gluttonist": 24,
+    "combat": 16
+  },
+
+  "tenants": [
+    {
+      "spawn": "npc",
+      "species": "floran",
+      "type": "starpoundsfriendlygluttonist"
+    }
+  ],
+
+  "rent": {
+    "periodRange": [1200.0, 1800.0],
+    "pool": "villagerGift"
+  }
+}

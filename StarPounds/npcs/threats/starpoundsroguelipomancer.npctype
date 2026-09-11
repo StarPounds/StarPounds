@@ -1,0 +1,81 @@
+{
+  "type" : "starpoundsroguelipomancer",
+  "baseType" : "hostile",
+
+  "dropPools" : [ "roguelipomancerTreasure" ],
+
+  "identity" : {
+     "species" : "glitch"
+   },
+
+  "scriptConfig" : {
+    "behaviorConfig" : {
+      "friendlyNpcTypes" : ["crewmemberlipomancer"],
+      "rangedAimTime" : 0.5,
+      "rangedWindupTime" : 0.01
+    },
+    "starPounds_skills": {
+      "softMinimumSize": [3, 4]
+    },
+
+    "starPounds_traits": [ "npc_gluttonistVeteran" ],	
+
+    "dialog" : {
+      "attack" : {
+        "default" : {
+          "default" : [
+            "Attack!"
+          ]
+        },
+        "glitch" : {
+          "default" : [
+            "Megalomaniacal. WHO DARES TO CHALLENGE <selfname> THE ALL-KNOWING?!",
+            "Mad. FOOL! I WIELD THE FORBIDDEN POWERS OF LIPOMANCY!",
+            "Maniacal. MUAHAHAHAHA... HAHAHAH!",
+            "Diabolical. Hahahaha... WHAT A FOOL YOU ARE!",
+            "Boastful. I AM <selfname> THE POWERFUL! YOU ARE BUT AN ANT TO ME!",
+            "Dramatic. KNEEL BEFORE THE MIGHT OF MY LIPOMANCY!",
+            "Arrogant. I AM A MASTER OF THE LIPOMANTIC ARTS!"
+          ]
+        }
+      }
+    }
+  },
+
+  "displayTitle" : "Rogue Lipomancer",
+
+  "items" : {
+    "override" : [
+      [0, [
+          {
+            "headCosmetic" : [
+			{ "name" : "starpoundsblackmagehead", "parameters" : { "colorIndex" : 0 } }
+			],
+            "chestCosmetic" : [ { "name" : "wizardchest", "parameters" : { "colorIndex" : 1 }  } ],
+            "legsCosmetic" : [ { "name" : "wizardlegs", "parameters" : { "colorIndex" : 1 }  } ],
+
+            "primary" : [
+              "roguelipomancerpetcapturepod"
+            ],
+            "sheathedprimary" : [
+              "npcroguelipomancerstaff"
+            ]
+          }
+        ] ]
+    ]
+  },
+
+ "statusControllerSettings" : {
+    "stats" : {
+      "maxHealth" : {
+        "baseValue" : 250.0
+      },
+      "powerMultiplier" : {
+        "baseValue" : 1.0
+      },
+      "protection" : {
+        "baseValue" : 1.0
+      }
+    }
+  }
+}

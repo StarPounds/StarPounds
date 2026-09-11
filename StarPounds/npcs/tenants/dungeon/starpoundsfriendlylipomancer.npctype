@@ -1,0 +1,65 @@
+{
+  "type" : "starpoundsfriendlylipomancer",
+  "baseType" : "generictenant",
+  
+
+  "scriptConfig" : {
+    "questGenerator" : {
+      "pools" : ["common", "tenant"]
+    },
+
+    "starPounds_skills": {
+      "softMinimumSize": [3, 4]
+    },
+	
+    "dialogMode": "tutorial",    
+    "dialog" : {
+      "converse" : {
+        "glitch" : {
+          "default" : [
+            "Entranced. Lipomancy is truly a fascinating art... /n Deadpan. And disastrous for your waistline.",
+            "Longing. Maybe one day I can properly harness lipomantic energy. Alas, I am only an alchemist.",
+            "Inquisitive. Say, are you willing to be a test subject for Lipomancy?",
+            "Forlorn. There was many books and treatises on Lipomancy before they were declared heresy and burned. I shudder to imagine how much knowledge was lost.",
+            "Knowing. The Ponderous Order's keeps are a treasure trove of ancient lipomantic knowledge. Thank the makers that they've been safeguarded for so long.",
+            "Distracted. My energy reserves are running low. I should get some sweet rolls later..."
+          ]
+        }
+      }
+    }
+  },
+
+  "items" : {
+    "override" : [
+      [0, [
+          {
+            "head" : [
+              { "name" : "starpoundslipomancerhead", "parameters" : { "colorIndex" : 0 } },
+              { "name" : "starpoundslipomancerhead", "parameters" : { "colorIndex" : 7 } },
+              { "name" : "starpoundslipomancerhead", "parameters" : { "colorIndex" : 9 } },
+              { "name" : "starpoundslipomancerhead", "parameters" : { "colorIndex" : 10 } },
+              { "name" : "starpoundswispmagehead", "parameters" : { "colorIndex" : 0 } },
+              { "name" : "starpoundswispmagehead", "parameters" : { "colorIndex" : 1 } },
+              { "name" : "starpoundswispmagehead", "parameters" : { "colorIndex" : 2 } },
+              { "name" : "starpoundswispmagehead", "parameters" : { "colorIndex" : 3 } },
+              { "name" : "starpoundswispmagehead", "parameters" : { "colorIndex" : 4 } },
+              { "name" : "starpoundswispmagehead", "parameters" : { "colorIndex" : 5 } },
+              { "name" : "starpoundswispmagehead", "parameters" : { "colorIndex" : 6 } },
+              { "name" : "starpoundswispmagehead", "parameters" : { "colorIndex" : 7 } },
+              { "name" : "starpoundswispmagehead", "parameters" : { "colorIndex" : 8 } },
+              { "name" : "starpoundsblackmagehead", "parameters" : { "colorIndex" : 6 } },
+              { "name" : "starpoundsblackmagehead", "parameters" : { "colorIndex" : 8 } },
+              { "name" : "starpoundsblackmagehead", "parameters" : { "colorIndex" : 9 } },
+              { "name" : "starpoundsblackmagehead", "parameters" : { "colorIndex" : 10 } }
+            ],
+            "chestCosmetic" : [
+              { "name" : "wizardchest", "parameters" : { "colorIndex" : 4 } }
+            ],
+            "legsCosmetic" : [
+              { "name" : "wizardlegs", "parameters" : { "colorIndex" : 4 } }
+            ]
+          }
+        ] ]
+    ]
+  }
+}

@@ -7,6 +7,8 @@
   "basePrice": 50,
   "description" : "A roasted larva of a terrifying beast. Bring out the butter!",
   "shortdescription" : "Roasted Ixoling",
+  "tooltipFields" : {"subtitle":"Edible Decoration"},
+
   "race" : "floran",
   "printable" : false,
 

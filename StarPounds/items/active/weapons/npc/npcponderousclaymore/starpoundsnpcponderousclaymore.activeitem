@@ -1,0 +1,79 @@
+{
+  "itemName" : "starpoundsnpcponderousclaymore",
+  "price" : 0,
+  "maxStack" : 1,
+  "rarity" : "Common",
+  "description" : "A powerful two-handed sword.",
+  "shortdescription" : "NPC Ponderous Claymore",
+  "tooltipKind" : "sword",
+  "category" : "broadsword",
+  "twoHanded" : true,
+  "itemTags" : ["weapon","melee","broadsword"],
+  
+  "inventoryIcon" : "/items/active/weapons/npc/npcponderousclaymore/starpoundsnpcponderousclaymore.png",
+
+  "animation" : "/items/active/weapons/melee/broadsword/broadsword.animation",
+  "animationParts" : {
+    "handle" : "",
+    "blade" : "/items/active/weapons/npc/npcponderousclaymore/starpoundsnpcponderousclaymore.png"
+  },
+
+  "scripts" : ["/items/active/weapons/melee/meleeweapon.lua"],
+  "scriptDelta" : 2,
+
+  "elementalType" : "physical",
+
+  "primaryAbility" : {
+    "scripts" : ["/items/active/weapons/melee/meleeslash.lua"],
+    "class" : "MeleeSlash",
+
+    "fireTime" : 1.9,
+    "baseDps" : 8, // One-handed, shortsword dps
+    "damageConfig" : {
+      "damageSourceKind" : "broadsword",
+      "statusEffects" : [ ],
+      "knockback" : 30,
+      "knockbackMode" : "facing",
+      "timeoutGroup" : "primary"
+    },
+    "stances" : {
+      "idle" : {
+        "armRotation" : -90,
+        "weaponRotation" : -10,
+        "allowRotate" : false,
+        "allowFlip" : true
+      },
+      "windup" : {
+        "hold" : true,
+        "duration" : 0.45,
+        "armRotation" : 90,
+        "weaponRotation" : -10,
+        "twoHanded" : true,
+
+        "allowRotate" : false,
+        "allowFlip" : true
+      },
+      "preslash" : {
+        "duration" : 0.025,
+        "armRotation" : 55,
+        "weaponRotation" : -45,
+        "twoHanded" : true,
+
+        "allowRotate" : false,
+        "allowFlip" : false
+      },
+      "fire" : {
+        "duration" : 0.4,
+        "armRotation" : -45,
+        "weaponRotation" : -55,
+        "twoHanded" : true,
+
+        "allowRotate" : false,
+        "allowFlip" : false
+      }
+    }
+  },
+  "fireSounds" : [ "/sfx/melee/swing_broadsword.ogg" ],
+
+  "builder" : "/items/buildscripts/buildweapon.lua"
+}

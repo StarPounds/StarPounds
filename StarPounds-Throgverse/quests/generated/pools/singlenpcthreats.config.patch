@@ -10,5 +10,17 @@
     "seed" : "stable"
     }
   ]
+  },
+  { "op" : "add",
+  "path" : "/0/1/-",
+  "value" : [
+    [ "generic" ],
+    {
+    "name" : "rogue Lipomancer",
+    "species" : "glitch",
+    "typeName" : "starpoundsroguelipomancer",
+    "seed" : "stable"
+    }
+  ]
   }
 ]

@@ -1,0 +1,89 @@
+{
+  "type" : "crewmemberlipomancer",
+  "baseType" : "crewmember",
+
+  "scriptConfig" : {
+    "behaviorConfig" : {
+      "emptyHands" : false,
+      "rangedAimTime" : 0.5,
+      "rangedWindupTime" : 0.01
+    },
+
+    "starPounds_traits": [ "npc_gluttonistVeteran" ],
+
+    "crew" : {
+      "role" : {
+        "type" : "lipomancer",
+        "name" : "Lipomancer",
+        "field" : "Lipomancy",
+        "uniformColorIndex" : 10
+      },
+      "ranks" : [
+        "Scholar of <field>",
+        "Petty <role> Mage",
+        "Aspiring <role>",
+        "Hobbyist <role>",
+        "Head of the <field> Book Club",
+        "12th Level <role>",
+        "Self-taught <field>"
+      ],
+      "uniformSlots" : []
+    },
+
+    "dialog" : {
+      "crewmember" : {
+        "offer" : {
+          "default" : {
+            "default" : [
+              "I need to lay low! Please don't turn me in, can I join your crew instead?"
+            ]
+          },
+          "glitch" : {
+            "default" : [
+              "Sheepish. A thousand apologies. The power must've went to my processors. I'm willing to join you as recompense.",
+              "Embarrased. All that bluster, and I still lost... I am in your debt, let me join you!",
+              "Desperate. I have lots of enemies, mind if I hide out aboard your ship?",
+              "Enticing. I can lend you my power and skills if you'd like. Lipomancy is a powerful thing.",
+              "Shady. Who I got these books from are still looking for me. Mind if I join your crew?",
+              "Nervous. I'll need somewhere to hide and train my Lipomancy. Can I use your ship?",
+              "Dejected. I'm still not powerful enough... May I join your crew to train some more?"
+            ]
+          }
+        },
+        "roleDescription" : {
+          "default" : {
+            "default" : [
+              "Thanks for giving me a place to hide away! If you need a little extra muscle in your travels, I'll be here!"
+            ]
+          },
+          "glitch" : {
+            "default" : [
+              "Thankful. Appreciate you letting me stay aboard. Hope you don't mind me bringing my literature!",
+              "Sinister. I have all the time I need to master Lipomancy... Muahahaha...",
+              "Appreciative. Thanks for giving me a place to hide from my foes. Many fear Lipomancy...",
+              "Scheming. I shall practice my art more while I'm tagging along with you."
+            ]
+          }
+        }
+      }
+    }
+  },
+
+  "items" : {
+    "default" : [
+      [0, [
+          {
+            "chestCosmetic" : [ { "name" : "wizardchest", "parameters" : { "colorIndex" : 1 }  } ],
+            "legsCosmetic" : [ { "name" : "wizardlegs", "parameters" : { "colorIndex" : 1 }  } ],
+
+            "primary" : [
+              "npcroguelipomancerstaff"
+            ],
+            "sheathedprimary" : [
+              "npcdagger"
+            ]
+          }
+        ] ]
+    ]
+  }
+}

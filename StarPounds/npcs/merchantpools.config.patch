@@ -321,5 +321,24 @@
                 ]
             ]
         ]
+    },
+    {
+        "op": "add",
+        "path": "/starpounds_meatdresser",
+        "value": [
+            [
+                0,
+                [
+      { "item" : { "name" : "rawpoultry" } },
+      { "item" : { "name" : "alienmeat" } },
+      { "item" : { "name" : "rawribmeat" } },
+      { "item" : { "name" : "rawbacon" } },
+      { "item" : { "name" : "rawham" } },
+      { "item" : { "name" : "rawixoling" } },
+      { "item" : { "name" : "rawfish" } },
+      { "item" : { "name" : "rawtentacle" } }
+                ]
+            ]
+        ]
     }
 ]

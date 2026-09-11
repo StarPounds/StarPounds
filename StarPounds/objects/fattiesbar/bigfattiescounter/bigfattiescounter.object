@@ -131,6 +131,8 @@
       "starpoundsenormouscake", "starpoundsroyalcake", "starpoundschocotaco", "starpoundsicecream", "starpoundschocolateicecream", "starpoundsstrawberryicecream", "starpoundsminticecream", "starpoundsicecreamsandwich", "starpoundsparamitepie", "starpoundsscrabcake", "starpoundsmeechmunchy", "starpoundsjelly", "starpoundsmagicpudding", "starpoundschurro", "starpoundscottoncandy", "starpoundschococheesecake"
     ],
     "hugefood" : [
+	//Give Gluttonist foods proper recipes
+      "starpoundsskewerplate", "starpoundsskullsmashsoup", "starpoundsixolingroast", "starpoundsgluttonisthangingmeat1", "starpoundsgluttonisthangingmeat2",	
       "starpoundshugecherrycake-recipe", "starpoundshugepancakes-recipe", "starpoundshugechunkofmeat-recipe", "starpoundshugeburger-recipe"
     ],
     "liquids" : [

@@ -1,0 +1,59 @@
+{
+  "type" : "crewmembercaloric",
+  "baseType" : "crewmember",
+
+  "scriptConfig" : {
+    "behaviorConfig" : {
+      "emptyHands" : false
+    },
+    "crew" : {
+      "role" : {
+        "type" : "starpoundscaloric",
+        "name" : "Caloric Soldier",
+        "field" : "Caloric Combat",
+        "uniformColorIndex" : 10
+      },
+      "uniformSlots" : []
+    },
+
+    "starPounds_traits": [ "npc_gluttonistVeteran" ],	
+
+    "dialog" : {}
+	
+  },
+
+  "items" : {
+    "floran" : [
+      [0, [
+          {
+            "chestCosmetic" : [ { "name" : "predatorychest", "parameters" : { "directives" : "?replace;ffca8a=eab3db;e0975c=d35eae;a85636=97276d;6f2919=59163f;d93a3a=d35eae;932625=97276d;601119=59163f;" } } ],
+            "legsCosmetic" : [ { "name" : "predatorypants", "parameters" : { "directives" : "?replace;ffca8a=eab3db;e0975c=d35eae;a85636=97276d;6f2919=59163f;d93a3a=d35eae;932625=97276d;601119=59163f;" } } ],
+            "primary" : [
+              "starpoundsnpcgluttonistspear",
+              "starpoundsnpcgluttonistaxe",
+              "starpoundsnpcgluttonistbroadsword"
+            ],
+            "sheathedprimary" : [
+              "starpoundsnpccaloricneedler"
+            ]
+          }
+        ] ]
+    ],
+    "glitch" : [
+      [0, [
+          {
+            "chestCosmetic" : [ { "name" : "starpoundsponderouschest" } ],
+            "legsCosmetic" : [ { "name" : "starpoundsponderouslegs" } ],
+            "primary" : [
+              "starpoundsnpcponderousclaymore",
+              "starpoundsnpcponderoushammer",
+              "starpoundsnpcponderoushalberd"
+            ],
+            "sheathedprimary" : [
+              "starpoundsponderouscrossbow"
+            ]
+          }
+        ] ]	
+	]
+  }
+}

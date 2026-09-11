@@ -4,6 +4,7 @@
   "printable" : false,
   "rarity" : "Common",
   "shortdescription" : "Huge Pancakes",
+  "tooltipFields" : {"subtitle":"Edible Decoration"},
   "description" : "Stacked as high as a wagon! Don't let the syrup slow you down.",
   "race" : "generic",
   "category" : "other",

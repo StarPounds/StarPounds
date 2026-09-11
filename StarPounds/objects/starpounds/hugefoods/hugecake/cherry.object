@@ -4,6 +4,7 @@
   "printable" : false,
   "rarity" : "Uncommon",
   "shortdescription" : "Huge Black Forest Cherry Cake",
+  "tooltipFields" : {"subtitle":"Edible Decoration"},
   "description" : "The name is already a mouthful, and the cake itself will so be even more.",
   "race" : "generic",
   "category" : "other",

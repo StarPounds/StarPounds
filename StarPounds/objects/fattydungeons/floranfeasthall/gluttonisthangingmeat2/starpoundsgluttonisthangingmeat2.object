@@ -4,6 +4,7 @@
   "rarity" : "Common",
   "description" : "Delicious sausages, stuffed with the best of meats~",
   "shortdescription" : "Hanging Sausages",
+  "tooltipFields" : {"subtitle":"Edible Decoration"},
   "race" : "generic",
   "category" : "decorative",
   "price" : 500,

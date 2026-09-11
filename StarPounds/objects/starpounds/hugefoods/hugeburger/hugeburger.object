@@ -4,6 +4,7 @@
   "printable" : false,
   "rarity" : "Rare",
   "shortdescription" : "Huge Burger",
+  "tooltipFields" : {"subtitle":"Edible Decoration"},
   "description" : "How big is the grill to cook this beefy burg?",
   "race" : "generic",
   "category" : "other",

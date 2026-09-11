@@ -7,6 +7,7 @@
   "basePrice": 5,
   "description" : "Well cooked meats skewered for clean* eatings.",
   "shortdescription" : "Skewer Plate",
+  "tooltipFields" : {"subtitle":"Edible Decoration"},
   "race" : "generic",
   "printable" : false,
 

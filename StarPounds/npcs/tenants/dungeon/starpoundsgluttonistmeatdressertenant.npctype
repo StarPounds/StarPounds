@@ -1,0 +1,120 @@
+{
+  "type" : "starpoundsgluttonistmeatdressertenant",
+  "baseType" : "merchanttenant",
+
+  "scriptConfig" : {
+    "starPounds_skills": {
+      "softMinimumSize": [4, 5]
+    },
+    "reactions" : {
+      "starpoundsemptyfood" : [
+        [1, "starpoundsrefreshfood"]
+      ]
+    },
+    "questGenerator" : {
+      "pools" : ["common", "tenant"]
+    },
+
+    "merchant" : {
+      "waitTime" : 40,
+      "storeRadius" : 8,
+      "categories" : {
+        "floran" : [ "starpounds_meatdresser" ]
+      },
+      "buyFactorRange" : [ 4.0, 4.0 ],
+      "sellFactorRange" : [ 0.2, 0.2 ],
+      "numItems" : 6,
+      "paneLayoutOverride" : {
+        "windowtitle" : {
+          "title" : "  Gluttonist Meatdresser",
+          "subtitle" : "  Fresh meat!"
+        }
+      }
+    },
+
+    "dialog" : {
+      "merchant" : {
+        "start" : {
+          "default" : { "default" : [ "Ah fresh meat!" ] },
+          "floran" : {
+            "default" : [
+              "Pick your cutsss!",
+              "Floran hasss only bessst meat for valued cusstomer!",
+              "Meat, meat, meat!",
+			  "Floran hasss good ssselection!"
+            ]
+          }  
+        },
+        "end" : {
+          "default" : { "default" : [ "Ah fresh meat!" ] },
+          "floran" : {
+            "default" : [
+              "There will be more meatsss!",
+              "Another happy cussstomer!",
+              "Floran'ss meatlocker will alwayss be ready for friend!",
+              "Back to sharpening cleaver.",
+              "Come again!"
+            ]
+          }
+        },
+        "follow" : {
+          "default" : { "default" : [ "Ah fresh meat!" ] },
+          "floran" : {
+            "default" : [
+              "Floran assuresss friend that Floran not trying to butcher them.",
+              "Come to Floran's butcher shop. Don't worry about bloodssstainss.",
+              "Floran hasss meatsss in shop. Follow!"
+            ]
+          }
+        },
+        "welcome" : {
+          "default" : { "default" : [ "Ah fresh meat!" ] },
+          "floran" : {
+            "default" : [
+              "Don't mind ssspatter. Butchery is messy.",
+              "Welcome to essstablishment!",
+              "Welcome to butcher shop!"
+            ]
+          }
+        },
+        "tout" : {
+          "default" : { "default" : [ "Ah fresh meat!" ] },
+          "floran" : {
+            "default" : [
+              "Fresh cut meat off the bone!",
+              "You name part of animal, Floran sssellss it!",
+              "Floran assuresss that no ssapient flesh is used in cooking!",
+              "Meat ssso fresh, it practically twitching!",
+              "Floran hasss the meatsss!"
+            ]
+          }
+        }
+      },	
+      "tenant" : {
+        "grumbles" : {
+          "tagCriteria" : "/dialog/merchant.config:tagCriteria",
+          "enclosedArea" : "/dialog/merchant.config:enclosedArea",
+          "otherDeed" : "/dialog/merchant.config:otherDeed",
+          "severe" : "/dialog/merchant.config:severe",
+          "final" : "/dialog/merchant.config:final"
+        },
+        "arrivedHome" : {
+          "beacon" : "/dialog/merchant.config:beacon",
+          "rent" : "/dialog/merchant.config:rent"
+        }
+      }
+    }
+  },
+
+  "items" : {
+    "override" : [
+      [0, [
+          {
+            "headCosmetic" : [ { "name" : "meatdresserhead" } ],
+            "chestCosmetic" : [ { "name" : "" } ],
+            "legsCosmetic" : [ { "name" : "cheflegs" } ]
+          }
+      ]]
+    ]
+  }
+}

@@ -4,6 +4,7 @@
   "printable" : false,
   "rarity" : "Rare",
   "shortdescription" : "Huge Chunk of Meat",
+  "tooltipFields" : {"subtitle":"Edible Decoration"},
   "description" : "When you kill something this big, you sure as hell better eat it",
   "race" : "generic",
   "category" : "other",

@@ -112,9 +112,9 @@
       "starpoundsavalitreadmill", "starpoundsshoggothtreadmill", "starpoundsangeltreadmill", "starpoundsarcaniantreadmill", "starpoundssilphtreadmill", "starpoundsauracitetreadmill"
     ],
     "junkfood" : [
-      "smokespecialobject", "blubberbassobject", "starpoundspizzabox", "starpoundspizzaboxstack", "starpoundspizzaboxopen", "starpoundsmessypizzaboxstack", "starpoundsdonutbox", "starpoundsdonutboxopen", "starpoundsdonutboxopen2", "emptyfattypeanutbutter", "emptyhappygirlbox", "novakiddrink1", "novakiddrink2",
-      "sodawastebin", "strewnsodacan1", "strewnsodacan2", "strewnsodacans1", "strewnsodacans2", "strewnsodacans3", "starpoundstakeoutbag1", "greaseburgerobject", "starpoundsskewerplate", "starpoundsskullsmashsoup", "starpoundsixolingroast", "starpoundsgluttonisthangingmeat1", "starpoundsgluttonisthangingmeat2",
-      "starpoundsgluttonisthangingsoup", "starpoundschocomilkbottle1", "starpoundschocomilkbottle2", "starpoundsmilkbottle1", "starpoundsmilkbottle2", "starpoundsemptybottle1", "starpoundsemptybottle2"
+      "smokespecialobject", "blubberbassobject", "starpoundspizzabox", "starpoundspizzaboxstack", "starpoundspizzaboxopen", "starpoundsmessypizzaboxstack",
+      "starpoundsgluttonisthangingsoup", "starpoundschocomilkbottle2", "starpoundschocomilkbottle1", "starpoundsdonutbox", "starpoundsdonutboxopen", "starpoundsdonutboxopen2", "emptyfattypeanutbutter", "emptyhappygirlbox", "novakiddrink1", "novakiddrink2",
+      "sodawastebin", "strewnsodacan1", "strewnsodacan2", "strewnsodacans1", "strewnsodacans2", "strewnsodacans3", "starpoundstakeoutbag1", "greaseburgerobject", "starpoundsmilkbottle1", "starpoundsmilkbottle2", "starpoundsemptybottle1", "starpoundsemptybottle2"
     ],
     "decor" : [
       "feaststatue", "apexweightreassign", "apexfatsign", "apexfatsign2", "apexfatsign3", "apexfatpod", "apexfattv", "starpounds871", "redberryfatposter", "humanfatposter1", "humanfatposter2", "humanfatposter3",

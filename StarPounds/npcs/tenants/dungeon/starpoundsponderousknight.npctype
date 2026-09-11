@@ -1,0 +1,106 @@
+{
+  "type" : "starpoundsponderousknight",
+  "baseType" : "friendlyguardtenant",
+
+  "levelVariance" : [0, 0],
+  
+  "dropPools" : [],
+
+  "scriptConfig" : {
+  
+    "behaviorConfig" : {
+      "leapWindup" : 0.75,
+      "rangedAimTime" : 0.5,
+      "rangedWindupTime" : 0.01,
+      "cantReachDialog": false,
+      "play": true
+    },
+    "starPounds_skills": {
+      "softMinimumSize": [3, 4]
+    },
+    "starPounds_traits": [ "npc_gluttonist" ],
+	
+    "dialogMode": "tutorial",    
+    "dialog" : {
+
+      "converse" : {
+        "default" : {
+          "default" : [
+            "Hi. You shouldn't see this. Shame on you."
+          ]
+        },	  
+        "glitch" : {
+          "default" : [
+            "Wistful. Sometimes I wonder what happened to Lady Ironlace and Lady Bronzefinger...",
+            "Skeptical. I've heard rumors that Copperhand is back to his old tricks...",
+            "Ambitious. Perhaps I can form my own successor order! Yes, the \"New Ponderous Order of <selfname>\"... sounds great doesn't it?",
+            "Proud. While the Order itself has fallen, its ideals live on.",
+            "Curious. These weapons are heavy. I wonder how the Knightess wielded hers, considering its heft.",
+            "Admiring. I've read about the Ponderous Order from the old chivalric romances. To uphold its legacy is the highest honor!",
+            "Insulted. I am not \"LARPing\", I *am* a knight of the new Ponderous Order."
+          ]
+        }
+      },
+
+      "attack" : {
+        "default" : {
+          "default" : [
+            "Attack!"
+          ]
+        },
+        "glitch" : {
+          "default" : [
+            "Fearsome. What fool dares to challenge a Ponderous Knight?",
+            "Taunting. Tremble before the might of the Ponderous!",
+            "Imposing. Begone fiend!",
+            "Valiant. Hurrah!",
+            "Intimidating. I will crush you!",
+            "Heroic. For the Order!"
+          ]
+        }
+      }
+
+    },
+	
+   "questGenerator" : {
+      "pools" : ["common", "tenant", "guard"],
+      "enableParticipation" : true,
+
+      "timeLimit" : 30,
+      "nearbyQuestLimit" : 2,
+      "nearbyQuestRange" : 50,
+      "chance" : 0.02,
+      "flags" : {
+        "guard" : true
+      },
+      "graduation" : {
+        "nextNpcType" : [
+          [1.0, "crewmembercaloric"]
+        ]
+      }	  
+    }
+  },
+	
+  "items" : {
+    "override" : [
+      [0, [
+          {
+            "headCosmetic" : [ { "name" : "starpoundsponderoushead" } ],
+            "chestCosmetic" : [ { "name" : "starpoundsponderouschest" } ],
+            "legsCosmetic" : [ { "name" : "starpoundsponderouslegs" } ],
+            "backCosmetic" : [ { "name" : "starpoundsponderousback" } ],
+            "primary" : [
+              "starpoundsnpcponderousclaymore",
+              "starpoundsnpcponderoushammer",
+              "starpoundsnpcponderoushalberd"
+            ],
+            "sheathedprimary" : [
+              "starpoundsponderouscrossbow"
+            ]
+          }
+        ] ]
+    ]
+  }	
+	
+  
+}

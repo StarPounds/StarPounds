@@ -1,0 +1,39 @@
+{
+  "itemName" : "starpoundsnpcponderoushammer",
+  "price" : 0,
+  "maxStack" : 1,
+  "rarity" : "Common",
+  "description" : "Slow, heavy and effective.",
+  "shortdescription" : "NPC Ponderous Hammer",
+  "tooltipKind" : "sword",
+  "category" : "hammer",
+  "twoHanded" : true,
+  "itemTags" : ["weapon","melee","hammer"],
+  
+  "inventoryIcon" : "/items/active/weapons/npc/npcponderoushammer/starpoundsnpcponderoushammer.png",
+
+  "animation" : "/items/active/weapons/melee/hammer/hammer.animation",
+  "animationParts" : {
+    "handle" : "",
+    "blade" : "starpoundsnpcponderoushammer.png"
+  },
+
+  "scripts" : ["/items/active/weapons/melee/meleeweapon.lua"],
+  "scriptDelta" : 2,
+
+  "elementalType" : "physical",
+
+  "primaryAbilityType" : "hammersmash",
+  "primaryAbility" : {
+    "damageConfig" : {
+      "knockback" : 40,
+      "knockbackMode" : "facing",
+      "timeoutGroup" : "primary"
+    },  
+    "fireTime" : [0.45, 0.45],
+    "baseDps" : [12, 14]
+  },
+  "fireSounds" : [ "/sfx/melee/swing_hammer.ogg" ],
+
+  "builder" : "/items/buildscripts/buildweapon.lua"
+}

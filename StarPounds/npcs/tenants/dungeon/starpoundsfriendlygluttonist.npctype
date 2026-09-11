@@ -1,0 +1,112 @@
+{
+  "type" : "starpoundsfriendlygluttonist",
+  "baseType" : "friendlyguardtenant",
+
+  "levelVariance" : [0, 0],
+  
+  "dropPools" : [],
+
+  "scriptConfig" : {
+  
+    "behaviorConfig" : {
+      "leapWindup" : 0.75,
+      "rangedAimTime" : 0.5,
+      "rangedWindupTime" : 0.01,
+      "cantReachDialog": false,
+      "play": true
+    },
+    "starPounds_skills": {
+      "softMinimumSize": [2, 5]
+    },
+    "starPounds_traits": ["vore", "npc_gluttonist"],
+
+    "dialogMode": "tutorial",    
+    "dialog" : {
+      "converse" : {
+        "default" : {
+          "default" : [
+            "Hi. You shouldn't see this. Shame on you."
+          ]
+        },	  
+        "floran" : {
+          "default" : [
+            "Gluttonisstss resspect big fightersss. Floran wantss to be bigger!",
+            "Floran losst weight! Devassstating!",
+            "Ever had ixoling? Tasssty little bugsss!",
+            "Floran once ssaw Floran sswallow giant ham shank whole. Floran jealouss.",
+            "Floran would kill for good ssssmoked meatsss right now..."
+          ]
+        }
+      },
+
+      "attack" : {
+        "default" : {
+          "default" : [
+            "Attack!"
+          ]
+        },
+        "floran" : {
+          "default" : [
+            "Looksss like sssupper came right to Floran!",
+            "Floran callsss dibsss on this one!",
+            "You will make Floran nice and fat!",
+            "Floran was ssstarting to feel peckish!",
+            "Looksss like dinner isss ssserved!",
+            "Floran'sss ssstomach isss making the grumbliesss!",
+            "Sssnack picked a bad time to get lossst!"
+          ]
+        }
+      }
+
+    },
+	
+   "questGenerator" : {
+      "pools" : ["common", "tenant", "guard"],
+      "enableParticipation" : true,
+
+      "timeLimit" : 30,
+      "nearbyQuestLimit" : 2,
+      "nearbyQuestRange" : 50,
+      "chance" : 0.02,
+      "flags" : {
+        "guard" : true
+      },
+      "graduation" : {
+        "nextNpcType" : [
+          [1.0, "crewmembercaloric"]
+        ]
+      }	  
+    }
+  },
+	
+  "items" : {
+    "override" : [
+      [0, [
+          {
+            "headCosmetic" : [ { "name" : "gluttonisthead", "parameters" : { "colorIndex" : 10 } }, { "name" : "goathead" }, { "name" : "sabertoothhelm", "parameters" : { "colorIndex" : 10 } }, { "name" : "florantier5shead", "parameters" : { "colorIndex" : 10 } }, { "name" : "florantier6ahead", "parameters" : { "colorIndex" : 10 } }, { "name" : "florantier5mhead", "parameters" : { "colorIndex" : 10 } }, { "name" : "florantier2head", "parameters" : { "colorIndex" : 10 } } ],
+            "chestCosmetic" : [ { "name" : "predatorychest", "parameters" : { "directives" : "?replace;ffca8a=eab3db;e0975c=d35eae;a85636=97276d;6f2919=59163f;d93a3a=d35eae;932625=97276d;601119=59163f;" } } ],
+            "legsCosmetic" : [ { "name" : "predatorypants", "parameters" : { "directives" : "?replace;ffca8a=eab3db;e0975c=d35eae;a85636=97276d;6f2919=59163f;d93a3a=d35eae;932625=97276d;601119=59163f;" } } ],
+            "primary" : [
+              "starpoundsnpcgluttonistspear",
+              "starpoundsnpcgluttonistaxe",
+              "starpoundsnpcgluttonistbroadsword"
+            ],
+            "sheathedprimary" : [
+              "starpoundsnpccaloricneedler"
+            ],
+            "alt" : [
+              "floranshield",
+              "floranshield",
+              "starpoundspotlid",
+        "",
+        "",
+        "",
+        ""
+            ]
+          }
+        ] ]
+    ]
+  }	
+	
+  
+}

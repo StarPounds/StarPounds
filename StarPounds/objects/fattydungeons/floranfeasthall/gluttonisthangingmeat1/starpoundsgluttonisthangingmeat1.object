@@ -4,6 +4,7 @@
   "rarity" : "Common",
   "description" : "A hanging hunk of giant alien ham. It smells delicious~",
   "shortdescription" : "Hanging Hamshank",
+  "tooltipFields" : {"subtitle":"Edible Decoration"},
   "race" : "generic",
   "category" : "decorative",
   "price" : 750,

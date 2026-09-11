@@ -1,0 +1,66 @@
+{
+  "itemName" : "roguelipomancerpetcapturepod",
+  "maxStack" : 1,
+  "rarity" : "Common",
+  "category" : "throwableItem",
+  "description" : "Throw it down to release the creature captured inside!",
+  "shortdescription" : "Filled Capture Pod",
+  "tooltipKind" : "filledcapturepod",
+  "twoHanded" : false,
+  "itemTags" : ["weapon","ranged"],
+
+  "inventoryIcon" : "roguelipomancerfilledcapturepodicon.png",
+  "animation" : "roguelipomancerfilledcapturepod.animation",
+  "animationParts" : {
+    "filledcapturepod" : "roguelipomancerfilledcapturepod.png"
+  },
+  "animationCustom" : { },
+  "scripts" : ["npcpetcapturepod.lua"],
+
+  "icons" : {
+    "healthy" : "/items/active/unsorted/filledcapturepod/roguelipomancerfilledcapturepodicon.png",
+    "dead" : "/items/active/unsorted/filledcapturepod/roguelipomancerfilledcapturepodicondead.png"
+  },
+
+  "stances" : {
+    "idle" : {
+      "armRotation" : -20,
+      "animationState" : {
+        "weapon" : "visible"
+      },
+      "allowRotate" : true,
+      "allowFlip" : true
+    },
+    "windup" : {
+      "duration" : 0.1,
+      "transitionFunction" : "fire",
+      "armRotation" : 70,
+      "animationState" : {
+        "weapon" : "visible"
+      },
+      "allowRotate" : false,
+      "allowFlip" : false
+    },
+    "throw" : {
+      "armRotation" : 0,
+      "animationState" : {
+        "weapon" : "hidden"
+      },
+      "allowRotate" : true,
+      "allowFlip" : true
+    }
+  },
+
+  "projectileType" : "roguelipomancerfilledcapturepod",
+  "projectileParameters" : {
+    "speed" : 40,
+    "level" : 0
+  },
+
+  "pets" : [
+    "starpoundsmagewisp",
+    "starpoundsknightwisp",
+    "starpoundsroguewisp",
+    "starpoundsclericwisp"
+  ]
+}
