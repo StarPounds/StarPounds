@@ -9,8 +9,13 @@
   "twoHanded" : true,
 
   "inventoryIcon" : "icons/inventory_default.png",
+  "secondaryIcon" : [
+    {"image": "icons/inventory_default.png", "position": [0, 0]},
+    {"image": "/interface/actionbar/actionbaroverlay.png?crop=1;1;17;17", "position": [0, 0]}
+  ],
 
   "retainScriptStorageInItem": true,
-
+  "animation" : "/items/active/starpounds/controller/starpoundscontroller.animation",
+  "animationScripts" : ["/items/active/starpounds/controller/starpoundscontrolleranimator.lua"],
   "scripts" : ["/items/active/starpounds/controller/starpoundscontroller.lua"]
 }

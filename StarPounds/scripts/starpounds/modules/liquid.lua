@@ -8,6 +8,10 @@ function liquid:edible(liq)
   return self:get(liq).edible or false
 end
 
+function liquid:inedible(liq)
+  return self:get(liq).inedible or false
+end
+
 function liquid:getFood(liq)
   local food = 0
   local liq = self:get(liq)

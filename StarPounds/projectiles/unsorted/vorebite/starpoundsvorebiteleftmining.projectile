@@ -1,0 +1,43 @@
+{
+  "projectileName": "starpoundsvorebiteleftmining",
+  "image": "starpoundsvorebite.png",
+  "power": 0,
+  "speed": 0,
+  "periodicActions": [
+    { "time": 0, "repeat": false,  "action": "sound", "options": [ "/sfx/npc/monsters/monster_bite2.ogg" ] },
+    { "time": 0, "repeat": false, "action": "loop", "count": 5, "body": [
+      { "action": "particle", "specification": {
+        "type": "ember",
+        "size": 1.25,
+        "color": [60, 150, 224, 200],
+        "initialVelocity": [0, 2.5],
+        "finalVelocity": [0, -80],
+        "approach": [5, 80],
+        "position": [0, 0],
+        "destructionAction": "shrink",
+        "destructionTime": 0.2,
+        "layer": "back",
+        "timeToLive": 0.5,
+        "variance": {"initialVelocity": [5, 3], "size": 0.25, "position": [1, 1], "timeToLive": 0.25}
+      }}
+    ]},
+    { "time": 0, "repeat": false, "action": "particle", "specification": {
+      "type": "animated",
+      "animation": "/animations/vorebite/starpoundsvorebite.animation",
+      "collidesForeground": false,
+      "size": 0.75,
+      "destructionAction": "fade",
+      "destructionTime": 0.1,
+      "timeToLive": 0.15,
+      "flip": true
+    }}
+  ],
+  "movementSettings": {
+    "collisionEnabled": false
+  },
+  "piercing": true,
+  "flippable": true,
+  "damageKind": "hidden",
+  "onlyHitTerrain": true,
+  "timeToLive": 0.25
+}

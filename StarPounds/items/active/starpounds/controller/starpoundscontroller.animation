@@ -1,0 +1,6 @@
+{
+  "sounds" : {
+    "voreTile" : [ "/sfx/tools/pickaxe_hit.ogg" ],
+    "voreTile_block" : [ ]
+  }
+}

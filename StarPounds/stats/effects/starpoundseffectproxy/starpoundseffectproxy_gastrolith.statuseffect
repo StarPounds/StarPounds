@@ -1,0 +1,13 @@
+{
+  "name": "starpoundseffectproxy_gastrolith",
+  "defaultDuration": 1,
+  "effectConfig": {
+    "effect" : "gastrolith"
+  },
+  "scripts": [
+    "starpoundseffectproxy.lua"
+  ],
+
+  "label" : "Gastrolith",
+  "icon" : "/interface/scripted/starpounds/main/icons/effects/gastrolith.png"
+}

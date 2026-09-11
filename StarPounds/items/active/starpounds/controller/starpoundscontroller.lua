@@ -1,12 +1,6 @@
 require "/scripts/vec2.lua"
 require "/scripts/util.lua"
 
-local shared = getmetatable ""
-local starPounds = shared.starPounds
-
-shared.starPoundsRadialMenu = shared.starPoundsRadialMenu or {}
-local radialMenu = shared.starPoundsRadialMenu
-
 local defaultColours = {
   center = {60, 50, 80, 180},
   base = {190, 180, 200, 160},
@@ -313,6 +307,308 @@ function buildActions()
         activeItem.setCursor()
       end
     },
+    voreTile = {
+      icon = colourStarPoundsImage(path.."icons/inventory_voreTile.png"),
+      init = function(self)
+        self.range = config.getParameter("range", 5)
+        self.damageAmount = 1 / root.assetJson("/tiles/defaultDamage.config:damageFactors.explosive")
+        self.protectedSound = root.assetJson("/client.config:defaultDingSound")
+        self.cooldownFrames = 8
+        self.cooldownTime = 1
+        self.cooldown = 0
+        self.swallowDelayTime = 0.1
+        self.swallowDelay = self.swallowDelayTime
+        -- Angles to check, in order.
+        self.rays = {
+          {angle = 0, priority = 1},
+          {angle = 10, priority = 1},
+          {angle = -10, priority = 1},
+          {angle = 20, priority = 2},
+          {angle = -20, priority = 2},
+          {angle = 30, priority = 2},
+          {angle = -30, priority = 2},
+          {angle = 40, flip = true, priority = 3},
+          {angle = 50, flip = true, priority = 4}
+        }
+        -- Map tile ids to material names since CF is stupid and didn't add a way to convert.
+        self.materials = {}
+        self.materialNames = {}
+        self.seenMaterials = {}
+        self.eatenMaterials = {}
+        self.seenMods = {}
+        self.food = {}
+        self.cacheTimer = 0
+        -- Set highlight hue.
+        activeItem.setScriptedAnimationParameter("hue", storage.hue)
+        -- Event functions.
+        self.onTileBroken = function(args)
+          local position, layer, tileId, dungeonId, harvested = args[1], args[2], args[3], args[4], args[5]
+          if layer ~= "foreground" then return end
+          local key = position[1]..","..position[2]
+          -- Tiles.
+          local materialName = self.materialNames[tileId]
+          if materialName and self.seenMaterials[key] and self.eatenMaterials[key] then
+            local isEdible = starPounds.moduleFunc("material", "edible", materialName)
+            local isInedible = starPounds.moduleFunc("material", "inedible", materialName)
+            local universalEating = starPounds.getOption("tileMode") == "eat"
+            if not isInedible and (isEdible or universalEating) then
+              self:consumeMaterial(starPounds.moduleFunc("material", "get", materialName))
+              -- Only check mods if we're eating a tile.
+              local modName = self.seenMods[key]
+              if modName then
+                self:consumeMaterial(starPounds.moduleFunc("material", "mod", modName))
+                -- Remove from cache.
+                self.seenMods[key] = nil
+              end
+            end
+          end
+        end
+        self.onTileEntityBroken = function(args)
+          local position, layer, objectName = args[1], args[2], args[3]
+        end
+        -- Bind events.
+        starPounds.events:on("tileBroken", self.onTileBroken)
+        starPounds.events:on("tileEntityBroken", self.onTileEntityBroken)
+      end,
+
+      update = function(self, dt, fireMode, isButtonHeld, shiftHeld)
+        local aimPosition = activeItem.ownerAimPosition()
+        local aimAngle, aimDirection = activeItem.aimAngleAndDirection(0, aimPosition)
+        activeItem.setFacingDirection(aimDirection)
+
+        if self.swallowDelay == 0 and next(self.food) ~= nil then
+          starPounds.moduleFunc("sound", "play", "swallow", 0.75 + math.random(0, 10)/100)
+          -- Feed everything from breaking blocks.
+          for foodType, amount in pairs(self.food) do
+            starPounds.moduleFunc("stomach", "feed", amount, foodType)
+          end
+          self.food = {}
+          self.swallowDelay = self.swallowDelayTime
+        elseif not next(self.food) then
+          self.swallowDelay = self.swallowDelayTime
+        elseif self.swallowDelay > 0 then
+          self.swallowDelay = math.max(0, self.swallowDelay - dt)
+        end
+
+        if self.cooldown > 0 then
+          self.cooldown = math.max(0, self.cooldown - dt / starPounds.getStat("voreTileCooldown"))
+          -- Clear the seen cache.
+          if self.cooldown == 0 then
+            self.seenMaterials, self.eatenMaterials, self.seenMods = {}, {}, {}
+          end
+          self.cacheTimer = 0
+        -- Clear cache if the player is just walking around.
+        elseif not isButtonHeld then
+          self.cacheTimer = math.max(0, self.cacheTimer - dt)
+          if self.cacheTimer == 0 then
+            self.seenMaterials, self.eatenMaterials, self.seenMods = {}, {}, {}
+            self.cacheTimer = 1
+          end
+        else
+          self.cacheTimer = 1
+        end
+        -- Remove the glow and skip checking while the menu is open.
+        if radialMenu.uuid and radialMenu.uuid == self.uuid then
+          activeItem.setScriptedAnimationParameter("voreTiles", nil)
+          return
+        end
+        -- Cast rays. (Outside of the button block so we can highlight)
+        local damagePositions, seenPositions, tilePriorities = {}, {}, {}
+        local aimDistance = world.distance(aimPosition, starPounds.mcontroller.mouthPosition)
+        local direction = vec2.norm(aimDistance)
+        local range = math.min(math.floor(2 * (vec2.mag(aimDistance) + 0.5))/2, self.range + math.abs(math.min(starPounds.currentSize.yOffset or 0, 0)))
+        local startPosition = starPounds.mcontroller.mouthPosition
+        -- Only grab one block if shift is held.
+        if shiftHeld then
+          local endPosition = vec2.add(startPosition, vec2.mul(direction, range))
+          world.debugLine(startPosition, endPosition, "red")
+          damagePositions, seenPositions = self.collisionCheck(startPosition, endPosition, range, damagePositions, seenPositions)
+          -- Always max priority.
+          for _, position in ipairs(damagePositions) do
+            tilePriorities[position[1]..","..position[2]] = 1
+          end
+        else
+          local roundedAngle = math.floor((vec2.angle(direction) / math.rad(10)) + 0.5) * math.rad(10)
+          for i, ray in ipairs(self.rays) do
+            local endPosition = vec2.add(startPosition, vec2.rotate(vec2.withAngle(roundedAngle, range), math.rad(ray.angle * (ray.flip and aimDirection or 1))))
+            world.debugLine(startPosition, endPosition, "red")
+
+            local previousTileCount = #damagePositions
+            damagePositions, seenPositions = self.collisionCheck(startPosition, endPosition, range, damagePositions, seenPositions)
+            for i = previousTileCount + 1, #damagePositions do
+              local position = damagePositions[i]
+              tilePriorities[position[1]..","..position[2]] = ray.priority or 99
+            end
+          end
+        end
+        -- Sort by distance from mouth.
+        table.sort(damagePositions, function(a, b)
+          -- Check by priority.
+          local priorityA = tilePriorities[a[1]..","..a[2]] or 99
+          local priorityB = tilePriorities[b[1]..","..b[2]] or 99
+          if priorityA ~= priorityB then
+            return priorityA < priorityB
+          end
+          -- Check by distance if they're the same priority.
+          return vec2.mag(world.distance(vec2.add(a, 0.5), startPosition)) < vec2.mag(world.distance(vec2.add(b, 0.5), startPosition))
+        end)
+        -- Check found tiles.
+        local selectedTiles = 0
+        local eatPositions, maybeEatPositions, dropPositions = {}, {}, {}
+        local tileMode = starPounds.getOption("tileMode")
+        local universalEating = tileMode == "eat"
+        local maximumTiles = math.min(starPounds.getStat("voreTileAmount"), shiftHeld and 1 or math.huge)
+
+        for _, position in ipairs(damagePositions) do
+          local materialName = world.material(position, "foreground")
+          local modName = world.mod(position, "foreground")
+          local key = position[1]..","..position[2]
+          -- Tiles.
+          if modName then
+            self.seenMods[key] = modName
+          end
+          -- Ignore metamaterials.
+          if materialName and materialName:sub(1, 13) ~= "metamaterial:" then
+            self.seenMaterials[key] = materialName
+            if not self.materials[materialName] then
+              local materialConfig = root.materialConfig(materialName)
+              if materialConfig and materialConfig.config and materialConfig.config.materialId then
+                self.materialNames[materialConfig.config.materialId] = materialName
+              end
+              self.materials[materialName] = true
+            end
+
+            local isEdible = starPounds.moduleFunc("material", "edible", materialName)
+            local isConsumable = starPounds.moduleFunc("material", "consumable", materialName) and (tileMode ~= "ignore")
+            local isInedible = starPounds.moduleFunc("material", "inedible", materialName) or ((tileMode == "ignore") and not isEdible)
+            if isEdible then
+              eatPositions[#eatPositions + 1] = position
+            elseif isConsumable then
+              maybeEatPositions[#maybeEatPositions + 1] = position
+            elseif not isInedible then
+              dropPositions[#dropPositions + 1] = position
+            end
+
+            if not isInedible then
+              selectedTiles = selectedTiles + 1
+              if selectedTiles >= maximumTiles then break end
+            end
+          end
+        end
+
+        local targetPositions = {}
+        for _, tbl in ipairs({eatPositions, maybeEatPositions, dropPositions}) do
+          for _, position in ipairs(tbl) do
+            targetPositions[#targetPositions + 1] = position
+          end
+        end
+        -- Set tiles to be highlighted.
+        activeItem.setScriptedAnimationParameter("voreTiles", targetPositions)
+        -- Extra glow when clicking.
+        local shouldHighlight = isButtonHeld and true or nil
+        if self.forceHighlight ~= shouldHighlight then
+          self.forceHighlight = shouldHighlight
+          activeItem.setScriptedAnimationParameter("voreTileHighlight", self.forceHighlight)
+        end
+        -- Mining.
+        if isButtonHeld and self.cooldown == 0 and #targetPositions > 0 then
+          -- Center bite on the first block.
+          local tilePosition = {math.floor(damagePositions[1][1]) + 0.5, math.floor(damagePositions[1][2]) + 0.5}
+          local projectilePosition = vec2.add(tilePosition, vec2.norm(world.distance(starPounds.mcontroller.mouthPosition, tilePosition)))
+          local direction = world.distance(projectilePosition, starPounds.mcontroller.position)[1]
+          world.spawnProjectile("starpoundsvorebite"..(direction > 0 and "right" or "left").."mining", projectilePosition, starPounds.entityId, {direction, 0}, false)
+          -- Mining sound based on first block.
+          local hitMaterial = world.material(damagePositions[1], "foreground")
+          local hitMod = world.mod(damagePositions[1], "foreground")
+          if hitMaterial then
+            if world.isTileProtected(damagePositions[1]) then
+              animator.setSoundPool("voreTile_block", {self.protectedSound})
+              animator.playSound("voreTile_block")
+            else
+              animator.playSound("voreTile")
+              local sound = root.materialMiningSound(hitMaterial, hitMod) or root.materialFootstepSound(hitMaterial, hitMod)
+              if sound then
+                animator.setSoundPool("voreTile_block", {sound})
+                animator.playSound("voreTile_block")
+              end
+            end
+          end
+          local damageMult = starPounds.getStat("voreTileDamage")
+          local harvestLevel = universalEating and 0 or 99
+          local tileGroups = {
+            {positions = eatPositions, mult = damageMult, harvest = 0, alwaysEat = true},
+            {positions = maybeEatPositions, mult = damageMult, harvest = harvestLevel},
+            {positions = dropPositions, mult = 1, harvest = harvestLevel}
+          }
+          -- Iterate through groups.
+          for _, group in ipairs(tileGroups) do
+            if #group.positions > 0 then
+              world.damageTiles(group.positions, "foreground", starPounds.mcontroller.mouthPosition, "explosive", self.damageAmount * group.mult, group.harvest, starPounds.entityId)
+              -- Add tiles to stomach if edible or universal eating is active.
+              if group.alwaysEat or universalEating then
+                for _, position in ipairs(group.positions) do
+                  self.eatenMaterials[position[1]..","..position[2]] = true
+                end
+              end
+            end
+          end
+
+          self.cooldown = self.cooldownTime
+        end
+
+        local readyPercent = 1 - (self.cooldown / self.cooldownTime)
+        local frameIndex = math.min(math.floor(readyPercent * self.cooldownFrames), self.cooldownFrames - 1)
+        activeItem.setCursor(string.format("/cursors/starpoundsvore.cursor:bite%s", (self.cooldown > 0) and ("_" .. frameIndex) or ""))
+      end,
+
+      consumeMaterial = function(self, data)
+        if not data then return end
+        if data.food then
+          for foodType, amount in pairs(data.food) do
+            self.food[foodType] = (self.food[foodType] or 0) + amount
+          end
+        end
+        -- Vanilla effects.
+        if data.statusEffects then
+          status.addEphemeralEffects(data.statusEffects, starPounds.entityId)
+        end
+        -- StarPounds effects.
+        if data.effects then
+          for _, effectConfig in ipairs(data.effects) do
+            if type(effectConfig) == "table" then
+              starPounds.moduleFunc("effects", "add", effectConfig.effect, effectConfig.duration, effectConfig.level, effectConfig.maxLevel)
+            else
+              starPounds.moduleFunc("effects", "add", effectConfig)
+            end
+          end
+        end
+      end,
+
+      collisionCheck = function(startPosition, endPosition, range, positions, seenPositions)
+        local positions, seenPositions = positions or {}, seenPositions or {}
+        -- 5 block deep check.
+        local collisions = world.collisionBlocksAlongLine(startPosition, endPosition, {"Block", "Dynamic", "Slippery", "Platform"})
+        if #collisions > 0 then
+          for _, position in ipairs(collisions) do
+            local key = position[1]..","..position[2]
+            if not seenPositions[key] then
+              seenPositions[key] = true
+              positions[#positions + 1] = position
+            end
+          end
+        end
+        return positions, seenPositions
+      end,
+
+      onClick = function(self, shiftHeld) end,
+
+      uninit = function(self)
+        activeItem.setScriptedAnimationParameter("voreTiles", nil)
+        starPounds.events:off("tileBroken", self.onTileBroken)
+        starPounds.events:off("tileEntityBroken", self.onTileEntityBroken)
+        activeItem.setCursor()
+      end
+    },
     -- Sounds.
     soundBelch = {
       icon = colourStarPoundsImage(path.."icons/inventory_belch.png"),
@@ -410,7 +706,9 @@ function buildActions()
     default = {
       icon = colourStarPoundsImage(string.format(path.."icons/inventory_default%s.png", config.getParameter("twoHanded", true) and "" or "_oneHanded")),
       init = function(self) end,
-      update = function(self, dt, fireMode, isButtonHeld, shiftHeld) end,
+      update = function(self, dt, fireMode, isButtonHeld, shiftHeld)
+        activeItem.setFacingDirection(starPounds.mcontroller.movingDirection)
+      end,
       onClick = function(self, shiftHeld) end,
       uninit = function(self) end
     }
@@ -449,6 +747,7 @@ function buildMenu()
           pressColour = {255, 140, 140, 200},
           iconBorderColour = "ed7272bb"
         },
+        { name = "voreTile", pretty = "Mine", description = "Damage and\nconsume tiles", icon = path.."icons/voreTile.png" },
         { name = "voreBite", pretty = "Bite", description = string.format("^#ccbbff;%g^reset; damage", string.format("%.2f", starPounds.moduleFunc("pred", "biteDamage"))), icon = path.."icons/voreBite.png" },
         { name = "vorePrey", pretty = "Feed", description = "Become prey for\nothers", icon = path.."icons/vorePrey.png" },
         { name = "voreEatSafe", pretty = "Endo", title = "Eat: ^#72ed72;Endo^reset;", weight = 0.5, description = "^#ccbbff;Eat^reset;, but will\nnever digest\nprey", icon = path.."icons/voreEat.png",
@@ -486,6 +785,7 @@ function buildMenu()
       options = {
         { name = "voreEat", pretty = "Eat", description = "Hold ^#ccbbff;[Shift]^reset; to\nrelease prey", icon = path.."icons/voreEat.png" },
         { name = "voreBite", pretty = "Bite", description = string.format("^#ccbbff;%g^reset; damage", string.format("%.2f", starPounds.moduleFunc("pred", "biteDamage"))), icon = path.."icons/voreBite.png" },
+        { name = "voreTile", pretty = "Mine", description = "Damage and\nconsume tiles", icon = path.."icons/voreTile.png" },
         { name = "lactate", pretty = "Lactate", icon = "/interface/scripted/starpounds/main/icons/skills/breastEfficiency.png" },
       }
     }
@@ -571,12 +871,16 @@ function equipAction(actionName, data)
 end
 
 function update(dt, fireMode, shiftHeld)
+  local starPounds_old = starPounds
   shared = getmetatable ""
   starPounds = shared.starPounds
+  -- Reload the actions table if the StarPounds table changes.
+  if starPounds ~= starPounds_old then
+    init()
+  end
 
   shared.starPoundsRadialMenu = shared.starPoundsRadialMenu or {}
   radialMenu = shared.starPoundsRadialMenu
-
   -- Default just opens the menu. (Converts left clicks into right clicks)
   if storage.action == "default" and fireMode == "primary" then
     fireMode = "alt"
@@ -591,13 +895,24 @@ function update(dt, fireMode, shiftHeld)
   if radialMenu.uuid then
     if radialMenu.uuid == self.uuid then
       activeItem.setCursor()
+      activeItem.setFacingDirection(starPounds.mcontroller.movingDirection)
       -- Close the menu on right click.
       if not self.click and fireMode == "alt" then
         self.click = true
         radialMenu.close = true
       end
+      -- Uninit abilities when opening menu.
+      if not self.menuOpen then
+        if self.action and self.action.uninit then self.action:uninit() end
+      end
+      self.menuOpen = not not radialMenu.uuid
     end
   else
+    -- Init abilities when closing menu.
+    if self.menuOpen then
+      if self.action and self.action.init then self.action:init() self.menuOpen = false end
+    end
+    self.menuOpen = not not radialMenu.uuid
     local isPrimaryHeld = (fireMode == "primary")
     if self.action and type(self.action.update) == "function" then
       self.action:update(dt, fireMode, isPrimaryHeld, shiftHeld)
@@ -687,7 +1002,7 @@ function hueshiftImage(image, hue)
 end
 
 function removeStarPoundsHue(image)
-  return image.."?replace;7743b2=b24343;9d72ed=ed7272;d0bfff=ffa7a7;ffffff=ffffff;"
+  return image.."?replace;7743b2=a62929;9d72ed=de5252;d0bfff=ffa7a7;ffffff=ffffff;"
 end
 
 function colourStarPoundsImage(image)

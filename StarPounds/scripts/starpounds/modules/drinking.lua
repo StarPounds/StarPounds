@@ -7,6 +7,7 @@ function drinking:init()
   self.drinkCounter = 0
   self.splashConfig = root.assetJson("/player.config:splashConfig")
   self.liquidCache = {}
+  self.inedibleLiquidCache = {}
 end
 
 function drinking:update(dt)
@@ -20,7 +21,7 @@ function drinking:update(dt)
   self:drink()
 end
 
-function drinking:drink()
+function drinking:drink(position)
   -- Don't drink inside distortion spheres.
   if status.stat("activeMovementAbilities") > 1 then return end
   -- Don't bother if there's no liquid around us.
@@ -33,7 +34,7 @@ function drinking:drink()
   -- Check if drinking isn't on cooldown.
   if not (self.drinkTimer == 0) then return end
 
-  local liquidPositon = self:getValidLiquidPosition()
+  local liquidPositon = self:getValidLiquidPosition(position)
   local liquidAmount = self:consumeLiquidsAtPosition(liquidPositon)
 
   if liquidAmount > 0 then
@@ -44,6 +45,7 @@ function drinking:drink()
     -- Play drinking sound. Volume increased by amount of liquid consumed.
     starPounds.moduleFunc("sound", "play", "drink", math.min(0.5 + 0.5 * liquidAmount, 1), math.random(7, 11)/10)
     status.addEphemeralEffect("starpoundsdrinking")
+    return true
   else
     -- Reset the drink counter if there is nothing to drink.
     if self.drinkCounter >= 1 then
@@ -54,12 +56,13 @@ function drinking:drink()
     end
     self.drinkCounter = 0
   end
+  return false
 end
 
-function drinking:getValidLiquidPosition()
+function drinking:getValidLiquidPosition(position)
   -- Check offset in case it's slightly lower.
   for _, pos in ipairs(self.data.checkPositions) do
-    local checkPosition = vec2.add(starPounds.mcontroller.mouthPosition, pos)
+    local checkPosition = vec2.add(position or starPounds.mcontroller.mouthPosition, pos)
     if world.isTileProtected(checkPosition) then return end
     local checkLiquid = world.liquidAt(checkPosition)
     if checkLiquid and self:canDrinkLiquid(checkLiquid[1]) then
@@ -125,12 +128,17 @@ function drinking:consumeLiquidsAtPosition(position)
 end
 
 function drinking:canDrinkLiquid(liquidType)
-  if starPounds.hasOption("universalDrinking") then return true end
   if type(liquidType) == "number" then liquidType = root.liquidName(liquidType) end
   -- We store false values too.
   if self.liquidCache[liquidType] == nil then
     self.liquidCache[liquidType] = starPounds.moduleFunc("liquid", "edible", liquidType)
   end
+  -- Blacklisted liquids.
+  if self.inedibleLiquidCache[liquidType] == nil then
+    self.inedibleLiquidCache[liquidType] = starPounds.moduleFunc("liquid", "inedible", liquidType)
+  end
+
+  if starPounds.hasOption("universalDrinking") and not self.inedibleLiquidCache[liquidType] then return true end
 
   return self.liquidCache[liquidType]
 end

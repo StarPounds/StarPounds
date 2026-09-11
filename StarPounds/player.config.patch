@@ -48,5 +48,17 @@
       "path": "/companionsConfig/scripts/-",
       "value": "/scripts/companions/starpounds.lua"
     }
+  ],
+  [
+    {
+      "op" : "move",
+      "from" : "/genericScriptContexts/stealing",
+      "path" : "/starpounds_stealing_old" // Relocated to load later.
+    },
+    {
+      "op" : "add",
+      "path" : "/genericScriptContexts/stealing",
+      "value" : "/scripts/player/starpounds_stealing.lua"
+    }
   ]
 ]

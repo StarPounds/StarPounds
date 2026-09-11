@@ -371,7 +371,11 @@ function spawnController:onClick()
     parameters = {
       twoHanded = false,
       description = "^#ccbbff;[Click]^reset; to set or use an action.\n^gray;Cannot open the selection menu once an action is set.",
-      inventoryIcon = "icons/inventory_default_oneHanded.png"
+      inventoryIcon = "icons/inventory_default_oneHanded.png",
+      secondaryIcon = {
+        {image = "icons/inventory_default_oneHanded.png", position = {0, 0}},
+        {image = "/interface/actionbar/actionbaroverlay.png?crop=1;1;17;17", position = {0, 0}}
+      }
     }
   }) or "starpoundscontroller"
 

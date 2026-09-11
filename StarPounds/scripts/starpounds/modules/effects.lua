@@ -80,7 +80,7 @@ function effects:load(effect)
   end
 end
 
-function effects:add(effect, duration, level)
+function effects:add(effect, duration, level, maxLevel)
   -- Don't do anything if the mod is disabled.
   if not storage.starPounds.enabled then return end
   -- Argument sanitisation.
@@ -109,7 +109,11 @@ function effects:add(effect, duration, level)
       starPounds.moduleFunc("sound", "play", "digest", 0.5, (math.random(120,150)/100))
     end
     effectData.duration = duration and math.max(effectData.duration or 0, duration) or nil
-    effectData.level = math.min((effectData.level or 0) + level, effectConfig.levels or 1)
+    -- Increase level.
+    local currentLevel = effectData.level or 0
+    local stackedLevel = math.min(currentLevel + level, maxLevel or math.huge)
+    effectData.level = math.min(math.max(currentLevel, stackedLevel), effectConfig.levels or 1)
+
     storage.starPounds.effects.active[effect] = effectData
     if not (effectConfig.ephemeral or effectConfig.hidden) then
       storage.starPounds.effects.discovered[effect] = true
