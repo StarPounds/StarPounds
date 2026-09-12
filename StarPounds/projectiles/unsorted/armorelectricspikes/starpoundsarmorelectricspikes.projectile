@@ -1,6 +1,6 @@
 {
-  "projectileName" : "starpounds_armortoxicspikes",
-  "image" : "starpounds_armortoxicspikes.png",
+  "projectileName" : "starpoundsarmorelectricspikes",
+  "image" : "starpoundsarmorelectricspikes.png",
   "animationCycle" : 0.25,
   "frameNumber" : 1,
   "damageKindImage" : "icon.png",
@@ -11,6 +11,6 @@
   "piercing" : true,
   "damagePoly" : [ [-30, 0], [-20, -20], [0, -30], [20, -20], [30, 0], [20, 20], [0, 30], [-20, 20] ],
   "statusEffects" : [
-    "weakpoison"
+    "electrified"
   ]
 }

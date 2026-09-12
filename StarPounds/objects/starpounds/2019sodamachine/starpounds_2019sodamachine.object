@@ -10,7 +10,7 @@
   "flickerMaxIntensity" : 0.75,
   "flickerPeriodVariance" : 0.8,
   "flickerIntensityVariance" : 0.25,
-    
+
   "printable" : false,
 
   "shortdescription" : "2019 Vending Machine",
@@ -52,14 +52,14 @@
   "scripts" : [
     "/objects/scripts/explodingsmashable.lua"
   ],
-  
+
   "smashable" : true,
   "smashOnBreak" : true,
   "smashSounds" : [ "/sfx/gun/grenadeblast1.ogg", "/sfx/gun/grenadeblast2.ogg", "/sfx/gun/grenadeblast3.ogg" ],
   "smashDropPool" : "starpounds2019machineloot",
-  "breakDropPool" : "starpounds2019machineloot",  
-  
-  "explosionProjectile" : "starpounds_specialsodamachineexplosion",
-  "explosionOffset" : [1, 2]  
-  
+  "breakDropPool" : "starpounds2019machineloot",
+
+  "explosionProjectile" : "starpoundsspecialsodamachineexplosion",
+  "explosionOffset" : [1, 2]
+
 }

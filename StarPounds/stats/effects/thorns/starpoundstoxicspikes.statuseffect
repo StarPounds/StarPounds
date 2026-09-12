@@ -1,5 +1,5 @@
 {
-  "name" : "starpounds_toxicspikes",
+  "name" : "starpoundstoxicspikes",
   "effectConfig" : {
     "minRange" : 0.5,
 
@@ -11,7 +11,7 @@
     "border" : "1;4DA82699;00000000",
 
     "damageMultiplier" : 0.0,
-    "damageProjectileType" : "starpounds_armortoxicspikes",
+    "damageProjectileType" : "starpoundsarmortoxicspikes",
 
     "cooldown" : 1,
 
@@ -26,5 +26,5 @@
   ],
 
   "label" : "Toxic Spikes",
-  "icon" : "/interface/statuses/starpounds_toxicspikes.png"
+  "icon" : "/interface/statuses/starpoundstoxicspikes.png"
 }

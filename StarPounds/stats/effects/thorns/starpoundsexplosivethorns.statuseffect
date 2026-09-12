@@ -1,5 +1,5 @@
 {
-  "name" : "starpounds_explosivethorns",
+  "name" : "starpoundsexplosivethorns",
   "effectConfig" : {
     "range" : 3,
 	
@@ -16,5 +16,5 @@
   ],
 
   "label" : "Explosive Retaliation",
-  "icon" : "/interface/statuses/starpounds_explosivethorns.png"
+  "icon" : "/interface/statuses/starpoundsexplosivethorns.png"
 }

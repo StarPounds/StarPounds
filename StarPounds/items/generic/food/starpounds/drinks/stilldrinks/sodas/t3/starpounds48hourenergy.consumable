@@ -14,11 +14,11 @@
         "duration" : 300
     },
     {
-        "effect" : "starpounds_maxenergyscaling_super",
+        "effect" : "starpoundsmaxenergyscalingsuper",
         "duration" : 300
     }
   ] ],
-  "foodValue": 10,  
+  "foodValue": 10,
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundssugarcrash"

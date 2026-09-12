@@ -1,5 +1,5 @@
 {
-  "name" : "starpounds_electricspikes",
+  "name" : "starpoundselectricspikes",
   "effectConfig" : {
     "minRange" : 0.5,
 
@@ -11,7 +11,7 @@
     "border" : "1;BB6DE7;00000000",
 
     "damageMultiplier" : 0.0,
-    "damageProjectileType" : "armorelectricspikes",
+    "damageProjectileType" : "starpoundsarmorelectricspikes",
 
     "cooldown" : 1,
 
@@ -26,5 +26,5 @@
   ],
 
   "label" : "Electric Spikes",
-  "icon" : "/interface/statuses/starpounds_electricspikes.png"
+  "icon" : "/interface/statuses/starpoundselectricspikes.png"
 }

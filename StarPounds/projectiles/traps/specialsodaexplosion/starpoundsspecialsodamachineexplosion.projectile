@@ -1,9 +1,9 @@
 {
-  "projectileName" : "starpounds_specialsodamachineexplosion",
+  "projectileName" : "starpoundsspecialsodamachineexplosion",
   "physics" : "laser",
   "bounces" : 0,
   "timeToLive" : 0.01,
-  "image" : "starpounds_specialsodamachineexplosion.png",
+  "image" : "starpoundsspecialsodamachineexplosion.png",
   "animationCycle" : 1,
   "frameNumber" : 1,
 
