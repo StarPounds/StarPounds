@@ -1,5 +1,5 @@
 {
-  "type" : "crewmemberlipomancer",
+  "type" : "starpoundscrewmemberlipomancer",
   "baseType" : "crewmember",
 
   "scriptConfig" : {
