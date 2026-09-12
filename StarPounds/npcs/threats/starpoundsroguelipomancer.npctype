@@ -10,7 +10,7 @@
 
   "scriptConfig" : {
     "behaviorConfig" : {
-      "friendlyNpcTypes" : ["crewmemberlipomancer"],
+      "friendlyNpcTypes" : ["starpoundscrewmemberlipomancer"],
       "rangedAimTime" : 0.5,
       "rangedWindupTime" : 0.01
     },
