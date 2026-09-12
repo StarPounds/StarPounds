@@ -72,7 +72,7 @@
             "windupTime" : 0.4,
             "windupState" : "firewindup",
 
-            "projectileType" : "wispknife",
+            "projectileType" : "starpoundswispknife",
             "projectileCount" : 1,
             "projectileInterval" : 0.0,
 

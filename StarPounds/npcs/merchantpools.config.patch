@@ -317,7 +317,7 @@
       { "item" : { "name" : "starpoundslagocola" } },
       { "item" : { "name" : "starpoundsfizzycider" } },
       { "item" : { "name" : "starpoundsdandelionsunrise" } },
-      { "item" : { "name" : "starpoundsmoonrider" } }                    
+      { "item" : { "name" : "starpoundsmoonrider" } }
                 ]
             ]
         ]
@@ -334,7 +334,7 @@
       { "item" : { "name" : "rawribmeat" } },
       { "item" : { "name" : "rawbacon" } },
       { "item" : { "name" : "rawham" } },
-      { "item" : { "name" : "rawixoling" } },
+      { "item" : { "name" : "starpoundsrawixoling" } },
       { "item" : { "name" : "rawfish" } },
       { "item" : { "name" : "rawtentacle" } }
                 ]

@@ -1,6 +1,6 @@
 {
-  "projectileName" : "roguelipomancerfilledcapturepod",
-  "image" : "roguelipomancerfilledcapturepod.png",
+  "projectileName" : "starpoundsroguelipomancerfilledcapturepod",
+  "image" : "starpoundsroguelipomancerfilledcapturepod.png",
   "animationCycle" : 0.25,
   "physics" : "grenade",
   "frameNumber" : 1,
@@ -15,7 +15,7 @@
   "returnCollisionDuration" : 2,
   "orientationLocked" : true,
 
-  "scripts" : [ "roguelipomancerfilledcapturepod.lua" ],
+  "scripts" : [ "starpoundsroguelipomancerfilledcapturepod.lua" ],
 
   "returns" : false,
   "returnCollisionPoly" : [ [-0.25, -0.25], [0.25, -0.25], [0.25, 0.25], [-0.25, 0.25] ],

@@ -1,9 +1,9 @@
 {
-  "itemName" : "cookedixoling",
+  "itemName" : "starpoundscookedixoling",
   "rarity" : "Common",
   "price" : 80,
   "category" : "food",
-  "inventoryIcon" : "cookedixoling.png",
+  "inventoryIcon" : "starpoundscookedixoling.png",
   "description" : "A haunch of roasted ixoling.",
   "shortdescription" : "Cooked Ixoling",
   "foodValue" : 50,

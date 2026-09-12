@@ -32,7 +32,7 @@
       "hurtWaitForGround" : false,
 
       "damageTakenActions" : [
-    
+
         {
           "name" : "action-invulnerable",
           "cooldown" : 7,
@@ -41,14 +41,14 @@
             "windupState" : "windup",
 
             "invulnerableState" : "pray",
-            "invulnerableEffect" : "wisphealprayer",
+            "invulnerableEffect" : "starpoundswisphealprayer",
             "invulnerableTime" : 5,
 
             "winddownTime" : 0.4,
             "winddownState" : "winddown"
       }
-        }    
-    
+        }
+
       ],
 
       "foundTargetActions" : [ ],
@@ -65,7 +65,7 @@
             "windupState" : "windup",
 
             "invulnerableState" : "pray",
-            "invulnerableEffect" : "wisphealprayer",
+            "invulnerableEffect" : "starpoundswisphealprayer",
             "invulnerableTime" : 5,
 
             "winddownTime" : 0.4,
@@ -85,7 +85,7 @@
             "windupState" : "windup",
 
             "invulnerableState" : "pray",
-            "invulnerableEffect" : "wisphealprayer",
+            "invulnerableEffect" : "starpoundswisphealprayer",
             "invulnerableTime" : 5,
 
             "winddownTime" : 0.4,

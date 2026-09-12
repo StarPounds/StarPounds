@@ -1,5 +1,5 @@
 {
-  "type" : "crewmembercaloric",
+  "type" : "starpoundscrewmembercaloric",
   "baseType" : "crewmember",
 
   "scriptConfig" : {
@@ -16,10 +16,10 @@
       "uniformSlots" : []
     },
 
-    "starPounds_traits": [ "npc_gluttonistVeteran" ],	
+    "starPounds_traits": [ "npc_gluttonistVeteran" ],
 
     "dialog" : {}
-	
+
   },
 
   "items" : {
@@ -53,7 +53,7 @@
               "starpoundsponderouscrossbow"
             ]
           }
-        ] ]	
+        ] ]
 	]
   }
 }

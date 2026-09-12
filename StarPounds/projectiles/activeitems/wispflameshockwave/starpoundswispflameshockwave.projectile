@@ -1,7 +1,7 @@
 {
-  "projectileName" : "wispflameshockwave",
+  "projectileName" : "starpoundswispflameshockwave",
   "physics" : "bullet",
-  "image" : "wispflameshockwave.png",
+  "image" : "starpoundswispflameshockwave.png",
   "damageKindImage" : "icon.png",
   "speed" : 25,
   "animationCycle" : 0.5,
@@ -14,7 +14,7 @@
   "statusEffects" : [
     {"effect": "starpoundsfood_wispflame", "duration": 20}
   ],
-  
+
   "actionOnReap" : [
     {
       "action" : "sound",
@@ -22,29 +22,29 @@
     },
     {
       "action" : "projectile",
-      "type" : "wispbombcloud",
+      "type" : "starpoundswispbombcloud",
       "fuzzAngle" : 180,
       "inheritSpeedFactor" : 0.1,
       "inheritDamageFactor" : 0.0
     },
     {
       "action" : "projectile",
-      "type" : "wispbombcloud",
+      "type" : "starpoundswispbombcloud",
       "fuzzAngle" : 180,
       "inheritSpeedFactor" : 0.1,
-      "inheritDamageFactor" : 0.0 
+      "inheritDamageFactor" : 0.0
     },
     {
       "action" : "projectile",
-      "type" : "wispbombcloud",
+      "type" : "starpoundswispbombcloud",
       "fuzzAngle" : 180,
       "inheritSpeedFactor" : 0.1,
       "inheritDamageFactor" : 0.0
     }
-],	
-  
-  "damagePoly" : [ [0, 24], [8, 8], [8, -8], [0, -24], [-8, -8], [-8, 8] ],  
-  
+],
+
+  "damagePoly" : [ [0, 24], [8, 8], [8, -8], [0, -24], [-8, -8], [-8, 8] ],
+
   "emitters" : [ "wispflame", "wispflame" ],
   "fullbright" : true,
   "damageKind" : "caloric"

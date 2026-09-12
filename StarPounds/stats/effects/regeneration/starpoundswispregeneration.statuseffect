@@ -1,5 +1,5 @@
 {
-  "name" : "wispregeneration",
+  "name" : "starpoundswispregeneration",
   "blockingStat" : "healingStatusImmunity",
 
   "effectConfig" : {
@@ -11,7 +11,7 @@
     "regeneration.lua"
   ],
 
-  "animationConfig" : "wispregeneration.animation",
+  "animationConfig" : "starpoundswispregeneration.animation",
 
   "label" : "Wispflame Healing",
   "icon" : "/interface/statuses/heal.png"

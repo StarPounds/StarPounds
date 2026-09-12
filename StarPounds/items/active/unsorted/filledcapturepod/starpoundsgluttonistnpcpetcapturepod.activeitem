@@ -1,5 +1,5 @@
 {
-  "itemName" : "gluttonistnpcpetcapturepod",
+  "itemName" : "starpoundsgluttonistnpcpetcapturepod",
   "maxStack" : 1,
   "rarity" : "Common",
   "category" : "throwableItem",
@@ -9,10 +9,10 @@
   "twoHanded" : false,
   "itemTags" : ["weapon","ranged"],
 
-  "inventoryIcon" : "gluttonistfilledcapturepodicon.png",
+  "inventoryIcon" : "starpoundsgluttonistfilledcapturepodicon.png",
   "animation" : "filledcapturepod.animation",
   "animationParts" : {
-    "filledcapturepod" : "gluttonistfilledcapturepod.png"
+    "filledcapturepod" : "starpoundsgluttonistfilledcapturepod.png"
   },
   "animationCustom" : { },
   "scripts" : ["npcpetcapturepod.lua"],
@@ -51,7 +51,7 @@
     }
   },
 
-  "projectileType" : "gluttonistfilledcapturepod",
+  "projectileType" : "starpoundsgluttonistfilledcapturepod",
   "projectileParameters" : {
     "speed" : 40,
     "level" : 0

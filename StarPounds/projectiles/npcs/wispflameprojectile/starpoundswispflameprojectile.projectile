@@ -1,6 +1,6 @@
 {
-  "projectileName" : "wispflameprojectile",
-  "image" : "wispflameprojectile.png",
+  "projectileName" : "starpoundswispflameprojectile",
+  "image" : "starpoundswispflameprojectile.png",
   "physics" : "laser",
   "animationCycle" : 0.2,
   "frameNumber" : 2,

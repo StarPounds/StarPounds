@@ -11,14 +11,14 @@
   "itemTags" : ["weapon","wand"],
   "level" : 4,
 
-  "inventoryIcon" : "wispwand.png",
+  "inventoryIcon" : "starpoundswispwand.png",
 
-  "animation" : "wispwand.animation",
+  "animation" : "starpoundswispwand.animation",
   "animationParts" : {
-    "spear" : "wispwand.png"
+    "spear" : "starpoundswispwand.png"
   },
 
-  "scripts" : ["wispwand.lua"],
+  "scripts" : ["starpoundswispwand.lua"],
 
   "elementalType" : "caloric",
 
@@ -29,7 +29,7 @@
 
     "fireTime" : 1.0,
 
-    "projectileType" : "wispbomb",
+    "projectileType" : "starpoundswispbomb",
     "projectileParameters" : {
       "speed" : 100,
       "damageType" : "IgnoresDef",
@@ -41,7 +41,7 @@
         "weaponRotation" : 0,
         "twoHanded" : false,
         "weaponOffset" : [0.0, 0.5],
-  
+
         "allowRotate" : true,
         "allowFlip" : true
       },
@@ -62,7 +62,7 @@
         "weaponRotation" : -70,
         "twoHanded" : false,
         "weaponOffset" : [0.0, 0.5],
-  
+
         "allowRotate" : false,
         "allowFlip" : false
       }

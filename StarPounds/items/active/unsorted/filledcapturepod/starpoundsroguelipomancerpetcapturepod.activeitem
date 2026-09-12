@@ -1,5 +1,5 @@
 {
-  "itemName" : "roguelipomancerpetcapturepod",
+  "itemName" : "starpoundsroguelipomancerpetcapturepod",
   "maxStack" : 1,
   "rarity" : "Common",
   "category" : "throwableItem",
@@ -9,10 +9,10 @@
   "twoHanded" : false,
   "itemTags" : ["weapon","ranged"],
 
-  "inventoryIcon" : "roguelipomancerfilledcapturepodicon.png",
-  "animation" : "roguelipomancerfilledcapturepod.animation",
+  "inventoryIcon" : "starpoundsroguelipomancerfilledcapturepodicon.png",
+  "animation" : "starpoundsroguelipomancerfilledcapturepod.animation",
   "animationParts" : {
-    "filledcapturepod" : "roguelipomancerfilledcapturepod.png"
+    "filledcapturepod" : "starpoundsroguelipomancerfilledcapturepod.png"
   },
   "animationCustom" : { },
   "scripts" : ["npcpetcapturepod.lua"],
@@ -51,7 +51,7 @@
     }
   },
 
-  "projectileType" : "roguelipomancerfilledcapturepod",
+  "projectileType" : "starpoundsroguelipomancerfilledcapturepod",
   "projectileParameters" : {
     "speed" : 40,
     "level" : 0

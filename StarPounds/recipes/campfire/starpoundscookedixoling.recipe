@@ -1,0 +1,7 @@
+{
+  "input" : [
+    { "item" : "starpoundsrawixoling", "count" : 1 }
+  ],
+  "output" : { "item" : "starpoundscookedixoling", "count" : 1 },
+  "groups" : [ "campfire", "consumables", "all" ]
+}

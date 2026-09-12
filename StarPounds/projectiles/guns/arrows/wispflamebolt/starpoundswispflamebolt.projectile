@@ -1,5 +1,5 @@
 {
-  "projectileName" : "wispflamebolt",
+  "projectileName" : "starpoundswispflamebolt",
   "physics" : "arrow",
   "actionOnCollide" : [
     {
@@ -9,7 +9,7 @@
       ]
     }
   ],
-  "image" : "wispflamebolt.png",
+  "image" : "starpoundswispflamebolt.png",
   "animationCycle" : 0.25,
   "frameNumber" : 1,
   "damageKind" : "caloricbow",

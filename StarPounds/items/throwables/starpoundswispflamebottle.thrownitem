@@ -1,10 +1,10 @@
 {
-  "itemName" : "wispflamebottle",
+  "itemName" : "starpoundswispflamebottle",
   "price" : 60,
   "rarity" : "Common",
   "category" : "throwableItem",
-  "inventoryIcon" : "wispflamebottle.png",
-  "image" : "wispflamebottle.png",
+  "inventoryIcon" : "starpoundswispflamebottle.png",
+  "image" : "starpoundswispflamebottle.png",
   "shortdescription" : "Wispflame Bottle",
   "description" : "A bottle full of fattening Wispflame.",
 
@@ -14,7 +14,7 @@
   "windupTime" : 0.0,
   "cooldown" : 1.5,
 
-  "projectileType" : "wispflamebottle",
+  "projectileType" : "starpoundswispflamebottle",
   "projectileConfig" : {
     "speed" : 40,
     "power" : 12,

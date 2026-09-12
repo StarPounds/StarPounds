@@ -57,7 +57,7 @@
             "windupTime" : 0.4,
             "windupState" : "firewindupfast",
 
-            "projectileType" : "wispflameprojectile",
+            "projectileType" : "starpoundswispflameprojectile",
             "inaccuracy" : 0.20,
             "projectileCount" : 3,
             "projectileInterval" : 0.0,

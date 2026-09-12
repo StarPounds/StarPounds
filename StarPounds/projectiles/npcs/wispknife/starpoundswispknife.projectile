@@ -1,5 +1,5 @@
 {
-  "projectileName" : "wispknife",
+  "projectileName" : "starpoundswispknife",
   "physics" : "arrow",
   "actionOnCollide" : [
     {
@@ -9,7 +9,7 @@
       ]
     }
   ],
-  "image" : "wispknife.png",
+  "image" : "starpoundswispknife.png",
   "animationCycle" : 0.25,
   "frameNumber" : 1,
   "damageKindImage" : "icon.png",

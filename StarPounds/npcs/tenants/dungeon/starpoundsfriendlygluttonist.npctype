@@ -3,11 +3,11 @@
   "baseType" : "friendlyguardtenant",
 
   "levelVariance" : [0, 0],
-  
+
   "dropPools" : [],
 
   "scriptConfig" : {
-  
+
     "behaviorConfig" : {
       "leapWindup" : 0.75,
       "rangedAimTime" : 0.5,
@@ -20,14 +20,14 @@
     },
     "starPounds_traits": ["vore", "npc_gluttonist"],
 
-    "dialogMode": "tutorial",    
+    "dialogMode": "tutorial",
     "dialog" : {
       "converse" : {
         "default" : {
           "default" : [
             "Hi. You shouldn't see this. Shame on you."
           ]
-        },	  
+        },
         "floran" : {
           "default" : [
             "Gluttonisstss resspect big fightersss. Floran wantss to be bigger!",
@@ -59,7 +59,7 @@
       }
 
     },
-	
+
    "questGenerator" : {
       "pools" : ["common", "tenant", "guard"],
       "enableParticipation" : true,
@@ -73,12 +73,12 @@
       },
       "graduation" : {
         "nextNpcType" : [
-          [1.0, "crewmembercaloric"]
+          [1.0, "starpoundscrewmembercaloric"]
         ]
-      }	  
+      }
     }
   },
-	
+
   "items" : {
     "override" : [
       [0, [
@@ -106,7 +106,7 @@
           }
         ] ]
     ]
-  }	
-	
-  
+  }
+
+
 }

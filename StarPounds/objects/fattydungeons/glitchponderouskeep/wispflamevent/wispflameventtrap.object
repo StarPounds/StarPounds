@@ -147,7 +147,7 @@
 
   "fireTime" : 0.25, // rate of fire
   "fireTimeVariance" : 0.015, // variation in rate of fire
-  "projectile" : "wispflamethrowertrap", // name of projectile (required)
+  "projectile" : "starpoundswispflamethrowertrap", // name of projectile (required)
   "projectileConfig" : { // extra configuration overrides for projectile
     "damageTeam" : { "type" : "environment" },
     "power" : 20,

@@ -1,9 +1,9 @@
 {
-  "projectileName" : "wispbomblipomancer",
-  "image" : "wispbomb.png",
+  "projectileName" : "starpoundswispbomblipomancer",
+  "image" : "starpoundswispbomb.png",
   "animationCycle" : 0.25,
   "frameNumber" : 4,
-  "damageKindImage" : "icon.png",
+  "damageKindImage" : "starpoundswispbombicon.png",
   "pointLight" : true,
   "fullbright" : true,
   "lightColor" : [145, 75, 0],
@@ -16,27 +16,27 @@
     },
     {
       "action" : "projectile",
-      "type" : "wispbombcloud",
+      "type" : "starpoundswispbombcloud",
       "fuzzAngle" : 180,
       "inheritSpeedFactor" : 0.1,
       "inheritDamageFactor" : 0.0
     },
     {
       "action" : "projectile",
-      "type" : "wispbombcloud",
+      "type" : "starpoundswispbombcloud",
       "fuzzAngle" : 180,
       "inheritSpeedFactor" : 0.1,
       "inheritDamageFactor" : 0.0
     },
     {
       "action" : "projectile",
-      "type" : "wispbombcloud",
+      "type" : "starpoundswispbombcloud",
       "fuzzAngle" : 180,
       "inheritSpeedFactor" : 0.1,
       "inheritDamageFactor" : 0.0
     }
   ],
-  "emitters" : [ "wispflame", "wispflame", "wispflame"  ],
+  "emitters" : [ "wispflame", "wispflame", "wispflame" ],
   "power" : 15.0,
   "speed" : 65,
   "damageKind" : "caloric",

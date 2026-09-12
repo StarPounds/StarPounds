@@ -1,0 +1,18 @@
+{
+  "name" : "starpoundswisphealprayer",
+
+  "effectConfig": {
+  "range" : 32,
+    "statusEffect": "starpoundswispregeneration"
+  },
+  "defaultDuration" : 0.5,
+
+  "scripts" : [
+    "starpoundswisphealprayer.lua"
+  ],
+
+  "animationConfig" : "starpoundswisphealprayer.animation",
+
+  "label" : "Prayer of Healing",
+  "icon" : "/interface/statuses/wispprayer.png"
+}

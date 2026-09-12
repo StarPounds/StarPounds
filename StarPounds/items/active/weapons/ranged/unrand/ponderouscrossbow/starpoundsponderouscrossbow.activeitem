@@ -44,7 +44,7 @@
     "projectileCount" : 1,
     "fireType" : "auto",
 
-    "projectileType" : "wispflamebolt",
+    "projectileType" : "starpoundswispflamebolt",
     "projectileParameters" : {
       "knockback" : 20
     },

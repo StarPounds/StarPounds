@@ -1,6 +1,6 @@
 {
-  "projectileName" : "wispflameexplosion",
-  "image" : "wispflameexplosion.png",
+  "projectileName" : "starpoundswispflameexplosion",
+  "image" : "starpoundswispflameexplosion.png",
   "animationCycle" : 0.2,
   "frameNumber" : 6,
   "speed" : 0,
@@ -49,29 +49,29 @@
         },
     {
       "action" : "projectile",
-      "type" : "wispflameshockwave",
+      "type" : "starpoundswispflameshockwave",
       "fuzzAngle" : 0,
       "inheritDamageFactor" : 0.5,
       "angleAdjust" : 0
-    },		
+    },
     {
       "action" : "projectile",
-      "type" : "wispflameshockwave",
+      "type" : "starpoundswispflameshockwave",
       "fuzzAngle" : 0,
       "inheritDamageFactor" : 0.5,
       "angleAdjust" : 180
-    },		
-		
+    },
+
         {
           "action" : "sound",
           "options" : [ "/sfx/gun/grenadeblast_fire1.ogg", "/sfx/gun/grenadeblast_fire2.ogg", "/sfx/gun/grenadeblast_fire3.ogg" ]
         }
       ]
-	  
-	  
-	  
+
+
+
     }
-  ]	  
-	  
-	  
+  ]
+
+
     }

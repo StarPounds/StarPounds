@@ -13,7 +13,7 @@
   "windupTime" : 0.0,
   "cooldown" : 0.4,
 
-  "projectileType" : "wispknife",
+  "projectileType" : "starpoundswispknife",
   "projectileConfig" : {
     "speed" : 80,
     "power" : 20.0,

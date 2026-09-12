@@ -1,5 +1,5 @@
 {
-  "itemName" : "npcroguelipomancerstaff",
+  "itemName" : "starpoundsnpcroguelipomancerstaff",
   "price" : 960,
   "maxStack" : 1,
   "rarity" : "Uncommon",
@@ -11,19 +11,19 @@
   "fixedLevel" : false,
   "itemTags" : ["weapon","ranged","sniperrifle"],
 
-  "inventoryIcon" : "npcroguelipomancerstaff.png",
+  "inventoryIcon" : "starpoundsnpcroguelipomancerstaff.png",
 
   "animation" : "/items/active/weapons/ranged/gun.animation",
   "animationParts" : {
     "butt" : "",
-    "middle" : "npcroguelipomancerstaff.png",
+    "middle" : "starpoundsnpcroguelipomancerstaff.png",
     "barrel" : "",
     "muzzleFlash" : ""
   },
   "animationCustom" : {
     "sounds" : {
 		"fire" : [ "/sfx/melee/travelingslash_fire1.ogg" ]
-		
+
 		}
   },
 
@@ -46,7 +46,7 @@
     "projectileCount" : 1,
     "fireType" : "auto",
 
-    "projectileType" : "wispbombnpcstaff",
+    "projectileType" : "starpoundswispbombnpcstaff",
     "projectileParameters" : {
 		"speed" : 75
     },

@@ -18,7 +18,7 @@
       "softMinimumSize": [3, 4]
     },
 
-    "starPounds_traits": [ "npc_gluttonistVeteran" ],	
+    "starPounds_traits": [ "npc_gluttonistVeteran" ],
 
     "dialog" : {
       "attack" : {
@@ -55,10 +55,10 @@
             "legsCosmetic" : [ { "name" : "wizardlegs", "parameters" : { "colorIndex" : 1 }  } ],
 
             "primary" : [
-              "roguelipomancerpetcapturepod"
+              "starpoundsroguelipomancerpetcapturepod"
             ],
             "sheathedprimary" : [
-              "npcroguelipomancerstaff"
+              "starpoundsnpcroguelipomancerstaff"
             ]
           }
         ] ]

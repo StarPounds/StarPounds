@@ -77,7 +77,7 @@
             "legsCosmetic" : [ { "name" : "wizardlegs", "parameters" : { "colorIndex" : 1 }  } ],
 
             "primary" : [
-              "npcroguelipomancerstaff"
+              "starpoundsnpcroguelipomancerstaff"
             ],
             "sheathedprimary" : [
               "npcdagger"

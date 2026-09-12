@@ -1,6 +1,6 @@
 {
-  "projectileName" : "wispbombcloud",
-  "image" : "wispbombcloud.png",
+  "projectileName" : "starpoundswispbombcloud",
+  "image" : "starpoundswispbombcloud.png",
   "physics" : "gas",
   "animationCycle" : 1.05,
   "animationLoops" : false,

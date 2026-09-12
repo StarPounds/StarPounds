@@ -38,7 +38,7 @@
     "spaceSlamTime" : 0.2,
     "winddownTime" : 0.2,
 
-    "projectileType" : "wispflameexplosion",
+    "projectileType" : "starpoundswispflameexplosion",
     "projectileParameters" : {
       "power" : 8,
       "onlyHitTerrain" : true

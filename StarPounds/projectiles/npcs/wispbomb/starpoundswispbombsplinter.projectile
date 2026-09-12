@@ -1,9 +1,9 @@
 {
-  "projectileName" : "wispbombsplinter",
-  "image" : "wispbomb.png",
+  "projectileName" : "starpoundswispbombsplinter",
+  "image" : "starpoundswispbomb.png",
   "animationCycle" : 0.25,
   "frameNumber" : 4,
-  "damageKindImage" : "icon.png",
+  "damageKindImage" : "starpoundswispbombicon.png",
   "pointLight" : true,
   "fullbright" : true,
   "lightColor" : [145, 75, 0],
@@ -24,7 +24,7 @@
 
     {
       "action" : "projectile",
-      "type" : "wispflameprojectile",
+      "type" : "starpoundswispflameprojectile",
       "fuzzAngle" : 0,
       "angleAdjust" : -90,
       "inheritSpeedFactor" : 0.5,
@@ -32,7 +32,7 @@
     },
     {
       "action" : "projectile",
-      "type" : "wispflameprojectile",
+      "type" : "starpoundswispflameprojectile",
       "fuzzAngle" : 0,
       "angleAdjust" : -82,
       "inheritSpeedFactor" : 0.5,
@@ -40,7 +40,7 @@
     },
     {
       "action" : "projectile",
-      "type" : "wispflameprojectile",
+      "type" : "starpoundswispflameprojectile",
       "fuzzAngle" : 0,
       "angleAdjust" : -72,
       "inheritSpeedFactor" : 0.5,
@@ -49,7 +49,7 @@
 
     {
       "action" : "projectile",
-      "type" : "wispflameprojectile",
+      "type" : "starpoundswispflameprojectile",
       "fuzzAngle" : 0,
       "angleAdjust" : 72,
       "inheritSpeedFactor" : 0.5,
@@ -57,7 +57,7 @@
     },
 	    {
       "action" : "projectile",
-      "type" : "wispflameprojectile",
+      "type" : "starpoundswispflameprojectile",
       "fuzzAngle" : 0,
       "angleAdjust" : 82,
       "inheritSpeedFactor" : 0.5,
@@ -65,14 +65,14 @@
     },
     {
       "action" : "projectile",
-      "type" : "wispflameprojectile",
+      "type" : "starpoundswispflameprojectile",
       "fuzzAngle" : 0,
       "angleAdjust" : 90,
       "inheritSpeedFactor" : 0.5,
       "inheritDamageFactor" : 0.5
     }
   ],
-  "emitters" : [ "wispflame", "wispflame", "wispflame"  ],
+  "emitters" : [ "wispflame", "wispflame", "wispflame" ],
   "power" : 15.0,
   "speed" : 65,
   "damageKind" : "caloric",

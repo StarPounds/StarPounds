@@ -3,11 +3,11 @@
   "baseType" : "friendlyguardtenant",
 
   "levelVariance" : [0, 0],
-  
+
   "dropPools" : [],
 
   "scriptConfig" : {
-  
+
     "behaviorConfig" : {
       "leapWindup" : 0.75,
       "rangedAimTime" : 0.5,
@@ -19,8 +19,8 @@
       "softMinimumSize": [3, 4]
     },
     "starPounds_traits": [ "npc_gluttonist" ],
-	
-    "dialogMode": "tutorial",    
+
+    "dialogMode": "tutorial",
     "dialog" : {
 
       "converse" : {
@@ -28,7 +28,7 @@
           "default" : [
             "Hi. You shouldn't see this. Shame on you."
           ]
-        },	  
+        },
         "glitch" : {
           "default" : [
             "Wistful. Sometimes I wonder what happened to Lady Ironlace and Lady Bronzefinger...",
@@ -61,7 +61,7 @@
       }
 
     },
-	
+
    "questGenerator" : {
       "pools" : ["common", "tenant", "guard"],
       "enableParticipation" : true,
@@ -75,12 +75,12 @@
       },
       "graduation" : {
         "nextNpcType" : [
-          [1.0, "crewmembercaloric"]
+          [1.0, "starpoundscrewmembercaloric"]
         ]
-      }	  
+      }
     }
   },
-	
+
   "items" : {
     "override" : [
       [0, [
@@ -100,7 +100,7 @@
           }
         ] ]
     ]
-  }	
-	
-  
+  }
+
+
 }

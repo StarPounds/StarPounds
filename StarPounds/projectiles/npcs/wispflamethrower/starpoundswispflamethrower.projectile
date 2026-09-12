@@ -1,6 +1,6 @@
 {
-  "projectileName" : "wispflamethrowertrap",
-  "image" : "wispflamethrower.png",
+  "projectileName" : "starpoundswispflamethrower",
+  "image" : "starpoundswispflamethrower.png",
   "physics" : "flame",
   "animationCycle" : 1,
   "animationLoops" : false,
@@ -14,9 +14,8 @@
   "piercing" : true,
   "damagePoly" : [ [-9, 0], [-6, -6], [0, -9], [6, -6], [9, 0], [6, 6], [0, 9], [-6, 6] ],
   "lightColor" : [145, 75, 0],
-  "damageType" : "ignoresdef",
-  "fullbright" : true,
   "damageKind" : "caloric",
+  "fullbright" : true,
   "emitters" : [ "wispflame", "wispflame", "wispflame"  ],
   "statusEffects" : [
     {"effect": "starpoundsfood_wispflame", "duration": 25}

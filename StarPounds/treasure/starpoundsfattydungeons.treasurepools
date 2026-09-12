@@ -53,7 +53,7 @@
       ],
       "allowDuplication" : true
     }]
-  ],  
+  ],
 
   "starpoundsfloranfeasthallMeatTreasure" : [
     [1, {
@@ -140,8 +140,8 @@
       ],
       "pool" : [
         {"weight" : 0.75, "pool" : "basicTreasure"},
-        {"weight" : 0.025, "item" : [ "wispflamebottle", 9]},
-        {"weight" : 0.025, "item" : [ "wispflamebottle", 5]},
+        {"weight" : 0.025, "item" : [ "starpoundswispflamebottle", 9]},
+        {"weight" : 0.025, "item" : [ "starpoundswispflamebottle", 5]},
         {"weight" : 0.025, "item" : [ "wispflamebrazier", 1]},
         {"weight" : 0.025, "item" : [ "wispflametorch", 1]},
         {"weight" : 0.025, "item" : [ "wispflamelamp", 1]},
