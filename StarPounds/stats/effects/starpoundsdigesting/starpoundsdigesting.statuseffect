@@ -1,0 +1,7 @@
+{
+  "name" : "starpoundsdigesting",
+  "effectConfig" : {},
+  "defaultDuration" : 20,
+  "label" : "Rapidly Digesting",
+  "icon" : "/interface/statuses/starpoundsdigesting.png"
+}

@@ -1,0 +1,7 @@
+{
+  "name": "digesting",
+  "defaultDuration": 1,
+  "scripts": [
+    "digesting.lua"
+  ]
+}

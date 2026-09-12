@@ -27,7 +27,7 @@ function update(dt)
   local erchiusCount = 0
   erchiusCount = erchiusCount + (world.entityHasCountOfItem(entity.id(), "liquidfuel") or 0)
   erchiusCount = erchiusCount + (world.entityHasCountOfItem(entity.id(), "solidfuel") or 0)
-  erchiusCount = status.uniqueStatusEffectActive("bottlederchiusbloat") and 0 or erchiusCount
+  erchiusCount = status.uniqueStatusEffectActive("starpoundsbottlederchiusbloat") and 0 or erchiusCount
   local erchiusRatio = math.sqrt(math.min(1.0, erchiusCount / self.effectMaxErchius))
   if erchiusCount > 0 and self.spawnTimer > 0 then
     self.spawnTimer = self.spawnTimer - dt

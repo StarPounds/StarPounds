@@ -5,13 +5,13 @@
       // Food
       {"effect": "starpoundsfood_liquid", "duration": 10},
       // Statuses
-      {"effect": "digesting", "duration": 5}
+      {"effect": "starpoundsdigesting", "duration": 5}
     ],
     "sourceStatusEffects": [
       // Food
       {"effect": "starpoundsfood_liquid", "duration": 10},
       // Statuses
-      {"effect": "digesting", "duration": 1}
+      {"effect": "starpoundsdigesting", "duration": 1}
     ]
   },
   "defaultDuration": 1,

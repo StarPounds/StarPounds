@@ -90,7 +90,7 @@
       {"input": [["money", 500], ["liquidmilk", 100], ["sugar", 3]], "output": "starpoundsmilkshakesquirtgun"},
       {"input": [["starpoundsmilkshakesquirtgun", 1], ["starpoundsliquidchocolate", 100], ["chocolate", 5]], "output": "starpoundschocolatemilkshakesquirtgun"},
       {"input": [["starpoundschocolatemilkshakesquirtgun", 1], ["starpoundsliquidhoney", 100], ["starpoundsbottledhoney", 10]], "output": "starpoundshoneysquirtgun"},
-      {"input": [["starpoundshoneysquirtgun", 1], ["liquidfuel", 250], ["digestionaid", 5]], "output": "starpoundsdigestionsquirtgun"},
+      {"input": [["starpoundshoneysquirtgun", 1], ["liquidfuel", 250], ["starpoundsdigestionaid", 5]], "output": "starpoundsdigestionsquirtgun"},
       {"input": [["starpoundshoneysquirtgun", 1], ["starpoundsliquidcalorium", 500]], "output": "starpoundscaloriumsquirtgun"},
       "winch", "starpoundsmilkingtool", "starpoundspizzapda"
     ],

@@ -28,7 +28,7 @@
   ],
   "statusEffects" : [
     {"effect": "starpoundsfood_bloat", "duration": 20},
-    {"effect": "erchiusbloat", "duration": 10}
+    {"effect": "starpoundserchiusbloat", "duration": 10}
   ],
   "piercing" : true,
   "emitters" : [ "starpoundserchiussludge" ],

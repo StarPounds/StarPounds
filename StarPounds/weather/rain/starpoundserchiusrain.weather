@@ -68,7 +68,7 @@
     }
   ],
 
-  "statusEffects" : ["erchiusbloatrain"],
+  "statusEffects" : ["starpoundserchiusbloatrain"],
 
   "duration" : [50, 400],
   "maximumWind" : 15.0,

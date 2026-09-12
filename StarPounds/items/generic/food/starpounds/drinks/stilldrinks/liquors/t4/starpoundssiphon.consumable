@@ -21,7 +21,7 @@
         "effect" : "runboostfood",
         "duration" : 270
     },
-    "bottlederchiusbloat"
+    "starpoundsbottlederchiusbloat"
 	
   ] ],
   "foodValue": 10,  
@@ -52,7 +52,7 @@
         "effect" : "runboostfood",
         "duration" : 405
     },
-    "bottlederchiusbloat"
+    "starpoundsbottlederchiusbloat"
     ]]
   } 
 }

@@ -1,8 +1,5 @@
 {
   "name": "starpoundsbloatfull",
-  "effectConfig": {
-    "full": true
-  },
   "defaultDuration": 1,
   "scripts": [
     "starpoundsbloat.lua"

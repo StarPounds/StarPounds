@@ -1,5 +1,5 @@
 {
-  "name" : "bottlederchiusbloat",
+  "name" : "starpoundsbottlederchiusbloat",
 
   "effectConfig" : {
     "bloatAmount": 1,
@@ -10,12 +10,12 @@
   },
   "defaultDuration" : 30,
 
-  "animationConfig" : "erchiusbloat.animation",
+  "animationConfig" : "starpoundserchiusbloat.animation",
 
   "label" : "Bloating",
-  "icon" : "/interface/statuses/erchiusbloat.png",
+  "icon" : "/interface/statuses/starpoundserchiusbloat.png",
 
   "scripts" : [
-    "erchiusbloat.lua"
+    "starpoundserchiusbloat.lua"
   ]
 }
