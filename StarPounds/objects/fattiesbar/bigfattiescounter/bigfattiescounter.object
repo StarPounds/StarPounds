@@ -145,7 +145,7 @@
     {"input": [["money", 30]], "output": "starpoundsliquidhoney"}
     ],
     "medicine" : [
-      "starpoundsdigestionaid", "starpoundsdigestionaid-recipe", "lactaid", "lactaidoverdrive", "lactaidmilktank"
+      "starpoundsdigestionaid", "starpoundsdigestionaid-recipe", "starpoundslactaid", "starpoundslactaidoverdrive", "starpoundslactaidmilktank"
     ]
   },
 

@@ -99,9 +99,9 @@
       { "item" : "starpoundsdigestionaiddistilled" },
       { "item" : { "name" : "starpoundsdigestionaid-recipe", "parameters" : { "price" : 10 } } },
       { "item" : { "name" : "starpoundsdigestionaiddistilled-recipe", "parameters" : { "price" : 10 } } },
-      { "item" : "lactaid" },
-      { "item" : "lactaidoverdrive" },
-      { "item" : "lactaidmilktank" }
+      { "item" : "starpoundslactaid" },
+      { "item" : "starpoundslactaidoverdrive" },
+      { "item" : "starpoundslactaidmilktank" }
     ]
   },
 

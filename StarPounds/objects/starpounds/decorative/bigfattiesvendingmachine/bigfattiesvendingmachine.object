@@ -105,13 +105,9 @@
       { "item" : "starpoundshugechunkofmeat-recipe" },
       { "item" : "starpoundsdigestionaid" },
       { "item" : { "name" : "starpoundsdigestionaid-recipe", "parameters" : { "price" : 10 } } },
-      { "item" : "lactaid" },
-      { "item" : "lactaidoverdrive" },
-      { "item" : "lactaidmilktank" },
-      { "item" : "starpoundsdigestionaid" },
-      { "item" : "lactaid" },
-      { "item" : "lactaidoverdrive" },
-      { "item" : "lactaidmilktank" }
+      { "item" : "starpoundslactaid" },
+      { "item" : "starpoundslactaidoverdrive" },
+      { "item" : "starpoundslactaidmilktank" }
     ]
   },
 

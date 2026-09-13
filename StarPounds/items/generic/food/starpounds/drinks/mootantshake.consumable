@@ -8,7 +8,7 @@
   "shortdescription" : "Mootagenic Milkshake",
   "maxStack" : 1,
   "effects": [[
-      "lactaid"
+      "starpoundslactaid"
   ]],
   "foodValue": 45,
   "fatValue": 35, // Same as mooshake

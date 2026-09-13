@@ -1,5 +1,5 @@
 {
-  "name" : "sweat",
+  "name" : "starpoundssweat",
   "blockingStat" : "wetImmunity",
   "effectConfig" : {},
   "defaultDuration" : 5,
@@ -8,8 +8,8 @@
     "sweat.lua"
   ],
 
-  "animationConfig" : "sweat.animation",
+  "animationConfig" : "starpoundssweat.animation",
 
   "label" : "Sweating",
-  "icon" : "/interface/statuses/sweat.png"
+  "icon" : "/interface/statuses/starpoundssweat.png"
 }

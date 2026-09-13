@@ -1,14 +1,14 @@
 {
-  "itemName": "lactaidoverdrive",
+  "itemName": "starpoundslactaidoverdrive",
   "price": 2000,
   "rarity": "uncommon",
   "category": "drink",
-  "inventoryIcon": "lactaidoverdrive.png",
+  "inventoryIcon": "starpoundslactaidoverdrive.png",
   "description": "A nanite-laden nutrient drink, claiming to grant inhuman milk production. Unknown region of origin.",
   "shortdescription": "LactAid Overdrive",
   "maxStack": 1,
   "effects": [[
-      "lactaidoverdrive",
+      "starpoundslactaidoverdrive",
       {
           "effect" : "starpoundsmilk",
           "duration" : 10

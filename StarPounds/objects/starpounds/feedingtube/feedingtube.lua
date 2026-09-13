@@ -14,7 +14,7 @@ function init()
 
   self.statusBlacklist = {
     "wet", "swimming", "slimeslow", "tarslow",
-    "starpoundschocolateslow", "starpoundshoneyslow", "caloriumliquid"
+    "starpoundschocolateslow", "starpoundshoneyslow", "starpoundscaloriumliquid"
   }
 
   local liquidName, liquidAmount = table.unpack(config.getParameter("defaultLiquid", jarray()))

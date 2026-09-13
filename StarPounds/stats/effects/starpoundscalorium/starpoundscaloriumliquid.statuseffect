@@ -1,5 +1,5 @@
 {
-  "name" : "calorium",
+  "name" : "starpoundscaloriumliquid",
 
   "effectConfig" : {
     "progressStep": 0.02,
@@ -11,11 +11,8 @@
 
   "animationConfig" : "/stats/effects/starpoundssoundhandler/starpoundssoundhandler.animation",
 
-  "label" : "Rapidly Fattening",
-  "icon" : "/interface/statuses/calorium.png",
-
   "scripts" : [
-    "calorium.lua",
-    "caloriumcalculation.lua"
+    "starpoundscaloriumliquid.lua",
+    "starpoundscaloriumcalculation.lua"
   ]
 }

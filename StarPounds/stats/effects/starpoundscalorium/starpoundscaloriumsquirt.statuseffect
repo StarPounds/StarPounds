@@ -1,5 +1,5 @@
 {
-  "name" : "caloriumsquirt",
+  "name" : "starpoundscaloriumsquirt",
 
   "effectConfig" : {
     "progressStep": 0.01
@@ -9,7 +9,7 @@
   "animationConfig" : "/stats/effects/starpoundssoundhandler/starpoundssoundhandler.animation",
 
   "scripts" : [
-    "caloriumsquirt.lua",
-    "caloriumcalculation.lua"
+    "starpoundscaloriumsquirt.lua",
+    "starpoundscaloriumcalculation.lua"
   ]
 }

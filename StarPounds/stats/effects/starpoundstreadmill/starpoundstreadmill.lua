@@ -42,7 +42,7 @@ function update(dt)
     -- Sweat and consume energy when running.
     elseif mcontroller.running() then
       mcontroller.controlModifiers(runningModifier)
-      status.addEphemeralEffect("sweat")
+      status.addEphemeralEffect("starpoundssweat")
       status.overConsumeResource("energy", status.resourceMax("energy") * 0.05 * dt)
       effectTimer = math.max(effectTimer - dt, 0)
     end

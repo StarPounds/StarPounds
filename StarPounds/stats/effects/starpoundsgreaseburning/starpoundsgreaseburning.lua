@@ -31,5 +31,5 @@ function update(dt)
 end
 
 function onExpire()
-  status.addEphemeralEffect("sweat")
+  status.addEphemeralEffect("starpoundssweat")
 end

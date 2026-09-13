@@ -32,7 +32,7 @@
   "damagePoly" : [ [-4, 0], [0, 4], [4, 0], [0, -4] ],
   "damageKind" : "bugnet",
   "damageTeam" : { "type" : "indiscriminate" },
-  "statusEffects" : ["starpoundscaloriumsquirt"],
+  "statusEffects" : ["starpoundscaloriumsquirtproj"],
   "emitters" : ["starpoundscaloriumsquirt"],
   "lightColor" : [69, 2, 58],
   "hydrophobic" : true

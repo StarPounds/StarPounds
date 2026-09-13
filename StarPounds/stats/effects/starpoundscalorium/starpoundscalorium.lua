@@ -12,7 +12,7 @@ function init()
 end
 
 function update(dt)
-  if status.uniqueStatusEffectActive("caloriumliquid") then return end
+  if status.uniqueStatusEffectActive("starpoundscaloriumliquid") then return end
   if world.entityType(entity.id()) == "npc" or (starPounds and starPounds.isEnabled()) then
 
     self.tickTimer = self.tickTimer - dt

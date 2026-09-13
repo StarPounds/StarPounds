@@ -1,15 +1,15 @@
 {
-  "name" : "greaseburning",
+  "name" : "starpoundsgreaseburning",
   "blockingStat" : "lavaImmunity",
 
   "effectConfig" : {},
   "defaultDuration" : 2,
 
   "scripts" : [
-    "greaseburning.lua"
+    "starpoundsgreaseburning.lua"
   ],
 
-  "animationConfig" : "greaseburning.animation",
+  "animationConfig" : "starpoundsgreaseburning.animation",
 
   "label" : "Burning",
   "icon" : "/interface/statuses/fire.png"

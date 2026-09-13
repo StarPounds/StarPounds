@@ -18,22 +18,22 @@
         "duration" : 240
     },
     {
-        "effect" : "lactating",
+        "effect" : "starpoundslactating",
         "duration" : 240
     }
   ] ],
-  "foodValue": 10,  
+  "foodValue": 10,
   "emitters" : [ "drinking" ],
   "blockingEffects" : [
     "starpoundshangover"
   ],
-  
+
   "builder" : "/items/buildscripts/buildstarpoundsagedfood.lua",
   "itemAgingScripts" : ["/scripts/items/starpounds_aging.lua"],
 
   "agedParameters": {
-    "shortdescription" : "Mieux Deluxe ^yellow;^reset;",  
-    "price" : 390,  
+    "shortdescription" : "Mieux Deluxe ^yellow;^reset;",
+    "price" : 390,
     "effects" : [[
     {
         "effect" : "starpoundsdrunk25",
@@ -44,7 +44,7 @@
         "duration" : 360
     },
     {
-        "effect" : "lactating",
+        "effect" : "starpoundslactating",
         "duration" : 360
     }
     ]]
