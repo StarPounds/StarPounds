@@ -1,5 +1,5 @@
 {
-  "objectName" : "starpounds_arcadefloran",
+  "objectName" : "starpoundsarcadefloran",
   "colonyTags" : ["starpounds", "floran", "electronic"],
   "rarity" : "Common",
   "category" : "decorative",
@@ -19,10 +19,10 @@
   "hylotlDescription" : "A simplistic maze game about eating monsters and people. Unsurprising that this came from a Floran studio.",
   "novakidDescription" : "So you run around a maze and eat monsters and other hunters to get bigger? Interesting...",
 
-  "inventoryIcon" : "starpounds_arcadefloranicon.png",
+  "inventoryIcon" : "starpoundsarcadefloranicon.png",
   "orientations" : [
     {
-      "imageLayers" : [ { "image" : "starpounds_arcadefloranleft.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpounds_arcadefloranleftlit.png:<color>.<frame>" } ],
+      "imageLayers" : [ { "image" : "starpoundsarcadefloranleft.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpoundsarcadefloranleftlit.png:<color>.<frame>" } ],
 	  
       "imagePosition" : [-16, 0],
       
@@ -36,7 +36,7 @@
 
     },
     {
-      "imageLayers" : [ { "image" : "starpounds_arcadefloranright.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpounds_arcadefloranrightlit.png:<color>.<frame>" } ],
+      "imageLayers" : [ { "image" : "starpoundsarcadefloranright.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpoundsarcadefloranrightlit.png:<color>.<frame>" } ],
 	  
       "imagePosition" : [-16, 0],
       

@@ -56,21 +56,21 @@
     }]
   ],
 
-  "starpounds_deepfryv_arcade" : [
+  "starpoundsdeepfryvarcade" : [
     [1, {
       "fill" : [
         {"item" : [ "starpoundsarcadenote-codex", 1]}
       ]
     }]
   ],
-  "starpounds_deepfryv_bookshelf" : [
+  "starpoundsdeepfryvbookshelf" : [
     [1, {
       "fill" : [
         {"item" : [ "starpoundsmysteriousnote", 1]}
       ]
     }]
   ],
-  
+
     "starpounds2019machineloot" : [
     [0, {
       "fill" : [
@@ -81,7 +81,7 @@
         {"weight" : 0.30, "item" : [ "soda", 1]},
         {"weight" : 0.30, "item" : [ "dirtmaterial", 6]},
         {"weight" : 0.30, "item" : [ "soda", 1]},
-        {"weight" : 0.30, "item" : [ "soda", 1]}	  
+        {"weight" : 0.30, "item" : [ "soda", 1]}
       ],
       "poolRounds" : [
         [0.50, 2],
@@ -91,5 +91,5 @@
       "allowDuplication" : false
     }]
   ]
-  
+
 }

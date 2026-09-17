@@ -22,7 +22,7 @@
       "distribution" : "/biomes/starpoundsmicrodungeon.config:starpoundsraremicrodungeon",
 
       "type" : "microdungeon",
-      "microdungeons" : [ "starpounds_rareencounter" ],
+      "microdungeons" : [ "starpoundsrareencounter" ],
 	  "blockProbability" : 0.0001
     }
   }

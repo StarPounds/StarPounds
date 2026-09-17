@@ -16,56 +16,56 @@
         {
          "imagePositionX":"-16",
          "imagePositionY":"0",
-         "object":"starpounds_arcadeapex",
+         "object":"starpoundsarcadeapex",
          "tilesetDirection":"right"
         },
      "1":
         {
          "imagePositionX":"-16",
          "imagePositionY":"0",
-         "object":"starpounds_arcadeavian",
+         "object":"starpoundsarcadeavian",
          "tilesetDirection":"right"
         },
      "2":
         {
          "imagePositionX":"-16",
          "imagePositionY":"0",
-         "object":"starpounds_arcadefloran",
+         "object":"starpoundsarcadefloran",
          "tilesetDirection":"right"
         },
      "3":
         {
          "imagePositionX":"-16",
          "imagePositionY":"0",
-         "object":"starpounds_arcadeglitch",
+         "object":"starpoundsarcadeglitch",
          "tilesetDirection":"right"
         },
      "4":
         {
          "imagePositionX":"-16",
          "imagePositionY":"0",
-         "object":"starpounds_arcadehuman",
+         "object":"starpoundsarcadehuman",
          "tilesetDirection":"right"
         },
      "5":
         {
          "imagePositionX":"-16",
          "imagePositionY":"0",
-         "object":"starpounds_arcadehylotl",
+         "object":"starpoundsarcadehylotl",
          "tilesetDirection":"right"
         },
      "6":
         {
          "imagePositionX":"-16",
          "imagePositionY":"0",
-         "object":"starpounds_arcadenovakid",
+         "object":"starpoundsarcadenovakid",
          "tilesetDirection":"right"
         },
      "7":
         {
          "imagePositionX":"-16",
          "imagePositionY":"0",
-         "object":"starpounds_arcadespecial",
+         "object":"starpoundsarcadespecial",
          "tilesetDirection":"right"
         }
     },
@@ -132,49 +132,49 @@
     {
      "0":
         {
-         "image":"starpounds_arcadeapex.png",
+         "image":"starpoundsarcadeapex.png",
          "imageheight":40,
          "imagewidth":32
         },
      "1":
         {
-         "image":"starpounds_arcadeavian.png",
+         "image":"starpoundsarcadeavian.png",
          "imageheight":40,
          "imagewidth":32
         },
      "2":
         {
-         "image":"starpounds_arcadefloran.png",
+         "image":"starpoundsarcadefloran.png",
          "imageheight":40,
          "imagewidth":32
         },
      "3":
         {
-         "image":"starpounds_arcadeglitch.png",
+         "image":"starpoundsarcadeglitch.png",
          "imageheight":40,
          "imagewidth":32
         },
      "4":
         {
-         "image":"starpounds_arcadehuman.png",
+         "image":"starpoundsarcadehuman.png",
          "imageheight":40,
          "imagewidth":32
         },
      "5":
         {
-         "image":"starpounds_arcadehylotl.png",
+         "image":"starpoundsarcadehylotl.png",
          "imageheight":40,
          "imagewidth":32
         },
      "6":
         {
-         "image":"starpounds_arcadenovakid.png",
+         "image":"starpoundsarcadenovakid.png",
          "imageheight":40,
          "imagewidth":32
         },
      "7":
         {
-         "image":"starpounds_arcadespecial.png",
+         "image":"starpoundsarcadespecial.png",
          "imageheight":40,
          "imagewidth":32
         }

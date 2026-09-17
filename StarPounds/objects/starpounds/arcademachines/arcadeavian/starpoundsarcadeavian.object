@@ -1,5 +1,5 @@
 {
-  "objectName" : "starpounds_arcadeavian",
+  "objectName" : "starpoundsarcadeavian",
   "colonyTags" : ["starpounds", "avian", "electronic"],
   "rarity" : "Common",
   "category" : "decorative",
@@ -19,10 +19,10 @@
   "hylotlDescription" : "Building momentum is tough, but it's satisfying once you get it down.",
   "novakidDescription" : "We sure that's an Avian and not a boulder?",
 
-  "inventoryIcon" : "starpounds_arcadeavianicon.png",
+  "inventoryIcon" : "starpoundsarcadeavianicon.png",
   "orientations" : [
     {
-      "imageLayers" : [ { "image" : "starpounds_arcadeavianleft.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpounds_arcadeavianleftlit.png:<color>.<frame>" } ],
+      "imageLayers" : [ { "image" : "starpoundsarcadeavianleft.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpoundsarcadeavianleftlit.png:<color>.<frame>" } ],
 	  
       "imagePosition" : [-16, 0],
       
@@ -36,7 +36,7 @@
 
     },
     {
-      "imageLayers" : [ { "image" : "starpounds_arcadeavianright.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpounds_arcadeavianrightlit.png:<color>.<frame>" } ],
+      "imageLayers" : [ { "image" : "starpoundsarcadeavianright.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpoundsarcadeavianrightlit.png:<color>.<frame>" } ],
 	  
       "imagePosition" : [-16, 0],
       

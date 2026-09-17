@@ -25,10 +25,10 @@
 
   {
     "op": "add",
-    "path": "/starpounds_deepfryfive",
+    "path": "/starpoundsdeepfryfive",
     "value": {
       "type": "FloatingDungeon",
-      "dungeonWorld": "starpounds_deepfryfive",
+      "dungeonWorld": "starpoundsdeepfryfive",
       "seed": 1234,
       "spawningEnabled": false,
       "beamUpRule": "Anywhere",

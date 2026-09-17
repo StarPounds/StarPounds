@@ -7,6 +7,7 @@ function init()
   self.tickTimer = self.tickTime
   self.minimumLiquid = root.assetJson("/player.config:statusControllerSettings.minimumLiquidStatusEffectPercentage")
   self.caloriumFat = root.assetJson("/scripts/starpounds/modules/liquid.config:liquids.starpoundscaloriumliquid").food.fatLiquid
+  self.entityType = world.entityType(entity.id())
 
   animator.setSoundVolume("digest", 0.75)
   animator.setSoundPitch("digest", 2/(1 + self.tickTime))
@@ -16,7 +17,7 @@ end
 
 function update(dt)
   if mcontroller.liquidPercentage() < self.minimumLiquid then return end
-  if world.entityType(entity.id()) == "npc" or (starPounds and starPounds.isEnabled()) then
+  if (self.entityType == "npc") or (starPounds and starPounds.isEnabled()) then
     wasActive = true
     self.tickTimer = self.tickTimer - dt
     if self.tickTimer <= 0 then
@@ -50,12 +51,12 @@ function update(dt)
 
         local weightGain = self.caloriumFat * consumedLiquid
 
-        if starPounds and starPounds.isEnabled() then
-          starPounds.moduleFunc("size", "gainWeight", weightGain, true)
-          increaseWeightProgress(starPounds.moduleFunc("data", "get", "weight"), self.progressStep * consumedLiquid)
-        else
+        if self.entityType == "npc" then
           gained = world.callScriptedEntity(entity.id(), "starPounds.moduleFunc", "size", "gainWeight", weightGain, true)
           increaseWeightProgress(world.callScriptedEntity(entity.id(), "starPounds.moduleFunc", "data", "get", "weight"), self.progressStep * consumedLiquid)
+        elseif starPounds and starPounds.isEnabled() then
+          starPounds.moduleFunc("size", "gainWeight", weightGain, true)
+          increaseWeightProgress(starPounds.moduleFunc("data", "get", "weight"), self.progressStep * consumedLiquid)
         end
 
         animator.setSoundPitch("digest", 2/(1 + self.tickTime))

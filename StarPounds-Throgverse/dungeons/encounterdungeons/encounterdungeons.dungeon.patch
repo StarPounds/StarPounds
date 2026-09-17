@@ -2,73 +2,73 @@
 {
   "op": "add",
   "path": "/metadata/anchor/-",
-  "value":  
-   "starpounds_gluttonistcamp1"  
+  "value":
+   "starpoundsgluttonistcamp1"
 },
 {
   "op": "add",
   "path": "/parts/-",
-  "value":  
+  "value":
     {
-      "name" : "starpounds_gluttonistcamp1",
+      "name" : "starpoundsgluttonistcamp1",
       "rules" : [
         [ "maxSpawnCount", [1] ]
       ],
-      "def" : [ "tmx", "starpounds_gluttonistcamp1.json" ]
-    }  
+      "def" : [ "tmx", "starpoundsgluttonistcamp1.json" ]
+    }
 },
 {
   "op": "add",
   "path": "/metadata/anchor/-",
-  "value":  
-   "starpounds_gluttonistcamp2"  
+  "value":
+   "starpoundsgluttonistcamp2"
 },
 {
   "op": "add",
   "path": "/parts/-",
-  "value":  
+  "value":
     {
-      "name" : "starpounds_gluttonistcamp2",
+      "name" : "starpoundsgluttonistcamp2",
       "rules" : [
         [ "maxSpawnCount", [1] ]
       ],
-      "def" : [ "tmx", "starpounds_gluttonistcamp2.json" ]
-    }  
+      "def" : [ "tmx", "starpoundsgluttonistcamp2.json" ]
+    }
 },
 {
   "op": "add",
   "path": "/metadata/anchor/-",
-  "value":  
-   "starpounds_mysteriousmirror"  
+  "value":
+   "starpoundsmysteriousmirror"
 },
 {
   "op": "add",
   "path": "/parts/-",
-  "value":  
+  "value":
     {
-      "name" : "starpounds_mysteriousmirror",
+      "name" : "starpoundsmysteriousmirror",
       "rules" : [
         [ "maxSpawnCount", [1] ]
       ],
-      "def" : [ "tmx", "starpounds_mysteriousmirror.json" ]
-    }  
+      "def" : [ "tmx", "starpoundsmysteriousmirror.json" ]
+    }
 },
 {
   "op": "add",
   "path": "/metadata/anchor/-",
-  "value":  
-   "starpounds_merchant_throg"  
+  "value":
+   "starpoundsmerchantthrog"
 },
 {
   "op": "add",
   "path": "/parts/-",
-  "value":  
+  "value":
     {
-      "name" : "starpounds_merchant_throg",
+      "name" : "starpoundsmerchantthrog",
       "rules" : [
         [ "maxSpawnCount", [1] ]
       ],
-      "def" : [ "tmx", "starpounds_merchant_throg.json" ]
-    }  
+      "def" : [ "tmx", "starpoundsmerchantthrog.json" ]
+    }
 }
 ]

@@ -5,8 +5,8 @@
     "value" : {
         "name" : "Deep Fry Five",
         "planetName" : "",
-        "warpAction" : "InstanceWorld:starpounds_deepfryfive",
-        "icon" : "starpounds_deepfryfive"
+        "warpAction" : "InstanceWorld:starpoundsdeepfryfive",
+        "icon" : "starpoundsdeepfryfive"
     }
   }
 ]

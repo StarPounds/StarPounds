@@ -33234,7 +33234,7 @@
                  "name":"",
                  "properties":
                     {
-                     "parameters":"{ \"radioMessage\" : \"starpounds_ponderouskeep_approach\" }",
+                     "parameters":"{ \"radioMessage\" : \"starpoundsponderouskeep_approach\" }",
                      "stagehand":"radiomessage"
                     },
                  "propertytypes":
@@ -33255,7 +33255,7 @@
                  "name":"",
                  "properties":
                     {
-                     "parameters":"{ \"radioMessage\" : \"starpounds_ponderouskeep_approach\" }",
+                     "parameters":"{ \"radioMessage\" : \"starpoundsponderouskeep_approach\" }",
                      "stagehand":"radiomessage"
                     },
                  "propertytypes":
@@ -33276,7 +33276,7 @@
                  "name":"",
                  "properties":
                     {
-                     "parameters":"{ \"radioMessage\" : \"starpounds_ponderouskeep_taunt\" }",
+                     "parameters":"{ \"radioMessage\" : \"starpoundsponderouskeep_taunt\" }",
                      "stagehand":"radiomessage"
                     },
                  "propertytypes":
@@ -33297,7 +33297,7 @@
                  "name":"",
                  "properties":
                     {
-                     "parameters":"{ \"radioMessage\" : \"starpounds_ponderouskeep_taunt\" }",
+                     "parameters":"{ \"radioMessage\" : \"starpoundsponderouskeep_taunt\" }",
                      "stagehand":"radiomessage"
                     },
                  "propertytypes":

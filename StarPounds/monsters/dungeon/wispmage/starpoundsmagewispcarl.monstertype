@@ -1,9 +1,9 @@
 {
-  "type" : "starpoundsmagewisp_carl",
+  "type" : "starpoundsmagewispcarl",
   "shortdescription" : "Carl the Intern",
   "description" : "An aspiring Wisp mage. He's got a killer idea for a new crystal ball startup!",
 
-  "categories" : [ "starpoundsmagewisp_carl" ],
+  "categories" : [ "starpoundsmagewispcarl" ],
   "parts" : [ "body" ],
 
   "animation" : "starpoundsmagewisp.animation",

@@ -2,8 +2,8 @@
   "name" : "starpoundsexplosivethorns",
   "effectConfig" : {
     "range" : 3,
-	
-    "damageProjectileType" : "starpoundsphysicalexplosion_thorns",
+
+    "damageProjectileType" : "starpoundsphysicalexplosionthorns",
     "damageMultiplier" : 1,
 
     "cooldown" : 1.25

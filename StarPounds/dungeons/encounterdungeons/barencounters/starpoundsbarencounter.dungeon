@@ -1,0 +1,116 @@
+{
+  "metadata" : {
+    "name" : "starpoundsbarencounter",
+    "species" : "generic",
+    "rules" : [
+    ],
+    "anchor" : [ "starpoundsapexbar1", "starpoundsapexbar2", "starpoundsavianbar1", "starpoundsavianbar2", "starpoundsfloranbar1", "starpoundsfloranbar2", "starpoundsglitchbar1", "starpoundsglitchbar2", "starpoundshumanbar1", "starpoundshumanbar2", "starpoundshylotlbar1", "starpoundshylotlbar2", "starpoundsnovakidbar1", "starpoundsnovakidbar2" ],
+
+    "gravity" : 80,
+    "maxRadius" : 1000000,
+    "maxParts" : 100,
+    "protected" : false
+  },
+
+  "parts" : [
+    {
+      "name" : "starpoundsapexbar1",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "starpoundsapexbar1.json" ]
+    },
+    {
+      "name" : "starpoundsapexbar2",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "starpoundsapexbar2.json" ]
+    },
+    {
+      "name" : "starpoundsavianbar1",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "starpoundsavianbar1.json" ]
+    },
+    {
+      "name" : "starpoundsavianbar2",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "starpoundsavianbar2.json" ]
+    },
+    {
+      "name" : "starpoundsfloranbar1",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "starpoundsfloranbar1.json" ]
+    },
+    {
+      "name" : "starpoundsfloranbar2",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "starpoundsfloranbar2.json" ]
+    },
+    {
+      "name" : "starpoundsglitchbar1",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "starpoundsglitchbar1.json" ]
+    },
+    {
+      "name" : "starpoundsglitchbar2",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "starpoundsglitchbar2.json" ]
+    },
+    {
+      "name" : "starpoundshumanbar1",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "starpoundshumanbar1.json" ]
+    },
+    {
+      "name" : "starpoundshumanbar2",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "starpoundshumanbar2.json" ]
+    },
+    {
+      "name" : "starpoundshylotlbar1",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "starpoundshylotlbar1.json" ]
+    },
+    {
+      "name" : "starpoundshylotlbar2",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "starpoundshylotlbar2.json" ]
+    },
+    {
+      "name" : "starpoundsnovakidbar1",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "starpoundsnovakidbar1.json" ]
+    },
+    {
+      "name" : "starpoundsnovakidbar2",
+      "rules" : [
+        [ "maxSpawnCount", [1] ]
+      ],
+      "def" : [ "tmx", "starpoundsnovakidbar2.json" ]
+    }
+
+  ]
+}

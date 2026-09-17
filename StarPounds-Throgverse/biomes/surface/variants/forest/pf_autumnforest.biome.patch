@@ -34,7 +34,7 @@
       "distribution" : "/biomes/starpoundsmicrodungeon.config:starpoundsraremicrodungeon",
 
       "type" : "microdungeon",
-      "microdungeons" : [ "gluttonisthut" ]
+      "microdungeons" : [ "starpoundsgluttonisthut" ]
     }
   },
   {
@@ -48,7 +48,7 @@
       "distribution" : "/biomes/starpoundsmicrodungeon.config:starpoundsraremicrodungeon",
 
       "type" : "microdungeon",
-      "microdungeons" : [ "gluttonistcookout" ]
+      "microdungeons" : [ "starpoundsgluttonistcookout" ]
     }
   }
 ]

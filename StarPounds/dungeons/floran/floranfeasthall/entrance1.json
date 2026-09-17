@@ -817,7 +817,7 @@
                  "name":"",
                  "properties":
                     {
-                     "parameters":"{ \"radioMessage\" : \"starpounds_feasthall_approach\" }",
+                     "parameters":"{ \"radioMessage\" : \"starpoundsfeasthall_approach\" }",
                      "stagehand":"radiomessage"
                     },
                  "propertytypes":

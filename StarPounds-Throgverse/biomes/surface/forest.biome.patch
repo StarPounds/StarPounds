@@ -34,7 +34,7 @@
       "distribution" : "/biomes/starpoundsmicrodungeon.config:starpoundsraremicrodungeon",
 
       "type" : "microdungeon",
-      "microdungeons" : [ "gluttonisthut", "starpounds_bar_encounter" ]
+      "microdungeons" : [ "starpoundsgluttonisthut", "starpoundsbarencounter" ]
     }
   },
   {
@@ -48,7 +48,7 @@
       "distribution" : "/biomes/starpoundsmicrodungeon.config:starpoundsraremicrodungeon",
 
       "type" : "microdungeon",
-      "microdungeons" : [ "starpounds_rareencounter" ],
+      "microdungeons" : [ "starpoundsrareencounter" ],
 	  "blockProbability" : 0.0001
     }
   },
@@ -63,7 +63,7 @@
       "distribution" : "/biomes/starpoundsmicrodungeon.config:starpoundsraremicrodungeon",
 
       "type" : "microdungeon",
-      "microdungeons" : [ "gluttonistcookout" ]
+      "microdungeons" : [ "starpoundsgluttonistcookout" ]
     }
   },
   {

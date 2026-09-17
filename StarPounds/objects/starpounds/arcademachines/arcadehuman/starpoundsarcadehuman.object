@@ -1,5 +1,5 @@
 {
-  "objectName" : "starpounds_arcadehuman",
+  "objectName" : "starpoundsarcadehuman",
   "colonyTags" : ["starpounds", "human", "electronic"],
   "rarity" : "Common",
   "category" : "decorative",
@@ -19,10 +19,10 @@
   "hylotlDescription" : "A simple, yet enjoyable sidescrolling shooter. Good in short doses, like junk food.",
   "novakidDescription" : "Games like this are dangerous fer me- I could get distracted playing for hours... One game should be fine though...",
 
-  "inventoryIcon" : "starpounds_arcadehumanicon.png",
+  "inventoryIcon" : "starpoundsarcadehumanicon.png",
   "orientations" : [
     {
-      "imageLayers" : [ { "image" : "starpounds_arcadehumanleft.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpounds_arcadehumanleftlit.png:<color>.<frame>" } ],
+      "imageLayers" : [ { "image" : "starpoundsarcadehumanleft.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpoundsarcadehumanleftlit.png:<color>.<frame>" } ],
 	  
       "imagePosition" : [-16, 0],
       
@@ -36,7 +36,7 @@
 
     },
     {
-      "imageLayers" : [ { "image" : "starpounds_arcadehumanright.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpounds_arcadehumanrightlit.png:<color>.<frame>" } ],
+      "imageLayers" : [ { "image" : "starpoundsarcadehumanright.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpoundsarcadehumanrightlit.png:<color>.<frame>" } ],
 	  
       "imagePosition" : [-16, 0],
       

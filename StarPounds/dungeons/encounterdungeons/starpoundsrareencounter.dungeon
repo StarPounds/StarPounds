@@ -1,24 +1,25 @@
 {
   "metadata" : {
-    "name" : "starpounds_deepfryfive",
+    "name" : "starpoundsrareencounter",
     "species" : "generic",
     "rules" : [
     ],
-    "anchor" : [ "starpounds_deepfryfive" ],
+    "anchor" : [ "starpoundssodamachine1" ],
+
     "gravity" : 80,
     "maxRadius" : 1000000,
     "maxParts" : 100,
-    "protected" : true,
-  "persistent" : false
+    "protected" : false
   },
 
   "parts" : [
     {
-      "name" : "starpounds_deepfryfive",
+      "name" : "starpoundssodamachine1",
       "rules" : [
         [ "maxSpawnCount", [1] ]
       ],
-      "def" : [ "tmx", "starpounds_deepfryfive.json" ]
+      "def" : [ "tmx", "starpoundssodamachine1.json" ]
     }
+	
   ]
 }

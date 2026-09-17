@@ -1,5 +1,5 @@
 {
-  "type" : "starpounds_dfvhunter",
+  "type" : "starpoundsdfvhunter",
   "baseType" : "outpostcivilian",
 
   "scriptConfig" : {
@@ -7,8 +7,8 @@
     "starPounds_skills": {
       "minimumSize": [2, 2]
     },
-	
-    "dialogMode": "tutorial",    
+
+    "dialogMode": "tutorial",
     "dialog" : {
       "converse" : {
         "default" : {

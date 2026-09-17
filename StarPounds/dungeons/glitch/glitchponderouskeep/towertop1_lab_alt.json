@@ -21354,7 +21354,7 @@
                  "name":"",
                  "properties":
                     {
-                     "parameters":"{ \"radioMessage\" : \"starpounds_secret_found\" }",
+                     "parameters":"{ \"radioMessage\" : \"starpoundssecret_found\" }",
                      "stagehand":"radiomessage"
                     },
                  "propertytypes":

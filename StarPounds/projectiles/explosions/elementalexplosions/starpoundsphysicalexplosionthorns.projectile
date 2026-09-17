@@ -1,5 +1,5 @@
 {
-  "projectileName" : "starpoundsphysicalexplosion_thorns",
+  "projectileName" : "starpoundsphysicalexplosionthorns",
   "image" : "/projectiles/invisibleprojectile/invisibleprojectile.png",
   "damageKindImage" : "icon.png",
   "actionOnReap" : [
@@ -8,7 +8,7 @@
       "file" : "/projectiles/explosions/regularexplosion2/regularexplosionknockback.config"
     }
   ],
-  "power" : 20.0,  
+  "power" : 20.0,
   "statusEffects" : [ ],
   "damageKind" : "default",
   "timeToLive" : 0

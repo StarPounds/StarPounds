@@ -1,5 +1,5 @@
 {
-  "objectName" : "starpounds_arcadeapex",
+  "objectName" : "starpoundsarcadeapex",
   "colonyTags" : ["starpounds", "apex", "electronic"],
   "rarity" : "Common",
   "category" : "decorative",
@@ -19,10 +19,10 @@
   "hylotlDescription" : "Not too interested in this. Suppose the BioTroopers look cool at least.",
   "novakidDescription" : "Hehehe, always fun to throw your weight around and smash stuff up!",
 
-  "inventoryIcon" : "starpounds_arcadeapexicon.png",
+  "inventoryIcon" : "starpoundsarcadeapexicon.png",
   "orientations" : [
     {
-      "imageLayers" : [ { "image" : "starpounds_arcadeapexleft.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpounds_arcadeapexleftlit.png:<color>.<frame>" } ],
+      "imageLayers" : [ { "image" : "starpoundsarcadeapexleft.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpoundsarcadeapexleftlit.png:<color>.<frame>" } ],
 	  
       "imagePosition" : [-16, 0],
       
@@ -36,7 +36,7 @@
 
     },
     {
-      "imageLayers" : [ { "image" : "starpounds_arcadeapexright.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpounds_arcadeapexrightlit.png:<color>.<frame>" } ],
+      "imageLayers" : [ { "image" : "starpoundsarcadeapexright.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpoundsarcadeapexrightlit.png:<color>.<frame>" } ],
 	  
       "imagePosition" : [-16, 0],
       

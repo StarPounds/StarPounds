@@ -1,5 +1,5 @@
 {
-  "type" : "starpounds_dfvgourmand",
+  "type" : "starpoundsdfvgourmand",
   "baseType" : "outpostcivilian",
 
   "scriptConfig" : {
@@ -7,8 +7,8 @@
     "starPounds_skills": {
       "minimumSize": [4, 4]
     },
-	
-    "dialogMode": "tutorial",    
+
+    "dialogMode": "tutorial",
     "dialog" : {
       "converse" : {
         "default" : {

@@ -17,9 +17,9 @@
     },
     {
       "op": "add",
-      "path": "/starpounds_deepfryfive",
+      "path": "/starpoundsdeepfryfive",
       "value": {
-        "primaryDungeon": "starpounds_deepfryfive",
+        "primaryDungeon": "starpoundsdeepfryfive",
         "threatLevel": 1,
         "gravity": 80,
         "worldSize": [2000, 2000],

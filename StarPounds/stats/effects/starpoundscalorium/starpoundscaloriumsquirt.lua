@@ -7,12 +7,10 @@ function init()
 
   starPounds = getmetatable ''.starPounds
   local entityType = world.entityType(entity.id())
-  if entityType == "npc" or (starPounds and starPounds.isEnabled()) then
-    if entityType == "npc" then
-      increaseWeightProgress(world.callScriptedEntity(entity.id(), "starPounds.moduleFunc", "data", "get", "weight"), self.progressStep)
-    elseif starPounds and starPounds.isEnabled() then
-      increaseWeightProgress(starPounds.moduleFunc("data", "get", "weight"), self.progressStep)
-    end
+  if entityType == "npc" then
+    increaseWeightProgress(world.callScriptedEntity(entity.id(), "starPounds.moduleFunc", "data", "get", "weight"), self.progressStep)
+  elseif starPounds and starPounds.isEnabled() and entityType == "player"  then
+    increaseWeightProgress(starPounds.moduleFunc("data", "get", "weight"), self.progressStep)
   end
   effect.expire()
 end

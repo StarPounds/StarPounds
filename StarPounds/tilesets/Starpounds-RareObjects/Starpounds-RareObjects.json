@@ -16,7 +16,7 @@
         {
          "imagePositionX":"-16",
          "imagePositionY":"0",
-         "object":"starpounds_2019sodamachine",
+         "object":"starpounds2019sodamachine",
          "tilesetDirection":"right"
         }
     },
@@ -34,7 +34,7 @@
     {
      "0":
         {
-         "image":"starpounds_2019sodamachine.png",
+         "image":"starpounds2019sodamachine.png",
          "imageheight":40,
          "imagewidth":32
         }

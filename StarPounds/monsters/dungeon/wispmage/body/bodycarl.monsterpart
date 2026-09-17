@@ -1,10 +1,10 @@
 {
-  "name" : "starpoundsmagewisp_carl",
-  "category" : "starpoundsmagewisp_carl",
+  "name" : "starpoundsmagewispcarl",
+  "category" : "starpoundsmagewispcarl",
   "type" : "body",
 
   "frames" : {
-    "body" : "starpoundsmagewisp_carl.png",
-    "bodylit" : "starpoundsmagewisp_carllit.png"
+    "body" : "starpoundsmagewispcarl.png",
+    "bodylit" : "starpoundsmagewispcarllit.png"
   }
 }

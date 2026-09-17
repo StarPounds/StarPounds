@@ -1,5 +1,5 @@
 {
-  "objectName" : "starpounds_arcadespecial",
+  "objectName" : "starpoundsarcadespecial",
   "colonyTags" : ["starpounds","electronic"],
   "rarity" : "Legendary",
   "category" : "decorative",
@@ -20,10 +20,10 @@
   "hylotlDescription" : "Odd, I think I would have heard of \"^#ff597d;Dungeon Diners^reset;\" before. Don't think it can take common tokens though.",
   "novakidDescription" : "\"^#ff597d;Dungeon Diners^reset;\"? Now this is a game I've never heard of!.. Shucks, doesn't look like it takes pixels.",
 
-  "inventoryIcon" : "starpounds_arcadespecialicon.png",
+  "inventoryIcon" : "starpoundsarcadespecialicon.png",
   "orientations" : [
     {
-      "imageLayers" : [ { "image" : "starpounds_arcadespecial.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpounds_arcadespeciallit.png:<color>.<frame>" } ],
+      "imageLayers" : [ { "image" : "starpoundsarcadespecial.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpoundsarcadespeciallit.png:<color>.<frame>" } ],
 	  
       "imagePosition" : [-16, 0],
       
@@ -38,7 +38,7 @@
     }
   ],
 
-  "uniqueId" : "starpounds_arcadespecial",
+  "uniqueId" : "starpoundsarcadespecial",
 
   "scripts" : ["/scripts/chattyObject.lua"],
   "scriptDelta" : 60,

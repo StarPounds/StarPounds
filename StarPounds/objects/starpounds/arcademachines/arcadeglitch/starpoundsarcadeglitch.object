@@ -1,5 +1,5 @@
 {
-  "objectName" : "starpounds_arcadeglitch",
+  "objectName" : "starpoundsarcadeglitch",
   "colonyTags" : ["starpounds", "glitch", "electronic"],
   "rarity" : "Common",
   "category" : "decorative",
@@ -19,10 +19,10 @@
   "hylotlDescription" : "A quaint little game about looting an abandoned dungeon. The Wisps are cute, I suppose.",
   "novakidDescription" : "Oughta tell some devs the difference between a \"puzzle\" and a \"trigger hunt\".",
 
-  "inventoryIcon" : "starpounds_arcadeglitchicon.png",
+  "inventoryIcon" : "starpoundsarcadeglitchicon.png",
   "orientations" : [
     {
-      "imageLayers" : [ { "image" : "starpounds_arcadeglitchleft.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpounds_arcadeglitchleftlit.png:<color>.<frame>" } ],
+      "imageLayers" : [ { "image" : "starpoundsarcadeglitchleft.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpoundsarcadeglitchleftlit.png:<color>.<frame>" } ],
 	  
       "imagePosition" : [-16, 0],
       
@@ -36,7 +36,7 @@
 
     },
     {
-      "imageLayers" : [ { "image" : "starpounds_arcadeglitchright.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpounds_arcadeglitchrightlit.png:<color>.<frame>" } ],
+      "imageLayers" : [ { "image" : "starpoundsarcadeglitchright.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpoundsarcadeglitchrightlit.png:<color>.<frame>" } ],
 	  
       "imagePosition" : [-16, 0],
       

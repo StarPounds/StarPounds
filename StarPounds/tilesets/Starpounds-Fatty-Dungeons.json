@@ -478,7 +478,7 @@
         {
          "imagePositionX":"0",
          "imagePositionY":"0",
-         "object":"starpounds_secretcombinator",
+         "object":"starpoundssecretcombinator",
          "tilesetDirection":"right"
         },
      "7":
@@ -1396,7 +1396,7 @@
         },
      "69":
         {
-         "image":"Starpounds-Fatty-Dungeons\/starpounds_secretcombinator.png",
+         "image":"Starpounds-Fatty-Dungeons\/starpoundssecretcombinator.png",
          "imageheight":32,
          "imagewidth":16
         },

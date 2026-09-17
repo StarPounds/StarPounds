@@ -1,9 +1,9 @@
 {
-  "type" : "starpounds_dfvwaitress",
+  "type" : "starpoundsdfvwaitress",
   "baseType" : "outpostcivilian",
 
   "scriptConfig" : {
-  
+
     "behaviorConfig" : {
       "useFatteningObjects" : false
     },
@@ -13,7 +13,7 @@
       ]
     },
 
-    "dialogMode": "tutorial",    
+    "dialogMode": "tutorial",
     "dialog" : {
       "converse" : {
         "default" : {
@@ -33,10 +33,10 @@
       }
     }
   },
-  
+
   "identity":  {
     "gender" : "female"
-  },  
+  },
 
   "items" : {
     "override" : [

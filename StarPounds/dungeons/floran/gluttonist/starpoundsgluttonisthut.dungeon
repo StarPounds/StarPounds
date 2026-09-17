@@ -1,10 +1,10 @@
 {
   "metadata" : {
-    "name" : "gluttonistcookout",
+    "name" : "starpoundsgluttonisthut",
     "species" : "floran",
     "rules" : [
     ],
-    "anchor" : [ "gluttonistcookout1", "gluttonistcookout2" ],
+    "anchor" : [ "starpoundsgluttonisthut1", "starpoundsgluttonisthut2" ],
     "gravity" : 80,
     "maxRadius" : 1000000,
     "maxParts" : 100,
@@ -13,18 +13,18 @@
 
   "parts" : [
     {
-      "name" : "gluttonistcookout1",
+      "name" : "starpoundsgluttonisthut1",
       "rules" : [
         [ "maxSpawnCount", [1] ]
       ],
-      "def" : [ "tmx", "gluttonistcookout1.json" ]
+      "def" : [ "tmx", "starpoundsgluttonisthut1.json" ]
     },
   {
-      "name" : "gluttonistcookout2",
+      "name" : "starpoundsgluttonisthut2",
       "rules" : [
         [ "maxSpawnCount", [1] ]
       ],
-      "def" : [ "tmx", "gluttonistcookout2.json" ]
+      "def" : [ "tmx", "starpoundsgluttonisthut2.json" ]
     }
   ]
 }

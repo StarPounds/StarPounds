@@ -1,5 +1,5 @@
 {
-  "objectName" : "starpounds_arcadehylotl",
+  "objectName" : "starpoundsarcadehylotl",
   "colonyTags" : ["starpounds", "hylotl", "electronic"],
   "rarity" : "Common",
   "category" : "decorative",
@@ -19,10 +19,10 @@
   "hylotlDescription" : "I've heard that the Umiyoni themselves are big fans of this series...",
   "novakidDescription" : "Shucks, never been good with the fighting games. Can never remember how to do special moves...",
 
-  "inventoryIcon" : "starpounds_arcadehylotlicon.png",
+  "inventoryIcon" : "starpoundsarcadehylotlicon.png",
   "orientations" : [
     {
-      "imageLayers" : [ { "image" : "starpounds_arcadehylotlleft.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpounds_arcadehylotlleftlit.png:<color>.<frame>" } ],
+      "imageLayers" : [ { "image" : "starpoundsarcadehylotlleft.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpoundsarcadehylotlleftlit.png:<color>.<frame>" } ],
 	  
       "imagePosition" : [-16, 0],
       
@@ -36,7 +36,7 @@
 
     },
     {
-      "imageLayers" : [ { "image" : "starpounds_arcadehylotlright.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpounds_arcadehylotlrightlit.png:<color>.<frame>" } ],
+      "imageLayers" : [ { "image" : "starpoundsarcadehylotlright.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpoundsarcadehylotlrightlit.png:<color>.<frame>" } ],
 	  
       "imagePosition" : [-16, 0],
       

@@ -1,5 +1,5 @@
 {
-  "objectName" : "starpounds_arcadenovakid",
+  "objectName" : "starpoundsarcadenovakid",
   "colonyTags" : ["starpounds", "novakid", "electronic"],
   "rarity" : "Common",
   "category" : "decorative",
@@ -19,10 +19,10 @@
   "hylotlDescription" : "Are those... Bubble guns?",
   "novakidDescription" : "Now this is my kinda game! Let's show these blubbery bandits they're messin with the wrong cowpoke!",
 
-  "inventoryIcon" : "starpounds_arcadenovakidicon.png",
+  "inventoryIcon" : "starpoundsarcadenovakidicon.png",
   "orientations" : [
     {
-      "imageLayers" : [ { "image" : "starpounds_arcadenovakidleft.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpounds_arcadenovakidleftlit.png:<color>.<frame>" } ],
+      "imageLayers" : [ { "image" : "starpoundsarcadenovakidleft.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpoundsarcadenovakidleftlit.png:<color>.<frame>" } ],
 	  
       "imagePosition" : [-16, 0],
       
@@ -36,7 +36,7 @@
 
     },
     {
-      "imageLayers" : [ { "image" : "starpounds_arcadenovakidright.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpounds_arcadenovakidrightlit.png:<color>.<frame>" } ],
+      "imageLayers" : [ { "image" : "starpoundsarcadenovakidright.png:<color>.<frame>", "fullbright" : true }, { "image" : "starpoundsarcadenovakidrightlit.png:<color>.<frame>" } ],
 	  
       "imagePosition" : [-16, 0],
       
