@@ -35,7 +35,7 @@
       "gun" : {
         "properties" : {
           "centered" : true,
-          "image" : "starpounds_drinkrecipeunlock_gargleblaster.png",
+          "image" : "starpoundsdrinkrecipeunlockgargleblaster.png",
           "offset" : [0.0, 0.0]
         }
       }

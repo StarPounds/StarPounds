@@ -56,6 +56,6 @@
         "duration" : 420
     }
     ]],
-  "learnBlueprintsOnPickup" : [ "starpounds_drinkrecipeunlock_gargleblaster" ]
+  "learnBlueprintsOnPickup" : [ "starpoundsdrinkrecipeunlockgargleblaster" ]
   }
 }

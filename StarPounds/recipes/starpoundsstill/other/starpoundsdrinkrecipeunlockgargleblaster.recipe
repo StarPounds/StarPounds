@@ -6,6 +6,6 @@
     { "item" : "starpoundsvalorale", "count" : 1 },
     { "item" : "essence", "count" : 300 }
   ],
-  "output" : { "item" : "starpounds_drinkrecipeunlock_gargleblaster", "count" : 1 },
+  "output" : { "item" : "starpoundsdrinkrecipeunlockgargleblaster", "count" : 1 },
   "groups" : [ "craftingstill", "starpoundstillothers" ]
 }
