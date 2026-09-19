@@ -35,9 +35,10 @@ function size:init()
       self.supersizeIndex = math.min(self.supersizeIndex, i)
     end
   end
-  -- Shared hitbox cache for NPCs.
+  -- Shared cache for NPCs.
   local shared = getmetatable ""
   shared.starPounds = shared.starPounds or {}
+  shared.starPounds.rendererCache = shared.starPounds.rendererCache or {}
   shared.starPounds.sizeCache = shared.starPounds.sizeCache or {}
   shared.starPounds.sizeCache.hitboxes = shared.starPounds.sizeCache.hitboxes or {}
   -- Create/grab hitboxes for this species.
@@ -48,6 +49,25 @@ function size:init()
       shared.starPounds.sizeCache.hitboxes[visualSpecies][i] = size.controlParameters[visualSpecies] or size.controlParameters.default or {}
     end
   end
+  -- Shared renderer cache.
+  if not shared.starPounds.rendererCache[self.sizeConfig.config] then
+    shared.starPounds.rendererCache[self.sizeConfig.config] = root.assetJson(self.sizeConfig.config)
+  end
+
+
+  self.rendererConfig = shared.starPounds.rendererCache[self.sizeConfig.config]
+  self.walkingCycleTime = self.rendererConfig.humanoidTiming.stateCycle[2]
+  self.runningCycleTime = self.rendererConfig.humanoidTiming.stateCycle[2]
+  self.walkingOffsets = self.rendererConfig.walkBob
+  self.runningOffsets = self.rendererConfig.runBob
+  self.walkingCycle = 0
+  self.runningCycle = 0
+  self.bobOffset = 0
+
+  self.runFallOffset = self.rendererConfig.runFallOffset
+  self.jumpOffset = self.rendererConfig.jumpBob
+  self.duckOffset = self.rendererConfig.duckOffset
+  self.sitOffset = self.rendererConfig.sitOffset
 
   self.cachedHitboxes = shared.starPounds.sizeCache.hitboxes[visualSpecies]
 
@@ -110,10 +130,11 @@ function size:update(dt)
     weightChange = true
   end
 
+  self:fetchIdleFrame()
+  self:trackBobOffset(dt)
   self:trackVehicleCap()
   self:equip(self:equipmentConfig(starPounds.currentSizeIndex))
   self:updateStats()
-
   -- Fire events. (Size gets priority for stat event)
   if sizeChange then
     -- Force stat update.
@@ -778,6 +799,128 @@ end
 function size:stomachMultiplier()
   if not storage.starPounds.enabled then return 1 end
   return self:stomachCapacity() / self.sizeConfig.stomachCapacity
+end
+
+function size:fetchIdleFrame()
+  if self.idleChestFrame then return end
+  -- oSB shortcut.
+  if starPounds.openStarbound and starPounds.type == "player" then
+    self.idleChestFrame = player.personality().idle
+    return
+  end
+  -- Loop through portrait to find a body sprite, and extract the frame.
+  for _, part in ipairs(world.entityPortrait(starPounds.entityId, "fullnude")) do
+    if part.image:find("femalebody%.png") or part.image:find("malebody%.png") then
+      self.idleChestFrame = part.image:match("body%.png:([^?]+)")
+      break
+    end
+  end
+end
+
+function size:idleFrame()
+  return self.idleChestFrame or "idle.1"
+end
+
+function size:trackBobOffset(dt)
+  if starPounds.currentSize.breastPositions then
+    local inAir, isWalking, isRunning
+    if starPounds.openStarbound and starPounds.type == "player" then
+      local state = player.currentState()
+      inAir = (state == "jump") or (state == "fall")
+      isWalking = state == "walk"
+      isRunning = state == "run"
+    else
+      inAir = starPounds.mcontroller.jumping or starPounds.mcontroller.falling
+      isWalking = not inAir and starPounds.mcontroller.walking
+      isRunning = not inAir and starPounds.mcontroller.running
+    end
+
+    self.bobOffset = 0
+    if isRunning then
+      self.runningCycle = (self.runningCycle + dt) % self.runningCycleTime
+      self.walkingCycle = 0
+      local progress = self.runningCycle / self.runningCycleTime
+      local index = math.floor(progress * #self.  runningOffsets) + 1
+      self.bobOffset = self.runningOffsets[index] * 0.125
+    elseif isWalking then
+      self.walkingCycle = (self.walkingCycle + dt) % self.walkingCycleTime
+      self.runningCycle = 0
+      local progress = self.walkingCycle / self.walkingCycleTime
+      local index = math.floor(progress * #self.walkingOffsets) + 1
+      self.bobOffset = self.walkingOffsets[index] * 0.125
+    else
+      self.runningCycle = 0
+      self.walkingCycle = 0
+    end
+  end
+end
+
+function size:nipplePositions()
+  local inAir, isWalking, isRunning, isCrouching, isLounging
+  if starPounds.openStarbound and starPounds.type == "player" then
+    local state = player.currentState()
+    inAir = (state == "jump") or (state == "fall")
+    isWalking = state == "walk"
+    isRunning = state == "run"
+    isCrouching = state == "crouch"
+    isLounging = state == "lounge"
+  else
+    inAir = starPounds.mcontroller.jumping or starPounds.mcontroller.falling
+    isWalking = not inAir and starPounds.mcontroller.walking
+    isRunning = not inAir and starPounds.mcontroller.running
+    isCrouching = not inAir and starPounds.mcontroller.crouching
+  end
+
+  local yOffset = 0
+  if isCrouching then
+    yOffset = self.duckOffset or -8
+  elseif isLounging then
+    yOffset = self.sitOffset or -1
+  elseif inAir then
+    if (starPounds.mcontroller.yVelocity or 0) > 0 then
+      yOffset = self.jumpOffset or 1
+    else
+      yOffset = self.runFallOffset or 1
+    end
+  elseif isRunning then
+    yOffset = self.runFallOffset or 1
+  end
+  yOffset = yOffset * 0.125
+
+  local finalYOffset = (self.bobOffset or 0) + yOffset
+  local currentSize = self.sizeConfig.sizes[self.equipConfigCache.chestIndex]
+  local facingDirection = starPounds.mcontroller.facingDirection
+  local breastPositions = currentSize.breastPositions
+  -- Default to 1 pixel in front.
+  if not breastPositions then return {facingDirection * 0.125, finalYOffset} end
+  breastPositions = breastPositions[world.entityGender(starPounds.entityId)] or breastPositions["female"]
+  local aliases = breastPositions.aliases or breastPositions.aliases or {}
+  local frame = self:idleFrame()
+  -- States that override frames.
+  if isRunning then
+    frame = "run"
+  elseif isCrouching then
+    frame = "duck"
+  elseif inAir or isWalking or isLounging then
+    -- chest.1 instead of idle.1 just in case. (Armours, and therefore sizes, can have potentially have custom frame aliases)
+    frame = "chest.1"
+  end
+  frame = aliases[frame] or frame
+  local frames = breastPositions[frame] or breastPositions[aliases["idle.1"] or "default"] or breastPositions["default"]
+  local nipples = frames[self:getBreastVariant(currentSize)] or frames["default"]
+  local positions = {}
+  for _, nipple in ipairs(nipples) do
+    local position = {nipple[1] * facingDirection, nipple[2] + finalYOffset}
+    local isBehind = nipple[3] or false
+    local rotation = starPounds.mcontroller.rotation
+    if rotation ~= 0 then
+      position = vec2.rotate(position, rotation)
+    end
+    world.debugPoint(vec2.add(starPounds.mcontroller.position, position), isBehind and "red" or "yellow")
+    positions[#positions + 1] = {position = vec2.add(starPounds.mcontroller.position, position), behind = isBehind}
+  end
+
+  return positions
 end
 
 function size.reset()
