@@ -47,7 +47,7 @@ function update(dt)
   -- Player/NPC detection. Resets the target if nobody lounging.
   if not world.entityExists(self.feedTarget or 0) then
     self.feedTarget, self.waitForTarget = nil
-	 self.feedAmount = 0
+    self.feedAmount = 0
   elseif self.waitForTarget then
     self.waitForTarget()
   elseif not world.loungeableOccupied(entity.id()) then
