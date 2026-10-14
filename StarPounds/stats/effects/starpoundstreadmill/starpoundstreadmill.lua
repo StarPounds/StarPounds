@@ -2,7 +2,7 @@ require "/scripts/messageutil.lua"
 require "/scripts/vec2.lua"
 
 function init()
-  message.setHandler("starpounds.treadmill.init", simpleHandler(
+  message.setHandler("starPounds.treadmill.init", simpleHandler(
     function(pos, direction, id)
       position = pos
       facing = direction
@@ -13,7 +13,7 @@ function init()
       world.sendEntityMessage(entity.id(), "queueRadioMessage", "starpounds_treadmill")
     end
   ))
-  message.setHandler("starpounds.treadmill.uninit", simpleHandler(effect.expire))
+  message.setHandler("starPounds.treadmill.uninit", simpleHandler(effect.expire))
   effectTimer = 10
   entityType = world.entityType(entity.id())
 
@@ -35,7 +35,7 @@ function update(dt)
     -- Kick the player off the treadmill if they jump or run the other way.
     if mcontroller.jumping() or (mcontroller.movingDirection() ~= facing and (mcontroller.walking() or mcontroller.running())) then
       effect.expire()
-      world.sendEntityMessage(target, "starpounds.treadmill.uninit")
+      world.sendEntityMessage(target, "starPounds.treadmill.uninit")
     -- Disable movement when out of energy.
     elseif not status.resourcePositive("energy") or status.resourceLocked("energy") then
       mcontroller.controlModifiers(outOfEnergyModifier)
@@ -57,7 +57,7 @@ function update(dt)
       local moving = (mcontroller.walking() or mcontroller.running())
       if wasMoving and not moving then
         effect.expire()
-        world.sendEntityMessage(target, "starpounds.treadmill.uninit")
+        world.sendEntityMessage(target, "starPounds.treadmill.uninit")
       end
       wasMoving = moving
     end
