@@ -23,6 +23,7 @@
   "sitFlipDirection" : false,
   "sitOrientation" : "stand",
   "sitAngle" : 0,
+  "sitStatusEffects" : ["starpoundsfeedingtube"],
 
   "gulpDelay" : 0.8,
 

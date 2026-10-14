@@ -25,6 +25,7 @@
   "sitOrientation" : "stand",
   "sitCoverImage" : "/objects/starpounds/feedingtube/angelfeedingtube/feedingtubecover.png",
   "sitAngle" : 0,
+  "sitStatusEffects" : ["starpoundsfeedingtube"],
 
   "gulpDelay" : 0.8,
 

@@ -23,6 +23,7 @@
   "sitOrientation" : "stand",
   "sitCoverImage" : "/objects/starpounds/feedingtube/floranfeedingtube/feedingtubecover.png",
   "sitAngle" : 0,
+  "sitStatusEffects" : ["starpoundsfeedingtube"],
 
   "gulpDelay" : 0.8,
 

@@ -1,0 +1,9 @@
+{
+  "name" : "starpoundsfeedingtube",
+  "effectConfig" : {},
+  "defaultDuration" : 1,
+
+  "scripts" : [
+    "starpoundsfeedingtube.lua"
+  ]
+}

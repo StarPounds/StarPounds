@@ -9,6 +9,8 @@ function init()
   self.liquids = root.assetJson("/scripts/starpounds/modules/liquid.config:liquids")
   self.pickupBounds = rect.pad(object.boundBox(), -1)
   self.npcConsume = config.getParameter("npcConsume", true)
+  self.clearTime = 0.5 -- If the lounging entity disappears, wait this long before clearing. (i.e if the entity dies/despawns)
+  self.clearTimer = self.clearTime
 
   self.feedAmount = 0 -- Tracker for when to apply the diluted effect.
 
@@ -39,19 +41,22 @@ function init()
 
   self.liquidLevel = storage.amount
   animator.setGlobalTag("liquidLevel", math.max(0, math.min(math.ceil(self.liquidLevel * 39/self.capacity), 39)))
+
+  message.setHandler("starPounds.feedingTube.setTarget", simpleHandler(setTarget))
+  message.setHandler("starPounds.feedingTube.clearTarget", simpleHandler(clearTarget))
 end
 
 
 function update(dt)
   promises:update()
   -- Player/NPC detection. Resets the target if nobody lounging.
-  if self.feedTarget and not self.startedLounging then
-    if not world.loungeableOccupied(entity.id()) then
-      self.feedTarget = nil
-      self.feedAmount = 0
+  if self.feedTarget and not world.loungeableOccupied(entity.id()) then
+    if self.clearTimer == 0 then
+      clearTarget()
     end
+    self.clearTimer = math.max(self.clearTimer - dt, 0)
   else
-    self.startedLounging = false
+    self.clearTimer = self.clearTime
   end
   -- Main loop.
   if self.feedTarget then
@@ -123,16 +128,19 @@ function canFeed()
   return storage.amount > 0
 end
 
-function onInteraction(args)
-  if not self.feedTarget then
-    self.feedTarget = args.sourceId
-    self.feedAmount = 0
-    self.startedLounging = true
-    animator.setAnimationRate(1)
-    setDrinkSpeed()
-    -- Connect.
-    animator.setAnimationState("feedState", canFeed() and "feeding" or "default")
-  end
+function setTarget(target)
+  self.feedTarget = target
+  self.feedAmount = 0
+  self.startedLounging = true
+  animator.setAnimationRate(1)
+  setDrinkSpeed()
+  -- Connect.
+  animator.setAnimationState("feedState", canFeed() and "feeding" or "default")
+end
+
+function clearTarget()
+  self.feedTarget = nil
+  self.feedAmount = 0
 end
 
 function npcToy.isPriority()
