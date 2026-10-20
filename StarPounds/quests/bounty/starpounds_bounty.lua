@@ -35,7 +35,7 @@ function starPoundsHook()
     return radioMessage_old(text, portraitType)
   end
 
-  -- Less rewards you digest the target.
+  -- Less rewards if you digest the target.
   local modifyQuestEvents_old = modifyQuestEvents
   function modifyQuestEvents(status, money, rank, credits)
     local mult = nil
