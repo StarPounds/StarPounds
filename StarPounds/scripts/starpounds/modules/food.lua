@@ -26,18 +26,20 @@ function food:isFoodType(foodType)
 end
 
 function food:getFatValue(itemName, recursionCache)
-  -- Don't parse again if we've already seen this item.
+  if self.fatCache[itemName] then
+    return self.fatCache[itemName]
+  end
+
   recursionCache = recursionCache or {}
   if recursionCache[itemName] then
     return 0
   end
 
-  if self.fatCache[itemName] then
-    return self.fatCache[itemName]
-  end
-
   local itemConfig = root.itemConfig(itemName)
-  if not itemConfig then return 0 end
+  if not itemConfig then
+    self.fatCache[itemName] = 0
+    return 0
+  end
 
   if itemConfig.config.fatValue then
     self.fatCache[itemName] = itemConfig.config.fatValue
@@ -62,10 +64,12 @@ function food:getFatValue(itemName, recursionCache)
 
     if not isIgnored then
       local recipeFatValue = 0
+      local outputCount = (recipe.output and recipe.output.count) or 1
+
       for _, input in ipairs(recipe.input) do
-        local inputFatValue = self:getFatValue(input.name, shallowCopy(recursionCache))
+        local inputFatValue = self:getFatValue(input.name, recursionCache)
         if inputFatValue > 0 then
-          recipeFatValue = recipeFatValue + (input.count * inputFatValue) / (recipe.output.count or 1)
+          recipeFatValue = recipeFatValue + (input.count * inputFatValue) / outputCount
         end
       end
 
@@ -73,16 +77,18 @@ function food:getFatValue(itemName, recursionCache)
     end
   end
 
+  -- Clear this item from the active branch before returning
+  recursionCache[itemName] = nil
   self.fatCache[itemName] = fatValue
+
   return fatValue
 end
 
 function food:updateItem(item)
   local foodValue = configParameter(item, "foodValue", 0)
-  local fatValue = configParameter(item, "fatValue", self:getFatValue(item.name))
-  local disableExperience = configParameter(item, "starpounds_disableExperience", false)
-
+  local fatValue = configParameter(item, "fatValue") or self:getFatValue(item.name)
   if (foodValue + fatValue) > 0 and not configParameter(item, "starpounds_effectApplied", false) then
+    item.parameters = item.parameters or {}
     local effects = configParameter(item, "effects", jarray())
 
     if not effects[1] then
@@ -90,13 +96,19 @@ function food:updateItem(item)
     end
     -- Get the specific food type for the item category.
     local category = configParameter(item, "category", ""):lower()
-    local foodType = self.data.categoryTypes[category:lower()] or self.data.categoryTypes.food
+    local foodType = self.data.categoryTypes[category] or self.data.categoryTypes.food
+    local disableExperience = configParameter(item, "starpounds_disableExperience", false)
     -- Add food.
     if foodValue > 0 then
-      table.insert(effects[1], { effect = foodType.food..(disableExperience and "_noexperience" or ""), duration = foodValue })
+      table.insert(effects[1], {
+        effect = foodType.food .. (disableExperience and "_noexperience" or ""),
+        duration = foodValue
+      })
       -- Reset the item's vanilla food value.
       item.parameters.starpounds_foodValue = foodValue
-      item.parameters.foodValue = configParameter(item, "foodValue") and 0 or nil
+      if configParameter(item, "foodValue") then
+        item.parameters.foodValue = 0
+      end
     end
     -- Add fat.
     if fatValue > 0 then
@@ -105,7 +117,7 @@ function food:updateItem(item)
     -- Add experience.
     local rarity = configParameter(item, "rarity", "common"):lower()
     if (foodValue > 0) and self.data.experienceBonus[rarity] and not disableExperience then
-      bonusExperience = foodValue * self.data.experienceBonus[rarity]
+      local bonusExperience = foodValue * self.data.experienceBonus[rarity]
       table.insert(effects[1], { effect = "starpoundsfood_bonusexperience", duration = bonusExperience })
     end
 
