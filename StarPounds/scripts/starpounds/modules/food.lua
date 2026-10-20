@@ -48,18 +48,29 @@ function food:getFatValue(itemName, recursionCache)
 
   local fatValue = 0
   local recipes = root.recipesForItem(itemName)
+  local ignoredGroups = self.data.ignoredRecipeGroups or {}
 
   for _, recipe in ipairs(recipes) do
-    local recipeFatValue = 0
-
-    for _, input in ipairs(recipe.input) do
-      local inputFatValue = self:getFatValue(input.name, shallowCopy(recursionCache))
-      if inputFatValue > 0 then
-        recipeFatValue = recipeFatValue + (input.count * inputFatValue) / (recipe.output.count or 1)
+    -- Check if the recipe is ignored.
+    local isIgnored = false
+    for _, group in ipairs(recipe.groups or {}) do
+      if ignoredGroups[group] then
+        isIgnored = true
+        break
       end
     end
 
-    fatValue = math.max(fatValue, recipeFatValue)
+    if not isIgnored then
+      local recipeFatValue = 0
+      for _, input in ipairs(recipe.input) do
+        local inputFatValue = self:getFatValue(input.name, shallowCopy(recursionCache))
+        if inputFatValue > 0 then
+          recipeFatValue = recipeFatValue + (input.count * inputFatValue) / (recipe.output.count or 1)
+        end
+      end
+
+      fatValue = math.max(fatValue, recipeFatValue)
+    end
   end
 
   self.fatCache[itemName] = fatValue
@@ -69,6 +80,7 @@ end
 function food:updateItem(item)
   local foodValue = configParameter(item, "foodValue", 0)
   local fatValue = configParameter(item, "fatValue", self:getFatValue(item.name))
+  local disableExperience = configParameter(item, "starpounds_disableExperience", false)
 
   if (foodValue + fatValue) > 0 and not configParameter(item, "starpounds_effectApplied", false) then
     local effects = configParameter(item, "effects", jarray())
@@ -92,7 +104,6 @@ function food:updateItem(item)
     end
     -- Add experience.
     local rarity = configParameter(item, "rarity", "common"):lower()
-    local disableExperience = configParameter(item, "starpounds_disableExperience", false)
     if (foodValue > 0) and self.data.experienceBonus[rarity] and not disableExperience then
       bonusExperience = foodValue * self.data.experienceBonus[rarity]
       table.insert(effects[1], { effect = "starpoundsfood_bonusexperience", duration = bonusExperience })
