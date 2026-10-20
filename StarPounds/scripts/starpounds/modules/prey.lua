@@ -551,15 +551,23 @@ function prey:digested()
       world.sendEntityMessage(storage.starPounds.pred, "starPounds.effects.add", "pizzaFee", -1)
     end
     -- Are they a crewmate?
-    if recruitable then
+    if recruitable and recruitable.ownerUuid() then
       -- Did their owner eat them?
       local predId = storage.starPounds.pred
       storage.starPounds.pred = nil
-      if recruitable.ownerUuid() and world.entityUniqueId(predId) == recruitable.ownerUuid() then
+      if world.entityUniqueId(predId) == recruitable.ownerUuid() then
         recruitable.messageOwner("recruits.digestedRecruit", recruitable.recruitUuid())
       end
       recruitable.despawn()
-      return
+    end
+    -- Are they a bounty NPC?
+    if _ENV.self.quest and _ENV.self.quest:hasRole() then
+      -- Only fire if the pred is a player.
+      if world.entityType(storage.starPounds.pred) == "player" then
+        _ENV.self.quest:fireEvent("starPoundsEaten")
+        _ENV.self.quest:fireEvent("captured")
+        _ENV.self.quest:fireEvent("clueGiven")
+      end
     end
   end
   -- Getting digested by a player or NPC removes all your fat.

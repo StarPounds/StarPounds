@@ -1,0 +1,12 @@
+[
+  {
+    "op" : "move",
+    "from" : "/script",
+    "path" : "/scriptConfig/starpounds_script" // Relocated to load later.
+  },
+  {
+    "op" : "add",
+    "path" : "/script",
+    "value" : "/quests/bounty/starpounds_bounty.lua"
+  }
+]
