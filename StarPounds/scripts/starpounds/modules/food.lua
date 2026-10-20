@@ -77,7 +77,7 @@ function food:getFatValue(itemName, recursionCache)
     end
   end
 
-  -- Clear this item from the active branch before returning
+  -- Clear this item from the active branch before returning.
   recursionCache[itemName] = nil
   self.fatCache[itemName] = fatValue
 

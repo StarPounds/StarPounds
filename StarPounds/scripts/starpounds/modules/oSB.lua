@@ -9,17 +9,15 @@ function oSB:init()
   self.selectedSlot = nil
   self.consumableCache = {}
   self.notConsumableCache = {}
-
-  self.openStarbound = root.assetJson("/player.config:genericScriptContexts").OpenStarbound and true or false
   -- Load up the toolbar if we have oSB isntalled.
-  if self.openStarbound and not self.loadedToolbar then
+  if starPounds.openStarbound and not self.loadedToolbar then
     player.interact("ScriptPane", "/interface/scripted/starpounds/toolbar/toolbar.config")
     self.loadedToolbar = true
   end
 end
 
 function oSB:update(dt)
-  if not self.openStarbound then return end
+  if not starPounds.openStarbound then return end
 
   self:toggleBind()
   self:menuBinds()
@@ -72,7 +70,7 @@ function oSB:update(dt)
 end
 
 function oSB:uninit()
-  if not self.openStarbound then return end
+  if not starPounds.openStarbound then return end
   -- Toolbar script makes this available.
   if self.dismissToolbar then
     self.dismissToolbar()
@@ -155,7 +153,7 @@ function oSB:drinkBind()
 end
 -- Popup message hook.
 function oSB:addPopupMessage(text, cooldown, springState)
-  if not self.openStarbound then return end
+  if not starPounds.openStarbound then return end
   if not starPounds.hasOption("disablePopupMessages") then
     interface.queueMessage(text, cooldown, springState)
   end
