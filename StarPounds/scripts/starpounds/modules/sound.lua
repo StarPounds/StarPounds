@@ -51,7 +51,7 @@ function sound:stop(soundPool)
 end
 
 function sound:setVolume(soundPool, volume, rampTime)
-  volume = util.clamp(tonumber(volume) or 1, 0, self.data.maxVolume)
+  volume = util.clamp(tonumber(volume) or 1, 0, self.data.volumeMaximum)
   -- Secret volume averaged closer to 0.75.
   if self.secret and volume > 0 then
     volume = (volume + 0.75) * 0.5
@@ -63,7 +63,7 @@ function sound:setVolume(soundPool, volume, rampTime)
 end
 
 function sound:setPitch(soundPool, pitch, rampTime)
-  pitch = util.clamp(tonumber(pitch) or 1, self.data.minPitch, self.data.maxPitch)
+  pitch = util.clamp(tonumber(pitch) or 1, self.data.pitchMinimum, self.data.pitchMaximum)
 
   if self.secret then
     pitch = 1

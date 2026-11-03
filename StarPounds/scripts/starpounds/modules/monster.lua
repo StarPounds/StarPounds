@@ -82,7 +82,7 @@ function _monster:setup()
 
   local function foodFromBoundBox(boundBox)
     local area = areaFromBoundBox(boundBox)
-    return math.min(math.round(area * self.data.monsterFood), self.data.monsterFoodCap)
+    return math.min(math.round(area * self.data.monsterFood), self.data.monsterFoodMaximum)
   end
 
   entity.weight = foodFromBoundBox(mcontroller.boundBox())

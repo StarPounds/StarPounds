@@ -137,7 +137,7 @@ function stomach:eat(amount, foodType)
   self:set()
   local diff = math.max(self.stomach.fullness - lastFullness, 0) * starPounds.getStat("capacity")
   if foodConfig.triggersStretching then
-    local stretchChance = math.min(diff * self.data.stretchChanceMultiplier, self.data.stretchMaximumChance)
+    local stretchChance = math.min(diff * self.data.stretchChanceMultiplier, self.data.stretchChanceMaximum)
 
     local effect = starPounds.moduleFunc("effects", "get", "stomachStretch")
     local effectConfig = starPounds.moduleFunc("effects", "getConfig", "stomachStretch")
@@ -149,7 +149,7 @@ function stomach:eat(amount, foodType)
           if not effect or (effect.level < (effectConfig.levels or 1)) then
             local stretchLevel = math.floor(math.max(math.random() * diff, 1) + 0.5)
             starPounds.moduleFunc("effects", "add", "stomachStretch", nil, stretchLevel)
-            self.stretchCooldown = math.round(util.randomInRange({self.data.minimumStretchCooldown, (self.data.stretchCooldown * 2) - self.data.minimumStretchCooldown}))
+            self.stretchCooldown = math.round(util.randomInRange({self.data.stretchCooldownMinimum, (self.data.stretchCooldown * 2) - self.data.stretchCooldownMinimum}))
           end
         elseif effect then
         -- Add some duration to the stretch effect if we're on cooldown.
@@ -181,7 +181,7 @@ function stomach:eat(amount, foodType)
   -- Manually eaten foods cause over-stuffing damage. (Player only)
   if foodConfig.stuffingDamage and starPounds.type == "player" and not starPounds.hasOption("disableStuffingDamage") then
     local damage = diff * foodConfig.stuffingDamage * self.data.stuffingDamage * starPounds.getStat("stuffingDamage")
-    damage = math.min(math.floor(damage / self.data.stuffingDamageStep) * self.data.stuffingDamageStep, status.resource("health") - 1, status.resourceMax("health") * self.data.stuffingDamageCap) -- Round down.
+    damage = math.min(math.floor(damage / self.data.stuffingDamageStep) * self.data.stuffingDamageStep, status.resource("health") - 1, status.resourceMax("health") * self.data.stuffingDamageMaximum) -- Round down.
 
     if damage > 0 then
       status.applySelfDamageRequest({
@@ -371,12 +371,12 @@ function stomach:digest(dt, isGurgle, isBelch)
   starPounds.moduleFunc("size", "gainWeight", weight - (milkCost or 0))
   -- Healing/energy.
   if status.resourcePositive("health") and not storage.starPounds.pred then
-    healing = math.min(healing, status.resourceMax("health") * self.data.healingCap * seconds * starPounds.getStat("healing"))
+    healing = math.min(healing, status.resourceMax("health") * self.data.healingMaximum * seconds * starPounds.getStat("healing"))
     status.modifyResource("health", healing)
     -- Energy regenerates faster than health, and energy lock time gets reduced.
     local digestionEnergy = starPounds.getStat("digestionEnergy")
     if not isGurgle and not starPounds.moduleFunc("strain", "straining") and status.isResource("energy") and status.resourcePercentage("energy") < 1 and digestionEnergy > 0 then
-      local energyAmount = math.min(healing * digestionEnergy * self.data.energyRatio, status.resourceMax("energy") * self.data.energyCap * seconds)
+      local energyAmount = math.min(healing * digestionEnergy * self.data.energyRatio, status.resourceMax("energy") * self.data.energyMaximum * seconds)
       if not status.resourcePositive("energyRegenBlock") then
         status.modifyResource("energy", energyAmount)
       end
@@ -503,7 +503,7 @@ function stomach:activity(dt)
         self.rumbleTimer = math.max(self.rumbleTimer - (dt * rumbleRate), 0)
       else
         if self.rumbleTimer then self:rumble() end
-        self.rumbleTimer = math.round(util.randomInRange({self.data.minimumRumbleTime, (self.data.rumbleTime * 2) - self.data.minimumRumbleTime}))
+        self.rumbleTimer = math.round(util.randomInRange({self.data.rumbleTimeMinimum, (self.data.rumbleTime * 2) - self.data.rumbleTimeMinimum}))
       end
     end
   end
@@ -518,9 +518,9 @@ function stomach:activity(dt)
     if self.gurgleTimer and self.gurgleTimer > 0 then
       self.gurgleTimer = math.max(self.gurgleTimer - (dt * starPounds.getStat("gurgleRate")), 0)
     else
-      -- gurgleTime (default 30) is the average, minimumGurgleTime (default 5) is the minimum, so (5 + (60 - 5))/2 = 30
+      -- gurgleTime (default 30) is the average, gurgleTimeMinimum (default 5) is the minimum, so (5 + (60 - 5))/2 = 30
       if self.gurgleTimer then self:gurgle() end
-      self.gurgleTimer = math.round(util.randomInRange({self.data.minimumGurgleTime, (self.data.gurgleTime * 2) - self.data.minimumGurgleTime}))
+      self.gurgleTimer = math.round(util.randomInRange({self.data.gurgleTimeMinimum, (self.data.gurgleTime * 2) - self.data.gurgleTimeMinimum}))
     end
   end
 end
@@ -739,7 +739,7 @@ function stomach:sloshing(dt)
   if status.isResource("energy") and status.resourceLocked("energy") then return end
   self.sloshTimer = math.max(self.sloshTimer - dt, 0)
   self.sloshDeactivateTimer = math.max(self.sloshDeactivateTimer - dt, 0)
-  if starPounds.mcontroller.crouching and not self.wasCrouching and self.sloshTimer < (self.data.sloshTimer - self.data.minimumSloshTimer) then
+  if starPounds.mcontroller.crouching and not self.wasCrouching and self.sloshTimer < (self.data.sloshTimer - self.data.sloshTimerMinimum) then
     local activationMultiplier = self.sloshActivations/self.data.sloshActivationCount
     local sloshEffectiveness = (1 - (self.sloshTimer/self.data.sloshTimer)) * activationMultiplier
     -- Sloshy sound, with volume increasing until activated.
@@ -796,7 +796,7 @@ function stomach:squelching(dt)
 
   if storage.starPounds.enabled then
     local fullness = math.max(self.stomach.baseFullness, self.stomach.fullness)
-    local volume = math.max(self.data.squelchMinimumVolume, math.min(fullness / self.data.squelchMaxVolumeCapacity, 1))
+    local volume = math.max(self.data.squelchVolumeMinimum, math.min(fullness / self.data.squelchVolumeCapacityMaximum, 1))
     self.squelchVolume = math.round(volume * self.data.squelchVolume, 2)
   else
     self.squelchVolume = 0

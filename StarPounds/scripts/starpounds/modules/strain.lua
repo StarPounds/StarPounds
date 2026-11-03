@@ -36,11 +36,11 @@ function strain:update(dt)
     local strainReduction = self.data.decreaseAmount
     -- Full bonus if we're not strained.
     if not strained then
-      strainReduction = self.data.largeDecreaseAmount
+      strainReduction = self.data.decreaseAmountLarge
     else
       local range = self.data.decreaseFullnessRange
       local ratio = math.max(0, math.min(1, (starPounds.stomach.interpolatedFullness - range[1]) / (range[2] - range[1])))
-      strainReduction = util.lerp(ratio, self.data.largeDecreaseAmount, strainReduction)
+      strainReduction = util.lerp(ratio, self.data.decreaseAmountLarge, strainReduction)
     end
     -- Rapidly reduce strain.
     self:remove(strainReduction * dt)
@@ -53,7 +53,7 @@ function strain:update(dt)
   end
   -- Move speed stuffs.
   local penalty = math.round(self.strain * starPounds.getStat("strainedPenalty"), 2)
-  if self.strain > self.data.minimumAmount then
+  if self.strain > self.data.strainThreshhold then
     -- Energy regen.
     if penalty ~= self.penalty then
       status.setPersistentEffects("starpoundsstrained", {
@@ -79,7 +79,7 @@ function strain:update(dt)
   if straining then
     local min = self.data.scalingRange[1]
     local max = self.data.scalingRange[2]
-    local strainFactor = util.clamp((starPounds.stomach.interpolatedFullness - min) / (max - min), self.data.minimumScalingFactor, 1) * self.data.scalingFactor
+    local strainFactor = util.clamp((starPounds.stomach.interpolatedFullness - min) / (max - min), self.data.scalingFactorMinimum, 1) * self.data.scalingFactor
     self:add(self.data.increaseAmount * self.effort * dt * strainFactor)
     self.strainCooldown = self.data.decreaseDelay
     -- Stomach makes more rumble sounds while straining.

@@ -484,7 +484,7 @@ function pred:struggle(preyId, struggleStrength, escape)
 
       self.storedStruggleVolume = 0
       self.storedStruggleStrength = 0
-      self.struggleCooldown = util.randomInRange({self.data.minimumStruggleCooldownTime, (self.data.struggleCooldownTime * 2) - self.data.minimumStruggleCooldownTime})
+      self.struggleCooldown = util.randomInRange({self.data.struggleCooldownMinimum, (self.data.struggleCooldownTime * 2) - self.data.struggleCooldownMinimum})
       break
     end
   end
@@ -762,7 +762,7 @@ function pred:digestClothing(item)
 end
 
 function pred:belchPitch(weight)
-  local minimumPitch = self.data.minimumBelchPitch
+  local minimumPitch = self.data.belchPitchMinimum
   local baseWeight = entity.weight or starPounds.species.default.weight
   local maxWeight = starPounds.moduleFunc("size", "maximumWeight") or (baseWeight * 100)
   if weight <= baseWeight then

@@ -57,8 +57,8 @@ function experience:add(amount, multiplier, isLevel)
   local amountRequired = math.round(self.data.experienceAmount * levelModifier - storage.starPounds.experience.amount)
   if addedAmount < amountRequired then
     storage.starPounds.experience.amount = math.round(storage.starPounds.experience.amount + addedAmount)
-  elseif storage.starPounds.experience.level >= self.data.maxLevel then
-    storage.starPounds.experience.level = self.data.maxLevel
+  elseif storage.starPounds.experience.level >= self.data.maximumLevel then
+    storage.starPounds.experience.level = self.data.maximumLevel
     storage.starPounds.experience.amount = self.data.experienceAmount * levelModifier
   else
     -- Loop until no experience is left.
@@ -68,7 +68,7 @@ function experience:add(amount, multiplier, isLevel)
       baseAmount = baseAmount - amountRequired
       levelsGained = levelsGained + 1
       -- Stop calculating if we hit max level.
-      if (storage.starPounds.experience.level + levelsGained) >= self.data.maxLevel then
+      if (storage.starPounds.experience.level + levelsGained) >= self.data.maximumLevel then
         break
       end
       -- Grab amount for next level.
@@ -79,8 +79,8 @@ function experience:add(amount, multiplier, isLevel)
     storage.starPounds.experience.amount = 0
     self:addLevel(levelsGained)
     -- Capped experience.
-    if storage.starPounds.experience.level >= self.data.maxLevel then
-      local finalLevelModifier = 1 + self.data.maxLevel * self.data.experienceIncrement
+    if storage.starPounds.experience.level >= self.data.maximumLevel then
+      local finalLevelModifier = 1 + self.data.maximumLevel * self.data.experienceIncrement
       storage.starPounds.experience.amount = self.data.experienceAmount * finalLevelModifier
       -- Remove overflows if we hit the cap.
       addedAmount = 0
@@ -108,7 +108,7 @@ end
 
 function experience:addLevel(amount)
   amount = math.round(math.max(tonumber(amount) or 0, 0))
-  storage.starPounds.experience.level = math.min(storage.starPounds.experience.level + amount, self.data.maxLevel)
+  storage.starPounds.experience.level = math.min(storage.starPounds.experience.level + amount, self.data.maximumLevel)
 end
 
 function experience:removeLevel(amount)

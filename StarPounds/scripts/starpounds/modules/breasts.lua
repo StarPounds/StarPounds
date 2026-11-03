@@ -53,7 +53,7 @@ function breasts:update(dt)
       local amount = math.min(math.round(self.breasts.fullness * 0.5, 1), self.data.lactationAmount, self.breasts.contents - self.breasts.capacity)
       -- Lactate away excess.
       self:lactate(amount)
-      self.lactationTimer = math.round(util.randomInRange({self.data.minimumLactationTime, (self.data.lactationTime * 2) - self.data.minimumLactationTime}))
+      self.lactationTimer = math.round(util.randomInRange({self.data.lactationTimeMinimum, (self.data.lactationTime * 2) - self.data.lactationTimeMinimum}))
     end
   end
 end
@@ -144,7 +144,7 @@ function breasts:spawnLactationProjectiles(nipple, nipplePositions, amount, aimA
     sprayParticle.finalVelocity = {0, -physics.gravity}
     sprayParticle.approach = {5, physics.gravity * physics.gravityMult}
 
-    local countMultiplier = (multipliers.particles or 1) * (physics.particleScale / self.data.lactationParticleScaleMax)
+    local countMultiplier = (multipliers.particles or 1) * (physics.particleScale / self.data.lactationParticleScaleMaximum)
     local particleCount = math.round((self.data.lactationSprayParticleCount or 0) * math.max(countMultiplier, 1))
     local action = {time = 0, ["repeat"] = false, action = "particle", specification = sprayParticle}
     local periodicActions = jarray()
@@ -190,7 +190,7 @@ function breasts:lactationPhysics(position, amount, aimAngle, multipliers)
   end
   local particleScale = math.min(
     self.data.lactationParticleScale[1] + (self.data.lactationParticleScale[2] - self.data.lactationParticleScale[1]) * math.min(amount, 1),
-    self.data.lactationParticleScaleMax
+    self.data.lactationParticleScaleMaximum
   )
   local baseVelocity = {
     self.data.lactationVelocity[1] * facing * velocityScale,

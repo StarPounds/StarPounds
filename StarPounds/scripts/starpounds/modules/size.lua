@@ -132,7 +132,7 @@ function size:update(dt)
 
   self:fetchIdleFrame()
   self:trackBobOffset(dt)
-  self:trackVehicleCap()
+  self:trackvehicleMaximum()
   self:equip(self:equipmentConfig(starPounds.currentSizeIndex))
   self:updateStats()
   -- Fire events. (Size gets priority for stat event)
@@ -370,7 +370,7 @@ function size:updateStats(forceUpdate)
     end
     -- Store the amount we'd be at without any stat changes.
     starPounds.baseMovementMultiplier = movementMultiplier
-    starPounds.baseJumpMultiplier = math.max(self.data.minimumJumpMultiplier, movementMultiplier)
+    starPounds.baseJumpMultiplier = math.max(self.data.jumpMultiplierMinimum, movementMultiplier)
     -- Movement stat starts at 0.
     -- Every +1 halves the penalty, every -1 doubles it (multiplicatively).
     if movementMultiplier > 0 then
@@ -381,7 +381,7 @@ function size:updateStats(forceUpdate)
     -- Double immobile penalty.
     if isImmobileProtected then
       starPounds.baseMovementMultiplier = starPounds.baseMovementMultiplier ^ 2
-      starPounds.baseJumpMultiplier = math.max(self.data.minimumJumpMultiplier, starPounds.baseMovementMultiplier)
+      starPounds.baseJumpMultiplier = math.max(self.data.jumpMultiplierMinimum, starPounds.baseMovementMultiplier)
       movementMultiplier = movementMultiplier ^ 2
     end
     -- Set global.
@@ -389,11 +389,11 @@ function size:updateStats(forceUpdate)
     -- Jump/Swim math applies after the movement stat calcuation.
     if starPounds.movementMultiplier <= 0 then
       starPounds.movementMultiplier = 0
-      starPounds.jumpMultiplier = self.data.minimumJumpMultiplier
-      starPounds.swimMultiplier = self.data.minimumSwimMultiplier
+      starPounds.jumpMultiplier = self.data.jumpMultiplierMinimum
+      starPounds.swimMultiplier = self.data.swimMultiplierMinimum
     else
-      starPounds.jumpMultiplier = math.max(self.data.minimumJumpMultiplier, 1 - ((1 - starPounds.movementMultiplier) * starPounds.getStat("jumpPenalty")))
-      starPounds.swimMultiplier = math.max(self.data.minimumSwimMultiplier, 1 - ((1 - starPounds.movementMultiplier) * starPounds.getStat("swimPenalty")))
+      starPounds.jumpMultiplier = math.max(self.data.jumpMultiplierMinimum, 1 - ((1 - starPounds.movementMultiplier) * starPounds.getStat("jumpPenalty")))
+      starPounds.swimMultiplier = math.max(self.data.swimMultiplierMinimum, 1 - ((1 - starPounds.movementMultiplier) * starPounds.getStat("swimPenalty")))
     end
 
 
@@ -414,8 +414,8 @@ function size:updateStats(forceUpdate)
         liquidJumpModifier = starPounds.swimMultiplier
       }
       -- Silly, but better than updating modifiers every tick.
-      self.controlModifiersAlt = (movementMultiplier < self.data.minimumAltSpeedMultiplier) and sb.jsonMerge(self.controlModifiers, {
-        speedModifier = self.data.minimumAltSpeedMultiplier
+      self.controlModifiersAlt = (movementMultiplier < self.data.altSpeedMultiplierMinimum) and sb.jsonMerge(self.controlModifiers, {
+        speedModifier = self.data.altSpeedMultiplierMinimum
       }) or nil
     end
 
@@ -563,10 +563,10 @@ function size:equipmentConfig(sizeIndex)
   end
   -- Size cap based on occupied vehicle. Uses math.huge by default because
   -- math.min doesn't ignore nils and I'd rather not do 10 more if statements.
-  local vehicleCap = self.vehicleCap or {chest = math.huge, legs = math.huge}
+  local vehicleMaximum = self.vehicleMaximum or {chest = math.huge, legs = math.huge}
   -- These can be independent based on options.
-  local chestIndex = math.min(sizeIndex, vehicleCap.chest)
-  local legsIndex = math.min(sizeIndex, vehicleCap.legs)
+  local chestIndex = math.min(sizeIndex, vehicleMaximum.chest)
+  local legsIndex = math.min(sizeIndex, vehicleMaximum.legs)
 
   -- Don't do this for supersized stages.
   if not self.sizeConfig.sizes[sizeIndex].yOffset then
@@ -575,15 +575,15 @@ function size:equipmentConfig(sizeIndex)
     local bonusLegsIndex = 0
     local shape = starPounds.getOption("bodyShape")
     if shape > 0 then
-      chestIndex = math.min(sizeIndex + shape, self.supersizeIndex - 1, vehicleCap.chest)
+      chestIndex = math.min(sizeIndex + shape, self.supersizeIndex - 1, vehicleMaximum.chest)
     else
-      legsIndex = math.min(sizeIndex + math.abs(shape), self.supersizeIndex - 1, vehicleCap.legs)
+      legsIndex = math.min(sizeIndex + math.abs(shape), self.supersizeIndex - 1, vehicleMaximum.legs)
     end
 
     -- Hyper index shifting.
     local isHyper = starPounds.hasOption("hyper") and not self.sizeConfig.sizes[chestIndex].disableHyper
     if isHyper then
-      chestIndex = math.min(chestIndex + self:getHyperOffset(self.sizeConfig.sizes[chestIndex]), self.supersizeIndex - 1, vehicleCap.chest)
+      chestIndex = math.min(chestIndex + self:getHyperOffset(self.sizeConfig.sizes[chestIndex]), self.supersizeIndex - 1, vehicleMaximum.chest)
     end
   end
   -- Variant based on the 'adjusted' chest size.
@@ -767,16 +767,16 @@ function size:restoreClothing(item)
   return item
 end
 
-function size:trackVehicleCap()
+function size:trackvehicleMaximum()
   -- Reset if the mod is disabled.
   if not self:isActive() then self.anchored = nil return end
   local anchored, index = mcontroller.anchorState()
   if self.anchored ~= anchored then
-    self.vehicleCap = nil
+    self.vehicleMaximum = nil
 
     local anchorEntity = anchored and world.entityName(anchored) or nil
-    if self.data.vehicleCap[anchorEntity] then
-      self.vehicleCap = self.data.vehicleCap[anchorEntity][index + 1] or nil
+    if self.data.vehicleMaximum[anchorEntity] then
+      self.vehicleMaximum = self.data.vehicleMaximum[anchorEntity][index + 1] or nil
     end
   end
   self.anchored = anchored

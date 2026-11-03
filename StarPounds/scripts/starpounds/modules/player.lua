@@ -166,12 +166,12 @@ function _player:footstep(dt)
 
     local weightMult = self.data.sloshWeightMultiplier * stepVolume
     local stomachMult = self.data.sloshStomachMultiplier * starPounds.stomach.contents / (entity.weight * (starPounds.moduleFunc("size", "stomachCapacity") / starPounds.moduleFunc("size", "config").stomachCapacity))
-    local sloshVolume = math.round(math.min(weightMult + stomachMult, self.data.maximumSloshVolume), 2)
+    local sloshVolume = math.round(math.min(weightMult + stomachMult, self.data.sloshVolumeMaximum), 2)
 
     -- Quieter if we're walking.
     if not starPounds.mcontroller.running then
-      stepVolume = math.round(math.min(stepVolume * self.data.walkingStepVolumeMultiplier, self.data.maximumStepVolume), 2)
-      sloshVolume = math.round(math.min(sloshVolume * self.data.walkingSloshVolumeMultiplier, self.data.maximumSloshVolume), 2)
+      stepVolume = math.round(math.min(stepVolume * self.data.stepWalkingVolumeMultiplier, self.data.stepVolumeMaximum), 2)
+      sloshVolume = math.round(math.min(sloshVolume * self.data.sloshWalkingVolumeMultiplier, self.data.sloshVolumeMaximum), 2)
     end
 
     -- No step sound if we can't move (i.e. Immobile without the skill), but boost the slosh volume.
@@ -180,11 +180,11 @@ function _player:footstep(dt)
       sloshVolume = sloshVolume ^ 0.8
     end
 
-    if stepVolume > self.data.minimumStepVolume then
+    if stepVolume > self.data.stepVolumeMinimum then
       starPounds.moduleFunc("sound", "play", "footstep", stepVolume * volume)
     end
 
-    if sloshVolume > self.data.minimumSloshVolume then
+    if sloshVolume > self.data.sloshVolumeMinimum then
       starPounds.moduleFunc("sound", "play", "slosh", sloshVolume * volume, 0.75)
     end
 
@@ -204,9 +204,9 @@ function _player:landing()
       if not starPounds.hasOption("disableMovementSounds") then
         local landVolume = self:soundMult()
         local weightMult = self.data.sloshWeightMultiplier * landVolume
-        local sloshVolume = math.round(math.min(weightMult + stomachMult, self.data.maximumSloshVolume), 2)
+        local sloshVolume = math.round(math.min(weightMult + stomachMult, self.data.sloshVolumeMaximum), 2)
         starPounds.moduleFunc("sound", "play", "land", landVolume * self.data.landingSoundVolume, self.data.landingSoundPitch)
-        if sloshVolume > self.data.minimumSloshVolume then
+        if sloshVolume > self.data.sloshVolumeMinimum then
           starPounds.moduleFunc("sound", "play", "slosh", sloshVolume * self.data.landingSoundVolume, 0.75)
         end
       end
@@ -223,7 +223,7 @@ function _player:soundMult()
   -- Dumb but the immobile skill edits the movement penalty.
   local size = starPounds.moduleFunc("size", "sizes")[starPounds.currentSizeIndex]
   if not self.sizeMultipliers[size.size] then
-    local mult = math.round(math.min((1 - size.movementMultiplier) ^ 0.4, self.data.maximumStepVolume), 2)
+    local mult = math.round(math.min((1 - size.movementMultiplier) ^ 0.4, self.data.stepVolumeMaximum), 2)
     self.sizeMultipliers[size.size] = mult
   end
 
