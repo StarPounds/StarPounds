@@ -91,7 +91,7 @@ function options:isGlobal(option)
   return self.globalOptions[option] ~= nil
 end
 
--- Shorthand wrappers
+-- Shorthand wrappers.
 function starPounds.getOption(...)
   return options:get(...)
 end

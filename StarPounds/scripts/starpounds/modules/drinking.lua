@@ -5,7 +5,6 @@ function drinking:init()
 
   self.drinkTimer = 0
   self.drinkCounter = 0
-  self.splashConfig = root.assetJson("/player.config:splashConfig")
   self.liquidCache = {}
   self.inedibleLiquidCache = {}
 end
@@ -144,21 +143,15 @@ function drinking:canDrinkLiquid(liquidType)
 end
 
 function drinking:spawnParticles(liquidType)
-  local liquidConfig = root.liquidConfig(liquidType)
-  if not liquidConfig.config.color then return end
+  local particle = starPounds.moduleFunc("liquid", "getParticles", liquidType)
+  if not particle then return end
 
-  local velocity = vec2.mul(self.splashConfig.splashParticleVariance.velocity, 0.1)
-  local variance = sb.jsonMerge(self.splashConfig.splashParticleVariance, {
-    velocity = velocity
-  })
+  local velocity = vec2.mul(particle.variance.velocity, 0.1)
+  particle.position = {0, 0}
+  particle.initialVelocity = vec2.add(vec2.mul(velocity, starPounds.mcontroller.facingDirection), {0, 3})
+  particle.variance.velocity = velocity
 
-  local particle = sb.jsonMerge(self.splashConfig.splashParticle, {
-    position = {0, 0},
-    initialVelocity = vec2.add(vec2.mul(velocity, starPounds.mcontroller.facingDirection), {0, 3}),
-    color = liquidConfig.config.color,
-    variance = variance
-  })
-  starPounds.spawnMouthProjectile({{action = "particle", specification = particle}}, self.splashConfig.numSplashParticles / 2)
+  starPounds.spawnMouthProjectile({{action = "particle", specification = particle}}, math.ceil(starPounds.modules.liquid.splashConfig.numSplashParticles / 2))
 end
 
 function drinking:isOcean(position)

@@ -210,6 +210,8 @@ function _player:landing()
           starPounds.moduleFunc("sound", "play", "slosh", sloshVolume * self.data.landingSoundVolume, 0.75)
         end
       end
+      -- Milk leaking.
+      starPounds.moduleFunc("breasts", "triggerLeak")
     end
   end
   self.wasFalling = starPounds.mcontroller.falling

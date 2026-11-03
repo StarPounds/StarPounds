@@ -35,13 +35,49 @@ function buildActions()
       icon = colourStarPoundsImage(path.."icons/inventory_lactate.png"),
       init = function(self)
         self.cooldown = 0
-        self.cooldownTime = 0.1
+        self.cooldownTime = 0.05
         self.capacityFrames = 12
+        self.holdTimer = 0
+        self.maxDuration = 1.5
+        -- 25% or 5 milk over the duration, whatever is higher. (Up to 25)
+        self.lactationAmount = 5
+        self.maxLactationAmount = 25
+        self.lactationFraction = 0.25
+        self.burstSpread = 1
+        self.burstVelocity = 3
+        self.burstParticles = 5
+        self.burstDecay = 2
+        self.animationTimer = 0
+        self.animationTime = 0.5
+        self.active = false
+        self.locked = false
+        self.armAngle = math.rad(-10)
+        self.aimAngle = 0
+        self.facingDirection = 1
+        -- Windup frames.
+        self.frontArmFrames = {offsetArmFrame("swim.2", -2, -1), offsetArmFrame("swim.2", -4, -1), offsetArmFrame("swim.2", -4, -1), offsetArmFrame("swim.2", -3, -1), }
+        self.backArmFrames = {"swim.2", offsetArmFrame("swim.2", -2, 0), offsetArmFrame("swim.2", -2, 0), "swim.2"}
+        -- Active frames. (Animation duration is maxDuration)
+        self.activeFrontArmFrames = {offsetArmFrame("swim.2", -3, -1), offsetArmFrame("swim.2", -2, -1)}
+        self.activeBackArmFrames = {"swim.2", "swim.2"}
+      end,
+
+      resetArms = function(self)
+        if self.active then
+          self.active = false
+          activeItem.setTwoHandedGrip(false)
+          activeItem.setHoldingItem(false)
+          activeItem.setFrontArmFrame()
+          activeItem.setBackArmFrame()
+        end
       end,
 
       update = function(self, dt, fireMode, isButtonHeld, shiftHeld)
-        activeItem.setFacingDirection(starPounds.mcontroller.movingDirection)
-
+        if not self.active then
+          self.aimAngle, self.facingDirection = activeItem.aimAngleAndDirection(0, activeItem.ownerAimPosition())
+          self.aimAngle = math.max(math.rad(-60), math.min(math.rad(60), self.aimAngle))
+        end
+        activeItem.setFacingDirection(self.facingDirection)
         local breasts = starPounds.moduleFunc("breasts", "get") or {type = "milk", fullness = 0}
         local cursor = "empty"
         if breasts.fullness >= 1 then
@@ -55,11 +91,67 @@ function buildActions()
         if self.cooldown > 0 then
           self.cooldown = math.max(0, self.cooldown - dt)
         end
-
-        if isButtonHeld and self.cooldown == 0 then
-          starPounds.moduleFunc("breasts", "lactate", math.random(5, 10)/10)
-          self.cooldown = self.cooldownTime
+        -- Animate while holding.
+        if isButtonHeld and not self.locked then
+          local windup = self.animationTimer < self.animationTime
+          if not windup then
+            if self.holdTimer == 0 then
+              animator.playSound("lactateStart")
+              if breasts.fullness > 0 then
+                animator.playSound("lactate", -1)
+              end
+            end
+            if self.cooldown == 0 then
+              local totalAmount = math.min(math.max(self.lactationAmount, (breasts.contents or 0) * self.lactationFraction), self.maxLactationAmount)
+              local decay = math.exp(-self.holdTimer * self.burstDecay)
+              local velocityMultiplier = 1 + (self.burstVelocity - 1) * decay
+              local spreadMultiplier = 1 + (self.burstSpread - 1) * decay
+              local particleMultiplier = 1 + (self.burstParticles - 1) * decay
+              starPounds.moduleFunc("breasts", "lactate", totalAmount * self.cooldownTime / self.maxDuration, false, self.aimAngle * self.facingDirection, {velocity = velocityMultiplier, spread = spreadMultiplier, particles = particleMultiplier})
+              self.cooldown = self.cooldownTime
+            end
+            if breasts.fullness == 0 then
+              animator.stopAllSounds("lactate")
+            end
+            self.holdTimer = self.holdTimer + dt
+            if self.holdTimer >= self.maxDuration then
+              self.locked = true
+            end
+          end
+          self.animationTimer = math.min(self.animationTime, self.animationTimer + dt)
+        else
+          self.holdTimer = 0
+          self.animationTimer = 0
+          self.locked = isButtonHeld
+          animator.stopAllSounds("lactate")
         end
+
+        if self.animationTimer > 0 then
+          self.active = true
+          activeItem.setTwoHandedGrip(true)
+          activeItem.setHoldingItem(true)
+
+          if self.holdTimer == 0 then
+            local progress = self.animationTimer / self.animationTime
+            local frameIndex = math.min(#self.frontArmFrames, math.floor(progress * #self.frontArmFrames) + 1)
+            activeItem.setFrontArmFrame(self.frontArmFrames[frameIndex])
+            activeItem.setBackArmFrame(self.backArmFrames[frameIndex])
+          else
+            local progress = math.min(1, self.holdTimer / self.maxDuration)
+            local frameIndex = math.min(#self.activeFrontArmFrames, math.floor(progress * #self.activeFrontArmFrames) + 1)
+            activeItem.setFrontArmFrame(self.activeFrontArmFrames[frameIndex])
+            activeItem.setBackArmFrame(self.activeBackArmFrames[frameIndex])
+          end
+          activeItem.setArmAngle(self.armAngle + math.max(math.rad(-20), math.min(math.rad(20), self.aimAngle)))
+          else
+            self:resetArms()
+          end
+      end,
+
+      uninit = function(self)
+        self:resetArms()
+        animator.stopAllSounds("lactate")
+        activeItem.setCursor()
       end
     },
     -- Milk types.
@@ -991,6 +1083,13 @@ function compact(...)
     if val ~= nil then clean[#clean+1] = val end
   end
   return clean
+end
+
+function offsetArmFrame(frame, x, y)
+  local padding = 10
+  local xOffset = pad - x
+  local yOffset = pad - y
+  return string.format("%s?border=%d;00000000?crop=%d;%d;%d;%d", frame, padding, xOffset, yOffset, xOffset + 43, yOffset + 43)
 end
 
 function hueshiftImage(image, hue)

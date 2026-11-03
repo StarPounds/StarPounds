@@ -1,0 +1,18 @@
+{
+  "projectileName" : "starpoundsmilkspawner",
+  "image" : "starpoundsmilkspawner.png",
+  "physics" : "squirt",
+  "damageKind": "hidden",
+  "universalDamage": false,
+  "onlyHitTerrain": true,
+  "timeToLive": 3.0,
+  "hydrophobic" : true,
+  "movementSettings": {
+    "gravityEnabled": true,
+    "gravityMultiplier": 0.5,
+    "airFriction": 0,
+    "liquidFriction": 0,
+    "terminalVelocity": 80,
+    "collisionPoly": [[-0.05, -0.05], [0.05, -0.05], [0.05, 0.05], [-0.05, 0.05]]
+  }
+}

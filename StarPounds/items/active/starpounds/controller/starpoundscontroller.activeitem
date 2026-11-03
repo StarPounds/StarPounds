@@ -16,6 +16,7 @@
 
   "retainScriptStorageInItem": true,
   "animation" : "/items/active/starpounds/controller/starpoundscontroller.animation",
+  "animationParts" : {"item" : "" },
   "animationScripts" : ["/items/active/starpounds/controller/starpoundscontrolleranimator.lua"],
   "scripts" : ["/items/active/starpounds/controller/starpoundscontroller.lua"]
 }

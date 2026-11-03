@@ -1,4 +1,8 @@
 local liquid = starPounds.module:new("liquid")
+function liquid:init()
+  self.particleCache = {}
+  self.splashConfig = root.assetJson("/player.config:splashConfig")
+end
 
 function liquid:get(liq)
   return self.data.liquids[liq] or self.data.liquids.default
@@ -26,5 +30,20 @@ function liquid:getFood(liq)
   return food
 end
 
+function liquid:getParticles(liq)
+  if self.particleCache[liq] == nil then
+    local liquidConfig = root.liquidConfig(liq)
+    if liquidConfig and liquidConfig.config.color then
+      self.particleCache[liq] = sb.jsonMerge(self.splashConfig.splashParticle, {
+        color = liquidConfig.config.color,
+        variance = self.splashConfig.splashParticleVariance
+      })
+    else
+      self.particleCache[liq] = false
+    end
+  end
+
+  return copy(self.particleCache[liq])
+end
 -- Add the module.
 starPounds.modules.liquid = liquid

@@ -1,5 +1,12 @@
 {
+  "animatedParts" : {
+    "parts" : {
+      "item" : { "properties" : { "image" : "" } }
+    }
+  },
   "sounds" : {
+    "lactate" : [ "/sfx/projectiles/tentacle_loop.ogg" ],
+    "lactateStart" : [ "/sfx/projectiles/throw_item_small.ogg"],
     "voreTile" : [ "/sfx/tools/pickaxe_hit.ogg" ],
     "voreTile_block" : [ ]
   }
