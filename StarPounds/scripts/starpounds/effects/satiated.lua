@@ -1,7 +1,13 @@
 local satiated = starPounds.moduleFunc("effects", "new")
 
+function satiated:init()
+  self.data.displayDuration = self.data.duration / self:dtMultiplier()
+end
+
 function satiated:update(dt)
-  self.data.duration = math.max(self.data.duration - dt * (self:dtMultiplier() - 1), 0)
+  local dtMultiplier = self:dtMultiplier()
+  self.data.duration = math.max(self.data.duration - dt * (dtMultiplier - 1), 0)
+  self.data.displayDuration = self.data.duration / dtMultiplier
 end
 
 function satiated:dtMultiplier()

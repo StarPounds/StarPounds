@@ -5,6 +5,8 @@
 --  Additional functions for when the effect is applied (or reapplied), and expires (or gets removed).
 local example = starPounds.moduleFunc("effects", "new")
 example.data.something = "I'm persistent across reloads!"
+-- This overrides the *displayed* duration of the effect in the menu. Useful for effects that can tick down faster based on variables.
+example.data.displayDuration = example.data.duration
 -- Runs when the effect is applied, or increases in level.
 function example:apply()
   sb.logInfo("Example: apply")

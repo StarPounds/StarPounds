@@ -311,7 +311,8 @@ function update()
       if effectData and not effectConfig.hidden then
         if widgetParent then
           if widgetDuration then
-            widgetDuration:setText((starPounds.isEnabled() and "^lightgray;" or "^darkgray;")..(effectData.duration and timeFormat(effectData.duration) or "--:--"))
+            local duration = (effectData.displayDuration or effectData.duration)
+            widgetDuration:setText((starPounds.isEnabled() and "^lightgray;" or "^darkgray;")..(duration and timeFormat(duration) or "--:--"))
           end
           if widgetLevels then
             local levels = effect.levels or 1
