@@ -31,7 +31,7 @@ function update(dt)
   end
   widget.setProgress("sizeBar", sizeProgress)
   widget.setProgress("sizeBarImmobile", immobileProgress)
-  widget.setProgress("experienceBar", starPounds.level / experienceConfig.maxLevel)
+  widget.setProgress("experienceBar", starPounds.level / experienceConfig.maximumLevel)
 
   updateStomach()
   updateMilk()
