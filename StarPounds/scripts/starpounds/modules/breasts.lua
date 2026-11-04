@@ -71,7 +71,7 @@ function breasts:get()
 
   self.breasts = {
     capacity = breastCapacity,
-    maxCapacity = breastCapacity * (starPounds.hasOption("disableLeaking") and 1 or self.data.milkGenerationCap),
+    maxCapacity = breastCapacity * (starPounds.hasOption("disableLeaking") and 1 or self.data.milkGenerationMaximum),
     type = storage.starPounds.breasts.type or "milk",
     contents = math.round(breastContents, 4),
     fullness = math.round(breastContents/breastCapacity, 4)

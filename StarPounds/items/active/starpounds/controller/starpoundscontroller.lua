@@ -1087,8 +1087,8 @@ end
 
 function offsetArmFrame(frame, x, y)
   local padding = 10
-  local xOffset = pad - x
-  local yOffset = pad - y
+  local xOffset = padding - x
+  local yOffset = padding - y
   return string.format("%s?border=%d;00000000?crop=%d;%d;%d;%d", frame, padding, xOffset, yOffset, xOffset + 43, yOffset + 43)
 end
 
