@@ -31,8 +31,8 @@
       "flipImages" : true,
 
       "imagePosition" : [-24, 0],
-      "frames" : 32,
-      "animationCycle" : 3.2,
+      "frames" : 16,
+      "animationCycle" : 1.0,
 
       "spaceScan" : 0.1,
       "interactiveSpaces": [
@@ -46,8 +46,8 @@
       "direction" : "right",
 
       "imagePosition" : [-24, 0],
-      "frames" : 32,
-      "animationCycle" : 3.2,
+      "frames" : 16,
+      "animationCycle" : 1.0,
 
       "spaceScan" : 0.1,
       "interactiveSpaces": [
