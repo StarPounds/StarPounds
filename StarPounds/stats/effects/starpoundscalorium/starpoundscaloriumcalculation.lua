@@ -6,12 +6,12 @@ function init()
   self.entityType = world.entityType(entity.id())
 
   starPounds = getmetatable ''.starPounds
-  if starPounds and entityType == "player" then
-    self.sizes = starPounds.moduleFunc("size", "sizes")
-    self.maxWeight = starPounds.moduleFunc("size", "maximumWeight")
-  elseif entityType == "npc" then
+  if entityType == "npc" then
     self.sizes = world.callScriptedEntity(entity.id(), "starPounds.moduleFunc", "size", "sizes")
     self.maxWeight = world.callScriptedEntity(entity.id(), "starPounds.moduleFunc", "size", "maximumWeight")
+  elseif entityType == "player" and starPounds then
+    self.sizes = starPounds.moduleFunc("size", "sizes")
+    self.maxWeight = starPounds.moduleFunc("size", "maximumWeight")
   end
 
   init_old()
@@ -22,10 +22,10 @@ function increaseWeightProgress(weight, step)
   local currentSize, currentSizeIndex = getSize(weight)
   local nextWeight = self.sizes[currentSizeIndex + 1] and self.sizes[currentSizeIndex + 1].weight or self.maxWeight
   local weightGain = math.floor(step * (nextWeight - self.sizes[currentSizeIndex].weight) + 0.5)
-  if starPounds and starPounds.isEnabled() and entityType == "player"  then
-    starPounds.moduleFunc("size", "gainWeight", weightGain, true)
-  elseif entityType == "npc" then
+  if entityType == "npc" then
     gained = world.callScriptedEntity(entity.id(), "starPounds.moduleFunc", "size", "gainWeight", weightGain, true)
+  elseif entityType == "player" and starPounds and starPounds.isEnabled() then
+    starPounds.moduleFunc("size", "gainWeight", weightGain, true)
   end
 end
 
@@ -34,10 +34,10 @@ function decreaseWeightProgress(weight, step)
   local currentSize, currentSizeIndex = getSize(weight)
   local nextWeight = self.sizes[currentSizeIndex + 1] and self.sizes[currentSizeIndex + 1].weight or self.maxWeight
   local weightLoss = math.floor(step * (nextWeight - self.sizes[currentSizeIndex].weight) + 0.5)
-  if starPounds and starPounds.isEnabled() and entityType == "player"  then
-    starPounds.moduleFunc("size", "loseWeight", weightLoss, true)
-  elseif entityType == "npc" then
+  if entityType == "npc" then
     gained = world.callScriptedEntity(entity.id(), "starPounds.moduleFunc", "size", "loseWeight", weightLoss, true)
+  elseif entityType == "player" and starPounds and starPounds.isEnabled() then
+    starPounds.moduleFunc("size", "loseWeight", weightLoss, true)
   end
 end
 

@@ -6,6 +6,7 @@ function init()
   self.tickTimeMinimum = effect.getParameter("tickTimeMinimum", self.tickTime)
   self.tickTimer = self.tickTime
   self.minimumLiquid = root.assetJson("/player.config:statusControllerSettings.minimumLiquidStatusEffectPercentage")
+  self.entityType = world.entityType(entity.id())
 
   animator.setSoundVolume("digest", 0.75)
   animator.setSoundPitch("digest", 2/(1 + self.tickTime))
@@ -14,16 +15,15 @@ end
 function update(dt)
   if status.uniqueStatusEffectActive("starpoundscaloriumliquid") then return end
   if world.entityType(entity.id()) == "npc" or (starPounds and starPounds.isEnabled()) then
-
     self.tickTimer = self.tickTimer - dt
     if self.tickTimer <= 0 then
       self.tickTime = math.max(self.tickTime - self.tickTimeStep, self.tickTimeMinimum)
       self.tickTimer = self.tickTime
 
-      if starPounds and starPounds.isEnabled() then
-        increaseWeightProgress(starPounds.moduleFunc("data", "get", "weight"), self.progressStep)
-      else
+      if self.entityType == "npc" then
         increaseWeightProgress(world.callScriptedEntity(entity.id(), "starPounds.moduleFunc", "data", "get", "weight"), self.progressStep)
+      elseif starPounds and starPounds.isEnabled() then
+        increaseWeightProgress(starPounds.moduleFunc("data", "get", "weight"), self.progressStep)
       end
 
       animator.setSoundPitch("digest", 2/(1 + self.tickTime))
