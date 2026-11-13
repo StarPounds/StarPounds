@@ -67,7 +67,7 @@
         "properties" : {
           "centered" : true,
           "fullbright" : true,
-          "offset" : [0, 2.5],
+          "offset" : [0, 1.5],
           "zLevel" : 2
         },
         "partStates" : {
@@ -99,7 +99,7 @@
         "properties" : {
 		  "centered" : true,
 		  "transformationGroups" : ["seat"],
-		  "offset" : [0, 2.5],
+		  "offset" : [0, 1.5],
 		  "standPosition" : [0.0625, 1.5]
         },
 		
@@ -117,7 +117,7 @@
         "properties" : {
 		  "centered" : true,
           "fullbright" : true,
-          "offset" : [0, 2.5],
+          "offset" : [0, 1.5],
 		  "zLevel" : 1
         },
 
@@ -149,7 +149,7 @@
       "tramfullbright" : {
         "properties" : {
           "centered" : true,
-          "offset" : [0, 0.5625],
+          "offset" : [0, -0.4375],
           "zLevel" : 0,
           "fullbright" : true
         },
@@ -172,7 +172,7 @@
       "tram" : {
         "properties" : {
           "centered" : true,
-          "offset" : [0, 0.5625],
+          "offset" : [0, -0.4375],
           "zLevel" : -1
         },
 
