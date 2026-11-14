@@ -4615,7 +4615,7 @@
                  "name":"",
                  "properties":
                     {
-                     "parameters":"{ \"food\": { \"bloat\": 20 } }"
+                     "parameters":"{ \"food\": { \"bloat\": 20, \"foodObject\": 0, \"fatFood\": 0 } }"
                     },
                  "propertytypes":
                     {
@@ -6534,7 +6534,7 @@
                  "name":"",
                  "properties":
                     {
-                     "parameters":"{ \"food\": { \"bloat\": 100, \"foodObject\": 0, \"fatFood\": 0 } }"
+                     "parameters":"{ \"food\": { \"bloat\": 20, \"foodObject\": 0, \"fatFood\": 0 } }"
                     },
                  "propertytypes":
                     {
@@ -6554,7 +6554,7 @@
                  "name":"",
                  "properties":
                     {
-                     "parameters":"{ \"food\": { \"bloat\": 100, \"foodObject\": 0, \"fatFood\": 0 } }"
+                     "parameters":"{ \"food\": { \"bloat\": 20, \"foodObject\": 0, \"fatFood\": 0 } }"
                     },
                  "propertytypes":
                     {
@@ -10030,7 +10030,7 @@
          "x":0,
          "y":0
         }],
- "nextobjectid":1818,
+ "nextobjectid":1819,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.1.6",
