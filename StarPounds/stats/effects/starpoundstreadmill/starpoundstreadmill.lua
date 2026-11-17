@@ -1,5 +1,6 @@
 require "/scripts/messageutil.lua"
 require "/scripts/vec2.lua"
+require "/scripts/poly.lua"
 
 function init()
   message.setHandler("starPounds.treadmill.init", simpleHandler(
@@ -17,6 +18,8 @@ function init()
   effectTimer = 10
   entityType = world.entityType(entity.id())
 
+  baseOffset = {0, poly.boundBox(mcontroller.baseParameters().standingPoly)[2]}
+
   outOfEnergyModifier = {movementSuppressed = true}
   runningModifier = {groundMovementModifier = 0, speedModifier = 0}
 end
@@ -27,7 +30,7 @@ function update(dt)
     effect.modifyDuration(dt)
     local offset = supersizeOffset()
     if not (lastOffset and vec2.eq(offset, lastOffset)) then
-      standPosition = vec2.sub(vec2.add(position, world.entityPosition(target)), offset)
+      standPosition = vec2.sub(vec2.sub(vec2.add(position, world.entityPosition(target)), offset), baseOffset)
       lastOffset = offset
     end
 

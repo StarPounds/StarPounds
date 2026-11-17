@@ -18,7 +18,7 @@ function onInteraction(args)
   if not target then
     target = args.sourceId
     promises:add(world.sendEntityMessage(args.sourceId, "applyStatusEffect", "starpoundstreadmill", 1, entity.id()), function()
-      world.sendEntityMessage(args.sourceId, "starPounds.treadmill.init", {object.direction() == 1 and 10/8 or 14/8, 28/8}, object.direction(), entity.id())
+      world.sendEntityMessage(args.sourceId, "starPounds.treadmill.init", {object.direction() == 1 and 1.25 or 1.75, 1}, object.direction(), entity.id())
     end)
   elseif target == args.sourceId then
     world.sendEntityMessage(args.sourceId, "starPounds.treadmill.uninit")
